@@ -1,0 +1,280 @@
+# 豪门总裁题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "豪门总裁"
+display_name: "豪门总裁"
+description: "豪门背景的总裁言情题材，包含霸道总裁、契约婚姻等流派"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  domineering_ceo:
+    name: "霸道总裁流"
+    description: "高冷霸总爱上灰姑娘"
+    core_points: [被宠爱, 打脸前女友, 身份逆转]
+    pacing: relaxed
+    examples: [杉杉来吃, 何以笙箫默]
+
+  contract_marriage:
+    name: "契约婚姻流"
+    description: "假结婚变真爱"
+    core_points: [日久生情, 误会解除, 真爱宣言]
+    pacing: gradual
+    examples: [微微一笑很倾城]
+
+  rebirth_ceo:
+    name: "重生复仇流"
+    description: "重生回到过去，改变命运"
+    core_points: [先知先觉, 打脸渣男, 收获真爱]
+    pacing: shuangwen
+    examples: [重生之豪门悍女]
+
+  baby_matchmaker:
+    name: "萌宝助攻流"
+    description: "天才宝宝帮助父母相爱"
+    core_points: [萌宝可爱, 助攻成功, 一家团圆]
+    pacing: light
+    examples: [天才萌宝：爹地请签字]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 情感驱动型
+  tension_ratio: "5:5"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5000
+    long: 5000-6000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1500
+
+  preferred_types:
+    - type: 甜蜜超预期
+      weight: 1.8
+      description: "男主对女主的宠爱超出预期"
+      triggers: [宠爱, 宠溺, 独宠, 专宠, 溺爱, 娇宠, 认真, 只对你, 特别的]
+
+    - type: 打脸绿茶
+      weight: 1.6
+      description: "男主当众揭穿绿茶女的真面目"
+      triggers: [揭穿, 不认识, 请出去, 没资格, 滚, 不配, 真面目, 心机]
+
+    - type: 身份逆转
+      weight: 1.5
+      description: "真实身份曝光，震惊全场"
+      triggers: [千金, 大小姐, 真实身份, 原来是, 竟然是, 继承人, 唯一]
+
+    - type: 误会解除
+      weight: 1.4
+      description: "长期误会终于解开，感情升温"
+      triggers: [误会, 原来, 我知道, 解释清楚, 终于明白, 和好, 重归于好]
+      note: 误会不能太狗血，解法要合理
+
+    - type: 宠溺日常
+      weight: 1.3
+      description: "日常的甜蜜互动"
+      triggers: [亲自, 为你, 专属, 特意, 只给你, 下厨, 接送, 陪伴]
+
+    - type: 霸道护短
+      weight: 1.4
+      description: "男主为女主出头护短"
+      triggers: [谁敢, 没人能欺负, 我的女人, 谁给你的胆子, 我说了算]
+
+  avoid_types:
+    - type: 无铺垫虐心
+      weight: 0
+      reason: 虐要有理由，不能为虐而虐
+
+    - type: 男主花心
+      weight: 0.2
+      reason: 豪门总裁主打专一
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.3
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 25
+  fire: 50
+  constellation: 25
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: LOVE-001
+    description: "男主必须专一，不能有其他女人"
+    mandatory: true
+    checkpoint: 男主行为
+
+  - id: LOVE-002
+    description: "女主不能太软弱，要有独立人格"
+    mandatory: false
+    checkpoint: 女主塑造
+
+  - id: LOVE-003
+    description: "误会不能太狗血，解法要合理"
+    mandatory: true
+    checkpoint: 误会设计
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 女主与男主的第一次相遇（通常不愉快）
+    core: 建立两人身份差距
+    conflict: 第一次交锋
+    hook: 命运将两人绑在一起
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 被迫相处/契约开始
+    exploration: 男主开始对女主另眼相看
+    progress: 第一次甜蜜互动
+    hook: 出现情敌或误会
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一次重要事件（打脸/解围/表白）
+    worldbuilding: 展示豪门世界
+    reward: 感情明显升温
+    hook: 新的挑战到来
+    word_count: 4000-5500
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 男主必须专一，不能有其他女人
+    - 感情发展要有过程，不能太快
+    - 打脸绿茶要爽
+
+  optional_satisfy:
+    - 有萌宝助攻
+    - 有闺蜜支持
+
+  absolutely_not:
+    - 男主出轨/有其他女人
+    - 女主太软弱，只会哭
+    - 误会太狗血
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 男主有其他女人，不专一
+    severity: critical
+    checkpoint: 男主行为
+
+  - id: TABOO-002
+    content: 误会太狗血，解法不合理
+    severity: warning
+    checkpoint: 误会设计
+
+  - id: TABOO-003
+    content: 女主太软弱，只会哭
+    severity: warning
+    checkpoint: 女主塑造
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.3
+  continuity: 1.1
+  reader-pull: 1.2
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: 甜宠/霸道
+    characteristics: 男主话少但有力，女主可爱有灵气
+    avoid: [男主话太多, 女主太啰嗦]
+
+  description: "emotion: 细腻甜蜜"
+    scene: 豪门奢华感
+    pampering: 具体行动而非空话
+
+# ==================== 实体标签 ====================
+entity_tags:
+  character: <entity type="人物" name="姓名" desc="性格身份" tier="重要性" relation="与主角关系"/>
+  faction: <entity type="势力" name="集团名" desc="业务范围" tier="实力" relation="与主角关系"/>
+  event: <entity type="事件" name="事件名" desc="经过" result="结果" impact="对感情的影响"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    domineering_forceful: 总裁范儿，不容置疑
+    gentle_pampering: 对女主的专属温柔
+    sweet_interaction: 日常撒糖
+
+  typical_dialogues:
+    ceo_declaration: |
+      "从今天起，你是我的女人。"
+      "谁敢欺负你，就是跟我过不去。"
+      "我说的话，不想重复第二遍。"
+
+    sweet_daily: |
+      "想吃什么？我带你去。"
+      "累了吧？我抱你上去。"
+      "你在我身边，就够了。"
+
+    face_slap_green_tea: |
+      "我不认识她。"对着绿茶女冷漠道。
+      "我的未婚妻只有她一个。"
+      "谁给你的胆子，敢动她？"
+
+  avoid_patterns:
+    - 男主有其他女人
+    - 女主无底线原谅
+    - 过于狗血的误会
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  wealthy_scenes:
+    ceo_office: |
+      落地窗外是繁华的都市夜景，他站在窗前，背对着她。
+      整层楼只有他一个人，安静得能听到心跳声。
+
+    mansion_life: |
+      别墅比她想象的还要大，光是客厅就有三层楼高。
+      管家恭敬地接过她的大衣，仿佛她就是这里的女主人。
+
+  romance_scenes:
+    heart_moment: |
+      他为她挡住了刺眼的闪光灯，在那一瞬间，她的心跳漏了一拍。
+      他低头为她擦去嘴角的蛋糕，动作温柔得不像话。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    sweet_chapter: 日常铺垫(40%) → 小互动(30%) → 甜蜜高潮(20%) → 钩子(10%)
+    face_slap: 被轻视(30%) → 身份揭露(30%) → 反转震惊(30%) → 后续(10%)
+
+  typical_pacing_examples:
+    contract_marriage: 签订协议 → 同居生活 → 日久生情 → 感情升温 → 外部挑战
+    face_slap_green_tea: 绿茶挑衅 → 女主隐忍 → 男主揭穿 → 绿茶落败 → 感情升温
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    contract: 被迫结婚，却意外坠入爱河
+    rebirth: 重生归来，这一世不再错过
+    identity: 隐藏身份，迟早揭露震惊全场
+
+  classic_opening_examples:
+    contract_marriage: |
+      "这是结婚协议，签了字，你就是我名义上的妻子。"
+      江念看着面前的男人，一纸契约，三个月的期限。
+      她万万没想到的是，这个冷漠的男人，会慢慢走进她的心里。

@@ -1,0 +1,272 @@
+# 种田题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "种田"
+display_name: "种田"
+description: "农村种田、发家致富、温馨治愈题材"
+version: "3.0"
+template: templates/genres/种田.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  ancient_farming:
+    name: "古代种田流"
+    description: "古代农村发家致富"
+    core_points: [丰收致富, 改善生活, 邻里关系]
+    pacing: warm_healing
+    examples: [农家小福女]
+
+  modern_farming:
+    name: "现代种田流"
+    description: "现代农村/农场经营"
+    core_points: [科技种田, 发家致富, 乡村振兴]
+    pacing: relaxed_healing
+    examples: [回到农村当土豪]
+
+  space_farming:
+    name: "空间种田流"
+    description: "有空间辅助种田"
+    core_points: [空间优势, 神奇作物, 快速发展]
+    pacing: golden_finger
+    examples: [空间之农女的锦绣庄园]
+
+  clan_farming:
+    name: "家族种田流"
+    description: "带领家族共同发展"
+    core_points: [家族团结, 共同致富, 培养后代]
+    pacing: group_growth
+    examples: [修仙家族种田]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 温馨治愈型
+  tension_ratio: "6:4"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5000
+    long: 5000-6000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.7
+  max_interval: 2000
+
+  preferred_types:
+    - type: 丰收喜悦
+      weight: 1.7
+      description: "辛勤劳作后的收获"
+      triggers: [丰收, 收成, 亩产, 增产, 大丰收, 金黄, 饱满, 喜悦]
+
+    - type: 致富升级
+      weight: 1.5
+      description: "生活条件明显改善"
+      triggers: [致富, 盖房, 新房, 买车, 存款, 赚钱, 财源, 富裕]
+
+    - type: 邻里和睦
+      weight: 1.4
+      description: "与邻居关系变好"
+      triggers: [和睦, 互助, 感激, 邻居, 邻里, 帮忙, 热心, 友好]
+
+    - type: 技能提升
+      weight: 1.3
+      description: "种田技能进步"
+      triggers: [新技术, 新方法, 改良, 提高, 学习, 掌握, 经验, 成功]
+
+    - type: 打脸嘲讽者
+      weight: 1.2
+      description: "让看不起自己的人闭嘴"
+      triggers: [嘲讽, 看不起, 打脸, 闭嘴, 后悔, 来求, 羡慕, 忌妒]
+
+  avoid_types:
+    - type: 太多冲突矛盾
+      weight: 0.3
+      reason: 种田主打治愈温馨
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 45        # 发展建设
+  fire: 20         # 冲突（较少）
+  constellation: 35  # 人际关系（重要）
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: FARM-001
+    description: "种田细节要有真实感"
+    mandatory: false
+    checkpoint: 农事描写
+
+  - id: FARM-002
+    description: "发展速度要合理"
+    mandatory: true
+    checkpoint: 发展节奏
+
+  - id: FARM-003
+    description: "要有温馨治愈感"
+    mandatory: true
+    checkpoint: 整体基调
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 主角回到农村/穿越到农家
+    core: 建立起点和目标
+    conflict: 面临的第一个困难
+    hook: 获得种田优势/空间
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 开始种田/经营
+    trial: 第一次尝试新技术
+    upgrade: 第一次收获
+    hook: 新的机遇到来
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一次大丰收/成功
+    worldbuilding: 展示更大的发展空间
+    harvest: 获得重要资源/认可
+    hook: 新的目标出现
+    word_count: 4000-5500
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.1
+  reader-pull: 1.0
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "生活气息要浓厚，有代入感"
+    - "发展过程要合理，不能太顺利"
+    - "要有温馨治愈的感觉"
+    - "人物要接地气，有真实感"
+
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有邻里互动"
+    - "有丰收成就感"
+
+  never_violate:
+    - "节奏太快，缺乏日常感"
+    - "冲突太激烈，失去种田的治愈感"
+    - "主角太厉害，没有成长过程"
+    - "不符合时代背景的设定"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "节奏太快，缺乏日常感和生活气息"
+    severity: warning
+    checkpoint: "整体节奏"
+
+  - id: TABOO-002
+    content: "冲突太激烈，失去种田的治愈感"
+    severity: warning
+    checkpoint: "冲突设计"
+
+  - id: TABOO-003
+    content: "主角太厉害，没有成长和努力过程"
+    severity: warning
+    checkpoint: "主角塑造"
+
+  - id: TABOO-004
+    content: "不符合时代背景的设定"
+    severity: info
+    checkpoint: "世界观描写"
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明
+      - 打破三段式
+
+  dialogue:
+    style: 接地气/温馨
+    characteristics: 符合农村背景
+
+  description: "farming: 要有真实感"
+    harvest: 要有满足感
+    life: 温馨治愈
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    farming_style: 朴实接地气，温馨自然，有生活气息
+
+  typical_dialogues:
+    neighbor_help: |
+      "李婶，您这是去地里啊？"
+      "是啊，趁着今儿天气好，把那几分地的草除一除。"
+      "那我帮您一起去吧，反正我也闲着。"
+      "哎呀，那怎么好意思，你自个儿的事还多着呢。"
+      "没事，邻里邻居的，互帮互助嘛。"
+
+    harvest_joy: |
+      "快来看！今年的收成比去年好太多了！"
+      "可不是嘛，这穗子又大又饱满，今年肯定能卖个好价钱。"
+      "多亏了你的新法子，明年咱们继续这么种！"
+
+    family_warmth: |
+      "娘，我回来了！"
+      "回来啦，洗手吃饭，今天做了你爱吃的红烧肉。"
+      "太好了！娘做的饭最好吃！"
+      "就你嘴甜，快去洗洗。"
+
+  avoid_patterns:
+    - 过于戏剧化的冲突
+    - 不符合农村背景的语言
+    - 节奏过快的情节推进
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  farming_scene:
+    spring_plowing: |
+      "田垄上，老黄牛慢悠悠地拉着犁，新翻的泥土散发着特有的芬芳。农民们弯着腰，把种子一粒粒撒进松软的土地里。远处的山岚在阳光下渐渐散去，一切都充满了生机。"
+
+    autumn_harvest: |
+      "金黄的麦浪在微风中翻滚，沉甸甸的穗子压弯了秸秆。农民们挥舞着镰刀，动作熟练而轻快。汗水浸透了衣衫，脸上却洋溢着满足的笑容。孩子们在田埂上奔跑，帮着捡拾散落的麦穗。"
+
+  life_scene:
+    farmyard: |
+      "院子里，几只鸡在悠闲地刨食，大黄狗趴在屋檐下打盹。菜园子里，各种蔬菜长得郁郁葱葱。灶房里飘来阵阵炊烟，伴随着饭香。老人们坐在树下乘凉，聊着村里的琐事，孩子们在一旁嬉闹。"
+
+    rural_market: |
+      "清晨的集市已经热闹起来，农民们把自家种的蔬菜瓜果摆在地上叫卖。讨价还价声此起彼伏，空气中弥漫着新鲜蔬果的清香。有人买了只鸡，有人卖了一篮鸡蛋，脸上都带着满足的笑容。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    development: "日常40% → 新机遇20% → 努力20% → 成果20%"
+    warm: "日常60% → 小事件20% → 感动20%"
+
+  typical_examples:
+    harvest_chapter: "日常劳作 → 发现良机 → 辛苦付出 → 喜获丰收"
+    neighbor_chapter: "日常相处 → 发生小矛盾 → 互相帮助 → 关系更近"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    return_home: 城市疲惫后回乡发展
+    time_travel_farm: 穿越到古代农家开始种田
+    space_awakening: 获得神奇空间开始种田
+
+  classic_examples:
+    return_home_style: |
+      "李明站在村口的老槐树下，看着眼前熟悉又陌生的小山村。十年前，他从这个小山村走出去，信誓旦旦地说要在大城市闯出一片天地。十年后，他带着一身的疲惫和空空的行囊回来了。但这一次，他决定要在这片土地上，重新开始。"
+
+    time_travel_farming_style: |
+      "睁开眼，发现自己躺在一张破旧的木板床上。屋里黑漆漆的，只有一个小窗户透进来一点光。这是哪？她努力回忆着，自己明明是在现代，怎么会……突然，一阵剧烈的头痛袭来，陌生的记忆如潮水般涌入脑海——她穿越了，成了这个穷苦农家的儿媳妇。"

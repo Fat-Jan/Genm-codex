@@ -1,0 +1,208 @@
+# 直播文题材Profile
+
+name: "直播文"
+version: "3.0"
+template: templates/genres/直播文.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  game_livestream:
+    description: "游戏主播成长故事"
+    core_points: ["技术碾压", "粉丝增长", "打赏收入"]
+    pacing: "轻松爽文型"
+    examples: "《主播大神是萌妹》"
+  outdoor_livestream:
+    description: "户外探险/挑战直播"
+    core_points: ["惊险刺激", "礼物打赏", "粉丝互动"]
+    pacing: "刺激型"
+    examples: "《直播：我在荒野求生》"
+  talent_livestream:
+    description: "展示各种才艺的直播"
+    core_points: ["才艺展示", "观众惊叹", "人气飙升"]
+    pacing: "表演型"
+    examples: "《直播：我的才艺震惊全网》"
+  system_livestream:
+    description: "直播+系统，完成任务"
+    core_points: ["系统任务", "奖励丰厚", "快速成长"]
+    pacing: "爽文型"
+    examples: "《直播：开局获得十亿打赏》"
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 快节奏爽文
+  tension_ratio: "2:8"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.7
+#   - 默认权重: 粉丝增长(1.7), 打赏收礼(1.6), 技术碾压(1.5), 弹幕互动(1.3)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 1.2/千字
+  max_interval: 1000字    # 超过此值需预警（直播文节奏快）
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 粉丝增长
+      weight: 1.7
+      description: "粉丝数暴涨的爽感"
+      trigger_words: [粉丝, 关注, 破万, 破十万, 爆涨, 涨粉, 人气, 热度]
+    - type: 打赏收礼
+      weight: 1.6
+      description: "收到大量礼物打赏"
+      trigger_words: [打赏, 礼物, 火箭, 游艇, 感谢, 大气, 土豪, 老板]
+    - type: 技术碾压
+      weight: 1.5
+      description: "技术/才艺展示震惊全场"
+      trigger_words: [碾压, 技术好, 太强了, 震惊, 不敢相信, 绝了, 大神]
+    - type: 弹幕互动
+      weight: 1.3
+      description: "与观众互动的趣味"
+      trigger_words: [弹幕, 家人们, 互动, 评论, 刷屏, 哈哈, 有趣]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 过度乞讨式要礼物
+      weight: 0.3
+      reason: "影响观感，要有度"
+    - type: 虚假煽情
+      weight: 0.2
+      reason: "观众能看出真假"
+
+  # 组合加成配置
+  combo_bonus:
+    consecutive_cool_points: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    foreshadow_burst: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast_effect: 0.2       # 前后状态形成强烈对比
+    multi_stack: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.50
+  fire: 0.30
+  constellation: 0.20
+
+# ==================== 特殊约束 ====================
+constraints:
+  - ID: LIVE-001
+    description: "直播场景要真实"
+    enforced: true
+    check_point: 直播描写
+  - ID: LIVE-002
+    description: "弹幕要有真实感"
+    enforced: false
+    check_point: 弹幕内容
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "直播场景要真实"
+    - "弹幕要有真实感"
+    - "与观众互动要自然"
+  optional_satisfy:
+    - "粉丝暴涨的爽感"
+    - "打赏收礼的成就感"
+    - "技术/才艺碾压的震撼"
+  must_not:
+    - "过于虚假的煽情"
+    - "过度乞讨式要礼物"
+    - "与弹幕互动不足"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content: "直播场景不真实"
+    severity: "critical"
+    check_point: "直播描写"
+  - ID: TABOO-002
+    content: "弹幕缺乏真实感"
+    severity: "warning"
+    check_point: "弹幕内容"
+  - ID: TABOO-003
+    content: "过度乞讨式要礼物"
+    severity: "warning"
+    check_point: "直播互动"
+  - ID: TABOO-004
+    content: "与弹幕互动不足"
+    severity: "warning"
+    check_point: "直播互动"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.2
+  consistency: 1.0
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.0
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    livestream_style: "活泼互动，网络用语恰当，与观众亲近"
+  typical_dialogue:
+    live_interaction: |
+      "家人们好！欢迎来到我的直播间！"
+      "谢谢'星光闪耀'送来的火箭！老板大气！"
+      "弹幕刷起来，让我看到你们的热情！"
+      "有家人们问今天玩什么？今天咱们来点不一样的！"
+    fan_group_interaction: |
+      "感谢大家的支持！今天破十万粉丝了！"
+      "老粉们还记得我刚开始直播的时候吗？那时候直播间就几个人。"
+      "是你们的陪伴让我坚持到现在，感谢每一位家人！"
+    pk_battle: |
+      "对面主播好！今天咱们来PK一把！"
+      "家人们！对面要超了！礼物刷起来！"
+      "赢了赢了！感谢家人们的给力支持！"
+  avoid_patterns:
+    - "过于虚假的煽情"
+    - "过度乞讨式要礼物"
+    - "与弹幕互动不足"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  livestream_scene:
+    room_setup: |
+      "环形的补光灯照亮了整个直播间，摄像头对准了主播专用的电竞椅。背景墙上贴满了粉丝送的礼物和签名照，桌上摆着各种直播设备。弹幕在屏幕上快速滚动，礼物的特效不断闪烁。"
+    fan_explosion: |
+      "直播间右上角的数字在疯狂跳动：10000、10500、11000……弹幕已经快得看不清了，礼物特效一个接一个地炸开。主播激动得满脸通红：'家人们！十万了！十万粉丝了！'"
+  outdoor_scene:
+    wilderness_survival: |
+      "镜头前，主播深一脚浅一脚地走在茂密的丛林里。汗水顺着脸颊滑落，蚊子在耳边嗡嗡作响。'家人们，今天我们要在野外过夜，看看能不能找到干净的水源。'弹幕里充满了担心和兴奋的留言。"
+    adventure_livestream: |
+      "手电筒的光束在漆黑的洞穴里晃动，主播小心翼翼地向前探索。'你们听到了吗？好像有什么声音。'弹幕瞬间炸开了锅，有人说害怕，有人说刺激。主播咽了口唾沫，继续深入。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    live_performance: "预热20% → 高潮展示40% → 互动反馈30% → 总结收尾10%"
+    pk_competitive: "挑战开始20% → 激烈对抗50% → 胜负揭晓20% → 庆祝收尾10%"
+  typical_pacing_example:
+    game_live_chapter: "开播热身 → 精彩操作 → 粉丝互动 → 下播感谢"
+    outdoor_live_chapter: "出发准备 → 探险过程 → 惊险时刻 → 安全返回"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    accidental_fame: "一次直播意外获得大量关注"
+    system_binding: "获得直播系统，开启主播之路"
+    fall_restart: "从低谷重新开始的直播之路"
+  classic_opening_examples:
+    accidental_fame_type: |
+      "那天，她本来只是想直播自己做饭吃，没想到厨房里突然闯进来一只野猫。手忙脚乱中，锅翻了，火起了，她抱着猫狼狈逃窜的样子被全程直播。第二天醒来，发现自己上了热搜，粉丝从几百涨到了几十万。"
+    system_binding_type: |
+      "'叮！直播系统绑定成功！宿主可以领取新手大礼包。'手机里突然冒出一个奇怪的提示音。他愣了一下，这是什么鬼？下一秒，系统界面弹了出来：新手大礼包已发放：人民币100万元，顶级游戏技术礼包x1。他揉了揉眼睛，这不是在做梦吧？"

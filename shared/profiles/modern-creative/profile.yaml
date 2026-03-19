@@ -1,0 +1,178 @@
+name: "现言脑洞"
+version: "1.1.0"
+description: "现代背景下的脑洞创意文，包含各种有趣设定如读心术、互换身体、预知未来等，轻松有趣，反转不断"
+sub_genres:
+  读心术:
+    description: "主角能听到别人心声，引发一系列趣事"
+    core_cool_points: ["信息差", "反转打脸", "了解真心"]
+    pacing: "fast"
+  身体互换:
+    description: "男女主互换身体，被迫体验对方生活"
+    core_cool_points: ["性别体验", "互相理解", "搞笑日常"]
+    pacing: "fast"
+  预知未来:
+    description: "主角能预知未来，改变命运"
+    core_cool_points: ["逆天改命", "提前布局", "蝴蝶效应"]
+    pacing: "medium"
+  时间循环:
+    description: "主角陷入时间循环，反复经历同一天"
+    core_cool_points: ["寻找突破口", "无限尝试", "完美解决"]
+    pacing: "fast"
+  金手指:
+    description: "主角有特殊能力或道具，改变人生"
+    core_cool_points: ["开挂人生", "装逼打脸", "爽感"]
+    pacing: "fast"
+  穿书:
+    description: "主角穿进书中，改变命运"
+    core_cool_points: ["预知剧情", "改变结局", "攻略角色"]
+    pacing: "medium"
+
+pacing:
+  chapter_target: 2200
+  cool_point_interval: 1200
+  hook_strength: "strong"
+  emotional_rhythm: "快节奏，每章都有笑点或反转，轻松愉快"
+  scene_density: "每章4-5个场景，剧情推进迅速"
+
+cool_points:
+  - type: "设定展开"
+    trigger: "特殊能力的展现"
+    effect: "读者被设定吸引，期待发展"
+    frequency: "开篇即展开"
+  - type: "信息差利用"
+    trigger: "利用特殊能力获取优势"
+    effect: "爽感，打脸"
+    frequency: "每3章一次"
+  - type: "意外反转"
+    trigger: "设定带来的意外发展"
+    effect: "惊喜感，剧情转折"
+    frequency: "每5章一次"
+  - type: "感情升温"
+    trigger: "因特殊事件增进了解"
+    effect: "甜蜜感，期待发展"
+    frequency: "每4章一次"
+  - type: "危机解决"
+    trigger: "利用设定解决危机"
+    effect: "爽感，展现能力"
+    frequency: "每8章一次"
+  - type: "设定升级"
+    trigger: "能力进化或新功能"
+    effect: "新鲜感，更多可能"
+    frequency: "每20章一次"
+
+strand_weights:
+  main_plot: 0.35
+  character: 0.25
+  romance: 0.25
+  world_building: 0.15
+
+taboos:
+  - id: "TABOO-MC-001"
+    content: "设定过于复杂，开篇大段解释"
+    severity: "critical"
+    reason: "读者要被故事吸引，不是说明书"
+  - id: "TABOO-MC-002"
+    content: "设定用完即弃，后期崩坏"
+    severity: "critical"
+    reason: "设定要贯穿始终"
+  - id: "TABOO-MC-003"
+    content: "过于依赖设定，忽略人物塑造"
+    severity: "warning"
+    reason: "人物要立体，不能是工具人"
+  - id: "TABOO-MC-004"
+    content: "脑洞没有逻辑，纯为爽而爽"
+    severity: "warning"
+    reason: "脑洞也要有基本逻辑"
+  - id: "TABOO-MC-005"
+    content: "结局烂尾，设定没交代清楚"
+    severity: "critical"
+    reason: "坑要填完"
+
+reader_expectations:
+  must_meet:
+    - "设定新颖有趣"
+    - "剧情轻松愉快"
+    - "人物有魅力"
+    - "HE结局"
+  optional:
+    - "适当的虐点增加层次"
+    - "副CP的故事"
+    - "设定的深层挖掘"
+  can_subvert:
+    - "传统的套路"
+    - "读者的预期"
+    - "设定的使用方式"
+  never:
+    - "设定崩坏"
+    - "BE结局（除非明确标注）"
+    - "挖坑不填"
+
+golden_three:
+  opening_hook: "开篇必须立即展现核心设定，如能力觉醒、设定触发、意外发生，让读者秒懂设定"
+  protagonist_intro: "主角出场要有特点，与设定契合，让读者喜欢"
+  chapter_end: "章末停在设定带来的悬念或反转处"
+
+writing_style:
+  tone: "轻松幽默，脑洞大开，节奏明快"
+  perspective: "第三人称，女主视角为主"
+  sentence_style: "简洁明快，善用短句，节奏感强"
+  vocabulary: "年轻化，贴近网络用语，有趣生动"
+  dialogue_ratio: "45%"
+  description_ratio: "25%"
+  action_ratio: "30%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["过度解释", "僵硬对话", "设定堆砌", "为爽而爽"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "设定通过剧情展现，而非解释"
+    - "人物要有真实感，不是设定工具"
+    - "脑洞也要有基本逻辑"
+    - "感情线要自然，不因设定而突兀"
+
+checker_weights:
+  consistency: 1.5
+  pacing: 1.5
+  golden_three: 1.5
+  romance_line: 1.5
+  character_charm: 1.5
+
+entities:
+  characters:
+    - name: "女主"
+      archetype: "机智型"
+      traits: ["聪明", "幽默", "善用设定"]
+      growth_arc: "从利用设定到超越设定"
+    - name: "男主"
+      archetype: "配合型"
+      traits: ["包容", "聪明", "与女主配合"]
+      growth_arc: "从被设定影响到最后理解"
+    - name: "配角"
+      archetype: "搞笑型"
+      traits: ["有趣", "助攻", "制造笑点"]
+  locations:
+    - name: "日常生活场景"
+      significance: "设定发挥作用的地方"
+    - name: "特殊地点"
+      significance: "触发设定的关键地点"
+  items:
+    - name: "触发设定的物品"
+      significance: "能力来源或限制"
+
+word_count:
+  short_story: "20-50万字"
+  medium_story: "60-100万字"
+  long_story: "不建议过长"
+
+popular_tropes:
+  - "读心术"
+  - "身体互换"
+  - "预知未来"
+  - "时间循环"
+  - "金手指"
+  - "穿书"
+
+reference_works:
+  - "《开端》- 时间循环经典"

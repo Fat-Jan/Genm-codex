@@ -1,0 +1,243 @@
+# 悬疑脑洞题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "悬疑脑洞"
+display_name: "悬疑脑洞"
+description: "创意悬疑、脑洞设定、解谜反转题材"
+version: "3.0"
+template: templates/genres/悬疑脑洞.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  creative_mystery:
+    name: "脑洞解谜流"
+    description: "创意悬疑设定"
+    core_points: [脑洞大开, 创意解谜, 惊喜反转]
+    pacing: creative
+
+  rebirth_mystery:
+    name: "重生悬疑流"
+    description: "重生回到过去破案"
+    core_points: [先知先觉, 改变结局, 揭开真相]
+    pacing: shuangwen
+
+  loop_mystery:
+    name: "循环解谜流"
+    description: "时间循环破案"
+    core_points: [循环尝试, 逐步接近真相, 打破循环]
+    pacing: loop
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 创意悬疑型
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.9
+  max_interval: 1500
+
+  preferred_types:
+    - type: 脑洞大开
+      weight: 1.7
+      description: "创意设定带来的惊喜感"
+      triggers: [原来, 竟然, 居然, 没想到, 意外, 颠覆, 不可思议, 诡异的]
+
+    - type: 真相揭晓
+      weight: 1.6
+      description: "悬念的精彩解答"
+      triggers: [真相, 凶手, 秘密, 答案, 揭开, 发现, 原来, 终于明白]
+
+    - type: 惊喜反转
+      weight: 1.5
+      description: "出人意料的剧情转折"
+      triggers: [反转, 扭转, 变了, 不同, 意料之外, 震惊, 竟然是, 谁能想到]
+
+    - type: 智力碾压
+      weight: 1.3
+      description: "主角用智慧破解难题"
+      triggers: [推理, 分析, 破解, 发现漏洞, 计算好了, 早就知道, 将计就计]
+
+    - type: 伏笔回收
+      weight: 1.2
+      description: "前后伏笔的精彩呼应"
+      triggers: [记得, 原来, 之前, 早就, 伏笔, 呼应, 线索]
+
+  avoid_types:
+    - type: 无伏笔反转
+      weight: 0
+      reason: 悬疑反转必须有伏笔铺垫
+
+    - type: 复杂设定无解释
+      weight: 0.3
+      reason: 创意设定要能自洽解释
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.4
+    contrast: 0.3
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 45
+  fire: 35
+  constellation: 20
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: SUSB-001
+    description: "创意设定要自洽"
+    mandatory: true
+    checkpoint: 设定设计
+
+  - id: SUSB-002
+    description: "反转要有伏笔"
+    mandatory: true
+    checkpoint: 反转设计
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "创意设定要自洽"
+    - "反转要有伏笔铺垫"
+    - "悬念要有解答"
+
+  optional_satisfy:
+    - "脑洞大开的惊喜设定"
+    - "时间循环/重生等创意玩法"
+    - "意想不到的反转"
+
+  never_violate:
+    - "没有伏笔的突然反转"
+    - "过于复杂的设定解释"
+    - "悬念没有解答"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "没有伏笔的突然反转"
+    severity: critical
+    checkpoint: "反转设计"
+
+  - id: TABOO-002
+    content: "过于复杂的设定解释"
+    severity: warning
+    checkpoint: "设定解释"
+
+  - id: TABOO-003
+    content: "悬念没有解答"
+    severity: critical
+    checkpoint: "悬念处理"
+
+  - id: TABOO-004
+    content: "创意设定自相矛盾"
+    severity: critical
+    checkpoint: "设定设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.4
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.3
+  reader-pull: 1.1
+
+# ==================== 实体标签 ====================
+entity_tags:
+  suspense:
+    format: <entity type="悬念" name="悬念名" desc="内容" tier="重要度" reveal="揭示时机"/>
+
+  clue:
+    format: <entity type="线索" name="线索名" desc="内容" tier="重要度" connects="关联"/>
+
+  twist:
+    format: <entity type="反转" name="反转名" desc="内容" tier="震撼度" foreshadow="伏笔"/>
+
+  setting:
+    format: <entity type="设定" name="设定名" desc="内容" tier="创意度" rules="规则"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    deduction: 留白暗示，引导读者思考
+    creative: 脑洞大开，创意设定的惊喜表达
+
+  typical_dialogues:
+    deduction_moment: |
+      "凶手是左撇子，现场有第三个人的脚印，而且……这把刀不属于死者。"
+      "所以……"
+      "所以，我们都被骗了。这不是谋杀，这是一场精心设计的局。"
+
+    creative_setting: |
+      "你说什么？这世界有七天循环？"
+      "准确地说，是七个人各活一天，然后记忆清零，循环往复。"
+      "那……我今天见到的人，明天就不会记得我了？"
+
+    twist_moment: |
+      "我一直以为，他在保护我。"
+      "直到今天，我才知道——他是凶手，而我，是唯一的证人。"
+      "问题是……他为什么留我一个活口？"
+
+    creative_discovery: |
+      "这个房间……有点奇怪。镜子里的我，比我慢了一拍。"
+      "你确定是慢了一拍？还是……镜子里的那个，才是真实的？"
+
+  avoid_patterns:
+    - 没有伏笔的突然反转
+    - 过于复杂的设定解释
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  suspense_scene:
+    crime_scene: |
+      "房间从里面反锁，窗户完好无损，死者面带微笑——这是一间完美的密室。但真正让侦探毛骨悚然的，是墙上的字：'我知道你会来。'"
+
+    deduction_moment: |
+      "他把所有的线索摊开在桌上：一张车票、一块手表、一封信。看似毫无关联，但当他把它们按时间排序后，一个惊人的真相浮出水面——这一切，都在二十年前就被安排好了。"
+
+  creative_scene:
+    creative_setting: |
+      "从今天开始，每个人头顶都出现了一个数字。没人知道那是什么，直到有人发现——那是你还能活多少天。而你的数字，只剩下三天。"
+
+    time_loop: |
+      "当他睁开眼，发现自己又回到了早晨七点。这是第一百次重复这一天了。他知道接下来会发生的一切：八点，电话会响；八点半，会有一个人从他窗前跑过；九点，会有人来敲门。问题是——他要怎么做，才能打破这个循环？"
+
+  twist_scene:
+    truth_reveal: |
+      "所有的证据都指向他，所有的证人都指认他。但侦探只是摇了摇头：'你们都错了。真正的凶手，是一个……从来不存在的人。'
+      他翻开档案，上面空空如也——因为那个人，只是所有人共同编造的一个谎言。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    deduction: "发现异常(20%) → 收集线索(30%) → 推理分析(30%) → 真相揭示(20%)"
+    loop: "循环开始(20%) → 尝试改变(40%) → 接近真相(30%) → 打破循环(10%)"
+    twist: "铺垫误导(30%) → 异常出现(30%) → 真相翻转(30%) → 后果展示(10%)"
+
+  typical_examples:
+    mystery_chapter: "发现案件 → 调查收集线索 → 推理分析 → 发现关键反转 → 真相揭晓"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    creative_setting: 独特的世界观设定
+    suspense_opening: 引人入胜的谜题
+    twist_preview: 暗示即将发生的大反转
+
+  classic_examples:
+    creative_style: |
+      "如果你能看到一个人的'剩余寿命'，你会做什么？
+      林默站在人群中，看着头顶上那些数字：23456、189、47……而那个正在微笑的女孩，头顶的数字是——1。
+      他只有一天的时间，去拯救一个陌生人。"
+
+    suspense_style: |
+      "第一个人被发现的时候，已经被绑在椅子上三天了。他的眼睛睁得大大的，仿佛看到了什么极其恐怖的东西。
+      更诡异的是，房间里有四把椅子，三把已经有人了。
+      现在，只剩下最后一把——那是留给谁的？"

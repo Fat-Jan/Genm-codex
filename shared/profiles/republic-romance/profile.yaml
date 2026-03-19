@@ -1,0 +1,327 @@
+name: "民国言情"
+version: "1.1.0"
+description: "以民国时期为背景的言情小说，融合新旧交替的时代特色、乱世中的爱恨情仇与家国情怀"
+
+sub_genres:
+  warlord_romance:
+    name: "军阀言情"
+    description: "以军阀割据时期为背景，描写乱世枭雄与乱世佳人的爱情"
+    core_cool_points: ["强取豪夺", "乱世枭雄", "铁汉柔情", "权势滔天", "烽火佳人", "军阀太太"]
+    pacing: "fast"
+    time_period: "1912-1928"
+    conflict_type: "强权与自由，野蛮与文明"
+  republic_elite:
+    name: "世家豪门"
+    description: "以民国世家为背景，描写新旧交替中的家族恩怨与爱情"
+    core_cool_points: ["世家恩怨", "新旧冲突", "才子佳人", "家族兴衰", "门当户对", "时代悲歌"]
+    pacing: "medium"
+    time_period: "1912-1949"
+    conflict_type: "传统与现代，家族与个人"
+  spy_republic:
+    name: "民国谍影"
+    description: "以民国时期谍报活动为背景，爱情与信仰的交织"
+    core_cool_points: ["多重身份", "信仰抉择", "乱世浮生", "谍海沉浮", "生离死别", "家国情怀"]
+    pacing: "fast"
+    time_period: "1920s-1949"
+    conflict_type: "个人情感与家国大义"
+  performing_arts:
+    name: "梨园风情"
+    description: "以民国演艺界为背景，描写戏子与名流的乱世情缘"
+    core_cool_points: ["戏子无情", "名伶传奇", "捧角文化", "艺术人生", "台上台下", "浮生若梦"]
+    pacing: "medium"
+    time_period: "1912-1949"
+    conflict_type: "艺术与世俗，真情与虚意"
+
+pacing:
+  chapter_target: 3000
+  cool_point_interval: 1600
+  hook_strength: "strong"
+  scene_density: "medium"
+  cliffhanger_frequency: "every_2_chapters"
+  era_progression: "synchronized_with_history"
+
+cool_points:
+  - type: "乱世相遇"
+    trigger: "战火纷飞中的邂逅"
+    effect: "命运交织，孽缘开始"
+    frequency: "开篇"
+  - type: "强取豪夺"
+    trigger: "权势者对女主的强势追求"
+    effect: "关系不平等，张力十足"
+    frequency: "每3-5章"
+  - type: "情感转折"
+    trigger: "从敌对到动心"
+    effect: "关系质变，甜度升级"
+    frequency: "每6-10章"
+  - type: "时代洪流"
+    trigger: "重大历史事件"
+    effect: "命运被时代裹挟"
+    frequency: "每8-12章"
+  - type: "生死考验"
+    trigger: "战乱、暗杀、疾病"
+    effect: "感情升华或生离死别"
+    frequency: "每10-15章"
+  - type: "信仰抉择"
+    trigger: "家国大义与个人情感的冲突"
+    effect: "艰难抉择，命运转折"
+    frequency: "全书关键节点"
+
+strand_weights:
+  main_plot: 0.35
+  character: 0.20
+  romance: 0.30
+  world_building: 0.15
+
+taboos:
+  - id: "TABOO-001"
+    content: "历史背景严重失真，时代感缺失"
+    severity: "critical"
+    reason: "民国文必须有强烈的时代质感"
+  - id: "TABOO-002"
+    content: "过度美化军阀或反动势力"
+    severity: "critical"
+    reason: "应保持正确的历史观"
+  - id: "TABOO-003"
+    content: "人物过于现代，缺乏民国气质"
+    severity: "warning"
+    reason: "应符合民国人物的行为逻辑和价值观念"
+  - id: "TABOO-004"
+    content: "强取豪夺后缺乏情感转折铺垫"
+    severity: "warning"
+    reason: "需要合理的发展过程才能让人信服"
+  - id: "TABOO-005"
+    content: "服饰、语言、生活方式时代错位"
+    severity: "warning"
+    reason: "细节错误会破坏民国氛围"
+  - id: "TABOO-006"
+    content: "爱情线脱离时代背景悬浮"
+    severity: "warning"
+    reason: "民国爱情必须扎根于乱世"
+
+reader_expectations:
+  must_meet:
+    - "浓郁的民国氛围"
+    - "新旧交替的时代感"
+    - "乱世中的爱恨纠葛"
+    - "强烈的戏剧冲突"
+    - "悲剧或 bittersweet 的基调"
+    - "符合民国时代的细节"
+  optional:
+    - "军阀与小姐的虐恋"
+    - "革命志士的爱情"
+    - "戏子与名流的纠葛"
+    - "世家恩怨的化解"
+    - "留洋归来的新青年"
+    - "生离死别的结局"
+  can_subvert:
+    - "民国爱情必然悲剧"
+    - "军阀必然残暴"
+    - "新青年必然进步"
+    - "旧式婚姻必然不幸"
+  never:
+    - "出现明显的历史错误"
+    - "过度美化侵略或反动势力"
+    - "让人物行为违背时代逻辑"
+    - "让爱情脱离时代背景"
+
+golden_three:
+  opening_hook: "开篇必须建立民国氛围：十里洋场的繁华、军阀混战的动荡、新旧思想的碰撞、或乱世中一场改变命运的相遇"
+  protagonist_intro: "主角出场即展现民国特质：可以是留洋归来的新女性、家道中落的大家闺秀、乱世中求生的戏子、或身居高位的军阀"
+  chapter_end: "每章结尾留下情感或命运悬念：感情转折、战乱爆发、身份危机、或重大历史事件即将改变一切"
+
+writing_style:
+  tone: "复古文艺，忧伤唯美，充满时代沧桑感"
+  perspective: "第三人称，男女主视角交替"
+  sentence_style: "偏文艺腔，讲究意境，略带民国白话文韵味"
+  narrative_style: "注重氛围营造，情景交融，善用意象"
+  dialogue_style: "半文半白，带有民国特色，可引用诗词歌词"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "轻轻的", "悄悄的", "默默的", "静静的", "慢慢的", "渐渐的", "傻傻的", "痴痴的", "直直的", "冷冷的"]
+  forbidden_patterns: ["只见", "但见", "忽见", "正欲", "却见", "只听", "忽听", "只听", "忽然", "突然", "不由得"]
+  show_dont_tell: true
+  break_patterns: true
+  varied_sentence_openings: true
+  avoid_repetitive_transitions: true
+  avoid_modifiers: true
+  use_concrete_details: true
+
+checker_weights:
+  consistency: 1.2
+  pacing: 1.0
+  golden_three: 1.4
+  character_depth: 1.3
+  dialogue_quality: 1.2
+  historical_accuracy: 1.4
+  atmosphere: 1.3
+
+entities:
+  characters:
+    - type: "protagonist_female"
+      archetype: "乱世佳人"
+      variants: ["大家闺秀", "新女性", "戏子名伶", "才女", "留洋小姐"]
+      traits: ["美丽坚韧", "才华横溢", "身不由己", "命运多舛"]
+    - type: "protagonist_male"
+      archetype: "乱世枭雄"
+      variants: ["军阀", "革命者", "世家公子", "商人", "文人"]
+      traits: ["权势滔天", "深情专一", "铁汉柔情", "身不由己"]
+    - type: "rival_female"
+      archetype: "情敌/政敌"
+      traits: ["或高贵或狠毒", "权势背景", "爱而不得", "制造障碍"]
+    - type: "family_head"
+      archetype: "家族长辈"
+      traits: ["守旧或开明", "家族利益至上", "决定子女命运"]
+    - type: "revolutionary"
+      archetype: "革命志士"
+      traits: ["理想主义", "牺牲精神", "可能为主角引路人或情敌"]
+  locations:
+    - name: "上海滩"
+      significance: "十里洋场，繁华与罪恶并存"
+    - name: "大帅府"
+      significance: "军阀权力中心，金丝牢笼"
+    - name: "戏院"
+      significance: "名利场，情感纠葛之地"
+    - name: "火车站"
+      significance: "离别与重逢，命运转折"
+    - name: "租界"
+      significance: "乱世中的孤岛，复杂势力"
+    - name: "深宅大院"
+      significance: "传统世家，规矩森严"
+  items:
+    - name: "旗袍"
+      significance: "民国女性符号，风情万种"
+    - name: "怀表"
+      significance: "时间流逝，命运倒计时"
+    - name: "留声机"
+      significance: "时代印记，情感寄托"
+    - name: "信笺"
+      significance: "情感传递，可能绝笔"
+
+special_mechanics:
+  era_atmosphere:
+    description: "民国氛围营造"
+    elements: ["服饰", "建筑", "语言", "生活方式", "社会风气"]
+    importance: "民国文的核心竞争力"
+  power_dynamics:
+    description: "权力关系"
+    aspects: ["军阀割据", "家族势力", "新旧势力", "中外势力"]
+    complexity: "乱世中的生存法则"
+  love_obstacles:
+    description: "爱情阻碍"
+    sources: ["已有婚约", "家族恩怨", "身份悬殊", "时代动荡", "政治立场"]
+    severity: "多重阻碍叠加"
+  tragic_tendency:
+    description: "悲剧倾向"
+    elements: ["生离死别", "阴差阳错", "时代悲剧", "身不由己"]
+    resolution: "可以有 happy ending，但必须有挣扎过程"
+
+plot_archetypes:
+  - name: "强取豪夺"
+    beats: ["军阀看上女主", "强势占有", "女主反抗", "渐生情愫", " either 修成正果 or 生离死别"]
+  - name: "青梅竹马乱世离"
+    beats: ["年少相识", "家族变故分离", "乱世重逢", "物是人非", " either 再续前缘 or 相忘江湖"]
+  - name: "革命伴侣"
+    beats: ["共同理想", "生死与共", "信仰考验", "牺牲与坚守", " either 共同胜利 or 阴阳相隔"]
+  - name: "戏子无情"
+    beats: ["名伶登场", "名流追捧", "真心错付", "觉醒自立", " either 出淤泥而不染 or 香消玉殒"]
+
+success_metrics:
+  reader_engagement: "民国氛围沉浸感，虐恋追更率"
+  satisfaction: "时代还原度评分，情感线评分"
+  retention: "完读率"
+  virality: "民国氛围讨论度，虐心片段传播度"
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    republican_charm: 文白相间，时代韵味，情感真挚
+    heroine_dialogue: 新式教育，有主见，端庄大方
+    hero_dialogue: 军阀/商贾/特工，威严霸气，深情内敛
+
+  typical_dialogues:
+    warlord_confession: |
+      "程小姐，我这人不会说什么漂亮话。"
+      "少帅请说。"
+      "我要你做我的女人。"
+      "少帅，我不做姨太太。"
+      "我也没打算让你做姨太太。我要你做我的正室夫人。"
+
+    business_probe: |
+      "这次的事，沈先生怎么看？"
+      "乱世之中，无非是各取所需。"
+      "那若我想与沈先生合作呢？"
+      "那就要看，程小姐能给我什么了。"
+
+    life_death_parting: |
+      "这次任务很危险，可能回不来。"
+      "那你还会去吗？"
+      "必须去。"
+      "那我等你回来。一定要回来。"
+      "好，我答应你。"
+
+  avoid_patterns:
+    - 现代用语和网络流行语
+    - 不符合时代背景的行为
+    - 历史细节错误
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  warlord_mansion:
+    young_marshal_house: |
+      黑铁大门，两尊石狮威严矗立。府内西式建筑与中式庭院巧妙融合。水晶吊灯下，一袭军装的男人正低头看文件，眉宇间透着凌厉。
+
+    gunfight_chase: |
+      街头枪声骤起，子弹打在青砖墙上，留下斑驳弹痕。他一把将她拉入小巷，贴着墙根前行。他的胸膛紧贴着她的后背，她能听到他有力的心跳。
+
+  dance_hall_theater:
+    paramount: |
+      华灯初上，百乐门内纸醉金迷。爵士乐响起，霓虹灯闪烁。舞池中，旗袍摇曳，西装笔挺。她一袭红色旗袍，站在楼梯顶端，艳压群芳。
+
+    theater_backstage: |
+      后台化妆间里，粉黛飘香。铜镜前，名角正在描眉画眼。门外脚步声响起，一个黑影闪入。'有人要对你不利，今晚的戏别唱了。'
+
+  streets:
+    old_shanghai_alley: |
+      石库门的弄堂里，电线杆上贴着各色海报。小贩的叫卖声此起彼伏，黄包车夫拉着车飞奔而过。她裹紧风衣，低着头快步走过，不知有人在暗处默默注视。
+
+    dock_warehouse: |
+      黄浦江边，货轮鸣笛。码头工人们扛着麻袋来回穿梭。阴沉的天空下，几个黑衣人站在集装箱旁，低声交谈。一场交易即将展开。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    business_war: 平静开场20% -> 危机降临30% -> 布局应对40% -> 化险为夷10%
+    romance: 偶然相遇20% -> 试探了解30% -> 感情升温40% -> 时代阴影10%
+    spy_thriller: 任务开始20% -> 危机四伏40% -> 身份险暴露30% -> 化险为夷10%
+
+  typical_pacing_examples:
+    warlord_love: 初遇女主 -> 身份悬殊 -> 强势追求 -> 日久生情 -> 共度风雨
+    business_counterattack: 家道中落 -> 奋力抗争 -> 遇见贵人 -> 东山再起 -> 收获爱情
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    chaotic_times_encounter: 时代背景 -> 意外邂逅 -> 命运交织
+    family_grudge: 家族往事 -> 恩怨纠葛 -> 爱恨交织
+    hidden_identity: 表面身份 -> 暗藏身份 -> 身份揭秘
+
+  classic_opening_examples:
+    warlord_romance: |
+      民国二十年，军阀混战，民不聊生。
+      她是落魄贵族之后，他是叱咤风云的少帅。
+      第一次见面，是在她家族没落的拍卖会上。他买下了她祖传的玉佩，却只说了一句话：
+      '程小姐，后会无期。'
+      她不知道，这块玉佩，是开启他心门的钥匙。
+
+    spy_thriller: |
+      上海滩，十里洋场，歌舞升平的表象下暗流涌动。
+      她是交际场上艳名远播的名媛，没人知道，她的真实身份是潜伏的特工。
+      直到那天，她遇到了一个不该爱的人。
+      他是敌人的少帅，也是她此生唯一的劫。
+
+    business_rise: |
+      一夜之间，沈家倾家荡产，父亲含恨而终。
+      她从大小姐沦为乞丐，在街头被人欺负时，一个陌生人递给她一块手帕。
+      '想报仇吗？'那人问。
+      她抬头，看见一双深沉的眼睛。
+      从此，她的人生，改写了。

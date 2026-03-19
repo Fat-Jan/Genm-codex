@@ -1,0 +1,240 @@
+name: "游戏体育"
+version: "1.1.0"
+sub_genres:
+  篮球:
+    description: "以篮球运动为核心的竞技故事"
+    core_cool_points: ["绝杀时刻", "团队配合", "个人技术秀", "逆境翻盘"]
+    pacing: "fast"
+  足球:
+    description: "以足球运动为核心的竞技故事"
+    core_cool_points: ["帽子戏法", "精妙配合", "门将神扑", "逆转取胜"]
+    pacing: "fast"
+  羽毛球/乒乓球:
+    description: "以小球运动为核心的竞技故事"
+    core_cool_points: ["技术对决", "心理博弈", "极限救球", "战术变化"]
+    pacing: "fast"
+  田径:
+    description: "以田径运动为核心的竞技故事"
+    core_cool_points: ["突破极限", "毫秒之争", "挑战纪录", "战胜自我"]
+    pacing: "medium"
+  游泳:
+    description: "以游泳运动为核心的竞技故事"
+    core_cool_points: ["水中速度", "技术细节", "体能极限", "比赛策略"]
+    pacing: "medium"
+  格斗/拳击:
+    description: "以格斗运动为核心的竞技故事"
+    core_cool_points: ["KO时刻", "技术压制", "抗击打能力", "战术克制"]
+    pacing: "fast"
+  极限运动:
+    description: "以极限运动为核心的冒险故事"
+    core_cool_points: ["惊险刺激", "挑战极限", "突破恐惧", "视觉震撼"]
+    pacing: "fast"
+  网游竞技流:
+    description: "网游PVP竞技"
+    core_cool_points: ["技术碾压", "装备优势", "夺冠捧杯"]
+    pacing: "fast"
+  虚拟网游流:
+    description: "虚拟现实网游"
+    core_cool_points: ["沉浸体验", "游戏成功", "虚拟人生"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1200
+  hook_strength: "strong"
+
+cool_points:
+  - type: "比赛开始"
+    trigger: "重要比赛拉开序幕"
+    effect: "紧张氛围建立，期待感拉满"
+  - type: "技术展现"
+    trigger: "主角使用招牌技术或新练成的技术"
+    effect: "展示训练成果，获得优势"
+  - type: "逆境时刻"
+    trigger: "比分落后或遇到强劲对手"
+    effect: "压力升级，为翻盘做铺垫"
+  - type: "关键时刻"
+    trigger: "比赛的关键分或决胜时刻"
+    effect: "紧张刺激，高潮迭起"
+  - type: "绝杀/逆转"
+    trigger: "最后时刻反败为胜"
+    effect: "情绪释放，爽感爆发"
+  - type: "成长突破"
+    trigger: "主角技术或心态的突破"
+    effect: "励志感，实力提升"
+  - type: "对手尊重"
+    trigger: "获得对手或观众的认可"
+    effect: "成就感，社交认可"
+
+strand_weights:
+  main_plot: 0.45
+  character: 0.25
+  romance: 0.15
+  world_building: 0.15
+
+taboos:
+  - id: "TABOO-001"
+    content: "比赛规则错误，被读者指出硬伤"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "主角靠运气而非实力取胜"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "对手强行降智衬托主角"
+    severity: "warning"
+  - id: "TABOO-004"
+    content: "训练过程一笔带过，缺乏成长感"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "感情线喧宾夺主，影响主线"
+    severity: "warning"
+  - id: "TABOO-006"
+    content: "比赛场面描写混乱，读者看不清"
+    severity: "critical"
+  - id: "TABOO-007"
+    content: "所有对手都是坏人，缺乏体育精神"
+    severity: "warning"
+
+reader_expectations:
+  must_meet:
+    - "运动规则准确，专业性强"
+    - "比赛场面描写生动，有画面感"
+    - "主角有真实的成长过程"
+    - "竞技精神和体育道德体现"
+  optional:
+    - "详细的训练过程和技术解析"
+    - "与真实运动员或赛事的联动"
+    - "团队内部的人际关系和成长"
+  can_subvert:
+    - "主角必胜的套路"
+    - "天才无需努力的设定"
+    - "单打独斗的英雄主义"
+  never:
+    - "用违反体育道德的方式获胜"
+    - "贬低运动本身的专业性"
+    - "让主角轻易击败明显更强的对手"
+
+golden_three:
+  opening_hook: "开篇直接进入一场紧张的比赛或训练场景，展现主角的运动才能或面临的困境，快速建立主角形象和故事基调"
+  protagonist_intro: "主角应在运动场景中出场，展现独特的技术特点或性格特质，可以是冷静型、热血型、或智慧型选手"
+  chapter_end: "每章结尾可以是一场小比赛的结束、训练的新突破、或重要赛事的预告，保持读者对下一场比赛/训练的期待"
+
+writing_style:
+  tone: "热血激情中带有专业性，紧张刺激的比赛与温馨的日常交替"
+  perspective: "第三人称为主，比赛中可快速切换焦点"
+  sentence_style: "比赛场面快节奏、动作描写精准，日常部分轻松自然，技术讲解清晰"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "突然", "莫名", "不知为何", " inexplicably", "somehow"]
+  show_dont_tell: true
+  break_patterns: true
+
+checker_weights:
+  consistency: 1.2
+  pacing: 1.3
+  golden_three: 1.1
+  action: 1.3
+
+entities:
+  characters:
+    - name: "天才型主角"
+      type: "主角"
+      traits: ["运动天赋异禀", "刻苦训练", "不服输", "有领导能力"]
+    - name: "努力型主角"
+      type: "主角"
+      traits: ["天赋普通", "极其刻苦", "善于思考", "大器晚成"]
+    - name: "教练"
+      type: "导师"
+      traits: ["经验丰富", "因材施教", "严厉但关心队员"]
+    - name: "劲敌"
+      type: "对手"
+      traits: ["实力强大", "尊敬主角", "推动主角进步", "有体育精神"]
+    - name: "队友"
+      type: "团队"
+      traits: ["各有所长", "相互信任", "共同成长", "有各自的梦想"]
+    - name: "经理/领队"
+      type: "后勤"
+      traits: ["照顾队员", "处理杂务", "情感支持"]
+
+  locations:
+    - name: "训练场/体育馆"
+      atmosphere: "挥洒汗水，磨练技术的地方"
+    - name: "比赛场馆"
+      atmosphere: "气氛热烈，压力巨大"
+    - name: "更衣室"
+      atmosphere: "团队内部交流，私密空间"
+    - name: "休息室"
+      atmosphere: "比赛间隙调整状态"
+    - name: "康复中心"
+      atmosphere: "伤病恢复，心理调适"
+
+  items:
+    - name: "运动装备"
+      function: "专业器材，提升表现"
+    - name: "战术板"
+      function: "制定和分析战术"
+    - name: "训练计划"
+      function: "科学训练，提升能力"
+    - name: "比赛录像"
+      function: "分析对手，总结经验"
+    - name: "奖杯/奖牌"
+      function: "荣誉象征，努力成果"
+
+# ==================== 对话模板库（v1.1.0 新增，源自gaming-sports）====================
+dialogue_templates:
+  style_definition:
+    competitive_style: "热血激情，术语准确，团队配合感强"
+  typical_dialogue:
+    sports_match: |
+      "加油！最后一圈了！"
+      "冲啊！你是最棒的！"
+      "教练，我不会让大家失望的！"
+      "这枚金牌，我们势在必得！"
+    网游组队: |
+      "组队刷副本，来个奶妈！"
+      "我来了，你们都准备好了吗？"
+      "BOSS在前面，大家小心！"
+      "掉落了！是稀有装备！"
+    sports_training: |
+      "再来一组！别偷懒！"
+      "教练，我已经练了一天了……"
+      "想拿冠军吗？那就继续练！"
+      "是！我还能坚持！"
+  avoid_patterns:
+    - "运动规则描述错误"
+    - "游戏机制不合理"
+    - "缺乏竞技的紧张感"
+
+# ==================== 场景描写库（v1.1.0 新增，源自gaming-sports）====================
+scene_description:
+  sports_scenes:
+    田径赛场: |
+      "红色的塑胶跑道上，运动员们正在做最后的准备。观众席上座无虚席，呐喊声和加油声此起彼伏。发令枪响的瞬间，所有人都像离弦的箭一样冲了出去。风在耳边呼啸，每一步都倾注着全部的力量。"
+    篮球比赛: |
+      "体育馆内人声鼎沸，两支球队在球场上你来我往。篮球在空中划出优美的弧线，'唰'的一声，空心入网！观众席爆发出一阵欢呼。比分牌上的数字不断跳动，比赛进入最后的决胜时刻。"
+  game_scenes:
+    网游副本: |
+      "幽暗的地下城中，五个玩家小心翼翼地前进。怪物的嚎叫声从远处传来，火把的光芒在墙壁上投下摇曳的影子。'BOSS就在前面，'队长压低声音，'大家准备好，这可能是一场硬仗。'"
+    竞技对决: |
+      "竞技场上，两名玩家相对而立。技能特效在空中碰撞，发出刺眼的光芒。血条在激烈交锋中快速下降，观众们屏住呼吸，等待着最后的胜负。突然，一方抓住破绽，一招制敌！'KO！'系统提示音响彻全场。"
+
+# ==================== 节奏模板（v1.1.0 新增，源自gaming-sports）====================
+pacing_templates:
+  chapter_emotion_curve:
+    match_type: "赛前准备15% → 比赛开始25% → 激烈对抗40% → 胜负揭晓20%"
+    adventure_type: "任务接取20% → 冒险过程40% → 遭遇强敌20% → 战胜收获20%"
+  typical_pacing_example:
+    finals_chapter: "赛前动员 → 比赛开始 → 关键时刻 → 夺冠荣耀"
+    adventure_chapter: "接取任务 → 组队出发 → 遭遇危险 → 战胜获得"
+
+# ==================== 开篇模板（v1.1.0 新增，源自gaming-sports）====================
+opening_templates:
+  hook_types:
+    talent_awakening: "主角发现自己有特殊天赋"
+    unexpected_opportunity: "偶然的机会进入竞技世界"
+    重头再来: "从巅峰跌落后重新开始"
+  classic_opening_examples:
+    talent_awakening_type: |
+      "篮球馆的角落里，一个瘦高的少年正独自练习投篮。'嗖、嗖、嗖——'每一个球都精准地落入篮筐。教练路过时停下了脚步，难以置信地看着这一幕。'这孩子的手感……是天生的射手啊。'"
+    unexpected_opportunity_type: |
+      "'欢迎来到《天启》！'一个机械的声音在脑海中响起。他愣住了，自己明明是在玩游戏，怎么突然……'检测到玩家资质优秀，开启隐藏职业转职任务。'系统提示让他心跳加速，隐藏职业？这是多少玩家梦寐以求的机会！"

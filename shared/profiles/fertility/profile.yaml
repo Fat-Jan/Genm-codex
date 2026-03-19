@@ -1,0 +1,245 @@
+# 多子多福题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "多子多福"
+display_name: "多子多福"
+description: "以子嗣繁衍为核心的温馨种田题材"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  ancient_house:
+    name: "古代后宅流"
+    description: "古代背景，后宅生子"
+    core_points: [子孙满堂, 家族兴旺, 地位稳固]
+    pacing: farming
+    examples: [多子多福：清冷夫君爱上我]
+
+  xianxia_fertility:
+    name: "仙侠生育流"
+    description: "修仙背景，生下天才子女"
+    core_points: [天才子女, 助力修行, 家族崛起]
+    pacing: cultivation_farming
+    examples: [多子多福：我的后代全是绝世天骄]
+
+  system_reward:
+    name: "系统奖励流"
+    description: "生子获得系统奖励"
+    core_points: [系统奖励, 实力提升, 幸福生活]
+    pacing: shuangwen
+    examples: [多子多福：从纳妾开始]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 温馨种田型
+  tension_ratio: "6:4"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.7
+  max_interval: 1800
+
+  preferred_types:
+    - type: 子女出生
+      weight: 1.7
+      description: "子女降生，家族添丁"
+      triggers: [喜脉, 怀孕, 生产, 诞下, 龙凤胎, 双胎, 儿子, 女儿, 小世子]
+
+    - type: 家族兴旺
+      weight: 1.5
+      description: "家族繁荣昌盛，人丁兴旺"
+      triggers: [人丁兴旺, 满堂儿孙, 家族, 子孙满堂, 四世同堂, 兴旺]
+
+    - type: 地位提升
+      weight: 1.4
+      description: "因子嗣而地位稳固或提升"
+      triggers: [诰命, 晋封, 主母, 当家, 夫人, 地位, 身份]
+
+    - type: 夫妻恩爱
+      weight: 1.3
+      description: "夫妻感情升温，甜蜜互动"
+      triggers: [恩爱, 宠溺, 甜蜜, 宠妻, 夫君, 夫人, 琴瑟和鸣]
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 35
+  fire: 25
+  constellation: 40
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: KIDS-001
+    description: "子女要有个性，不能工具人"
+    mandatory: false
+    checkpoint: 子女塑造
+
+  - id: KIDS-002
+    description: "感情线要自然"
+    mandatory: true
+    checkpoint: 感情发展
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 子女要有个性，不能工具人
+    - 感情线要自然发展
+    - 家庭温馨氛围要到位
+
+  optional_satisfy:
+    - 子女成才的成就感
+    - 夫妻恩爱的甜蜜
+    - 家族兴旺的荣耀感
+
+  absolutely_not:
+    - 子女形象过于脸谱化
+    - 感情线被生情节完全掩盖
+    - 过于重视子嗣而忽视女性主体
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 子女形象过于脸谱化
+    severity: warning
+    checkpoint: 子女塑造
+
+  - id: TABOO-002
+    content: 感情线被生情节完全掩盖
+    severity: warning
+    checkpoint: 感情发展
+
+  - id: TABOO-003
+    content: 过于重视子嗣而忽视女性主体
+    severity: warning
+    checkpoint: 女主塑造
+
+  - id: TABOO-004
+    content: 感情发展不自然
+    severity: warning
+    checkpoint: 感情线
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.1
+  reader-pull: 1.0
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    warm_sweet: 温暖治愈，充满幸福感，家庭氛围浓厚
+    heroine_dialogue: 温柔贤惠，持家有道，聪慧大方
+    hero_dialogue: 宠妻如命，重视子嗣，护家有道
+
+  typical_dialogues:
+    good_news: |
+      "夫人，大夫说...有了。"
+      "当真？"
+      "千真万确，已经三个月了。"
+      "快，快去告诉老爷！"
+
+    couple_love: |
+      "今日辛苦了，我给你捶捶肩。"
+      "有夫人在身边，再辛苦也是甜的。"
+      "油嘴滑舌。"
+      "对夫人，我永远实话实说。"
+
+    children_growth: |
+      "爹爹，今天先生夸我文章写得好！"
+      "是吗？那爹爹有赏。"
+      "要什么赏？"
+      "爹爹带你去骑马，好不好？"
+      "好耶！谢谢爹爹！"
+
+    family_prosperity: |
+      "老夫人，府上如今人丁兴旺，真是好福气啊。"
+      "这都是儿媳妇的功劳，持家有道，贤良淑德。"
+      "母亲过奖了，都是夫君疼爱。"
+
+  avoid_patterns:
+    - 子女形象过于脸谱化
+    - 感情线被生情节完全掩盖
+    - 过于重视子嗣而忽视女性主体
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  mansion_interior:
+    morning_greeting: |
+      清晨，阳光洒进正院。她整理好衣裙，带着孩子们去给婆母请安。一路上，小家伙们叽叽喳喳，她无奈又宠溺地看着他们。
+
+    pregnancy_confirm: |
+      大夫收回搭脉的手，脸上露出喜色：'恭喜夫人，这是喜脉，已有三月身孕。'
+      她愣了愣，随即眼眶泛红。她等这一天，等了太久。
+
+  children_around:
+    family_blessing: |
+      院中桃花盛开，几个小萝卜头在树下追逐嬉戏。她坐在一旁的椅上，腹中又有了新的生命。夫君从身后走来，轻轻为她披上一件披风。
+
+    teaching_children: |
+      书房内，几个孩子正襟危坐，听父亲讲书。她端着茶盘进来，看到这温馨的一幕，嘴角不自觉地上扬。这是她曾经不敢想象的幸福。
+
+  family_celebration:
+    full_moon_banquet: |
+      府里张灯结彩，宾客盈门。她抱着刚满月的小儿子，含笑接受众人的祝福。夫君站在她身侧，眼中是藏不住的骄傲和幸福。
+
+    new_year_reunion: |
+      除夕夜，一家老小围坐在一起吃年夜饭。孩子们争先恐后地给长辈磕头拜年，红包塞满了小手。她看着满堂儿孙，心中满是感恩。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    celebration_chapter: 日常铺垫30% -> 喜讯传来40% -> 庆祝喜悦20% -> 幸福收尾10%
+    parenting_chapter: 孩子闯祸30% -> 教导成长40% -> 温馨互动20% -> 亲情升华10%
+    family_chapter: 家族事件30% -> 危机处理40% -> 家族荣耀20% -> 幸福满溢10%
+
+  typical_pacing_examples:
+    pregnancy_news: 身体异样 -> 疑似有孕 -> 确诊喜脉 -> 全府欢庆 -> 夫妻恩爱
+    children_growth: 孩子出生 -> 精心抚育 -> 童年趣事 -> 少年成才 -> 家族传承
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    after_marriage: 婚后生活 -> 子嗣期盼 -> 喜讯传来
+    rebirth_with_child: 前世无子 -> 重生归来 -> 子嗣绵延
+    system_reward: 获得系统 -> 生子得奖励 -> 幸福人生
+
+  classic_opening_examples:
+    ancient_house: |
+      嫁入侯府三年，她的肚子始终没有动静。
+      婆母的脸色越来越难看，夫君的眸光越来越冷。
+      直到那天，大夫的一句话，改变了一切。
+      '恭喜夫人，是双胎。'
+      从此，她在侯府的地位，再无人能撼动。
+
+    xianxia_fertility: |
+      修仙界有一条不成文的规矩：子嗣越多的修士，福气越盛。
+      她从未想过，自己会成为修仙界的'生育大户'。
+      '夫人，这是第十个了...'夫君扶额。
+      '怎么了，夫君不喜欢？'
+      '喜欢，太喜欢了...'他叹了口气，眼中却是满满的幸福。
+
+    system_reward: |
+      穿越第一天，她就绑定了一个奇怪的'多子多福'系统。
+      【叮！检测到宿主已婚状态，系统启动成功！】
+      【每生育一个子嗣，即可获得相应奖励！】
+      她看着面板上那些逆天的奖励，陷入了沉思。
+      这是要她当生育机器的节奏？
+      不过...看着身边那个风华绝代的夫君，她觉得，这任务，似乎也不算太坏。

@@ -1,0 +1,154 @@
+name: "多子多福"
+version: "1.1.0"
+description: "主角通过生育或养育获得系统奖励，孩子越多奖励越丰厚，强调家庭温馨和育儿乐趣"
+sub_genres:
+  生子系统:
+    description: "每生一个孩子获得丰厚奖励"
+    core_cool_points: ["生育奖励", "孩子天赋", "家庭温馨"]
+    pacing: "medium"
+  养娃系统:
+    description: "养育孩子获得奖励"
+    core_cool_points: ["育儿成就", "孩子成长", "亲子互动"]
+    pacing: "medium"
+  萌娃助攻:
+    description: "孩子撮合父母感情"
+    core_cool_points: ["萌娃金句", "助攻爸妈", "家庭和睦"]
+    pacing: "fast"
+  天才宝宝:
+    description: "孩子天赋异禀，帮助父母"
+    core_cool_points: ["神童", "聪明伶俐", "解决问题"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1500
+  hook_strength: "medium"
+  emotional_rhythm: "温馨治愈，每章都有亲子互动，节奏舒缓"
+  scene_density: "每章3-4个场景，家庭生活为主"
+
+cool_points:
+  - type: "孩子出生"
+    trigger: "新生儿降临"
+    effect: "系统奖励，家庭喜悦"
+    frequency: "关键节点"
+  - type: "孩子成长"
+    trigger: "孩子学会新技能"
+    effect: "成就感，奖励获得"
+    frequency: "每5章一次"
+  - type: "萌娃金句"
+    trigger: "孩子说出可爱的话"
+    effect: "温馨有趣，读者喜爱"
+    frequency: "每章至少1次"
+  - type: "亲子互动"
+    trigger: "父母与孩子互动"
+    effect: "温馨治愈，感情升温"
+    frequency: "每章多次"
+  - type: "家庭和睦"
+    trigger: "家庭矛盾解决"
+    effect: "幸福感，读者满足"
+    frequency: "每10章一次"
+
+strand_weights:
+  main_plot: 0.3
+  character: 0.25
+  romance: 0.2
+  world_building: 0.25
+
+taboos:
+  - id: "TABOO-MO-001"
+    content: "过于强调生育工具化"
+    severity: "critical"
+    reason: "要有人文关怀"
+  - id: "TABOO-MO-002"
+    content: "孩子过于成熟，不像孩子"
+    severity: "warning"
+    reason: "要有童真"
+  - id: "TABOO-MO-003"
+    content: "育儿过于轻松，没有困难"
+    severity: "warning"
+    reason: "要有真实感"
+  - id: "TABOO-MO-004"
+    content: "奖励过于夸张，脱离现实"
+    severity: "warning"
+    reason: "要有合理性"
+
+reader_expectations:
+  must_meet:
+    - "温馨治愈的育儿日常"
+    - "可爱的孩子形象"
+    - "家庭和睦的氛围"
+    - "适当的系统奖励"
+  optional:
+    - "父母感情线的发展"
+    - "孩子的成长故事"
+    - "大家庭的热闹场景"
+  can_subvert:
+    - "传统的育儿观念"
+    - "家庭的组成方式"
+  never:
+    - "过于功利化的生育"
+    - "孩子形象不讨喜"
+    - "家庭矛盾过于激烈"
+
+golden_three:
+  opening_hook: "开篇展现主角获得系统或已有孩子的场景，立即建立温馨氛围"
+  protagonist_intro: "主角出场要有对孩子的爱，性格温柔"
+  chapter_end: "章末停在温馨时刻或孩子的成长里程碑"
+
+writing_style:
+  tone: "温馨治愈，轻松愉快，充满爱意"
+  perspective: "第三人称，父母视角"
+  sentence_style: "温柔细腻，善用细节描写，充满爱"
+  vocabulary: "温暖，正面，充满爱意"
+  dialogue_ratio: "40%"
+  description_ratio: "35%"
+  action_ratio: "25%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["孩子过于成熟", "育儿过于轻松", "功利化生育"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "孩子要有童真，说话做事符合年龄"
+    - "育儿要有真实困难，不是一帆风顺"
+    - "家庭氛围要温馨，不是完美无缺"
+    - "奖励要适度，不能喧宾夺主"
+
+checker_weights:
+  consistency: 1.2
+  pacing: 1.0
+  golden_three: 1.2
+  romance_line: 1.0
+  character_charm: 1.5
+
+entities:
+  characters:
+    - name: "父母"
+      archetype: "慈爱型"
+      traits: ["爱孩子", "有耐心", "温柔"]
+    - name: "孩子"
+      archetype: "可爱型"
+      traits: ["童真", "聪明", "可爱"]
+  locations:
+    - name: "家"
+      significance: "主要场景"
+    - name: "幼儿园/学校"
+      significance: "孩子成长"
+  items:
+    - name: "育儿奖励"
+      significance: "系统道具"
+
+word_count:
+  short_story: "50-100万字"
+  medium_story: "100-200万字"
+  long_story: "200万字以上"
+
+popular_tropes:
+  - "萌娃助攻"
+  - "天才宝宝"
+  - "生子奖励"
+  - "大家庭温馨"
+
+reference_works:
+  - "各类萌娃综艺"

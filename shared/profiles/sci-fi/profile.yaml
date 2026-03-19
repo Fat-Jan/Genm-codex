@@ -1,0 +1,199 @@
+name: "科幻"
+version: "1.1.0"
+sub_genres:
+  赛博朋克流:
+    description: "高科技低生活，义体改造，巨型企业统治"
+    core_cool_points: ["黑客入侵", "义体升级", "反抗体制"]
+    pacing: "fast"
+  太空歌剧流:
+    description: "星际航行，外星文明，宇宙战争"
+    core_cool_points: ["星舰战斗", "外星探索", "文明碰撞"]
+    pacing: "medium"
+  硬科幻流:
+    description: "科学原理严谨，技术细节真实"
+    core_cool_points: ["科学解谜", "技术突破", "逻辑推演"]
+    pacing: "slow"
+  末日科幻流:
+    description: "科技灾难，人类存亡，文明重建"
+    core_cool_points: ["绝境求生", "科技救世", "人性抉择"]
+    pacing: "medium"
+  机甲战争流:
+    description: "巨型机甲，星际战争，热血战斗"
+    core_cool_points: ["机甲驾驶", "战术指挥", "王牌飞行员"]
+    pacing: "fast"
+  魂系卡牌流:
+    description: "未来世界与卡牌系统结合"
+    core_cool_points: ["卡牌养成", "策略对战", "稀有卡牌"]
+    pacing: "fast"
+  现实编程流:
+    description: "编程能力影响现实世界"
+    core_cool_points: ["代码改变现实", "逻辑漏洞利用", "系统入侵"]
+    pacing: "medium"
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1500
+  hook_strength: "strong"
+cool_points:
+  - type: "技术碾压"
+    trigger: "主角掌握超前技术"
+    effect: "用高科技吊打低科技敌人"
+  - type: "机甲觉醒"
+    trigger: "主角与机甲产生特殊联系"
+    effect: "人机合一，战力飙升"
+  - type: "星舰指挥"
+    trigger: "主角成为舰长指挥战斗"
+    effect: "战术碾压，以少胜多"
+  - type: "文明接触"
+    trigger: "首次接触外星文明"
+    effect: "文化冲击，技术交流"
+  - type: "义体升级"
+    trigger: "获得新的义体或升级"
+    effect: "能力提升，获得新功能"
+  - type: "黑客入侵"
+    trigger: "入侵敌方系统"
+    effect: "获取情报或破坏敌方"
+strand_weights:
+  main_plot: 0.5
+  character: 0.15
+  romance: 0.1
+  world_building: 0.25
+taboos:
+  - id: "TABOO-001"
+    content: "科技设定前后矛盾"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "术语堆砌，读者看不懂"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "科技万能，没有代价"
+    severity: "critical"
+  - id: "TABOO-004"
+    content: "外星人太像地球人"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "科学原理不严谨"
+    severity: "warning"
+reader_expectations:
+  must_meet:
+    - "科技设定自洽"
+    - "术语逐步解释"
+    - "科技有明确限制"
+    - "外星文明有独特性"
+  optional:
+    - "星际政治博弈"
+    - "AI觉醒议题"
+    - "时间旅行"
+  can_subvert:
+    - "人类中心主义"
+    - "科技必然进步"
+    - "外星文明敌对"
+  never:
+    - "违反基础科学原理"
+    - "科技无代价无限制"
+    - "硬科幻设定随意"
+golden_three:
+  opening_hook: "开篇展现科幻世界的独特设定或主角的特殊处境，如获得系统、穿越未来、遭遇外星文明"
+  protagonist_intro: "主角应在第一章出场，展现性格特点和当前困境，建立读者代入感"
+  chapter_end: "章末必须留下悬念或期待，如科技突破、敌人来袭、真相揭露"
+writing_style:
+  tone: "理性严谨，适当使用科技术语"
+  perspective: "第三人称有限视角，跟随主角"
+  sentence_style: "逻辑清晰，技术描写准确，战斗场景注重战术"
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "眼中闪过", "心中暗道", "嘴角抽搐", "无语", "恐怖的"]
+  show_dont_tell: true
+  break_patterns: true
+checker_weights:
+  consistency: 1.5
+  pacing: 1.0
+  golden_three: 1.2
+
+# ==================== 对话模板库（从v3.0合并）====================
+dialogue_templates:
+  style_definition:
+    tech_rational: "专业术语，逻辑清晰"
+    interstellar_grand: "文明级别的对话视角"
+  typical_dialogue:
+    tech_discussion: |
+      "曲率引擎的理论基础是爱因斯坦-罗森桥，但我们绕过了能量奇点问题。"
+      "你们……居然解决了负能量稳定性的问题？"
+    civilization_contact_scene: |
+      "我们不是来侵略的，我们只是想知道——宇宙的尽头是什么。"
+      "人类，你们的求知欲，正是你们最危险的特质。"
+    crisis_warning: |
+      "探测器传回的数据显示，三天后，一艘外星舰队将进入太阳系。"
+      "对方的技术水平……至少领先我们两百年。"
+    exploration_discovery: |
+      "这颗行星的重力是地球的1.2倍，大气成分接近，但有一种未知的气体……"
+      "采样分析。也许，这就是生命的答案。"
+  avoid_patterns:
+    - "过于随意的不科学设定"
+    - "缺乏专业感的星际对话"
+
+# ==================== 场景描写库（从v3.0合并）====================
+scene_description:
+  interstellar_scene:
+    space_navigation: |
+      "舷窗外是无尽的黑暗，偶尔划过的流星是唯一的点缀。飞船以亚光速穿越着这片虚无，距离最近的补给站还有三个月的航程。"
+    interstellar_combat: |
+      "主炮充能完毕的瞬间，一道粒子束划破虚空，击中了敌舰的护盾。能量涟漪在黑暗中扩散，像是涟漪般绚烂又致命。"
+  tech_scene:
+    laboratory: |
+      "全息投影悬浮在空中，密密麻麻的数据流不断刷新。研究员的手指在虚拟键盘上飞速敲击，屏幕上的模拟结果正在逼近那个临界点。"
+    new_tech_birth: |
+      "随着最后一道程序完成，实验室里响起了欢呼声。这不仅仅是一项技术的突破——这标志着人类文明将迈入星际时代。"
+  alien_exploration:
+    alien_environment: |
+      "脚下的土壤泛着淡紫色的荧光，头顶是两个巨大的月亮。空气中弥漫着奇异的香气，探测器显示这里的大气对人体无害，但没有任何人敢放松警惕。"
+    civilization_ruins: |
+      "巨大的建筑废墟延伸到视野尽头，这些曾经宏伟的塔楼和通道诉说着一个消逝的文明。墙上刻满了未知的符文，等待着被解读。"
+
+# ==================== 节奏模板（从v3.0合并）====================
+pacing_templates:
+  chapter_emotion_curve:
+    exploration_type: "启程(20%) → 航行/准备(30%) → 发现(30%) → 危机/惊喜(20%)"
+    combat_type: "危机降临(20%) → 战斗过程(40%) → 转折(30%) → 结果(10%)"
+    tech_type: "理论铺垫(30%) → 实验过程(30%) → 突破成功(30%) → 影响展示(10%)"
+  typical_pacing_example:
+    interstellar_exploration_chapter: "出发 → 航行中遇到意外 → 发现目标星球 → 探索中找到关键信息/资源 → 遭遇危机或重大发现"
+
+# ==================== 开篇模板（从v3.0合并）====================
+opening_templates:
+  hook_types:
+    civilization_contact: "首次接触外星文明"
+    tech_breakthrough: "重大科技发现"
+    crisis_arrival: "宇宙级危机逼近"
+  classic_opening_examples:
+    interstellar_era: |
+      "公元3000年，人类终于掌握了曲率航行技术。第一艘殖民舰'新纪元号'缓缓驶出太阳系，船上载着一万名开拓者和人类文明的全部希望。
+      舰长站在舷窗前，看着越来越远的太阳，轻声说道：'星辰大海，我们来了。'"
+    alien_contact: |
+      "信号来自比邻星方向，重复了三遍，是一串有规律的脉冲。
+      整个天文台沸腾了。这不是自然现象——这是智慧生命的呼唤。
+      人类，不再孤独。"
+
+# ==================== 悬念规划模板（从v3.0合并）====================
+suspense_planning:
+  long_term:
+    - type: "文明存亡"
+      description: "人类文明面临的终极威胁或机遇"
+      setup_chapters: "10-20章铺垫"
+    - type: "宇宙真相"
+      description: "关于宇宙本质或起源的重大秘密"
+      setup_chapters: "贯穿全书"
+  mid_term:
+    - type: "科技突破"
+      description: "关键技术的研发与突破过程"
+      setup_chapters: "3-5章"
+    - type: "星际冲突"
+      description: "与其他文明的矛盾与战争"
+      setup_chapters: "5-10章"
+  short_term:
+    - type: "章节悬念"
+      description: "每章结尾的小悬念"
+      setup_chapters: "当章解决"
+
+entities:
+  characters: []
+  locations: []
+  items: []

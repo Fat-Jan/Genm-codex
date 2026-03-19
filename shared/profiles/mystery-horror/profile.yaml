@@ -1,0 +1,155 @@
+name: "悬疑灵异"
+version: "1.1.0"
+sub_genres:
+  民俗灵异:
+    description: "以民间传说、风水堪舆、驱邪镇煞为核心的灵异悬疑"
+    core_cool_points: ["风水局破解", "民间秘术揭秘", "阴阳两界穿梭"]
+    pacing: "medium"
+  都市怪谈:
+    description: "现代都市背景下的诡异事件，贴近生活的恐怖氛围"
+    core_cool_points: ["熟悉场景陌生化", "日常细节恐怖化", "真相层层剥离"]
+    pacing: "fast"
+  悬疑探灵:
+    description: "以侦探推理手法调查灵异案件，科学与迷信的碰撞"
+    core_cool_points: ["抽丝剥茧查真相", "理性与灵异的冲突", "幕后真凶揭晓"]
+    pacing: "medium"
+  灵异复苏:
+    description: "灵气复苏背景下，主角获得阴阳眼或通灵能力"
+    core_cool_points: ["觉醒特殊能力", "实力逐步成长", "揭示灵异真相"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1500
+  hook_strength: "strong"
+
+cool_points:
+  - type: "灵异事件触发"
+    trigger: "主角遭遇超自然现象或诡异事件"
+    effect: "恐怖氛围渲染，读者好奇心被激发"
+  - type: "真相碎片揭露"
+    trigger: "通过调查或回忆获得关键线索"
+    effect: "谜团逐步解开，推动剧情发展"
+  - type: "危机降临"
+    trigger: "主角被邪祟或恶灵盯上"
+    effect: "生死危机，紧张感拉满"
+  - type: "破局时刻"
+    trigger: "找到克制邪祟的方法或真凶"
+    effect: "爽感爆发，读者获得满足感"
+  - type: "伏笔回收"
+    trigger: "前期埋下的诡异细节得到解释"
+    effect: "恍然大悟，增强故事整体性"
+  - type: "能力觉醒/提升"
+    trigger: "主角通灵能力增强或获得新法器"
+    effect: "战斗力提升，为更大危机做准备"
+
+strand_weights:
+  main_plot: 0.55
+  character: 0.15
+  romance: 0.05
+  world_building: 0.25
+
+taboos:
+  - id: "TABOO-001"
+    content: "过度依赖jump scare，缺乏心理层面的恐怖铺垫"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "鬼怪动机不明确，纯粹为吓人而吓人"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "主角在危机时刻突然获得莫名其妙的能力解决困境"
+    severity: "critical"
+  - id: "TABOO-004"
+    content: "过度描写血腥暴力而忽略悬疑氛围营造"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "频繁使用民间传说却缺乏创新改编"
+    severity: "warning"
+  - id: "TABOO-006"
+    content: "科学解释强行解释一切灵异现象"
+    severity: "info"
+  - id: "TABOO-007"
+    content: "主角在明知道危险的情况下还主动作死"
+    severity: "warning"
+
+reader_expectations:
+  must_meet:
+    - "恐怖氛围营造到位，让人不寒而栗"
+    - "灵异事件有合理解释或内在逻辑"
+    - "主角具备一定的自保能力或智慧"
+    - "悬念设置得当，让人想继续阅读"
+  optional:
+    - "融入本土文化元素，如道教、佛教、民间信仰"
+    - "主角有成长弧线，从恐惧到从容"
+    - "配角有鲜明的灵异相关背景故事"
+  can_subvert:
+    - "鬼怪并非全是恶，也有冤魂求助"
+    - "所谓的灵异事件其实是人为策划"
+    - "最恐怖的不是鬼怪，而是人心"
+  never:
+    - "用轻松搞笑的语气消解恐怖氛围"
+    - "频繁出现主角被吓晕却毫无后果的套路"
+    - "让鬼怪像NPC一样批量出现失去恐怖感"
+
+golden_three:
+  opening_hook: "必须在开篇300字内出现一个诡异事件或反常现象，如物品莫名移动、听到不存在的声音、见到模糊鬼影，瞬间建立恐怖基调"
+  protagonist_intro: "主角应在第一个灵异事件中出场，展现出与常人不同的特质（敏感体质、特殊血统、或冷静理智），让读者明白为何是他/她来面对这一切"
+  chapter_end: "每章结尾必须留有悬念，可以是新的灵异征兆、未解之谜的暗示、或主角面临的直接威胁，让读者不敢独自去厕所"
+
+writing_style:
+  tone: "阴冷压抑中带有探寻真相的执着，恐怖氛围与悬疑推理交织"
+  perspective: "第一人称或第三人称限知视角，跟随主角的感知体验恐怖"
+  sentence_style: "多用短句营造紧张感，适当使用感官描写（听觉、触觉优先于视觉），留白让读者自己想象"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "突然", "莫名", "不知为何", " inexplicably", "mysteriously"]
+  show_dont_tell: true
+  break_patterns: true
+
+checker_weights:
+  consistency: 1.2
+  pacing: 1.0
+  golden_three: 1.5
+  atmosphere: 1.3
+
+entities:
+  characters:
+    - name: "通灵者"
+      type: "主角"
+      traits: ["阴阳眼", "敏感体质", "好奇心重", "内心善良"]
+    - name: "风水师"
+      type: "导师"
+      traits: ["神秘莫测", "知识渊博", "亦正亦邪"]
+    - name: "冤魂"
+      type: "反派/可怜人"
+      traits: ["执念深重", "有未了心愿", "能力各异"]
+    - name: "驱魔道士"
+      type: "同行"
+      traits: ["法术高强", "性格孤僻", "有自己的原则"]
+    - name: "普通人"
+      type: "受害者"
+      traits: ["不信鬼神", "卷入事件", "无助恐惧"]
+
+  locations:
+    - name: "凶宅"
+      atmosphere: "阴冷潮湿，光线昏暗，常有异响"
+    - name: "老旧医院"
+      atmosphere: "消毒水与腐败气息混合，深夜走廊诡异"
+    - name: "废弃学校"
+      atmosphere: "空荡教室回荡过往，厕所镜子传说"
+    - name: "荒村"
+      atmosphere: "与世隔绝，古老禁忌，村民讳莫如深"
+    - name: "阴阳交界地"
+      atmosphere: "现实与灵界重叠，时空错乱，规则失效"
+
+  items:
+    - name: "阴阳镜"
+      function: "可映照出邪祟真身"
+    - name: "镇魂铃"
+      function: "驱邪镇煞，安抚冤魂"
+    - name: "符咒"
+      function: "封印、攻击、防护等多种用途"
+    - name: "古曼童"
+      function: "养小鬼，助运或害人"
+    - name: "招魂幡"
+      function: "召唤亡魂，沟通阴阳"

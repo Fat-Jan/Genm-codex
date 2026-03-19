@@ -1,0 +1,644 @@
+# 修仙题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "修仙"
+display_name: "修仙"
+description: "传统修仙、玄幻类力量成长题材"
+version: "3.0"
+template: templates/genres/修仙.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  traditional:
+    name: "传统修仙"
+    description: "经典修仙路线，循序渐进"
+    core_points: [境界突破, 越级挑战, 机缘获得]
+    pacing: slow
+    examples: [凡人修仙传, 仙逆]
+
+  invincible:
+    name: "无敌流修仙"
+    description: "主角开局强大或快速成长"
+    core_points: [碾压对手, 震惊众人, 收徒装逼]
+    pacing: fast
+    examples: [我师兄实在太稳健了]
+
+  cautious:
+    name: "苟道修仙"
+    description: "主角极度谨慎，稳扎稳打"
+    core_points: [幕后布局, 扮猪吃虎, 安全通关]
+    pacing: strategic
+    examples: [稳健修仙]
+
+  underdog:
+    name: "废材逆袭"
+    description: "起点低，通过金手指逆袭"
+    core_points: [逆袭打脸, 天才震惊, 地位跃升]
+    pacing: shuangwen
+    examples: [斗破苍穹]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 慢热
+  tension_ratio: "3:7"
+  typical_chapter_length: 5000
+  word_count:
+    minimum: 4000
+    standard: 4000-6000
+    long: 6000-8000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.5
+#   - 默认权重: 打脸爽(1.4), 越级爽(1.4), 机缘爽(1.2), 逆袭爽(1.2),
+#               升级爽(1.1), 情感爽(1.1), 收获爽(1.0), 装逼爽(1.0), 扮猪吃虎(1.3)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density: 0.8  # 每千字，修仙节奏较慢
+  max_interval: 1500  # 最大间隔字数，超过此值需预警
+
+  # 偏好类型及权重
+  preferred_types:
+    - type: 越级反杀
+      weight: 1.5
+      description: "低境界击败高境界，展示主角特殊手段"
+      triggers: [越级, 反杀, 不可能, 不可思议, 碾压, 蝼蚁]
+
+    - type: 机缘获得
+      weight: 1.4
+      description: "获得传承、宝物、功法"
+      triggers: [传承, 宝物, 机缘, 造化, 觉醒, 获得]
+
+    - type: 境界突破
+      weight: 1.3
+      description: "突破境界，实力飞跃"
+      triggers: [突破, 境界, 筑基, 金丹, 元婴]
+
+    - type: 打脸爽
+      weight: 1.2
+      description: "被轻视后展现实力"
+      triggers: [轻视, 嘲讽, 看不起, 废物, 震惊, 脸色大变]
+
+    - type: 逆袭爽
+      weight: 1.1
+      description: "从劣势到优势的逆转"
+      triggers: [逆转, 翻盘, 反败为胜, 扭转, 绝地]
+
+  # 避免类型
+  avoid_types:
+    - type: 无铺垫打脸
+      weight: 0
+      reason: 需要先建立信息差
+
+    - type: 无代价越级
+      weight: 0.3
+      reason: 越级必须有代价或特殊手段
+
+  # 组合加成
+  combo_bonus:
+    consecutive: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    setup_explosion: 0.3   # 铺垫 > 500 字后爆发爽点
+    contrast: 0.2          # 前后状态形成强烈对比
+    stacking: 0.1          # 每层加成，上限+0.3
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 55        # 任务推进为主
+  fire: 25         # 冲突爆发
+  constellation: 20  # 世界观铺垫
+
+  warnings:
+    quest_max_consecutive: 5
+    fire_missing_max: 10
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: POWER-001
+    description: "大境界压制不可逾越（除非有特殊手段）"
+    mandatory: true
+    checkpoint: 战斗场景
+
+  - id: POWER-002
+    description: "突破必须有铺垫和积累"
+    mandatory: true
+    checkpoint: 突破场景
+
+  - id: RESOURCE-001
+    description: "资源获取需符合世界观逻辑"
+    mandatory: false
+    checkpoint: 获得资源时
+
+  - id: TIME-001
+    description: "修炼时间需合理"
+    mandatory: true
+    checkpoint: 时间描述
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 危机/被欺负
+    core: 展示修仙界残酷
+    hint: 金手指/机缘即将出现
+    hook: 机缘现世征兆
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 金手指首次展现
+    conflict: 资源争夺或小人陷害
+    upgrade: 获得初步修炼资源
+    hook: 即将到来的危机
+    word_count: 4000-6000
+
+  chapter_3:
+    climax: 第一次小打脸或突破
+    worldbuilding: 展示更大的修仙世界
+    hook: 新的危机或机缘预告
+    word_count: 4000-6000
+
+# ==================== 反套路规则 ====================
+anti_trope:
+  auto_load:
+    - references/creativity/anti-trope-xianxia.md
+  recommended_rules:
+    - XH-001  # 金手指使用消耗寿命
+    - XH-006  # 主角无法正常修炼
+    - XH-009  # 修炼资源极度稀缺
+    - XH-012  # 越级战斗必有代价
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "主角成长要有逻辑，不能无脑升级"
+    - "世界观设定要严谨，前后一致"
+    - "境界压制要合理，越级要有特殊手段"
+    - "战斗要精彩，有招式描写"
+
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有机缘奇遇"
+    - "有搞笑配角调剂"
+
+  never_violate:
+    - "主角无脑升级，没有积累"
+    - "世界观前后矛盾"
+    - "境界压制随意打破，无理由越级"
+    - "金手指一开始就全开，无成长性"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "主角无脑升级，没有积累和铺垫"
+    severity: critical
+    checkpoint: "成长场景"
+
+  - id: TABOO-002
+    content: "世界观前后矛盾，设定混乱"
+    severity: critical
+    checkpoint: "世界观描写"
+
+  - id: TABOO-003
+    content: "境界压制随意打破，无特殊手段"
+    severity: critical
+    checkpoint: "战斗场景"
+
+  - id: TABOO-004
+    content: "金手指无成长性，一开始就全开"
+    severity: warning
+    checkpoint: "金手指设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.2      # 一致性更重要
+  pacing: 0.9
+  ooc: 1.1
+  continuity: 1.0
+  reader-pull: 0.9
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明（不写"他很生气"，写"他拍桌子"）
+      - 打破三段式（改为两项或四项）
+      - 删除金句（听起来像可引用的语句要重写）
+
+  dialogue:
+    style: 古风/半文半白
+    characteristics: 简洁有力，符合修仙者身份
+    avoid: [现代俚语, 网络用语]
+
+  description: "battle: 注重招式描写，境界压制展示"
+    scene: 宗门/秘境氛围营造
+    emotion: 内敛含蓄
+
+  pacing_rules:
+    setup: 充分铺垫后再爆发
+    climax: 每卷至少1个大高潮
+    transition: 允许慢节奏过渡章
+
+# ==================== 实体标签系统 v2.0 ====================
+entity_tags:
+  # ===== 角色实体 =====
+  character:
+    format: <entity type="角色" name="角色名" role="主角/配角/反派" status="活跃/归隐/死亡"/>
+    extended_fields:
+      relationship: 关系网络，格式：角色名:关系类型:强度
+      location: 当前位置
+      power_level: 实力等级/境界
+      first_appearance: 首次出场章节
+    example: <entity type="角色" name="林轩" role="主角" status="活跃" power_level="筑基初期" location="青云宗外门" first_appearance="第1章"/>
+
+  # ===== 势力实体 =====
+  faction:
+    format: <entity type="势力" name="势力名" tier="层级" stance="敌对/友好/中立"/>
+    extended_fields:
+      leader: 首领
+      members: 成员列表
+      resources: 资源
+      territory: 领地范围
+    example: <entity type="势力" name="青云宗" tier="一流宗门" stance="中立" leader="青云子"/>
+
+  # ===== 物品实体 =====
+  item:
+    format: <entity type="物品" name="物品名" grade="品级" owner="持有者"/>
+    extended_fields:
+      abilities: 能力/功效
+      origin: 来源
+      history: 历史记录
+      restrictions: 使用限制
+    example: <entity type="物品" name="神秘剑佩" grade="未知" owner="林轩"/>
+
+  # ===== 功法实体 =====
+  technique:
+    format: <entity type="功法" name="功法名" desc="特效" tier="层级" grade="品级"/>
+    extended_fields:
+      requirements: 修炼条件
+      stages: 功法阶段
+      side_effects: 副作用
+    example: <entity type="功法" name="青云剑诀" desc="青云宗镇派剑法" tier="天阶" grade="上品"/>
+
+  # ===== 法宝实体 =====
+  artifact:
+    format: <entity type="法宝" name="法宝名" desc="功能" tier="层级" grade="品级"/>
+    extended_fields:
+      owner: 拥有者
+      awakening: 觉醒状态
+      abilities: 法宝能力
+    example: <entity type="法宝" name="青锋剑" desc="本命飞剑" tier="地阶" grade="中品"/>
+
+  # ===== 妖兽实体 =====
+  beast:
+    format: <entity type="妖兽" name="妖兽名" desc="特点" tier="层级" realm="境界"/>
+    extended_fields:
+      habitat: 栖息地
+      weaknesses: 弱点
+      drops: 掉落物
+    example: <entity type="妖兽" name="玄冰蟒" desc="寒潭守护兽" tier="三阶" realm="金丹期"/>
+
+  # ===== 地点实体 =====
+  location:
+    format: <entity type="地点" name="地点名" region="所属区域" danger="危险等级"/>
+    extended_fields:
+      controller: 控制者
+      resources: 特产资源
+      secrets: 隐藏秘密
+    example: <entity type="地点" name="青云宗" region="东域" danger="安全"/>
+
+  # ===== 事件实体 =====
+  event:
+    format: <entity type="事件" name="事件名" chapter="章节" importance="重要性"/>
+    extended_fields:
+      participants: 参与者
+      consequences: 后果
+      foreshadowing: 关联伏笔
+    example: <entity type="事件" name="外门大比" chapter="第15-20章" importance="中"/>
+
+# ==================== 关系定义系统 ====================
+relation_system:
+  # ===== 关系标签格式 =====
+  relation_tag:
+    format: <relation from="角色A" to="角色B" type="关系类型" strength="强/中/弱"/>
+    example: <relation from="林轩" to="青云子" type="师徒" strength="强"/>
+
+  # ===== 关系类型定义 =====
+  relation_types:
+    master_disciple:
+      name: "师徒"
+      description: "师父-徒弟关系"
+      direction: 单向/双向
+      priority: 高
+      impact: 影响资源获取、技能传授
+
+    lover:
+      name: "恋人"
+      description: "情感关系"
+      direction: 双向
+      priority: 高
+      impact: 影响剧情走向、角色动机
+
+    enemy:
+      name: "敌人"
+      description: "敌对关系"
+      direction: 单向/双向
+      priority: 高
+      impact: 产生冲突、推动剧情
+
+    ally:
+      name: "盟友"
+      description: "合作关系"
+      direction: 双向
+      priority: 中
+      impact: 互相支持、资源共享
+
+    family:
+      name: "亲属"
+      description: "血缘关系"
+      direction: 双向
+      priority: 高
+      impact: 背景故事、情感纽带
+
+    master_servant:
+      name: "主仆"
+      description: "主人与仆从"
+      direction: 单向
+      priority: 中
+      impact: 忠诚度、命令执行
+
+    fellow_disciple:
+      name: "同门"
+      description: "同门师兄弟"
+      direction: 双向
+      priority: 中
+      impact: 资源竞争、互相帮助
+
+    grudge:
+      name: "恩怨"
+      description: "恩情或仇怨"
+      direction: 单向
+      priority: 中
+      impact: 需要回报或报复
+
+  # ===== 关系强度定义 =====
+  strength_levels:
+    strong:
+      value: 80-100
+      manifestation: 愿意牺牲生命
+
+    medium:
+      value: 40-79
+      manifestation: 愿意提供帮助
+
+    weak:
+      value: 1-39
+      manifestation: 认识但不亲密
+
+  # ===== 关系变化追踪 =====
+  relation_changes:
+    format: <relation_change from="角色A" to="角色B" before="原值" after="新值" reason="变化原因" chapter="章节"/>
+    example: <relation_change from="林轩" to="苏晴" before="60" after="65" reason="共同经历危机" chapter="第10章"/>
+
+# ==================== 关系图生成配置 ====================
+relation_graph:
+  output_format: Mermaid
+  default_layout: TD  # 从上到下
+
+  node_styles:
+    protagonist: "fill:#f9f,stroke:#333,stroke-width:4px"
+    supporting: "fill:#bbf,stroke:#333,stroke-width:2px"
+    antagonist: "fill:#fbb,stroke:#333,stroke-width:2px"
+    faction: "fill:#bfb,stroke:#333,stroke-width:2px"
+
+  edge_styles:
+    master_disciple: "stroke:#00f,stroke-width:2px"
+    lover: "stroke:#f0f,stroke-width:2px"
+    enemy: "stroke:#f00,stroke-width:2px,stroke-dasharray: 5, 5"
+    ally: "stroke:#0f0,stroke-width:2px"
+
+  triggers:
+    - "/novel-character graph"
+    - "/novel-status entities"
+
+  template_path: templates/entities/entity-relation-graph.md
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    classical_concise: 古风凝练
+    semi_classical: 半文半白
+    domineering: 霸气侧漏
+
+  typical_dialogues:
+    master_entrance: |
+      "阁下何人？竟敢擅闯我宗禁地。"
+      "区区筑基期，也敢挡本座的路？"
+
+    face_slap: |
+      "原来阁下就是那位传说中的..."
+      "今日之事，本座记下了。"
+
+    accepting_disciple: |
+      "此子根骨清奇，倒是块修仙的好材料。"
+      "这套功法，今日便传予你了。"
+
+    realm_suppression: |
+      "筑基期也敢对金丹前辈无礼？"
+      "大境之差，如隔天堑。"
+
+    snobbish: |
+      "原来是外门弟子，退下吧。"
+      "这等资源，岂是你能染指的？"
+
+  avoid_patterns:
+    - "太现代的口语表达"
+    - "网络用语"
+    - "过于直白的情绪表达"
+    - "不符合身份的谦卑/傲慢"
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  battle:
+    technique: |
+      "林轩脚踏七星步，剑指如龙，一道青芒破空而出。"
+      "对手祭出飞剑，剑光分化万千，如星河倒卷。"
+
+    realm_suppression: |
+      "对方只是金丹初期，但那股威压，让林轩几乎窒息。"
+      "大境之差，果然不是人力可弥补。"
+
+    breakthrough: |
+      "天地灵气疯狂涌入，丹田处金光大盛，一道冲天光柱直破云霄。"
+      "桎梏碎裂的声音在识海中回荡，整个人的气息节节攀升。"
+
+  opportunity:
+    discovering_treasure: |
+      "那古卷泛着荧光，似乎蕴含着某种古老的力量。"
+      "林轩小心翼翼地探出一缕神识，心神巨震。"
+
+    inheritance: |
+      "一道虚影缓缓浮现，目光如炬：'吾乃青云子，今传汝青云剑诀...'"
+
+  sect:
+    hall_meeting: |
+      "大殿之内，数十位长老分列两侧，气氛凝重。"
+      "掌教高坐其上，目光扫过众人，最后落在林轩身上。"
+
+    outer_disciple_life: |
+      "外门弟子的住所简陋，但林轩并不在意。"
+      "每日打坐修炼，偶尔与几名好友切磋，日子倒也充实。"
+
+  secret_realm:
+    entrance: |
+      "光幕流转，一股古老苍凉的气息扑面而来。"
+      "这座秘境，已经沉睡了数万年。"
+
+    danger: |
+      "四周妖气弥漫，林轩神识探出，却如泥牛入海。"
+      "这里，似乎有什么东西在窥视着他们。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    standard: "铺垫(30%) → 冲突(40%) → 高潮(20%) → 钩子(10%)"
+    climax_focused: "快速铺垫(15%) → 连续冲突(50%) → 高潮爆发(30%) → 悬念(5%)"
+    transition: "日常描写(40%) → 小冲突(30%) → 线索铺垫(20%) → 钩子(10%)"
+
+  cool_point_distribution:
+    small_interval: "800-1200字"
+    medium_interval: "2000-3000字"
+    large_position: "章末或卷末"
+
+  typical_examples:
+    breakthrough_chapter: "修炼铺垫 → 瓶颈感悟 → 突破契机 → 成功突破 → 实力展示 → 新目标"
+    battle_chapter: "对手挑衅 → 实力差距 → 特殊手段 → 逆转取胜 → 收获战利品 → 后续影响"
+    opportunity_chapter: "发现线索 → 探索过程 → 危机出现 → 化解危机 → 获得机缘 → 潜力提升"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    crisis: "主角面临生死危机，引出金手指觉醒"
+    rebirth: "带着前世记忆重生，先知先觉布局"
+    underdog: "被嘲笑欺辱，为后续打脸铺垫"
+    mysterious: "发现神秘物品/获得神秘传承"
+
+  chapter_1_elements:
+    - "主角基本设定（姓名、身份、目标）"
+    - "世界观初步展示"
+    - "金手指暗示或觉醒"
+    - "第一个小冲突"
+    - "章末钩子"
+
+  classic_examples:
+    underdog_comeback: |
+      "林轩，外门考核你又是倒数第一，再这样下去，迟早被逐出宗门。"
+      林轩低着头，没有反驳。没人知道，他丹田中那枚神秘玉佩，今夜突然发出了微弱的光芒...
+
+    rebirth_revenge: |
+      "这一世，我绝不会再重蹈覆辙。"
+      林轩缓缓睁开眼，发现自己居然回到了二十年前的那个夜晚。前世被夺走的传承、被害死的师父、被侮辱的尊严...这一切，他都要讨回来。
+
+    invincible_start: |
+      "你就是新来的外门弟子？"
+      林轩笑了笑，随手一道剑气将测试石柱削去一半。
+      众人瞬间安静了。这个看起来普普通通的少年，是...
+
+# ==================== 悬念规划模板 ====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # B级：悬念是辅助元素，服务于主角成长
+  # 修仙流的核心是境界突破、机缘获得、越级挑战，悬念仅用于增加期待感
+  # 主要悬念类型：能力来源、身份谜团、传承来历
+  importance_level: B
+
+  types:
+    short_term:
+      definition: "单个事件/副本内的悬念，事件结束时解决"
+      reveal_timing: "事件内（3-15章）"
+      examples: ["秘境宝藏归属", "小人阴谋真相", "功法来历"]
+
+    mid_term:
+      definition: "跨越多个阶段的悬念，与主角成长相关"
+      reveal_timing: "30-80章"
+      examples: ["金手指真正来源", "宗门隐藏秘密", "师父真实身份"]
+
+    long_term:
+      definition: "贯穿全书的核心悬念，世界观真相"
+      reveal_timing: "80-200章，核心反转建议100章后"
+      examples: ["修仙界真正起源", "主角真实身世", "飞升的真相"]
+
+  reveal_schedule:
+    chapter_1_to_3:
+      - type: "金手指暗示"
+        content: "神秘物品/传承出现，但不揭示真正来源"
+        required: true
+      - type: "第一个危机解决"
+        content: "展示主角潜力"
+        required: true
+
+    chapter_5_to_15:
+      - type: "金手指初步觉醒"
+        content: "能力开始展现，但有限制/代价"
+        note: "修仙金手指要有成长性"
+      - type: "第一个大机缘"
+        content: "获得功法/法宝，但来历保持神秘"
+
+    chapter_15_to_30:
+      - type: "势力关系初步展现"
+        content: "宗门内部矛盾、外部势力"
+      - type: "金手指来历线索"
+        content: "暗示金手指的来源，但不给答案"
+        note: "只给线索，引发好奇"
+
+    chapter_30_to_60:
+      - type: "主角身世线索"
+        content: "父母/血脉相关信息"
+        note: "只给线索，不给真相"
+      - type: "宗门/势力秘密"
+        content: "隐藏的阴谋或历史"
+
+    chapter_60_to_100:
+      - type: "金手指真正来历"
+        content: "揭示金手指的完整来源和作用"
+      - type: "重要配角背叛/牺牲"
+        content: "增加情感深度"
+
+    chapter_100_to_150:
+      - type: "核心反转"
+        content: "颠覆读者认知的重大真相"
+        examples: ["主角真实身份", "修仙界真正目的", "师父的真正立场"]
+        note: "修仙文读者喜欢深度反转，必须有足够铺垫"
+
+    chapter_150_plus:
+      - type: "世界观真相"
+        content: "修仙体系真正来源、飞升真相等"
+      - type: "最终对决"
+        content: "与核心敌人的对决"
+
+  suspense_taboos:
+    - content: "越级战斗无代价/无特殊手段"
+      reason: "破坏力量体系，修仙核心是境界压制"
+      severity: critical
+    - content: "金手指无成长性，一次性给全"
+      reason: "失去后续期待感"
+      severity: warning
+
+  foreshadowing:
+    principle: "每18章埋设1个新伏笔，每50章回收1个旧伏笔"
+    note: "修仙文节奏慢热，悬念密度不宜过高，重点放在成长线索"
+    examples:
+      short_term: "副本内埋设，副本结束回收"
+      mid_term: "第15章埋设，第60章回收"
+      long_term: "第1章埋设，第120章+回收"
+    status_flow:
+      - "潜伏 → 铺垫 → 可回收 → 已回收"

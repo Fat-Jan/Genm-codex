@@ -1,0 +1,231 @@
+# 玄幻题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "玄幻"
+display_name: "玄幻修仙"
+description: "修仙、玄幻、高武等力量成长类题材"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  traditional:
+    name: "传统修仙"
+    description: "经典修仙路线，循序渐进"
+    core_points: [境界突破, 越级挑战, 机缘获得]
+    pacing: slow
+    examples: [凡人修仙传, 仙逆]
+
+  invincible:
+    name: "无敌流修仙"
+    description: "主角开局强大或快速成长"
+    core_points: [碾压对手, 震惊众人, 收徒装逼]
+    pacing: fast
+    examples: [我师兄实在太稳健了]
+
+  cautious:
+    name: "苟道修仙"
+    description: "主角极度谨慎，稳扎稳打"
+    core_points: [幕后布局, 扮猪吃虎, 安全通关]
+    pacing: strategic
+    examples: [稳健修仙]
+
+  underdog:
+    name: "废材逆袭"
+    description: "起点低，通过金手指逆袭"
+    core_points: [逆袭打脸, 天才震惊, 地位跃升]
+    pacing: shuangwen
+    examples: [斗破苍穹]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 慢热
+  tension_ratio: "3:7"
+  typical_chapter_length: 5000
+  word_count:
+    minimum: 4000
+    standard: 4000-6000
+    long: 6000-8000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  # 基础密度要求
+  density: 0.8  # 每千字
+  max_interval: 1500  # 最大间隔字数
+
+  # 偏好类型及权重
+  preferred_types:
+    - type: 越级反杀
+      weight: 1.5
+      description: "低境界击败高境界，展示主角特殊手段"
+      triggers: [越级, 反杀, 不可能, 不可思议, 碾压, 蝼蚁]
+
+    - type: 机缘获得
+      weight: 1.4
+      description: "获得传承、宝物、功法"
+      triggers: [传承, 宝物, 机缘, 造化, 觉醒, 获得]
+
+    - type: 境界突破
+      weight: 1.3
+      description: "突破境界，实力飞跃"
+      triggers: [突破, 境界, 筑基, 金丹, 元婴]
+
+    - type: 打脸爽
+      weight: 1.2
+      description: "被轻视后展现实力"
+      triggers: [轻视, 嘲讽, 看不起, 废物, 震惊, 脸色大变]
+
+    - type: 逆袭爽
+      weight: 1.1
+      description: "从劣势到优势的逆转"
+      triggers: [逆转, 翻盘, 反败为胜, 扭转, 绝地]
+
+  # 避免类型
+  avoid_types:
+    - type: 无铺垫打脸
+      weight: 0
+      reason: 需要先建立信息差
+
+    - type: 无代价越级
+      weight: 0.3
+      reason: 越级必须有代价或特殊手段
+
+  # 组合加成
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 55
+  fire: 25
+  constellation: 20
+
+  warnings:
+    quest_max_consecutive: 5
+    fire_missing_max: 10
+    constellation_missing_max: 15
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "主角无脑升级，没有积累和铺垫"
+    severity: critical
+    checkpoint: "成长场景"
+
+  - id: TABOO-002
+    content: "世界观前后矛盾，设定混乱"
+    severity: critical
+    checkpoint: "世界观描写"
+
+  - id: TABOO-003
+    content: "境界压制随意打破，无特殊手段"
+    severity: critical
+    checkpoint: "战斗场景"
+
+  - id: TABOO-004
+    content: "金手指无成长性，一开始就全开"
+    severity: warning
+    checkpoint: "金手指设计"
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: POWER-001
+    description: "大境界压制不可逾越（除非有特殊手段）"
+    mandatory: true
+    checkpoint: 战斗场景
+
+  - id: POWER-002
+    description: "突破必须有铺垫和积累"
+    mandatory: true
+    checkpoint: 突破场景
+
+  - id: RESOURCE-001
+    description: "资源获取需符合世界观逻辑"
+    mandatory: false
+    checkpoint: 获得资源时
+
+  - id: TIME-001
+    description: "修炼时间需合理"
+    mandatory: true
+    checkpoint: 时间描述
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 危机/被欺负
+    core: 展示修仙界残酷
+    hint: 金手指/机缘即将出现
+    hook: 机缘现世征兆
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 金手指首次展现
+    conflict: 资源争夺或小人陷害
+    upgrade: 获得初步修炼资源
+    hook: 即将到来的危机
+    word_count: 4000-6000
+
+  chapter_3:
+    climax: 第一次小打脸或突破
+    worldbuilding: 展示更大的修仙世界
+    hook: 新的危机或机缘预告
+    word_count: 4000-6000
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "主角成长要有逻辑，不能无脑升级"
+    - "世界观设定要严谨，前后一致"
+    - "境界压制要合理，越级要有特殊手段"
+    - "战斗要精彩，有招式描写"
+
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有机缘奇遇"
+    - "有搞笑配角调剂"
+
+  never_violate:
+    - "主角无脑升级，没有积累"
+    - "世界观前后矛盾"
+    - "境界压制随意打破，无理由越级"
+    - "金手指一开始就全开，无成长性"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.2
+  pacing: 0.9
+  ooc: 1.1
+  continuity: 1.0
+  reader-pull: 0.9
+
+# ==================== 写作风格 ====================
+writing_style:
+  dialogue:
+    style: 古风/半文半白
+    characteristics: 简洁有力，符合修仙者身份
+    avoid: [现代俚语, 网络用语]
+
+  description: "battle: 注重招式描写，境界压制展示"
+    scene: 宗门/秘境氛围营造
+    emotion: 内敛含蓄
+
+# ==================== 关联文件 ====================
+# 这些文件包含详细的题材规则
+related_files:
+  cultivation_levels: cultivation-levels.md
+  power_systems: power-systems.md
+  cool_points_detail: cool-points.md
+  plot_patterns: plot-patterns.md
+
+# ==================== 反套路规则 ====================
+anti_trope:
+  auto_load:
+    - references/creativity/anti-trope-xianxia.md
+  recommended_rules:
+    - XH-001  # 金手指使用消耗寿命
+    - XH-006  # 主角无法正常修炼
+    - XH-009  # 修炼资源极度稀缺
+    - XH-012  # 越级战斗必有代价

@@ -1,0 +1,340 @@
+# 青春甜宠题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "青春甜宠"
+display_name: "青春甜宠"
+description: "全程高甜、轻松温馨的青春恋爱题材"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  campus_sweet:
+    name: "校园甜宠流"
+    description: "校园青春恋爱"
+    core_points: [甜蜜初恋, 校园日常, 修成正果]
+    pacing: relaxed
+    examples: [致我们单纯的小美好]
+
+  entertainment_sweet:
+    name: "娱乐圈甜宠流"
+    description: "娱乐圈背景的甜宠"
+    core_points: [明星恋爱, 宠溺日常, 修成正果]
+    pacing: relaxed
+    examples: [微微一笑很倾城]
+
+  workplace_sweet:
+    name: "职场甜宠流"
+    description: "职场背景的甜宠"
+    core_points: [职场恋爱, 互相扶持, 事业爱情双收]
+    pacing: relaxed
+    examples: [何以笙箫默]
+
+  childhood_sweethearts:
+    name: "青梅竹马流"
+    description: "青梅竹马的爱情"
+    core_points: [两小无猜, 暗恋成真, 修成正果]
+    pacing: relaxed
+    examples: [何以笙箫默]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 甜宠型
+  tension_ratio: "7:3"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1500
+
+  preferred_types:
+    - type: 甜蜜互动
+      weight: 1.8
+      description: "男女主之间的甜蜜互动"
+      triggers: [甜, 宠, 撒糖, 抱抱, 亲亲, 心动, 脸红, 害羞, 暖心]
+
+    - type: 宠溺日常
+      weight: 1.6
+      description: "男主对女主的宠溺行为"
+      triggers: [宠, 溺, 护短, 偏爱, 只对你, 小祖宗, 听你的, 随你]
+
+    - type: 修成正果
+      weight: 1.4
+      description: "感情开花结果"
+      triggers: [在一起, 告白, 求婚, 结婚, 领证, 怀孕, 宝宝]
+
+    - type: 打脸情敌
+      weight: 1.2
+      description: "男主拒绝其他女性，只为女主"
+      triggers: [拒绝, 不喜欢, 有了, 她才是, 只爱, 认定]
+
+  avoid_types:
+    - type: 虐心情节
+      weight: 0
+      reason: 甜宠文不能有虐心情节
+
+    - type: 男主不专一
+      weight: 0
+      reason: 男主必须专一
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 25
+  fire: 35
+  constellation: 40
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: SWEET-001
+    description: "男主必须专一"
+    mandatory: true
+    checkpoint: 男主行为
+
+  - id: SWEET-002
+    description: "要有甜蜜感"
+    mandatory: true
+    checkpoint: 整体氛围
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.0
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.3
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 全程高甜，男主宠溺
+    - 感情发展自然，不要太虐
+    - 主角人设讨喜
+    - 轻松愉快的氛围
+
+  optional_satisfy:
+    - 有校园/职场背景
+    - 有小打小闹的甜蜜冲突
+    - 有助攻角色
+
+  absolutely_not:
+    - 太虐心，破坏甜文基调
+    - 男主不专一或有渣行为
+    - 女主太作或不讨喜
+    - 出现沉重话题
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 太虐心，破坏甜文基调
+    severity: critical
+    checkpoint: 整体基调
+
+  - id: TABOO-002
+    content: 男主不专一或有渣行为
+    severity: critical
+    checkpoint: 男主塑造
+
+  - id: TABOO-003
+    content: 女主太作或人设不讨喜
+    severity: warning
+    checkpoint: 女主塑造
+
+  - id: TABOO-004
+    content: 出现沉重话题，破坏轻松氛围
+    severity: warning
+    checkpoint: 情节设计
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    youth_lively: 轻松自然，俏皮可爱，充满青春气息
+    heroine_dialogue: 古灵精怪，偶尔傲娇，真诚善良
+    hero_dialogue: 腹黑宠溺，偶尔毒舌，深情专一
+
+  typical_dialogues:
+    campus_daily: |
+      "你怎么又抄我作业！"
+      "因为你的字好看啊。"
+      "少来这套，下次自己写！"
+      "好，下次我只抄你的心。"
+      "......你犯规！"
+
+    confession: |
+      "我有话想对你说。"
+      "嗯？什么事？"
+      "我喜欢你，从高一入学那天就开始了。"
+      "你...你等等，让我缓缓...你再说一遍？"
+      "我喜欢你，做我女朋友好吗？"
+
+    jealousy: |
+      "今天和隔壁班的男生聊得很开心嘛。"
+      "他只是问我题目而已。"
+      "哦，那我也去问隔壁班女生题目好了。"
+      "你敢！"
+      "就问你敢不敢让我吃醋。"
+
+  avoid_patterns:
+    - 过于沉重的话题
+    - 成年人式的复杂情感表达
+    - 破坏轻松氛围的虐心情节
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  campus_scenes:
+    classroom: |
+      阳光穿过玻璃窗，在课桌上投下斑驳的光影。粉笔在黑板上划过，发出'笃笃'的声响。她托着腮，望向窗外飘落的梧桐叶，余光却偷偷瞄着侧前方那个清瘦的背影。
+
+    sports_day: |
+      跑道上的少年，额间的汗水在阳光下闪闪发光。终点线前，他骤然加速，一骑绝尘。欢呼声此起彼伏，他却只看向看台上那个举着横幅的身影，嘴角上扬。
+
+    after_school: |
+      夕阳西下，两人的影子被拉得很长。她走在他身侧，心跳声似乎比平日更响。他突然停下脚步，她差点撞上他的后背。
+      "你走那么慢，是怕被别人发现我们一起走？"
+      "才...才没有！"
+
+  date_scenes:
+    milk_tea_shop: |
+      店里放着轻快的音乐，奶茶的香气弥漫在空气中。她低头搅动着杯中的珍珠，脸颊泛红。他撑着下巴看着她，眼神里满是宠溺。
+      "怎么一直盯着我看？"
+      "好看。"
+      "......"
+
+    amusement_park: |
+      摩天轮缓缓上升，整个城市的景色尽收眼底。她趴在玻璃窗上，眼睛亮晶晶的。他从背后轻轻环住她的腰，在她耳边低语：'你知道吗，听说摩天轮到达顶点时许愿最灵验。'
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    sweet_chapter: 轻松开场30% -> 甜蜜互动50% -> 小惊喜15% -> 撒糖收尾5%
+    misunderstanding_chapter: 甜蜜铺垫30% -> 误会产生30% -> 解开误会30% -> 感情升温10%
+    confession_chapter: 内心纠结20% -> 告白铺垫30% -> 高甜告白40% -> 害羞收尾10%
+
+  typical_pacing_examples:
+    first_encounter: 场景交代 -> 偶遇/冲突 -> 男主高光 -> 女主心动 -> 留下印象
+    sugar_chapter: 日常互动 -> 突然靠近 -> 心动瞬间 -> 宠溺行为 -> 甜蜜收尾
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    heroine_perspective: 清晨闹钟 -> 匆忙出门 -> 意外相遇 -> 心动初体验
+    hero_perspective: 暗恋已久 -> 偶然机会 -> 接近女主 -> 暗戳戳撩
+    contrast_opening: 校园传闻中的高冷男主 -> 实际上对女主默默守护
+
+  classic_opening_examples:
+    childhood_sweethearts: |
+      从小到大，他们就是邻居。从幼儿园到高中，他都是别人口中的'别人家的孩子'。
+      而她，是被他'管'着长大的。
+      '林小小，作业写完没有？'
+      又来了。她翻了个白眼，却不知道，他看她的眼神里，藏着多少年的喜欢。
+
+    love_at_first_sight: |
+      开学典礼上，她在人群中一眼就看到了他。
+      白衬衫，清爽的短发，站在主席台上发言的样子，像是漫画里走出来的少年。
+      那一刻，她听到了自己心跳的声音。
+      后来她才知道，那天他也在人群中，看到了她。
+
+    enemies_to_lovers: |
+      全校都知道，他和她是死对头。
+      从高一入学开始，两人就看不顺眼。他嫌弃她笨手笨脚，她讨厌他目中无人。
+      直到有一天，她撞破了他偷偷喂流浪猫的秘密。
+      '你不是很高冷吗？'
+      '......你什么都没看到。'
+
+# ==================== 悬念规划 ====================
+suspense_planning:
+  importance: C
+
+  types:
+    small_misunderstanding:
+      definition: 短期小误会/小冲突的悬念
+      reveal_timing: 事件内（1-5章）
+      examples: [小误会能否解开, 小冲突如何化解, 吃醋如何收场]
+
+    relationship_suspense:
+      definition: 感情发展阶段的悬念
+      reveal_timing: 10-40章
+      examples: [何时告白, 能否在一起, 感情能否更进一步]
+
+    long_term_suspense:
+      definition: 贯穿全书的核心悬念
+      reveal_timing: 40-80章
+      examples: [能否修成正果, 最终结局]
+
+  reveal_timing:
+    chapter_1_to_3:
+      - type: 相遇和初印象
+        content: 男女主如何相遇，第一印象
+        mandatory: true
+
+    chapter_5_to_20:
+      - type: 感情升温
+        content: 互动增加，心动开始
+
+    chapter_20_to_40:
+      - type: 告白/在一起
+        content: 感情确立的重要时刻
+
+    chapter_40_to_80:
+      - type: 感情深化
+        content: 恋爱日常，甜蜜互动
+      - type: 小考验
+        content: 感情的小考验（不要太虐）
+
+    chapter_80_plus:
+      - type: 修成正果
+        content: 最终结局，甜蜜收尾
+
+  sub_genre_pacing:
+    campus_sweet:
+      first_encounter: 第1-3章
+      confession: 第20-40章
+      happy_ending: 第60-80章
+      characteristics: 悬念在感情推进
+
+    entertainment_sweet:
+      identity_suspense: 第10-20章（若有）
+      public_relationship: 第40-60章
+      characteristics: 悬念在身份和公开
+
+    workplace_sweet:
+      first_encounter: 第1-5章
+      relationship_warming: 第15-30章
+      together: 第30-50章
+      characteristics: 悬念在职场与感情平衡
+
+    childhood_sweethearts:
+      secret_crush_reveal: 第1章或贯穿前20章
+      together: 第20-40章
+      characteristics: 悬念在暗恋是否被察觉
+
+  taboos:
+    - content: 太虐心，破坏甜文基调
+      reason: 青春甜宠的核心是甜，悬念不能喧宾夺主
+      severity: critical
+    - content: 误会太深太久
+      reason: 甜宠的误会要快速解开，不能太虐
+      severity: warning
+
+  foreshadowing:
+    principle: 每25章埋设1个新伏笔，每60章回收1个旧伏笔
+    note: 青春甜宠悬念稀疏，重点放在甜蜜互动，伏笔服务于小惊喜
+    examples:
+      short_term: 小误会埋设，误会解开回收
+      mid_term: 第20章埋设，第50章回收
+      long_term: 第1章埋设，第80章回收

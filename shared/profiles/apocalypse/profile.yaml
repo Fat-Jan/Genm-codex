@@ -1,0 +1,293 @@
+# 末世题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "末世"
+display_name: "末世"
+description: "末世生存、丧尸/天灾/异兽末日题材"
+version: "3.0"
+template: templates/genres/末世.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  zombie:
+    name: "丧尸末世流"
+    description: "丧尸爆发，人类生存挣扎"
+    core_points: [击杀丧尸, 收集物资, 建立基地]
+    pacing: tense_survival
+    examples: [末日蟑螂, 末世之黑暗召唤师]
+
+  disaster:
+    name: "天灾末世流"
+    description: "自然灾害频发，资源匮乏"
+    core_points: [预知天灾, 储备物资, 救助他人]
+    pacing: oppressive_struggle
+    examples: [末世重生之苏秦]
+
+  beast:
+    name: "异兽末世流"
+    description: "变异生物横行，人类退守"
+    core_points: [狩猎异兽, 获得晶核, 进化变强]
+    pacing: growth_combat
+    examples: [末世之黑暗召唤师]
+
+  rebirth:
+    name: "重生末世流"
+    description: "重生回末世前，提前准备"
+    core_points: [先知先觉, 囤积物资, 救重要的人]
+    pacing: shuangwen
+    examples: [末世重生之苏秦]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 生存紧张型
+  tension_ratio: "2:8"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 1.1  # 末世节奏紧张
+  max_interval: 1200  # 最大间隔字数
+
+  preferred_types:
+    - type: 绝境求生
+      weight: 1.8
+      description: "在绝境中找到生路"
+      triggers: [逃出, 突围, 绝处逢生, 出路, 转机, 发现, 救命, 通道]
+
+    - type: 资源收获
+      weight: 1.5
+      description: "获得大量物资/装备"
+      triggers: [物资, 仓库, 超市, 药品, 武器, 食物, 水, 满载而归, 收获]
+
+    - type: 击杀威胁
+      weight: 1.4
+      description: "消灭危险敌人"
+      triggers: [击杀, 爆头, 消灭, 斩杀, 击败, 击退, 晶核, 掉落]
+
+    - type: 救助他人
+      weight: 1.3
+      description: "从危险中救人"
+      triggers: [救下, 救出, 保护, 掩护, 带走, 幸存者, 感谢, 跟我走]
+
+    - type: 基地发展
+      weight: 1.2
+      description: "建立和发展基地"
+      triggers: [基地, 建立, 升级, 扩建, 人口, 防御, 投奔, 来了很多人]
+
+    - type: 能力进化
+      weight: 1.4
+      description: "获得新能力或进化升级"
+      triggers: [进化, 觉醒, 异能, 升级, 变强, 能力, 突破, 新技能]
+
+  avoid_types:
+    - type: 无理由的安全
+      weight: 0
+      reason: 末世要有危险感
+
+    - type: 资源太容易获得
+      weight: 0.2
+      reason: 末世资源要稀缺
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.3
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 45        # 生存发展
+  fire: 35         # 危机爆发
+  constellation: 20  # 人际关系
+
+  warnings:
+    quest_max_consecutive: 5
+    fire_missing_max: 10
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: APOC-001
+    description: "危险要真实存在，不能太安全"
+    mandatory: true
+    checkpoint: 生存场景
+
+  - id: APOC-002
+    description: "资源要稀缺，不能太容易获得"
+    mandatory: true
+    checkpoint: 物资获取
+
+  - id: APOC-003
+    description: "人性要有考验，不能全是好人"
+    mandatory: false
+    checkpoint: 人物塑造
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 末世爆发/重生
+    core: 展示末世的残酷
+    conflict: 第一次面对危险
+    hook: 获得生存优势/金手指
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 开始生存之旅
+    trial: 遇到其他幸存者
+    upgrade: 获得第一批物资
+    hook: 更大的危机到来
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 解决第一个大危机
+    worldbuilding: 展示末世的更多规则
+    harvest: 获得核心能力/物资
+    hook: 新的征程开始
+    word_count: 4000-5500
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "环境太安全，无危险感"
+    severity: critical
+    checkpoint: "生存设计"
+
+  - id: TABOO-002
+    content: "资源太容易获得"
+    severity: warning
+    checkpoint: "物资获取"
+
+  - id: TABOO-003
+    content: "人性太美好/太黑暗"
+    severity: warning
+    checkpoint: "人物塑造"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.1
+  consistency: 1.2
+  pacing: 1.2
+  ooc: 1.0
+  continuity: 1.1
+  reader-pull: 1.1
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明（不写"他很生气"，写"他拍桌子"）
+      - 打破三段式（改为两项或四项）
+      - 删除金句（听起来像可引用的语句要重写）
+
+  dialogue:
+    style: 紧张直接
+    characteristics: 危机中对话简洁
+    avoid: [悠闲日常对话过多]
+
+  description:
+    danger: 紧张刺激，生死一线
+    resource: 获得时的满足感
+    humanity: 末世中的人性考验
+
+# ==================== 实体标签 ====================
+entity_tags:
+  resource:
+    format: <entity type="资源" name="资源名" desc="用途" rarity="稀有度" quantity="数量"/>
+
+  mutant:
+    format: <entity type="变异生物" name="生物名" desc="特点" tier="等级" weakness="弱点" drop="掉落物"/>
+
+  base:
+    format: <entity type="基地" name="基地名" desc="设施" population="人口" defense="防御等级"/>
+
+  supplies:
+    format: <entity type="物资" name="物资名" desc="用途" quantity="数量" quality="品质"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    tense_survival: 末世紧张，危机中的简洁对话，效率优先
+    pragmatic: 生存者务实，资源为王的现实语气
+
+  typical_dialogues:
+    resource_conflict: |
+      "这批物资，我们势在必得。"
+      "在末世，善良是最廉价的死法。"
+
+    survival_choice: |
+      "救他们？那我们三天的口粮就没了。"
+      "我没有选择救不救，我只是在选择我们怎么活。"
+
+    meeting_survivors: |
+      "你是什么人？别靠近，再靠近我就开枪了。"
+      "放心，我不是那些疯子。但我也不会白帮忙。"
+
+    desperate_moment: |
+      "听着，如果我们能活过今晚，我请你喝酒。"
+      "前提是，我们还能找到酒。"
+
+  avoid_patterns:
+    - 过于悠闲的日常对话
+    - 不符合末世背景的乐观情绪
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  ruined_city:
+    zombie_siege: |
+      "满街都是游荡的身影，曾经繁华的商业街如今只剩破碎的橱窗和干涸的血迹。一声枪响，那些身影齐刷刷地转过头来。"
+
+    supply_looting: |
+      "货架大多空了，但角落里还有几罐罐头。他的手在颤抖，不是因为恐惧，而是因为兴奋——这是三周来第一次找到食物。"
+
+  base_life:
+    construction: |
+      "围墙一天天高起来，来投奔的人也一天天多。虽然大家都沉默寡言，但每张脸上都写着同一个字——活下去。"
+
+    human_test: |
+      "新来的人跪在地上请求收留，守门的人却紧握着枪。在末世，善良是最奢侈的东西，信任是最危险的赌注。"
+
+  crisis_moment:
+    zombie_horde: |
+      "远处的地平线上，一片黑压压的影子正在逼近。不是几十，不是几百，是成千上万的丧尸，像是黑色的潮水，吞噬一切。"
+
+    mutant_beast: |
+      "那东西比卡车还大，鳞片泛着金属光泽。它只是瞥了一眼，两个最强的战士就被拦腰咬断。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    looting: "出发(20%) → 探索(30%) → 发现物资(30%) → 危机降临(20%)"
+    survival: "平静铺垫(20%) → 危机出现(30%) → 绝境求生(40%) → 暂时安全(10%)"
+    combat: "遭遇威胁(25%) → 战斗爆发(35%) → 艰难取胜(30%) → 收获成长(10%)"
+
+  typical_examples:
+    supply_run: "发现目标地点 → 探索过程中发现资源 → 突然遇到丧尸/幸存者 → 战斗/逃脱 → 带着物资返回"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    outbreak: 末世突然爆发，主角陷入混乱
+    rebirth: 重生回末世前，提前准备
+    awakening: 末世中觉醒能力，开始逆袭
+
+  chapter_1_elements:
+    - "主角基本设定（姓名、职业/身份）"
+    - "末世爆发的场景"
+    - "第一个危机或危险"
+    - "主角的特殊之处暗示"
+    - "章末钩子"
+
+  classic_examples:
+    outbreak_style: |
+      "警报声响彻全城的时候，林远正在超市买东西。电视里播音员的声音开始颤抖：'请所有市民待在家中，不要……不要开门……'
+      窗外传来撕心裂肺的尖叫，他透过货架的缝隙，看见一个人扑倒了另一个人，然后开始——撕咬。"
+
+    rebirth_style: |
+      "睁开眼，熟悉的天花板。墙上的日历显示：2024年5月12日。
+      林远攥紧了拳头。距离丧尸病毒爆发，还有整整三天。上辈子他失去了一切，这辈子，他要守护所有珍视的人。"

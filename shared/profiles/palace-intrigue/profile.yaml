@@ -1,0 +1,351 @@
+# 宫斗宅斗题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "宫斗宅斗"
+display_name: "宫斗宅斗"
+description: "后宫争斗、宅门内斗、权谋复仇题材"
+version: "3.0"
+template: templates/genres/宫斗宅斗.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  harem:
+    name: "后宫争宠流"
+    description: "皇宫后妃争斗，争夺帝王宠爱"
+    core_points: [智斗对手, 获得圣宠, 地位跃升]
+    pacing: slow_buildup
+    examples: [甄嬛传, 如懿传, 延禧攻略]
+
+  household:
+    name: "宅门内斗流"
+    description: "大家族内部争斗，嫡庶之争"
+    core_points: [反击陷害, 掌控家权, 复仇成功]
+    pacing: progressive
+    examples: [知否知否应是绿肥红瘦, 锦心似玉]
+
+  power_intrigue:
+    name: "权谋宫斗流"
+    description: "宫廷政治，权力博弈"
+    core_points: [政治布局, 扳倒对手, 权倾朝野]
+    pacing: complex_strategic
+    examples: [琅琊榜, 庆余年]
+
+  rebirth_revenge:
+    name: "重生复仇流"
+    description: "重生回到过去，改变悲惨命运"
+    core_points: [先知先觉, 复仇打脸, 逆转人生]
+    pacing: fast_shuangwen
+    examples: [重生之嫡女祸妃, 庶女攻略]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 慢热铺垫型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5000
+    long: 5000-6000
+
+  status_rhythm:
+    low_period: "1-50章（站稳脚跟）"
+    rising_period: "51-150章（积累实力）"
+    high_period: "151-280章（核心争斗）"
+    peak_period: "281-350章（最终胜利）"
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1800
+
+  preferred_types:
+    - type: 反击陷害
+      weight: 1.8
+      description: "被人陷害，主角早有准备，反将一军"
+      triggers: [反将一军, 将计就计, 早就知道, 故意, 试探, 陷阱, 证据, 抓现行]
+      note: 必须有伏笔，不能凭空翻盘
+
+    - type: 智斗打脸
+      weight: 1.6
+      description: "对手当众刁难，主角机智应对"
+      triggers: [下不来台, 自取其辱, 震惊, 不敢相信, 脸色难看, 没想到]
+      note: 要符合身份，不能太出格
+
+    - type: 地位跃升
+      weight: 1.5
+      description: "从低位升到高位"
+      triggers: [晋升, 晋封, 贵人, 嫔, 妃, 位分, 行礼, 参见, 原来是, 终于]
+      note: 升位要有铺垫
+
+    - type: 复仇成功
+      weight: 1.4
+      description: "对害过自己的人展开报复"
+      triggers: [报仇, 雪恨, 自食恶果, 罪有应得, 下场, 后悔, 求饶]
+      note: 复仇要有分寸
+
+    - type: 获得宠爱
+      weight: 1.3
+      description: "获得帝王/男主的偏爱"
+      triggers: [赐宴, 赏赐, 留宿, 偏爱, 独宠, 羡慕, 独一无二]
+
+  avoid_types:
+    - type: 无脑打脸
+      weight: 0
+      reason: 宫斗要有智谋，不是简单打脸
+
+    - type: 男主无脑宠
+      weight: 0.3
+      reason: 感情要有波折，不能太顺利
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.4
+    contrast: 0.3
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 30        # 地位提升（相对缓慢）
+  fire: 45         # 冲突对抗（宫斗核心）
+  constellation: 25  # 人际关系（宫斗基础）
+
+  warnings:
+    quest_max_consecutive: 10
+    fire_missing_max: 5
+    constellation_missing_max: 3
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: RULE-001
+    description: "尊卑有序，下位者不能冒犯上位者（除非有足够实力）"
+    mandatory: true
+    checkpoint: 所有对话和行为
+
+  - id: RULE-002
+    description: "嫡庶分明，嫡出地位高于庶出"
+    mandatory: true
+    checkpoint: 人物身份描写
+
+  - id: RULE-003
+    description: "对手要有智商，不能全是蠢货"
+    mandatory: true
+    checkpoint: 对手塑造
+
+  - id: RULE-004
+    description: "斗争手段要符合时代背景"
+    mandatory: false
+    checkpoint: 斗争手段设计
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 主角进入宫/府，了解规则
+    core: 展示等级制度和生存法则
+    conflict: 第一次感受到恶意
+    hook: 主角决心改变命运
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 了解各方势力和关系网
+    trial: 有人试探主角
+    upgrade: 建立第一个盟友
+    hook: 危机即将到来
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一次化解危机/反击成功
+    worldbuilding: 展示更深层的斗争格局
+    harvest: 获得初步地位/认可
+    hook: 更大的挑战即将到来
+    word_count: 4000-5500
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "主角要靠智慧而非金手指取胜"
+    - "对手要有智商"
+    - "斗争手段要多样化"
+    - "感情线要有波折"
+
+  optional_satisfy:
+    - "有重生/穿越的先知先觉"
+    - "有真心相待的闺蜜"
+    - "男主是独特的存在"
+
+  never_violate:
+    - "对手全是蠢货"
+    - "男主无脑宠女主"
+    - "主角金手指太多"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "对手全是蠢货，没有威胁"
+    severity: critical
+    checkpoint: "对手塑造"
+
+  - id: TABOO-002
+    content: "主角金手指太多，一路顺风"
+    severity: critical
+    checkpoint: "主角能力"
+
+  - id: TABOO-003
+    content: "男主无脑宠女主"
+    severity: warning
+    checkpoint: "感情线"
+
+  - id: TABOO-004
+    content: "斗争手段重复，没有新意"
+    severity: warning
+    checkpoint: "斗争设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.3
+  pacing: 1.1
+  ooc: 1.2
+  continuity: 1.1
+  reader-pull: 1.0
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明
+      - 打破三段式
+
+  dialogue:
+    style: 婉转含蓄
+    characteristics: 话中有话，弦外之音
+    avoid: [直白冲突, 现代俚语]
+    examples:
+      correct: "姐姐这是什么话，妹妹不过是..."
+      incorrect: "你凭什么这么说我！"
+
+  description: "scene: 注重细节，营造氛围"
+    emotion: 内心戏要丰富
+    conflict: 明褒暗贬，绵里藏针
+
+# ==================== 实体标签 ====================
+entity_tags:
+  consort:
+    format: <entity type="妃嫔" name="封号" desc="性格" tier="层级" rank="位分" palace="居所" favor="宠爱度"/>
+
+  faction:
+    format: <entity type="势力" name="势力名" desc="核心人物" tier="层级" power="权力" relation="与主角关系"/>
+
+  event:
+    format: <entity type="事件" name="事件名" desc="经过" tier="层级" result="结果" impact="影响"/>
+
+  relation:
+    format: <entity type="关系" name="人物A-人物B" desc="关系性质" tier="层级" status="当前状态"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    subtle: 婉转含蓄，话中有话，弦外之音
+    backhanded: 明褒暗贬，表面恭维，实则讽刺
+    proper: 进退有度，说话有分寸，不越界
+
+  typical_dialogues:
+    surface_polite: |
+      "姐姐这是什么话，妹妹不过是..."
+      "姐姐教训得是，妹妹记下了。"
+      "既然姐姐这么说，那妹妹就恭敬不如从命了。"
+
+    hidden_sarcasm: |
+      "妹妹真是好福气，皇上对妹妹可真是宠爱。"
+      "姐姐说笑了，皇上不过是...哪里比得上姐姐。"
+      "妹妹这张嘴，真是越来越会说了。"
+
+    trap_setting: |
+      "妹妹可知这后宫之中，一步走错便是万劫不复？"
+      "姐姐这是在威胁妹妹吗？"
+      "妹妹想多了，姐姐不过是好心提醒罢了。"
+
+    status_suppression: |
+      "放肆！你不过是个小小的答应，也敢对本宫不敬？"
+      "嫔妾不敢，嫔妾只是..."
+      "跪下！谁让你起来的？"
+
+    counterattack: |
+      "原来皇后娘娘早就知道了，是嫔妾愚钝。"
+      "姐姐不是说亲眼所见吗？怎么现在又..."
+      "这证据...姐姐从何处得来的？"
+
+  avoid_patterns:
+    - 过于直白的冲突
+    - 不符合身份的现代表达
+    - 没有城府的幼稚对话
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  palace_scene:
+    morning_greeting: |
+      "众妃嫔依次进入殿内，行礼如仪。"
+      "皇后的目光扫过众人，嘴角带着一丝若有若无的笑意。"
+
+    trap_scene: |
+      "茶盏被打翻，碎片散落一地。所有人的目光都集中在了她的身上。"
+      "她早已准备好了证据，只等对方自投罗网。"
+
+    banquet: |
+      "丝竹声声，歌舞升平。看似祥和的宴席，实则暗流涌动。"
+      "皇上今日格外关注她，引得其他妃嫔频频侧目。"
+
+  household_scene:
+    daily_greeting: |
+      "嫡母端坐主位，众媳妇依次行礼。"
+      "规矩森严，一步也不敢行差踏错。"
+
+    legitimate_bastard: |
+      "嫡姐的锦衣华服在阳光下闪闪发光，而庶妹只能站在阴影里。"
+      "同样是女儿，待遇却天差地别。"
+
+    power_management: |
+      "管家钥匙交接的那一刻，她知道自己终于站住了脚。"
+      "想要在这个家里立足，光有嫡庶之分是不够的，还要有手段。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    setup: "铺垫(40%) → 设局(30%) → 危机(20%) → 反转(10%)"
+    face_slap: "被轻视(30%) → 隐忍准备(30%) → 反击成功(30%) → 后续影响(10%)"
+    romance: "误会冲突(30%) → 心理活动(30%) → 解决升温(30%) → 悬念(10%)"
+
+  typical_examples:
+    counter_trap: "对方设局 → 主角察觉 → 将计就计 → 反将一军 → 对方吃亏"
+    status_rise: "立功契机 → 遭到阻挠 → 成功上位 → 打脸众人 → 新的挑战"
+    revenge: "旧仇浮现 → 寻找时机 → 设下陷阱 → 复仇成功 → 惩恶扬善"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    rebirth: 重生回到关键节点，改变命运
+    entering_palace: 初入宫门，面对复杂局势
+    framed: 遭遇陷害，绝境反击
+    swapped_identity: 原本是嫡女却被当做庶女
+
+  chapter_1_elements:
+    - "主角基本设定（身份、处境、目标）"
+    - "等级制度初步展示"
+    - "第一个对手或危机"
+    - "主角的智慧/优势暗示"
+    - "章末钩子"
+
+  classic_examples:
+    rebirth_revenge_style: |
+      "苏婉睁开眼，发现自己回到了五年前。"
+      前世，她被继母捧杀，被嫡姐陷害，最终落得身败名裂的下场。
+      这一次，她绝不会再重蹈覆辙。
+      "大小姐，二小姐又来讨您的玉佩了。"丫鬟小心翼翼地说。
+      苏婉冷笑。这一次，她要拿回属于自己的一切。
+
+    palace_selection_style: |
+      "跪——"
+      伴随着太监尖细的嗓音，数十名秀女齐齐跪下。
+      林徽低着头，余光却扫过周围的竞争对手。这深宫之中，从来就不是靠脸吃饭的地方。
+      她要的，不是皇帝的宠爱，而是活下去的权力。

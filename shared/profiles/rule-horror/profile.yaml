@@ -1,0 +1,301 @@
+# 规则怪谈题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "规则怪谈"
+display_name: "规则怪谈"
+description: "规则生存、身份扮演、天选者竞技题材"
+version: "3.0"
+template: templates/genres/规则怪谈.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  rule_survival:
+    name: "规则生存流"
+    description: "遵守规则才能生存，违反即死"
+    core_points: [发现规则, 利用规则, 规则反杀]
+    pacing: tense_puzzle
+    examples: [规则怪谈：我能违反规则]
+
+  identity_role:
+    name: "身份扮演流"
+    description: "扮演特定身份，身份有专属规则"
+    core_points: [身份隐藏, 身份优势, 身份觉醒]
+    pacing: suspense_roleplay
+    examples: [规则怪谈：我成为了母亲]
+
+  chosen_one:
+    name: "天选者流"
+    description: "被选中进入怪谈世界，为国而战"
+    core_points: [为国争光, 拯救世界, 规则破解]
+    pacing: competitive_passionate
+    examples: [规则怪谈：中国天选者]
+
+  folk_horror:
+    name: "民俗恐怖流"
+    description: "基于民间传说和习俗的规则"
+    core_points: [民俗知识, 破解禁忌, 文化还原]
+    pacing: cultural_horror
+    examples: [规则怪谈：民间禁忌]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 紧张解谜型
+  tension_ratio: "2:8"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 1.0
+  max_interval: 1200
+
+  preferred_types:
+    - type: 规则发现
+      weight: 1.8
+      description: "发现隐藏规则"
+      triggers: [规则, 线索, 发现, 原来, 真相, 懂了, 明白, 条件]
+      note: 规则要通过线索推导，不能直接说
+
+    - type: 规则利用
+      weight: 1.7
+      description: "利用规则反杀敌人"
+      triggers: [利用, 违反, 触发, 反杀, 借刀, 规则杀, 惩罚]
+
+    - type: 规则漏洞
+      weight: 1.5
+      description: "发现规则的漏洞并利用"
+      triggers: [漏洞, 没说, 可以, 钻空子, 没规定, 空白]
+
+    - type: 身份隐藏
+      weight: 1.4
+      description: "隐藏真实身份不被发现"
+      triggers: [扮演, 隐藏, 骗过, 没发现, 混过去, 假装]
+
+    - type: 生还归来
+      weight: 1.3
+      description: "成功从怪谈世界生还"
+      triggers: [生还, 通关, 活着, 出来, 纪录, 震惊, 荣耀]
+
+  avoid_types:
+    - type: 规则随意改变
+      weight: 0
+      reason: 规则是怪谈的生命线
+
+    - type: 无线索的规则
+      weight: 0
+      reason: 规则要能被推导
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 40        # 规则破解
+  fire: 40         # 生存危机
+  constellation: 20  # 身份关系
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: RULE-001
+    description: "规则必须自洽，不能前后矛盾"
+    mandatory: true
+    checkpoint: 所有规则
+
+  - id: RULE-002
+    description: "规则要有线索可推导"
+    mandatory: true
+    checkpoint: 规则设计
+
+  - id: RULE-003
+    description: "违反规则的代价要明确"
+    mandatory: true
+    checkpoint: 违规后果
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 被选中进入怪谈世界
+    core: 展示规则的重要性和死亡后果
+    conflict: 第一次接触规则
+    hook: 获得特殊能力/身份
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 探索规则
+    trial: 有人违规死亡（展示规则威力）
+    upgrade: 发现关键规则
+    hook: 危机升级
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 成功生还
+    worldbuilding: 展示更大的怪谈世界
+    harvest: 获得奖励/新能力
+    hook: 新的怪谈即将到来
+    word_count: 4000-5500
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "规则要有逻辑，不能随意改变"
+    - "规则要能被推导"
+    - "紧张刺激的生存感"
+
+  optional_satisfy:
+    - "有国家背景的荣誉感"
+    - "有其他天选者的竞争"
+
+  never_violate:
+    - "规则前后矛盾"
+    - "规则无线索直接出现"
+    - "主角太安全没有紧张感"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "规则前后矛盾"
+    severity: critical
+    checkpoint: "规则设计"
+
+  - id: TABOO-002
+    content: "规则无线索直接出现"
+    severity: critical
+    checkpoint: "规则呈现"
+
+  - id: TABOO-003
+    content: "主角太安全，没有紧张感"
+    severity: warning
+    checkpoint: "生存设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.5
+  pacing: 1.2
+  ooc: 1.0
+  continuity: 1.3
+  reader-pull: 1.2
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明
+      - 打破三段式
+
+  dialogue:
+    style: 紧张简洁
+    characteristics: 危机中对话要简短
+    avoid: [恐怖场景废话太多]
+
+  description: "horror: 心理恐惧，规则带来的压迫感"
+    clue: 隐藏在细节中
+    rule: 呈现要清晰
+
+# ==================== 实体标签 ====================
+entity_tags:
+  rule:
+    format: <entity type="规则" name="规则名" desc="内容" tier="危险度" consequence="违规后果"/>
+
+  weird_tale:
+    format: <entity type="怪谈" name="怪谈名" desc="背景" tier="难度" reward="奖励"/>
+
+  identity:
+    format: <entity type="身份" name="身份名" desc="特点" tier="稀有度" rules="专属规则"/>
+
+  clue:
+    format: <entity type="线索" name="线索名" desc="内容" tier="重要度" leads_to="指向"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    rule_oppression: 在规则阴影下的紧张对话
+    survival_urgent: 生死关头的简洁表达
+
+  typical_dialogues:
+    rule_announcement: |
+      "欢迎进入'午夜公寓'。以下是您的生存规则：
+      第一条：午夜十二点后，不要开门，不管外面是谁。
+      第二条：如果看到穿红色衣服的人，假装没看见。
+      第三条：……这条被涂抹了，看不清。"
+
+    clue_discovery: |
+      "等等……这个纸条上的字……'镜子里的不是你'。
+      那我刚才照镜子的时候……"
+
+    identity_test: |
+      "你是什么身份？"
+      "我是……父亲。"
+      "不对！真正的父亲应该知道，女儿对什么过敏！"
+
+    violation_death: |
+      "我只是打开门看了一眼……就一眼……"
+      "规则说过不要开门，你——"
+      "外面……外面是我的女儿……她叫我爸爸……可是我女儿……十年前就死了……"
+
+  avoid_patterns:
+    - 规则模糊不清
+    - 违反逻辑的突然惊吓
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  weird_tale_entrance:
+    entering: |
+      "眼前一黑，再睁开眼时，他发现自己站在一条昏暗的走廊里。墙壁上贴着一张纸：'欢迎来到午夜公寓，请遵守以下规则……'"
+
+    rule_display: |
+      "他盯着墙上的规则看了一遍又一遍。每一条都是在救人，但每一条都像是一把悬在头顶的刀——稍有不慎，就会落下。"
+
+  violation_scene:
+    fatal_consequence: |
+      "他只是稍微违反了第三条规则——只是稍微而已。但当他回过神来时，自己的手臂已经变成了某种……不该存在的形态。疼痛还没传来，恐惧已经将他淹没。"
+
+    rule_loophole: |
+      "规则说'不能离开房间'，但没说不能打洞。他看着墙壁，嘴角上扬。也许，他找到了生路。"
+
+  survival_moment:
+    clear_success: |
+      "最后一道门打开，阳光涌入。他几乎是跌跌撞撞地冲了出来，回头望去——身后只有一栋普通的公寓楼，仿佛什么都没有发生过。
+      但他知道，一切都已经改变了。"
+
+    identity_reveal: |
+      "'你到底是谁？'他终于问出了那个问题。
+      怪物歪了歪头，露出一个诡异的微笑：'我？我就是你扮演的父亲啊。你忘了规则吗？扮演得越好，活得越久。'"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    exploration: "进入怪谈(15%) → 发现规则(25%) → 探索线索(30%) → 危机爆发(30%)"
+    survival: "危机降临(20%) → 寻找出路(30%) → 尝试破解(35%) → 结果揭晓(15%)"
+    puzzle: "线索发现(20%) → 推理过程(35%) → 验证假设(30%) → 真相揭示(15%)"
+
+  typical_examples:
+    weird_tale_chapter: "进入怪谈世界 → 收到规则 → 探索中遇到危险 → 发现关键线索 → 利用规则或找到漏洞 → 成功生还"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    chosen_one: 被选中进入怪谈世界
+    identity_roleplay: 获得特殊身份
+    rule_awakening: 发现能看见隐藏规则
+
+  classic_examples:
+    chosen_one_style: |
+      "世界频道弹出消息：
+      【中国天选者已进入副本'午夜学校'，存活率预测：7.3%】
+      全国的人都屏住了呼吸。屏幕上，一个年轻人的身影出现在阴暗的教室里，面前是一张写满规则的纸。
+      他不知道，有上亿人正在看着他，祈祷他能活着回来。"
+
+    awakening_style: |
+      "当他的目光落在那张规则纸上时，奇怪的事情发生了。
+      在'第三条规则'后面，出现了一行只有他能看见的红字：
+      【警告：这是假规则，遵守必死】
+      他的瞳孔骤然收缩——原来，规则也有真假之分。"

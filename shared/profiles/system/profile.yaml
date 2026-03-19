@@ -1,0 +1,382 @@
+name: "系统流"
+version: "1.1.0"
+description: "主角绑定系统，通过完成任务获得奖励，在现代或异世界中成长变强，爽点密集，目标明确"
+sub_genres:
+  神豪系统:
+    description: "系统提供金钱，主角花钱就变强"
+    core_cool_points: ["花钱打脸", "炫富", "投资神操作"]
+    pacing: "fast"
+  签到系统:
+    description: "每日签到获得奖励，积少成多"
+    core_cool_points: ["稳定收益", "惊喜奖励", "厚积薄发"]
+    pacing: "medium"
+  任务系统:
+    description: "完成系统任务获得奖励"
+    core_cool_points: ["目标明确", "奖励丰厚", "挑战升级"]
+    pacing: "medium"
+  直播系统:
+    description: "绑定直播系统，通过直播获得奖励"
+    core_cool_points: ["互动性强", "粉丝打赏", "技能展示"]
+    pacing: "fast"
+  选择系统:
+    description: "面临选择时系统给出选项和奖励"
+    core_cool_points: ["选择困难", "最优解", "意外收获"]
+    pacing: "fast"
+  攻略系统:
+    description: "系统要求攻略目标人物"
+    core_cool_points: ["任务驱动", "攻略过程", "真心假意"]
+    pacing: "medium"
+  商店系统:
+    description: "用积分/货币兑换物品"
+    core_cool_points: ["资源兑换", "能力购买", "无限可能"]
+    pacing: "medium"
+  抽奖系统:
+    description: "抽奖获得随机奖励"
+    core_cool_points: ["欧皇时刻", "惊喜奖励", "期待感"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2200
+  cool_point_interval: 1000
+  hook_strength: "strong"
+  emotional_rhythm: "快节奏，每章都有任务完成或奖励获得，爽感密集"
+  scene_density: "每章4-6个场景，任务推进迅速"
+
+cool_points:
+  - type: "任务完成"
+    trigger: "完成系统发布的任务"
+    effect: "获得奖励，能力提升"
+    frequency: "每章至少1次"
+  - type: "奖励获得"
+    trigger: "任务完成或特殊条件触发"
+    effect: "新能力、新物品，期待感"
+    frequency: "每章至少1次"
+  - type: "打脸现场"
+    trigger: "用系统能力打脸反派"
+    effect: "爽感爆棚，读者舒适"
+    frequency: "每3章一次"
+  - type: "升级突破"
+    trigger: "积累足够奖励升级"
+    effect: "能力提升，新功能解锁"
+    frequency: "每10章一次"
+  - type: "隐藏任务"
+    trigger: "触发特殊条件"
+    effect: "额外奖励，剧情转折"
+    frequency: "每20章一次"
+  - type: "系统升级"
+    trigger: "达到特定条件"
+    effect: "系统功能增强，更多可能"
+    frequency: "每30章一次"
+
+strand_weights:
+  main_plot: 0.4
+  character: 0.2
+  romance: 0.15
+  world_building: 0.25
+
+taboos:
+  - id: "TABOO-SYS-001"
+    content: "系统过于保姆，主角没有主观能动性"
+    severity: "critical"
+    reason: "主角要有自己的思考和选择"
+  - id: "TABOO-SYS-002"
+    content: "任务过于简单，没有挑战性"
+    severity: "warning"
+    reason: "任务要有难度和趣味性"
+  - id: "TABOO-SYS-003"
+    content: "奖励过于泛滥，没有稀缺性"
+    severity: "warning"
+    reason: "奖励要有价值感"
+  - id: "TABOO-SYS-004"
+    content: "系统后期崩坏，奖励失衡"
+    severity: "critical"
+    reason: "要保持平衡性"
+  - id: "TABOO-SYS-005"
+    content: "结局烂尾，系统来历没交代"
+    severity: "warning"
+    reason: "坑要填完"
+
+reader_expectations:
+  must_meet:
+    - "系统设定清晰有趣"
+    - "任务有挑战性"
+    - "奖励丰厚有价值"
+    - "主角有成长"
+  optional:
+    - "系统的来历和秘密"
+    - "感情线的发展"
+    - "系统与主角的关系深化"
+  can_subvert:
+    - "传统的系统使用方式"
+    - "任务的完成方式"
+    - "奖励的使用方式"
+  never:
+    - "系统崩坏"
+    - "主角完全依赖系统"
+    - "结局烂尾"
+
+golden_three:
+  opening_hook: "开篇必须立即绑定系统，展现系统功能，让读者理解核心设定"
+  protagonist_intro: "主角出场要有明确的目标或困境，系统成为解决方案"
+  chapter_end: "章末停在任务完成、奖励获得或新任务发布处"
+
+writing_style:
+  tone: "爽快直接，节奏明快，目标明确"
+  perspective: "第三人称，主角视角"
+  sentence_style: "简洁有力，善用短句，节奏感强"
+  vocabulary: "爽快直接，善用感叹号，有网感"
+  dialogue_ratio: "40%"
+  description_ratio: "25%"
+  action_ratio: "35%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["过度解释系统", "僵硬对话", "任务流水账", "奖励泛滥"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "系统要有人格化特征，不是冷冰冰的机器"
+    - "主角要有自己的选择，不是系统傀儡"
+    - "任务要有创意，不是重复刷怪"
+    - "系统与主角的关系要有发展"
+
+checker_weights:
+  consistency: 1.8
+  pacing: 1.5
+  golden_three: 1.5
+  romance_line: 1.0
+  character_charm: 1.2
+
+entities:
+  characters:
+    - name: "主角"
+      archetype: "成长型"
+      traits: ["有目标", "善利用", "有主见"]
+      growth_arc: "从依赖系统到与系统合作，最终超越"
+    - name: "系统"
+      archetype: "辅助型"
+      traits: ["智能", "有性格", "提供任务"]
+      growth_arc: "从工具到伙伴"
+    - name: "反派"
+      archetype: "阻碍型"
+      traits: ["制造麻烦", "被主角打脸"]
+    - name: "女主/感情线"
+      archetype: "陪伴型"
+      traits: ["支持主角", "共同成长"]
+  locations:
+    - name: "任务地点"
+      significance: "完成任务的地方"
+    - name: "升级空间"
+      significance: "能力提升的地方"
+  items:
+    - name: "系统奖励"
+      significance: "能力提升的关键"
+    - name: "任务道具"
+      significance: "完成任务的工具"
+
+word_count:
+  short_story: "50-100万字"
+  medium_story: "150-300万字"
+  long_story: "300万字以上"
+
+popular_tropes:
+  - "神豪系统"
+  - "签到系统"
+  - "任务系统"
+  - "直播系统"
+  - "选择系统"
+  - "攻略系统"
+  - "商店系统"
+  - "抽奖系统"
+
+reference_works:
+  - "《亏成首富从游戏开始》- 神豪系统经典"
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    轻松幽默: "现代网络用语，轻松调侃"
+    金手指显摆: "低调中透着凡尔赛"
+  typical_dialogue:
+    系统提示: |
+      【叮！签到成功，恭喜宿主获得神级功法×1】
+      "这也太随便了吧？神级功法就这么送？"
+      【本系统就是这么任性，宿主习惯就好】
+    碾压对手: |
+      "你苦修十年才这个境界？抱歉，我刚睡醒就升了三级。"
+      "这不可能！你怎么会有这种实力！"
+      "系统给的，你羡慕不来。"
+    领取奖励: |
+      "又是满级功法？系统，你是不是太偏心了？"
+      【宿主不要得了便宜还卖乖】
+    humblebrag_moment: |
+      "其实我也没怎么努力，就是随便签签到，不知不觉就无敌了。"
+      "……你让我们这些苦修者情何以堪？"
+  avoid_patterns:
+    - "系统过于强势抢戏"
+    - "奖励描写太敷衍无惊喜"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  系统觉醒:
+    首次获得系统: |
+      "眼前突然出现一个半透明的面板，他下意识地眨了眨眼，面板纹丝不动。
+      【欢迎绑定签到系统，宿主距离无敌只差每天签到一次】
+      这不是做梦？他掐了自己一下——疼。真的疼。"
+    签到奖励: |
+      "指尖轻点签到按钮，眼前闪过一道金光。
+      【签到成功！恭喜宿主获得：混沌级体质×1】
+      体内涌出一股暖流，每一个细胞都在欢呼雀跃，他能感觉到——自己变了。"
+  碾压scene:
+    实力展示: |
+      "对手气势汹汹地冲来，他只是轻轻抬手。轰！一道无形的气浪将对方轰出十几米远。
+      '抱歉，系统送的满级技能，我还没学会控制力度。'"
+    震惊众人: |
+      "死寂。整个大厅鸦雀无声。所有人都在看着他，那个几分钟前还被嘲笑的废物，此刻正淡定地收回拳头。
+      '就这？'他有些失望，'系统说我现在只发挥了万分之一。'"
+  奖励时刻:
+    大奖来袭: |
+      "面板上弹出一行金色大字：【恭喜宿主连续签到365天，触发隐藏奖励！】
+      金光炸裂，他感觉自己被一团温暖的能量包裹，整个人的气质在发生翻天覆地的变化。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    签到型: "日常铺垫(30%) → 签到时刻(30%) → 奖励展示(30%) → 反应/后续(10%)"
+    碾压型: "对手嚣张(25%) → 主角出手(25%) → 碾压过程(35%) → 众人震惊(15%)"
+    task_type: "任务发布(20%) → 执行过程(40%) → 完成奖励(30%) → 意外收获(10%)"
+  typical_pacing_example:
+    爽文标准章: "被看不起 → 系统奖励到账 → 出手碾压 → 众人震惊 → 埋下后续钩子"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    废材觉醒式: "被嘲笑天赋差，系统突然觉醒"
+    穿越绑定式: "穿越后立刻绑定系统"
+    逆袭重生式: "重生归来带系统复仇"
+  classic_opening_examples:
+    checkin_system_style: |
+      "陈凡看着面前的荒山，叹了口气。穿越到这个世界已经三天了，他只能靠挖野菜维生。
+      就在这时，一个机械音突然在脑海中响起：
+      【绑定签到系统成功！检测到宿主处境艰难，送新手大礼包一份】
+      他的眼睛瞬间亮了——金手指，终于来了！"
+    task_system_style: |
+      "'任务完成，奖励已发放。'
+      看着面板上跳出的金色大字，张昊嘴角上扬。三个月前他还是一个普通人，而现在，他已经完成了第九十九个任务，距离系统解锁终极功能，只差最后一步。"
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # 系统流悬念类型定义
+  type:
+    short_suspense:
+      definition: "单个任务/奖励内的悬念，任务结束时解决"
+      reveal_timing: "任务内（3-10章）"
+      example: ["任务真正目的", "奖励内容", "下一个任务", "敌人身份"]
+
+    mid_suspense:
+      definition: "跨越多个任务的悬念，与系统来源相关"
+      reveal_timing: "30-80章"
+      example: ["系统真正来源", "系统选择主角的原因", "系统的限制/代价", "隐藏功能"]
+
+    long_suspense:
+      definition: "贯穿全书的核心悬念，系统终极真相"
+      reveal_timing: "80-150章，核心真相建议100章后"
+      example: ["系统背后的存在", "系统终极目的", "主角与系统的真正关系", "系统的最终形态"]
+
+  # 系统流悬念揭晓时机建议
+  reveal_timing:
+    第1-3章（黄金三章）:
+      - type: "系统绑定"
+        content: "系统出现并绑定主角"
+        必须: true
+      - type: "系统基础功能"
+        content: "展示系统的基本玩法"
+        必须: true
+
+    第5-20章:
+      - type: "系统规则完善"
+        content: "逐步展示系统的更多功能"
+        注意: "系统要有成长性，不要一次给全"
+      - type: "第一个隐藏功能"
+        content: "发现系统的隐藏玩法"
+      - type: "系统限制"
+        content: "发现系统使用的代价或限制"
+
+    第20-50章:
+      - type: "系统来源线索"
+        content: "暗示系统从何而来"
+        注意: "只给线索，引发好奇"
+      - type: "系统选择原因"
+        content: "为何选择主角"
+      - type: "系统升级/进化"
+        content: "系统本身的成长和变化"
+
+    第50-80章:
+      - type: "系统真正来源"
+        content: "揭示系统的真正来历"
+        example: ["上古传承", "外星科技", "神明恩赐", "主角前世所创"]
+      - type: "系统隐藏目的"
+        content: "系统帮助主角的真实目的"
+        注意: "可以是善意也可以是恶意的"
+
+    第80-120章:
+      - type: "核心反转"
+        content: "颠覆对系统的认知"
+        example: ["系统是主角自己创造的", "系统背后是主角的敌人", "系统是在培养主角对抗真正敌人"]
+      - type: "系统终极功能"
+        content: "系统最强的功能/形态"
+
+    第120章+:
+      - type: "系统的最终命运"
+        content: "系统与主角的最终结局"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    签到系统流:
+      系统规则: "第1章揭示"
+      隐藏奖励: "持续发现"
+      系统来源: "可能永远不揭示，或80章+"
+      description: "悬念较少，主要是签到爽感"
+
+    任务系统流:
+      task_purpose: "每个任务内有悬念"
+      系统来源: "50-80章"
+      task_conspiracy: "30-60章"
+      description: "悬念在任务设计和系统目的"
+
+    商店系统流:
+      商店规则: "前10章逐步揭示"
+      隐藏商品: "持续发现"
+      系统货币来源: "30-50章"
+      description: "悬念在资源获取和隐藏商品"
+
+    抽奖系统流:
+      抽奖规则: "第1-3章揭示"
+      隐藏奖池: "持续发现"
+      guarantee_mechanism: "20-40章"
+      description: "悬念在抽奖结果，不确定性是核心"
+
+  # 系统流悬念禁忌
+  禁忌:
+    - content: "系统一开始就完全揭示，无成长性"
+      reason: "系统的乐趣在于探索和成长"
+      severity: "critical"
+    - content: "系统太弱，帮助不够明显"
+      reason: "系统流就是要爽，系统太弱失去意义"
+      severity: "critical"
+    - content: "系统太智能抢戏"
+      reason: "主角才是故事核心，系统是工具"
+      severity: "warning"
+    - content: "系统来源揭示太早"
+      reason: "系统来源是重要悬念，太早揭示失去期待感"
+      severity: "warning"
+
+  # 伏笔埋设节奏
+  foreshadowing_setup:
+    原则: "每8章至少埋设1个新伏笔，每25章回收1个旧伏笔"
+    example:
+      short_foreshadowing: "任务第1章埋设，任务结束回收"
+      mid_foreshadowing: "第5章埋设，第35章回收"
+      long_foreshadowing: "第1章埋设，第80章+回收"
+    状态流转:
+      - "潜伏 → 铺垫 → 可回收 → 已回收"

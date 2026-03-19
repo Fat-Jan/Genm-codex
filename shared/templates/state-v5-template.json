@@ -1,0 +1,184 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "<小说名>",
+    "genre": "<题材类型>",
+    "platform": "<目标平台>",
+    "target_chapters": 200,
+    "target_words": 1000000,
+    "created_at": "<ISO时间>",
+    "updated_at": "<ISO时间>"
+  },
+  "progress": {
+    "current_chapter": 0,
+    "total_words": 0,
+    "last_write_chapter": 0,
+    "last_write_time": null,
+    "milestones": {
+      "golden_three_completed": false,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "",
+          "origin": ""
+        },
+        "inventory": [],
+        "abilities": [],
+        "status": [],
+        "current_goals": [],
+        "known_secrets": [],
+        "recent_events": []
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [],
+      "protagonist_inventory": []
+    },
+    "locations": {
+      "current": "",
+      "visited": [],
+      "important": []
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "<伏笔名称>",
+          "description": "<描述>",
+          "planted_chapter": 1,
+          "expected_range": "15-30",
+          "status": "planted",
+          "related_entities": [],
+          "importance": "medium"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "",
+      "location": "",
+      "secret": "",
+      "progress": 0
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [],
+    "protagonist_knows": [
+      {
+        "info": "",
+        "since_chapter": 0
+      }
+    ],
+    "protagonist_doesnt_know": [],
+    "key_revelations": []
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "",
+      "description_density": "",
+      "pacing_preference": ""
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "<平台名>",
+    "pacing": "<节奏类型>",
+    "chapter_words": {
+      "min": 2000,
+      "max": 5000,
+      "target": 4000
+    },
+    "golden_three": {
+      "hook_timing": "",
+      "cheat_timing": ""
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 0,
+      "core_twist": 0
+    }
+  },
+  "genre_profile": {
+    "loaded": "",
+    "节奏": {},
+    "爽点密度": 0,
+    "strand权重": {},
+    "特殊约束": []
+  },
+  "chapter_meta": {},
+  "chapter_snapshots": {},
+  "summaries_index": {},
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "",
+    "includes": []
+  }
+}

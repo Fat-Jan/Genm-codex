@@ -1,0 +1,508 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "E2E样本",
+    "genre": "玄幻",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 30000,
+    "created_at": "2026-03-19T14:41:06Z",
+    "updated_at": "2026-03-19T15:29:17Z"
+  },
+  "progress": {
+    "current_chapter": 1,
+    "total_words": 3152,
+    "last_write_chapter": 1,
+    "last_write_time": "2026-03-19T15:22:18Z",
+    "milestones": {
+      "golden_three_completed": false,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "沈照",
+        "aliases": [
+          "外门废脉"
+        ],
+        "power": {
+          "realm": "锻体境",
+          "level": "九重",
+          "layer": 9
+        },
+        "location": {
+          "current": "后山废井",
+          "origin": "青石城"
+        },
+        "inventory": [
+          "残缺古镜（初步觉醒）",
+          "旧短刀",
+          "药渣包"
+        ],
+        "abilities": [
+          "裂石拳",
+          "青云步",
+          "照骨古镜·映照破绽（初醒）"
+        ],
+        "status": [
+          "天生残脉",
+          "濒临被逐",
+          "掌心裂伤",
+          "古镜初醒"
+        ],
+        "current_goals": [
+          "明日演武场活下来",
+          "前往后山东壁取路",
+          "保住留宗资格"
+        ],
+        "known_secrets": [
+          "母亲留下的残缺古镜可能不是凡物",
+          "古镜会在血与危机中苏醒",
+          "古镜能映照周通拳路破绽"
+        ],
+        "recent_events": [
+          "周通当众夺走最后一份淬体散",
+          "韩执事下令三日后预选失败便逐出外门",
+          "照骨古镜在后山废井沾血苏醒"
+        ]
+      },
+      "active": [
+        {
+          "name": "周通",
+          "role": "外门恶霸",
+          "relationship": "敌对"
+        },
+        {
+          "name": "韩执事",
+          "role": "外门执事",
+          "relationship": "敌对"
+        },
+        {
+          "name": "苏小棠",
+          "role": "外门弟子",
+          "relationship": "潜在盟友"
+        },
+        {
+          "name": "谢北辰",
+          "role": "外门第一",
+          "relationship": "阶段强敌"
+        },
+        {
+          "name": "杜百川",
+          "role": "藏经阁老人",
+          "relationship": "潜在引路人"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "残缺古镜"
+      ],
+      "protagonist_inventory": [
+        "残缺古镜（初步觉醒）",
+        "旧短刀",
+        "药渣包"
+      ]
+    },
+    "locations": {
+      "current": "后山废井",
+      "visited": [
+        "青云宗外门",
+        "后山废井"
+      ],
+      "important": [
+        "后山废井",
+        "后山东壁",
+        "雾隐谷",
+        "藏经阁"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "古镜来历",
+          "description": "母亲留下的残缺古镜与青云宗禁地和镜墟有关。",
+          "planted_chapter": 1,
+          "expected_range": "8-20",
+          "status": "planted",
+          "related_entities": [
+            "沈照",
+            "残缺古镜",
+            "青云宗"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f4",
+          "name": "后山东壁石门",
+          "description": "古镜指出后山东壁藏着一条生路和一扇隐秘石门。",
+          "planted_chapter": 1,
+          "expected_range": "2-3",
+          "status": "planted",
+          "related_entities": [
+            "沈照",
+            "后山东壁",
+            "残缺古镜"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [
+        {
+          "id": "f2",
+          "name": "父亲的罪名",
+          "description": "沈照父亲被扣上窃宝罪名后失踪，真相与古镜碎片争夺有关。",
+          "planted_chapter": 2,
+          "expected_range": "10-30",
+          "status": "planned",
+          "related_entities": [
+            "沈照",
+            "父亲",
+            "韩执事"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "镜墟封印",
+          "description": "青云宗高层正在搜集镜片，试图开启镜墟封印。",
+          "planted_chapter": 3,
+          "expected_range": "10-40",
+          "status": "planned",
+          "related_entities": [
+            "青云宗",
+            "藏经阁",
+            "残缺古镜"
+          ],
+          "importance": "high"
+        }
+      ],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "是谁在背后逼周通夺镜？",
+          "since_chapter": 1
+        },
+        {
+          "question": "后山东壁后面到底藏着什么？",
+          "since_chapter": 1
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "留在青云宗并查清父母失踪与古镜之谜",
+      "location": "青云宗",
+      "secret": "青云宗高层正在搜集古镜碎片，镜墟将于不久后开启。",
+      "progress": 10
+    },
+    "side_quests": [
+      {
+        "name": "击败周通",
+        "status": "active"
+      },
+      {
+        "name": "通过雾隐谷试炼",
+        "status": "planned"
+      }
+    ]
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "周通与韩执事都在针对沈照",
+      "照骨古镜会在血与危机叠加时苏醒",
+      "后山东壁藏着沈照眼下唯一的翻盘机会"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "父亲曾因所谓窃宝罪名在青云宗失踪。",
+        "since_chapter": 0
+      },
+      {
+        "info": "母亲只留下了一面残缺古镜。",
+        "since_chapter": 0
+      },
+      {
+        "info": "古镜能映照周通拳路中的破绽。",
+        "since_chapter": 1
+      },
+      {
+        "info": "后山东壁可能藏着改变自己命运的石门。",
+        "since_chapter": 1
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "韩执事和更高层势力都在搜寻古镜碎片。",
+      "父亲并未真正背叛宗门。",
+      "后山东壁石门后究竟是谁留下的路。"
+    ],
+    "key_revelations": [
+      "照骨古镜第一次显现出超凡能力。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      81
+    ],
+    "average_score": 81,
+    "trend": "stable",
+    "last_review_chapter": 1,
+    "dimension_scores": {
+      "爽点": 78,
+      "一致性": 84,
+      "节奏": 79,
+      "OOC": 90,
+      "连续性": 74,
+      "追读力": 83
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "简洁有力",
+      "description_density": "中等偏高",
+      "pacing_preference": "快节奏"
+    },
+    "high_point_preferences": [
+      "越级反杀",
+      "机缘获得",
+      "境界突破",
+      "打脸震惊"
+    ],
+    "avoid_patterns": [
+      "冗长世界观铺垫",
+      "主角内心独白过多",
+      "战力模糊描述"
+    ],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "快节奏",
+    "chapter_words": {
+      "min": 2800,
+      "max": 3200,
+      "target": 3000
+    },
+    "golden_three": {
+      "hook_timing": "第1章强钩子结尾",
+      "cheat_timing": "第一章800字内"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 2,
+      "core_twist": 10
+    }
+  },
+  "genre_profile": {
+    "loaded": "shared/profiles/xuanhuan/profile-tomato.yaml",
+    "节奏": {
+      "type": "快节奏",
+      "opening_speed": "immediate"
+    },
+    "爽点密度": 1.5,
+    "strand权重": {
+      "quest": 55,
+      "fire": 25,
+      "constellation": 20
+    },
+    "特殊约束": [
+      "金手指在第一章800字内出现",
+      "玄幻世界观在500字内交代",
+      "第一个冲突在1000字内",
+      "禁止超过500字的世界观铺垫"
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "chapter": 1,
+      "title": "血染废井，古镜初鸣",
+      "path": "chapters/第001章.md",
+      "word_count": 3152,
+      "status": "draft",
+      "created_at": "2026-03-19T15:22:18Z",
+      "updated_at": "2026-03-19T15:29:17Z",
+      "summary": "周通当众夺走沈照最后一份淬体散，韩执事限他三日内在预选上自证，否则逐出青云宗。夜里沈照带伤躲到后山废井，母亲遗留的照骨古镜沾血苏醒，映出周通拳路破绽，并指向后山东壁的隐秘生路。",
+      "review_score": 81,
+      "review_grade": "B",
+      "review_time": "2026-03-19T15:29:17Z",
+      "dimension_scores": {
+        "爽点": 78,
+        "一致性": 84,
+        "节奏": 79,
+        "OOC": 90,
+        "连续性": 74,
+        "追读力": 83
+      },
+      "needs_fix": true,
+      "critical_issues": [
+        "本章中段解释性段落偏多，番茄开篇的即时兑现还不够狠。",
+        "设定集/角色/主角.md 的当前状态仍停在第0章，和正文与 state 快照不同步。"
+      ],
+      "warnings": [
+        "古镜觉醒后的收益目前只有线索，没有形成更强的短期胜利反馈。",
+        "个别收束句有解释替代展示的倾向，AI腔风险尚未完全压下。"
+      ],
+      "suggested_fixes": [
+        "压缩背景说明，把父亲旧案信息拆到动作或冲突里露出。",
+        "强化古镜初醒后的即时收益或更明确的反打准备感。",
+        "同步更新主角.md 的当前状态到第001章结束时点。"
+      ]
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "chapter": 1,
+      "created_at": "2026-03-19T15:22:18Z",
+      "word_count": 3152,
+      "protagonist_state": {
+        "name": "沈照",
+        "power": {
+          "realm": "锻体境",
+          "level": "九重",
+          "layer": 9
+        },
+        "location": {
+          "current": "后山废井",
+          "previous": "青云宗外门药庐"
+        },
+        "inventory": [
+          "残缺古镜（初步觉醒）",
+          "旧短刀",
+          "药渣包"
+        ],
+        "abilities": [
+          "裂石拳",
+          "青云步",
+          "照骨古镜·映照破绽（初醒）"
+        ],
+        "status": [
+          "天生残脉",
+          "濒临被逐",
+          "掌心裂伤",
+          "古镜初醒"
+        ],
+        "current_goals": [
+          "明日演武场活下来",
+          "前往后山东壁取路",
+          "保住留宗资格"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周通",
+          "role": "外门恶霸",
+          "relation": "敌对",
+          "last_interaction": 1
+        },
+        {
+          "name": "韩执事",
+          "role": "外门执事",
+          "relation": "敌对",
+          "last_interaction": 1
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "古镜来历",
+          "status": "planted",
+          "planted_chapter": 1
+        },
+        {
+          "id": "f4",
+          "name": "后山东壁石门",
+          "status": "planted",
+          "planted_chapter": 1
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "周通与韩执事都在针对沈照",
+          "照骨古镜会在血与危机叠加时苏醒"
+        ],
+        "protagonist_knows": [
+          "古镜能映照周通拳路中的破绽",
+          "后山东壁可能藏着一条生路"
+        ],
+        "protagonist_doesnt_know": [
+          "古镜完整来历",
+          "后山东壁石门后究竟藏着什么",
+          "是谁在背后逼周通夺镜"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "韩执事",
+          "role": "minor antagonist"
+        },
+        {
+          "type": "location",
+          "name": "后山废井"
+        },
+        {
+          "type": "location",
+          "name": "后山东壁"
+        }
+      ],
+      "key_events": [
+        "周通夺走沈照最后一份淬体散",
+        "韩执事宣布三日后预选失败就逐出外门",
+        "照骨古镜在后山废井沾血苏醒",
+        "古镜映出周通拳路破绽与后山东壁线索"
+      ],
+      "summary": "沈照在药庐被周通当众羞辱，韩执事更是限他三日内在预选上自证，否则逐出青云宗。夜里他在后山废井唤醒母亲遗留的照骨古镜，第一次看见翻盘的可能。"
+    }
+  },
+  "summaries_index": {
+    "1": "沈照在药庐被周通夺走淬体散，韩执事限他三日自证。夜里照骨古镜在后山废井沾血苏醒，并指向后山东壁。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [
+      "苏小棠"
+    ],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "../shared/references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-19T15:05:52Z",
+    "includes": [
+      "shared/profiles/xuanhuan/profile.yaml",
+      "shared/profiles/xuanhuan/profile-tomato.yaml"
+    ]
+  }
+}

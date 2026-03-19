@@ -1,0 +1,418 @@
+# 克苏鲁题材Profile
+
+name: "克苏鲁"
+version: "3.0"
+template: templates/genres/克苏鲁.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  investigator:
+    name: "调查员流"
+    description: "扮演调查员探索神秘事件"
+    core_points: [揭开真相, 存活下来, 保持理智]
+    pacing: suppressed_exploration
+    examples: [诡秘之主]
+  san_management:
+    name: "SAN值流"
+    description: "理智值管理为核心"
+    core_points: [控制SAN值, 获得知识, 避免疯狂]
+    pacing: psychological_horror
+    examples: [克苏鲁的呼唤]
+  mythos_creature:
+    name: "神话生物流"
+    description: "与克苏鲁神话生物互动"
+    core_points: [召唤神灵, 获得力量, 付出代价]
+    pacing: forbidden_power
+    examples: [诡秘之主]
+  steam_cthulhu:
+    name: "蒸汽克苏鲁流"
+    description: "维多利亚时代+克苏鲁"
+    core_points: [复古风格, 神秘学, 工业革命]
+    pacing: era_characteristic
+    examples: [诡秘之主]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: suppressed_horror
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.7
+#   - 默认权重: 揭示真相(1.7), 存活危机(1.5), 获得禁忌知识(1.4), 理智存续(1.3)
+#   - combo_bonus: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 0.8/千字
+  max_interval: 1800字    # 超过此值需预警（克苏鲁节奏较慢）
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 揭示真相
+      weight: 1.7
+      description: "发现恐怖背后的真相"
+      example: "终于弄清了事件的来龙去脉"
+      trigger_words: [真相, 原来是, 调查, 线索, 秘密, 发现, 揭开, 真相大白]
+    - type: 存活危机
+      weight: 1.5
+      description: "在绝境中活下来"
+      example: "从不可名状的恐怖中逃脱"
+      trigger_words: [逃脱, 活下来, 危机, 绝境, 幸存, 逃出生天, 惊险]
+    - type: 获得禁忌知识
+      weight: 1.4
+      description: "获得神秘知识"
+      example: "阅读禁忌典籍，获得力量"
+      trigger_words: [禁忌, 知识, 古籍, 秘典, 传承, 力量, 代价, 觉醒]
+    - type: 理智存续
+      weight: 1.3
+      description: "保持理智不被疯狂吞噬"
+      example: "SAN值归零前找到了出路"
+      trigger_words: [理智, SAN, 疯狂, 崩溃, 精神, 恐惧, 压抑, 挣扎]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 主角太安全
+      weight: 0
+      reason: "克苏鲁要有恐怖感"
+    - type: 神话生物被轻易击败
+      weight: 0
+      reason: "旧日支配者不可战胜"
+
+  # 组合加成配置
+  combo_bonus:
+    consecutive: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    buildup_burst: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast: 0.2       # 前后状态形成强烈对比
+    multi_stack: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.35        # 探索真相
+  fire: 0.45         # 恐怖危机
+  constellation: 0.20
+
+# ==================== 特殊约束 ====================
+special_constraints:
+  - ID: CTH-001
+    description: "神话生物不可战胜，只能逃避或利用"
+    enforced: true
+    check_point: 神话生物描写
+  - ID: CTH-002
+    description: "知识要有代价（SAN值消耗）"
+    enforced: true
+    check_point: 知识获取
+  - ID: CTH-003
+    description: "恐怖氛围要到位"
+    enforced: true
+    check_point: 整体氛围
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.4      # 世界观一致性最重要
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.2
+  reader-pull: 1.1
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "恐怖氛围要到位，压抑神秘"
+    - "不可名状的恐惧感"
+    - "理智侵蚀要有过程"
+    - "神话体系要自洽"
+  optional_satisfy:
+    - "有调查员角色"
+    - "有神秘组织"
+    - "有禁忌知识"
+  must_not:
+    - "过度解释神话生物，失去神秘感"
+    - "主角太安全，没有恐惧感"
+    - "恐怖感不足的轻松氛围"
+    - "理智崩坏太随意"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content: "过度解释神话生物，失去神秘感"
+    severity: "critical"
+    check_point: "神话设计"
+  - ID: TABOO-002
+    content: "主角太安全，没有恐惧感和危险"
+    severity: "critical"
+    check_point: "生存设计"
+  - ID: TABOO-003
+    content: "理智崩坏太随意，没有过程"
+    severity: "warning"
+    check_point: "理智描写"
+  - ID: TABOO-004
+    content: "恐怖感不足，有太多轻松对话"
+    severity: "warning"
+    check_point: "整体氛围"
+
+# ==================== 写作风格提示 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: "压抑神秘"
+    characteristics: "暗示多于明说"
+
+  description:
+    horror: "心理恐惧，未知恐惧"
+    knowledge: "禁忌感，代价感"
+
+# ==================== 实体标签 ====================
+entity_tags:
+  mythos_creature: <entity type="神话生物" name="名字" desc="特点" tier="等级" domain="领域" danger="危险度"/>
+  forbidden_knowledge: <entity type="禁忌知识" name="知识名" desc="内容" tier="等级" cost="代价"/>
+  mysterious_item: <entity type="神秘物品" name="物品名" desc="效果" tier="等级" corruption="侵蚀度"/>
+  investigation_archive: <entity type="调查档案" name="档案名" desc="内容" tier="机密级" san_cost="SAN消耗"/>
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    mysterious_suppressed: "暗示多于明说，恐惧来自未知"
+    investigator_dialogue_style: "理性克制中透着不安"
+  typical_dialogue:
+    forbidden_knowledge: |
+      "你确定要看这本书？有些知识，知道了反而是一种诅咒。"
+      "我需要知道真相，不管代价是什么。"
+      "那好吧……但别忘了，你说过你不后悔。"
+    sanity_breakdown: |
+      "我看到了……那东西……在天上……不，不应该存在……不应该存在！"
+      "冷静！告诉我你看到了什么！"
+      "你不懂……你不会懂的……那根本不是我们能理解的东西……"
+    investigation_discussion: |
+      "三天内，这个小镇有七个人失踪。他们的共同点是——都在满月之夜去过那座废弃的教堂。"
+      "你是在暗示……"
+      "我不暗示任何东西。我只是在陈述事实。至于你怎么理解，那是你的事。"
+    indescribable: |
+      "它不是我们可以理解的形态……我看到的只是它选择让我看到的样子。"
+      "那你怎么知道它是真实的？"
+      "因为……它在我脑海里种下了一颗种子。而且，它在生长。"
+  avoid_patterns:
+    - "过度解释神话生物"
+    - "恐怖感不足的轻松对话"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  horror_scenes:
+    indescribable: |
+      "那不是任何已知形态的生物。它在扭曲，在变化，时而像一团触手，时而像一扇门，时而像某种——本不该存在于这个维度的东西。看一眼，就感觉大脑在尖叫。"
+    sanity_erosion: |
+      "他盯着那个方向看了太久。当他转过头来时，同伴们发现他的眼睛变得空洞，嘴角挂着一丝诡异的微笑。
+      '我看到了……'他轻声说，'我看到了宇宙的真相……'然后他的头就像蜡烛一样，融化了。"
+  investigation_scenes:
+    archive_room: |
+      "灰尘在光线中飞舞，档案室里堆满了泛黄的文件。他翻开其中一份，上面的文字是用一种他从未见过的语言写成的——但奇怪的是，他能看懂。"
+    mysterious_ritual: |
+      "地下室里，一群人围成一个圈，中间画着复杂的图案。他们低声吟唱着某种古老的语言，声音在墙壁间回响，仿佛来自另一个世界。"
+  forbidden_scenes:
+    ancient_book_reading: |
+      "书页泛黄，上面用血写成的文字仿佛在蠕動。每读一行，他的头就疼得更加剧烈，但他停不下来——知识像毒药，让人上瘾。"
+    summoning_moment: |
+      "咒语念完的瞬间，空气变得沉重，温度骤降。天空中裂开了一道缝隙——不，那不是缝隙，那是一只眼睛，一只看向他们的眼睛。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    investigation_type: "异常发现(20%) → 调查过程(30%) → 真相逼近(30%) → 恐怖爆发(20%)"
+    horror_type: "平静铺垫(20%) → 异象出现(30%) → 恐惧升级(40%) → 暂时逃离(10%)"
+    knowledge_type: "发现线索(25%) → 追查真相(30%) → 接触禁忌(30%) → 付出代价(15%)"
+  typical_pacing_example:
+    investigation_chapter: "接到案件 → 实地调查发现异常 → 深入调查触碰到禁忌 → 面对不可名状的恐怖 → 侥幸逃脱或付出代价"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    investigator_style: "接到神秘案件"
+    forbidden_awakening_style: "接触禁忌知识"
+    mysterious_legacy_style: "继承神秘遗产"
+  classic_opening_examples:
+    investigator_style: |
+      "这封信是在一个密封的盒子里发现的，盒子的主人三十年前失踪。
+      '如果你读到这封信，说明我已经失败了。不要调查我的去向，不要翻开那本书，不要……不要试图理解。'
+      信的末尾是一行颤抖的字迹：'它在看着。'
+      他放下了信，决定从三十年前的那个夜晚开始调查。"
+    forbidden_knowledge_opening: |
+      "图书馆最深处的角落，有一本没有名字的书。它就在那里，仿佛在等待着他。
+      当他的手指触碰到书脊的那一刻，一个声音在他脑海深处响起：
+      '你确定吗？翻开后，你将看到真相。但真相……往往比谎言更可怕。'"
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # S级：悬念是核心驱动力，未知的恐惧是克苏鲁的灵魂
+  # 克苏鲁的核心是真相揭示、理智管理、不可名状，悬念服务于恐惧感
+  # 主要悬念类型：事件真相、神话体系、理智代价
+  suspense_importance: S级
+
+  # 克苏鲁悬念类型定义
+  type:
+    event_suspense:
+      definition: "单次调查事件的悬念——发生了什么"
+      reveal_timing: "事件内（5-20章）"
+      example: ["事件真相", "背后存在", "幸存者下落", "禁忌知识"]
+
+    mythos_suspense:
+      definition: "克苏鲁神话体系的悬念——神话生物、组织、知识"
+      reveal_timing: "20-80章"
+      example: ["神话生物真正面目", "神秘组织目的", "禁忌知识来源"]
+
+    sanity_suspense:
+      definition: "主角理智状态的悬念——SAN值、疯狂、真相"
+      reveal_timing: "持续紧张"
+      example: ["主角能否保持理智", "疯狂后会发生什么", "真相的代价"]
+
+    long_term_suspense:
+      definition: "贯穿全书的核心悬念"
+      reveal_timing: "80-150章"
+      example: ["世界终极真相", "主角命运", "外神意图"]
+
+  # 克苏鲁悬念揭晓时机建议
+  reveal_timing:
+    第1-3章（黄金三章）:
+      - type: "异常存在"
+        content: "世界有不可名状的恐怖"
+        required: true
+      - type: "理智机制"
+        content: "知识有代价，真相会侵蚀理智"
+        required: true
+
+    第5-20章:
+      - type: "神话体系"
+        content: "克苏鲁神话的存在"
+      - type: "调查方式"
+        content: "如何安全地探索真相"
+
+    第20-40章:
+      - type: "神话生物"
+        content: "真正的神话生物出现"
+        note: "保持神秘感，不过度解释"
+      - type: "神秘组织"
+        content: "其他探索者或组织"
+
+    第40-80章:
+      - type: "深层真相"
+        content: "世界的部分真相"
+        note: "真相会带来恐惧和代价"
+      - type: "主角特殊性"
+        content: "主角为何能承受更多"
+
+    第80章+:
+      - type: "终极真相"
+        content: "宇宙的终极真相（但保持部分未知）"
+      - type: "最终命运"
+        content: "主角的最终选择"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    investigator_subgenre:
+      event_suspense: "每个案件内"
+      world_truth: "50-100章"
+      characteristics: "悬念在调查和真相"
+
+    san_management_subgenre:
+      sanity_suspense: "持续紧张"
+      truth_cost: "每次揭示都有代价"
+      characteristics: "悬念在理智存续"
+
+    mythos_creature_subgenre:
+      mythos_suspense: "持续发现"
+      power_cost: "每次使用都有代价"
+      characteristics: "悬念在力量和代价"
+
+    steam_cthulhu_subgenre:
+      era_suspense: "维多利亚时代的秘密"
+      system_suspense: "40-80章"
+      characteristics: "悬念在时代和体系"
+
+  # 克苏鲁悬念禁忌
+  taboos:
+    - content: "过度解释神话生物"
+      reason: "克苏鲁的灵魂是未知，解释即破坏"
+      severity: "critical"
+    - content: "悬念揭晓无代价"
+      reason: "克苏鲁中真相必然伴随代价"
+      severity: "critical"
+    - content: "主角太安全"
+      reason: "恐惧感是克苏鲁的核心"
+      severity: "critical"
+
+  # 伏笔埋设节奏（S级：最高密度）
+  foreshadowing:
+    principle: "每5章埋设1个新伏笔，每20章回收1个旧伏笔"
+    description: "克苏鲁悬念密集，真相线索、代价线索都要埋设"
+    example:
+      short: "调查线索埋设，事件结束回收"
+      medium: "第5章埋设，第30章回收"
+      long: "第1章埋设，第80章回收"
+    status_flow:
+      - "🟢潜伏 → 🟡铺垫 → 🟠可回收 → ⚪已回收"
+
+# ==================== 信息差管理（v4.0 新增）====================
+info_gap_management:
+  # 克苏鲁的信息差类型：同步探索
+  # 读者和主角一起发现真相、面对恐怖
+  type: 同步探索
+
+  core_principles:
+    - "读者和主角知道的信息基本同步"
+    - "悬念来自'真相是什么'而不是'读者知道主角不知道'"
+    - "线索要对读者公平呈现"
+    - "真相要有恐惧感和代价"
+
+  info_release_rhythm:
+    investigation_clues:
+      items:
+        - "通过档案、证人、现场展示线索"
+        - "让读者和主角一起推理"
+        - "真相揭晓时要有震惊感"
+      note: "不能直接告诉读者答案，要一起探索"
+
+    mythos_knowledge:
+      items:
+        - "通过古籍、神秘人物透露"
+        - "知识要带有禁忌感和危险感"
+        - "每次获取知识都要有代价暗示"
+      note: "保持神话生物的神秘感，不过度解释"
+
+    sanity_status:
+      items:
+        - "通过主角感受展示SAN值变化"
+        - "让读者感受主角的恐惧和不安"
+        - "疯狂边缘的描写要真实"
+      note: "理智侵蚀要有过程，不能突然崩溃"
+
+  taboos:
+    - content: "读者不知道的突然揭晓"
+      reason: "同步探索要求线索公平呈现"
+      severity: "warning"
+    - content: "过度解释神话生物"
+      reason: "未知才是恐惧的来源"
+      severity: "critical"
+    - content: "真相揭晓无代价"
+      reason: "克苏鲁中知识必有代价"
+      severity: "critical"
+
+  special_techniques:
+    indescribable: "描述感受而非具体形态，保持神秘"
+    sanity_erosion: "通过感官扭曲暗示SAN值下降"
+    clue_hidden: "将关键线索藏在恐惧场景中"

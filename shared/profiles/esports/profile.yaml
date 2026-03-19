@@ -1,0 +1,339 @@
+# 电竞题材Profile
+
+name: "电竞"
+version: "3.0"
+template: templates/genres/电竞.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  MOBA电竞流:
+    description: "LOL/DOTA等MOBA游戏竞技"
+    core_points: ["团战胜利", "夺冠捧杯", "证明自己"]
+    pacing: "热血竞技型"
+    examples: "《全职高手》《你是我的荣耀》"
+  FPS电竞流:
+    description: "射击游戏竞技"
+    core_points: ["精准枪法", "战术胜利", "团队配合"]
+    pacing: "紧张刺激型"
+    examples: "《AWM绝地求生》"
+  网游电竞流:
+    description: "MMORPG网游竞技"
+    core_points: ["操作碾压", "装备优势", "公会争霸"]
+    pacing: "成长竞技型"
+    examples: "《全职高手》"
+  复出电竞流:
+    description: "老将复出重回巅峰"
+    core_points: ["王者归来", "证明自己", "打破质疑"]
+    pacing: "逆袭热血型"
+    examples: "《全职高手》"
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 热血竞技型
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-6500
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density_required: 1.1/千字
+  max_interval: 1200字
+
+  preferred_types:
+    - type: 操作碾压
+      weight: 1.8
+      description: "用操作技巧碾压对手"
+      trigger_words: [操作, 碾压, 反杀, 极限, 秀, 连招, 神级, 职业级, 手速]
+    - type: 团战胜利
+      weight: 1.6
+      description: "团队配合取得胜利"
+      trigger_words: [团战, 翻盘, 配合, 先手, 开团, 输出, 击杀, ACE]
+    - type: 夺冠捧杯
+      weight: 1.5
+      description: "赢得比赛冠军"
+      trigger_words: [夺冠, 冠军, 奖杯, 金牌, 世界冠军, 捧杯, 领奖台, 金色雨]
+    - type: 打脸质疑者
+      weight: 1.4
+      description: "证明那些质疑自己的人是错的"
+      trigger_words: [质疑, 嘲讽, 看不起, 证明, 打脸, 闭嘴, 无话可说, 震惊]
+    - type: 战术碾压
+      weight: 1.3
+      description: "用战术智慧取胜"
+      trigger_words: [战术, 预判, 针对性, BP, 阵容, 反制, 套路, 策略]
+
+  avoid_types:
+    - type: 比赛过程拖沓
+      weight: 0.2
+      reason: "电竞要紧张刺激"
+
+  # 组合加成配置
+  combo_bonus:
+    consecutive: 0.2       # 连续多个爽点叠加
+    buildup_burst: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast: 0.2       # 前后状态形成强烈对比
+    multi_stack: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.45        # 比赛征程
+  fire: 0.35         # 比赛对抗
+  constellation: 0.20 # 队友关系
+
+# ==================== 特殊约束 ====================
+special_constraints:
+  - ID: ESP-001
+    description: "游戏术语要准确"
+    enforced: true
+    check_point: 游戏描写
+  - ID: ESP-002
+    description: "比赛过程要紧张刺激"
+    enforced: true
+    check_point: 比赛场景
+  - ID: ESP-003
+    description: "团队配合要有体现"
+    enforced: false
+    check_point: 团队互动
+
+# ==================== 黄金三章 ====================
+golden_three_chapters:
+  chapter_one:
+    opening: 主角现状/复出/加入战队
+    core: 建立目标和动机
+    conflict: 第一次展示实力
+    hook: 获得重要机会
+    word_count: 4000-5000       # v4.0: 最低 4000 字
+
+  chapter_two:
+    development: 开始训练/比赛
+    trial: 第一场比赛
+    growth: 展示核心实力
+    hook: 更大的比赛到来
+    word_count: 4000-5500
+
+  chapter_three:
+    climax: 第一次重要比赛胜利
+    world_building: 展示电竞世界
+    reward: 获得认可/资源
+    hook: 新的挑战到来
+    word_count: 4000-5500
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "游戏术语要准确专业"
+    - "比赛过程要紧张刺激"
+    - "团队配合要有体现"
+    - "主角要有成长弧光"
+  optional_satisfy:
+    - "感情线（队友情/爱情）"
+    - "退役复出/王者归来桥段"
+    - "粉丝文化/直播元素"
+  must_not:
+    - "游戏术语使用错误"
+    - "比赛过程描写过于简单"
+    - "缺乏紧张刺激的氛围"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content: "游戏术语使用错误"
+    severity: "critical"
+    check_point: "游戏描写"
+  - ID: TABOO-002
+    content: "比赛过程拖沓不精彩"
+    severity: "critical"
+    check_point: "比赛场景"
+  - ID: TABOO-003
+    content: "团队配合缺失"
+    severity: "warning"
+    check_point: "团队互动"
+  - ID: TABOO-004
+    content: "主角实力提升不合理"
+    severity: "warning"
+    check_point: "人物成长"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.2
+  consistency: 1.1
+  pacing: 1.2
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.1
+
+# ==================== 写作风格提示 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: "热血直接"
+    description: "游戏术语准确"
+
+  description:
+    competition: "紧张刺激，操作详细"
+    team: "兄弟情谊"
+    victory: "要有爆发感"
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    esports_style: "热血直接，游戏术语准确，队友间默契"
+  typical_dialogue:
+    command: |
+      "中路！对面打野出现在中路！"
+      "收到，我这边先撤。"
+      "下路你们稳住，我们马上支援。"
+      "好的，开团先手交给我。"
+    teamwork: |
+      "这波我的，我来开团。"
+      "跟上跟上！输出环境给你创造好了！"
+      "漂亮！这波团战完美！"
+      "兄弟们，下一局继续保持！"
+    commentary: |
+      "各位观众朋友们，欢迎来到本次比赛的决赛现场！"
+      "这波操作！这是要逆天啊！"
+      "太秀了！我什么都没看清就结束了！"
+      "让我们为冠军欢呼！"
+  avoid_patterns:
+    - "游戏术语使用错误"
+    - "比赛过程描写过于简单"
+    - "缺乏紧张刺激的氛围"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  competition_scenes:
+    arena: |
+      "偌大的比赛场馆内，灯光璀璨，舞台中央是两排相对而坐的选手席。巨大的LED屏幕上，游戏的画面正在实时呈现。观众席上，粉丝们举着各自支持的战队旗帜，呐喊声此起彼伏。选手们戴着耳机，全神贯注地盯着屏幕，手指在键盘上飞舞。"
+    teamfight: |
+      "比赛进行到最关键的时刻，双方在中路集结。突然，一方发起先手！技能特效在屏幕上炸开，团战瞬间打响！血条飞速下降，一个、两个……击杀音效接连响起！解说员的声音已经喊得嘶哑：'这波！这波要翻盘了！'"
+  daily_scenes:
+    training_room: |
+      "训练室里，几台电脑并排摆放。选手们戴着耳机，手指在键盘上敲击出密集的声响。墙上挂着比赛的海报和战队的队服，白板上写满了战术分析。角落里，教练正在回放刚才的训练赛，不时做笔记。"
+    celebration: |
+      "金色的雨从天而降，冠军奖杯在灯光下闪闪发光。队员们紧紧拥抱在一起，有人已经泪流满面。台下，粉丝们高呼着战队的名字，这一刻，所有的辛苦付出都值得了。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    competition: "准备15% → 比赛开始20% → 激烈对抗40% → 胜负揭晓25%"
+    training: "日常训练40% → 发现问题20% → 针对改进30% → 成效展现10%"
+  typical_pacing_example:
+    final_chapter: "赛前准备 → 比赛开局 → 关键团战 → 夺冠时刻"
+    training_chapter: "日常训练 → 发现弱点 → 刻苦训练 → 实战验证"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    comeback: "退役老将复出，重新征战"
+    rookie_rise: "默默无闻的新人开始电竞之路"
+    team_crisis: "战队面临解散，背水一战"
+  classic_opening_examples:
+    comeback_style: |
+      "'接下来，我们欢迎上届冠军战队的队长——'主持人的话还没说完，台下已经沸腾了。聚光灯打向后台出口，一个身影缓缓走出。三年了，整整三年。当年，他是最年轻的世界冠军，也是最让人惋惜的退役选手。今天，他回来了。"
+    rookie_rise_style: |
+      "网吧的角落里，一个少年正戴着耳机，全神贯注地盯着屏幕。他的APM（每分钟操作次数）已经飙到了300，屏幕上的画面快得让人眼花缭乱。'这小子什么来头？'旁边有人问。'不知道，天天来这儿打，说是想进职业战队。''呵，想进职业？做梦吧。'"
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # C级：悬念相对次要，电竞主打热血竞技
+  # 电竞流的核心是比赛胜利、团队配合、操作碾压，悬念仅用于比赛期待感
+  # 主要悬念类型：比赛悬念、战术悬念
+  suspense_importance: C级
+
+  # 电竞流悬念类型定义（简化版）
+  type:
+    competition_suspense:
+      definition: "单场比赛的胜负悬念"
+      reveal_timing: "比赛内（1-5章）"
+      examples: ["能否战胜对手", "能否进入决赛", "能否夺冠"]
+
+    season_suspense:
+      definition: "整个赛季/赛事的悬念"
+      reveal_timing: "20-50章"
+      examples: ["战队排名", "能否保级/晋级", "MVP归属"]
+
+    long_term_suspense:
+      definition: "贯穿全书的核心悬念"
+      reveal_timing: "50-100章"
+      examples: ["能否夺冠", "主角能否证明自己", "感情线结果"]
+
+  # 电竞流悬念揭晓时机建议（简化版）
+  reveal_timing:
+    第1-3章（黄金三章）:
+      - type: "目标和动机"
+        content: "主角为何打电竞，目标是什么"
+        required: true
+
+    第5-20章:
+      - type: "第一场重要比赛"
+        content: "展示实力，建立信心"
+
+    第20-40章:
+      - type: "战队成长"
+        content: "团队配合的进步"
+      - type: "重要对手"
+        content: "主要竞争对手出现"
+
+    第40-80章:
+      - type: "关键赛事"
+        content: "重要的锦标赛/决赛"
+      - type: "感情线进展"
+        content: "感情方面的发展"
+
+    第80章+:
+      - type: "最终对决"
+        content: "最重要的决赛"
+      - type: "夺冠时刻"
+        content: "实现目标"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    MOBA电竞流:
+      competition_suspense: "每场比赛内"
+      season_goal: "30-50章"
+      championship: "50-80章"
+      description: "悬念在团战和夺冠"
+
+    FPS电竞流:
+      gunplay_suspense: "每场比赛内"
+      tactical_game: "持续"
+      championship: "50-80章"
+      description: "悬念在操作和战术"
+
+    网游电竞流:
+      operation_suspense: "每场比赛内"
+      equipment_level: "持续积累"
+      guild_competition: "30-60章"
+      description: "悬念在成长和争霸"
+
+    复出电竞流:
+      status_recovery: "10-30章"
+      doubts: "前20章"
+      comeback: "40-60章"
+      description: "悬念在证明自己"
+
+  # 电竞流悬念禁忌（C级最简版）
+  taboos:
+    - content: "比赛结果太容易预料"
+      reason: "电竞要有紧张感，不能一边倒"
+      severity: "warning"
+    - content: "比赛过程拖沓不精彩"
+      reason: "电竞的核心是比赛，要紧张刺激"
+      severity: "critical"
+
+  # 伏笔埋设节奏（C级：较低密度，但比赛内有悬念）
+  foreshadowing:
+    principle: "每20章埋设1个新伏笔，每50章回收1个旧伏笔"
+    description: "电竞文悬念主要在比赛内，跨比赛的长线悬念相对较少"
+    examples:
+      short_foreshadowing: "比赛前埋设战术，比赛中揭晓"
+      mid_foreshadowing: "第15章埋设，第45章回收"
+      long_foreshadowing: "第1章埋设，第70章回收"
+    status_flow:
+      - "🟢潜伏 → 🟡铺垫 → 🟠可回收 → ⚪已回收"

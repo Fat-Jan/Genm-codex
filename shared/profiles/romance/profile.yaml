@@ -1,0 +1,441 @@
+# 言情题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "言情"
+display_name: "言情（女频通用）"
+description: "女频通用言情题材，包含甜宠、虐恋、重生、穿书等流派"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  sweet:
+    name: "甜宠流"
+    description: "全程高甜，男主宠溺"
+    core_points: [甜蜜互动, 守护宠爱, 身份反差萌]
+    pacing: relaxed
+    examples: [致我们单纯的小美好, 微微一笑很倾城]
+
+  angst:
+    name: "虐恋流"
+    description: "虐心情节多，情感波折大"
+    core_points: [虐后更甜, 误会解除, 追妻火葬场]
+    pacing: intense
+    examples: [千山暮雪, 华胥引]
+
+  rebirth:
+    name: "重生逆袭流"
+    description: "重生改变命运，逆袭复仇"
+    core_points: [先知先觉, 打脸复仇, 改变命运]
+    pacing: shuangwen
+    examples: [重生之豪门宠妻, 重生之嫡女祸妃]
+
+  transmigration:
+    name: "穿书穿流派"
+    description: "穿越到小说世界，改变剧情"
+    core_points: [熟知剧情, 改变人设, 攻略男主]
+    pacing: anti_trope
+    examples: [穿成反派的白月光, 穿书之自救攻略]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 情感驱动
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 1.0
+  max_interval: 1200
+
+  preferred_types:
+    - type: 甜蜜超预期
+      weight: 1.5
+      description: "意外惊喜，情感升温"
+      triggers: [甜蜜, 宠溺, 心动, 脸红, 心跳, 温柔, 抱抱, 亲亲, 眼神]
+
+    - type: 误会解除
+      weight: 1.3
+      description: "误解消除，真相大白"
+      triggers: [误会, 真相, 解释, 原来是这样, 我错了, 相信, 信任]
+
+    - type: 保护爽
+      weight: 1.2
+      description: "男主保护女主"
+      triggers: [保护, 守护, 挡住, 挺身而出, 谁敢, 我的女人, 不许欺负]
+
+    - type: 身份反转
+      weight: 1.1
+      description: "真实身份揭露"
+      triggers: [身份, 真正, 原来, 竟然是, 没想到, 震惊, 嫡女, 豪门]
+
+    - type: 逆袭爽
+      weight: 1.0
+      description: "从困境到幸福"
+      triggers: [逆袭, 翻身, 打脸, 反击, 不再, 改变, 崛起, 报复]
+
+  avoid_types:
+    - type: 无铺垫虐心
+      weight: 0.3
+      reason: 虐心需有铺垫
+    - type: 男主渣行为无后果
+      weight: 0
+      reason: 渣行为必须有后果
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 35
+  fire: 40
+  constellation: 25
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: ROMANCE-001
+    description: "男主必须在前3章出场或强烈暗示"
+    mandatory: true
+    checkpoint: 前3章
+
+  - id: ROMANCE-002
+    description: "情感发展需有铺垫，不可突兀"
+    mandatory: true
+    checkpoint: 情感升温场景
+
+  - id: ROMANCE-003
+    description: "女主不能无底线原谅"
+    mandatory: true
+    checkpoint: 冲突解决
+
+  - id: ROMANCE-004
+    description: "男主行为需符合人设"
+    mandatory: true
+    checkpoint: 男主出场
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 情感冲击/身份危机
+    core: 女主困境展示
+    hint: 男主即将出场
+    hook: 命运即将改变
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 男女主首次重要互动
+    conflict: 身份或地位冲突
+    progress: 情感或利益纠葛开始
+    hook: 情感悬念或危机
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 情感小高潮或身份变化
+    worldbuilding: 更复杂的情感世界
+    hook: 强情感悬念或期待
+    word_count: 4000-5500
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.0
+  pacing: 1.0
+  ooc: 1.3
+  continuity: 1.1
+  reader-pull: 1.2
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: 甜美/细腻
+    characteristics: 符合角色身份，有感情张力
+    avoid: [过于直白, 缺乏情感]
+
+  description: "emotion: 细腻，注重心理描写"
+    scene: 浪漫氛围营造
+    appearance: 适度，不过度
+
+  pacing_notes:
+    buildup: 情感铺垫充分
+    climax: 情感爆发点
+    transition: 允许日常过渡
+
+# ==================== 子流派适配 ====================
+sub_genre_adaptation:
+  sweet:
+    angst_level: low
+    cool_point_weight: 甜蜜超预期 1.8
+    pacing: 轻松明快
+
+  angst:
+    angst_level: high
+    cool_point_weight: 误会解除 1.5
+    pacing: 起伏大
+
+  rebirth:
+    key_elements: [前世记忆, 改变命运]
+    cool_point_weight: 逆袭爽 1.3
+
+  transmigration:
+    key_elements: [熟知剧情, 改变命运]
+    cool_point_weight: 身份反转 1.3
+
+# ==================== 实体标签 ====================
+entity_tags:
+  character: <entity type="角色" name="角色名" role="身份" relation="与女主关系"/>
+  setting: <entity type="场景" name="场景名" desc="特点" mood="氛围"/>
+  item: <entity type="物品" name="物品名" desc="意义" owner="归属"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    sweet_refined: 情感丰富，心思细腻
+    classical_elegant: 适合古言，含蓄婉约
+    modern_lively: 适合现言，轻松有趣
+
+  typical_dialogues:
+    sweet_interaction: |
+      "傻瓜，我什么时候骗过你？"
+      "从今以后，你的世界里只能有我。"
+      "他有什么好？你要什么，我都可以给你。"
+
+    misunderstanding_conflict: |
+      "你听我解释..."
+      "我不要听你的解释，我只相信我看到的。"
+      "原来在你心里，我就是这样的人。"
+
+    identity_reveal: |
+      "你以为我只是个普通的..."
+      "我真正的身份，其实..."
+      "原来你就是传说中的..."
+
+    protective_guardian: |
+      "谁敢欺负她，先问问我。"
+      "天塌下来，有我顶着。"
+      "你的事，就是我的事。"
+
+    jealous_possessive: |
+      "刚才那个男的是谁？"
+      "你对他笑得很开心啊。"
+      "记住，你是我的。"
+
+  avoid_patterns:
+    - 男主无理由的渣男行为
+    - 女主无底线的原谅
+    - 过于直白缺乏情感张力
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  romantic_scenes:
+    confession_moment: |
+      "月光如水，他的目光比月光更温柔。"
+      "他单膝跪下，从怀里取出一枚戒指：'嫁给我好吗？'"
+
+    first_heartbeat: |
+      "只是那一眼，心跳就不由自主地快了起来。"
+      "他靠得太近了，近到能闻到他身上的木质香。"
+
+    sweet_daily: |
+      "他自然地接过她手里的东西，顺手牵住了她的手。"
+      "早餐桌上，他把她喜欢的小菜都推到了她面前。"
+
+  conflict_scenes:
+    misunderstanding_explosion: |
+      "她看着眼前的一幕，手心冰凉。原来他一直在骗她。"
+      "解释的话到了嘴边，却被她冰冷的眼神堵了回去。"
+
+    emotional_hurt: |
+      "泪水在眼眶里打转，她却倔强地不让它落下来。"
+      "转身离开的那一刻，她的心碎了一地。"
+
+  identity_scenes:
+    identity_reveal: |
+      "当她出现在宴会厅时，所有人都安静了。"
+      "原来这个不起眼的女孩，居然是..."
+
+    status_contrast: |
+      "曾经高高在上的继妹，此刻却要向她低头行礼。"
+      "那些曾经瞧不起她的人，现在全都成了她的下属。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    sweet_type: "甜蜜铺垫(40%) → 小冲突(20%) → 解决+升温(30%) → 钩子(10%)"
+    angst_type: "平静(20%) → 误会/冲突(40%) → 情感爆发(30%) → 悬念(10%)"
+    counterattack_type: "困境(30%) → 转机(30%) → 反击(30%) → 新目标(10%)"
+
+  cool_point_distribution:
+    small_sweet: "500-800字"
+    emotional_climax: "1500-2500字"
+    identity_reversal: "章末或高潮段落"
+
+  typical_pacing_examples:
+    confession_chapter: "暧昧积累 → 嫉妒催化剂 → 真诚表白 → 接受回应 → 关系确定"
+    misunderstanding_chapter: "误解产生 → 冲突爆发 → 各自心痛 → 真相浮现 → 和好升温"
+    counterattack_chapter: "被瞧不起 → 暗中准备 → 身份揭露 → 众人震惊 → 地位逆转"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    crisis: 女主面临婚姻/事业危机，男主出现
+    rebirth: 重生回到关键节点，改变命运
+    transmigration: 穿越到小说世界，成为炮灰女配
+    identity: 身份隐藏或即将揭露，引发期待
+
+  required_elements:
+    - 女主基本设定（姓名、处境、目标）
+    - 核心困境展示
+    - 男主首次出现或强烈暗示
+    - 情感或命运的转折点
+    - 章末钩子
+
+  classic_opening_examples:
+    rebirth_revenge: |
+      "苏暖睁开眼，发现自己回到了五年前。"
+      前世的痛苦还历历在目：被继妹抢走一切，被未婚夫背叛，最后含恨而终。
+      这一次，她绝不会再重蹈覆辙。
+      "小姐，顾少爷的车已经到楼下了。"
+      苏暖嘴角勾起一抹冷笑。顾家，她也要重新规划了。
+
+    transmigration_counterattack: |
+      "我成了小说里的炮灰女配？"
+      林小棠看着镜子里的自己，欲哭无泪。按照剧情，她这个恶毒女配会在十章后被女主打脸，然后悲惨地退场。
+      不，既然穿越了，她就要改写剧本。
+      首先第一步——远离那个注定会爱上女主的男主。
+
+    identity_reversal: |
+      "从今天起，你就是霍家的少奶奶了。"
+      婚姻契约摆在面前，江念平静地签下了自己的名字。
+      所有人都以为她是个灰姑娘，嫁入豪门是高攀。
+      没人知道，她真正的身份，比霍家还要显赫百倍。
+      更没人知道，这场婚姻，是她精心设计的局。
+
+# ==================== 悬念规划 ====================
+suspense_planning:
+  importance: B
+
+  types:
+    short_term:
+      definition: 单个情感事件内的悬念，事件结束时解决
+      reveal_timing: 事件内（1-5章）
+      examples: [误会的真相, 小人的阴谋, 礼物的含义]
+
+    mid_term:
+      definition: 跨越多个情感阶段的悬念，与感情发展相关
+      reveal_timing: 10-40章
+      examples: [男主真实身份, 男主过去的感情, 女主身世]
+
+    long_term:
+      definition: 贯穿全书的核心悬念，最终HE/真相
+      reveal_timing: 40-100章，核心反转建议60章后
+      examples: [男女主最终命运, 核心矛盾解决, 所有误会澄清]
+
+  reveal_timing:
+    chapter_1_to_3:
+      - type: 男主出场
+        content: 男主必须在前3章出场或强烈暗示
+        mandatory: true
+      - type: 核心困境展示
+        content: 女主的困境/目标
+        mandatory: true
+
+    chapter_3_to_10:
+      - type: 情感初步升温
+        content: 男女主有互动，关系萌芽
+        note: 言情的感情线发展较快
+      - type: 第一次误会
+        content: 建立情感冲突，为后续铺垫
+
+    chapter_10_to_25:
+      - type: 男主身份暗示
+        content: 暗示男主不简单，但保持神秘
+      - type: 感情确认
+        content: 男女主确立关系（甜宠流更早，虐恋流可能更晚）
+
+    chapter_25_to_50:
+      - type: 男主真实身份揭露
+        content: 男主不为人知的身份/背景
+        note: 这是言情的重要爽点，要有铺垫
+      - type: 重要误会解除
+        content: 影响感情的关键误会
+      - type: 女主身世线索
+        content: 女主隐藏的身份或背景
+
+    chapter_50_to_80:
+      - type: 核心矛盾爆发
+        content: 阻碍感情的最大障碍
+      - type: 第三者身份真相
+        content: 如果是虐恋，揭露第三者的真面目
+
+    chapter_80_plus:
+      - type: 最终反转
+        content: 最后的大反转，颠覆之前认知
+        examples: [男主一直默默守护, 所有考验都是为了她好]
+      - type: HE实现
+        content: 最终大团圆结局
+
+  sub_genre_pacing:
+    sweet:
+      relationship_confirm: 5-15章
+      identity_reveal: 20-40章
+      core_conflict: 可能没有大的核心冲突
+      characteristics: 悬念较少，主要是甜蜜互动
+
+    angst:
+      relationship_confirm: 可能反复确认
+      max_misunderstanding: 50-70章解决
+      chasing_arc: 60-80章
+      characteristics: 悬念多，情感波折大
+
+    rebirth:
+      rebirth_reveal: 第1章就揭示
+      enemy_truth: 20-40章
+      fate_change: 60章+
+      characteristics: 悬念主要在复仇和逆袭
+
+    transmigration:
+      transmigration_reveal: 第1章就揭示
+      plot_change: 贯穿全书
+      original_protagonist: 20-50章
+      characteristics: 悬念在如何改变命运
+
+  taboos:
+    - content: 男主太晚出场（超过第5章）
+      reason: 言情读者要看男女主互动，男主太晚会失去耐心
+      severity: critical
+    - content: 女主无底线原谅男主
+      reason: 读者会不喜欢女主，觉得没有自尊
+      severity: critical
+    - content: 感情线被事业线/复仇线完全压制
+      reason: 言情的核心是感情，其他是辅助
+      severity: warning
+
+  foreshadowing:
+    principle: 每10章埋设1个新伏笔，每30章回收1个旧伏笔
+    note: 言情悬念服务于情感，甜宠可更少，虐恋/重生可稍多
+    sub_genre_adjustment:
+      sweet: 每15章埋设1个，悬念较少
+      angst: 每8章埋设1个，误会/真相悬念多
+      rebirth: 每10章埋设1个，悬念在复仇
+      transmigration: 每10章埋设1个，悬念在改变剧情
+    examples:
+      short_term_foreshadowing: 误会第1章埋设，5章内回收
+      mid_term_foreshadowing: 第10章埋设，第40章回收
+      long_term_foreshadowing: 第1章埋设，第80章+回收
+    status_flow:
+      - 潜伏 → 铺垫 → 可回收 → 已回收

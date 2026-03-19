@@ -1,0 +1,242 @@
+# 年代题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "年代"
+display_name: "年代"
+description: "年代生活、改革开放、知青岁月题材"
+version: "3.0"
+template: templates/genres/年代.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  founding_era:
+    name: "建国年代流"
+    description: "建国初期的生活奋斗"
+    core_points: [艰苦奋斗, 国家建设, 时代变迁]
+    pacing: era_change
+    examples: [大江大河]
+
+  reform_opening:
+    name: "改革开放流"
+    description: "改革开放时代的创业奋斗"
+    core_points: [下海创业, 致富成功, 时代机遇]
+    pacing: success_struggle
+    examples: [鸡毛飞上天]
+
+  rebirth_era:
+    name: "重生年代流"
+    description: "重生回到过去年代"
+    core_points: [先知先觉, 抓住机遇, 改变命运]
+    pacing: shuangwen
+    examples: [重生八零：媳妇有点辣]
+
+  youth_era:
+    name: "知青年代流"
+    description: "知青下乡的生活"
+    core_points: [农村生活, 艰苦奋斗, 返城成功]
+    pacing: life_story
+    examples: [血色浪漫]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 时代变迁型
+  tension_ratio: "5:5"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-6500
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.7
+  max_interval: 2000
+
+  preferred_types:
+    - type: 致富成功
+      weight: 1.6
+      description: "通过努力变得富裕"
+      triggers: [致富, 万元户, 存款, 盖房, 买车, 生意, 赚钱, 发财]
+
+    - type: 时代机遇
+      weight: 1.5
+      description: "抓住时代的机遇"
+      triggers: [机遇, 下海, 经商, 改革开放, 时代浪潮, 政策, 先富起来]
+
+    - type: 生活改善
+      weight: 1.4
+      description: "生活条件明显变好"
+      triggers: [改善, 楼房, 电器, 自行车, 缝纫机, 三大件, 新衣, 过年]
+
+    - type: 家庭和睦
+      weight: 1.3
+      description: "家庭关系变好"
+      triggers: [和睦, 团圆, 和解, 理解, 孝顺, 婆媳, 一家人, 温馨]
+
+  avoid_types:
+    - type: 太多狗血冲突
+      weight: 0.3
+      reason: 年代主打温馨奋斗
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 40        # 奋斗目标
+  fire: 25         # 冲突（较少）
+  constellation: 35  # 人际关系（重要）
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: ERA-001
+    description: "时代细节要准确"
+    mandatory: true
+    checkpoint: 时代描写
+
+  - id: ERA-002
+    description: "人物行为要符合时代"
+    mandatory: true
+    checkpoint: 人物行为
+
+  - id: ERA-003
+    description: "要有时代感"
+    mandatory: true
+    checkpoint: 整体氛围
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "时代细节要准确（服饰、语言、生活方式）"
+    - "人物行为要符合时代背景"
+    - "要有时代感和历史厚重感"
+    - "温馨奋斗的主基调"
+
+  optional_satisfy:
+    - "重生/穿越带来的先知优势"
+    - "创业致富的爽感"
+    - "家庭关系的温馨描写"
+
+  never_violate:
+    - "过于现代化的网络用语"
+    - "不符合时代背景的思想观念"
+    - "人物语言风格与时代脱节"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "时代细节错误"
+    severity: critical
+    checkpoint: "时代描写"
+
+  - id: TABOO-002
+    content: "人物行为不符合时代"
+    severity: critical
+    checkpoint: "人物行为"
+
+  - id: TABOO-003
+    content: "过于现代化的网络用语"
+    severity: warning
+    checkpoint: "人物对话"
+
+  - id: TABOO-004
+    content: "太多狗血冲突，偏离温馨奋斗主调"
+    severity: warning
+    checkpoint: "情节设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.3
+  pacing: 1.0
+  ooc: 1.2
+  continuity: 1.1
+  reader-pull: 1.0
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明
+      - 打破三段式
+
+  dialogue:
+    style: 符合时代
+    characteristics: 不同时代有不同风格
+
+  description: "era: 真实还原"
+    life: 温馨接地气
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    era_style: 符合时代背景的对话方式，不同年代有不同语言特点
+
+  typical_dialogues:
+    reform_opening: |
+      "同志，这事儿得按照政策来，咱不能搞那一套。"
+      "那是，那是，政策是政策，可这机会不等人啊。"
+      "你说的也有道理，这年头，胆子大的先富起来。"
+
+    youth_era: |
+      "咱们响应号召下乡，就是要接受贫下中农再教育。"
+      "是啊，城里来的，啥都不会，得好好学。"
+      "队长说了，今年咱们组评先进，大伙儿都得努力。"
+
+    founding_era: |
+      "同志，组织上决定让你去支援边疆建设。"
+      "我服从组织安排，国家需要我，我就去哪里。"
+      "好同志！这正是考验我们的时候。"
+
+  avoid_patterns:
+    - 过于现代化的网络用语
+    - 不符合时代背景的思想观念
+    - 人物语言风格与时代脱节
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  era_change:
+    reform_spring: |
+      "大街上，人们穿着蓝灰色的中山装，骑着'飞鸽''永久'牌自行车匆匆而过。供销社门口排着长队，大家攥着布票、粮票，等着买那一小段布料。广播里正播着'春天的故事'，有人驻足聆听，眼中闪烁着期待的光芒。"
+
+    youth_return: |
+      "火车站人头攒动，知青们扛着大包小包，脸上写满了复杂的情绪。有人欢喜地踏上归途，有人不舍地回头张望。月台上，送行的人群挥舞着双手，喊声、哭声交织在一起。"
+
+    factory_reform: |
+      "厂房里，机器的轰鸣声渐渐停息。老工人们围坐在车间门口，抽着烟，脸上满是迷茫。墙上'铁饭碗'的标语已经斑驳，新挂上的'转制''下岗'字眼刺痛了每个人的眼睛。"
+
+  life_scene:
+    coupon_era: |
+      "饭票、油票、布票……一叠叠票据整齐地收在铁盒子里。母亲小心翼翼地数着这个月的粮票，盘算着怎么撑到月底。'现在，一张粮票能换两个鸡蛋，'她自言自语道，眉头紧锁。"
+
+    rural_market: |
+      "清晨的集市已经热闹起来。农民们挑着自家的农产品，在露天摊位前叫卖。'鸡蛋、鸡蛋，新鲜的鸡蛋！''青菜、青菜，刚从地里摘的！'讨价还价声此起彼伏，充满了市井的烟火气。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    struggle: "希望20% → 挫折30% → 坚持20% → 突破30%"
+    warm: "日常40% → 小事件30% → 解决20% → 感悟10%"
+
+  typical_examples:
+    entrepreneurship: "机遇发现 → 尝试行动 → 遇到困难 → 坚持不懈 → 取得突破"
+    family: "日常琐事 → 矛盾发生 → 理解沟通 → 和解团聚 → 温馨收尾"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    time_travel: 现代人在年代背景下的身份转换
+    rebirth_change: 重生回过去，带着先知改变命运
+    fate_turning: 家庭变故或时代浪潮下的命运转折
+
+  classic_examples:
+    rebirth_style: |
+      "一觉醒来，发现自己躺在硬邦邦的木板床上。屋里是糊着报纸的墙，桌上摆着搪瓷茶缸和老式闹钟。她愣了愣——这不是她小时候的家吗？墙上的日历赫然写着：1985年，农历三月初八。"
+
+    era_change_style: |
+      "1978年的冬天，注定要被写进历史。北风呼啸着卷过黄河故道，杨树村的知青点里，几个年轻人围在煤油灯前，听着收音机里传来的消息。那一夜，他们都感觉到，时代要变了。"

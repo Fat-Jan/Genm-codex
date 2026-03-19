@@ -1,0 +1,146 @@
+name: "都市脑洞"
+version: "1.1.0"
+description: "现代都市背景下的脑洞创意文，包含各种有趣设定，轻松搞笑，反转不断"
+sub_genres:
+  异能觉醒:
+    description: "主角觉醒超能力，在现代都市生活"
+    core_cool_points: ["能力觉醒", "隐藏身份", "装逼打脸"]
+    pacing: "fast"
+  重生复仇:
+    description: "主角重生后复仇或改变命运"
+    core_cool_points: ["预知未来", "改变命运", "打脸"]
+    pacing: "fast"
+  随身空间:
+    description: "主角拥有随身空间，在都市中使用"
+    core_cool_points: ["空间金手指", "种植/储存", "致富"]
+    pacing: "medium"
+  特殊职业:
+    description: "主角拥有特殊职业或身份"
+    core_cool_points: ["神秘身份", "能力展示", "震惊他人"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2200
+  cool_point_interval: 1200
+  hook_strength: "strong"
+  emotional_rhythm: "快节奏，每章都有爽点或反转"
+  scene_density: "每章4-5个场景，剧情推进迅速"
+
+cool_points:
+  - type: "能力展现"
+    trigger: "使用特殊能力"
+    effect: "震惊他人，装逼成功"
+    frequency: "每章至少1次"
+  - type: "身份揭秘"
+    trigger: "隐藏身份被揭露"
+    effect: "震惊全场，打脸"
+    frequency: "每10章一次"
+  - type: "打脸现场"
+    trigger: "用能力打脸反派"
+    effect: "读者爽感"
+    frequency: "每5章一次"
+  - type: "能力升级"
+    trigger: "能力进化或新能力"
+    effect: "新可能，期待感"
+    frequency: "每20章一次"
+
+strand_weights:
+  main_plot: 0.4
+  character: 0.2
+  romance: 0.15
+  world_building: 0.25
+
+taboos:
+  - id: "TABOO-UC-001"
+    content: "设定过于复杂，开篇大段解释"
+    severity: "critical"
+    reason: "要被故事吸引"
+  - id: "TABOO-UC-002"
+    content: "能力过于逆天，没有限制"
+    severity: "warning"
+    reason: "要有平衡"
+  - id: "TABOO-UC-003"
+    content: "反派过于弱智"
+    severity: "warning"
+    reason: "要有挑战性"
+  - id: "TABOO-UC-004"
+    content: "结局烂尾"
+    severity: "critical"
+    reason: "坑要填"
+
+reader_expectations:
+  must_meet:
+    - "设定新颖有趣"
+    - "剧情爽快"
+    - "主角有魅力"
+    - "HE结局"
+  optional:
+    - "感情线"
+    - "副线剧情"
+    - "设定深度挖掘"
+  can_subvert:
+    - "传统套路"
+    - "读者预期"
+  never:
+    - "设定崩坏"
+    - "BE结局（除非明确标注）"
+
+golden_three:
+  opening_hook: "开篇立即展现设定，吸引读者"
+  protagonist_intro: "主角出场要有特点"
+  chapter_end: "章末停在悬念或爽点"
+
+writing_style:
+  tone: "轻松爽快，节奏明快"
+  perspective: "第三人称，主角视角"
+  sentence_style: "简洁有力，节奏感强"
+  vocabulary: "年轻化，有网感"
+  dialogue_ratio: "40%"
+  description_ratio: "25%"
+  action_ratio: "35%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["过度解释", "僵硬对话", "设定堆砌"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "设定通过剧情展现"
+    - "人物要立体"
+    - "脑洞也要有逻辑"
+
+checker_weights:
+  consistency: 1.5
+  pacing: 1.5
+  golden_three: 1.5
+  romance_line: 1.0
+  character_charm: 1.3
+
+entities:
+  characters:
+    - name: "主角"
+      archetype: "成长型"
+      traits: ["有能力", "有主见"]
+    - name: "反派"
+      archetype: "阻碍型"
+      traits: ["制造麻烦"]
+  locations:
+    - name: "都市"
+      significance: "主要场景"
+  items:
+    - name: "能力道具"
+      significance: "能力来源"
+
+word_count:
+  short_story: "50-100万字"
+  medium_story: "150-300万字"
+  long_story: "300万字以上"
+
+popular_tropes:
+  - "异能觉醒"
+  - "重生复仇"
+  - "随身空间"
+  - "隐藏身份"
+
+reference_works:
+  - "各类都市脑洞文"

@@ -1,0 +1,43 @@
+{
+  "global_adjustments": [
+    {
+      "platform": "tomato",
+      "field": "quality_dimensions.cool_points_density.weight",
+      "value": 35,
+      "reason": "番茄平台对爽点密度要求更高"
+    },
+    {
+      "platform": "tomato",
+      "field": "core_parameters.golden_three.opening_hook_required",
+      "value": true,
+      "reason": "强制黄金三章开头钩子检查"
+    },
+    {
+      "platform": "*",
+      "field": "runtime.parallel_processing.enabled",
+      "value": true,
+      "reason": "启用并行处理提高性能"
+    }
+  ],
+  "performance_tuning": {
+    "cache_strategy": "aggressive",
+    "max_concurrent_workers": 8,
+    "memory_limit_mb": 200,
+    "response_time_target_ms": 500
+  },
+  "validation_settings": {
+    "timeout_per_rule_ms": 1000,
+    "parallel_execution": true,
+    "fallback_mode": "degraded",
+    "strict_mode_for_tomato": true
+  },
+  "monitoring_config": {
+    "metrics_collection": true,
+    "alert_thresholds": {
+      "error_rate": 0.05,
+      "response_time_p95": 1000,
+      "memory_usage_percent": 80
+    },
+    "log_level": "info"
+  }
+}

@@ -1,0 +1,224 @@
+# 抗战谍战题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "抗战谍战"
+display_name: "抗战谍战"
+description: "抗日战争、地下工作、谍战潜伏题材"
+version: "3.0"
+template: templates/genres/抗战谍战.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  underground:
+    name: "地下工作流"
+    description: "地下党隐蔽战线斗争"
+    core_points: [智斗敌人, 完成任务, 信仰坚定]
+    pacing: tense_suspense
+    examples: [伪装者, 潜伏]
+
+  battlefield:
+    name: "抗日战场流"
+    description: "正面战场抗日"
+    core_points: [奋勇杀敌, 保家卫国, 胜利凯旋]
+    pacing: passionate_combat
+    examples: [亮剑]
+
+  detective:
+    name: "谍战破案流"
+    description: "破获敌特案件"
+    core_points: [破案推理, 揪出内奸, 保卫国家]
+    pacing: deduction_suspense
+    examples: [风声]
+
+  undercover:
+    name: "潜伏卧底流"
+    description: "潜伏敌营执行任务"
+    core_points: [身份隐藏, 危机四伏, 完成任务]
+    pacing: tense_undercover
+    examples: [潜伏]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 紧张悬疑型
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.9
+  max_interval: 1500
+
+  preferred_types:
+    - type: 完成任务
+      weight: 1.7
+      description: "成功完成地下任务或战斗任务"
+      triggers: [任务完成, 成功, 撤退, 安全, 达成, 情报, 计划]
+
+    - type: 智斗敌人
+      weight: 1.6
+      description: "与敌人斗智斗勇"
+      triggers: [周旋, 斗智, 计谋, 破绽, 识破, 将计就计, 反间]
+
+    - type: 身份保全
+      weight: 1.5
+      description: "在危机中保住身份不被暴露"
+      triggers: [身份, 暴露, 怀疑, 试探, 危险, 紧急, 脱身]
+
+    - type: 胜利凯旋
+      weight: 1.4
+      description: "战斗胜利，光荣归来"
+      triggers: [胜利, 凯旋, 歼灭, 大捷, 功勋, 英雄, 光荣]
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 45
+  fire: 35
+  constellation: 20
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: WAR-001
+    description: "历史背景要准确"
+    mandatory: true
+    checkpoint: 历史描写
+
+  - id: WAR-002
+    description: "人物要有信仰"
+    mandatory: true
+    checkpoint: 人物塑造
+
+  - id: WAR-003
+    description: "紧张感要到位"
+    mandatory: true
+    checkpoint: 整体氛围
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "历史背景要准确"
+    - "人物要有信仰"
+    - "紧张感要到位"
+    - "地下工作者的谨慎要体现"
+
+  optional_satisfy:
+    - "智斗敌人的精彩"
+    - "身份隐藏的悬念"
+    - "完成任务后的成就感"
+
+  never_violate:
+    - "过于直白的身份暴露"
+    - "不符合地下工作者特点的行为"
+    - "轻率地暴露组织信息"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "历史背景错误"
+    severity: critical
+    checkpoint: "历史描写"
+
+  - id: TABOO-002
+    content: "人物缺乏信仰支撑"
+    severity: warning
+    checkpoint: "人物塑造"
+
+  - id: TABOO-003
+    content: "过于直白的身份暴露"
+    severity: critical
+    checkpoint: "身份处理"
+
+  - id: TABOO-004
+    content: "不符合地下工作者特点的行为"
+    severity: critical
+    checkpoint: "人物行为"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.4
+  pacing: 1.2
+  ooc: 1.1
+  continuity: 1.2
+  reader-pull: 1.1
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    espionage: 谨慎含蓄，话中有话，暗藏玄机
+
+  typical_dialogues:
+    secret_code: |
+      "请问，这附近有家'永兴茶馆'吗？"
+      "您说的是哪一家？城南那家，还是城北那家？"
+      "我想找的，是城东那家，招牌上写着'正宗龙井'的。"
+      "哦，您走错了，那家三年前就关门了。不过，我倒是知道另一家……"
+
+    interrogation: |
+      "你的身份，我已经查得很清楚了。"
+      "是吗？那您倒是说说，我是什么身份？"
+      "少装糊涂！你的上线是谁？任务是什么？"
+      "长官，我只是个普通商人，您恐怕是弄错了吧。"
+
+    undercover_code: |
+      "今天天气不错。"
+      "是啊，适合出门散步。"
+      "您是去哪边？"
+      "往北走，去看望一位老朋友。"
+
+  avoid_patterns:
+    - 过于直白的身份暴露
+    - 不符合地下工作者特点的行为
+    - 轻率地暴露组织信息
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  espionage_scene:
+    secret_meeting: |
+      "昏暗的茶馆角落，两个人影相对而坐。茶盏中的水汽袅袅升起，模糊了彼此的面容。街上偶尔传来汽车的轰鸣声，每一下都让人神经紧绷。他们低声交谈，声音轻得几乎听不见，却传递着生死攸关的信息。"
+
+    interrogation: |
+      "审讯室里，昏黄的灯泡散发着惨淡的光。墙上挂着各种刑具，在灯光下投下狰狞的阴影。囚犯被绑在椅子上，满脸是血，却始终不肯开口。审讯官踱步上前，眼神锐利如鹰：'说，你的任务是什么？'"
+
+    emergency_evacuation: |
+      "午夜时分，急促的敲门声打破了寂静。'快走，你暴露了！'来人压低声音，神色紧张。他迅速收拾了几样必需品，从后门消失在夜色中。身后，汽车引擎声越来越近……"
+
+  war_scene:
+    trench: |
+      "战壕里，士兵们紧握着步枪，神情紧张地注视着前方。远处传来隆隆的炮声，震得大地颤抖。一个年轻士兵的手在发抖，老兵拍了拍他的肩膀：'别怕，等敌人上来，就顾不上怕了。'"
+
+    enemy_base: |
+      "碉堡的探照灯来回扫射，刺眼的光柱划破黑暗。铁丝网后面，日军士兵持枪巡逻。墙上的标语用歪歪扭扭的汉字写着'大东亚共荣'，在风中显得有些可笑。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    undercover_mission: "平静30% → 危机30% → 破局20% → 完成任务20%"
+    combat_assault: "准备20% → 潜入30% → 战斗30% → 撤退20%"
+
+  typical_examples:
+    espionage_chapter: "情报获取 → 身份危机 → 智取脱身 → 任务完成"
+    combat_chapter: "战前部署 → 突袭开始 → 激烈交火 → 撤退成功"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    crisis_opening: 以身份暴露危机开篇
+    mission_start: 接受重要任务，展开故事
+    deep_enemy: 已经潜伏敌营，危机四伏
+
+  classic_examples:
+    undercover_style: |
+      "上海，1941年。百乐门舞厅里，纸醉金迷。他端着酒杯，优雅地穿行在人群中，脸上挂着得体的微笑。没有人知道，他的真实身份是中共地下党上海情报站的负责人。更没有人知道，他的上线三天前刚刚被捕，而日本人正在全城搜捕他的同伙。"
+
+    battlefield_style: |
+      "炮火连天，硝烟弥漫。他趴在战壕里，紧紧握着手中已经发烫的步枪。前面，日本人的冲锋又开始了。身边的战友一个接一个倒下，血染红了脚下的土地。他知道，这一次，他们必须守住。身后，就是他们的家乡。"

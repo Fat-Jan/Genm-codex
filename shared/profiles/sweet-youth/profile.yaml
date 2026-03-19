@@ -1,0 +1,191 @@
+name: "青春甜宠"
+version: "1.1.0"
+description: "以校园或初入职场为背景，讲述纯真美好的初恋故事，全程高糖无虐，治愈系"
+sub_genres:
+  校园甜宠:
+    description: "高中或大学校园背景，纯真青涩的初恋"
+    core_cool_points: ["偷偷喜欢", "双向暗恋", "青春气息"]
+    pacing: "medium"
+  电竞甜宠:
+    description: "电竞圈背景，大神与萌新的甜蜜恋爱"
+    core_cool_points: ["游戏大神", "手把手教学", "线下掉马"]
+    pacing: "fast"
+  娱乐圈甜宠:
+    description: "娱乐圈背景，偶像与粉丝的甜蜜故事"
+    core_cool_points: ["追星成功", "双向奔赴", "公开恋情"]
+    pacing: "medium"
+  职场甜宠:
+    description: "初入职场背景，同事或上下级的甜蜜恋爱"
+    core_cool_points: ["办公室恋情", "互相成就", "共同成长"]
+    pacing: "medium"
+  学霸甜宠:
+    description: "学霸与学渣/学神的甜蜜故事"
+    core_cool_points: ["辅导功课", "图书馆约会", "共同进步"]
+    pacing: "medium"
+
+pacing:
+  chapter_target: 2200
+  cool_point_interval: 1200
+  hook_strength: "strong"
+  emotional_rhythm: "全程高糖，每章都有甜蜜互动，不允许长时间虐点"
+  scene_density: "每章4-6个场景，对话占比50%，动作描写占比30%"
+
+cool_points:
+  - type: "甜蜜互动"
+    trigger: "日常相处中的小确幸"
+    effect: "读者姨母笑，疯狂截图发弹幕"
+    frequency: "每章至少2次"
+  - type: "吃醋场面"
+    trigger: "异性靠近喜欢的人"
+    effect: "展现占有欲，可爱又甜蜜"
+    frequency: "每5章一次"
+  - type: "亲密接触"
+    trigger: "意外或故意的身体接触"
+    effect: "心跳加速，感情升温"
+    frequency: "每3章一次"
+  - type: "护短行为"
+    trigger: "喜欢的人被欺负或遇到困难"
+    effect: "展现男友/女友力，安全感爆棚"
+    frequency: "每8章一次"
+  - type: "公开撒糖"
+    trigger: "确定关系后公开"
+    effect: "朋友圈/学校轰动，爽感爆棚"
+    frequency: "中期开始，每10章一次"
+  - type: "专属昵称"
+    trigger: "关系亲近后的专属称呼"
+    effect: "私密感，甜蜜升级"
+    frequency: "中后期开始"
+
+strand_weights:
+  main_plot: 0.2
+  character: 0.25
+  romance: 0.5
+  world_building: 0.05
+
+taboos:
+  - id: "TABOO-SY-001"
+    content: "任何超过3章的虐点"
+    severity: "critical"
+    reason: "甜宠文读者不接受长时间虐"
+  - id: "TABOO-SY-002"
+    content: "男女主角有任何出轨或暧昧不清"
+    severity: "critical"
+    reason: "甜宠文要求专一"
+  - id: "TABOO-SY-003"
+    content: "结局不HE"
+    severity: "critical"
+    reason: "甜宠文必须甜蜜到底"
+  - id: "TABOO-SY-004"
+    content: "过于玛丽苏的人设"
+    severity: "warning"
+    reason: "需要真实感，不能太悬浮"
+  - id: "TABOO-SY-005"
+    content: "恶毒女配过于脸谱化"
+    severity: "warning"
+    reason: "配角也需要合理动机"
+  - id: "TABOO-SY-006"
+    content: "家长强行反对棒打鸳鸯"
+    severity: "warning"
+    reason: "可以有小阻碍但不能太过分"
+
+reader_expectations:
+  must_meet:
+    - "全程高甜，糖分充足"
+    - "男女主角专一，无第三者介入感情"
+    - "误会快速解开，不拖泥带水"
+    - "HE结局，番外继续撒糖"
+  optional:
+    - "副CP的甜蜜故事"
+    - "好友助攻情节"
+    - "共同成长的励志线"
+  can_subvert:
+    - "女追男的主动模式"
+    - "学渣逆袭的套路"
+    - "传统的高富帅男主"
+  never:
+    - "任何劈腿、出轨情节"
+    - "长期误会或分离"
+    - "悲剧或开放式结局"
+
+golden_three:
+  opening_hook: "开篇必须有强烈的好感或互动，如一见钟情、意外亲密接触、发现对方的秘密优点，让读者秒入戏"
+  protagonist_intro: "主角出场要青春洋溢，有独特的魅力点（学霸/运动/才艺），让读者想谈恋爱"
+  chapter_end: "章末必须停在甜蜜瞬间或期待感，如即将发生的约会、意外发现对方的好、心跳时刻"
+
+writing_style:
+  tone: "轻松活泼，青春洋溢，充满正能量"
+  perspective: "第三人称，可双视角，侧重女主视角"
+  sentence_style: "简洁明快，对话占比高，善用网络流行语，活泼可爱"
+  vocabulary: "年轻化，贴近Z世代语言习惯，适当使用emoji风格描述"
+  dialogue_ratio: "50%"
+  description_ratio: "25%"
+  action_ratio: "25%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇", "绝色", "倾国倾城"]
+  forbidden_patterns: ["过度外貌描写", "僵硬对话", "不符合年龄的成熟", "过于狗血的情节"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "用聊天记录、朋友圈截图等形式增加真实感"
+    - "细节要符合年轻人生活习惯，如游戏、追星、社交媒体"
+    - "情感表达要青涩但真诚，不油不腻"
+    - "配角要有梗，成为弹幕担当"
+
+checker_weights:
+  consistency: 1.0
+  pacing: 1.2
+  golden_three: 1.5
+  romance_line: 2.5
+  character_charm: 2.0
+
+entities:
+  characters:
+    - name: "女主角"
+      archetype: "元气少女型"
+      traits: ["乐观", "善良", "有点小迷糊", "可爱不自知"]
+      growth_arc: "从懵懂到懂得爱，从青涩到成熟"
+    - name: "男主角"
+      archetype: "高冷/阳光学霸型"
+      traits: ["优秀", "专一", "只对女主温柔"]
+      growth_arc: "从独来独往到学会分享，从高冷到温柔"
+    - name: "闺蜜"
+      archetype: "神助攻型"
+      traits: ["毒舌", "懂女主", "金句王"]
+    - name: "死党"
+      archetype: "搞笑担当型"
+      traits: ["损友", "关键时刻靠谱", "制造笑点"]
+  locations:
+    - name: "学校"
+      significance: "主要场景，教室、图书馆、操场"
+    - name: "奶茶店/咖啡厅"
+      significance: "约会圣地，感情升温"
+    - name: "游乐园"
+      significance: "约会必去，亲密接触场景"
+    - name: "双方家里"
+      significance: "私密空间，深入了解"
+  items:
+    - name: "情书/小纸条"
+      significance: "青春恋爱经典道具"
+    - name: "情侣物品"
+      significance: "关系确认标记"
+    - name: "游戏账号"
+      significance: "电竞文重要道具"
+
+word_count:
+  short_story: "10-20万字，侧重一段完整初恋"
+  medium_story: "30-50万字，从校园到职场"
+  long_story: "不建议过长，甜宠文节奏快"
+
+popular_tropes:
+  - "同桌的你"
+  - "校草爱上我"
+  - "网恋奔现"
+  - "青梅竹马"
+  - "双向暗恋"
+  - "大神带飞"
+
+reference_works:
+  - "《最好的我们》- 青春校园经典"
+  - "《致我们单纯的小美好》- 甜宠标杆"
+  - "《微微一笑很倾城》- 电竞甜宠代表作"

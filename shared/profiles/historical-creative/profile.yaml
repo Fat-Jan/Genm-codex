@@ -1,0 +1,147 @@
+name: "历史脑洞"
+version: "1.1.0"
+description: "历史背景下的脑洞创意文，主角穿越或重生到历史时期，利用现代知识改变历史"
+sub_genres:
+  穿越历史:
+    description: "穿越到历史时期，改变历史进程"
+    core_cool_points: ["历史知识", "改变历史", "先知优势"]
+    pacing: "medium"
+  重生历史:
+    description: "重生到历史时期，重新选择"
+    core_cool_points: ["预知未来", "改变命运", "避免悲剧"]
+    pacing: "medium"
+  架空历史:
+    description: "架空历史背景，创造新历史"
+    core_cool_points: ["创造历史", "制度创新", "科技发展"]
+    pacing: "medium"
+  历史种田:
+    description: "在历史背景下 gradual 发展"
+    core_cool_points: [" gradual 发展", "改善生活", "历史融入"]
+    pacing: "slow"
+
+pacing:
+  chapter_target: 2800
+  cool_point_interval: 1800
+  hook_strength: "strong"
+  emotional_rhythm: "中等节奏，历史与脑洞结合， gradual 推进"
+  scene_density: "每章3-4个场景，历史细节与剧情并重"
+
+cool_points:
+  - type: "历史改变"
+    trigger: "利用现代知识改变历史"
+    effect: "爽感，蝴蝶效应"
+    frequency: "每10章一次"
+  - type: "知识运用"
+    trigger: "运用现代知识解决问题"
+    effect: "惊艳全场，读者爽感"
+    frequency: "每5章一次"
+  - type: "历史名人"
+    trigger: "与历史名人互动"
+    effect: "读者兴趣，历史感"
+    frequency: "每15章一次"
+  - type: "大势改变"
+    trigger: "改变历史大势"
+    effect: "宏大叙事，读者震撼"
+    frequency: "中后期关键节点"
+
+strand_weights:
+  main_plot: 0.4
+  character: 0.25
+  romance: 0.15
+  world_building: 0.2
+
+taboos:
+  - id: "TABOO-HC-001"
+    content: "历史错误明显，不尊重史实"
+    severity: "warning"
+    reason: "要有基本历史素养"
+  - id: "TABOO-HC-002"
+    content: "现代知识过于泛滥，脱离时代"
+    severity: "warning"
+    reason: "要有合理性"
+  - id: "TABOO-HC-003"
+    content: "历史人物脸谱化"
+    severity: "warning"
+    reason: "要有立体性"
+  - id: "TABOO-HC-004"
+    content: "结局烂尾，历史改变没交代"
+    severity: "critical"
+    reason: "坑要填"
+
+reader_expectations:
+  must_meet:
+    - "基本历史知识准确"
+    - "脑洞设定有趣"
+    - " gradual 的历史改变"
+    - "HE结局"
+  optional:
+    - "与历史名人的互动"
+    - "感情线"
+    - "历史细节的考究"
+  can_subvert:
+    - "传统的历史观"
+    - "历史进程"
+  never:
+    - "明显历史错误"
+    - "不尊重历史人物"
+    - "BE结局"
+
+golden_three:
+  opening_hook: "开篇立即穿越或重生，展现历史背景和主角处境"
+  protagonist_intro: "主角出场要有现代知识优势"
+  chapter_end: "章末停在历史改变的关键时刻"
+
+writing_style:
+  tone: "厚重历史感与轻松脑洞结合"
+  perspective: "第三人称，主角视角"
+  sentence_style: "历史感强，善用细节描写"
+  vocabulary: "历史词汇准确，有时代感"
+  dialogue_ratio: "35%"
+  description_ratio: "35%"
+  action_ratio: "30%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["历史错误", "脸谱化人物", "不合理改变"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "历史细节要考究"
+    - "人物要符合时代"
+    - "改变历史要有 gradual 过程"
+
+checker_weights:
+  consistency: 2.0
+  pacing: 1.2
+  golden_three: 1.5
+  romance_line: 1.0
+  character_charm: 1.5
+
+entities:
+  characters:
+    - name: "主角"
+      archetype: "穿越者型"
+      traits: ["现代知识", "历史优势"]
+    - name: "历史人物"
+      archetype: "真实型"
+      traits: ["符合史实", "立体"]
+  locations:
+    - name: "历史时期"
+      significance: "主要场景"
+  items:
+    - name: "现代知识"
+      significance: "优势来源"
+
+word_count:
+  short_story: "80-150万字"
+  medium_story: "200-400万字"
+  long_story: "400万字以上"
+
+popular_tropes:
+  - "穿越改变历史"
+  - "先知优势"
+  - "历史人物互动"
+  - "制度创新"
+
+reference_works:
+  - "《回到明朝当王爷》- 历史穿越经典"

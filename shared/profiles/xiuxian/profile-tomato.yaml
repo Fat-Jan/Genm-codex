@@ -1,0 +1,425 @@
+# 修仙题材 Profile - 番茄版 v3.1
+# 基于 platform-tomato.yaml 平台通用配置 + 修仙流派特化
+
+name: "修仙-番茄版"
+display_name: "修仙（番茄风格）"
+description: "番茄平台特化修仙配置，快节奏、高爽点、短章节"
+version: "3.1-tomato"
+platform_config: "tomato"
+parent_profile: "xiuxian/profile.yaml"
+
+# ==================== 平台特化覆盖 ====================
+# 以下字段覆盖父配置，适配番茄平台要求
+
+# ==================== 节奏参数（番茄特化）====================
+pacing:
+  type: 快节奏
+  tension_ratio: "4:6"  # 冲突占比更高
+  opening_speed: "immediate"  # 立即进入
+  typical_chapter_length: 2800
+  word_count:
+    minimum: 2500
+    standard: 2800
+    max: 3000
+    tolerance: 100
+
+# ==================== 爽点配置（番茄特化）====================
+cool_points:
+  density: 1.5  # 番茄标准：每千字1.5个爽点
+  max_interval: 800  # 最大间隔800字
+
+  # 番茄平台偏好类型调整
+  preferred_types:
+    - type: 境界突破
+      weight: 1.5
+      description: "快速突破，可接受连续突破"
+      triggers: [突破, 境界, 筑基, 金丹, 连续突破, 飞速提升]
+
+    - type: 机缘获得
+      weight: 1.4
+      description: "获得传承、宝物、功法"
+      triggers: [传承, 宝物, 机缘, 造化, 觉醒, 获得]
+
+    - type: 越级反杀
+      weight: 1.4
+      description: "低境界击败高境界"
+      triggers: [越级, 反杀, 碾压, 蝼蚁, 震惊, 不可能]
+
+    - type: 打脸爽
+      weight: 1.3
+      description: "被轻视后展现实力"
+      triggers: [轻视, 嘲讽, 看不起, 废物, 震惊, 脸色大变]
+
+    - type: 逆袭爽
+      weight: 1.2
+      description: "从劣势到优势的逆转"
+      triggers: [逆转, 翻盘, 反败为胜, 扭转, 绝地]
+
+  # 番茄平台避免类型
+  avoid_types:
+    - type: 冗长修炼
+      weight: 0.3
+      reason: 番茄读者 impatient，修炼过程要精简
+
+    - type: 慢热铺垫
+      weight: 0.1
+      reason: 番茄要求快节奏开局
+
+  # 组合加成
+  combo_bonus:
+    consecutive: 0.3       # 番茄偏好连续爽点
+    setup_explosion: 0.2   # 简化铺垫
+    contrast: 0.3          # 强烈对比更受番茄欢迎
+    stacking: 0.15         # 多重叠加
+
+# ==================== Strand 权重（番茄调整）====================
+strand_weights:
+  quest: 50        # 任务推进
+  fire: 35         # 冲突爆发（番茄偏好更高冲突）
+  constellation: 15  # 世界观铺垫（番茄减少）
+
+  warnings:
+    quest_max_consecutive: 4
+    fire_missing_max: 6
+    constellation_missing_max: 10
+
+# ==================== 特殊约束（番茄特化）====================
+constraints:
+  - id: TOMATO-001
+    description: "第一章800字内必须出现金手指"
+    mandatory: true
+    checkpoint: 开局
+
+  - id: TOMATO-002
+    description: "世界观铺垫不超过500字"
+    mandatory: true
+    checkpoint: 世界观描写
+
+  - id: TOMATO-003
+    description: "主角连续2章必须有主动行为"
+    mandatory: true
+    checkpoint: 主角行为
+
+  - id: POWER-001
+    description: "大境界压制不可逾越（除非有特殊手段）"
+    mandatory: true
+    checkpoint: 战斗场景
+
+  - id: POWER-002
+    description: "突破必须有铺垫（但可接受快速积累）"
+    mandatory: true
+    checkpoint: 突破场景
+
+# ==================== 黄金三章（番茄特化）====================
+golden_three:
+  chapter_1:
+    name: "废材觉醒"
+    word_count: 2800
+    structure:
+      - section: "废材困境"
+        words: 500
+        purpose: "快速建立主角处境，立即展示被欺辱场景"
+        required: true
+      - section: "金手指觉醒"
+        words: 800
+        purpose: "系统/传承/异宝觉醒，必须在800字内"
+        required: true
+      - section: "第一次修炼"
+        words: 1000
+        purpose: "展示金手指效果，快速突破"
+        required: true
+      - section: "爽点爆发"
+        words: 500
+        purpose: "打脸/突破/收获，强钩子结尾"
+        required: true
+    must_have:
+      - "金手指在800字内出现"
+      - "修仙世界观在500字内交代"
+      - "第一个冲突在1000字内"
+      - "强钩子结尾"
+    forbidden:
+      - "超过500字的世界观铺垫"
+      - "主角连续2章无修炼行为"
+      - "金手指延迟到第2章"
+    hook: "更大危机预告"
+
+  chapter_2:
+    name: "初露锋芒"
+    word_count: 2600
+    structure:
+      - section: "实力展示"
+        words: 600
+        purpose: "展示金手指带来的实力提升"
+      - section: "挑衅出现"
+        words: 800
+        purpose: "反派出现，制造冲突"
+      - section: "越级战斗"
+        words: 800
+        purpose: "战斗场景，展示金手指威力"
+      - section: "震惊众人"
+        words: 400
+        purpose: "众人反应，爽点收尾"
+    must_have:
+      - "金手指效果展示"
+      - "对手出现并被打压"
+      - "收获/成长"
+    hook: "强敌关注"
+
+  chapter_3:
+    name: "目标确立"
+    word_count: 2700
+    structure:
+      - section: "思考"
+        words: 400
+        purpose: "简要总结，确立新目标"
+      - section: "目标"
+        words: 600
+        purpose: "明确的修仙目标"
+      - section: "新挑战"
+        words: 1000
+        purpose: "新的挑战出现"
+      - section: "准备"
+        words: 700
+        purpose: "为后续剧情埋伏笔"
+    must_have:
+      - "新目标确立"
+      - "新的挑战出现"
+      - "为后续剧情埋伏笔"
+    hook: "挑战即将开始"
+
+# ==================== 写作风格（番茄特化）====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明（不写"他很生气"，写"他拍桌子"）
+      - 打破三段式（改为两项或四项）
+      - 删除金句（听起来像可引用的语句要重写）
+
+  dialogue:
+    style: 现代口语化
+    characteristics: "简洁有力，符合修仙者身份，但避免过于文雅"
+    tomato_preference: "现代口语化，接地气，适合移动端阅读"
+    avoid: [过于古风, 冗长对白, 无意义对话]
+
+  description:
+    battle: "动作描写详细，增强视觉冲击，法术对决为主"
+    scene: "宗门/秘境氛围营造，但简洁快速切入"
+    emotion: "适度，不过度挖掘"
+    environment: "简洁，快速切入"
+
+  pacing_rules:
+    setup: "简化铺垫，快速进入"
+    climax: "每章至少1个小高潮"
+    transition: "减少纯过渡章"
+    chapter_structure: "铺垫(20%) → 冲突(40%) → 高潮(30%) → 钩子(10%)"
+
+# ==================== 十章结构模板（番茄特化）====================
+chapter_templates:
+  volume_1:
+    chapter_1:
+      name: "废材觉醒"
+      word_count: 2800
+      structure:
+        - type: "困境"
+          words: 500
+          purpose: "快速建立主角处境"
+        - type: "金手指觉醒"
+          words: 800
+          purpose: "系统/传承/异宝觉醒"
+          required: true
+        - type: "第一次修炼"
+          words: 1000
+          purpose: "展示金手指效果"
+        - type: "爽点爆发"
+          words: 500
+          purpose: "突破/打脸/收获"
+      hook: "更大危机预告"
+
+    chapter_2:
+      name: "初露锋芒"
+      word_count: 2600
+      structure:
+        - type: "实力展示"
+          words: 600
+        - type: "挑衅出现"
+          words: 800
+        - type: "越级战斗"
+          words: 800
+        - type: "震惊众人"
+          words: 400
+      hook: "强敌关注"
+
+    chapter_3:
+      name: "目标确立"
+      word_count: 2700
+      structure:
+        - type: "思考"
+          words: 400
+        - type: "目标"
+          words: 600
+        - type: "新挑战"
+          words: 1000
+        - type: "准备"
+          words: 700
+      hook: "挑战即将开始"
+
+    chapter_4:
+      name: "突破与战斗"
+      word_count: 2900
+      structure:
+        - type: "修炼突破"
+          words: 800
+        - type: "挑战展开"
+          words: 800
+        - type: "战斗"
+          words: 1000
+        - type: "收获"
+          words: 300
+      hook: "意外发现"
+
+    chapter_5:
+      name: "机缘降临"
+      word_count: 2500
+      structure:
+        - type: "探索"
+          words: 600
+        - type: "危机"
+          words: 800
+        - type: "获得机缘"
+          words: 700
+        - type: "离开"
+          words: 400
+      hook: "机缘的秘密"
+
+    chapter_6:
+      name: "宗门大比"
+      word_count: 2800
+      structure:
+        - type: "大比开始"
+          words: 600
+        - type: "比试"
+          words: 1000
+        - type: "展现实力"
+          words: 800
+        - type: "关注"
+          words: 400
+      hook: "决赛预告"
+
+    chapter_7:
+      name: "决赛争锋"
+      word_count: 2700
+      structure:
+        - type: "决赛"
+          words: 800
+        - type: "激烈战斗"
+          words: 1000
+        - type: "获胜"
+          words: 600
+        - type: "奖励"
+          words: 300
+      hook: "新的挑战"
+
+    chapter_8:
+      name: "情感发展"
+      word_count: 2600
+      structure:
+        - type: "情感互动"
+          words: 800
+        - type: "团队"
+          words: 700
+        - type: "协作"
+          words: 600
+        - type: "目标"
+          words: 500
+      hook: "感情考验"
+
+    chapter_9:
+      name: "强敌来袭"
+      word_count: 2900
+      structure:
+        - type: "强敌"
+          words: 700
+        - type: "危机"
+          words: 800
+        - type: "战斗"
+          words: 1000
+        - type: "化解"
+          words: 400
+      hook: "幕后黑手"
+
+    chapter_10:
+      name: "卷末高潮"
+      word_count: 3000
+      structure:
+        - type: "最终冲突"
+          words: 1000
+        - type: "高潮战斗"
+          words: 1000
+        - type: "重大收获"
+          words: 600
+        - type: "新征程"
+          words: 400
+      hook: "下一卷预告"
+
+# ==================== 检查器权重（番茄特化）====================
+checker_weights:
+  cool-points: 1.2      # 爽点检查权重最高
+  pacing: 1.1           # 节奏检查
+  golden-three: 1.1     # 黄金三章
+  consistency: 1.0
+  ooc: 1.0
+  continuity: 0.9
+  reader-pull: 0.9
+
+# ==================== 读者期待（番茄调整）====================
+reader_expectations:
+  must_satisfy:
+    - "主角快速成长，节奏明快"
+    - "金手指效果明显，助力主角"
+    - "每章有爽点，不拖泥带水"
+    - "章末有悬念钩子"
+
+  optional_satisfy:
+    - "适度感情线"
+    - "精彩战斗场面"
+    - "有机缘奇遇"
+
+  never_violate:
+    - "节奏拖沓，超过800字无爽点"
+    - "主角过于软弱，连续2章无主动行为"
+    - "金手指延迟出现"
+    - "冗长世界观铺垫"
+
+# ==================== 禁忌清单（番茄特化）====================
+taboos:
+  - id: TOMATO-T001
+    content: "超过500字的世界观铺垫"
+    severity: error
+    checkpoint: "开局"
+
+  - id: TOMATO-T002
+    content: "金手指延迟到第2章后出现"
+    severity: error
+    checkpoint: "开局"
+
+  - id: TOMATO-T003
+    content: "主角连续2章无主动行为"
+    severity: error
+    checkpoint: "主角行为"
+
+  - id: TOMATO-T004
+    content: "单一场景超过800字无爽点"
+    severity: warning
+    checkpoint: "节奏把控"
+
+  - id: TOMATO-T005
+    content: "复杂智斗超过800字"
+    severity: warning
+    checkpoint: "智斗场景"
+
+  - id: TOMATO-T006
+    content: "章末无悬念或冲突"
+    severity: warning
+    checkpoint: "章节结尾"

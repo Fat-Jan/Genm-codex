@@ -1,0 +1,309 @@
+# 都市异能-番茄版 第一卷 十章结构模板
+
+genre: "都市异能"
+platform: "tomato"
+volume: 1
+target_audience: "番茄平台快节奏都市异能读者"
+
+# 整体节奏要求
+overall_pacing:
+  type: "任务驱动型"
+  chapter_length: "2800-3200字"
+  cool_point_density: "1.5/千字"
+  hook_strength: "≥80分"
+
+# 十章详细结构
+chapters:
+
+  1:
+    name: "废柴觉醒"
+    word_count: 3000
+    structure:
+      - section: "日常困境"
+        words: 500
+        purpose: "快速建立主角普通处境"
+        required_elements:
+          - "被朋友或家人轻视"
+          - "工作或学习不顺"
+        forbidden:
+          - "超过300字的背景说明"
+
+      - section: "异能觉醒"
+        words: 600
+        purpose: "金手指在800字内出现"
+        golden_finger_type: "系统/异能/宝物"
+        required_elements:
+          - "明确能力说明"
+          - "立即使用效果展示"
+
+      - section: "初次应用"
+        words: 900
+        purpose: "利用异能解决小问题"
+        problem_solved: "个人困境"
+        victory_method: "能力碾压"
+        cool_points:
+          - type: "装逼打脸"
+            weight: 1.4
+          - type: "逆袭爽"
+            weight: 1.2
+
+      - section: "强钩子结尾"
+        words: 1000
+        purpose: "设置下一章悬念"
+        required_elements:
+          - "更大威胁出现"
+          - "神秘势力关注"
+        hook_type: "危机钩子"
+
+  2:
+    name: "系统面板"
+    word_count: 2900
+    structure:
+      - section: "系统界面"
+        words: 700
+        purpose: "展示系统面板和基本信息"
+        panel_elements:
+          - "属性数值"
+          - "技能列表"
+          - "任务栏"
+        display_style: "简洁UI"
+
+      - section: "新手任务"
+        words: 800
+        purpose: "完成第一个主线任务"
+        task_type: "成长型"
+        reward_immediate: true
+
+      - section: "能力提升"
+        words: 900
+        purpose: "获得新能力和属性提升"
+        improvements:
+          - "属性点增加"
+          - "技能解锁"
+          - "装备更新"
+
+      - section: "任务预告"
+        words: 500
+        purpose: "下一个任务提示"
+        next_task_hint: "明确目标"
+
+  3:
+    name: "校园风云"
+    word_count: 3100
+    structure:
+      - section: "校园场景"
+        words: 500
+        purpose: "进入校园环境，认识新角色"
+
+      - section: "冲突开始"
+        words: 800
+        purpose: "与校园恶霸或小团体冲突"
+        conflict_type: "装逼被打脸"
+        opponent_level: "低于主角"
+
+      - section: "实力碾压"
+        words: 1000
+        purpose: "使用能力轻松取胜"
+        combat_method: "能力压制"
+        victory_shock: "明显"
+
+      - section: "名声传播"
+        words: 800
+        purpose: "战斗结果传播，产生影响力"
+        reputation_change: "正面提升"
+
+  4:
+    name: "职场挑战"
+    word_count: 3000
+    structure:
+      - section: "工作场景"
+        words: 400
+        purpose: "进入工作环境，认识同事"
+
+      - section: "职场打压"
+        words: 800
+        purpose: "遭遇上司或同事排挤打压"
+        pressure_source: "多方联合"
+
+      - section: "能力破局"
+        words: 1000
+        purpose: "运用智慧或能力化解危机"
+        solution_method: "金手指辅助"
+        unexpected_result: "反败为胜"
+
+      - section: "地位逆转"
+        words: 800
+        purpose: "获得认可和新的职位机会"
+        status_change: "大幅提升"
+
+  5:
+    name: "异能大赛"
+    word_count: 3200
+    structure:
+      - section: "赛事报名"
+        words: 300
+        purpose: "参加异能者比赛"
+
+      - section: "初赛表现"
+        words: 800
+        purpose: "轻松通过初赛，展现实力"
+        performance_level: "碾压式"
+
+      - section: "强者对决"
+        words: 1200
+        purpose: "与高手对战，展现策略"
+        strategy_required: true
+        hidden_ability: "保留部分"
+
+      - section: "晋级悬念"
+        words: 900
+        purpose: "成功晋级，暴露更多能力"
+        new_opponents: "更强对手"
+
+  6:
+    name: "幕后黑手"
+    word_count: 2900
+    structure:
+      - section: "调查线索"
+        words: 700
+        purpose: "发现比赛背后隐藏势力"
+
+      - section: "真相揭露"
+        words: 900
+        purpose: "揭示幕后黑手身份和目的"
+        reveal_type: "阴谋曝光"
+
+      - section: "正面冲突"
+        words: 800
+        purpose: "与幕后势力直接对抗"
+        confrontation_scale: "中等"
+
+      - section: "危机升级"
+        words: 500
+        purpose: "威胁升级，需要更强力量"
+        threat_level: "显著提升"
+
+  7:
+    name: "终极突破"
+    word_count: 3100
+    structure:
+      - section: "修炼瓶颈"
+        words: 600
+        purpose: "面临实力突破的关键时刻"
+
+      - section: "突破契机"
+        words: 800
+        purpose: "获得突破所需资源或方法"
+        breakthrough_resource: "珍贵物品"
+
+      - section: "实力飞跃"
+        words: 1000
+        purpose: "完成突破，战力大幅提升"
+        power_increase: "质变级别"
+
+      - section: "准备决战"
+        words: 700
+        purpose: "为最终决战做最后准备"
+        final_preparation: "全面"
+
+  8:
+    name: "决战前夕"
+    word_count: 2800
+    structure:
+      - section: "对手分析"
+        words: 700
+        purpose: "深入了解最终对手"
+
+      - section: "战术制定"
+        words: 600
+        purpose: "制定决战策略和计划"
+
+      - section: "团队集结"
+        words: 800
+        purpose: "召集盟友和支持者"
+
+      - section: "决战开始"
+        words: 700
+        purpose: "决战即将开始，气氛紧张"
+        tension_level: "最高"
+
+  9:
+    name: "巅峰之战"
+    word_count: 3300
+    structure:
+      - section: "开场试探"
+        words: 600
+        purpose: "双方互相试探实力"
+
+      - section: "全力出手"
+        words: 1200
+        purpose: "动用全部实力和底牌"
+        all_abilities_used: true
+
+      - section: "关键转折"
+        words: 800
+        purpose: "局势突变，一方占据优势"
+        turning_method: "隐藏能力爆发"
+
+      - section: "胜利确立"
+        words: 700
+        purpose: "彻底击败对手，获得胜利"
+        victory_confirmation: "明确"
+
+  10:
+    name: "新时代开启"
+    word_count: 3000
+    structure:
+      - section: "战后处理"
+        words: 600
+        purpose: "处理战后事务和奖励分配"
+
+      - section: "新身份确立"
+        words: 800
+        purpose: "获得新的地位和权力"
+        new_status: "确立"
+
+      - section: "新任务发布"
+        words: 800
+        purpose: "系统发布新的主线任务"
+        new_quest: "明确目标"
+
+      - section: "未来展望"
+        words: 800
+        purpose: "展望未来发展和挑战"
+        future_hooks: "多线发展"
+        sequel_setup: "完整"
+
+# 平台特化约束
+tomato_constraints:
+  system_panel_frequency: "task_complete"  # 任务完成时显示
+  popup_duration: "brief"                   # 短暂停留
+  information_density: "high"              # 信息密度高
+  golden_finger_visibility: "moderate"     # 金手指可见但不过度
+
+# 质量检查权重
+quality_weights:
+  task_completion: 1.4                 # 提高任务完成要求
+  system_usability: 1.3               # 提高系统可用性标准
+  reward_satisfaction: 1.5            # 提高奖励满意度
+  pacing_consistency: 1.2             # 提高节奏一致性
+
+# 推荐元素
+recommended_elements:
+  - "简洁的系统界面"
+  - "明确的任务目标"
+  - "即时的奖励反馈"
+  - "流畅的操作体验"
+  - "合理的难度曲线"
+
+# 禁用元素
+forbidden_elements:
+  - "频繁弹窗打断叙事"
+  - "复杂菜单层级"
+  - "模糊的任务描述"
+  - "延迟的奖励反馈"
+
+# 版本历史
+version_history:
+  "v1.0-tomato": "初始版本，专注番茄平台都市异能"
+  "v1.1-tomato": "优化系统面板展示节奏"

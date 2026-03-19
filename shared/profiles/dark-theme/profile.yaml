@@ -1,0 +1,224 @@
+# 黑暗题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "黑暗题材"
+display_name: "黑暗题材"
+description: "反英雄、黑暗进化、道德灰色题材"
+version: "3.0"
+template: templates/genres/黑暗题材.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  anti_hero:
+    name: "反英雄流"
+    description: "主角非传统正义，行事灰色"
+    core_points: [打破常规, 手段狠辣, 结果导向]
+    pacing: oppressive_explosive
+    examples: [亵渎]
+
+  dark_evolution:
+    name: "黑暗进化流"
+    description: "在黑暗中变强，代价巨大"
+    core_points: [力量获取, 代价付出, 生存优先]
+    pacing: struggle_growth
+    examples: [黑暗血时代]
+
+  moral_gray:
+    name: "道德灰色流"
+    description: "没有绝对正义与邪恶"
+    core_points: [复杂人性, 灰色选择, 立场模糊]
+    pacing: contemplative
+    examples: [巫师]
+
+  demon_contract:
+    name: "恶魔契约流"
+    description: "与恶魔/邪神签订契约"
+    core_points: [禁忌力量, 灵魂交易, 代价沉重]
+    pacing: forbidden_power
+    examples: [黑魂]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 压抑爆发型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 2000
+
+  preferred_types:
+    - type: 禁忌力量
+      weight: 1.7
+      description: "获得禁忌力量，打破常规"
+      triggers: [禁忌, 恶魔, 契约, 禁术, 黑暗, 禁锢, 堕落, 邪恶]
+
+    - type: 代价换取
+      weight: 1.5
+      description: "以代价换取力量或生存"
+      triggers: [代价, 牺牲, 交换, 灵魂, 血祭, 献祭, 交易]
+
+    - type: 反转颠覆
+      weight: 1.4
+      description: "颠覆预期的反转"
+      triggers: [反转, 原来, 真相, 出人意料, 颠覆, 扭转]
+
+    - type: 压抑爆发
+      weight: 1.3
+      description: "长期压抑后的爆发"
+      triggers: [爆发, 宣泄, 爆发, 疯狂, 爆发, 不再忍受]
+
+  avoid_types:
+    - type: 无逻辑邪恶
+      weight: 0
+      reason: 主角行为必须有逻辑支撑
+
+    - type: 无代价力量
+      weight: 0.3
+      reason: 黑暗题材力量必须有代价
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 40
+  fire: 40
+  constellation: 20
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: DARK-001
+    description: "主角可以邪恶，但要有逻辑"
+    mandatory: true
+    checkpoint: 主角行为
+
+  - id: DARK-002
+    description: "力量要有代价"
+    mandatory: true
+    checkpoint: 力量获取
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "主角可以邪恶，但要有逻辑"
+    - "力量要有代价"
+    - "黑暗设定要有深度"
+
+  optional_satisfy:
+    - "禁忌力量的诱惑"
+    - "道德灰色地带的抉择"
+    - "反英雄的复杂魅力"
+
+  never_violate:
+    - "过于直白的善恶划分"
+    - "缺乏深度的黑暗描写"
+    - "主角没有原则的纯粹邪恶"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "主角行为没有逻辑支撑"
+    severity: critical
+    checkpoint: "主角行为"
+
+  - id: TABOO-002
+    content: "力量没有代价"
+    severity: critical
+    checkpoint: "力量获取"
+
+  - id: TABOO-003
+    content: "过于直白的善恶划分"
+    severity: warning
+    checkpoint: "整体风格"
+
+  - id: TABOO-004
+    content: "主角没有原则的纯粹邪恶"
+    severity: warning
+    checkpoint: "主角塑造"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.2
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.1
+  reader-pull: 1.0
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    dark: 阴郁深沉，带有压迫感，话语暗藏深意
+
+  typical_dialogues:
+    demon_contract: |
+      "你想要什么？力量？财富？还是……永生？"
+      "我要他们付出代价。"
+      "呵呵，很好。这代价，你愿意付吗？"
+      "只要能达到目的，什么代价都无所谓。"
+
+    moral_choice: |
+      "救一个人，还是救一百个人？"
+      "这种选择……根本没有正确答案。"
+      "但这正是我们必须面对的。"
+      "……那就选能活下去的那一个。"
+
+    dark_inner: |
+      "有时候我在想，我们和那些'恶人'有什么区别？"
+      "区别在于，我们的目的……或者说，我们相信的东西。"
+      "呵，听起来像是自我安慰。"
+      "也许吧。但这能让我们睡得着觉。"
+
+  avoid_patterns:
+    - 过于直白的善恶划分
+    - 缺乏深度的黑暗描写
+    - 主角没有原则的纯粹邪恶
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  dark_scene:
+    underground_maze: |
+      "幽深的地下迷宫里，只有火把微弱的光芒。墙壁上覆盖着不知名的苔藓，空气中弥漫着腐朽的气息。远处传来怪物的低吼声，在空旷的通道里回荡。每一步都可能是走向死亡，也可能是通往力量。"
+
+    dark_ritual: |
+      "祭坛上，暗红色的符文在发光。鲜血顺着石槽缓缓流淌，汇聚到中央的图案里。空气中弥漫着血腥味和硫磺味，让人窒息。一个低沉的声音在脑海中响起：'准备好了吗？这力量，将有沉重的代价……'"
+
+  moral_gray:
+    necessary_evil: |
+      "他站在废墟中，看着眼前的一切。为了救那些人，他不得不毁了这座城。火光映照着他冷漠的面容，内心却像被刀割一样。'这是必要的牺牲，'他告诉自己，一遍又一遍。'必要'这个词，却怎么也说服不了自己。"
+
+    contract_cost: |
+      "契约完成了。他获得了想要的力量，却也失去了……他不愿去想。那个声音——不知道是恶魔还是他自己的——在脑海里嘲笑：这就是代价。你以为力量是免费的吗？他闭上眼睛，鲜血从指缝间滴落。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    oppressive_explosive: "压抑沉闷50% → 积累到临界点20% → 爆发宣泄30%"
+    cost_acquisition: "困境20% → 契约机会20% → 获取力量30% → 付出代价30%"
+
+  typical_examples:
+    contract_chapter: "陷入绝境 → 恶魔出现 → 签订契约 → 获得力量/付出代价"
+    choice_chapter: "道德困境 → 内心挣扎 → 做出选择 → 承受后果"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    contract_opening: 与黑暗力量签订契约的开始
+    fall_from_grace: 从光明走向黑暗的转折
+    desperate_survival: 在极端环境下的生存抉择
+
+  classic_examples:
+    contract_opening_style: |
+      "'让我活下去。'他对着黑暗祈求，'无论什么代价。'黑暗中，一双血红的眼睛缓缓睁开。'你想活下去？很好……那么，你愿意付出什么呢？'声音沙哑而充满诱惑。他毫不犹豫地回答：'一切。'那一刻，他的灵魂已经不再属于自己。"
+
+    desperate_survival_style: |
+      "尸体堆成了小山，他站在最上面，浑身是血——有自己的，也有别人的。七天前，他还是一个普通的冒险者，直到误入这个被诅咒的地方。七天，他看着同伴一个接一个死去。现在，只剩他一个。而他，已经不再是从前的那个他了。"

@@ -1,0 +1,193 @@
+name: "狗血言情"
+version: "1.1.0"
+description: "以夸张戏剧化的情节为特点，包含误会、失忆、绝症、身世之谜等经典狗血元素，情感浓烈，戏剧冲突强烈"
+sub_genres:
+  身世之谜:
+    description: "女主真实身份曲折，可能涉及真假千金、豪门遗珠"
+    core_cool_points: ["身份揭晓", "真相大白", "逆袭打脸"]
+    pacing: "medium"
+  失忆梗:
+    description: "主角失忆后产生的各种误会和情感纠葛"
+    core_cool_points: ["失忆", "重新认识", "记忆恢复"]
+    pacing: "medium"
+  绝症梗:
+    description: "主角身患绝症，在有限时间内完成心愿"
+    core_cool_points: ["生死离别", "珍惜当下", "奇迹或悲剧"]
+    pacing: "slow"
+  代嫁/替嫁:
+    description: "女主代替他人嫁给男主，产生复杂感情"
+    core_cool_points: ["身份错位", "日久生情", "真相揭露"]
+    pacing: "medium"
+  复仇归来:
+    description: "女主遭遇背叛后整容/重生归来复仇"
+    core_cool_points: ["复仇", "打脸", "重新选择"]
+    pacing: "medium"
+  强制爱:
+    description: "男主强势追求，从强迫到真心"
+    core_cool_points: ["强势", "反抗", "沦陷", "追悔"]
+    pacing: "medium"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1200
+  hook_strength: "strong"
+  emotional_rhythm: "高密度冲突，每3章一个戏剧高潮，情绪起伏剧烈"
+  scene_density: "每章4-5个场景，快速切换制造紧张感"
+
+cool_points:
+  - type: "身份揭晓"
+    trigger: "隐藏的身份被揭露"
+    effect: "震惊全场，关系重塑"
+    frequency: "每20章一次重大揭晓"
+  - type: "误会加深"
+    trigger: "看到不该看的，听到不该听的"
+    effect: "感情危机，读者揪心"
+    frequency: "每5章一次"
+  - type: "生死危机"
+    trigger: "车祸、绑架、生病等"
+    effect: "考验真情，感情升华"
+    frequency: "每15章一次"
+  - type: "真相大白"
+    trigger: "误会解开，真相浮出水面"
+    effect: "释然与感动，感情重建"
+    frequency: "每20章一次"
+  - type: "打脸现场"
+    trigger: "反派阴谋败露"
+    effect: "大快人心，恶有恶报"
+    frequency: "每10章一次"
+  - type: "深情告白"
+    trigger: "危机后的真情流露"
+    effect: "情感爆发，读者泪目"
+    frequency: "每15章一次"
+
+strand_weights:
+  main_plot: 0.45
+  character: 0.2
+  romance: 0.3
+  world_building: 0.05
+
+taboos:
+  - id: "TABOO-ML-001"
+    content: "过于低级的误会，一看就能解释清楚"
+    severity: "critical"
+    reason: "读者会觉得主角智商有问题"
+  - id: "TABOO-ML-002"
+    content: "为虐而虐，没有逻辑的强行悲剧"
+    severity: "critical"
+    reason: "狗血也需要合理性"
+  - id: "TABOO-ML-003"
+    content: "反派过于弱智，一直蹦跶不领盒饭"
+    severity: "warning"
+    reason: "需要给反派合理下线和动机"
+  - id: "TABOO-ML-004"
+    content: "男女主全程不长嘴，就是不解释"
+    severity: "warning"
+    reason: "适当要让角色沟通"
+  - id: "TABOO-ML-005"
+    content: "结局烂尾，没交代清楚"
+    severity: "critical"
+    reason: "狗血文更需要圆满结局安抚读者"
+
+reader_expectations:
+  must_meet:
+    - "戏剧冲突强烈，情节跌宕起伏"
+    - "有足够的虐点和反转"
+    - "误会最终要解开，不能一直误会到底"
+    - "结局HE，所有伏笔要回收"
+  optional:
+    - "适当的肉渣或暧昧描写"
+    - "副CP的狗血故事"
+    - "上一代恩怨的交代"
+  can_subvert:
+    - "传统的真善美女主形象"
+    - "完美男主的人设"
+    - "大团圆的必然性"
+  never:
+    - "BE结局（除非明确标注虐文）"
+    - "一直误会到底不解释"
+    - "反派逍遥法外"
+
+golden_three:
+  opening_hook: "开篇必须强狗血开局，如被设计、意外相遇、身份错位、仇恨纠葛，立即抓住读者眼球"
+  protagonist_intro: "主角出场要带有强烈的戏剧色彩，背负秘密或仇恨，有明确的情绪张力"
+  chapter_end: "章末必须停在情绪高点或悬念处，如刚刚发现的秘密、即将爆发的冲突、意外发生的事故"
+
+writing_style:
+  tone: "浓烈饱满，情绪充沛，戏剧化"
+  perspective: "第三人称，多视角切换，营造悬疑感"
+  sentence_style: "快节奏，善用短句和省略号制造紧张，心理描写细腻"
+  vocabulary: "强烈情感词汇，善用修辞，制造画面感"
+  dialogue_ratio: "35%"
+  description_ratio: "35%"
+  action_ratio: "30%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["过度外貌描写", "僵硬对话", "为虐而虐", "强行降智"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "狗血也要讲基本逻辑，不能全靠巧合"
+    - "角色的选择要符合人设，不能为剧情服务而崩人设"
+    - "情感爆发要有积累，不能突然发疯"
+    - "反派也要有合理动机，不能单纯为恶"
+
+checker_weights:
+  consistency: 1.8
+  pacing: 1.5
+  golden_three: 1.8
+  romance_line: 2.0
+  character_charm: 1.2
+
+entities:
+  characters:
+    - name: "女主"
+      archetype: "命运多舛型"
+      traits: ["坚韧", "善良", "背负秘密"]
+      growth_arc: "从受害到觉醒，从被动到主动"
+    - name: "男主"
+      archetype: "深情偏执型"
+      traits: ["深情", "偏执", "为爱疯狂"]
+      growth_arc: "从误解到理解，从伤害到处守护"
+    - name: "反派女配"
+      archetype: "恶毒阴谋型"
+      traits: ["嫉妒", "心机", "不择手段"]
+    - name: "男主前任"
+      archetype: "白月光/前女友型"
+      traits: ["执念", "不甘", "搞破坏"]
+    - name: "神秘人物"
+      archetype: "关键线索型"
+      traits: ["知晓秘密", "推动剧情"]
+  locations:
+    - name: "豪宅"
+      significance: "恩怨情仇发生地"
+    - name: "医院"
+      significance: "生死离别场景"
+    - name: "宴会"
+      significance: "身份揭晓重要场合"
+    - name: "老家"
+      significance: "身世线索所在地"
+  items:
+    - name: "亲子鉴定"
+      significance: "身世之谜关键"
+    - name: "信物"
+      significance: "情感寄托，身份凭证"
+    - name: "遗嘱"
+      significance: "财产与真相"
+
+word_count:
+  short_story: "30-60万字"
+  medium_story: "80-150万字"
+  long_story: "150万字以上"
+
+popular_tropes:
+  - "真假千金"
+  - "代嫁替嫁"
+  - "失忆重逢"
+  - "车祸梗"
+  - "误会分手"
+  - "复仇归来"
+
+reference_works:
+  - "《千山暮雪》- 经典狗血虐恋"
+  - "《来不及说我爱你》- 民国狗血巅峰"

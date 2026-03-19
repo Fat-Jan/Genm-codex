@@ -1,0 +1,218 @@
+# 职场婚恋题材Profile
+
+name: "职场婚恋"
+version: "3.0"
+template: templates/genres/职场婚恋.md
+
+sub_genres:
+  promotion_arc:
+    description: "职场升职加薪"
+    core_points: ["升职加薪", "职场成功", "人生赢家"]
+    pacing: "奋斗型"
+  romance_arc:
+    description: "婚姻与爱情"
+    core_points: ["感情圆满", "婚姻幸福", "家庭和睦"]
+    pacing: "情感型"
+  contract_marriage_arc:
+    description: "先结婚后恋爱"
+    core_points: ["日久生情", "先婚后爱", "修成正果"]
+    pacing: "言情型"
+
+pacing:
+  type: 情感驱动型
+  tension_ratio: "5:5"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.5
+#   - 默认权重: 升职爽(1.5), 感情爽(1.4), 家庭爽(1.3), 打脸爽(1.2)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 0.7/千字
+  max_interval: 2000字    # 超过此值需预警
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 升职加薪
+      weight: 1.5
+      description: "职场晋升、能力被认可"
+      trigger_words: [升职, 晋升, 加薪, 升迁, 提拔, 任命, 恭喜, 负责, 管理]
+    - type: 感情圆满
+      weight: 1.4
+      description: "感情进展顺利，关系确立或深化"
+      trigger_words: [告白, 在一起, 表白, 答应, 恋爱, 结婚, 领证, 求婚]
+    - type: 家庭和睦
+      weight: 1.3
+      description: "家庭关系和谐，矛盾化解"
+      trigger_words: [和睦, 团聚, 和解, 原谅, 理解, 支持, 温馨]
+    - type: 职场打脸
+      weight: 1.2
+      description: "能力展示，让轻视者刮目相看"
+      trigger_words: [方案, 成功, 搞定, 震惊, 没想到, 能力, 真厉害]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 职场悬浮
+      weight: 0
+      reason: 职场描写要真实可信
+    - type: 感情事业割裂
+      weight: 0.3
+      reason: 双线要有联系和互动
+
+  # 组合加成配置
+  combo_bonus:
+    consecutive_satisfaction: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    buildup_explosion: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast_effect: 0.2       # 前后状态形成强烈对比
+    multi_stack: 0.1       # 每层加成，上限+0.3
+
+strand_weights:
+  quest: 0.35
+  fire: 0.30
+  constellation: 0.35
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "职场描写要真实"
+    - "感情线与事业线要有联系"
+    - "角色能力与职位要匹配"
+  optional_satisfy:
+    - "先婚后爱的反差萌"
+    - "职场升职的爽感"
+    - "办公室暧昧的甜度"
+  must_not:
+    - "职场描写过于悬浮"
+    - "感情线与事业线完全割裂"
+    - "角色能力与职位不匹配"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content: "职场描写过于悬浮不真实"
+    severity: "critical"
+    check_point: "职场描写"
+  - ID: TABOO-002
+    content: "感情线与事业线完全割裂"
+    severity: "warning"
+    check_point: "双线设计"
+  - ID: TABOO-003
+    content: "角色能力与职位不匹配"
+    severity: "warning"
+    check_point: "人物塑造"
+
+checker_weights:
+  high-point: 0.8
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.1
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    professional_style: "专业得体，逻辑清晰，又不失温度"
+    female_lead_voice: "独立自主，专业能力强，情感细腻"
+    male_lead_voice: "成熟稳重，事业有成，尊重女性"
+  typical_dialogue:
+    workplace_clash: |
+      "这个方案我不认同。"
+      "请问哪里有问题？"
+      "第三部分的成本预算偏高，我们需要更优化的方案。"
+      "我理解您的顾虑，但根据市场调研数据，这个投入是必要的。"
+      "好，你说服我了。"
+    contract_marriage: |
+      "结婚协议你看了吗？有什么问题可以提出来。"
+      "没什么问题，但是...我们真的要这样吗？"
+      "有什么不妥？各取所需，互不打扰。"
+      "行。"
+      后来，他才知道，有些界限，注定要被打破。
+    office_tension: |
+      "今晚加班吗？"
+      "嗯，还有个方案要改。"
+      "那我等你，一起吃宵夜？"
+      "不用了，你先回去吧。"
+      "我都等了三个小时了，还差这一会儿？"
+  avoid_patterns:
+    - "职场描写过于悬浮"
+    - "感情线与事业线完全割裂"
+    - "角色能力与职位不匹配"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  workplace_scenes:
+    executive_meeting_room: |
+      "玻璃幕墙外是繁华的都市夜景，会议室内灯火通明。她站在投影前，条理清晰地讲解着方案。坐在主位上的男人点头，眼中闪过一丝欣赏。"
+    late_night_ot: |
+      "写字楼的灯光一盏盏熄灭，只剩下她办公室的那盏还亮着。她揉了揉酸痛的脖子，突然看到桌上多了一杯热咖啡。抬头，对上一双深邃的眼眸。"
+    promotion_moment: |
+      "会议室里，人事总监宣布了新的任命。她从普通主管晋升为部门经理，所有同事都投来祝贺的目光。她微笑着道谢，余光瞥见角落里那个男人的嘴角微扬。"
+  life_scenes:
+    home_daily: |
+      "她拖着疲惫的身体回到家，发现餐桌上摆着热腾腾的饭菜。他正在厨房里收拾，听到开门声，回头看了一眼：'回来了？洗手吃饭。'"
+    date_moment: |
+      "高档餐厅里，钢琴声悠扬。她低头切着牛排，感觉到他的目光一直落在自己身上。
+      '你一直盯着我看干什么？'
+      '好看。'
+      她切牛排的手顿了顿，耳根泛红。"
+  marriage_scenes:
+    certificate_moment: |
+      "民政局门口，两人拿着崭新的结婚证。
+      '从今天起，我们就是合法夫妻了。'他说。
+      '嗯。'她低头看着证件照，恍惚间觉得一切像在做梦。"
+    conflict_argue: |
+      "'你能不能不要把工作带到家里来？'
+      '你以为我想吗？我是在为我们的未来打拼。'
+      '我要的不是这些，我只想要你多陪陪我。'
+      他沉默了，她转身进了卧室，轻轻关上了门。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    workplace_chapter: "工作压力30% -> 问题出现30% -> 解决方案30% -> 成果展现10%"
+    romance_chapter: "日常互动30% -> 情感升温40% -> 小波折20% -> 温馨收尾10%"
+    marriage_chapter: "生活片段30% -> 情感交流40% -> 矛盾解决20% -> 感情升华10%"
+  typical_pacing_example:
+    contract_marriage: "协议结婚 -> 同居磨合 -> 感情萌芽 -> 误会矛盾 -> 表白心意 -> 幸福生活"
+    workplace_promotion: "职场困境 -> 努力拼搏 -> 机会来临 -> 展现实力 -> 升职加薪"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    contract_marriage: "相亲/协议结婚 -> 同居生活 -> 暗生情愫"
+    workplace_promotion: "工作困境 -> 努力拼搏 -> 收获成功"
+    reunion: "曾经暗恋 -> 偶然重逢 -> 旧情复燃"
+  classic_opening_examples:
+    contract_marriage_arc: |
+      "三十岁那年，她终于向现实妥协，接受了家里安排的相亲。
+      对方是个商界精英，条件完美得无可挑剔。
+      '我们结婚吧。'第一次见面他就提出这个建议。
+      '我们甚至不了解对方。'
+      '可以先婚后爱。'
+      她没想到，这一场协议婚姻，会成为她此生最幸福的选择。"
+    promotion_arc: |
+      "入职三年，她还是一个小小的专员。
+      每天加班到深夜，却总是得不到认可。
+      直到那个新的部门总监上任，一切都开始改变。
+      '你的方案很有想法，继续保持。'
+      这是她第一次被上级肯定，她决定，要让他看到她的全部实力。"
+    reunion_arc: |
+      "七年后的同学会上，她再次见到了他。
+      当年的校草，如今已是上市公司的CEO。
+      '好久不见。'他微笑着向她举杯。
+      她没想到，他的目光里，藏着她一直不知道的深情。"

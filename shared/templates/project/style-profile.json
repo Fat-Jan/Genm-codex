@@ -1,0 +1,261 @@
+{
+  "_schema": "style-profile-v1.0",
+  "_description": "文风指纹档案，记录作品或作者的量化风格特征",
+
+  "meta": {
+    "profile_name": "示例风格档案",
+    "version": "1.0.0",
+    "created_at": "2026-03-18T00:00:00Z",
+    "updated_at": "2026-03-18T00:00:00Z",
+    "source_type": "chapter",
+    "source_files": ["ch001.md"],
+    "genre": "urban-fantasy",
+    "word_count": 5000
+  },
+
+  "statistics": {
+    "sentence": {
+      "avg_length": 35.0,
+      "std_dev": 15.0,
+      "short_ratio": 0.25,
+      "long_ratio": 0.15,
+      "max_length": 80,
+      "min_length": 5,
+      "distribution": {
+        "0-15": 0.25,
+        "16-30": 0.35,
+        "31-50": 0.30,
+        "51+": 0.10
+      }
+    },
+    "paragraph": {
+      "avg_length": 120.0,
+      "avg_sentences": 3.5,
+      "max_sentences": 8,
+      "min_sentences": 1,
+      "distribution": {
+        "short": 0.30,
+        "medium": 0.50,
+        "long": 0.20
+      }
+    },
+    "dialogue": {
+      "ratio": 0.30,
+      "avg_length": 25.0,
+      "avg_per_paragraph": 0.5,
+      "density": 0.45,
+      "monologue_ratio": 0.20,
+      "dialogue_tags": ["说道", "问", "回答", "冷笑", "点头"]
+    },
+    "vocabulary": {
+      "richness": 0.65,
+      "unique_words": 850,
+      "total_words": 4500,
+      "top_words": ["说道", "没有", "知道", "看着", "什么", "自己", "已经", "他们"],
+      "idiom_count": 45,
+      "idiom_ratio": 0.08,
+      "term_density": 0.05,
+      "frequent_phrases": [""]
+    },
+    "rhetoric": {
+      "metaphor_count": 25,
+      "metaphor_ratio": 0.12,
+      "parallelism_count": 8,
+      "parallelism_ratio": 0.03,
+      "rhetorical_question_count": 12,
+      "rhetorical_question_ratio": 0.05,
+      "hyperbole_count": 18,
+      "hyperbole_ratio": 0.08,
+      "personification_count": 10,
+      "personification_ratio": 0.04
+    }
+  },
+
+  "patterns": {
+    "sentence_structure": {
+      "simple": 0.40,
+      "compound": 0.35,
+      "complex": 0.20,
+      "inverted": 0.03,
+      "elliptical": 0.02,
+      "examples": {
+        "simple": "他点了点头。",
+        "compound": "他推开门，走进了房间。",
+        "complex": "虽然下雨了，但他还是决定出门。",
+        "inverted": "走了，他就这样。",
+        "elliptical": "\"吃了吗？\" \"吃了。\""
+      }
+    },
+    "transitions": {
+      "time": {
+        "frequency": 0.15,
+        "markers": ["三天后", "转眼间", "第二天", "很快", "不一会儿"]
+      },
+      "space": {
+        "frequency": 0.08,
+        "markers": ["与此同时", "在另一边", "远处", "近处"]
+      },
+      "pov": {
+        "frequency": 0.05,
+        "markers": ["他不知道", "她心想", "他们不知道"]
+      },
+      "emotion": {
+        "frequency": 0.12,
+        "markers": ["然而", "但是", "不过", "可是"]
+      },
+      "logic": {
+        "frequency": 0.10,
+        "markers": ["因此", "于是", "所以", "结果"]
+      }
+    },
+    "description": {
+      "senses": {
+        "visual": 0.45,
+        "auditory": 0.15,
+        "tactile": 0.12,
+        "olfactory": 0.05,
+        "gustatory": 0.03,
+        "psychological": 0.20
+      },
+      "density": 0.35,
+      "detail_level": 4.0,
+      "focusing_pattern": "由整体到局部",
+      "description_speed": "中等"
+    },
+    "pacing": {
+      "narrative_speed": 2.5,
+      "scene_ratio": 0.40,
+      "summary_ratio": 0.30,
+      "dialogue_ratio": 0.30,
+      "action_density": 0.40,
+      "psychological_ratio": 0.25,
+      "tension_curve": [
+        {"position": 0.1, "level": 0.3},
+        {"position": 0.5, "level": 0.7},
+        {"position": 0.9, "level": 0.9}
+      ]
+    },
+    "openings": {
+      "common_patterns": [
+        "直接切入场景",
+        "对话开场",
+        "动作开场"
+      ],
+      "avg_first_paragraph_length": 150
+    },
+    "endings": {
+      "common_patterns": [
+        "悬念钩子",
+        "场景收尾",
+        "对话收尾"
+      ],
+      "avg_last_paragraph_length": 80,
+      "cliffhanger_frequency": 0.60
+    }
+  },
+
+  "style_dimensions": {
+    "language": {
+      "classical_modern": 70,
+      "ornate_simple": 35,
+      "humor_serious": 55,
+      "colloquial_formal": 65,
+      "concise_verbose": 60
+    },
+    "narrative": {
+      "fast_slow": 75,
+      "direct_indirect": 70,
+      "objective_subjective": 50,
+      "linear_nonlinear": 80,
+      "show_tell": 65
+    },
+    "emotional": {
+      "restrained_emotional": 45,
+      "warm_cold": 60,
+      "positive_negative": 70,
+      "intense_subtle": 55
+    }
+  },
+
+  "tags": [
+    "快节奏",
+    "对话驱动",
+    "直白简洁",
+    "现代口语",
+    "中等描写",
+    "心理刻画"
+  ],
+
+  "signature": {
+    "distinctive_features": [
+      "常用短句推进节奏",
+      "对话占比适中",
+      "心理描写自然穿插",
+      "过渡自然流畅"
+    ],
+    "habitual_phrases": [
+      "\"...\" 他说道",
+      "\"...\" 他皱了皱眉",
+      "\"...\" 他沉默了"
+    ],
+    "characteristic_rhythms": [
+      "对话-描写-对话 交替",
+      "短段落为主"
+    ]
+  },
+
+  "recommendations": {
+    "strengths": [
+      {
+        "aspect": "对话节奏",
+        "description": "对话推动情节效果佳",
+        "suggestion": "保持当前节奏，在关键场景适当增加对话张力"
+      },
+      {
+        "aspect": "句式变化",
+        "description": "长短句搭配合理，阅读流畅",
+        "suggestion": "在高潮场景增加短句比例提升紧张感"
+      },
+      {
+        "aspect": "心理描写",
+        "description": "内心戏穿插得当，不干瘪",
+        "suggestion": "在转折处适当增加心理铺垫"
+      }
+    ],
+    "improvements": [
+      {
+        "aspect": "描写维度",
+        "issue": "视觉描写占比过高",
+        "suggestion": "增加听觉、嗅觉描写增强沉浸感"
+      },
+      {
+        "aspect": "过渡方式",
+        "issue": "时间过渡占比过高",
+        "suggestion": "多样化过渡手法，增加情绪过渡"
+      },
+      {
+        "aspect": "修辞运用",
+        "issue": "排比使用率较低",
+        "suggestion": "在高潮场景适当使用排比增强气势"
+      }
+    ],
+    "suitable_genres": [
+      "都市异能",
+      "游戏竞技",
+      "现代言情",
+      "悬疑推理"
+    ],
+    "target_audience": [
+      "偏好快节奏的年轻读者",
+      "喜欢对话驱动的读者",
+      "不喜欢拖沓描写的读者"
+    ]
+  },
+
+  "comparison": {
+    "reference_profile": null,
+    "similarity_score": null,
+    "key_differences": [],
+    "alignment_priorities": []
+  }
+}

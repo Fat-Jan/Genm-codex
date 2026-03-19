@@ -1,0 +1,323 @@
+# 悬疑灵异题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "悬疑灵异"
+display_name: "悬疑灵异"
+description: "恐怖悬疑、鬼怪灵异、解谜破案题材"
+version: "3.0"
+template: templates/genres/悬疑灵异.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  horror:
+    name: "恐怖灵异流"
+    description: "鬼怪为真，主角与鬼怪对抗"
+    core_points: [击杀鬼怪, 获得异能, 揭开真相]
+    pacing: tense_horror
+    examples: [我有一座恐怖屋, 神秘复苏]
+
+  detective:
+    name: "灵探解谜流"
+    description: "以灵异手法破案"
+    core_points: [破案推理, 真相大白, 正义伸张]
+    pacing: deduction
+    examples: [灵魂摆渡]
+
+  exorcist:
+    name: "降妖除魔流"
+    description: "主角是道士/驱魔人"
+    core_points: [法术对敌, 斩妖除魔, 守护一方]
+    pacing: passionate
+    examples: [茅山捉鬼人]
+
+  eldritch:
+    name: "诡秘复苏流"
+    description: "世界正在诡异化"
+    core_points: [掌握规则, 对抗诡异, 生存挣扎]
+    pacing: oppressive_tense
+    examples: [诡秘之主]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 紧张压抑型
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 1.0
+  max_interval: 1500
+
+  preferred_types:
+    - type: 真相揭晓
+      weight: 1.8
+      description: "悬念揭开，真相大白"
+      triggers: [真相, 原来, 竟然, 幕后, 凶手, 始作俑者, 幕后黑手]
+      note: 伏笔要提前埋好
+
+    - type: 绝境求生
+      weight: 1.6
+      description: "在鬼怪追杀中逃脱"
+      triggers: [逃脱, 逃离, 绝境, 生路, 出口, 一线生机, 死里逃生]
+
+    - type: 反杀鬼怪
+      weight: 1.5
+      description: "击败恐怖的鬼怪"
+      triggers: [消灭, 击杀, 反杀, 封印, 镇压, 斩杀, 除掉]
+
+    - type: 获得异能
+      weight: 1.4
+      description: "获得对抗鬼怪的能力"
+      triggers: [觉醒, 异能, 能力, 传承, 获得, 觉醒, 诡异力量]
+
+    - type: 智斗鬼怪
+      weight: 1.3
+      description: "用智慧而非蛮力战胜鬼怪"
+      triggers: [规则, 弱点, 破绽, 智取, 设局, 陷阱, 利用]
+
+  avoid_types:
+    - type: 无理由的恐怖
+      weight: 0.3
+      reason: 恐怖要有逻辑
+
+    - type: 主角无敌
+      weight: 0.2
+      reason: 悬疑灵异要有危险感
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 40        # 案件/事件解决
+  fire: 35         # 恐怖危机
+  constellation: 25  # 人物关系
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: HORROR-001
+    description: "鬼怪要有逻辑和规则，不能无限制"
+    mandatory: true
+    checkpoint: 鬼怪设计
+
+  - id: HORROR-002
+    description: "主角要有恐惧感，不能无所畏惧"
+    mandatory: false
+    checkpoint: 主角塑造
+
+  - id: HORROR-003
+    description: "悬念要有伏笔，不能突然揭晓"
+    mandatory: true
+    checkpoint: 悬念设计
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 灵异事件发生/主角遭遇诡异
+    core: 建立恐怖氛围和规则
+    conflict: 第一次面对鬼怪/诡异
+    hook: 主角获得特殊能力/发现线索
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 探索事件真相
+    trial: 发现更多线索/规则
+    upgrade: 学会应对鬼怪的方法
+    hook: 危机升级
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 解决第一个灵异事件
+    worldbuilding: 展示更大的灵异世界
+    harvest: 获得核心能力/道具
+    hook: 新的灵异事件即将到来
+    word_count: 4000-5500
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "恐怖氛围要到位"
+    - "悬念要有伏笔"
+    - "鬼怪要有规则"
+
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有幽默调剂"
+
+  never_violate:
+    - "主角无敌，毫无危险感"
+    - "悬念无伏笔突然揭晓"
+    - "鬼怪毫无逻辑"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "主角无敌，毫无危险感"
+    severity: critical
+    checkpoint: "主角塑造"
+
+  - id: TABOO-002
+    content: "悬念无伏笔突然揭晓"
+    severity: critical
+    checkpoint: "悬念设计"
+
+  - id: TABOO-003
+    content: "鬼怪毫无逻辑，想怎样就怎样"
+    severity: warning
+    checkpoint: "鬼怪设计"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.4
+  pacing: 1.2
+  ooc: 1.0
+  continuity: 1.3
+  reader-pull: 1.2
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai:
+    reference: references/writing/anti-ai-style.md
+    core_rules:
+      - 删除填充短语（淡淡的、微微、不禁、竟、顿时）
+      - 展示代替说明（不写"他很生气"，写"他拍桌子"）
+      - 打破三段式（改为两项或四项）
+
+  dialogue:
+    style: 紧张简洁
+    characteristics: 危机中对话要简短有力
+    avoid: [恐怖场景废话太多]
+
+  description:
+    horror: 氛围营造，心理恐惧
+    suspense: 层层铺垫，留白
+    combat: 紧张刺激，生死一线
+
+# ==================== 实体标签 ====================
+entity_tags:
+  ghost:
+    format: <entity type="鬼怪" name="鬼怪名" desc="特点" tier="危险度" rule="规则" weakness="弱点"/>
+
+  ability:
+    format: <entity type="异能" name="异能名" desc="效果" tier="层级" cost="代价" source="来源"/>
+
+  event:
+    format: <entity type="事件" name="事件名" desc="经过" tier="规模" truth="真相" status="状态"/>
+
+  location:
+    format: <entity type="地点" name="地点名" desc="特点" tier="危险度" history="历史"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    tense_concise: 紧张简洁，危机中对话简短有力
+    eerie: 诡异阴森，营造恐怖氛围
+    analytical: 推理分析，破案时的逻辑清晰
+
+  typical_dialogues:
+    ghost_confrontation: |
+      "别回头，不管听到什么声音，都不要回头。"
+      "它来了...我能感觉到...有什么东西在靠近..."
+
+    rule_reveal: |
+      "记住这三条规则：天黑后不要出门，不要和陌生人搭话，永远不要打开那扇门。"
+      "这个鬼怪有自己的规则，只有遵守规则的人才能活下去。"
+
+    truth_revealed: |
+      "原来...真正的凶手一直就在我们身边。"
+      "所有的线索都指向同一个人，但我们一直在忽略最明显的证据。"
+
+    eerie_warning: |
+      "你不该来这个地方的。"
+      "今晚过后，你会后悔知道这些真相。"
+
+    survival_moment: |
+      "快跑！别管我！"
+      "往有光的地方跑，它们怕光！"
+
+  avoid_patterns:
+    - 恐怖场景中废话太多
+    - 过于直白破坏悬念
+    - 不符合恐怖氛围的轻松对话
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  horror_atmosphere:
+    ghost_appearance: |
+      "气温骤降，她的呼吸都变成了白雾。黑暗中，似乎有什么东西在注视着她。"
+      "脚步声在身后响起，但每次回头，身后都是一片空寂。直到——"
+
+    eerie_environment: |
+      "走廊的灯忽明忽暗，墙上的人影似乎在扭动。"
+      "空气中弥漫着腐烂的气味，地上的血迹还是温热的。"
+
+    psychological_horror: |
+      "她知道有什么东西在看着她，但当她转向那个方向时，什么都没有。"
+      "镜子里的倒影，似乎和她动作不同步...慢了半拍。"
+
+  suspense_detection:
+    clue_discovery: |
+      "在灰尘中，一个不起眼的物件吸引了他的注意。"
+      "日记的最后一页，被人撕掉了，但隐约能看到几个字的痕迹。"
+
+    truth_emerging: |
+      "所有线索都指向同一个结论，但这个结论让人难以接受。"
+      "当他将所有碎片拼凑在一起时，一个可怕的真相浮出水面。"
+
+  survival_crisis:
+    desperate_escape: |
+      "出口被封死了，身后传来越来越近的嘶吼声。唯一的出路是..."
+      "她握紧了手中的道具，这是她最后的保命手段。"
+
+    rule_game: |
+      "按照规则，只有献祭一个人才能通过这里。但一定还有别的办法..."
+      "如果能找到规则的漏洞，或许就能反过来利用它。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    horror: "日常铺垫(20%) → 异常征兆(30%) → 恐怖高潮(40%) → 悬念钩子(10%)"
+    deduction: "案件呈现(20%) → 调查过程(40%) → 线索整合(30%) → 真相揭示(10%)"
+    survival: "危机降临(30%) → 规则探索(30%) → 生死博弈(30%) → 结果(10%)"
+
+  typical_examples:
+    ghost_encounter: "日常 → 异常征兆 → 鬼怪出现 → 发现规则 → 利用规则逃脱"
+    case_solving: "接到案件 → 现场调查 → 发现线索 → 推理分析 → 锁定凶手"
+    awakening: "遭遇危机 → 濒死时刻 → 异能觉醒 → 使用异能 → 反杀鬼怪"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    supernatural_event: 遇到无法解释的诡异事件
+    awakening: 获得对抗鬼怪的能力
+    rules: 发现这个世界的隐藏规则
+    recruitment: 加入处理灵异事件的组织
+
+  chapter_1_elements:
+    - "主角基本设定（姓名、职业/身份）"
+    - "第一个灵异事件或诡异现象"
+    - "恐怖氛围的初步建立"
+    - "主角的特殊之处暗示"
+    - "章末钩子"
+
+  classic_examples:
+    encounter_style: |
+      凌晨三点，林逸被一阵敲门声惊醒。
+      "咚、咚、咚。"三声，节奏稳定。
+      他打开门，外面却空无一人。走廊的灯忽明忽暗，空气中弥漫着若有若无的腐臭味。
+      当他准备关门的瞬间，他看到了——门框上，有一个苍白的掌印。
+      那个高度...不可能是正常人能够到的。
+
+    organization_style: |
+      "恭喜你，通过了特事局的考核。"
+      林逸看着眼前的黑色证件，上面写着他的名字，还有一行小字：灵异事件处理专员。
+      三天前，他还是个普通的大学生，直到他看见了一只...鬼。
+      从那天起，他的人生彻底改变了。

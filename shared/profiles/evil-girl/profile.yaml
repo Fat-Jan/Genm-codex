@@ -1,0 +1,285 @@
+name: "恶女题材"
+version: "1.0.0"
+description: "恶女题材小说配置，包含人物设定、情节模式、平台适配等"
+
+# 基础设定
+basic_settings:
+  protagonist_type: "恶女主角"
+  story_tone: "暗黑、复仇、逆袭"
+  target_audience: "18-35岁女性"
+  content_rating: "PG-13"
+
+# 人物设定
+characters:
+  protagonist:
+    personality_traits:
+      - "聪明狡诈"
+      - "心狠手辣"
+      - "目标明确"
+      - "情感冷漠"
+      - "善于伪装"
+    background_types:
+      - "被背叛的富家千金"
+      - "受尽欺凌的庶女"
+      - "被抛弃的未婚妻"
+      - "被陷害的名门闺秀"
+    motivation:
+      - "复仇雪恨"
+      - "夺回一切"
+      - "证明自己"
+      - "掌控命运"
+
+  antagonist:
+    personality_traits:
+      - "虚伪自私"
+      - "心狠手辣"
+      - "贪得无厌"
+      - "道貌岸然"
+    relationship_to_protagonist:
+      - "背叛的前任"
+      - "恶毒的继母"
+      - "嫉妒的妹妹"
+      - "虚伪的朋友"
+
+  supporting_characters:
+    love_interest:
+      types:
+        - "冷面王爷"
+        - "霸道总裁"
+        - "温润公子"
+        - "神秘杀手"
+      relationship_dynamics:
+        - "互相利用"
+        - "从敌对到相爱"
+        - "暗中保护"
+        - "共同复仇"
+
+    allies:
+      types:
+        - "忠心丫鬟"
+        - "神秘师父"
+        - "商业伙伴"
+        - "朝中大臣"
+
+# 情节模式
+plot_patterns:
+  revenge_storyline:
+    setup:
+      - "主角遭受重大背叛"
+      - "失去一切，陷入绝境"
+      - "意外获得逆袭机会"
+    development:
+      - "暗中积蓄力量"
+      - "精心策划复仇"
+      - "逐步实施计划"
+    climax:
+      - "复仇计划完美实施"
+      - "敌人得到应有惩罚"
+      - "主角获得最终胜利"
+
+  power_struggle:
+    setup:
+      - "主角进入权力中心"
+      - "面临各方势力挑战"
+    development:
+      - "运用智慧和手段"
+      - "拉拢盟友，打击敌人"
+      - "在权力斗争中成长"
+    climax:
+      - "最终掌握大权"
+      - "建立自己的势力"
+      - "实现政治抱负"
+
+  love_entanglement:
+    setup:
+      - "主角与男主相遇"
+      - "因利益或仇恨产生交集"
+    development:
+      - "互相试探，彼此利用"
+      - "在相处中产生真情"
+      - "面临感情与利益的抉择"
+    climax:
+      - "感情与复仇的冲突"
+      - "最终的选择与牺牲"
+      - "有情人是否终成眷属"
+
+# 场景设定
+scenes:
+  revenge_scenes:
+    - "当众揭穿阴谋"
+    - "让敌人自食恶果"
+    - "在敌人最得意时给予致命打击"
+    - "用敌人最擅长的方式打败敌人"
+
+  power_scenes:
+    - "朝堂上的权谋斗争"
+    - "商业谈判中的智慧较量"
+    - "后宫中的明争暗斗"
+    - "战场上的运筹帷幄"
+
+  emotional_scenes:
+    - "爱恨交织的对峙"
+    - "在复仇与爱情间的挣扎"
+    - "为了保护所爱之人的牺牲"
+    - "最终的和解与原谅"
+
+# 对话风格
+dialogue_style:
+  protagonist_dialogue:
+    characteristics:
+      - "言辞犀利，一针见血"
+      - "善于心理战术"
+      - "表面温柔，内心冷酷"
+      - "讽刺挖苦，毫不留情"
+    example_patterns:
+      - "你以为你赢了吗？游戏才刚刚开始。"
+      - "我亲爱的妹妹，你似乎忘记了谁才是真正的主人。"
+      - "感情？那是最无用的东西。"
+
+  antagonist_dialogue:
+    characteristics:
+      - "虚伪做作，表里不一"
+      - "得意忘形，口出狂言"
+      - "被揭穿时的慌乱失措"
+    example_patterns:
+      - "姐姐，你永远都比不上我。"
+      - "这一切都是你应得的报应！"
+      - "不...不可能...你怎么会..."
+
+# 平台适配配置
+platform_adaptation:
+  qidian:
+    adaptation_rules:
+      - "增加爽点密度"
+      - "强化复仇快感"
+      - "突出主角强大"
+    content_adjustments:
+      - "减少情感描写"
+      - "增加动作场面"
+      - "强化敌人丑恶"
+
+  hongshu:
+    adaptation_rules:
+      - "增加情感线发展"
+      - "平衡复仇与爱情"
+      - "突出内心变化"
+    content_adjustments:
+      - "增加感情描写"
+      - "细化心理活动"
+      - "弱化暴力元素"
+
+  zhihu:
+    adaptation_rules:
+      - "增加现实思考"
+      - "探讨人性复杂"
+      - "引发读者反思"
+    content_adjustments:
+      - "增加社会背景"
+      - "弱化夸张情节"
+      - "强调逻辑合理"
+
+  douban:
+    adaptation_rules:
+      - "增加文艺气质"
+      - "注重语言美感"
+      - "探讨深层主题"
+    content_adjustments:
+      - "提升文学性"
+      - "增加哲学思考"
+      - "营造意境氛围"
+
+# 章节结构模板
+chapter_templates:
+  revenge_chapter:
+    structure:
+      - "反派得意场景"
+      - "主角暗中布局"
+      - "复仇计划实施"
+      - "反派震惊反应"
+      - "主角内心独白"
+    word_count: "2000-3000"
+
+  power_chapter:
+    structure:
+      - "权力斗争背景"
+      - "主角智慧应对"
+      - "局势反转"
+      - "获得阶段性胜利"
+      - "为下一步布局"
+    word_count: "2500-3500"
+
+  romance_chapter:
+    structure:
+      - "男女主相遇/对峙"
+      - "情感微妙变化"
+      - "内心矛盾挣扎"
+      - "关系进展/转折"
+      - "留下情感悬念"
+    word_count: "1800-2800"
+
+# 写作技巧
+writing_techniques:
+  perspective_handling:
+    - "以主角视角为主，深入内心"
+    - "适时切换视角，展现全局"
+    - "通过他人视角衬托主角"
+
+  tension_building:
+    - "逐步升级冲突"
+    - "制造心理压力"
+    - "设置多重悬念"
+    - "控制信息透露节奏"
+
+  character_development:
+    - "展现主角多面性"
+    - "让反派也有合理动机"
+    - "配角的立体化塑造"
+    - "人物关系的动态变化"
+
+# 审核注意事项
+content_warnings:
+  sensitive_topics:
+    - "暴力复仇情节"
+    - "心理阴暗面描写"
+    - "人性黑暗面探讨"
+    - "情感冷漠表现"
+
+  handling_suggestions:
+    - "避免过度暴力描写"
+    - "保持道德底线"
+    - "给予正面价值引导"
+    - "平衡黑暗与光明元素"
+
+# 成功案例分析
+successful_examples:
+  - "《庶女有毒》"
+  - "《锦绣未央》"
+  - "《扶摇皇后》"
+  - "《特工皇妃》"
+
+  key_success_factors:
+    - "主角形象鲜明立体"
+    - "复仇情节设计巧妙"
+    - "情感线发展自然"
+    - "节奏把控恰到好处"
+    - "价值观导向正确"
+
+# 创作建议
+creation_tips:
+  planning:
+    - "精心设计复仇计划"
+    - "合理安排情节节奏"
+    - "平衡各方势力关系"
+    - "预设多重反转"
+
+  execution:
+    - "保持主角智商在线"
+    - "让反派也有魅力"
+    - "情感发展要自然"
+    - "结局要令人满意"
+
+  pitfalls_to_avoid:
+    - "主角过于冷血无情"
+    - "复仇手段过于残忍"
+    - "情感线过于突兀"
+    - "结局过于理想化"

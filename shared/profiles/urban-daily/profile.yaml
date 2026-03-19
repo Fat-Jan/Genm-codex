@@ -1,0 +1,164 @@
+name: "都市日常"
+version: "1.1.0"
+description: "以现代都市为背景，讲述普通人的日常生活，温馨治愈，贴近现实，强调生活的细节和人与人之间的温情"
+sub_genres:
+  职场日常:
+    description: "职场生活，同事相处，职业发展"
+    core_cool_points: ["职场成长", "同事友谊", "工作成就"]
+    pacing: "slow"
+  家庭生活:
+    description: "家庭生活，亲人相处，家庭琐事"
+    core_cool_points: ["家庭温馨", "亲情", "生活智慧"]
+    pacing: "slow"
+  邻里日常:
+    description: "邻里相处，社区生活"
+    core_cool_points: ["邻里情", "互助", "社区温暖"]
+    pacing: "slow"
+  美食日常:
+    description: "以美食为主线，讲述烹饪和美食带来的快乐"
+    core_cool_points: ["美食诱惑", "烹饪乐趣", "分享快乐"]
+    pacing: "slow"
+  宠物日常:
+    description: "与宠物的生活，宠物带来的快乐"
+    core_cool_points: ["萌宠", "陪伴", "治愈"]
+    pacing: "slow"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 2000
+  hook_strength: "medium"
+  emotional_rhythm: "慢节奏，每章都有生活细节， gradual 积累"
+  scene_density: "每章3-4个场景，生活细节丰富"
+
+cool_points:
+  - type: "生活小确幸"
+    trigger: "日常生活中的美好瞬间"
+    effect: "温馨治愈，读者共鸣"
+    frequency: "每章至少1次"
+  - type: "问题解决"
+    trigger: "生活中的小困难被解决"
+    effect: "成就感，满足感"
+    frequency: "每5章一次"
+  - type: "关系升温"
+    trigger: "与家人、朋友、同事关系改善"
+    effect: "温馨感，幸福感"
+    frequency: "每8章一次"
+  - type: "成长收获"
+    trigger: "个人成长或获得新技能"
+    effect: "满足感，读者认可"
+    frequency: "每15章一次"
+  - type: "温馨时刻"
+    trigger: "家人团聚或朋友相聚"
+    effect: "情感共鸣，读者感动"
+    frequency: "每10章一次"
+
+strand_weights:
+  main_plot: 0.2
+  character: 0.35
+  romance: 0.15
+  world_building: 0.3
+
+taboos:
+  - id: "TABOO-UD-001"
+    content: "过于平淡，没有看点"
+    severity: "critical"
+    reason: "要有吸引人的点"
+  - id: "TABOO-UD-002"
+    content: "脱离现实，过于理想化"
+    severity: "warning"
+    reason: "要有真实感"
+  - id: "TABOO-UD-003"
+    content: "人物过于完美，没有缺点"
+    severity: "warning"
+    reason: "要有人性化的一面"
+  - id: "TABOO-UD-004"
+    content: "节奏过快，没有细节"
+    severity: "warning"
+    reason: "日常文要注重细节"
+
+reader_expectations:
+  must_meet:
+    - "真实的生活细节"
+    - "温馨治愈的氛围"
+    - "真实的人物形象"
+    - " gradual 的发展"
+  optional:
+    - "感情线的发展"
+    - "职场或家庭的成长"
+    - "生活智慧的分享"
+  can_subvert:
+    - "传统的成功定义"
+    - "生活方式的选择"
+  never:
+    - "过于悬浮不真实"
+    - "人物脸谱化"
+    - "结局烂尾"
+
+golden_three:
+  opening_hook: "开篇展现主角的生活状态和性格，让读者产生代入感"
+  protagonist_intro: "主角出场要有真实感，有优点也有缺点"
+  chapter_end: "章末停在温馨时刻或生活感悟"
+
+writing_style:
+  tone: "温馨治愈，真实自然，慢节奏"
+  perspective: "第三人称，主角视角"
+  sentence_style: "细腻真实，善用细节描写，节奏舒缓"
+  vocabulary: "朴实自然，生活化，有烟火气"
+  dialogue_ratio: "35%"
+  description_ratio: "40%"
+  action_ratio: "25%"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇"]
+  forbidden_patterns: ["过于理想化", "脱离现实", "细节空洞"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "生活细节要真实，如通勤、做饭、购物"
+    - "人物要有真实反应，不是完美人设"
+    - "要有生活的烦恼和解决过程"
+    - "感情发展要自然 gradual"
+
+checker_weights:
+  consistency: 1.2
+  pacing: 0.8
+  golden_three: 1.2
+  romance_line: 1.0
+  character_charm: 1.8
+
+entities:
+  characters:
+    - name: "主角"
+      archetype: "普通人类型"
+      traits: ["真实", "有优点有缺点", "努力生活"]
+    - name: "家人/室友"
+      archetype: "陪伴型"
+      traits: ["真实", "有摩擦有温暖"]
+    - name: "同事/朋友"
+      archetype: "支持型"
+      traits: ["真实", "互相帮助"]
+  locations:
+    - name: "家"
+      significance: "主要场景"
+    - name: "工作场所"
+      significance: "职场场景"
+    - name: "常去的地方"
+      significance: "生活场景，如超市、咖啡店"
+  items:
+    - name: "日常用品"
+      significance: "生活细节"
+
+word_count:
+  short_story: "30-60万字"
+  medium_story: "80-150万字"
+  long_story: "150万字以上"
+
+popular_tropes:
+  - " gradual 生活"
+  - "温馨治愈"
+  - "职场成长"
+  - "家庭温馨"
+
+reference_works:
+  - "《生活家》- 都市生活剧"
+  - "《我在他乡挺好的》- 都市日常剧"

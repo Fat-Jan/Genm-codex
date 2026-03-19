@@ -1,0 +1,113 @@
+name: "黑暗题材"
+version: "1.1.0"
+sub_genres:
+  末日废土流:
+    description: "文明崩塌，资源匮乏，生存竞争"
+    core_cool_points: ["弱肉强食", "适者生存", "强者为王"]
+    pacing: "fast"
+  崩坏修真流:
+    description: "修真世界黑暗面，弱肉强食"
+    core_cool_points: ["掠夺成长", "阴谋算计", "实力至上"]
+    pacing: "fast"
+  黑暗都市流:
+    description: "现代社会阴暗面，隐秘渗透"
+    core_cool_points: ["暗中操控", "利益博弈", "灰色地带"]
+    pacing: "medium"
+  星际黑暗流:
+    description: "宇宙尺度征服，种族战争"
+    core_cool_points: ["文明掠夺", "种族灭绝", "黑暗帝国"]
+    pacing: "medium"
+  蛊真人式流:
+    description: "极致黑暗，绝对理性，目标至上"
+    core_cool_points: ["弱肉强食", "智谋碾压", "代价交换"]
+    pacing: "medium"
+  行走诸天流:
+    description: "穿梭诸天世界加黑暗风格"
+    core_cool_points: ["世界掠夺", "资源收割", "能力叠加"]
+    pacing: "fast"
+  黑暗西幻流:
+    description: "西幻背景加黑暗风格"
+    core_cool_points: ["混乱时代", "血火洗礼", "华丽演出"]
+    pacing: "medium"
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1200
+  hook_strength: "strong"
+cool_points:
+  - type: "支配爽"
+    trigger: "绝对控制他人"
+    effect: "权力满足，臣服场景"
+  - type: "征服爽"
+    trigger: "攻城略地"
+    effect: "扩张快感，势力增强"
+  - type: "吞噬爽"
+    trigger: "掠夺能力或资源"
+    effect: "成长满足，实力飙升"
+  - type: "碾压爽"
+    trigger: "展示实力差距"
+    effect: "强者快感，敌人绝望"
+  - type: "恐惧爽"
+    trigger: "让敌人恐惧"
+    effect: "威慑满足，名望提升"
+  - type: "进化突破"
+    trigger: "积累足够资源"
+    effect: "能力进化，形态改变"
+strand_weights:
+  main_plot: 0.55
+  character: 0.2
+  romance: 0.05
+  world_building: 0.2
+taboos:
+  - id: "TABOO-001"
+    content: "过于血腥暴力，可能被封"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "黑暗不等于愚蠢，主角要有智商"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "三观过于扭曲，缺乏基本道德底线"
+    severity: "warning"
+  - id: "TABOO-004"
+    content: "黑暗主角没有魅力，单纯邪恶"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "一味压抑没有爽点释放"
+    severity: "warning"
+reader_expectations:
+  must_meet:
+    - "主角有自己的行为逻辑"
+    - "黑暗不等于无脑杀戮"
+    - "有明确的目标和理由"
+    - "偶尔展现人性柔软"
+  optional:
+    - "黑暗与光明的对比"
+    - "内心的孤独与挣扎"
+    - "特定人/事的执着"
+  can_subvert:
+    - "传统英雄形象"
+    - "正义必胜"
+    - "善恶二元对立"
+  never:
+    - "无理由的邪恶行为"
+    - "单纯为了黑暗而黑暗"
+    - "违背基本人性底线"
+golden_three:
+  opening_hook: "开篇展现黑暗力量觉醒或主角的特殊处境，如被背叛、获得黑暗力量、复仇开始"
+  protagonist_intro: "主角应在第一章出场，展现性格特点和黑暗特质，建立独特代入感"
+  chapter_end: "章末必须留下悬念或期待，如势力扩张、敌人恐惧、新的征服目标"
+writing_style:
+  tone: "冷酷压抑，偶尔爆发"
+  perspective: "第三人称有限视角，跟随主角"
+  sentence_style: "短句有力，氛围描写阴暗，战斗场景残酷直接"
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "眼中闪过", "心中暗道", "嘴角抽搐", "无语", "善良的"]
+  show_dont_tell: true
+  break_patterns: true
+checker_weights:
+  consistency: 1.2
+  pacing: 1.3
+  golden_three: 1.2
+entities:
+  characters: []
+  locations: []
+  items: []

@@ -1,0 +1,226 @@
+name: "god_of_war"
+version: "1.0.0"
+description: "以战斗天赋超群、杀伐果断的男性为主角的融合题材，包含热血战斗、势力争霸、后宫等元素"
+
+sub_genres:
+  - "modern_god_of_war"
+  - "cultivation_god_of_war"
+  - "military_god_of_war"
+  - "otherworld_god_of_war"
+
+core_elements:
+  - "战斗天赋"
+  - "杀伐果断"
+  - "势力争霸"
+  - "后宫情感"
+  - "成长进化"
+
+platform_enrichment:
+  base_dimensions:
+    - id: combat
+      name: "战斗场面"
+    - id: power_growth
+      name: "实力提升"
+    - id: territory
+      name: "势力争夺"
+    - id: harem
+      name: "后宫情感"
+    - id: strategy
+      name: "战略布局"
+
+  platform_guides:
+    fanqie:
+      enrichment_priority:
+        - dimension: combat
+          weight: 0.35
+        - dimension: power_growth
+          weight: 0.30
+        - dimension: territory
+          weight: 0.20
+        - dimension: strategy
+          weight: 0.10
+        - dimension: harem
+          weight: 0.05
+
+      content_focus:
+        primary:
+          - "华丽的战斗场面"
+          - "快速的力量提升"
+          - "爽快的敌人碾压"
+        secondary:
+          - "势力扩张的快感"
+          - "后宫成员的收集"
+
+    qimao:
+      enrichment_priority:
+        - dimension: combat
+          weight: 0.40
+        - dimension: power_growth
+          weight: 0.25
+        - dimension: territory
+          weight: 0.20
+        - dimension: harem
+          weight: 0.10
+        - dimension: strategy
+          weight: 0.05
+
+      content_focus:
+        primary:
+          - "无敌的碾压式战斗"
+          - "无瓶颈的快速升级"
+          - "美女投怀送抱"
+        secondary:
+          - "势力的快速扩张"
+          - "敌人的恐惧表现"
+
+    qidian:
+      enrichment_priority:
+        - dimension: strategy
+          weight: 0.30
+        - dimension: combat
+          weight: 0.25
+        - dimension: power_growth
+          weight: 0.20
+        - dimension: territory
+          weight: 0.15
+        - dimension: harem
+          weight: 0.10
+
+      content_focus:
+        primary:
+          - "精妙的战斗策略"
+          - "合理的实力体系"
+          - "复杂的势力关系"
+        secondary:
+          - "修炼的艰辛历程"
+          - "战斗技巧的创新"
+
+    jinjiang:
+      enrichment_priority:
+        - dimension: harem
+          weight: 0.40
+        - dimension: combat
+          weight: 0.25
+        - dimension: power_growth
+          weight: 0.20
+        - dimension: territory
+          weight: 0.10
+        - dimension: strategy
+          weight: 0.05
+
+      content_focus:
+        primary:
+          - "后宫情感的纠葛"
+          - "男女主的甜蜜互动"
+          - "吃醋争宠的戏码"
+        secondary:
+          - "战斗中的英雄救美"
+          - "情感线的细腻发展"
+
+writing_guidelines:
+  pacing:
+    fanqie: "快节奏战斗，2-3章一场大战"
+    qimao: "超快节奏，每章都有战斗"
+    qidian: "中速节奏，注重战斗策略"
+    jinjiang: "情感与战斗并重"
+
+  style_preferences:
+    fanqie:
+      - "热血激昂的战斗描写"
+      - "简洁有力的动作描述"
+      - "爽快的敌人击败"
+    qimao:
+      - "夸张的战斗表现"
+      - "无敌的气势渲染"
+      - "密集的战斗节奏"
+    qidian:
+      - "详细的战斗策略"
+      - "合理的实力对比"
+      - "创新的战斗技巧"
+    jinjiang:
+      - "战斗中的情感互动"
+      - "英雄救美的浪漫"
+      - "后宫争宠的戏剧性"
+
+character_templates:
+  protagonist:
+    core_traits:
+      - "战斗天赋异禀"
+      - "杀伐果断，从不犹豫"
+      - "重情重义，护短霸道"
+      - "实力强大，背景神秘"
+    development_arc:
+      - "从弱小到无敌的成长"
+      - "从孤身一人到势力之主"
+      - "从冷漠到有情有义"
+
+  female_characters:
+    common_archetypes:
+      - "冰山美人，被男主征服"
+      - "活泼少女，主动倒追"
+      - "强势女王，与男主斗智斗勇"
+      - "温柔贤惠，男主贤内助"
+    relationship_patterns:
+      - "英雄救美，以身相许"
+      - "不打不相识，渐生情愫"
+      - "一见钟情，主动追求"
+      - "日久生情，水到渠成"
+
+plot_structures:
+  common_patterns:
+    - "开局被看不起，随即展现实力"
+    - "越级挑战，轻松获胜"
+    - "建立势力，争霸天下"
+    - "后宫争宠，男主头疼"
+
+  chapter_templates:
+    opening:
+      - "男主被轻视/挑衅的场景"
+      - "男主爆发实力的瞬间"
+      - "第一场震撼的战斗"
+    climax:
+      - "越级挑战强敌并获胜"
+      - "势力大战，男主一锤定音"
+      - "后宫争风吃醋的场面"
+    ending:
+      - "男主成为最强者"
+      - "势力达到巅峰"
+      - "后宫和谐或争宠继续"
+
+foreshadowing_elements:
+  common_hooks:
+    - "神秘的师门传承"
+    - "隐藏的神级血脉"
+    - "未知的强大敌人"
+    - "神秘的古老遗迹"
+
+success_metrics:
+  platform_optimization:
+    fanqie:
+      - "每章战斗场面 ≥ 1"
+      - "敌人被碾压的频率高"
+      - "力量提升的节奏快"
+    qimao:
+      - "无败绩记录"
+      - "越级挑战成功率100%"
+      - "美女倒贴数量多"
+    qidian:
+      - "战斗策略的合理性"
+      - "实力体系的严谨性"
+      - "势力发展的逻辑性"
+    jinjiang:
+      - "情感线的发展自然"
+      - "后宫成员的个性鲜明"
+      - "争宠戏码的趣味性"
+
+metadata:
+  author: "Genm平台智能适配系统"
+  created_date: "2026-03-19"
+  last_updated: "2026-03-19"
+  tags:
+    - "战神"
+    - "男强"
+    - "战斗"
+    - "后宫"
+    - "争霸"
+    - "融合题材"}}

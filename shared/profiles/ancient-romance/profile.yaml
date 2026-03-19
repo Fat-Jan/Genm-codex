@@ -1,0 +1,279 @@
+# 古言题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "古言"
+display_name: "古言（古代言情）"
+description: "古代背景的言情题材，包含穿越、重生、权谋等流派"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  ancient_romance:
+    name: "古代言情流"
+    description: "古代背景的纯爱故事"
+    core_points: [甜蜜爱情, 身份逆袭, 守护真爱]
+    pacing: relaxed
+    examples: [知否知否应是绿肥红瘦]
+
+  rebirth_ancient:
+    name: "重生古言流"
+    description: "重生回到古代，改变命运"
+    core_points: [先知先觉, 复仇打脸, 收获真爱]
+    pacing: shuangwen
+    examples: [重生之嫡女祸妃]
+
+  transmigration_ancient:
+    name: "穿越古言流"
+    description: "现代人穿越到古代"
+    core_points: [现代思维, 知识碾压, 适应古代]
+    pacing: light
+    examples: [步步惊心]
+
+  power_struggle:
+    name: "权谋古言流"
+    description: "古代权谋斗争+爱情"
+    core_points: [智谋对决, 权力斗争, 爱情守护]
+    pacing: complex
+    examples: [琅琊榜]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 情感驱动型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5000
+    long: 5000-6000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.9
+  max_interval: 1500
+
+  preferred_types:
+    - type: 甜蜜互动
+      weight: 1.7
+      description: "男女主的甜蜜日常"
+      triggers: [甜蜜, 心动, 脸红, 宠溺, 温柔, 羞涩, 守护, 心尖]
+
+    - type: 身份逆袭
+      weight: 1.5
+      description: "从低身份变为高身份"
+      triggers: [逆袭, 嫡女, 庶女, 身份, 地位, 晋升, 封诰, 主母]
+
+    - type: 打脸反派
+      weight: 1.4
+      description: "反击陷害自己的人"
+      triggers: [打脸, 揭穿, 反击, 阴谋, 陷害, 真相, 脸色大变, 震惊]
+
+    - type: 智谋胜利
+      weight: 1.3
+      description: "用智慧战胜对手"
+      triggers: [计谋, 算计, 布局, 智慧, 对弈, 棋局, 破局, 心机]
+
+    - type: 守护爱情
+      weight: 1.2
+      description: "为爱情付出和守护"
+      triggers: [守护, 牺牲, 承诺, 誓言, 相守, 白首, 不离不弃]
+
+  avoid_types:
+    - type: 虐心情节过多
+      weight: 0.3
+      reason: 古言主打甜宠，虐要适度
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 30
+  fire: 40
+  constellation: 30
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: ANCT-001
+    description: "服饰、礼仪要符合时代背景"
+    mandatory: true
+    checkpoint: 日常描写
+
+  - id: ANCT-002
+    description: "身份地位要符合古代规矩"
+    mandatory: true
+    checkpoint: 人物行为
+
+  - id: ANCT-003
+    description: "对话要符合古代风格"
+    mandatory: false
+    checkpoint: 对话设计
+
+# ==================== 黄金三章 ====================
+golden_three:
+  chapter_1:
+    opening: 女主处境/穿越/重生
+    core: 建立身份和目标
+    conflict: 第一次遇到困难
+    hook: 与男主初遇/获得机缘
+    word_count: 4000-5000
+
+  chapter_2:
+    expansion: 开始改变命运
+    exploration: 与男主有更多交集
+    progress: 解决第一个问题
+    hook: 感情升温/新危机
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一次重要事件
+    worldbuilding: 展示古代社会规则
+    reward: 获得重要认可/资源
+    hook: 新的挑战到来
+    word_count: 4000-5500
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.2
+  pacing: 1.0
+  ooc: 1.3
+  continuity: 1.1
+  reader-pull: 1.2
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 古风氛围要到位，语言符合古代背景
+    - 感情发展要有铺垫，不可突兀
+    - 角色行为要符合古代身份地位
+    - 世界观要符合古代社会规则
+
+  optional_satisfy:
+    - 有宅斗/宫斗元素
+    - 有身份反转/逆袭
+    - 有古风诗词典故
+
+  absolutely_not:
+    - 出现现代用语破坏古风氛围
+    - 感情发展太快太突兀
+    - 角色行为不符合古代身份
+    - 女主无底线原谅
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 出现现代用语，破坏古风氛围
+    severity: critical
+    checkpoint: 对话和描写
+
+  - id: TABOO-002
+    content: 感情发展太快太突兀，缺乏铺垫
+    severity: warning
+    checkpoint: 感情场景
+
+  - id: TABOO-003
+    content: 角色行为不符合古代身份地位
+    severity: critical
+    checkpoint: 角色塑造
+
+  - id: TABOO-004
+    content: 女主无底线原谅，没有自尊
+    severity: warning
+    checkpoint: 感情冲突
+
+# ==================== 写作风格 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: 古风优雅
+    characteristics: 符合身份地位
+    avoid: [现代用语, 网络流行语]
+
+  description: "clothing: 精致细腻"
+    scene: 古代韵味
+    emotion: 含蓄内敛
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    classical_grace: 含蓄优雅，用语典雅，符合身份地位
+    heroine_dialogue: 聪慧机敏，言辞得体，外柔内刚
+    hero_dialogue: 沉稳内敛，言简意赅，威严中带温柔
+
+  typical_dialogues:
+    mutual_affection: |
+      "姑娘今日可好？"
+      "劳烦公子挂念，小女子一切安好。"
+      "听闻府中有些风波，若姑娘有难处，不妨直言。"
+      "多谢公子美意，只是家务事，不便烦扰外人了。"
+
+    confession: |
+      "在下有一言，不知当讲不当讲。"
+      "公子请说。"
+      "自从遇见姑娘，方知何为心动。若姑娘不弃，在下愿护姑娘一世周全。"
+      "公子厚爱，小女子...心领了。"
+
+  avoid_patterns:
+    - 现代口语和流行语
+    - 过于直白的情感表达
+    - 不符合身份地位的称呼
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  mansion_interior:
+    morning_in_boudoir: |
+      晨光透过雕花窗棂洒入闺房，帐幔轻摇，一缕檀香袅袅升起。女主缓缓解开罗帐，纤纤玉手掠过床边的刺绣屏风，眼中闪过一丝从容。
+
+    garden_encounter: |
+      三月春风，海棠花开得正盛。假山旁，一袭素衣的女子正仰头赏花，花瓣簌簌落下，落在她肩头。那人影一动，却被她察觉，回眸一笑，恰似春风拂面。
+
+  palace_halls:
+    banquet_scene: |
+      金碧辉煌的大殿内，丝竹声悠扬，舞姬翩跹。群臣觥筹交错，贵女们端坐席间，目光流转，暗藏机锋。一盏琉璃盏被轻轻放下，酒香四溢，却无人知晓这杯中暗藏的玄机。
+
+    deep_palace_night: |
+      月华如水，洒在青石板上。宫墙深深，更漏声声。一盏宫灯在回廊尽头摇曳，映出两个身影，低语声隐没在夜风中。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    sweet_chapter: 轻松30% -> 甜蜜互动50% -> 小波折10% -> 宠溺收尾10%
+    power_chapter: 紧张开局20% -> 布局展开40% -> 高潮对决30% -> 余韵收尾10%
+    counterattack_chapter: 压抑开场20% -> 转机出现30% -> 反击高潮40% -> 爽感收尾10%
+
+  typical_pacing_examples:
+    first_encounter: 女主处境描写 -> 意外相遇 -> 身份试探 -> 暗生好感 -> 留下悬念
+    face_slap: 反派嚣张 -> 女主准备 -> 收集证据 -> 当众揭露 -> 爽快收尾
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    rebirth_opening: 前世惨死场景 -> 重生回到关键节点 -> 决心改变命运
+    transmigration_opening: 现代意外 -> 醒来已变古人 -> 接受新身份
+    identity_contrast: 旁人轻视 -> 女主内心独白 -> 暗藏锋芒
+
+  classic_opening_examples:
+    rebirth: |
+      前世的她，被庶妹害得家破人亡，死在那场大火中。临死前，她看到那个曾许诺护她一世的男人，抱着她的庶妹，冷眼旁观。
+      再睁眼，居然回到了三年前的那个春日。她低头看着掌心，嘴角勾起一抹冷笑。
+      这一世，欠她的，她要一一讨回。
+
+    transmigration: |
+      现代女总裁穿越成古代不受宠的庶女，睁开眼的那一刻，她就在思考如何在这个陌生的时代活下去。
+      看着铜镜中那张陌生又熟悉的脸，她知道，从此以后，她就是沈府三小姐了。
+
+    sweet: |
+      初见他时，是在一场意外的落水事故中。
+      他一袭玄衣，踏水而来，将她从死亡的边缘拉回。
+      她记得那双深邃的眼眸，像星辰落入大海，让她心跳漏了半拍。

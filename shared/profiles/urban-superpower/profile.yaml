@@ -1,0 +1,454 @@
+# 都市异能题材Profile
+
+name: "都市异能"
+version: "3.0"
+template: templates/genres/都市异能.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  灵气复苏流:
+    description: "全球异能觉醒，主角领先一步"
+    core_points: ["抢先获得异能", "资源垄断", "成为强者"]
+    pacing: "快节奏"
+    examples: "《全球高武》《大王饶命》"
+  隐秘异能流:
+    description: "异能者隐藏在普通人中"
+    core_points: ["扮猪吃虎", "身份揭露", "暗中掌控"]
+    pacing: "悬疑型"
+    examples: "《超神机械师》"
+  都市修真流:
+    description: "现代都市背景下的修真"
+    core_points: ["都市隐仙", "现代修真", "科技与修真"]
+    pacing: "轻松爽文型"
+    examples: "《修真聊天群》"
+  系统升级流:
+    description: "获得系统，不断升级变强"
+    core_points: ["系统奖励", "快速升级", "碾压敌人"]
+    pacing: "爽文型"
+    examples: "《最强反套路系统》"
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 快节奏
+  tension_ratio: "2:8"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.5
+#   - 默认权重: 扮猪吃虎(1.5), 打脸爽(1.4), 装逼爽(1.3), 收获爽(1.2), 逆袭爽(1.1)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 1.2/千字  # 都市节奏快，爽点密集
+  max_interval: 1000字    # 超过此值需预警
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 扮猪吃虎
+      weight: 1.5
+      description: "隐藏实力后爆发"
+      trigger_words: [隐藏, 暗中, 原来是, 没想到, 不简单, 深藏不露, 真实身份]
+    - type: 打脸爽
+      weight: 1.4
+      description: "被轻视后展示实力或身份"
+      trigger_words: [轻视, 嘲讽, 瞧不起, 废物, 震惊, 脸色大变, 傻眼]
+    - type: 装逼爽
+      weight: 1.3
+      description: "展示超凡实力或财力"
+      trigger_words: [碾压, 轻松, 举手之劳, 小意思, 不值一提, 秒杀]
+    - type: 收获爽
+      weight: 1.2
+      description: "获得资源、认可、宝物"
+      trigger_words: [获得, 得到, 奖励, 认可, 资源, 宝物, 提升]
+    - type: 逆袭爽
+      weight: 1.1
+      description: "从劣势逆转"
+      trigger_words: [逆转, 翻盘, 反败为胜, 扭转, 绝地, 反杀]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 无铺垫装逼
+      weight: 0.3
+      reason: 需要先建立信息差
+    - type: 平淡无冲突
+      weight: 0
+      reason: 都市爽文必须有冲突
+
+  # 组合加成配置
+  combo_bonus:
+    连续爽点: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    铺垫后爆发: 0.3     # 铺垫 > 500 字后爆发爽点
+    对比反差: 0.2       # 前后状态形成强烈对比
+    多重叠加: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.50        # 任务推进
+  fire: 0.35         # 冲突爆发（更高）
+  constellation: 0.15 # 世界观铺垫
+
+  warning_thresholds:
+    quest_consecutive_limit: 3章
+    fire_missing_limit: 5章
+    constellation_missing_limit: 20章
+
+# ==================== 特殊约束 ====================
+special_constraints:
+  # 现实余波约束（隐秘期专用）
+  - ID: URBAN-001
+    description: "大动静必须有现实余波描写"
+    enforced: true
+    applicable: 隐秘期
+    check_point: 爆炸/坍塌/多人受伤/封路
+    examples: 警戒线、官方通报、监控删除
+
+  - ID: URBAN-002
+    description: "异能使用需符合设定等级"
+    enforced: true
+    check_point: 战斗场景
+
+  - ID: URBAN-003
+    description: "社会地位/财力展示需合理"
+    enforced: false
+    check_point: 身份展示
+
+  # 时间线约束
+  - ID: TIME-001
+    description: "异能觉醒需有触发条件"
+    enforced: true
+    check_point: 觉醒场景
+
+# ==================== 黄金三章 ====================
+golden_three:
+  第一章:
+    opening: 异能觉醒征兆或现实困境
+    core: 展示现实与异能的反差
+    hint: 异能即将觉醒
+    hook: 异能觉醒的瞬间
+    word_count: 4000-5000       # v4.0: 最低 4000 字
+
+  第二章:
+    development: 异能首次使用
+    conflict: 异能带来的问题
+    improvement: 学会初步控制异能
+    hook: 发现异能的秘密
+    word_count: 4000-5500
+
+  第三章:
+    climax: 用异能解决第一个大问题
+    worldview: 展示异能世界的存在
+    hook: 被组织发现或新危机
+    word_count: 4000-5500
+
+# ==================== 反套路规则 ====================
+anti_tropes:
+  auto_load:
+    - references/creativity/anti-trope-urban.md
+  recommended_rules:
+    - URBAN-001  # 现实余波机制
+    - URBAN-002  # 异能等级限制
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.2      # 爽点更重要
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 0.9
+  reader-pull: 1.1
+
+# ==================== 写作风格提示 ====================
+writing_style:
+  anti_ai_style:
+    references: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: 现代口语
+    description: "接地气，有生活气息"
+    avoid: [过于文雅, 说教式对话]
+
+  descriptions:
+    combat: 注重异能效果，视觉冲击
+    scenes: 都市生活场景，增加代入感
+    emotions: 直接表达
+
+  pacing:
+    foreshadow: 快速铺垫，快速爆发
+    climax: 每章都有小高潮
+    transition: 尽量减少纯过渡章节
+
+# ==================== 势力阶段 ====================
+faction_phases:
+  隐秘期:
+    description: "异能者极少，官方管控"
+    atmosphere: 悬疑、压抑、都市传说
+    constraints: [URBAN-001]
+
+  爆发期:
+    description: "觉醒者井喷，社会动荡"
+    atmosphere: 混乱、机遇、热血
+    constraints: []
+
+  新秩序期:
+    description: "异能常态化，种族战争"
+    atmosphere: 史诗、末世、救亡
+    constraints: []
+
+# ==================== 实体标签 ====================
+entity_tags:
+  异能: <entity type="异能" name="异能名" desc="效果" tier="层级" level="等级"/>
+  组织: <entity type="组织" name="组织名" desc="性质" tier="层级" leader="负责人"/>
+  mutated_beast: <entity type="变异兽" name="变异兽名" desc="弱点" tier="层级"/>
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    现代口语: "接地气，有生活气息"
+    网络用语: "适度使用，增加亲切感"
+    简洁直接: "不绕弯子，直奔主题"
+
+  typical_dialogues:
+    异能觉醒: |
+      "这是什么...我的手..."
+      "你看到了吗？刚才那是..."
+      "从今天起，你不再是个普通人了。"
+
+    扮猪吃虎: |
+      "就你？一个送外卖的，也敢跟我谈条件？"
+      "你不知道他的真实身份，亏大了。"
+
+    装逼打脸: |
+      "这片地盘，以后归我了。"
+      "刚才不是很嚣张吗？怎么现在不说话了？"
+
+    组织招揽: |
+      "你的能力很强，有没有兴趣加入我们？"
+      "特管局负责处理所有异能事件，你是其中一员了。"
+
+    实力展示: |
+      "异能等级...S级？！"
+      "怎么可能，他才觉醒一个月！"
+
+  avoid_patterns:
+    - "过于文雅的书面语"
+    - "说教式对话"
+    - "与现代都市不符的表达"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  power_combat:
+    能力展示: |
+      "他抬起手，掌心猛然爆发出一团烈焰，温度高得连空气都扭曲了。"
+      "电光在他周身跳跃，每一道闪电都蕴含着毁灭性的力量。"
+
+    破坏scene: |
+      "一拳轰出，整面墙壁轰然倒塌，碎石飞溅。"
+      "战斗结束，整个街区的监控全都莫名其妙地坏了。"
+
+    现实余波: |
+      "警戒线拉起，官方通报称是燃气泄漏引发的爆炸。"
+      "专家解释说是罕见的局部气象现象，监控录像已按程序处理。"
+
+  urban_life:
+    company_scene: |
+      "格子间里键盘声此起彼伏，没人注意到角落里的异常。"
+      "老板又在办公室里大发雷霆，却不知道他的员工中隐藏着一位S级异能者。"
+
+    夜life: |
+      "霓虹灯闪烁，城市的另一面才刚刚苏醒。"
+      "在普通人看不到的阴影里，一场无声的较量正在进行。"
+
+  awakening_moment:
+    首次觉醒: |
+      "体内仿佛有什么东西碎裂了，一股前所未有的力量涌入四肢百骸。"
+      "眼前的一切都变得清晰无比，他能看到空气中飘浮的微尘。"
+
+    能力升级: |
+      "异能等级突破的瞬间，他感觉整个世界都不同了。"
+      "原本难以掌控的力量，此刻如臂使指。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    爽文型: "快铺垫(20%) → 冲突(50%) → 爽点(25%) → 钩子(5%)"
+    balanced_type: "铺垫(30%) → 冲突(35%) → 高潮(25%) → 钩子(10%)"
+    过渡型: "日常(40%) → 小冲突(30%) → 线索(20%) → 钩子(10%)"
+
+  cool_point_distribution:
+    小爽点间隔: "600-900字"
+    mid_cool_point_interval: "1500-2500字"
+    大爽点位置: "每章末尾或高潮段落"
+
+  typical_pacing_example:
+    觉醒章: "日常困境 → 异能征兆 → 觉醒时刻 → 首次使用 → 新世界大门"
+    打脸章: "被轻视 → 忍耐/暗中操作 → 实力暴露 → 反转打脸 → 对方震惊"
+    战斗章: "敌人挑衅 → 实力差距 → 特殊手段 → 逆转取胜 → 收获成长"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    觉醒式: "主角即将觉醒异能，生活即将改变"
+    隐藏式: "主角已有异能，隐藏身份生活"
+    系统式: "获得系统/传承，开启变强之路"
+    重生式: "带着记忆重生，先知先觉布局"
+
+  chapter_one_elements:
+    - "主角基本设定（姓名、职业、现状）"
+    - "都市生活背景"
+    - "异能暗示或觉醒"
+    - "第一个小冲突或困境"
+    - "章末钩子"
+
+  classic_opening_examples:
+    觉醒式: |
+      又是平凡的一天，林浩像往常一样送着外卖。
+      直到那份奇怪的订单，把他带到了一栋废弃的大楼前。
+      就在他踏入大楼的瞬间，脑海深处传来一个机械的声音：
+      【检测到符合条件的宿主，系统绑定中...】
+
+    隐藏大佬式: |
+      "小陈，这份报表今天必须交。"
+      林浩点点头，熟练地打开Excel。没人知道，这位普通的文员，昨晚刚处理了一起S级异兽入侵事件。
+      也没人知道，特管局的局长看到他的档案时，手都在发抖。
+
+    被瞧不起式: |
+      "林浩，你已经被开除了。"
+      看着眼前嚣张的主管，林浩平静地收拾东西。
+      他不知道的是，这家公司最大的股东，已经在门口等着他了。
+      更不知道的是，他体内的血脉，即将觉醒。
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # A级：悬念是重要组成部分，与身份和能力来源相关
+  # 都市异能的核心是扮猪吃虎、身份揭露、能力成长，悬念服务于反差感
+  # 主要悬念类型：能力来源、隐藏身份、势力阴谋
+  suspense_importance: A级
+
+  # 都市异能流悬念类型定义
+  type:
+    short_suspense:
+      definition: "单个事件/任务内的悬念，事件结束时解决"
+      reveal_timing: "事件内（3-15章）"
+      examples: ["敌人身份", "事件真相", "异能弱点", "背后指使者"]
+
+    mid_suspense:
+      definition: "跨越多个事件的悬念，与组织/身份相关"
+      reveal_timing: "20-60章"
+      examples: ["主角异能真正来源", "组织隐藏目的", "重要配角真实身份", "血脉秘密"]
+
+    long_suspense:
+      definition: "贯穿全书的核心悬念，世界观终极真相"
+      reveal_timing: "60-120章，核心真相建议80章后"
+      examples: ["异能世界真正起源", "主角终极身份", "隐藏Boss真正目的", "灵气复苏真相"]
+
+  # 都市异能流悬念揭晓时机建议
+  reveal_timing:
+    第1-3章（黄金三章）:
+      - type: "异能觉醒"
+        content: "主角异能觉醒或发现"
+        required: true
+      - type: "异能世界存在"
+        content: "发现隐藏的异能世界"
+        required: true
+
+    第5-15章:
+      - type: "第一个组织"
+        content: "接触异能者组织或势力"
+        note: "组织的真正目的保持神秘"
+      - type: "异能等级体系"
+        content: "了解异能者的等级和规则"
+
+    第15-30章:
+      - type: "主角血脉线索"
+        content: "暗示主角异能的特殊之处"
+        note: "只给线索，不给答案"
+      - type: "势力博弈"
+        content: "展示组织间的冲突和阴谋"
+      - type: "重要配角秘密"
+        content: "配角的隐藏身份或目的"
+
+    第30-60章:
+      - type: "主角异能来源"
+        content: "揭示主角为何与众不同"
+        note: "可以有反转"
+      - type: "势力真相"
+        content: "重要组织的真正目的"
+        examples: ["保护组织其实是反派", "敌人其实是盟友"]
+
+    第60-100章:
+      - type: "核心反转"
+        content: "颠覆之前认知的重大真相"
+        examples: ["主角的真实身份", "异能世界的真相", "幕后黑手"]
+      - type: "世界级危机"
+        content: "异能世界面临的最大威胁"
+
+    第100章+:
+      - type: "终极对决"
+        content: "与核心敌人的最终对决"
+      - type: "世界观真相"
+        content: "异能世界/灵气复苏的真正来源"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    灵气复苏流:
+      异能觉醒: "第1章就揭示"
+      protagonist_specialty: "20-40章"
+      world_truth: "60-100章"
+      description: "悬念主要在抢先优势和世界变革"
+
+    隐秘异能流:
+      身份揭露: "持续铺垫，多次反转"
+      组织秘密: "30-60章"
+      world_truth: "80-120章"
+      description: "悬念在身份和阴谋，最重悬念"
+
+    都市修真流:
+      cultivation_secret: "持续揭示"
+      隐藏大佬身份: "30-50章"
+      description: "悬念较少，主要是轻松爽文"
+
+    系统升级流:
+      系统来源: "30-60章"
+      系统目的: "50-80章"
+      description: "悬念在系统本身"
+
+  # 都市异能流悬念禁忌
+  taboos:
+    - content: "异能无限制使用无代价"
+      reason: "都市异能要有现实余波和代价"
+      severity: "warning"
+    - content: "身份揭露太快太容易"
+      reason: "都市异能的乐趣在于隐藏身份的反差"
+      severity: "warning"
+    - content: "组织善恶太明显"
+      reason: "都市异能的组织应该有灰色地带"
+      severity: "info"
+    - content: "主角太早无敌失去对手"
+      reason: "都市异能需要持续的威胁和对手"
+      severity: "warning"
+
+  # 伏笔埋设节奏（A级：中高密度）
+  foreshadowing:
+    principles: "每8章至少埋设1个新伏笔，每25章回收1个旧伏笔"
+    description: "都市异能悬念与身份揭露紧密结合，伏笔要服务于打脸反转"
+    examples:
+      short_foreshadowing: "事件第1章埋设，事件结束回收"
+      mid_foreshadowing: "第8章埋设，第30章回收"
+      long_foreshadowing: "第1章埋设，第80章+回收"
+    status_flow:
+      - "🟢潜伏 → 🟡铺垫 → 🟠可回收 → ⚪已回收"

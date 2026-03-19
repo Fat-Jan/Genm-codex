@@ -1,0 +1,225 @@
+name: "evil_female"
+version: "1.0.0"
+description: "以强势、独立、有手段的女性为主角的融合题材，包含逆袭、打脸、权谋等元素"
+
+sub_genres:
+  - "modern_evil_female"
+  - "ancient_evil_female"
+  - "transmigration_evil_female"
+  - "rebirth_evil_female"
+
+core_elements:
+  - "强势女主"
+  - "逆袭打脸"
+  - "权谋策略"
+  - "情感纠葛"
+  - "黑化成长"
+
+platform_enrichment:
+  base_dimensions:
+    - id: face_slapping
+      name: "打脸爽"
+    - id: intelligence
+      name: "智斗/布局"
+    - id: relationship
+      name: "感情互动"
+    - id: psychological
+      name: "心理活动"
+    - id: action_details
+      name: "动作细节"
+
+  platform_guides:
+    fanqie:
+      enrichment_priority:
+        - dimension: face_slapping
+          weight: 0.30
+        - dimension: action_details
+          weight: 0.25
+        - dimension: intelligence
+          weight: 0.20
+        - dimension: psychological
+          weight: 0.15
+        - dimension: relationship
+          weight: 0.10
+
+      content_focus:
+        primary:
+          - "女主的强势反击"
+          - "连续打脸的爽感"
+          - "金手指的快速展示"
+        secondary:
+          - "情感线的铺垫"
+          - "配角的衬托作用"
+
+    qimao:
+      enrichment_priority:
+        - dimension: face_slapping
+          weight: 0.35
+        - dimension: action_details
+          weight: 0.30
+        - dimension: intelligence
+          weight: 0.15
+        - dimension: psychological
+          weight: 0.10
+        - dimension: relationship
+          weight: 0.10
+
+      content_focus:
+        primary:
+          - "极致爽感的连续打脸"
+          - "无憋屈的强势女主"
+          - "快速反击的节奏"
+        secondary:
+          - "爽点密度控制"
+          - "情绪释放的及时性"
+
+    qidian:
+      enrichment_priority:
+        - dimension: intelligence
+          weight: 0.30
+        - dimension: psychological
+          weight: 0.25
+        - dimension: relationship
+          weight: 0.20
+        - dimension: face_slapping
+          weight: 0.15
+        - dimension: action_details
+          weight: 0.10
+
+      content_focus:
+        primary:
+          - "智斗布局的深度"
+          - "逻辑严谨的策略"
+          - "人物心理的复杂性"
+        secondary:
+          - "世界观的完整展现"
+          - "修炼体系的合理性"
+
+    jinjiang:
+      enrichment_priority:
+        - dimension: relationship
+          weight: 0.35
+        - dimension: psychological
+          weight: 0.30
+        - dimension: intelligence
+          weight: 0.20
+        - dimension: face_slapping
+          weight: 0.10
+        - dimension: action_details
+          weight: 0.05
+
+      content_focus:
+        primary:
+          - "CP互动的甜虐交织"
+          - "细腻的情感描写"
+          - "人物性格的立体塑造"
+        secondary:
+          - "感情发展的自然流畅"
+          - "心理活动的细致刻画"
+
+writing_guidelines:
+  pacing:
+    fanqie: "快节奏，3-5章一个爽点"
+    qimao: "超快节奏，每章都有爽点"
+    qidian: "中速节奏，注重铺垫和爆发"
+    jinjiang: "情感节奏，张弛有度"
+
+  style_preferences:
+    fanqie:
+      - "直白有力的对话"
+      - "简洁明了的叙述"
+      - "强烈的对比反差"
+    qimao:
+      - "情绪化的语言"
+      - "夸张的表现手法"
+      - "密集的信息量"
+    qidian:
+      - "严谨的逻辑推理"
+      - "丰富的细节描写"
+      - "深度的心理分析"
+    jinjiang:
+      - "细腻的情感表达"
+      - "诗意的语言风格"
+      - "内心独白的运用"
+
+character_templates:
+  protagonist:
+    core_traits:
+      - "智商在线，手段高明"
+      - "有仇必报，绝不手软"
+      - "独立自主，不依附他人"
+      - "外表美丽，内心强大"
+    development_arc:
+      - "从被欺压到强势逆袭"
+      - "从善良到黑化的转变"
+      - "从孤独到找到真爱的历程"
+
+  antagonist:
+    common_types:
+      - "白莲花女配"
+      - "渣男前任"
+      - "势利眼亲戚"
+      - "嫉妒心强的同事"
+    defeat_patterns:
+      - "当众打脸，颜面尽失"
+      - "智商碾压，无力反抗"
+      - "自食恶果，咎由自取"
+
+plot_structures:
+  common_patterns:
+    - "开局被欺压，随即强势反击"
+    - "扮猪吃老虎，打脸不知死活的反派"
+    - "利用智慧和手段，一步步登上巅峰"
+    - "感情线与事业线并进，爱情事业双丰收"
+
+  chapter_templates:
+    opening:
+      - "女主被陷害/被背叛的场景"
+      - "女主觉醒/重生的瞬间"
+      - "女主展示实力的第一次反击"
+    climax:
+      - "大型打脸现场，反派跪地求饶"
+      - "女主登上权力巅峰的场面"
+      - "感情线的重要突破"
+    ending:
+      - "女主彻底掌控局面"
+      - "反派得到应有惩罚"
+      - "感情圆满或开放式结局"
+
+foreshadowing_elements:
+  common_hooks:
+    - "神秘的金手指来源"
+    - "隐藏的势力背景"
+    - "未解的身世之谜"
+    - "潜在的强大敌人"
+
+success_metrics:
+  platform_optimization:
+    fanqie:
+      - "每章爽点数量 ≥ 2"
+      - "打脸情节密度高"
+      - "节奏快速不拖沓"
+    qimao:
+      - "无憋屈情节"
+      - "反击及时爽快"
+      - "情绪释放充分"
+    qidian:
+      - "智斗逻辑严密"
+      - "设定合理可信"
+      - "人物成长清晰"
+    jinjiang:
+      - "感情线发展自然"
+      - "心理描写细腻"
+      - "CP互动有张力"
+
+metadata:
+  author: "Genm平台智能适配系统"
+  created_date: "2026-03-19"
+  last_updated: "2026-03-19"
+  tags:
+    - "恶女"
+    - "女强"
+    - "逆袭"
+    - "打脸"
+    - "权谋"
+    - "融合题材"

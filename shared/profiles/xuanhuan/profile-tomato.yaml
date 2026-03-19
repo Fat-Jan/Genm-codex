@@ -1,0 +1,118 @@
+# 玄幻-番茄版 Profile v3.1-tomato
+
+name: "玄幻-番茄版"
+version: "3.1-tomato"
+platform_config: "tomato"
+parent_profile: "xuanhuan/profile.yaml"
+
+description: |
+  玄幻题材番茄平台特化配置，强化战斗视觉冲击力、快节奏开局、高密度爽点。
+
+# 节奏控制 - 快节奏优先
+pacing:
+  type: "快节奏"
+  opening_speed: "immediate"      # 立即进入主线
+  chapter_length: "2800-3200"    # 标准章节字数
+  worldbuilding_dump: false       # 禁止大段世界观说明
+
+# 金手指配置 - 番茄偏好
+golden_finger:
+  appearance: "第一章800字内"     # 快速展示金手指
+  strength: "中高"                 # 较强但不无敌
+  reveal_timing: "early_chapter_1" # 尽早揭示能力
+
+# 写作风格调整
+writing_style:
+  combat_description: "视觉冲击型"   # 增加招式名称、力量对比、痛快感描写
+  worldbuilding_ratio: 0.3           # 世界观说明控制在30%
+  cool_point_density: 1.5            # 每千字1.5个爽点
+  dialogue_ratio: 0.25               # 对话占比25%
+
+# 十章结构模板适配玄幻
+golden_three:
+  chapter_1:
+    must_have:
+      - "金手指在800字内出现"
+      - "玄幻世界观在500字内交代"
+      - "第一个冲突在1000字内"
+      - "强钩子结尾"
+    forbidden:
+      - "超过500字的世界观铺垫"
+      - "主角连续2章无修炼行为"
+
+  chapter_2:
+    must_have:
+      - "实力初步展示"
+      - "新场景引入"
+      - "小高潮"
+    forbidden:
+      - "重复第一章设定"
+
+  chapter_3:
+    must_have:
+      - "越级战斗"
+      - "战力震惊"
+      - "重大收获"
+    forbidden:
+      - "战力膨胀过快"
+
+# 战斗场面优化
+combat_settings:
+  visual_elements:
+    - "招式名称具体化"
+    - "力量层次对比"
+    - "痛快感细节"
+    - "突破感刻画"
+  forbidden_phrases:
+    - "强大的力量"
+    - "恐怖的气息"
+    - "无尽的威压"
+  required_details:
+    - "能量颜色变化"
+    - "空间震动效果"
+    - "对手痛苦反应"
+
+# 世界观渐进式揭示
+worldbuilding:
+  introduction_method: "dialogue_natural"  # 通过对话自然透露
+  max_new_elements_per_chapter: 3          # 每章最多3个新设定
+  explanation_depth: "surface_level"       # 表面级别解释即可
+
+# 角色成长加速
+character_development:
+  level_up_frequency: "chapter_ends"      # 每章结尾升级
+  power_display: "quantifiable"           # 可量化的战力提升
+  equipment_gains: "timely"               # 及时获得强力装备
+
+# 平台特定约束
+platform_constraints:
+  tomato_specific:
+    golden_finger_visibility: "high"      # 金手指必须明显
+    combat_clarity: "extreme"             # 战斗必须清晰易懂
+    reward_immediacy: "required"          # 奖励必须即时反馈
+
+# 质量检查权重调整
+quality_weights:
+  cool_points: 1.5                        # 提高爽点重要性
+  pacing: 1.2                             # 提高节奏要求
+  combat_description: 1.4                 # 提高战斗描写标准
+  ooc_detection: 1.1                      # 提高OOC检测
+
+# 禁用元素
+forbidden_elements:
+  - "冗长种族介绍"
+  - "势力关系大段说明"
+  - "主角内心独白过多"
+  - "战力模糊描述"
+
+# 推荐元素
+recommended_elements:
+  - "具体招式名称"
+  - "力量数值对比"
+  - "突破瞬间描写"
+  - "装备获取场景"
+  - "打脸情节设计"
+
+# 版本历史
+changelog:
+  "v3.1-tomato": "初始版本，专注番茄平台快节奏玄幻"

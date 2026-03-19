@@ -1,0 +1,248 @@
+# 幻想言情题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "幻想言情"
+display_name: "幻想言情"
+description: "奇幻背景的言情题材，包含仙侠、妖怪、异界等流派"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  xianxia_romance:
+    name: "仙侠言情流"
+    description: "修仙背景的爱情故事"
+    core_points: [修仙成长, 跨越种族的爱情, 守护真爱]
+    pacing: xianxia_romance
+    examples: [三生三世十里桃花]
+
+  yao_romance:
+    name: "妖怪言情流"
+    description: "人与妖怪的爱情"
+    core_points: [跨越种族, 禁忌之恋, 感人至深]
+    pacing: fantasy_romance
+    examples: [聊斋志异]
+
+  otherworld_romance:
+    name: "异界言情流"
+    description: "异世界背景的爱情"
+    core_points: [异世界冒险, 甜蜜爱情, 修成正果]
+    pacing: adventure_romance
+    examples: [醉玲珑]
+
+  fantasy_sweet:
+    name: "奇幻甜宠流"
+    description: "奇幻背景的甜宠文"
+    core_points: [甜蜜日常, 奇幻设定, 宠溺爱情]
+    pacing: relaxed
+    examples: [三生三世枕上书]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 奇幻言情型
+  tension_ratio: "5:5"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1500
+
+  preferred_types:
+    - type: 甜蜜爱情
+      weight: 1.6
+      description: "感情线甜蜜发展，浪漫互动"
+      triggers: [甜蜜, 宠溺, 心动, 暧昧, 亲吻, 拥抱, 宠爱, 恩爱]
+
+    - type: 守护真爱
+      weight: 1.5
+      description: "为爱付出，守护挚爱"
+      triggers: [守护, 牺牲, 为了你, 不惜, 逆天, 挡下, 保护]
+
+    - type: 奇幻冒险
+      weight: 1.4
+      description: "奇幻世界的冒险历程"
+      triggers: [冒险, 奇遇, 秘境, 宝物, 传承, 造化, 危机]
+
+    - type: 跨越种族
+      weight: 1.3
+      description: "人妖仙魔跨越种族的爱情"
+      triggers: [人妖, 仙魔, 种族, 禁忌, 跨越, 不可能, 天道不容]
+
+    - type: 前世今生
+      weight: 1.2
+      description: "宿命轮回，前世记忆"
+      triggers: [前世, 今生, 宿命, 轮回, 三生三世, 记忆, 因果]
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 35
+  fire: 35
+  constellation: 30
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: FAN-001
+    description: "奇幻设定要自洽"
+    mandatory: true
+    checkpoint: 世界观
+
+  - id: FAN-002
+    description: "感情线要自然"
+    mandatory: true
+    checkpoint: 感情发展
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 奇幻设定要自洽
+    - 感情线要自然发展
+    - 跨越种族的爱情要有说服力
+
+  optional_satisfy:
+    - 前世今生的宿命感
+    - 仙侠/妖幻的华丽场景
+    - 守护真爱的感人桥段
+
+  absolutely_not:
+    - 世界观设定矛盾
+    - 法术能力前后不一致
+    - 情感发展过于突兀
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 世界观设定矛盾
+    severity: critical
+    checkpoint: 世界观
+
+  - id: TABOO-002
+    content: 法术能力前后不一致
+    severity: warning
+    checkpoint: 能力设定
+
+  - id: TABOO-003
+    content: 情感发展过于突兀
+    severity: warning
+    checkpoint: 感情发展
+
+  - id: TABOO-004
+    content: 跨越种族的爱情缺乏说服力
+    severity: warning
+    checkpoint: 感情线
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.2
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.1
+  reader-pull: 1.2
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    xianxia_ethereal: 空灵出尘，仙气缥缈，情感含蓄深沉
+    yao_charming: 妖娆妩媚，亦正亦邪，情真意切
+    otherworld_mysterious: 神秘悠远，充满奇幻色彩
+
+  typical_dialogues:
+    xianxia_love: |
+      "三生三世，你于我而言，究竟是什么？"
+      "你是我的劫，也是我的缘。"
+      "若我渡不过这劫呢？"
+      "那我便陪你灰飞烟灭。"
+
+    cross_race: |
+      "你是高高在上的上仙，我不过是区区妖族。"
+      "在我眼中，你就是你，与种族无关。"
+      "可天道不会容许我们在一起。"
+      "那我就逆了这天。"
+
+    past_present: |
+      "我们...以前认识吗？为什么看见你，我的心会这么痛？"
+      "三百年前，你为了救我，魂飞魄散。"
+      "三百年？"
+      "这三百年，我找遍六界，终于找到了你。"
+
+  avoid_patterns:
+    - 世界观设定矛盾
+    - 法术能力前后不一致
+    - 情感发展过于突兀
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  immortal_realms:
+    sect_scenery: |
+      云海翻涌，仙鹤飞翔。琼楼玉宇矗立在群山之间，灵气氤氲。一袭白衣的仙者踏剑而过，衣袂翻飞，宛如谪仙。
+
+    hall_meeting: |
+      大殿之中，众仙分列两侧。中央的宝座上，上神微阖双眸，神色淡然。殿外钟声悠扬，预示着一场仙门大事即将开启。
+
+  demon_realms:
+    demon_palace: |
+      幽暗的宫殿深处，妖异的紫色光芒照亮了整个空间。宝座上的妖王慵懒地靠在椅背上，一双眼眸带着玩味的光芒，扫视着下方跪拜的妖众。
+
+    fox_cave: |
+      桃花灼灼，狐狸洞府内别有洞天。轻纱帷幔，檀香袅袅。一只雪白的狐狸蜷缩在软榻上，听到脚步声，慵懒地抬起眼皮。
+
+  battle_scenes:
+    immortal_demon_war: |
+      天际风云变色，两道身影在空中激战。金光与黑气交织，法术碰撞的声音震耳欲聋。一剑刺出，万剑齐发，整个空间都在颤抖。
+
+    altar_ritual: |
+      古老的祭坛上，阵法光芒闪烁。她盘膝而坐，双手结印，口中念念有词。灵力在她周身流转，越聚越亮，直到光芒刺破夜空。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    encounter: 平静开场20% -> 意外奇遇40% -> 身份揭秘30% -> 宿命感10%
+    adventure: 危机来临20% -> 艰难求生40% -> 绝地反击30% -> 化险为夷10%
+    romance: 心动萌芽20% -> 纠葛发展40% -> 跨越障碍30% -> 真爱见证10%
+
+  typical_pacing_examples:
+    past_present: 今生相遇 -> 熟悉感觉 -> 前世记忆 -> 因果揭示 -> 命运抉择
+    cultivation_growth: 凡人起点 -> 仙缘降临 -> 刻苦修炼 -> 遇到挫折 -> 突破瓶颈
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    past_present: 前世纠葛 -> 今生相遇 -> 宿命纠缠
+    cross_world: 人界平静 -> 意外遇见非人 -> 开启奇幻之旅
+    destiny_prophecy: 预言现世 -> 主角被卷入 -> 命运齿轮转动
+
+  classic_opening_examples:
+    three_lives: |
+      三百年前，她为救他，魂飞魄散。
+      三百年后，他已是高高在上的帝君，而她转世成一个籍籍无名的小仙。
+      '我们在哪里见过吗？'她仰头看着他，眼中带着困惑。
+      他沉默了很久，终于说：'没有。'
+      他不敢说，这三百年，他找遍了四海八荒，只为了找到她。
+
+    demon_love: |
+      她是九尾天狐，活了几万年，见过无数人间悲欢。
+      直到遇见他，一个普通的凡人书生。
+      '狐狸也会动情吗？'
+      她笑而不答。
+      后来，她才知道，动情是世间最痛的事，尤其当你是不死之身。
+
+    otherworld_transmigration: |
+      她只是个普通的现代女孩，却在一次意外中穿越到了一个仙魔并存的世界。
+      醒来时，身边是一只白得发光的狐狸。
+      '你终于醒了。'狐狸居然开口说话了。
+      她愣了三秒，然后尖叫出声。

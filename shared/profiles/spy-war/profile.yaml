@@ -1,0 +1,229 @@
+name: "抗战谍战"
+version: "1.1.0"
+description: "以抗日战争和谍报斗争为背景的历史题材，强调隐蔽战线上的智慧博弈、信仰坚守与生死抉择"
+
+sub_genres:
+  espionage_war:
+    name: "谍海风云"
+    description: "以地下工作者为主角，描写谍报战中的潜伏与反潜伏"
+    core_cool_points: ["潜伏敌营", "身份伪装", "情报传递", "险象环生", "信仰抉择", "虎口拔牙"]
+    pacing: "fast"
+    setting: "敌占区/国统区"
+    conflict_type: "敌我斗争与身份危机"
+  resistance_war:
+    name: "抗日烽火"
+    description: "以武装抗战为背景，描写正面战场的英勇抗敌"
+    core_cool_points: ["浴血奋战", "保家卫国", "英雄儿女", "敌后武工队", "地雷战地道战", "全民抗战"]
+    pacing: "fast"
+    setting: "沦陷区/前线"
+    conflict_type: "民族存亡与侵略反抗"
+  intelligence_battle:
+    name: "密码暗战"
+    description: "以密码战、电报战为核心的智力博弈"
+    core_cool_points: ["破译密码", "电波对决", "智慧较量", "无声战场", "智力巅峰", "决胜千里"]
+    pacing: "medium"
+    setting: "后方指挥部"
+    conflict_type: "智慧较量与技术对抗"
+  double_agent:
+    name: "双面人生"
+    description: "以多重身份特工为主角，描写复杂身份下的生存博弈"
+    core_cool_points: ["多重身份", "步步惊心", "左右逢源", "身份危机", "信仰考验", "绝地逢生"]
+    pacing: "fast"
+    setting: "多方势力交织"
+    conflict_type: "身份迷失与信仰坚守"
+
+pacing:
+  chapter_target: 2600
+  cool_point_interval: 1000
+  hook_strength: "strong"
+  scene_density: "very_high"
+  cliffhanger_frequency: "every_chapter"
+  tension_level: "sustained"
+
+cool_points:
+  - type: "情报得手"
+    trigger: "成功获取或传递关键情报"
+    effect: "任务完成，局势扭转"
+    frequency: "每3-5章"
+  - type: "身份危机"
+    trigger: "身份暴露或即将暴露"
+    effect: "惊心动魄的化解过程"
+    frequency: "每2-4章"
+  - type: "生死逃亡"
+    trigger: "被发现或追捕"
+    effect: "惊险逃脱，九死一生"
+    frequency: "每4-6章"
+  - type: "同志牺牲"
+    trigger: "为保护组织或同志"
+    effect: "悲壮牺牲，信仰升华"
+    frequency: "每8-12章"
+  - type: "敌人中计"
+    trigger: "巧妙布局成功"
+    effect: "敌人落入陷阱，我方获胜"
+    frequency: "每5-8章"
+  - type: "真相揭露"
+    trigger: "隐藏身份或秘密被揭开"
+    effect: "局势剧变，关系重构"
+    frequency: "全书关键节点"
+
+strand_weights:
+  main_plot: 0.50
+  character: 0.20
+  romance: 0.10
+  world_building: 0.20
+
+taboos:
+  - id: "TABOO-001"
+    content: "歪曲历史，美化侵略者"
+    severity: "critical"
+    reason: "涉及民族情感，必须尊重历史事实"
+  - id: "TABOO-002"
+    content: "地下工作过于简单化，缺乏真实感"
+    severity: "critical"
+    reason: "谍战是专业工作，需要展现专业细节"
+  - id: "TABOO-003"
+    content: "主角光环过重，敌人智商过低"
+    severity: "critical"
+    reason: "需要势均力敌的博弈才有张力"
+  - id: "TABOO-004"
+    content: "历史细节错误，如武器、服装、语言时代不符"
+    severity: "warning"
+    reason: "影响真实感和代入感"
+  - id: "TABOO-005"
+    content: "爱情线喧宾夺主，冲淡抗战主题"
+    severity: "warning"
+    reason: "抗战是主线，爱情应是点缀"
+  - id: "TABOO-006"
+    content: "过度娱乐化严肃历史"
+    severity: "critical"
+    reason: "应保持对历史的敬畏之心"
+
+reader_expectations:
+  must_meet:
+    - "紧张刺激的谍战情节"
+    - "真实可信的历史背景"
+    - "智商在线的正反派"
+    - "崇高的信仰与牺牲精神"
+    - "步步惊心的危机感"
+    - "感人至深的同志情谊"
+  optional:
+    - "隐忍克制的爱情"
+    - "复杂的身份博弈"
+    - "历史名人的侧面"
+    - "密码战的智力较量"
+    - "多方势力的角逐"
+    - "战后余生的感慨"
+  can_subvert:
+    - "地下工作者必然成功"
+    - "敌人必然残暴愚蠢"
+    - "英雄必然高大全"
+    - "汉奸必然天生坏种"
+  never:
+    - "美化侵略行为"
+    - "调侃民族苦难"
+    - "出现严重历史错误"
+    - "让主角轻易化解危机"
+
+golden_three:
+  opening_hook: "开篇必须建立紧张氛围：潜伏危机、任务紧急、身份暴露风险、或重大情报需要传递，立即抓住读者"
+  protagonist_intro: "主角出场即展现特工特质：冷静沉着、机智过人、处变不惊，同时暗示其隐藏的地下工作者身份"
+  chapter_end: "每章结尾必须留下强烈悬念：新危机爆发、身份即将暴露、同志被捕、或重大转折即将到来"
+
+writing_style:
+  tone: "紧张凝重，悬念迭起，充满危机感"
+  perspective: "第三人称，主角视角为主，适当使用多视角"
+  sentence_style: "节奏明快，短句为主，营造紧张感"
+  narrative_style: "强情节推进，注重悬疑感，情节环环相扣"
+  dialogue_style: "言简意赅，充满潜台词，符合谍战特点"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "轻轻的", "悄悄的", "默默的", "静静的", "慢慢的", "渐渐的", "傻傻的", "痴痴的", "直直的", "冷冷的"]
+  forbidden_patterns: ["只见", "但见", "忽见", "正欲", "却见", "只听", "忽听", "只听", "忽然", "突然", "不由得"]
+  show_dont_tell: true
+  break_patterns: true
+  varied_sentence_openings: true
+  avoid_repetitive_transitions: true
+  avoid_modifiers: true
+  use_concrete_details: true
+  maintain_tension: true
+
+checker_weights:
+  consistency: 1.3
+  pacing: 1.2
+  golden_three: 1.5
+  character_depth: 1.3
+  dialogue_quality: 1.2
+  historical_accuracy: 1.5
+  tension: 1.4
+
+entities:
+  characters:
+    - type: "protagonist"
+      archetype: "地下工作者"
+      traits: ["信仰坚定", "机智过人", "沉着冷静", "舍生忘死"]
+    - type: "handler"
+      archetype: "上级领导"
+      traits: ["经验丰富", "运筹帷幄", "保护下属", "关键时刻决断"]
+    - type: "ally"
+      archetype: "同志"
+      traits: ["并肩作战", "出生入死", "相互掩护", "可能牺牲"]
+    - type: "antagonist"
+      archetype: "特务头子/日军军官"
+      traits: ["老谋深算", "心狠手辣", "不易对付", "给予压力"]
+    - type: "love_interest"
+      archetype: "同志/潜伏对象"
+      traits: ["志同道合", "隐忍克制", "并肩作战", "可能永别"]
+  locations:
+    - name: "敌伪机关"
+      significance: "潜伏之地，龙潭虎穴"
+    - name: "秘密据点"
+      significance: "接头地点，情报交换"
+    - name: "刑讯室"
+      significance: "生死考验，信仰试炼"
+    - name: "电报室"
+      significance: "情报传递，电波暗战"
+    - name: "接头地点"
+      significance: "同志相遇，任务交接"
+  items:
+    - name: "密电码"
+      significance: "情报载体，生命攸关"
+    - name: "手枪"
+      significance: "自卫武器，最后防线"
+    - name: "毒药"
+      significance: "被捕时自尽，保护组织"
+    - name: "假证件"
+      significance: "身份掩护，生存必需"
+
+special_mechanics:
+  identity_concealment:
+    description: "身份隐藏机制"
+    elements: ["假身份", "代号", "单线联系", "切断与组织的可见联系"]
+    risk: "一旦暴露，必死无疑"
+  intelligence_network:
+    description: "情报网络"
+    components: ["交通员", "报务员", "潜伏人员", "外围群众"]
+    importance: "组织的生命线"
+  interrogation_resistance:
+    description: "被捕应对"
+    challenges: ["刑讯逼供", "心理瓦解", "威逼利诱", "同志安危"]
+    stakes: "生命与信仰的双重考验"
+  code_system:
+    description: "密码系统"
+    elements: ["密码本", "密语", "暗号", "死信箱"]
+    sophistication: "决定生死的关键"
+
+plot_archetypes:
+  - name: "潜伏生涯"
+    beats: ["打入敌营", "步步惊心", "获取情报", "险象环生", "完成任务"]
+  - name: "身份危机"
+    beats: ["身份暴露风险", "紧急应对", "转移组织", "化险为夷", "继续潜伏"]
+  - name: "同志牺牲"
+    beats: ["同志被捕", "组织危机", "忍痛割爱", "继承遗志", "报仇雪恨"]
+  - name: "绝地反击"
+    beats: ["陷入困境", "巧妙布局", "诱敌深入", "一举歼灭", "大获全胜"]
+
+success_metrics:
+  reader_engagement: "紧张感持续性，追更率"
+  satisfaction: "情节合理性评分"
+  retention: "完读率"
+  virality: "历史正剧讨论度"

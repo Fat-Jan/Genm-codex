@@ -1,0 +1,366 @@
+# 替身文题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "替身文"
+display_name: "替身文"
+description: "替身题材的言情，包含白月光替身、真假千金等流派"
+version: "1.1.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  white_moonlight_sub:
+    name: "白月光替身流"
+    description: "被当作白月光替身，后转正"
+    core_points: [转正成功, 男主后悔, 身份逆袭]
+    pacing: counterattack
+    examples: [替身文女主不干了]
+
+  rebirth_anti_sub:
+    name: "重生反替身流"
+    description: "重生后拒绝当替身"
+    core_points: [拒绝替身, 改变命运, 收获真爱]
+    pacing: rebirth_counterattack
+    examples: [重生后我成了男主的白月光]
+
+  true_false_daughter:
+    name: "真假千金流"
+    description: "真假千金身份互换"
+    core_points: [身份揭秘, 打脸假千金, 认祖归宗]
+    pacing: identity_counterattack
+    examples: [真假千金之逆袭人生]
+
+  pure_substitute:
+    name: "纯替身流"
+    description: "女主明确知道自己是替身，带着目的接近"
+    core_points: [各取所需, 假戏真做, 身份反转]
+    pacing: medium
+    examples: []
+
+  mistaken_substitute:
+    name: "误认替身流"
+    description: "女主不知自己是替身，以为是真爱"
+    core_points: [真心付出, 真相揭露, 心碎, 追悔]
+    pacing: medium
+    examples: []
+
+  bidirectional_substitute:
+    name: "双向替身流"
+    description: "男女主互为替身，各有目的"
+    core_points: [互相利用, 互相沦陷, 真相大白]
+    pacing: medium
+    examples: []
+
+  revenge_substitute:
+    name: "替身复仇流"
+    description: "女主作为替身是为了复仇或目的"
+    core_points: [预谋接近, 男主沦陷, 复仇或放弃]
+    pacing: medium
+    examples: []
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 情感驱动型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.9
+  max_interval: 1300
+
+  preferred_types:
+    - type: 身份逆袭
+      weight: 1.7
+      description: "替身转正或真实身份揭露"
+      triggers: [逆袭, 转正, 身份, 真正, 原来, 不再是, 超越, 取代]
+
+    - type: 男主后悔
+      weight: 1.6
+      description: "男主意识到真心并追妻"
+      triggers: [后悔, 追妻, 挽回, 错了, 原来爱, 心痛, 卑微, 恳求]
+
+    - type: 打脸反派
+      weight: 1.5
+      description: "打脸白月光或反派"
+      triggers: [打脸, 揭穿, 震惊, 不敢相信, 报应, 下场, 自食恶果]
+
+    - type: 收获真爱
+      weight: 1.4
+      description: "获得真正的爱情"
+      triggers: [真爱, 幸福, 在一起, 表白, 告白, 相爱, 宠爱]
+
+  avoid_types:
+    - type: 女主过于卑微
+      weight: 0
+      reason: 替身文女主要有独立人格
+
+    - type: 男主轻易得到原谅
+      weight: 0.2
+      reason: 追妻要有诚意和过程
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 30
+  fire: 45
+  constellation: 25
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: SUB-001
+    description: "替身要有独立人格，不能太卑微"
+    mandatory: true
+    checkpoint: 主角塑造
+
+  - id: SUB-002
+    description: "转正要有过程，不能太突然"
+    mandatory: true
+    checkpoint: 感情发展
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 替身要有独立人格，不能太卑微
+    - 转正要有过程，不能太突然
+    - 男主追妻要有诚意
+
+  optional_satisfy:
+    - 男主后悔追妻火葬场
+    - 身份揭秘打脸爽感
+    - 白月光得到应有下场
+
+  absolutely_not:
+    - 女主过于卑微没有底线
+    - 男主轻而易举得到原谅
+    - 白月光没有下场
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 女主过于卑微没有独立人格
+    severity: critical
+    checkpoint: 主角塑造
+
+  - id: TABOO-002
+    content: 转正过程太突兀
+    severity: warning
+    checkpoint: 感情发展
+
+  - id: TABOO-003
+    content: 男主轻而易举得到原谅
+    severity: warning
+    checkpoint: 感情发展
+
+  - id: TABOO-004
+    content: 白月光没有下场
+    severity: warning
+    checkpoint: 配角处理
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.2
+  continuity: 1.1
+  reader-pull: 1.2
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    substitute_angst: 前虐后甜，身份反转，爽感十足
+    heroine_dialogue: 前期隐忍坚强，后期果断决绝
+    hero_dialogue: 前期冷漠比较，后期卑微追妻
+
+  typical_dialogues:
+    substitute_truth: |
+      "你爱的从来不是我，只是因为我像她。"
+      "......"
+      "三年来，我一直在扮演另一个人。现在，我不想演了。"
+      "你要去哪里？"
+      "去一个，没有你影子存在的地方。"
+
+    transformation_journey: |
+      "我知道我只是替身，但我还是想试一试，试一试能不能让你爱上真正的我。"
+      "你不用试了，你永远比不上她。"
+      "好，我知道了。"
+      这一天，她终于明白，有些心，永远捂不热。
+
+    hero_regret: |
+      "我错了，你回来好不好？"
+      "错了？错在哪里？错在把我当替身，还是错在让我发现真相？"
+      "我......"
+      "晚了，从你亲口说出'你永远比不上她'的那一刻，就已经晚了。"
+
+    face_slap_white_moonlight: |
+      "原来你就是传说中的白月光？"
+      "是又怎样？他爱的人是我。"
+      "那你可以去问问现在的他，他爱的人到底是谁。"
+      "他爱的从来都只是你，只是你自己不知道。"
+
+  avoid_patterns:
+    - 女主过于卑微没有底线
+    - 男主轻而易举得到原谅
+    - 白月光没有下场
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  substitute_heartache:
+    mirror_self: |
+      镜中的女子，和她有着相似的眉眼。她伸手触碰镜面，指尖颤抖。原来这三年来，他看着她的每一眼，看的都是这张与她相似的的脸。
+
+    gift_comparison: |
+      那条项链，和白月光照片里戴的一模一样。她终于明白，为什么他送给她时，眼中闪过一丝恍惚。
+      他爱的，从来不是她。
+
+  transformation_moment:
+    identity_reveal: |
+      宴会上，她挽着他的手臂出现。所有人都在窃窃私语，这不就是那个替身吗？
+      她却挺直腰背，目光坦然。
+      '介绍一下，这位是我的未婚妻，正牌的那种。'他的声音不大，却让所有人都听清了。
+
+    true_confession: |
+      她转身要走，却被他从背后紧紧抱住。
+      '放开我。'
+      '不放，这辈子都不放。'
+      '你不是说我只是替身吗？'
+      '是我错了，你从来都不是替身，你是我此生唯一的挚爱。'
+
+  face_slap_scenes:
+    expose_white_moonlight: |
+      茶话会上，白月光端着架子说：'你就是那个替身吧？'
+      她笑了笑，不卑不亢：'替身？请问你这几年在哪里？在他最困难的时候，陪在他身边的人是我。'
+      '我是他的白月光！'
+      '是吗？'她从包里拿出一份文件，'那你解释一下，这些陷害他的证据，为什么都有你的指纹？'
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    substitute_angst_chapter: 甜蜜假象30% -> 替身真相40% -> 心碎离开30%
+    chasing_chapter: 男主后悔30% -> 卑微追妻40% -> 女主动摇20% -> 缓和10%
+    face_slap_chapter: 反派嚣张20% -> 证据准备30% -> 高潮打脸40% -> 爽感收尾10%
+
+  typical_pacing_examples:
+    substitute_awakening: 甜蜜日常 -> 发现端倪 -> 真相大白 -> 决然离开 -> 男主崩溃
+    transformation_counterattack: 替身身份 -> 真爱觉醒 -> 男主追妻 -> 身份逆转 -> 修成正果
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    substitute_opening: 甜蜜假象 -> 突然发现白月光存在 -> 真相震撼
+    rebirth_anti_substitute: 前世惨死 -> 重生回替身开始时 -> 决绝改变
+    identity_reversal: 被当作替身 -> 真实身份揭秘 -> 反转打脸
+
+  classic_opening_examples:
+    substitute_awakening: |
+      她以为自己是最幸福的女人，有深爱她的丈夫，有温馨的家。
+      直到那天，她翻到了他书房里的照片。
+      照片上的女人，和她有着相似的眉眼，却是完全不同的气质。
+      照片背后写着：'我永远的白月光。'
+      她才明白，这三年的幸福，不过是她在替另一个人活着。
+
+    rebirth_anti_substitute: |
+      上辈子，她做了一辈子的替身，直到死都没能等来他的爱。
+      重生回到五年前，他刚把她带回家的那天。
+      '你很像她。'他说。
+      她淡淡一笑：'像就像吧，但你要记住，我是我，不是任何人。'
+      这一次，她不会再为任何人做替身。
+
+    true_false_daughter: |
+      十八岁那年，她被告知，她是被抱错的假千金，真千金另有其人。
+      从天堂跌入地狱，她失去了一切。
+      而那个真千金，却处处以她为目标，想要夺走她仅剩的东西。
+      '你想取代我？'她冷笑，'那就要看你有没有这个本事了。
+
+# ==================== 写作风格 ====================
+writing_style:
+  tone: "浓烈纠结，情感复杂，虐中带爽"
+  perspective: "第三人称，双视角切换，女主视角占60%"
+  sentence_style: "情感细腻，善用对比，内心戏丰富"
+  vocabulary: "情感词汇强烈，善用对比修辞"
+  dialogue_ratio: "35%"
+  description_ratio: "35%"
+  action_ratio: "30%"
+
+# ==================== 去AI风格配置 ====================
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "一抹", "一丝", "眼底", "眸中", "嘴角", "轻声", "淡淡道", "轻声道", "勾唇", "绝色", "倾国倾城"]
+  forbidden_patterns: ["过度外貌描写", "僵硬对话", "为虐而虐", "人设崩塌"]
+  show_dont_tell: true
+  break_patterns: true
+  humanization_tips:
+    - "替身关系要有合理的建立基础"
+    - "女主的隐忍要有原因，不是单纯圣母"
+    - "男主的转变要有过程，不能突然变好"
+    - "白月光也要有合理动机"
+
+# ==================== 黄金三章 ====================
+golden_three:
+  opening_hook: "开篇必须建立替身关系，如契约签订、第一次见面、替身身份确立，立即建立情感张力"
+  protagonist_intro: "女主出场要有目的性，表面顺从实则有自己的心思；男主出场要展现对白月光的执念"
+  chapter_end: "章末停在情感冲突或真相边缘，如发现蛛丝马迹、感情变化、身份危机"
+
+# ==================== 字数建议 ====================
+word_count:
+  short_story: "20-40万字"
+  medium_story: "60-100万字"
+  long_story: "不建议过长"
+
+# ==================== 流行梗 ====================
+popular_tropes:
+  - "替身契约"
+  - "追妻火葬场"
+  - "白月光回归"
+  - "身份反转"
+  - "真心发现"
+  - "逆袭超越"
+
+# ==================== 参考作品 ====================
+reference_works:
+  - "《何以笙箫默》- 默笙不是替身但有类似情节"
+
+# ==================== 实体定义 ====================
+entities:
+  characters:
+    - name: "女主"
+      archetype: "隐忍成长型"
+      traits: ["坚韧", "有目的", "不卑微"]
+      growth_arc: "从替身到被认可，从隐忍到爆发"
+    - name: "男主"
+      archetype: "渣转深情型"
+      traits: ["起初执念", "后来醒悟", "深情挽回"]
+      growth_arc: "从执念到放下，从不懂爱到深爱"
+    - name: "白月光"
+      archetype: "前任/执念型"
+      traits: ["优雅", "有心机", "最终释怀"]
+    - name: "男配"
+      archetype: "守护者型"
+      traits: ["真心", "守护", "助攻"]
+  locations:
+    - name: "男主住处"
+      significance: "替身生活的主要场景"
+    - name: "白月光相关地点"
+      significance: "触发男主执念的地方"
+    - name: "女主独处空间"
+      significance: "展现真实自我的地方"
+  items:
+    - name: "契约"
+      significance: "替身关系的证明"
+    - name: "与白月光相关的物品"
+      significance: "替身身份的标记"
+    - name: "女主自己的物品"
+      significance: "真实身份的证明"'

@@ -1,0 +1,262 @@
+# 狗血言情题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "狗血言情"
+display_name: "狗血言情"
+description: "情节跌宕起伏、虐心与甜蜜交织的言情题材"
+version: "3.0"
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  angst_love:
+    name: "虐恋情深流"
+    description: "虐心虐身但最终在一起"
+    core_points: [虐后更甜, 感情升华, 终成眷属]
+    pacing: angst_sweet
+    examples: [千山暮雪]
+
+  misunderstanding:
+    name: "误会解开流"
+    description: "各种误会最终解开"
+    core_points: [误会解除, 感情升温, 修成正果]
+    pacing: misunderstanding
+    examples: [何以笙箫默]
+
+  rebirth_revenge:
+    name: "重生虐渣流"
+    description: "重生后虐渣男渣女"
+    core_points: [打脸虐渣, 复仇成功, 收获真爱]
+    pacing: shuangwen
+    examples: [重生之豪门悍女]
+
+  chasing_arc:
+    name: "追妻火葬场流"
+    description: "男主伤害女主后追回"
+    core_points: [男主后悔, 追妻艰难, 最终和好]
+    pacing: angst_male
+    examples: [你是我的荣耀]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 虐甜交替型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1500
+
+  preferred_types:
+    - type: 虐后更甜
+      weight: 1.6
+      description: "痛苦后的甜蜜更具冲击力"
+      triggers: [终于, 和好, 更加珍惜, 甜蜜, 弥补, 宠爱]
+
+    - type: 误会解除
+      weight: 1.5
+      description: "误会消除后的感情升温"
+      triggers: [真相, 误会, 原来是这样, 对不起, 我错怪]
+
+    - type: 男主后悔
+      weight: 1.4
+      description: "追妻火葬场的悔恨"
+      triggers: [后悔, 我错了, 追悔, 卑微, 求原谅, 不能没有你]
+
+    - type: 打脸虐渣
+      weight: 1.3
+      description: "报复仇人渣男渣女"
+      triggers: [打脸, 报应, 自食恶果, 众叛亲离, 噩梦]
+
+  avoid_types:
+    - type: 无理由的虐
+      weight: 0.3
+      reason: 虐要有理由
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 25
+  fire: 50
+  constellation: 25
+
+  warnings:
+    quest_max_consecutive: 3
+    fire_missing_max: 3
+    constellation_missing_max: 15
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: DOG-001
+    description: "虐要有理由，不能为虐而虐"
+    mandatory: true
+    checkpoint: 虐心情节
+
+  - id: DOG-002
+    description: "最终要HE"
+    mandatory: true
+    checkpoint: 结局
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - 虐要有理由，不能为虐而虐
+    - 最终要HE（Happy Ending）
+    - 感情线要有足够的张力
+    - 追妻/追夫要有诚意
+
+  optional_satisfy:
+    - 重生复仇打脸爽感
+    - 男主悔过追妻火葬场
+    - 误会解除后的甜蜜
+
+  absolutely_not:
+    - 毫无理由的虐
+    - 虐了不追，追了不原谅
+    - 女主过于卑微没有底线
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: 毫无理由的虐心情节
+    severity: critical
+    checkpoint: 虐心情节
+
+  - id: TABOO-002
+    content: 女主过于卑微没有底线
+    severity: critical
+    checkpoint: 主角塑造
+
+  - id: TABOO-003
+    content: 男主轻而易举得到原谅
+    severity: warning
+    checkpoint: 感情发展
+
+  - id: TABOO-004
+    content: 结局不是HE
+    severity: critical
+    checkpoint: 结局设计
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.0
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.3
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  style_definitions:
+    angst_tension: 情绪激烈，反转频繁，虐心与甜蜜交织
+    heroine_dialogue: 倔强坚强，内心脆弱，爱恨分明
+    hero_dialogue: 前期冷漠残忍，后期卑微追妻
+
+  typical_dialogues:
+    angst_confrontation: |
+      "你到底有没有心？"
+      "我没有心，从爱上你的那一刻起，我就没有心了。"
+      "好，那就当你从没爱过我。从今以后，我们两清。"
+      "两清？你以为你能逃得掉吗？"
+
+    misunderstanding_conflict: |
+      "你宁愿相信一个外人，也不愿意相信我？"
+      "事实摆在眼前，你让我怎么相信你？"
+      "好，既然你认定我是这种人，那我就如你所愿。"
+      "你...你什么意思？"
+
+    chasing_begging: |
+      "我知道错了，给我一个机会好不好？"
+      "机会？当初你怎么对我的，你忘了吗？"
+      "我没忘，我每天都在后悔。求你，让我补偿你..."
+      "迟来的深情，比草都轻贱。"
+
+    rebirth_face_slap: |
+      "前世，我为你付出一切，换来的是家破人亡。"
+      "你在说什么胡话？"
+      "这一世，我要让你尝尝，什么叫做生不如死。"
+
+  avoid_patterns:
+    - 毫无理由的虐
+    - 虐了不追，追了不原谅
+    - 女主过于卑微
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  angst_scenes:
+    breakup: |
+      雷雨夜，她站在大雨中，浑身湿透。他站在窗前，冷眼看着她狼狈的模样，没有丝毫心疼。
+      '你就在这里站到死心为止。'
+      她惨然一笑：'好，这是你说的。'转身离去的背影，决绝而苍凉。
+
+    misunderstanding_deep: |
+      她看着那张照片，手颤抖。照片里，他和那个女人笑得那样亲密。
+      '你还有什么好说的？'
+      他张了张嘴，最终什么都没说。
+      她闭上眼，眼泪滑落：'原来，你心里一直都有她。'
+
+  chasing_scenes:
+    humble_begging: |
+      他跪在她面前，曾经不可一世的男人，此刻卑微得像条狗。
+      '打我骂我都行，只要你别不理我。'
+      她冷漠地看着他：'你觉得，我还会心软吗？'
+
+    devotion: |
+      寒冬腊月，他守在她家楼下三天三夜，就为了见她一面。
+      她终于下楼，看到他冻得发紫的嘴唇，心口像被什么东西狠狠扎了一下。
+      '你何必呢...'
+      '只要能换你一个回头，什么我都愿意。'
+
+  face_slap_scenes:
+    public_exposure: |
+      宴会上，她端着酒杯，一袭红裙惊艳全场。
+      那个曾经高高在上的女人此刻脸色惨白：'你怎么会在这里？'
+      她轻轻一笑：'怎么，我这种身份，不配参加这场宴会？'
+      全场哗然，所有人都看向那个被揭穿真相的女人。
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  chapter_emotion_curve:
+    angst_chapter: 压抑铺垫30% -> 冲突爆发40% -> 虐心高潮20% -> 伏笔收尾10%
+    chasing_chapter: 男主后悔30% -> 追妻艰难40% -> 女主动摇20% -> 关系缓和10%
+    face_slap_chapter: 反派嚣张20% -> 女主准备30% -> 高潮打脸40% -> 爽感收尾10%
+
+  typical_pacing_examples:
+    angst_sweet_alternation: 甜蜜互动 -> 误会埋下 -> 爆发虐心 -> 误会解除 -> 感情升温
+    rebirth_counterattack: 前世惨状 -> 重生回溯 -> 改变选择 -> 打脸渣渣 -> 收获真爱
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    rebirth_death: 前世惨死场景 -> 重生回到关键时刻 -> 决心复仇
+    angst_opening: 甜蜜回忆 -> 突然决裂 -> 留下悬念
+    identity_reversal: 女主被羞辱 -> 暗藏锋芒 -> 惊人反转
+
+  classic_opening_examples:
+    rebirth_revenge: |
+      死亡的那一刻，她看到他抱着那个女人，脸上是熟悉的温柔。
+      那是她曾最爱的人，也是亲手将她推入地狱的人。
+      再睁眼，她回到了三年前，一切悲剧开始之前。
+      这一次，她不会再做那个傻女人。
+
+    chasing_arc: |
+      '签了它，从此你我再无瓜葛。'
+      离婚协议书被扔在她面前，她沉默了很久，终于颤抖着签下自己的名字。
+      他以为她会哭闹求饶，可她只是平静地收拾行李，头也不回地离开了。
+      直到失去她，他才知道，自己究竟失去了什么。
+
+    angst_love: |
+      三年前，她是高高在上的大小姐，他是她的保镖。
+      三年后，他是商界新贵，而她家破人亡，沦为他的阶下囚。
+      '求求你，放过我...'
+      '放过你？'他冷笑，'这辈子，你都别想逃。'

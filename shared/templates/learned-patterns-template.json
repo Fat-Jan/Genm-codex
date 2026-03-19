@@ -1,0 +1,63 @@
+{
+  "$schema": "./learned-patterns.schema.json",
+  "version": "3.0",
+  "last_analysis_chapter": 0,
+  "last_analysis_date": null,
+  "total_chapters_learned": 0,
+  "auto_trigger_enabled": true,
+  "high_point_preferences": {
+    "favorite_types": [],
+    "type_weights": {},
+    "typical_interval": 800,
+    "trigger_patterns": {
+      "optimal_suppression": "3-5段铺垫",
+      "explosion_style": "瞬间反转"
+    },
+    "avoided_types": ["无铺垫打脸", "无代价越级", "无逻辑反转"]
+  },
+  "dialogue_style": {
+    "tone": null,
+    "average_length": 15,
+    "sample_phrases": [],
+    "avoided_phrases": [],
+    "character_voices": {}
+  },
+  "writing_patterns": {
+    "chapter_opening_style": null,
+    "chapter_ending_style": null,
+    "description_density": "中等",
+    "battle_description": {
+      "style": null,
+      "detail_level": "中等"
+    },
+    "emotion_description": {
+      "style": null,
+      "inner_monologue_ratio": 0.25
+    }
+  },
+  "vocabulary_preferences": {
+    "favorite_words": [],
+    "avoided_words": ["淡淡的", "不禁", "顿时", "猛然", "竟然", "霎时"],
+    "sentence_pattern": "长短错落",
+    "ai_trace_score": 0.0
+  },
+  "chapter_structure": {
+    "dialogue_ratio": 0.35,
+    "description_ratio": 0.40,
+    "inner_monologue_ratio": 0.25,
+    "paragraph_style": "短段为主，偶尔长段铺陈"
+  },
+  "strand_preferences": {
+    "quest": 0.55,
+    "fire": 0.30,
+    "constellation": 0.15
+  },
+  "learning_history": [],
+  "user_feedback": [],
+  "metadata": {
+    "created_at": null,
+    "last_modified": null,
+    "genre": null,
+    "platform": null
+  }
+}

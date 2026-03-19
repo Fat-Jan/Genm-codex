@@ -1,0 +1,380 @@
+# 高武题材Profile
+
+name: "高武"
+version: "3.0"
+template: templates/genres/高武.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  academy_sub_genre:
+    description: "武道学院成长，天才竞争"
+    core_points: ["比赛夺冠", "碾压天才", "导师青睐"]
+    pacing: "成长型"
+    examples: "《武动乾坤》《斗破苍穹》"
+  urban_super_power:
+    description: "现代都市背景，隐藏的武道世界"
+    core_points: ["都市隐藏高手", "扮猪吃虎", "守护城市"]
+    pacing: "快节奏"
+    examples: "《全球高武》《吞噬星空》"
+  interstellar_super_power:
+    description: "星际背景，武道与科技结合"
+    core_points: ["星际征战", "碾压异族", "文明守护"]
+    pacing: "宏大格局"
+    examples: "《吞噬星空》《星河大帝》"
+  body_refinement:
+    description: "纯肉体修炼，拒绝花哨法术"
+    core_points: ["肉身无敌", "拳拳到肉", "硬抗法宝"]
+    pacing: "热血型"
+    examples: "《完美世界》"
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 快节奏
+  tension_ratio: "2:8"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.8
+#   - 默认权重: 越级挑战(1.8), 天才碾压(1.6), 境界突破(1.5), 守护战(1.4), 打脸傲慢者(1.3)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 1.2/千字
+  max_interval: 1200字    # 超过此值需预警
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 越级挑战
+      weight: 1.8
+      description: "低境界击败高境界"
+      note: "必须有合理原因（功法、体质、战斗经验）"
+      trigger_words: [越级, 跨境界, 不可能, 以弱胜强, 碾压, 蝼蚁, 怎么可能]
+    - type: 天才碾压
+      weight: 1.6
+      description: "在天才云集的场合脱颖而出"
+      examples: "学院大比第一名，碾压所有天才"
+      trigger_words: [天才, 第一, 碾压, 震惊, 不敢相信, 脸色大变, 不可思议]
+    - type: 境界突破
+      weight: 1.5
+      description: "突破境界，实力飞跃"
+      note: "突破要有铺垫"
+      trigger_words: [突破, 境界, 武道, 晋升, 飞跃, 实力暴涨, 气息攀升]
+    - type: 守护战
+      weight: 1.4
+      description: "保护重要的人或城市"
+      examples: "独守城门，击退兽潮"
+      trigger_words: [守护, 保护, 挡住, 绝不退, 拼命, 热血, 燃烧]
+    - type: 打脸傲慢者
+      weight: 1.3
+      description: "教训看不起自己的人"
+      trigger_words: [打脸, 傲慢, 看不起, 废物, 垃圾, 算什么东西, 教训]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 无代价越级
+      weight: 0.3
+      reason: "高武讲究实力，越级要有理由"
+
+  # 组合加成配置
+  combo_bonus:
+    consecutive_cool_points: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    setup_payoff: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast_effect: 0.2       # 前后状态形成强烈对比
+    multiplier: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.55        # 成长主线
+  fire: 0.30         # 战斗爆发
+  constellation: 0.15 # 配角铺垫
+
+# ==================== 特殊约束 ====================
+special_constraints:
+  - ID: POWER-001
+    description: "境界压制明显，但可被特殊因素弥补"
+    enforced: true
+    check_point: 战斗场景
+  - ID: POWER-002
+    description: "突破要有积累，不能凭空突破"
+    enforced: true
+    check_point: 突破场景
+  - ID: POWER-003
+    description: "战斗要热血，不能拖沓"
+    enforced: false
+    check_point: 战斗描写
+
+# ==================== 黄金三章 ====================
+golden_three_chapters:
+  chapter_1:
+    opening: 展示武道世界的残酷/主角处境
+    core: 建立武道体系和主角目标
+    conflict: 第一次展示实力/被人轻视
+    hook: 获得机缘/金手指征兆
+    word_count: 4000-5000       # v4.0: 最低 4000 字
+
+  chapter_2:
+    unfolding: 金手指/机缘初步展现
+    testing: 第一次战斗/比试
+    growth: 获得初步认可
+    hook: 更大的挑战即将到来
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一次大胜/打脸成功
+    worldview: 展示更大的世界格局
+    reward: 获得核心功法/资源
+    hook: 新的征程开始
+    word_count: 4000-5500
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "主角要有合理的成长速度"
+    - "战斗要热血精彩"
+    - "天才对手要有实力"
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有搞笑配角调剂"
+  must_not:
+    - "战斗过程拖沓"
+    - "主角性格懦弱"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content: "战斗过程拖沓，反复描写心理活动"
+    severity: "warning"
+    check_point: "战斗场景"
+  - ID: TABOO-002
+    content: "境界压制随意打破"
+    severity: "critical"
+    check_point: "战斗逻辑"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.3      # 爽点密度要高
+  consistency: 1.2     # 力量体系一致性
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.1
+
+# ==================== 写作风格提示 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue:
+    style: "直接热血"
+    description: "战斗中对话简洁，性格鲜明"
+    avoid: ["战斗中废话太多"]
+
+  description_section:
+    combat: "招式华丽，打击感强"
+    growth: "突破时刻要有气势"
+
+# ==================== 实体标签 ====================
+entity_tags:
+  martial_art: <entity type="功法" name="功法名" desc="特效" tier="层级" grade="品级"/>
+  realm: <entity type="境界" name="境界名" desc="特点" tier="层级" next="下一境界" power="战力"/>
+  faction: <entity type="势力" name="势力名" desc="与主角关系" tier="层级"/>
+  monster: <entity type="妖兽" name="妖兽名" desc="特点" tier="层级" realm="境界" drop="掉落物"/>
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    passionate_direct: "战斗中对话简洁有力"
+    dominant_confident: "强者风范，不容置疑"
+
+  typical_dialogue:
+    combat_taunt: |
+      "来吧，让我看看你有多少斤两！"
+      "就这点实力，也敢挑战我？"
+
+    realm_suppression: |
+      "武道二重对四重？找死！"
+      "原来这就是高境界的威压..."
+
+    breakthrough_moment: |
+      "我要突破的，从来不是境界，而是自己！"
+      "这一拳，打破我的极限！"
+
+    genius_shock: |
+      "不可能！他怎么可能有这种实力？"
+      "天才？在他面前什么都不是。"
+
+  avoid_patterns:
+    - "战斗中废话太多"
+    - "过于犹豫的主角"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  combat_scene:
+    move_description: |
+      "他一拳轰出，空气都仿佛被撕裂，拳风所过之处，地面龟裂。"
+      "对手横臂格挡，双臂上的肌肉如同钢铁般坚硬。"
+
+    realm_gap: |
+      "仅仅是气势，就让在场所有低境界武者喘不过气来。"
+      "这就是武道九重的威压，根本不是他们能抵抗的。"
+
+  breakthrough_scene:
+    realm_breakthrough: |
+      "体内气血翻涌，丹田处一股热流瞬间扩散全身。"
+      "屏障碎裂的声音在灵魂深处响起，整个人的气息暴涨。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    combat_type: "铺垫(20%) → 对峙(30%) → 战斗高潮(40%) → 结果(10%)"
+    breakthrough_type: "瓶颈铺垫(30%) → 契机出现(30%) → 突破成功(30%) → 展示实力(10%)"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    waste_type: "被嘲笑天赋差，隐藏实力"
+    academy_type: "学院天才云集，主角横空出世"
+    rebirth_type: "重生归来，这一世登顶武道"
+
+  classic_opening_examples:
+    waste_comeback: |
+      "资质F级？这辈子也就是个普通人了。"
+      林凡看着测试结果，嘴角上扬。没人知道，他体内的武道之心，昨晚觉醒了。
+      "F级？那就让你们看看，F级如何逆天。"
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # B级：悬念是辅助元素，服务于热血战斗和成长
+  # 高武流的核心是境界突破、越级挑战、天才碾压，悬念仅用于增加期待感
+  # 主要悬念类型：能力来源、体质觉醒、势力秘密
+  suspense_importance_level: B级
+
+  # 高武流悬念类型定义
+  type:
+    short_term_suspense:
+      definition: "单次比武/任务内的悬念，事件结束时解决"
+      reveal_timing_simple: "事件内（3-15章）"
+      examples: ["对手实力", "比赛结果", "资源归属", "敌人身份"]
+
+    medium_term_suspense:
+      definition: "跨越多个阶段的悬念，与成长和势力相关"
+      reveal_timing_simple: "30-80章"
+      examples: ["主角特殊体质来源", "宗门/学院秘密", "重要配角身份", "隐藏势力"]
+
+    long_term_suspense:
+      definition: "贯穿全书的核心悬念，世界观终极真相"
+      reveal_timing_simple: "80-150章，核心真相建议100章后"
+      examples: ["主角真实身世", "武道世界终极秘密", "世界危机真相", "最终敌人身份"]
+
+  # 高武流悬念揭晓时机建议
+  reveal_timing_simple:
+    chapter_1_to_3:
+      - type: "武道体系"
+        content: "展示武道境界和力量体系"
+        required: true
+      - type: "主角目标"
+        content: "主角的目标和动机"
+        required: true
+      - type: "金手指暗示"
+        content: "主角的特殊之处"
+        required: true
+
+    chapter_5_to_20:
+      - type: "金手指展现"
+        content: "主角金手指的初步展现"
+        note: "金手指要有成长性"
+      - type: "第一个大比/战斗"
+        content: "展示实力，建立名声"
+      - type: "势力关系"
+        content: "宗门/学院的势力分布"
+
+    chapter_20_to_40:
+      - type: "主角体质线索"
+        content: "暗示主角为何与众不同"
+        note: "只给线索，不给答案"
+      - type: "隐藏势力登场"
+        content: "发现更大世界的势力"
+      - type: "重要配角秘密"
+        content: "配角的隐藏身份或目的"
+
+    chapter_40_to_70:
+      - type: "主角体质来源"
+        content: "揭示主角为何拥有特殊体质"
+        examples: ["血脉觉醒", "前世传承", "神秘传承"]
+      - type: "世界观扩展"
+        content: "展示更大的世界格局"
+        examples: ["更高层次的世界", "星际文明", "异族入侵"]
+
+    chapter_70_to_100:
+      - type: "核心真相"
+        content: "世界观的核心秘密"
+        examples: ["武道起源", "世界真相", "隐藏的敌人"]
+      - type: "主角真实身份"
+        content: "主角的终极身份"
+        note: "要有足够铺垫，可以是重生/转世等"
+
+    chapter_100_plus:
+      - type: "终极对决"
+        content: "与最终敌人的对决"
+      - type: "武道终极"
+        content: "武道的终点和主角的最终成就"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    academy_sub_genre:
+      academy_secret: "20-40章"
+      protagonist_background: "40-80章"
+      world_truth: "80-120章"
+      description: "悬念在成长和学院竞争"
+
+    urban_super_power:
+      hidden_expert: "持续发现"
+      alien_secret: "30-60章"
+      world_crisis: "50-80章"
+      description: "悬念在守护和异族入侵"
+
+    interstellar_super_power:
+      interstellar_pattern: "20-40章"
+      alien_truth: "40-80章"
+      cosmic_ultimate: "100章+"
+      description: "悬念在星际征伐和宇宙真相"
+
+    body_refinement:
+      physique_secret: "30-60章"
+      body_refinement_ultimate: "80-120章"
+      description: "悬念在肉身进化和体质觉醒"
+
+  # 高武流悬念禁忌（B级简化版）
+  taboos_simple:
+    - content: "境界压制随意打破无理由"
+      reason: "高武讲究实力，越级要有合理原因"
+      severity: "critical"
+    - content: "战斗过程拖沓，反复心理活动"
+      reason: "高武的战斗要热血简洁"
+      severity: "warning"
+
+  # 伏笔埋设节奏（B级：低密度，服务于成长）
+  foreshadowing_simple:
+    principle: "每18章埋设1个新伏笔，每50章回收1个旧伏笔"
+    explanation: "高武文节奏快、战斗多，悬念密度不宜过高，重点放在成长线索"
+    examples:
+      short_foreshadowing: "比武前埋设，比武结束回收"
+      medium_foreshadowing: "第15章埋设，第60章回收"
+      long_foreshadowing: "第1章埋设，第100章+回收"
+    status_flow:
+      - "🟢潜伏 → 🟡铺垫 → 🟠可回收 → ⚪已回收"

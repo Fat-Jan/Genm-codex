@@ -1,0 +1,217 @@
+# 女频悬疑题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "女频悬疑"
+display_name: "女频悬疑"
+description: "女频悬疑言情、重生复仇悬疑题材"
+version: "3.0"
+template: templates/genres/女频悬疑.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  suspense_romance:
+    name: "悬疑言情流"
+    description: "悬疑+爱情双线"
+    core_points: [破案解谜, 甜蜜爱情, 双线并行]
+    pacing: suspense_romance
+
+  rebirth_revenge:
+    name: "重生复仇流"
+    description: "重生后复仇破案"
+    core_points: [先知先觉, 复仇成功, 揭开真相]
+    pacing: shuangwen
+
+  time_travel_mystery:
+    name: "穿越解谜流"
+    description: "穿越到过去破案"
+    core_points: [穿越优势, 破案成功, 改变命运]
+    pacing: suspense
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 悬疑紧张型
+  tension_ratio: "3:7"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.9
+  max_interval: 1500
+
+  preferred_types:
+    - type: 真相揭晓
+      weight: 1.7
+      description: "悬念揭开，真相大白"
+      triggers: [真相, 凶手, 原来是, 没想到, 竟然是, 幕后, 真凶]
+
+    - type: 甜蜜爱情
+      weight: 1.4
+      description: "感情线甜蜜发展"
+      triggers: [心动, 暧昧, 亲吻, 拥抱, 喜欢, 爱意, 甜蜜, 宠溺]
+
+    - type: 复仇成功
+      weight: 1.3
+      description: "重生复仇，坏人得到惩罚"
+      triggers: [复仇, 报应, 罪有应得, 恶有恶报, 付出代价, 后悔]
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 40
+  fire: 35
+  constellation: 25
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: FSUS-001
+    description: "悬念要有伏笔"
+    mandatory: true
+    checkpoint: 悬念设计
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "悬念要有伏笔铺垫"
+    - "悬疑线与感情线要平衡"
+    - "女性角色要有主体性"
+
+  optional_satisfy:
+    - "重生复仇的爽感"
+    - "男主身份成谜的悬念"
+    - "破案+恋爱的双重满足"
+
+  never_violate:
+    - "感情线完全压过悬疑线"
+    - "女性角色过于依赖男主"
+    - "悬念没有解答"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "悬念没有伏笔铺垫"
+    severity: critical
+    checkpoint: "悬念设计"
+
+  - id: TABOO-002
+    content: "感情线完全压过悬疑线"
+    severity: warning
+    checkpoint: "双线平衡"
+
+  - id: TABOO-003
+    content: "女性角色过于依赖男主"
+    severity: warning
+    checkpoint: "人物塑造"
+
+  - id: TABOO-004
+    content: "悬念没有解答"
+    severity: critical
+    checkpoint: "悬念处理"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 1.0
+  consistency: 1.3
+  pacing: 1.1
+  ooc: 1.0
+  continuity: 1.3
+  reader-pull: 1.1
+
+# ==================== 实体标签 ====================
+entity_tags:
+  case:
+    format: <entity type="悬案" name="案件名" desc="概述" tier="复杂度" victim="受害者"/>
+
+  suspect:
+    format: <entity type="嫌疑人" name="名字" desc="特征" tier="嫌疑度" motive="动机"/>
+
+  romance:
+    format: <entity type="感情线" name="角色" desc="关系" tier="进展" tension="张力"/>
+
+  secret:
+    format: <entity type="秘密" name="秘密名" desc="内容" tier="重要度" holder="持有者"/>
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    suspense_romance: 在紧张中渗透感情，在甜蜜中埋藏悬疑
+    female_perspective: 注重情感细节和心理描写
+
+  typical_dialogues:
+    case_deduction: |
+      "凶手是认识死者的人，而且……是一个被她伤害过的人。"
+      "你怎么知道？"
+      "因为死者的表情——不是恐惧，是愧疚。她最后看到的，是一个她亏欠的人。"
+
+    romance_development: |
+      "你为什么要帮我？"
+      "也许是因为，你是我见过最执着的侦探……又或者，只是因为我想。"
+
+    rebirth_revenge: |
+      "上辈子，我死在你的阴谋里。这一次，我要让你亲眼看着，你所有的计划——都化为泡影。"
+
+    identity_hidden: |
+      "你到底是谁？"
+      "我只是……一个想帮你找到真相的人。至于我的身份，你以后会知道的。"
+
+  avoid_patterns:
+    - 感情线完全压过悬疑线
+    - 女性角色过于依赖男主
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  suspense_scene:
+    crime_scene: |
+      "她蹲下来，仔细观察那道痕迹。'不是自杀，'她轻声说，'死者的指甲里有木屑，说明她曾试图抓住什么。而现场……没有可以抓握的木头。'"
+
+    deduction_moment: |
+      "所有的线索都在指向一个方向，但她的直觉告诉她——不对。她闭上眼睛，重新梳理所有的时间线，然后，一个被所有人忽略的细节浮出水面。"
+
+  romance_scene:
+    subtle_heartbeat: |
+      "他帮她挡住了飞溅的玻璃碎片，手背被划出了一道血痕。她想要替他包扎，他却只是笑了笑：'比起这个，你先告诉我，为什么这起案件的每一个线索，你都如此熟悉？'"
+
+    identity_test: |
+      "他的眼神太深邃了，仿佛藏着无数秘密。她想问，却又害怕知道答案。在破案与信任之间，她发现自己陷入了两难。"
+
+  rebirth_revenge:
+    restart_moment: |
+      "睁开眼，她发现自己回到了三年前。那个毁了她一切的女人，现在还微笑着站在她面前，说着那些虚伪的话。
+      '妹妹，你怎么了？'
+      她深吸一口气，露出一个和记忆中一模一样的微笑：'没什么，只是做了一个……很长很长的梦。'"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    case_solving: "案件线索(25%) → 调查过程(30%) → 推理突破(30%) → 感情穿插(15%)"
+    romance_focus: "暧昧时刻(30%) → 悬疑插入(30%) → 关系发展(25%) → 新谜团(15%)"
+    revenge: "布局铺垫(25%) → 执行计划(40%) → 成功/变数(25%) → 后续发展(10%)"
+
+  typical_examples:
+    female_mystery_chapter: "案件推进 → 发现新线索 → 与男主互动有进展 → 揭示部分真相 → 埋下新悬念"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    rebirth_revenge: 重生归来，复仇开始
+    case_involvement: 卷入神秘案件
+    identity_mystery: 男主身份成谜
+
+  classic_examples:
+    rebirth_style: |
+      "她睁开眼，看着镜子里那个熟悉又陌生的自己——二十五岁，还没有经历那场毁掉她一切的婚礼。
+      '这一次，'她轻声对自己说，'我不会再让任何人伤害我。'
+      门铃响了，是那个曾经推她入深渊的女人，带着虚假的笑容：'姐姐，我来给你送请帖了。'她接过请帖，指尖轻轻抚过上面的名字——这一次，主角会是我。"
+
+    suspense_romance_style: |
+      "那个男人站在雨中，像是已经在那里等了很久。
+      '林小姐，'他说，'关于你妹妹的死，我想我知道一些……你不知道的事。'
+      她抬起头，看见他眼睛里有一种说不清的东西——是同情，是欣赏，还是……别的什么？"

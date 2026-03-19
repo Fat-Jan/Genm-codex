@@ -1,0 +1,159 @@
+name: "规则怪谈"
+version: "1.1.0"
+sub_genres:
+  校园规则:
+    description: "学校场景中的诡异规则，违反者将遭遇不测"
+    core_cool_points: ["熟悉场景的恐怖化", "规则背后真相探索", "在规则中寻找漏洞"]
+    pacing: "medium"
+  职场规则:
+    description: "公司、办公室中的怪谈规则，社畜生存的恐怖游戏"
+    core_cool_points: ["社畜共鸣", "办公室诡异事件", "职场PUA的诡异化"]
+    pacing: "medium"
+  家庭规则:
+    description: "家庭环境中的诡异规则，亲情的扭曲与异化"
+    core_cool_points: ["亲密关系的恐怖", "家庭秘密揭露", "血缘诅咒"]
+    pacing: "slow"
+  公共场所规则:
+    description: "医院、商场、地铁等公共场所的怪谈"
+    core_cool_points: ["公共空间的私域化恐怖", "群体行为异常", "逃离与被困"]
+    pacing: "fast"
+  异界入侵规则:
+    description: "诡异规则逐渐侵蚀现实世界的宏大叙事"
+    core_cool_points: ["世界观颠覆", "人类抵抗", "规则制定者揭秘"]
+    pacing: "medium"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1000
+  hook_strength: "strong"
+
+cool_points:
+  - type: "规则呈现"
+    trigger: "新的诡异规则被揭示"
+    effect: "紧张氛围建立，读者产生代入恐惧"
+  - type: "规则试探"
+    trigger: "主角尝试理解或挑战规则"
+    effect: "危险与机遇并存，刺激感十足"
+  - type: "规则背后"
+    trigger: "发现规则形成的原因或目的"
+    effect: "真相揭露的震撼，世界观扩展"
+  - type: "规则对抗"
+    trigger: "利用规则漏洞或规则之间相互矛盾"
+    effect: "智商在线的爽感，破局的关键"
+  - type: "代价支付"
+    trigger: "违反规则的后果降临"
+    effect: "恐怖升级，警示效果"
+  - type: "新区域开启"
+    trigger: "进入新的规则领域"
+    effect: "新鲜感与未知恐惧并存"
+
+strand_weights:
+  main_plot: 0.55
+  character: 0.15
+  romance: 0.05
+  world_building: 0.25
+
+taboos:
+  - id: "TABOO-001"
+    content: "规则设计漏洞明显，读者一眼看出漏洞"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "违反规则的惩罚不够恐怖或没有说服力"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "主角轻易破解所有规则，缺乏紧张感"
+    severity: "critical"
+  - id: "TABOO-004"
+    content: "规则堆砌过多，缺乏内在逻辑联系"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "场景描写不够具体，规则浮于表面"
+    severity: "warning"
+  - id: "TABOO-006"
+    content: "为了恐怖而恐怖，忽视故事性"
+    severity: "warning"
+  - id: "TABOO-007"
+    content: "规则制定者或幕后黑手设定过于敷衍"
+    severity: "critical"
+
+reader_expectations:
+  must_meet:
+    - "规则设计精妙，有内在逻辑可循"
+    - "违反规则的后果真实恐怖，有压迫感"
+    - "主角在规则中寻找生路的过程紧张刺激"
+    - "场景描写能让读者产生代入感"
+  optional:
+    - "多条规则之间存在隐藏联系"
+    - "规则背后有深层次的社会隐喻"
+    - "主角逐渐理解甚至影响规则制定者"
+  can_subvert:
+    - "某些规则看似危险实则是保护"
+    - "规则制定者并非恶意，而是被迫"
+    - "遵守规则比违反规则更危险"
+  never:
+    - "规则可以随意更改没有代价"
+    - "主角无视规则却安然无恙"
+    - "恐怖氛围被轻松搞笑消解"
+
+golden_three:
+  opening_hook: "开篇立即呈现一条诡异规则及其违反后果，如'如果你在午夜听到有人叫你的名字，千万不要回头'，紧接着展现某人违反规则后的恐怖遭遇"
+  protagonist_intro: "主角应在规则场景中出场，表现出对规则的敏感和谨慎，或展现出独特的分析能力，让读者认同其作为生存者的潜力"
+  chapter_end: "每章结尾必须揭示一条新规则或展现规则的新层次，或让主角面临规则的重大考验，制造持续的紧张感和阅读欲望"
+
+writing_style:
+  tone: "冷峻客观中透着诡异，规则条文般的冷静叙述与恐怖后果形成反差"
+  perspective: "第二人称或直接以规则条文形式，增强代入感和压迫感"
+  sentence_style: "规则条款式叙述与场景描写交替，简洁有力，避免冗余修饰"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "突然", "莫名", "不知为何", "不知道为什么", "不知怎么回事"]
+  show_dont_tell: true
+  break_patterns: true
+
+checker_weights:
+  consistency: 1.4
+  pacing: 1.1
+  golden_three: 1.3
+  atmosphere: 1.3
+
+entities:
+  characters:
+    - name: "规则遵守者"
+      type: "主角"
+      traits: ["谨慎细心", "观察力强", "善于总结规律", "心理承受力强"]
+    - name: "违规者"
+      type: "受害者/警示"
+      traits: ["好奇心重", "鲁莽", "不相信规则", "成为反面教材"]
+    - name: "规则适应者"
+      type: "同行者"
+      traits: ["已经适应规则", "有自己的生存之道", "可能帮助或利用主角"]
+    - name: "规则传播者"
+      type: "神秘存在"
+      traits: ["知晓规则", "可能非人类", "目的不明"]
+    - name: "幕后制定者"
+      type: "终极秘密"
+      traits: ["规则来源", "可能涉及超自然力量或更高维存在"]
+
+  locations:
+    - name: "规则领地"
+      atmosphere: "看似正常却处处诡异，每处细节都可能藏着规则"
+    - name: "安全屋"
+      atmosphere: "暂时的喘息之地，但可能也有隐藏规则"
+    - name: "违规现场"
+      atmosphere: "违反规则者遭遇不测的地方，充满恐怖气息"
+    - name: "规则边界"
+      atmosphere: "不同规则领域交界处，混乱而危险"
+    - name: "真相核心"
+      atmosphere: "规则来源之地，一切的答案"
+
+  items:
+    - name: "规则书"
+      function: "记载已知规则的笔记本或文档"
+    - name: "护身符"
+      function: "可能在某些规则下提供保护"
+    - name: "异常物品"
+      function: "违反常规物理法则的物品，可能是线索"
+    - name: "记录设备"
+      function: "记录规则 violations 和后果"
+    - name: "通行凭证"
+      function: "在某些规则领域通行的必需品"

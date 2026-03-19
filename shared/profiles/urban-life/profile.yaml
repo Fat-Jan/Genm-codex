@@ -1,0 +1,396 @@
+# 都市日常题材Profile
+
+name: "都市日常"
+version: "3.0"
+template: templates/genres/都市日常.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  urban_life:
+    characteristics: "现代都市日常生活"
+    core_points: ["温馨日常", "生活改善", "情感发展"]
+    pacing_style: "温馨治愈型"
+    examples: "《生活像阳光一样灿烂》"
+  workplace_striver:
+    characteristics: "职场升职加薪"
+    core_points: ["升职加薪", "职场成功", "人生赢家"]
+    pacing_style: "奋斗成功型"
+    examples: "《杜拉拉升职记》"
+  urban_romance:
+    characteristics: "现代都市爱情"
+    core_points: ["甜蜜爱情", "修成正果", "幸福生活"]
+    pacing_style: "言情型"
+    examples: "《何以笙箫默》"
+  reborn_urban:
+    characteristics: "重生回过去改变人生"
+    core_points: ["先知先觉", "人生逆袭", "弥补遗憾"]
+    pacing_style: "爽文型"
+    examples: "《重生之财源滚滚》"
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 温馨日常型
+  tension_ratio: "6:4"
+  typical_chapter_length: 4500
+  word_count_range:
+    min: 4000        # v4.0: 最低字数要求提升
+    standard: 4000-5000
+    long_chapter: 5000-6000
+
+# ==================== 爽点配置 ====================
+# 爽点评分系统 v2.0 - 加权智能计算
+#
+# 基础公式: 加权爽点密度 = Σ(爽点权重) / (字数/1000)
+#
+# 权重配置说明:
+#   - 权重范围: 0.0-2.0，推荐范围 0.8-1.5
+#   - 默认权重: 打脸爽(1.4), 越级爽(1.4), 机缘爽(1.2), 逆袭爽(1.2),
+#               升级爽(1.1), 情感爽(1.1), 收获爽(1.0), 装逼爽(1.0), 扮猪吃虎(1.3)
+#   - 组合加成: 连续爽点(+0.2), 铺垫后爆发(+0.3), 对比反差(+0.2), 多重叠加(+0.1/层)
+#
+# 平台标准(2026):
+#   七猫: 1.3-1.8/千字  番茄: 1.2-1.5/千字  起点: 0.8-1.0/千字  晋江: 1.0/千字
+#
+cool_points:
+  density_required: 0.7/千字  # 都市日常节奏舒缓
+  max_interval: 2000字    # 超过此值需预警
+
+  # 权重类型配置 - 定义本题材的爽点偏好
+  # 权重越高，该类型爽点对总评分的贡献越大
+  preferred_types:
+    - type: 生活改善
+      weight: 1.5
+      description_text: 生活条件、经济状况改善
+      trigger_words: [买房, 买车, 加薪, 升职, 搬家, 新工作, 转正, 奖金, 薪资]
+    - type: 情感甜蜜
+      weight: 1.4
+      description_text: 温馨的情感互动
+      trigger_words: [团聚, 拥抱, 表白, 在一起, 结婚, 怀孕, 宝宝, 家人, 陪伴, 温暖]
+    - type: 升职加薪
+      weight: 1.3
+      description_text: 职场上的成功
+      trigger_words: [晋升, 经理, 总监, 负责, 主导, 成功, 认可, 表扬, 业绩]
+    - type: 人生逆袭
+      weight: 1.2
+      description_text: 从低谷走向成功
+      trigger_words: [翻盘, 逆袭, 改变, 成功, 还清, 创业, 第一桶金, 机会]
+
+  # 避免类型 - 权重0表示完全避免，低权重表示效果打折
+  avoid_types:
+    - type: 过于戏剧化
+      weight: 0.3
+      reason: 都市日常讲究真实感
+
+  # 组合加成配置
+  combo_bonus:
+    continuous_cool: 0.2       # 警告: 可能导致阈值过高，谨慎使用
+    buildup_burst: 0.3     # 铺垫 > 500 字后爆发爽点
+    contrast_contrast: 0.2       # 前后状态形成强烈对比
+    multi_stack: 0.1       # 每层加成，上限+0.3
+
+# ==================== Strand权重 ====================
+strand_weights:
+  quest: 0.35
+  fire: 0.30
+  constellation: 0.35
+
+# ==================== 特殊约束 ====================
+constraints:
+  - ID: URB-001
+    description_text: 现代生活细节要真实
+    enforced: true
+    check_point: 生活描写
+  - ID: URB-002
+    description_text: 要有温馨治愈感
+    enforced: true
+    check_point: 整体氛围
+  - ID: URB-003
+    description_text: 人物关系要有烟火气
+    enforced: true
+    check_point: 人物互动
+
+# ==================== 黄金三章 ====================
+golden_three_chapters:
+  chapter_1:
+    opening: 展示主角当前生活状态
+    core: 建立人物性格和生活环境
+    conflict: 遇到生活难题或困境
+    hook: 命运即将改变的契机
+    word_count: 4000-5000       # v4.0: 最低 4000 字
+
+  chapter_2:
+    development: 契机出现，生活开始变化
+    exploration: 尝试改变或面对挑战
+    growth: 小的成功或进展
+    hook: 更大的机遇即将到来
+    word_count: 4000-5500
+
+  chapter_3:
+    climax: 第一个小成功或突破
+    worldview: 展示更广阔的生活图景
+    gain: 获得初步成果或认可
+    hook: 新的生活篇章即将开启
+    word_count: 4000-5500
+
+# ==================== 读者期待管理 ====================
+reader_expectations:
+  must_satisfy:
+    - "生活细节要真实接地气"
+    - "人物要有烟火气"
+    - "要有温馨治愈感"
+  optional_satisfy:
+    - "有感情线但不喧宾夺主"
+    - "有搞笑日常调剂"
+  must_not:
+    - "情节过于狗血戏剧化"
+    - "人物行为脱离现实"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - ID: TABOO-001
+    content_text: "情节过于狗血戏剧化，脱离现实"
+    severity: "warning"
+    check_point: "情节设计"
+  - ID: TABOO-002
+    content_text: "人物行为不合常理"
+    severity: "warning"
+    check_point: "人物行为"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.8
+  consistency: 1.1
+  pacing: 1.0
+  ooc: 1.0
+  continuity: 1.0
+  reader-pull: 1.0
+
+# ==================== 写作风格提示 ====================
+writing_style:
+  anti_ai_style:
+    reference: references/writing/anti-ai-style.md
+    core: [删除"淡淡的/微微/不禁", 展示代替说明, 打破三段式]
+
+  dialogue_style:
+    style: "自然真实"
+    characteristics: "日常对话，接地气"
+    avoid: ["矫揉造作", "过度文艺"]
+
+  description_type:
+    life_desc: "细节真实，有烟火气"
+    emotion_desc: "细腻温馨，不过度煽情"
+    scene_desc: "现代都市感，生活化"
+
+# ==================== 实体标签 ====================
+entity_tags:
+  character: <entity type="人物" name="姓名" desc="性格" role="身份" relation="与主角关系"/>
+  scene_desc: <entity type="场景" name="地点" desc="特点" mood="氛围"/>
+  event: <entity type="事件" name="事件名" desc="经过" impact="影响"/>
+
+# ==================== 对话模板库（v3.0 新增）====================
+dialogue_templates:
+  style_definition:
+    natural_real: "日常对话风格，接地气"
+    warm_healing: "暖心对话，有烟火气"
+    workplace_professional: "工作场景的专业对话"
+
+  typical_dialogue:
+    daily_warm: |
+      "今天下班早点回来，我做了你爱吃的红烧肉。"
+      "好，等我，我尽快。"
+
+    workplace_communication: |
+      "这个项目你跟进得很好，继续保持。"
+      "谢谢领导肯定，我会继续努力。"
+
+    family_dialogue: |
+      "妈，我回来了。"
+      "回来啦，洗手吃饭吧，都是你爱吃的。"
+
+    friend_chat: |
+      "最近怎么样？好久没聚了。"
+      "还行吧，就是忙，改天约？"
+      "行，到时候叫我。"
+
+    love_confession: |
+      "其实我一直想说……谢谢你。"
+      "谢什么？"
+      "谢谢你一直在。"
+
+  avoid_patterns:
+    - "过于文艺矫情的对话"
+    - "不符合现实生活场景的对白"
+    - "过度戏剧化的情感表达"
+
+# ==================== 场景描写库（v3.0 新增）====================
+scene_description:
+  daily_life:
+    morning_wake: |
+      "闹钟响了三遍才勉强睁开眼，窗帘缝隙里透进一丝晨光。"
+      "厨房传来煎蛋的滋滋声，混合着咖啡的香气——新的一天开始了。"
+
+    evening_home: |
+      "钥匙转动门锁的声音，是这个疲惫的傍晚最动听的音符。"
+      "玄关的灯亮着，有人在家等他回来。这个念头让脚步都轻快了几分。"
+
+    weekend_lazy: |
+      "阳光透过落地窗洒在沙发上，猫咪蜷成一团打着呼噜。"
+      "没有什么比一个不用设闹钟的周六更让人心情愉悦了。"
+
+  workplace_scene:
+    office_daily: |
+      "键盘敲击声此起彼伏，会议室里传来激烈的讨论。"
+      "办公桌上堆满了文件，咖啡杯里的美式已经见底。"
+
+    promotion_moment: |
+      "人事通知下来的那一刻，他几乎是冲向电话，想第一时间分享这个消息。"
+      "所有人的目光都投过来，有羡慕，有祝贺，也有掩饰不住的失落。"
+
+  emotion_scene:
+    warm_dinner: |
+      "两个人对坐在餐桌前，碗筷碰撞的声音是这个家的背景音乐。"
+      "她夹了一筷子菜放到他碗里：'多吃点，最近都瘦了。'"
+
+    brief_reunion: |
+      "机场出口的人流中，一眼就看到了那个熟悉的身影。"
+      "不需要多说什么，一个拥抱就足够了。"
+
+# ==================== 节奏模板（v3.0 新增）====================
+pacing_templates:
+  chapter_emotion_curve:
+    daily_type: "日常开场(30%) → 小事件(30%) → 温馨结尾(30%) → 留白(10%)"
+    workplace_type: "工作场景(40%) → 挑战出现(30%) → 解决/进展(20%) → 期待(10%)"
+    emotion_type: "日常互动(40%) → 情感升温(30%) → 小甜蜜(20%) → 悬念钩子(10%)"
+
+  cool_points_distribution:
+    small_joy: "500-800字"
+    life_improvement: "1000-1500字"
+    life_turning_point: "章末或高潮段落"
+
+  typical_pacing_example:
+    warm_daily_chapter: "起床日常 → 工作场景 → 回家互动 → 家人温馨 → 睡前留白"
+    workplace_success_chapter: "接到任务 → 遇到困难 → 努力解决 → 获得认可 → 展望未来"
+    emotion_progress_chapter: "日常相处 → 小矛盾/小甜蜜 → 沟通理解 → 感情升温 → 期待明天"
+
+# ==================== 开篇模板（v3.0 新增）====================
+opening_templates:
+  hook_types:
+    daily_style: "普通人的日常生活开始"
+    dilemma_style: "主角面临生活困境"
+    rebirth_style: "重生回到过去，弥补遗憾"
+    turning_point_style: "人生即将发生重大变化"
+
+  chapter_1_required:
+    - "主角基本设定（姓名、职业、现状）"
+    - "当前生活状态展示"
+    - "核心困境或目标暗示"
+    - "温馨或治愈的氛围元素"
+    - "章末钩子"
+
+  classic_opening_examples:
+    daily_warm_style: |
+      "闹钟准时在七点响起，林浅按掉闹钟，习惯性地伸手摸向床头的水杯。"
+      又是新的一天，普通得不能再普通的一天。
+      直到手机震动，那条消息跳出来——
+      "今晚有空吗？一起吃饭？"
+
+    dilemma_turning_style: |
+      "三十岁生日这天，苏晴收到的礼物是一纸辞退通知。"
+      她坐在公园的长椅上，看着来来往往的人群，突然觉得有些茫然。
+      正当不知道接下来该怎么办的时候，一个熟悉的身影出现在视野里。
+      "怎么是你？"
+
+    rebirth_comeback_style: |
+      "睁开眼的时候，林凡发现自己回到了十年前。"
+      那是人生发生转折之前的日子，那时候他还没有错过那么多机会，也还没有和她分开。
+      这一次，一切都会不一样。
+
+# ==================== 悬念规划模板（v4.0 新增）====================
+suspense_planning:
+  # ===== 悬念重要性等级 =====
+  # C级：悬念相对次要，都市日常主打温馨治愈
+  # 都市日常的核心是生活改善、情感发展、职场成功，悬念仅用于增加期待感
+  # 主要悬念类型：小目标悬念、生活转折悬念
+  suspense_importance: C级
+
+  # 都市日常悬念类型定义（简化版）
+  type:
+    small_goal_suspense:
+      definition: "短期生活目标的悬念，如工作成果、感情进展"
+      reveal_timing: "事件内（3-10章）"
+      examples_list: ["面试能否成功", "项目能否完成", "告白能否成功"]
+
+    mid_suspense:
+      definition: "跨越多个阶段的悬念，与人生发展相关"
+      reveal_timing: "30-60章"
+      examples_list: ["职业发展方向", "重要感情转折", "家庭关系变化"]
+
+    long_suspense:
+      definition: "贯穿全书的核心悬念，但不是重点"
+      reveal_timing: "60-120章或更晚"
+      examples_list: ["人生最终归宿", "感情线结果"]
+
+  # 都市日常悬念揭晓时机建议（简化版）
+  reveal_timing:
+    第1-3章（黄金三章）:
+      - type: "生活现状和目标"
+        content_text: "主角的处境和追求"
+        required: true
+
+    第10-30章:
+      - type: "第一个转折"
+        content_text: "生活开始发生积极变化"
+
+    第30-60章:
+      - type: "重要进展"
+        content_text: "事业或感情的重要进步"
+      - type: "人际关系深化"
+        content_text: "重要关系的发展"
+
+    第60章+:
+      - type: "收获季节"
+        content_text: "主角努力获得回报"
+      - type: "人生新篇章"
+        content_text: "新的生活阶段开启"
+
+  # 不同子流派的悬念节奏
+  sub_genre_pacing:
+    urban_life:
+      life_suspense: "日常小事"
+      romance_development: "30-60章"
+      characteristics: "悬念在温馨日常"
+
+    workplace_striver:
+      project_suspense: "每个项目周期内"
+      promotion_raise: "20-50章"
+      characteristics: "悬念在职场成功"
+
+    urban_romance:
+      romance_suspense: "贯穿始终"
+      happy_ending: "40-80章"
+      characteristics: "悬念在感情发展"
+
+    reborn_urban:
+      rebirth_advantage: "持续利用"
+      regret_redemption: "30-60章"
+      characteristics: "悬念在人生逆袭"
+
+  # 都市日常悬念禁忌（C级最简版）
+  taboos_list:
+    - content: "情节过于狗血戏剧化"
+      reason: "都市日常讲究真实感，悬念要自然"
+      severity: "warning"
+    - content: "悬念太复杂，失去日常感"
+      reason: "都市日常的悬念要简单温馨"
+      severity: "info"
+
+  # 伏笔埋设节奏（C级：最低密度）
+  foreshadowing:
+    principle: "每25章埋设1个新伏笔，每60章回收1个旧伏笔"
+    notes: "都市日常悬念稀疏，重点放在生活和情感，伏笔服务于小确幸"
+    examples_list:
+      short_foreshadowing: "目标埋设，目标达成回收"
+      mid_foreshadowing: "第20章埋设，第55章回收"
+      long_foreshadowing: "第1章埋设，第80章+回收（可选）"
+    status_flow:
+      - "🟢潜伏 → 🟡铺垫 → 🟠可回收 → ⚪已回收"

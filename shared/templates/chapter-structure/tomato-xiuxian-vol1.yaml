@@ -1,0 +1,379 @@
+# 修仙-番茄版 第一卷 十章结构模板
+
+genre: "修仙"
+platform: "tomato"
+volume: 1
+target_audience: "番茄平台快节奏修仙读者"
+
+# 整体节奏要求
+overall_pacing:
+  type: "快节奏"
+  chapter_length: "2800-3200字"
+  cool_point_density: "1.5/千字"
+  hook_strength: "≥80分"
+
+# 十章详细结构
+chapters:
+
+  1:
+    name: "废材觉醒"
+    word_count: 3000
+    structure:
+      - section: "困境开场"
+        words: 400
+        purpose: "快速建立主角处境，制造冲突"
+        required_elements:
+          - "主角被轻视或羞辱"
+          - "展示当前实力低下"
+        forbidden:
+          - "超过300字的背景介绍"
+          - "过度心理描写"
+
+      - section: "金手指出现"
+        words: 600
+        purpose: "系统/传承/异宝觉醒"
+        required_elements:
+          - "金手指在800字内出现"
+          - "明确展示能力效果"
+        golden_rules:
+          - "必须是具体可量化的能力"
+          - "立即产生实际作用"
+
+      - section: "初次应用"
+        words: 800
+        purpose: "展示金手指效果，获得初步优势"
+        required_elements:
+          - "解决一个小问题"
+          - "获得第一个小胜利"
+        cool_points:
+          - type: "装逼打脸"
+            weight: 1.4
+          - type: "逆袭爽"
+            weight: 1.2
+
+      - section: "强钩子结尾"
+        words: 600
+        purpose: "设置下一章悬念，增强追读欲"
+        required_elements:
+          - "重大危机预告"
+          - "新敌人或威胁出现"
+        hook_type: "危机钩子"
+
+      - section: "世界观铺垫"
+        words: 600
+        purpose: "自然融入世界观信息"
+        max_new_elements: 2
+        delivery_method: "对话或行动揭示"
+
+  2:
+    name: "初露锋芒"
+    word_count: 2900
+    structure:
+      - section: "实力展示"
+        words: 700
+        purpose: "展示金手指带来的能力提升"
+        required_elements:
+          - "具体修炼过程"
+          - "战力数值提升"
+        combat_style: "视觉冲击型"
+        details_required:
+          - "能量颜色变化"
+          - "空间震动效果"
+
+      - section: "冲突升级"
+        words: 800
+        purpose: "引入更强对手或更大冲突"
+        required_elements:
+          - "新场景转换"
+          - "敌人实力明显更强"
+        conflict_type: "越级挑战"
+
+      - section: "战斗爆发"
+        words: 900
+        purpose: "利用金手指优势战胜强敌"
+        required_elements:
+          - "具体招式名称"
+          - "力量层次对比描写"
+          - "痛快感细节"
+        victory_condition: "以弱胜强"
+
+      - section: "震惊结果"
+        words: 500
+        purpose: "展示战斗成果，强化爽感"
+        required_elements:
+          - "敌人惨败反应"
+          - "旁观者震惊表现"
+        cool_points:
+          - type: "越级反杀"
+            weight: 1.4
+          - type: "打脸权威"
+            weight: 1.2
+
+  3:
+    name: "突破在即"
+    word_count: 3100
+    structure:
+      - section: "收获战利品"
+        words: 600
+        purpose: "获得修炼资源或宝物"
+        required_elements:
+          - "具体物品描述"
+          - "立即使用价值"
+        gain_type: "功法/丹药/法宝"
+
+      - section: "修为瓶颈"
+        words: 800
+        purpose: "展示当前境界限制和突破契机"
+        required_elements:
+          - "明确瓶颈描述"
+          - "突破方法提示"
+        foreshadowing:
+          - "下一个境界的威能"
+          - "突破后的应用场景"
+
+      - section: "突破过程"
+        words: 1000
+        purpose: "修为突破，战力飞跃"
+        required_elements:
+          - "突破瞬间描写"
+          - "新境界能力展示"
+          - "实力量化提升"
+        breakthrough_must_include:
+          - "能量质变"
+          - "身体强化"
+          - "技能解锁"
+
+      - section: "新威胁出现"
+        words: 700
+        purpose: "为下一卷埋下伏笔"
+        required_elements:
+          - "更强敌人登场"
+          - "上界秘密透露"
+        hook_type: "悬念钩子"
+
+  4:
+    name: "宗门试炼"
+    word_count: 3000
+    structure:
+      - section: "试炼开启"
+        words: 500
+        purpose: "进入新的修炼环境"
+        required_elements:
+          - "场景转换"
+          - "规则说明"
+
+      - section: "团队互动"
+        words: 800
+        purpose: "展示角色关系和团队配合"
+        required_elements:
+          - "队友性格展现"
+          - "合作解决问题"
+        relationship_development: "必须推进"
+
+      - section: "难题挑战"
+        words: 1000
+        purpose: "利用智慧或能力解决复杂问题"
+        challenge_type: "智力+武力结合"
+        solution_method: "金手指辅助"
+
+      - section: "意外转折"
+        words: 700
+        purpose: "剧情反转，增加悬念"
+        required_elements:
+          - "隐藏条件触发"
+          - "新势力介入"
+        cool_points:
+          - type: "身份掉马"
+            weight: 1.3
+          - type: "机缘获得"
+            weight: 1.2
+
+  5:
+    name: "秘境探险"
+    word_count: 3200
+    structure:
+      - section: "秘境入口"
+        words: 400
+        purpose: "进入特殊空间，发现秘密"
+        discovery_type: "上古遗迹/洞天福地"
+
+      - section: "危险遭遇"
+        words: 900
+        purpose: "面对秘境中的危险和挑战"
+        danger_types:
+          - "妖兽袭击"
+          - "机关陷阱"
+          - "心魔幻境"
+        survival_strategy: "金手指保命"
+
+      - section: "宝藏获取"
+        words: 1000
+        purpose: "获得重要资源和传承"
+        treasure_must_include:
+          - "功法秘籍"
+          - "天材地宝"
+          - "法宝武器"
+        immediate_use: true
+
+      - section: "神秘线索"
+        words: 900
+        purpose: "发现更大的阴谋或秘密"
+        mystery_type: "青云宗秘密/上界关联"
+        hook_intensity: "高"
+
+  6:
+    name: "大比风云"
+    word_count: 3100
+    structure:
+      - section: "报名参赛"
+        words: 300
+        purpose: "参与重要比赛，展示实力"
+
+      - section: "首轮获胜"
+        words: 800
+        purpose: "轻松战胜普通对手，展现实力"
+        opponent_level: "低于主角"
+        victory_method: "碾压式"
+
+      - section: "强者对决"
+        words: 1200
+        purpose: "与高手对战，使用策略取胜"
+        opponent_level: "高于主角但有限"
+        strategy_required: true
+
+      - section: "晋级悬念"
+        words: 800
+        purpose: "成功晋级，但暴露部分实力"
+        hidden_power: "保留底牌"
+        hook_focus: "决赛对手"
+
+  7:
+    name: "第二轮对决"
+    word_count: 3000
+    structure:
+      - section: "强劲对手"
+        words: 600
+        purpose: "遇到真正强敌，局势紧张"
+        opponent_background: "宗门精英弟子"
+
+      - section: "苦战过程"
+        words: 1200
+        purpose: "艰难战斗，几乎失败"
+        near_defeat: true
+        turning_point: "金手指关键时刻"
+
+      - section: "绝地反击"
+        words: 800
+        purpose: "利用金手指逆转战局"
+        reversal_method: "隐藏能力爆发"
+        final_advantage: "决定性"
+
+      - section: "震惊全场"
+        words: 400
+        purpose: "观众反应和后续影响"
+        audience_reaction: "极度震惊"
+
+  8:
+    name: "决赛前夕"
+    word_count: 2900
+    structure:
+      - section: "准备突破"
+        words: 700
+        purpose: "为决赛做最后准备，提升实力"
+
+      - section: "决赛规则"
+        words: 400
+        purpose: "了解决赛特殊规则和限制"
+
+      - section: "主要对手"
+        words: 800
+        purpose: "分析决赛对手实力和特点"
+        opponent_analysis: "全面"
+
+      - section: "决战预告"
+        words: 1000
+        purpose: "决赛即将开始，气氛紧张"
+        tension_building: "最高级别"
+        hook_type: "期待钩子"
+
+  9:
+    name: "巅峰对决"
+    word_count: 3300
+    structure:
+      - section: "开场试探"
+        words: 600
+        purpose: "双方互相试探，展示基础实力"
+
+      - section: "实力展示"
+        words: 1000
+        purpose: "双方全力出手，展现绝技"
+        techniques_shown: "全部底牌"
+
+      - section: "关键转折"
+        words: 900
+        purpose: "局势突变，一方占据优势"
+        turn_method: "金手指关键时刻"
+
+      - section: "颁奖仪式"
+        words: 800
+        purpose: "比赛结束，获得奖励和荣誉"
+        rewards_received: "丰厚"
+        recognition_obtained: "极高"
+
+  10:
+    name: "藏经阁探秘"
+    word_count: 3000
+    structure:
+      - section: "奖励领取"
+        words: 400
+        purpose: "获得比赛奖励和宗门认可"
+
+      - section: "藏经阁进入"
+        words: 600
+        purpose: "进入藏经阁，发现更多秘密"
+
+      - section: "珍贵传承"
+        words: 1000
+        purpose: "获得重要功法和修炼资源"
+        inheritance_quality: "顶级"
+
+      - section: "终极悬念"
+        words: 1000
+        purpose: "揭示更大阴谋，为第二卷铺垫"
+        major_reveal: "青云宗真实目的"
+        next_volume_hooks: "多线埋伏"
+
+# 平台特化约束
+tomato_constraints:
+  golden_finger_visibility: "high"     # 金手指必须明显
+  combat_clarity: "extreme"           # 战斗必须清晰易懂
+  reward_immediacy: "required"        # 奖励必须即时反馈
+  hook_strength: "≥80"                # 钩子强度要求
+  pacing_consistency: "strict"        # 节奏一致性严格
+
+# 质量检查权重
+quality_weights:
+  cool_points: 1.5                    # 提高爽点重要性
+  pacing: 1.2                         # 提高节奏要求
+  combat_description: 1.4             # 提高战斗描写标准
+  ooc_detection: 1.1                  # 提高OOC检测
+
+# 推荐元素
+recommended_elements:
+  - "具体招式名称"
+  - "力量数值对比"
+  - "突破瞬间描写"
+  - "装备获取场景"
+  - "打脸情节设计"
+
+# 禁用元素
+forbidden_elements:
+  - "冗长种族介绍"
+  - "势力关系大段说明"
+  - "主角内心独白过多"
+  - "战力模糊描述"
+
+# 版本历史
+version_history:
+  "v1.0-tomato": "初始版本，专注番茄平台快节奏修仙"
+  "v1.1-tomato": "优化战斗描写和节奏控制"

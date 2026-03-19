@@ -1,0 +1,109 @@
+# 系统文-番茄版 Profile v3.1-tomato
+
+name: "系统文-番茄版"
+version: "3.1-tomato"
+platform_config: "tomato"
+parent_profile: "system/profile.yaml"
+
+description: |
+  系统文题材番茄平台特化配置，优化系统面板展示节奏、任务触发时机、奖励反馈即时性。
+
+# 节奏控制 - 任务驱动型
+pacing:
+  type: "任务驱动型"
+  chapter_length: "2800-3200"
+  task_cycles_per_chapter: 2    # 每章2个任务循环
+
+# 系统面板配置
+system_panel:
+  display_frequency: "task_complete"  # 任务完成时显示
+  popup_duration: "brief"             # 短暂停留
+  information_density: "high"         # 信息密度高
+  visual_style: "clean_ui"            # 简洁UI风格
+
+# 任务系统优化
+task_system:
+  trigger_timing: "natural_breakpoints"  # 自然断点触发
+  reward_immediacy: "instant"            # 即时奖励
+  difficulty_progression: "smooth"       # 平滑难度递增
+  optional_tasks_ratio: 0.3              # 30%可选任务
+
+# 金手指配置
+golden_finger:
+  appearance: "第一章500字内"     # 更早出现系统
+  interface_type: "minimalist"      # 极简界面
+  notification_style: "subtle"      # 不突兀的通知
+
+# 写作风格调整
+writing_style:
+  system_description: "功能导向型"   # 强调功能而非外观
+  task_explanation: "concise"        # 简洁任务说明
+  reward_showcase: "highlighted"     # 突出奖励效果
+  dialogue_ratio: 0.2                # 降低对话比例
+
+# 十章结构模板适配系统文
+golden_three:
+  chapter_1:
+    must_have:
+      - "系统面板在500字内首次展示"
+      - "第一个主线任务触发"
+      - "新手奖励立即发放"
+      - "战力初步提升"
+    forbidden:
+      - "系统说明超过300字"
+      - "无明确任务目标"
+
+  chapter_2:
+    must_have:
+      - "完成任务获得奖励"
+      - "新地图/副本开启"
+      - "角色能力展示"
+    forbidden:
+      - "重复系统介绍"
+
+  chapter_3:
+    must_have:
+      - "连续完成任务链"
+      - "等级突破"
+      - "装备更新"
+    forbidden:
+      - "任务间隔过长"
+
+# 系统交互优化
+system_interaction:
+  menu_navigation: "intuitive"       # 直观导航
+  data_display: "visual_priority"    # 视觉优先数据展示
+  progress_indicators: "clear"       # 清晰进度指示
+
+# 平台特定约束
+platform_constraints:
+  tomato_specific:
+    system_visibility: "moderate"      # 系统可见但不过度
+    task_clarity: "extreme"            # 任务必须极其清晰
+    reward_satisfaction: "max"         # 奖励必须最大化满足感
+
+# 质量检查权重调整
+quality_weights:
+  task_completion: 1.4                 # 提高任务完成要求
+  system_usability: 1.3                # 提高系统可用性标准
+  reward_satisfaction: 1.5             # 提高奖励满意度
+  pacing_consistency: 1.2              # 提高节奏一致性
+
+# 禁用元素
+forbidden_elements:
+  - "频繁弹窗打断叙事"
+  - "复杂菜单层级"
+  - "模糊的任务描述"
+  - "延迟的奖励反馈"
+
+# 推荐元素
+recommended_elements:
+  - "简洁的系统界面"
+  - "明确的任务目标"
+  - "即时的奖励反馈"
+  - "流畅的操作体验"
+  - "合理的难度曲线"
+
+# 版本历史
+changelog:
+  "v3.1-tomato": "初始版本，专注番茄平台系统文优化"

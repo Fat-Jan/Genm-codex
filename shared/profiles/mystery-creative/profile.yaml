@@ -1,0 +1,159 @@
+name: "悬疑脑洞"
+version: "1.1.0"
+sub_genres:
+  时间循环:
+    description: "主角陷入同一天或特定时间段的无限循环，寻找破解之法"
+    core_cool_points: ["无限试错积累信息", "蝴蝶效应的掌控", "破局时刻的顿悟"]
+    pacing: "medium"
+  身份错位:
+    description: "主角醒来发现自己变成了别人，或身处陌生的身份之中"
+    core_cool_points: ["身份谜团探索", "利用新身份的优势", "真相大白时的震撼"]
+    pacing: "fast"
+  预知未来:
+    description: "主角获得预知能力，却发现未来难以改变或改变带来更糟结果"
+    core_cool_points: ["预知与干预的博弈", "命运能否改变", "代价与选择"]
+    pacing: "medium"
+  记忆迷宫:
+    description: "主角的记忆被篡改或缺失，必须在混乱记忆中寻找真相"
+    core_cool_points: ["真假记忆的辨别", "记忆碎片拼图", "自我认知的重建"]
+    pacing: "slow"
+  系统解谜:
+    description: "主角绑定神秘系统，必须完成各种脑洞大开的解谜任务"
+    core_cool_points: ["脑洞解谜过程", "系统奖励的爽感", "隐藏规则的发现"]
+    pacing: "fast"
+
+pacing:
+  chapter_target: 2500
+  cool_point_interval: 1200
+  hook_strength: "strong"
+
+cool_points:
+  - type: "脑洞展开"
+    trigger: "核心设定首次展现"
+    effect: "读者眼前一亮，产生强烈阅读兴趣"
+  - type: "线索揭露"
+    trigger: "关键信息被主角或读者获取"
+    effect: "推动解谜进程，引发推理热潮"
+  - type: "反转时刻"
+    trigger: "看似合理的解释被推翻"
+    effect: "震撼读者，重新定义故事走向"
+  - type: "破局高光"
+    trigger: "主角利用脑洞设定巧妙解决问题"
+    effect: "智商碾压的爽感，读者拍案叫绝"
+  - type: "新规则引入"
+    trigger: "系统发布新任务或世界观揭示新规则"
+    effect: "扩展故事可能性，保持新鲜感"
+  - type: "真相逼近"
+    trigger: "离最终谜底越来越近"
+    effect: "紧张感升级，读者欲罢不能"
+
+strand_weights:
+  main_plot: 0.6
+  character: 0.2
+  romance: 0.05
+  world_building: 0.15
+
+taboos:
+  - id: "TABOO-001"
+    content: "核心设定漏洞百出，经不起推敲"
+    severity: "critical"
+  - id: "TABOO-002"
+    content: "为了反转而反转，牺牲故事逻辑性"
+    severity: "critical"
+  - id: "TABOO-003"
+    content: "主角光环过重，困难都靠巧合解决"
+    severity: "critical"
+  - id: "TABOO-004"
+    content: "重复使用相似的解谜套路"
+    severity: "warning"
+  - id: "TABOO-005"
+    content: "设定过于复杂导致读者理解困难"
+    severity: "warning"
+  - id: "TABOO-006"
+    content: "忽视角色的情感变化和成长"
+    severity: "info"
+  - id: "TABOO-007"
+    content: "结局仓促，没有回收重要伏笔"
+    severity: "critical"
+
+reader_expectations:
+  must_meet:
+    - "核心脑洞设定新颖有趣，让人耳目一新"
+    - "解谜过程逻辑自洽，推理链条清晰"
+    - "节奏紧凑，每章都有信息增量"
+    - "角色智商在线，不犯低级错误"
+  optional:
+    - "埋有大量细节伏笔，可供读者二刷挖掘"
+    - "有烧脑的哲学思考或社会隐喻"
+    - "配角也有自己的谜题和故事"
+  can_subvert:
+    - "传统侦探小说的套路"
+    - "善恶有报的朴素价值观"
+    - "主角必胜的爽文定律"
+  never:
+    - "用'就是那样'搪塞设定解释"
+    - "让读者觉得主角在故意作死推进剧情"
+    - "前期铺垫过多，后期草草收场"
+
+golden_three:
+  opening_hook: "开篇必须在500字内抛出核心脑洞设定或诡异事件，如主角发现自己不断重复同一天、醒来变成另一个人、或接到来自未来的电话，瞬间抓住读者注意力"
+  protagonist_intro: "主角应在第一个脑洞事件中展现独特的应对方式（冷静分析、大胆尝试、或巧妙利用规则），体现出高智商特质"
+  chapter_end: "每章结尾必须留下新的疑问或未解之谜，可以是新的线索、新的限制条件、或新的威胁，让读者迫不及待想看下一章"
+
+writing_style:
+  tone: "脑洞大开却逻辑严密，悬疑感与趣味性并重，偶尔带有黑色幽默"
+  perspective: "第一人称增强代入感，或第三人称限知视角制造信息不对称"
+  sentence_style: "信息密度高，善用快节奏叙事，关键细节突出，适当使用插叙和倒叙制造悬念"
+
+anti_ai:
+  forbidden_words: ["淡淡的", "微微", "突然", "莫名", "不知为何", " inexplicably", "somehow"]
+  show_dont_tell: true
+  break_patterns: true
+
+checker_weights:
+  consistency: 1.5
+  pacing: 1.2
+  golden_three: 1.3
+  logic: 1.4
+
+entities:
+  characters:
+    - name: "高智商主角"
+      type: "主角"
+      traits: ["观察力敏锐", "逻辑思维强", "冷静沉着", "善于发现规律"]
+    - name: "神秘引导者"
+      type: "NPC"
+      traits: ["身份不明", "掌握关键信息", "动机成谜"]
+    - name: "时间/空间异常源"
+      type: "核心设定"
+      traits: ["有自己的规则", "可被利用", "充满未知"]
+    - name: "竞争对手"
+      type: "对手"
+      traits: ["同样被困", "可能与主角合作或敌对", "有自己的秘密"]
+    - name: "知情者"
+      type: "关键NPC"
+      traits: ["了解部分真相", "提供关键线索", "可能因泄露天机付出代价"]
+
+  locations:
+    - name: "循环场景"
+      atmosphere: "熟悉却诡异，每一次循环都有细微变化"
+    - name: "记忆空间"
+      atmosphere: "虚实交错，主观与客观界限模糊"
+    - name: "系统空间"
+      atmosphere: "规则明确，充满游戏化元素"
+    - name: "多重现实交汇点"
+      atmosphere: "多个时间线或身份在此重叠"
+    - name: "真相之地"
+      atmosphere: "所有谜底的揭晓之处，往往出人意料"
+
+  items:
+    - name: "关键道具"
+      function: "触发或破解脑洞设定的核心物品"
+    - name: "信息载体"
+      function: "记录重要线索的日记、录音、照片等"
+    - name: "规则书/系统界面"
+      function: "记载任务规则和限制的神秘文档"
+    - name: "身份标识"
+      function: "证明或改变身份的关键物品"
+    - name: "时间标记物"
+      function: "帮助主角记录循环次数或时间线的物品"

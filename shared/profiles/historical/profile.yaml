@@ -1,0 +1,228 @@
+# 历史古代题材 Profile v3.0
+# 网文创作系统 - 目录化配置
+
+name: "历史古代"
+display_name: "历史古代"
+description: "历史争霸、权谋斗争、穿越历史题材"
+version: "3.0"
+template: templates/genres/历史古代.md
+
+# ==================== 流派细分定义 ====================
+sub_genres:
+  conquest:
+    name: "历史争霸流"
+    description: "古代争霸天下"
+    core_points: [军事征服, 统一天下, 开创盛世]
+    pacing: epic
+    examples: [庆余年, 琅琊榜]
+
+  intrigue:
+    name: "历史权谋流"
+    description: "朝堂权谋斗争"
+    core_points: [智谋对决, 扳倒政敌, 权倾朝野]
+    pacing: strategic
+    examples: [琅琊榜]
+
+  time_travel:
+    name: "历史穿越流"
+    description: "现代人穿越到古代"
+    core_points: [现代知识, 改变历史, 混得风生水起]
+    pacing: relaxed
+    examples: [庆余年]
+
+  farming_history:
+    name: "历史种田流"
+    description: "古代生活经营"
+    core_points: [发家致富, 改善生活, 温馨日常]
+    pacing: warm
+    examples: [知否知否应是绿肥红瘦]
+
+# ==================== 节奏参数 ====================
+pacing:
+  type: 史诗布局型
+  tension_ratio: "4:6"
+  typical_chapter_length: 4500
+  word_count:
+    minimum: 4000
+    standard: 4000-5500
+    long: 5500-7000
+
+# ==================== 爽点配置 ====================
+cool_points:
+  density: 0.8
+  max_interval: 1500
+
+  preferred_types:
+    - type: 智谋胜利
+      weight: 1.7
+      description: "智谋博弈中取得胜利"
+      triggers: [计谋, 算计, 布局, 中计, 落网, 臣服, 高明, 算无遗策]
+
+    - type: 权力提升
+      weight: 1.5
+      description: "地位权力上升"
+      triggers: [晋升, 封赏, 权倾, 位极人臣, 重用, 升官, 封爵, 赏赐]
+
+    - type: 军事胜利
+      weight: 1.4
+      description: "战争中取得胜利"
+      triggers: [大捷, 凯旋, 胜利, 破敌, 攻城, 斩将, 旗开得胜, 势如破竹]
+
+    - type: 改变历史
+      weight: 1.3
+      description: "改变历史走向"
+      triggers: [改变, 扭转, 重写, 新局, 开创, 逆转, 史无前例]
+
+  avoid_types:
+    - type: 历史细节错误
+      weight: 0
+      reason: 历史文讲究考据
+
+    - type: 过于现代的表达
+      weight: 0.2
+      reason: 破坏古典氛围
+
+  combo_bonus:
+    consecutive: 0.2
+    setup_explosion: 0.3
+    contrast: 0.2
+    stacking: 0.1
+
+# ==================== Strand 权重 ====================
+strand_weights:
+  quest: 45
+  fire: 30
+  constellation: 25
+
+# ==================== 特殊约束 ====================
+constraints:
+  - id: HIST-001
+    description: "历史细节要考究"
+    mandatory: true
+    checkpoint: 历史描写
+
+  - id: HIST-002
+    description: "人物行为要符合时代"
+    mandatory: true
+    checkpoint: 人物行为
+
+# ==================== 读者期待 ====================
+reader_expectations:
+  must_satisfy:
+    - "历史细节要考究"
+    - "人物行为要符合时代"
+    - "语言风格要有古典韵味"
+
+  optional_satisfy:
+    - "权谋博弈的精彩"
+    - "穿越者带来的现代知识优势"
+    - "争霸天下的史诗感"
+
+  never_violate:
+    - "过于现代的口语表达"
+    - "不符合身份地位的称呼"
+    - "过于直白的表达方式"
+
+# ==================== 禁忌清单 ====================
+taboos:
+  - id: TABOO-001
+    content: "历史细节错误"
+    severity: critical
+    checkpoint: "历史描写"
+
+  - id: TABOO-002
+    content: "人物行为不符合时代"
+    severity: critical
+    checkpoint: "人物行为"
+
+  - id: TABOO-003
+    content: "过于现代的口语表达"
+    severity: warning
+    checkpoint: "人物对话"
+
+  - id: TABOO-004
+    content: "不符合身份地位的称呼"
+    severity: warning
+    checkpoint: "人物互动"
+
+# ==================== 检查器权重 ====================
+checker_weights:
+  high-point: 0.9
+  consistency: 1.4
+  pacing: 1.0
+  ooc: 1.3
+  continuity: 1.2
+  reader-pull: 1.0
+
+# ==================== 对话模板库 ====================
+dialogue_templates:
+  styles:
+    classical_drama: 典雅含蓄，语言符合身份地位，讲究礼数分寸
+
+  typical_dialogues:
+    court_discussion: |
+      "陛下，北方边境急报，敌军压境，请陛下速定夺。"
+      "诸位爱卿，有何良策？"
+      "臣以为，当以和亲之策，暂缓边境之急，再图后计。"
+      "和亲？此乃国耻！臣请陛下出兵！"
+
+    intrigue: |
+      "大人心意，下官明白。只是这事……牵扯太多。"
+      "牵扯太多？呵，怕是牵扯到某些人的切身利益吧。"
+      "大人教训得是。下官这就去办。"
+      "记住，此事务必干净利落，不可留下后患。"
+
+    nobility: |
+      "主公，今日朝堂之上，那老狐狸可没安好心。"
+      "我岂会不知？不过是他想试探我的底线罢了。"
+      "主公英明。那我们……"
+      "按兵不动，看他如何表演。时机成熟，自有分晓。"
+
+  avoid_patterns:
+    - 过于现代的口语表达
+    - 不符合身份地位的称呼
+    - 过于直白的表达方式
+
+# ==================== 场景描写库 ====================
+scene_descriptions:
+  palace:
+    morning_court: |
+      "金銮殿上，烛火摇曳。文武百官分列两侧，朝服整齐，神情肃穆。龙椅之上，帝王端坐，目光如炬，扫过殿下群臣。'有事启奏，无事退朝。'内侍尖细的声音在殿内回荡。"
+
+    inner_palace: |
+      "月光透过雕花窗棂，洒落在青砖地上。宫女们轻手轻脚地穿行于廊庑之间，不敢发出半点声响。远处传来更鼓声，一声声敲在人心上。娘娘们各自安歇，却不知有多少人在暗夜里辗转难眠。"
+
+  battlefield:
+    military_camp: |
+      "校场上，旌旗猎猎，战鼓擂响。将士们列阵而立，甲胄在阳光下闪烁着冷冽的光芒。将军策马阵前，拔剑指天：'今日之战，为家国，为百姓，退后者，斩！'"
+
+    siege: |
+      "城墙下，云梯架起，攻城士兵如蚁群般攀爬而上。滚木礌石从城头倾泻而下，惨叫声此起彼伏。箭矢如雨，血染城郭。将军立于城头，手握令旗，面无表情地指挥着这场生死之战。"
+
+  jianghu:
+    inn: |
+      "暮色四合，古镇的客栈里灯影摇曳。各路江湖豪客或坐或立，酒杯相碰之声不绝于耳。角落里，一个灰衣人独自饮酒，目光却不动声色地打量着周围的一切。"
+
+# ==================== 节奏模板 ====================
+pacing_templates:
+  single_chapter_curve:
+    intrigue: "铺垫40% → 线索20% → 试探20% → 反转20%"
+    war: "出征20% → 战斗30% → 危机20% → 胜利30%"
+
+  typical_examples:
+    strategy_chapter: "暗中布局 → 敌人行动 → 计谋显现 → 收网成功"
+    war_chapter: "战前动员 → 战斗展开 → 危机出现 → 绝地反击"
+
+# ==================== 开篇模板 ====================
+opening_templates:
+  hook_types:
+    court_crisis: 以朝堂危机开篇，引入权力斗争
+    battlefield_return: 将军凯旋或败退，引发故事
+    fate_turning: 家族变故或个人命运巨变
+
+  classic_examples:
+    intrigue_style: |
+      "元和十四年，冬。京城落了第一场雪。刑部大牢里，前丞相府的公子被五花大绑，跪在冰冷的石板上。他的父亲，曾经权倾朝野的宰相，三日前被以谋逆之罪满门抄斩。而他，因为是旁支，勉强留下一条命。"
+
+    conquest_style: |
+      "边关风雪，铁骑踏破冰河。年轻的将军勒马驻足，望着远处连绵的敌营，嘴角勾起一丝冷笑。十年前，他的家族被诬陷叛国，满门尽灭。今日，他终于带兵打回了故土。"
