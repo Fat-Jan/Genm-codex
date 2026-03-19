@@ -38,12 +38,30 @@ while reusing copied shared assets from the source `Genm` repository.
 - phase-1 delivery docs: created (`README.md`, `docs/skill-usage.md`, `docs/phase-1-summary.md`, `docs/phase-2-priorities.md`)
 - install script: created and verified (`scripts/install-skills.sh`)
 - migration validator: still passing after wrap-up changes
+- phase-2 docs: created (`docs/phase-2-smoke-plan.md`, `docs/phase-2-smoke-results.md`, `docs/phase-2-summary.md`)
 
 ## Remaining Next-Phase Items
 
-- decide whether to add second-batch skills
 - decide whether shared assets should later move from full-copy to selective-sync
 - decide whether to expand validation beyond single-chapter txt export
+
+## Phase 2 Smoke Status
+
+- `novel-query`: pass (after strict directory-bound re-test)
+- `novel-status`: pass
+- `novel-character`: pass
+- `novel-setting`: pass
+- `novel-foreshadowing`: pass
+- `novel-batch` (real ordered writing): pass
+
+### Current conclusion
+
+Second-phase migrated skills now have a usable smoke baseline. The next decision is no longer “are these skills basically wired up?”, but whether to:
+
+1. deepen validation
+2. migrate more advanced capabilities
+
+At this point, the repository has enough coverage to justify a second release line.
 
 ## Notes
 

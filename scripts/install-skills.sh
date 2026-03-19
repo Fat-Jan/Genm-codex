@@ -14,6 +14,12 @@ link_skill() {
 }
 
 link_skill "novel-init" "genm-novel-init"
+link_skill "novel-batch" "genm-novel-batch"
+link_skill "novel-character" "genm-novel-character"
+link_skill "novel-foreshadowing" "genm-novel-foreshadowing"
+link_skill "novel-query" "genm-novel-query"
+link_skill "novel-setting" "genm-novel-setting"
+link_skill "novel-status" "genm-novel-status"
 link_skill "novel-outline" "genm-novel-outline"
 link_skill "novel-write" "genm-novel-write"
 link_skill "novel-review" "genm-novel-review"

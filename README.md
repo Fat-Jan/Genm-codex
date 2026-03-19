@@ -15,6 +15,15 @@ Codex 原生网文创作技能工作区。
 - `genm-novel-rewrite`
 - `genm-novel-export`
 
+第二阶段已完成的扩展 Skill：
+
+- `genm-novel-query`
+- `genm-novel-status`
+- `genm-novel-character`
+- `genm-novel-setting`
+- `genm-novel-foreshadowing`
+- `genm-novel-batch`
+
 ## 目录说明
 
 ```text
@@ -56,12 +65,15 @@ bash scripts/validate-migration.sh
 阅读：
 
 - `docs/phase-1-summary.md`
+- `docs/phase-2-summary.md`
 
 ## 参考文档
 
 - `docs/migration-map.md`
 - `docs/codex-migration-plan.md`
 - `docs/phase-2-priorities.md`
+- `docs/phase-2-smoke-plan.md`
+- `docs/phase-2-smoke-results.md`
 
 ## 说明
 

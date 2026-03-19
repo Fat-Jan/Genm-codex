@@ -46,3 +46,12 @@
 - 管
 
 而不是继续堆概念命令。
+
+## 当前状态
+
+- `novel-query`: 已迁入
+- `novel-status`: 已迁入
+- `novel-character`: 已迁入
+- `novel-setting`: 已迁入
+- `novel-foreshadowing`: 已迁入
+- `novel-batch`: 已迁入

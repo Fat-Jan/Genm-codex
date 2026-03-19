@@ -5,6 +5,12 @@
 安装脚本会把以下目录链接到 `~/.codex/skills/`：
 
 - `genm-novel-init`
+- `genm-novel-batch`
+- `genm-novel-character`
+- `genm-novel-foreshadowing`
+- `genm-novel-query`
+- `genm-novel-setting`
+- `genm-novel-status`
 - `genm-novel-outline`
 - `genm-novel-write`
 - `genm-novel-review`
@@ -21,6 +27,58 @@
 4. `genm-novel-review`
 5. `genm-novel-rewrite`
 6. `genm-novel-export`
+
+## 第二阶段已迁入
+
+- `genm-novel-character`
+- `genm-novel-foreshadowing`
+- `genm-novel-query`
+- `genm-novel-setting`
+- `genm-novel-status`
+- `genm-novel-batch`
+
+推荐场景：
+
+- 创建或补完角色卡
+- 管理伏笔与回收节奏
+- 创建或补完力量体系、势力、地点、物品设定
+- 查看角色当前设定
+- 调整角色关系
+- 顺序批量写作少量章节
+- 查看主角当前状态
+- 查询活跃伏笔
+- 统计项目进度
+- 列出角色/物品/地点信息
+
+### character
+
+```text
+请使用 genm-novel-character skill，为当前项目创建一个新角色并写入设定集/角色/。
+```
+
+### foreshadowing
+
+```text
+请使用 genm-novel-foreshadowing skill，列出当前项目的活跃伏笔并指出最该优先回收的项。
+```
+
+### batch
+
+```text
+请使用 genm-novel-batch skill，从第002章开始顺序生成 3 章，并在每章后更新 state。
+```
+
+### setting
+
+```text
+请使用 genm-novel-setting skill，为当前项目创建或更新一个设定文件。
+```
+
+### status
+
+```text
+请使用 genm-novel-status skill，总结当前项目状态，给我一个简明 dashboard。
+```
 
 ## 最小 E2E 路线
 
