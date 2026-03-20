@@ -2,7 +2,7 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前十一阶段的主体迁移、整合与产品边界定义，并已经形成默认工作流与实验能力边界。
+本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前十一阶段的主体迁移、整合与产品边界定义，并进入第十二阶段的 `v1.0.0` 门槛核验。
 
 ## 当前范围
 
@@ -147,6 +147,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-10-scope.md`
 - `docs/phase-10-summary.md`
 - `docs/phase-11-scope.md`
+- `docs/phase-12-scope.md`
 - `docs/phase-11-summary.md`
 - `docs/v1-boundary.md`
 - `docs/default-workflows.md`

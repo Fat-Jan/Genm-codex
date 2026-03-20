@@ -296,6 +296,16 @@ while reusing copied shared assets from the source `Genm` repository.
   - define the `v1.0.0` boundary
   - define the default workflow
 
+## Phase 12 Direction
+
+- twelfth-phase scope selected
+- scope doc: `docs/phase-12-scope.md`
+- `Phase 12A`: `v1.0.0` readiness checklist
+- `Phase 12B`: readiness assessment
+- recommended implementation start:
+  - write `docs/v1-readiness-checklist.md`
+  - write `docs/v1-readiness-assessment.md`
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
