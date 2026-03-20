@@ -322,6 +322,16 @@ while reusing copied shared assets from the source `Genm` repository.
   - write `docs/v1-rc-plan.md`
   - write `docs/v1-rc-exit-criteria.md`
 
+## Phase 14 Direction
+
+- fourteenth-phase scope selected
+- scope doc: `docs/phase-14-scope.md`
+- `Phase 14A`: RC execution log
+- `Phase 14B`: writing model and reasoning strategy
+- recommended implementation start:
+  - write `docs/v1-rc-execution-log.md`
+  - write `docs/writing-model-strategy.md`
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
