@@ -13,7 +13,7 @@ Validate that the packaging layer can reason about:
 
 ## Result
 
-- partial pass
+- pass
 
 ## What is proven
 
@@ -26,11 +26,9 @@ Validate that the packaging layer can reason about:
 - the smoke runs consistently stayed inside the target project
 - the surrounding system now has an independent final-gate signal from `novel-precheck`:
   - `packaging-needs-update: no`
-
-## Why this is still partial
-
-- the extremely short `novel-package` follow-up probe did not return a clean final two-line answer within the capture window
-- so the new reasoning inputs are proven, but the exact final user-facing phrasing is not yet fully locked
+- the narrow-judgment rerun returned a clean final answer:
+  - `正文承载状态：已能稳定承载“废脉杂役 + 古镜破局 + 宗门压迫 + 父辈旧案”这条主卖点，但试炼段即时收益偏弱，暂不适合继续上调爽点承诺。`
+  - `是否建议更新现有包装：no + 现有简介方向已与正文进度、总纲钩子和当前市场提示基本一致，现阶段更该先修正文兑现度而不是改包装。`
 
 ## Subsequent improvement
 
@@ -43,4 +41,4 @@ the skill should now avoid expanding into a full candidate-generation path first
 
 ## Practical conclusion
 
-The packaging layer is now structurally aligned with the right signals. The remaining gap is output crispness, not missing project context.
+The packaging layer is now structurally aligned with the right signals and can return the short judgment form required by downstream packaging decisions.

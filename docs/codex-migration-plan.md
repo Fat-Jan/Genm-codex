@@ -269,7 +269,7 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 10A / P1` smoke results: `docs/phase-10a-p1-smoke-results.md`
 - `Phase 10B / P1` smoke results: `docs/phase-10b-p1-smoke-results.md`
 - `Phase 10A / P1` smoke status:
-  - `novel-package`: partial pass
+  - `novel-package`: pass
 - `Phase 10B / P1` smoke status:
   - `novel-review`: pass
 - `Phase 10A / P1` implementation status: started
