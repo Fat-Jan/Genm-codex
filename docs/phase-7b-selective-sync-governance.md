@@ -171,6 +171,10 @@
 2. 生成一份 shared 依赖映射
 3. 再评估是否值得上“按域同步”
 
+**当前进展补充**：
+
+- `docs/shared-asset-dependency-map.md` 已建立，用于说明各 skill 对 shared 资产的依赖面
+
 ## 当前结论
 
 selective-sync 值得做，但不适合直接开干。

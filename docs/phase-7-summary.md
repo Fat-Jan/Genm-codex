@@ -13,9 +13,10 @@
 
 ### Phase 7B：shared 资产治理层
 
-- `shared` full-copy 现状分析
+- full-copy 现状分析
 - selective-sync 治理方案
-- 同步可观测性增强
+- shared 同步可观测性增强
+- shared 依赖映射
 
 ## 已完成内容
 
@@ -28,19 +29,20 @@
 
 结论：
 
-- `novel-scan` 不适合在没有稳定外部契约前直接变成默认可用 skill
-- 在真正实现前，至少需要：
+- `novel-scan` 暂不直接实现
+- 先明确：
   - 数据源分层
   - 可信度规则
   - 固定输出结构
-  - 明确回写边界
+  - 回写边界
 
 ### Phase 7B
 
 已完成：
 
 - [phase-7b-selective-sync-governance.md](/Users/arm/Desktop/vscode/Genm-codex/docs/phase-7b-selective-sync-governance.md)
-- [sync-shared-from-genm.sh](/Users/arm/Desktop/vscode/Genm-codex/scripts/sync-shared-from-genm.sh) 新增：
+- [shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/shared-asset-dependency-map.md)
+- [sync-shared-from-genm.sh](/Users/arm/Desktop/vscode/Genm-codex/scripts/sync-shared-from-genm.sh) 已补：
   - `--report`
   - `--domain <profiles|references|templates>`
 
@@ -48,31 +50,41 @@
 
 - `--report`
 - `--report --domain profiles`
+- `--report --domain references`
 
 结论：
 
-- 现在还不适合直接切换 selective-sync
-- 但已经迈出第一步：
-  - 让 shared 同步变得可观测
-  - 支持按域查看
+- 现在仍不直接切 selective-sync
+- 但已经完成：
+  - shared 同步的可观测性起步
+  - shared 依赖面的文档化
 
 ## 本阶段带来的变化
 
-到第七阶段结束时，`Genm-codex` 已经不仅有主体 skill 体系，还开始建立更高层的治理能力：
+到第七阶段结束时，`Genm-codex` 已经不只是有“能力实现”，还开始有：
 
-- 外部能力先契约化
-- shared 资产先可观测化
+- 高风险外部能力的契约边界
+- shared 资产治理的可观测基础
 
-这意味着后续高风险能力不再会直接“裸上”，而是先有约束、再有实现。
+这意味着后续再处理：
+
+- `novel-scan`
+- selective-sync
+
+时，不会再从零开始摸边界。
 
 ## 当前结论
 
 第七阶段已经完成到一个**治理与契约检查点**状态。
 
-这不是“`novel-scan` 已完成”，而是：
+它不代表：
 
-- `novel-scan` 的实现前约束已写清
-- selective-sync 的实现前治理已起步
+- `novel-scan` 已实现
+- selective-sync 已切换
+
+它代表：
+
+- 这两条高风险方向已经被约束清楚，并且迈出了第一步低风险落地
 
 ## 还没做的事
 
@@ -80,4 +92,4 @@
 - selective-sync 仍未真正切换
 - 若要继续，下一步应是：
   - `novel-scan` 的实验性实现
-  - 或 `shared` 同步的按域/按子域升级
+  - 或 shared 同步从“报告模式”进到“按域同步真正切换”

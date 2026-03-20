@@ -180,6 +180,7 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 7B` governance doc: `docs/phase-7b-selective-sync-governance.md`
 - `sync-shared-from-genm.sh` now supports `--report`
 - `sync-shared-from-genm.sh` now supports `--domain`
+- shared dependency map doc: `docs/shared-asset-dependency-map.md`
 
 ## Phase 2 Smoke Status
 
