@@ -1,0 +1,141 @@
+---
+name: novel-genre
+description: List, inspect, detect, and apply genre profiles for a Codex-managed novel project by reading shared profile assets and syncing the selected profile back into project state.
+---
+
+# Novel Genre
+
+Use this skill when the user wants to inspect available genres, detect the current genre, or apply a profile to a Codex-managed novel project.
+
+## Inputs
+
+- action:
+  - `list`
+  - `show`
+  - `detect`
+  - `apply`
+- optional `genre`
+- optional `platform`
+
+## Preconditions
+
+- one of the shared profile roots exists:
+  - `shared/profiles/`
+  - `../shared/profiles/`
+  - `../../shared/profiles/`
+- `.mighty/state.json` exists for `show`, `detect`, and `apply`
+
+## Required reads
+
+Always read as needed:
+
+- the resolved profile root README
+- the resolved profile root `*/profile.yaml`
+- `.mighty/state.json`
+
+Read conditionally:
+
+- resolved profile root `<genre>/profile-<platform>.yaml`
+- `大纲/总纲.md`
+- `设定集/力量体系.md`
+- `chapters/第001章.md` or nearby project files only when genre detection is truly unclear
+
+## Shared profile root resolution
+
+Before listing or applying any profile, resolve the first existing profile root from:
+
+1. `shared/profiles/`
+2. `../shared/profiles/`
+3. `../../shared/profiles/`
+
+Use that resolved root consistently for all reads during the task.
+
+## Workflow
+
+### list
+
+1. Resolve the shared profile root.
+2. Scan that profile root for directories or standalone profile files.
+2. Return a concise list of available genre codes and visible names.
+
+### show
+
+1. Read `.mighty/state.json`.
+2. Report:
+   - current `meta.genre`
+   - current `meta.platform`
+   - loaded profile path if present
+   - resolved profile root if one exists
+   - a short summary of the active genre constraints
+
+### detect
+
+1. Prefer the current `meta.genre` if already set.
+2. If the project genre is missing or obviously generic, infer from:
+   - total outline
+   - power-system or setting files
+   - early chapter content when necessary
+3. Return a detected genre plus confidence.
+4. Do not silently rewrite state on detect-only requests.
+
+### apply
+
+1. Determine the target genre:
+   - explicit user input wins
+   - otherwise fall back to current `meta.genre`
+2. Determine the target platform:
+   - explicit user input wins
+   - otherwise use `meta.platform`
+3. Resolve the shared profile root.
+3. Select the best profile path:
+   - prefer `<resolved_root>/<genre>/profile-<platform>.yaml` when it exists
+   - otherwise use `<resolved_root>/<genre>/profile.yaml`
+   - if the genre is represented by a standalone directory without platform specializations, use its `profile.yaml`
+4. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
+5. Read the chosen profile and extract only the fields needed downstream.
+6. Update `.mighty/state.json` so the project reflects the chosen profile.
+7. Return a concise application summary and next-step guidance.
+
+## State update requirements
+
+When applying a profile, update at minimum:
+
+- `meta.genre`
+- `meta.platform` when the user explicitly changed platform
+- `meta.updated_at`
+- `genre_profile.loaded`
+- `genre_profile.节奏`
+- `genre_profile.爽点密度`
+- `genre_profile.strand权重`
+- `genre_profile.特殊约束`
+
+When the selected profile clearly defines platform pacing/word-count guidance, also refresh `platform_config` to keep it aligned with the chosen profile.
+
+## Output expectations
+
+### list
+
+- concise table or bullet list of available genres
+
+### show / detect
+
+- current or detected genre
+- confidence when detection is involved
+- selected profile path
+- short summary of pacing and constraints
+
+### apply
+
+- applied genre
+- resolved profile root
+- selected profile path
+- whether a platform-specific profile was used
+- which state fields changed
+- recommended next step, usually `novel-write`, `novel-polish`, or `novel-outline`
+
+## Notes
+
+- Keep first-version detection conservative; prefer explicit project state over overconfident inference.
+- Do not try to recreate the old Hive Bee orchestration.
+- If the requested genre does not exist, list valid choices instead of guessing.
+- Use the smallest useful subset of profile fields in state; do not dump the full profile into `.mighty/state.json`.

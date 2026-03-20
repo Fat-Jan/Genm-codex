@@ -29,7 +29,26 @@ require_non_empty_dir "${ROOT_DIR}/shared/profiles"
 require_non_empty_dir "${ROOT_DIR}/shared/references"
 require_non_empty_dir "${ROOT_DIR}/shared/templates"
 
-for skill in novel-init novel-outline novel-write novel-review novel-rewrite novel-export; do
+for skill in \
+  novel-init \
+  novel-analyze \
+  novel-outline \
+  novel-write \
+  novel-review \
+  novel-resume \
+  novel-rewrite \
+  novel-export \
+  novel-query \
+  novel-status \
+  novel-character \
+  novel-setting \
+  novel-foreshadowing \
+  novel-batch \
+  novel-index \
+  novel-log \
+  novel-polish \
+  novel-genre
+do
   require_file "${ROOT_DIR}/skills/${skill}/SKILL.md"
 done
 

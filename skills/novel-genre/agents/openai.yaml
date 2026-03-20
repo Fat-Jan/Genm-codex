@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Genre"
+  short_description: "List, inspect, detect, or apply genre profiles."
+  default_prompt: "Use $novel-genre to inspect available genres or apply a matching profile to the current novel project."
+
+policy:
+  allow_implicit_invocation: true

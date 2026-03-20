@@ -8,7 +8,7 @@
     "target_chapters": 10,
     "target_words": 30000,
     "created_at": "2026-03-19T14:41:06Z",
-    "updated_at": "2026-03-19T22:44:47Z"
+    "updated_at": "2026-03-20T01:51:36Z"
   },
   "progress": {
     "current_chapter": 3,
@@ -431,7 +431,7 @@
       "word_count": 3000,
       "status": "draft",
       "created_at": "2026-03-19T22:44:47Z",
-      "updated_at": "2026-03-19T22:44:47Z",
+      "updated_at": "2026-03-19T23:30:51Z",
       "summary": "沈照借试炼木牌与古镜打开后山东壁石门，在石室中拿到残星引脉诀和引灵丹，并看见父亲留下的'沈行舟非贼'血字。随后他强行破入聚气境一重，带着伤势赶往雾隐谷试炼。"
     }
   },
@@ -779,7 +779,7 @@
   "constraints_loaded": {
     "core_constraints": "../shared/references/shared/core-constraints.md",
     "version": "5.6",
-    "loaded_at": "2026-03-19T15:05:52Z",
+    "loaded_at": "2026-03-19T23:53:55Z",
     "includes": [
       "shared/profiles/xuanhuan/profile.yaml",
       "shared/profiles/xuanhuan/profile-tomato.yaml"

@@ -2,7 +2,7 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录是从 `Genm` 仓库拆出的第一阶段迁移产物，目标是让 Codex 直接使用核心网文工作流，而不再依赖 Claude 插件清单和旧命令壳。
+本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前三阶段迁移，目标是让 Codex 直接使用核心与增强型网文工作台，而不再依赖 Claude 插件清单和旧命令壳。
 
 ## 当前范围
 
@@ -23,6 +23,15 @@ Codex 原生网文创作技能工作区。
 - `genm-novel-setting`
 - `genm-novel-foreshadowing`
 - `genm-novel-batch`
+
+第三阶段已完成的增强 Skill：
+
+- `genm-novel-polish`
+- `genm-novel-genre`
+- `genm-novel-analyze`
+- `genm-novel-resume`
+- `genm-novel-index`
+- `genm-novel-log`
 
 ## 目录说明
 
@@ -54,6 +63,20 @@ bash scripts/sync-shared-from-genm.sh
 bash scripts/validate-migration.sh
 ```
 
+## 调用名说明
+
+- `scripts/install-skills.sh` 现在会同时创建两套本地链接：
+  - `novel-*`
+  - `genm-novel-*`
+- 但在 Codex 会话里，通常真正被发现和触发的是各个 `SKILL.md` frontmatter 里的 `name`
+- 因此实际提示词里，优先使用：
+  - `novel-init`
+  - `novel-query`
+  - `novel-status`
+  - `novel-polish`
+  - `novel-genre`
+- 不要把 `genm-` 前缀默认当成必须的调用名
+
 ### 4. 查看使用说明
 
 阅读：
@@ -66,6 +89,7 @@ bash scripts/validate-migration.sh
 
 - `docs/phase-1-summary.md`
 - `docs/phase-2-summary.md`
+- `docs/phase-3-summary.md`
 
 ## 参考文档
 
@@ -74,6 +98,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-2-priorities.md`
 - `docs/phase-2-smoke-plan.md`
 - `docs/phase-2-smoke-results.md`
+- `docs/phase-3-scope.md`
 
 ## 说明
 

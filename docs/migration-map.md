@@ -34,6 +34,22 @@ Phase 1 only migrates the core creation loop and shared asset layer.
 | `build/commands/novel-foreshadowing.md` | `skills/novel-foreshadowing/SKILL.md` | state foreshadowing threads + outline context | done | foreshadowing state management |
 | `build/commands/novel-batch.md` | `skills/novel-batch/SKILL.md` | ordered chapter outlines + project state | done | sequential multi-chapter generation |
 
+## Phase 3A In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-polish.md` | `skills/novel-polish/SKILL.md` | chapter text + state + outline + selected setting files | done | first version focuses on minimal chapter polish closure, not interactive diff UI |
+| `build/commands/novel-genre.md` | `skills/novel-genre/SKILL.md` | `shared/profiles` + project state | done | first version focuses on list/show/detect/apply, without Hive Bee orchestration |
+| `build/commands/novel-analyze.md` | `skills/novel-analyze/SKILL.md` | chapter files + state + optional outlines + selected profiles | done | first version focuses on read-only chapter-range analysis, not heavy charting |
+| `build/commands/novel-resume.md` | `skills/novel-resume/SKILL.md` | workflow state + project state + optional outline context | done | first version focuses on safe resume diagnosis and next-step recommendation, not full workflow replay |
+
+## Phase 3B In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-index.md` | `skills/novel-index/SKILL.md` | chapter files + state + optional setting files | done | first version focuses on lightweight `.mighty/index.json`, not heavy entity extraction |
+| `build/commands/novel-log.md` | `skills/novel-log/SKILL.md` | `.mighty/logs/trace.jsonl` | done | first version is a read-only tail/search/stats viewer with clear “log not initialized” behavior |
+
 ## Explicit Non-Migration in Phase 1
 
 | Source Area | Decision | Reason |

@@ -1,0 +1,126 @@
+---
+name: novel-resume
+description: Resume a Codex-managed novel project from an interrupted workflow or from the current project state by identifying the safest continuation point and recommending the next action.
+---
+
+# Novel Resume
+
+Use this skill when the user wants to continue after an interruption, recover an in-progress workflow, or quickly figure out the safest next writing step.
+
+## Inputs
+
+- optional `chapter`
+- optional `from-workflow`
+- optional explicit intent to continue immediately
+
+## Preconditions
+
+At least one of these should exist:
+
+- `.mighty/workflow_state.json`
+- `.mighty/state.json`
+
+## Required reads
+
+Always read what exists:
+
+- `.mighty/workflow_state.json`
+- `.mighty/state.json`
+
+Read conditionally:
+
+- `chapters/第NNN章.md`
+- `大纲/章纲/第NNN章.md`
+- `大纲/总纲.md`
+- `设定集/角色/主角.md`
+
+## Workflow
+
+### 1. Choose the resume source
+
+Use this priority order:
+
+1. explicit `from-workflow`
+2. active `.mighty/workflow_state.json`
+3. explicit `chapter`
+4. fallback to `.mighty/state.json`
+
+### 2. Workflow-state recovery mode
+
+If `.mighty/workflow_state.json` exists and contains an active task:
+
+1. Read:
+   - `command`
+   - `args`
+   - `status`
+   - `current_step`
+   - `completed_steps`
+   - `failed_steps`
+   - `pending_steps`
+   - `last_heartbeat`
+2. Identify the safest resume point:
+   - `running` -> resume from `current_step`
+   - `failed` -> retry the latest failed step if clear, otherwise use `current_step`
+   - `timeout` -> restart from `current_step`
+   - `cancelled` -> suggest resuming from the first pending step or the current step
+3. Return:
+   - active task summary
+   - interruption point
+   - recommended next action
+   - prerequisite checks needed before continuing
+
+### 3. State-based fallback mode
+
+If there is no usable workflow state:
+
+1. Read `.mighty/state.json`.
+2. Determine:
+   - current chapter
+   - total words
+   - protagonist current state
+   - active foreshadowing
+   - whether the next chapter outline exists
+3. If the user provided `chapter`, use it as the continuation target.
+4. Otherwise, recommend the next chapter after `progress.current_chapter`.
+5. Return a concise continuation brief:
+   - current progress
+   - immediate unresolved hooks
+   - next recommended command
+
+## Output conventions
+
+Prefer one of these formats:
+
+### Workflow recovery
+
+- target command
+- workflow status
+- interruption point
+- completed / pending / failed steps
+- safest resume action
+
+### State fallback
+
+- current chapter
+- total words
+- protagonist state summary
+- active foreshadowing summary
+- next recommended chapter or task
+
+## First-version safety rules
+
+- Default path is read-only diagnosis plus recommendation.
+- Do not pretend to replay partial hidden internal steps that do not exist in the Codex version.
+- Only recommend a concrete follow-up skill when the target is unambiguous:
+  - `novel-write`
+  - `novel-review`
+  - `novel-polish`
+  - `novel-rewrite`
+  - `novel-outline`
+- If both workflow state and project state are ambiguous, say so directly and ask for the smallest missing input.
+
+## Notes
+
+- The Codex version does not assume the full legacy workflow engine exists.
+- Treat `workflow_state.json` as advisory state, not as proof that every underlying step artifact exists.
+- If the requested chapter outline is missing, recommend `novel-outline` instead of guessing the continuation path.

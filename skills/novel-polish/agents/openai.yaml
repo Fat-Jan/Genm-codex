@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Polish"
+  short_description: "Refine an existing chapter without changing its plot."
+  default_prompt: "Use $novel-polish to lightly refine an existing chapter while preserving plot and continuity."
+
+policy:
+  allow_implicit_invocation: true

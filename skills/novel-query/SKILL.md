@@ -1,16 +1,21 @@
 ---
 name: novel-query
-description: Query a Codex-managed novel project using natural language or simple structured filters by reading `.mighty/state.json` and related setting files, then returning concise project facts, lists, counts, or summaries.
+description: Query a Codex-managed novel project using natural language, lightweight structured requests, or common templates by reading `.mighty/state.json`, optionally `.mighty/index.json`, and related setting files, then returning concise facts, counts, lists, or tables.
 ---
 
 # Novel Query
 
-Use this skill when the user wants to inspect project state, list entities, count items, or ask natural-language questions about the current novel project.
+Use this skill when the user wants to inspect project state, list entities, count items, search indexed content, or ask natural-language questions about the current novel project.
 
 ## Inputs
 
 - natural-language query
-- or template-like query request
+- template-like query request
+- lightweight structured request such as:
+  - `LIST ...`
+  - `TABLE ...`
+  - `COUNT ...`
+  - `--template=<name>`
 
 ## Preconditions
 
@@ -23,6 +28,13 @@ Always start with:
 
 - `.mighty/state.json`
 
+Use `.mighty/index.json` when it exists and the request benefits from indexed lookup:
+
+- broad chapter search
+- chapter summary lookup
+- entity mention lookup
+- index-backed project stats
+
 Read conditionally when needed:
 
 - `设定集/角色/*.md`
@@ -30,6 +42,7 @@ Read conditionally when needed:
 - `设定集/力量体系.md`
 - `大纲/总纲.md`
 - `大纲/章纲/*.md`
+- `chapters/*.md` only if neither state nor index has enough signal
 
 ## Supported query modes
 
@@ -41,6 +54,9 @@ Examples:
 - 有哪些活跃伏笔
 - 第001章之后主角状态怎么变了
 - 项目现在进度怎么样
+- 第003章发生了什么
+- 哪几章提到了后山东壁
+- 现在有哪些活跃伏笔
 
 ### 2. Template-style requests
 
@@ -54,6 +70,28 @@ Use a fixed pattern when the user wants common summaries:
 - item inventory
 - suspense check
 - project stats
+- index stats
+- chapter summaries
+
+### 3. Lightweight structured requests
+
+Support a minimal subset of the old command’s structured syntax. Do not implement a full SQL parser.
+
+Supported patterns:
+
+- `LIST <field-or-subject>`
+- `COUNT <subject>`
+- `TABLE <field1, field2> FROM <subject>`
+- optional simple filters expressed informally after the main subject
+
+Examples:
+
+- `LIST active foreshadowing`
+- `COUNT chapters`
+- `TABLE name, relationship FROM characters`
+- `TABLE chapter, summary FROM chapters`
+
+Map these requests onto state or index data rather than pretending to execute a real query language.
 
 ## Workflow
 
@@ -62,22 +100,64 @@ Use a fixed pattern when the user wants common summaries:
    - desired output type (`table`, `list`, `count`, or `summary`)
    - optional filters
 2. Read `.mighty/state.json`.
-3. If the answer is fully available from state, stop there.
-4. Only read additional files if state lacks the needed detail.
+3. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
+4. Resolve the request source:
+   - state-first for current truth
+   - index-first for chapter lookup / summary / mention search
+5. If the answer is fully available from state or index, stop there.
+6. Only read additional files if both state and index lack the needed detail.
 5. Return the smallest useful result:
    - list for browsing
    - count for totals
    - short summary for direct questions
    - table only when multiple fields are explicitly helpful
 
+## Template guidance
+
+Support these first:
+
+- `active-foreshadowing`
+- `overdue-foreshadowing`
+- `character-relations`
+- `power-progress`
+- `location-summary`
+- `item-inventory`
+- `suspense-check`
+- `project-stats`
+- `index-stats`
+- `chapter-summaries`
+
+Suggested behaviors:
+
+- `active-foreshadowing`: list active foreshadowing items with status or expected range
+- `character-relations`: summarize protagonist + active character relations from state and character files
+- `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
+- `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
+- `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries
+
+## Index-aware query guidance
+
+Use `.mighty/index.json` for:
+
+- “哪些章节提到了 X”
+- “列出已索引章节”
+- “给我第1到3章摘要”
+- “索引统计”
+
+If the index is missing and the request clearly wants index-backed data, say so directly and recommend:
+
+- `novel-index build`
+
 ## Output conventions
 
 - Prefer concise Markdown
 - Include field names when the result may be ambiguous
 - If no result exists, say so directly and suggest the nearest alternative query
+- When using index-backed data, mention that briefly so the user knows where the answer came from
 
 ## Notes
 
 - Do not invent missing state.
 - Prefer current state over stale prose files if they disagree.
 - If the user asks for broad statistics, summarize first and only expand on request.
+- Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Log"
+  short_description: "Inspect lightweight project trace logs."
+  default_prompt: "Use $novel-log to inspect or summarize the current novel project's trace log."
+
+policy:
+  allow_implicit_invocation: true

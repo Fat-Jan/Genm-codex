@@ -45,6 +45,48 @@ while reusing copied shared assets from the source `Genm` repository.
 - decide whether shared assets should later move from full-copy to selective-sync
 - decide whether to expand validation beyond single-chapter txt export
 
+## Phase 3 Direction
+
+- third-phase scope selected: `A + B`
+- execution shape: split into `Phase 3A` and `Phase 3B`
+- scope doc: `docs/phase-3-scope.md`
+- `Phase 3A`: `novel-polish`, `novel-genre`, `novel-analyze`, `novel-resume`
+- `Phase 3B`: `novel-index`, extended `novel-query`, advanced `novel-status`, `novel-log`
+- recommended implementation start: `Phase 3A / P0`
+- `Phase 3A / P0` implementation status: started
+- `novel-polish`: created
+- `novel-genre`: created
+- `Phase 3A / P1` implementation status: started
+- `novel-analyze`: created
+- `Phase 3A / P2` implementation status: started
+- `novel-resume`: created
+- `Phase 3A / P2` smoke status:
+  - `novel-resume`: pass (state fallback path)
+- `Phase 3B / P0` implementation status: started
+- `novel-index`: created
+- `Phase 3B / P0` smoke status:
+  - `novel-index`: pass
+- `Phase 3B / P1` implementation status: started
+- `novel-query`: extended to support index-aware, template-style, and lightweight structured queries
+- `Phase 3B / P1` smoke status:
+  - `novel-query`: pass
+  - `novel-status`: pass
+- `Phase 3B / P2` implementation status: started
+- `novel-log`: created
+- `Phase 3B / P2` smoke status:
+  - `novel-log`: pass
+- `Phase 3A / P1` smoke status:
+  - `novel-analyze`: pass
+- `Phase 3A / P0` smoke status:
+  - `novel-polish`: pass
+  - `novel-genre`: pass
+
+### Phase 3 current conclusion
+
+- `Phase 3A`: validated
+- `Phase 3B`: validated
+- repository now has enough migration coverage to justify a `v0.4.0` release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

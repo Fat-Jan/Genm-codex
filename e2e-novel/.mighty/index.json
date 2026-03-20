@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "kind": "lightweight-chapter-index",
+  "built_at": "2026-03-20T02:13:35Z",
+  "project": {
+    "title": "E2E样本",
+    "genre": "玄幻",
+    "platform": "番茄",
+    "current_chapter": 3,
+    "total_words": 9152
+  },
+  "stats": {
+    "indexed_chapters": 3,
+    "total_chars": 8971,
+    "total_lines": 587,
+    "chapter_numbers": [
+      1,
+      2,
+      3
+    ],
+    "source_updated_at": "2026-03-20T01:51:36Z"
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "血染废井，古镜初鸣",
+      "path": "chapters/第001章.md",
+      "chars": 3444,
+      "lines": 227,
+      "sha1": "3209e544a59fab31c4485fbf1e22d24ae1b2efb2"
+    },
+    {
+      "chapter": 2,
+      "title": "一拳打碎外门羞辱",
+      "path": "chapters/第002章.md",
+      "chars": 2980,
+      "lines": 191,
+      "sha1": "3783d7257012c2d8ebc998d273f9130f9895ef85"
+    },
+    {
+      "chapter": 3,
+      "title": "残星引脉，破入聚气",
+      "path": "chapters/第003章.md",
+      "chars": 2547,
+      "lines": 169,
+      "sha1": "13fdbc9836564c80a7394dae4b930a066089d52f"
+    }
+  ]
+}
