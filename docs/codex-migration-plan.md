@@ -251,6 +251,16 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 9B`: validated
 - repository now has enough coverage to justify a `v0.13.0` release line
 
+## Phase 10 Direction
+
+- tenth-phase scope selected
+- scope doc: `docs/phase-10-scope.md`
+- `Phase 10A`: packaging and market-signal convergence
+- `Phase 10B`: stable quality routing
+- recommended implementation start:
+  - normalize `novel-package` output structure
+  - tighten `review / precheck` route consistency
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
