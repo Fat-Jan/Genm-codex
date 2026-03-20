@@ -2,6 +2,10 @@
 
 > 如果你只想快速知道“现在该用哪个 skill”，先读 [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/start-here.md)。
 
+如果你想看当前默认推荐工作流，读：
+
+- [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
+
 ## 已安装的 Skill 名称
 
 安装脚本会把以下目录链接到 `~/.codex/skills/`：

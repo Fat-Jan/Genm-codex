@@ -11,11 +11,13 @@
 顺序：
 
 1. `novel-init`
-2. `novel-outline`
-3. `novel-write`
-4. `novel-review`
-5. `novel-rewrite`
-6. `novel-export`
+2. `novel-genre`
+3. `novel-outline`
+4. `novel-package`
+5. `novel-write`
+6. `novel-review`
+7. `novel-rewrite`
+8. `novel-export`
 
 最小提示词：
 
@@ -65,6 +67,8 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 优先用：
 
 - `novel-precheck`
+- `novel-package`
+- `novel-export`
 
 ### 6. 我想看历史状态或恢复上下文
 
@@ -133,3 +137,4 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 1. 先读项目当前目录的 `.mighty/state.json` 是否存在
 2. 不存在：从 `novel-init` 开始
 3. 存在：先跑 `novel-status`
+4. 想知道完整主线：看 [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
