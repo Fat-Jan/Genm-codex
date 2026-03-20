@@ -336,6 +336,21 @@ while reusing copied shared assets from the source `Genm` repository.
 
 - `Phase 14A`: validated
 - `Phase 14B`: validated
+- repository now has enough RC-preparation evidence to justify entering `v1.0.0-rc1`
+
+## Phase 15 Direction
+
+- fifteenth-phase scope selected
+- scope doc: `docs/phase-15-scope.md`
+- main action: initiate `v1.0.0-rc1`
+- post-initiation rule:
+  - stop expanding default scope
+  - focus on blocker-only stabilization
+
+### Phase 14 current conclusion
+
+- `Phase 14A`: validated
+- `Phase 14B`: validated
 - repository now has enough execution-preparation evidence to justify a `v0.17.0` RC-preparation release line
 
 ## Phase 2 Smoke Status
