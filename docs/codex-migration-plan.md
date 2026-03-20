@@ -128,6 +128,31 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 4B`: validated
 - repository now has enough migration coverage to justify a `v0.6.0` release line
 
+## Phase 5 Direction
+
+- fifth-phase scope selected
+- scope doc: `docs/phase-5-scope.md`
+- `Phase 5A`: `novel-config`, `novel-test`
+- `Phase 5B`: `novel-learn`
+- deferred for later: `novel-scan`
+- docs-first / likely non-skillized: `novel-help`, `novel-tutorial`
+- `Phase 5A / P0` implementation status: started
+- `novel-config`: created
+- `novel-test`: created
+- `Phase 5A / P0` smoke status:
+  - `novel-config`: pass
+  - `novel-test`: pass
+- `Phase 5B / P0` implementation status: started
+- `novel-learn`: created
+- `Phase 5B / P0` smoke status:
+  - `novel-learn`: pass
+
+### Phase 5 current conclusion
+
+- `Phase 5A`: validated
+- `Phase 5B`: validated
+- repository now has enough migration coverage to justify a `v0.8.0` release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

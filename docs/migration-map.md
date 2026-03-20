@@ -66,6 +66,19 @@ Phase 1 only migrates the core creation loop and shared asset layer.
 | `build/commands/novel-retrieve.md` | `skills/novel-retrieve/SKILL.md` | state + index + character/setting files | done | first version is a writing-oriented retrieval layer, not a second general query engine |
 | `build/commands/novel-spinoff.md` | `skills/novel-spinoff/SKILL.md` | state + canon files + setting files | done | first version is a lightweight single-project spinoff writer, not a multi-book universe manager |
 
+## Phase 5A In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-config.md` | `skills/novel-config/SKILL.md` | `.env` + `.mighty/config.json` + `~/.codex/config.toml` | done | first version is a guided local config inspector, not a full environment manager |
+| `build/commands/novel-test.md` | `skills/novel-test/SKILL.md` | `.env` + `~/.codex/config.toml` | done | first version is a guided connection-test assistant, not a fake live probe |
+
+## Phase 5B In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-learn.md` | `skills/novel-learn/SKILL.md` | local chapter range or local file + `learned_patterns` in state | done | first version is a local-content learner, not an automatic external fetcher |
+
 ## Explicit Non-Migration in Phase 1
 
 | Source Area | Decision | Reason |

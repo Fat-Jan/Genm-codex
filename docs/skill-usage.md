@@ -13,10 +13,12 @@
 - `genm-novel-batch`
 - `genm-novel-character`
 - `genm-novel-foreshadowing`
+- `genm-novel-config`
 - `genm-novel-fix`
 - `genm-novel-genre`
 - `genm-novel-index`
 - `genm-novel-log`
+- `genm-novel-learn`
 - `genm-novel-polish`
 - `genm-novel-precheck`
  - `genm-novel-snapshot`
@@ -31,7 +33,8 @@
 - `genm-novel-resume`
 - `genm-novel-retrieve`
 - `genm-novel-rewrite`
- - `genm-novel-spinoff`
+- `genm-novel-spinoff`
+- `genm-novel-test`
 - `genm-novel-export`
 
 同时也会创建对应的 plain 名，例如：
@@ -40,7 +43,10 @@
 - `novel-query`
 - `novel-index`
 - `novel-log`
+- `novel-learn`
+- `novel-config`
 - `novel-fix`
+- `novel-test`
 - `novel-precheck`
  - `novel-snapshot`
 - `novel-status`
@@ -133,6 +139,18 @@
 - 获取写作瞬时参考卡
 - 在单项目内写轻量番外
 
+## 第五阶段已完成
+
+- `genm-novel-config`
+- `genm-novel-test`
+- `genm-novel-learn`
+
+推荐场景：
+
+- 检查当前工作区和本机 Codex 配置状态
+- 判断是否具备连接测试前置条件
+- 从本地章节中学习写作模式并回写 `learned_patterns`
+
 ### character
 
 ```text
@@ -223,6 +241,24 @@
 请使用 novel-spinoff skill，基于当前项目写一个“林晚照角色篇”的轻量番外，并明确它不是主线正文章节。
 ```
 
+### config
+
+```text
+请使用 novel-config skill，检查当前工作区和本机 Codex 配置里与模型/提供商相关的设置，并告诉我最小下一步。
+```
+
+### test
+
+```text
+请使用 novel-test skill，判断当前本地配置是否已经具备做连接测试的条件，并告诉我下一步该怎么测。
+```
+
+### learn
+
+```text
+请使用 novel-learn skill，从第001章到第003章提炼当前项目的写作模式，并更新 learned_patterns。
+```
+
 ### query
 
 ```text
@@ -305,4 +341,5 @@ title=E2E样本，genre=玄幻，platform=番茄，target_chapters=10
 - 第三阶段当前也已进入 `analyze / resume / index`
 - 第三阶段已完成 `polish / genre / analyze / resume / index / log`
 - 第四阶段已完成 `fix / snapshot / precheck / workflow / retrieve / spinoff`
+- 第五阶段已完成 `config / test / learn`
 - `shared/` 资产更新后应重新运行同步脚本

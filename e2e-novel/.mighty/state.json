@@ -310,20 +310,21 @@
   },
   "learned_patterns": {
     "writing_style_preferences": {
-      "dialogue_style": "简洁有力",
-      "description_density": "中等偏高",
-      "pacing_preference": "快节奏"
+      "dialogue_style": "短句对冲、压迫感强",
+      "description_density": "中等偏高，偏重动作、疼痛和冷硬环境感",
+      "pacing_preference": "快节奏，冲突-反打-钩子连续推进"
     },
     "high_point_preferences": [
-      "越级反杀",
-      "机缘获得",
-      "境界突破",
-      "打脸震惊"
+      "受压后迅速反打",
+      "金手指即时兑现",
+      "线索解锁接更大悬念",
+      "伤中破境"
     ],
     "avoid_patterns": [
       "冗长世界观铺垫",
+      "脱离冲突的长段解释",
       "主角内心独白过多",
-      "战力模糊描述"
+      "高光后重复复述机制"
     ],
     "user_feedback": []
   },
@@ -335,8 +336,8 @@
     "consecutive_low_quality_trigger": 3,
     "min_analysis_chapters": 5,
     "cooldown_hours": 24,
-    "last_auto_learn": null,
-    "last_auto_learn_chapter": 0
+    "last_auto_learn": "2026-03-20T05:44:58Z",
+    "last_auto_learn_chapter": 3
   },
   "platform_config": {
     "name": "番茄",

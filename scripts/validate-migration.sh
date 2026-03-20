@@ -41,12 +41,15 @@ for skill in \
   novel-export \
   novel-query \
   novel-status \
+  novel-config \
+  novel-test \
   novel-character \
   novel-setting \
   novel-foreshadowing \
   novel-batch \
   novel-index \
   novel-log \
+  novel-learn \
   novel-fix \
   novel-polish \
   novel-precheck \

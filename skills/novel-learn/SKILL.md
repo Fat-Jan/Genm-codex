@@ -1,0 +1,100 @@
+---
+name: novel-learn
+description: Learn writing patterns from local chapter ranges or user-provided files/text in a Codex-managed novel project, then update `learned_patterns` conservatively without pretending unsupported external fetches succeeded.
+---
+
+# Novel Learn
+
+Use this skill when the user wants to extract reusable writing patterns from the current project or from text they have already provided.
+
+## Positioning
+
+This version is a local-content learner first.
+
+It should:
+
+- analyze existing project chapters
+- analyze a local file path if the user provides one
+- analyze pasted text if the user provides it
+- update `learned_patterns` conservatively
+
+It should not:
+
+- pretend unsupported external fetches succeeded
+- invent a remote analysis result from a bare URL
+- overwrite learned preferences with overconfident claims from a tiny sample
+
+## Inputs
+
+- chapter range
+- or local file path
+- or user-provided text content
+- optional `depth`
+  - `quick`
+  - `deep`
+- optional explicit save intent
+
+## Preconditions
+
+- `.mighty/state.json` exists
+- at least one usable source exists:
+  - chapter files
+  - local file
+  - pasted text
+
+## Required reads
+
+Always read:
+
+- `.mighty/state.json`
+
+Read conditionally:
+
+- `chapters/第NNN章.md`
+- local source file provided by the user
+- `大纲/总纲.md`
+- `设定集/角色/*.md`
+
+## Workflow
+
+1. Determine the learning source:
+   - chapter range
+   - local file
+   - pasted text
+2. If the user gives only an external link and no retrievable content is available in the current environment:
+   - say the source is not directly retrievable in the current path
+   - ask for pasted text or a local file instead
+3. Read the source material.
+4. Extract only defensible learning signals:
+   - dialogue style
+   - description density
+   - pacing preference
+   - preferred high-point patterns
+   - avoid patterns
+5. In `quick` mode:
+   - return a concise learning summary
+6. In `deep` mode:
+   - provide stronger evidence and more explicit pattern grouping
+7. If the user wants the result saved:
+   - update `.mighty/state.json`
+   - refresh:
+     - `learned_patterns.writing_style_preferences`
+     - `learned_patterns.high_point_preferences`
+     - `learned_patterns.avoid_patterns`
+     - `auto_learn_config.last_auto_learn`
+     - `auto_learn_config.last_auto_learn_chapter` when chapter-based
+
+## Output conventions
+
+Prefer:
+
+- source analyzed
+- strongest learned signals
+- confidence caveat
+- optional save summary
+
+## Notes
+
+- Be conservative when sample size is small.
+- Prefer updating existing learned pattern fields over creating new top-level schema.
+- If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.

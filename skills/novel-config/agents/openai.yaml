@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Config"
+  short_description: "Inspect and guide local config for a novel workspace."
+  default_prompt: "Use $novel-config to inspect the current local config and tell me the smallest next setup step."
+
+policy:
+  allow_implicit_invocation: true

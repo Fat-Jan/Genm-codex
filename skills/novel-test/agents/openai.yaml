@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Test"
+  short_description: "Guide provider connection tests from local config."
+  default_prompt: "Use $novel-test to inspect local provider config and tell me the next safe connectivity test step."
+
+policy:
+  allow_implicit_invocation: true

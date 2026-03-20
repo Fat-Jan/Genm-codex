@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Learn"
+  short_description: "Learn reusable writing patterns from local content."
+  default_prompt: "Use $novel-learn to extract writing patterns from the current project's chapters or a local text source."
+
+policy:
+  allow_implicit_invocation: true
