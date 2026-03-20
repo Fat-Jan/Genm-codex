@@ -332,6 +332,12 @@ while reusing copied shared assets from the source `Genm` repository.
   - write `docs/v1-rc-execution-log.md`
   - write `docs/writing-model-strategy.md`
 
+### Phase 14 current conclusion
+
+- `Phase 14A`: validated
+- `Phase 14B`: validated
+- repository now has enough execution-preparation evidence to justify a `v0.17.0` RC-preparation release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

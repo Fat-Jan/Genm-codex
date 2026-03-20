@@ -14,8 +14,8 @@
 ## 当前状态
 
 - RC 计划：已定义
-- RC 执行：待开始
-- 当前判断：可进入 RC 执行准备期
+- RC 执行：已开始
+- 当前判断：已完成首轮基于样本项目的 RC 执行检查
 
 ---
 
@@ -23,35 +23,67 @@
 
 ### 1. 新书起盘
 
-- 状态：pending
+- 状态：pass
 - 路径：
   - `novel-init`
   - `novel-genre`
   - `novel-outline`
   - `novel-package`
 
+证据：
+
+- `e2e-novel` 已由起盘流程建立
+- 已存在：
+  - `.mighty/state.json`
+  - `大纲/总纲.md`
+  - 章纲目录
+  - `包装/简介方案.md`
+
 ### 2. 正文生产
 
-- 状态：pending
+- 状态：pass
 - 路径：
   - `novel-write`
   - `novel-review`
   - `novel-fix` / `novel-polish` / `novel-rewrite`
 
+证据：
+
+- 已写到第 4 章：
+  - `e2e-novel/chapters/第004章.md`
+- review 已写回：
+  - `recommended_next_action = novel-fix`
+- `fix / polish / rewrite` 路由均已有前序 smoke 证据
+
 ### 3. 投稿准备
 
-- 状态：pending
+- 状态：pass
 - 路径：
   - `novel-precheck`
   - `novel-package`
   - `novel-export`
 
+证据：
+
+- `precheck` 已能给出：
+  - `ready-now`
+  - `packaging-needs-update: no`
+- 包装方案已存在：
+  - `e2e-novel/包装/简介方案.md`
+- 导出样本已存在：
+  - `e2e-novel/exports/第001章.txt`
+
 ### 4. 持续学习
 
-- 状态：pending
+- 状态：pass
 - 路径：
   - `novel-learn`
   - `novel-status`
+
+证据：
+
+- `learned_patterns` 已更新到第 4 章
+- `novel-status` 路径已有前序 smoke 证据
 
 ---
 
@@ -59,7 +91,7 @@
 
 ### `e2e-novel`
 
-- 状态：已有前置证据，可作为 RC 初始样本
+- 状态：pass
 - 已知覆盖：
   - 起盘
   - 正文
@@ -78,7 +110,11 @@
 - default-workflows：已有
 - v1-boundary：已有
 
-状态：待 RC 正式核对
+状态：pass
+
+说明：
+
+- 当前默认入口文档已与默认工作流和实验边界保持一致
 
 ---
 
@@ -90,6 +126,8 @@
 
 ## 下一步
 
-1. 选定 RC 第一轮执行样本
-2. 对默认工作流逐项执行
-3. 把本记录里的 `pending` 更新为 `pass / partial / fail`
+1. 决定是否将当前状态推进到 `v1.0.0-rc1`
+2. 如果进入 RC，继续观察：
+   - `novel-scan` 是否仍然保持在实验边界之外
+   - 默认工作流在真实小说项目中的稳定性
+3. 若不进入 RC，则继续保留在 `0.x` 并仅修 blocker
