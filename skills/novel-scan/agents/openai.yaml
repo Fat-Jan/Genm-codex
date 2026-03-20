@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Scan"
+  short_description: "Create a report-only market scan with confidence tracking."
+  default_prompt: "Use $novel-scan to create a report-only market scan for the current project without directly rewriting profiles."
+
+policy:
+  allow_implicit_invocation: true

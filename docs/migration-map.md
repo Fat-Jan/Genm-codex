@@ -79,6 +79,12 @@ Phase 1 only migrates the core creation loop and shared asset layer.
 |----------------|-------------|-----------------------------|--------|-------|
 | `build/commands/novel-learn.md` | `skills/novel-learn/SKILL.md` | local chapter range or local file + `learned_patterns` in state | done | first version is a local-content learner, not an automatic external fetcher |
 
+## Phase 8A Experimental
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-scan.md` | `skills/novel-scan/SKILL.md` | optional external sources + `.mighty/market-data.json` | done | first version is report-only and confidence-aware, with no default profile rewrites |
+
 ## Explicit Non-Migration in Phase 1
 
 | Source Area | Decision | Reason |

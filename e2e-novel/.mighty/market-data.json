@@ -1,0 +1,333 @@
+{
+  "version": "1.0",
+  "scan_time": "2026-03-20T00:00:00+08:00",
+  "mode": "report-only",
+  "report_kind": "real_report",
+  "targets": {
+    "platforms": [
+      "番茄"
+    ],
+    "genre": "玄幻",
+    "depth": "quick",
+    "genre_mapping": [
+      {
+        "platform_bucket": "男频阅读榜",
+        "subgenres": [
+          "传统玄幻",
+          "玄幻脑洞"
+        ],
+        "note": "基于当前番茄官方排行榜页面可见分类，对“玄幻”做平台内拆分。"
+      },
+      {
+        "platform_bucket": "男频新书榜",
+        "subgenres": [
+          "传统玄幻",
+          "玄幻脑洞"
+        ],
+        "note": "quick 扫描同时覆盖存量书与新书方向。"
+      }
+    ]
+  },
+  "source_plan": {
+    "requested_scope": {
+      "platform": "番茄",
+      "genre": "玄幻",
+      "depth": "quick"
+    },
+    "collection_plan": [
+      {
+        "priority": 1,
+        "trust_level": "A",
+        "category": "官方平台榜单页",
+        "targets": [
+          "番茄小说排行榜总页，用于确认分类结构与榜单规则",
+          "传统玄幻阅读榜",
+          "传统玄幻新书榜",
+          "玄幻脑洞阅读榜",
+          "玄幻脑洞新书榜"
+        ],
+        "status": "completed"
+      },
+      {
+        "priority": 2,
+        "trust_level": "B",
+        "category": "稳定抽取层",
+        "targets": [
+          "无"
+        ],
+        "status": "not_used",
+        "reason": "quick 扫描已拿到官方页面快照，无需额外抽取层。"
+      },
+      {
+        "priority": 3,
+        "trust_level": "C",
+        "category": "搜索/聚合层",
+        "targets": [
+          "仅用于发现官方入口，不作为结论依据"
+        ],
+        "status": "used_for_discovery_only"
+      },
+      {
+        "priority": 4,
+        "trust_level": "D",
+        "category": "用户提供材料",
+        "targets": [
+          "无"
+        ],
+        "status": "not_available"
+      }
+    ],
+    "notes": [
+      "本次只将官方番茄榜单页作为事实依据。",
+      "未做跨周、跨月时间序列抓取，因此不输出中长期趋势判断。"
+    ]
+  },
+  "sources": [
+    {
+      "name": "番茄小说排行榜总页",
+      "url": "https://fanqienovel.com/rank/1",
+      "trust_level": "A",
+      "used_for": [
+        "确认玄幻相关子分类",
+        "确认榜单更新规则与准入条件"
+      ],
+      "evidence": {
+        "stats_cutoff": "2026-03-18 24:00",
+        "ranking_rule": "按在读数据排序，仅排 1000 在读以上作品；阅读榜 30 万字以上；新书榜 30 万字以下且未断更，完结未超过 90 天。"
+      }
+    },
+    {
+      "name": "番茄传统玄幻阅读榜",
+      "url": "https://fanqienovel.com/rank/1_2_258",
+      "trust_level": "A",
+      "used_for": [
+        "观察存量传统玄幻头部作品",
+        "提取标题/简介中的高频卖点"
+      ],
+      "evidence": {
+        "stats_cutoff": "2026-03-18 24:00",
+        "examples": [
+          {
+            "title": "天渊",
+            "in_read": "106.2万"
+          },
+          {
+            "title": "惊鸿",
+            "in_read": "101.9万"
+          },
+          {
+            "title": "一剑霸天",
+            "in_read": "44万"
+          },
+          {
+            "title": "武道长生，不死的我终将无敌",
+            "in_read": "41.5万"
+          }
+        ]
+      }
+    },
+    {
+      "name": "番茄传统玄幻新书榜",
+      "url": "https://fanqienovel.com/rank/1_1_258",
+      "trust_level": "A",
+      "used_for": [
+        "观察新书阶段的玄幻钩子与卖点"
+      ],
+      "evidence": {
+        "stats_cutoff": "2026-03-19 24:00",
+        "examples": [
+          {
+            "title": "无耻老登，强当岳父",
+            "in_read": "22.5万"
+          },
+          {
+            "title": "命格坐享其成，开局弟弟被退婚",
+            "in_read": "12.7万"
+          },
+          {
+            "title": "长生不死百万年，我被误认为大帝",
+            "in_read": "5.1万"
+          }
+        ]
+      }
+    },
+    {
+      "name": "番茄玄幻脑洞阅读榜",
+      "url": "https://fanqienovel.com/rank/1_2_257",
+      "trust_level": "A",
+      "used_for": [
+        "观察存量脑洞玄幻头部作品"
+      ],
+      "evidence": {
+        "stats_cutoff": "2026-03-19 24:00",
+        "examples": [
+          {
+            "title": "开局长生万古，苟到天荒地老",
+            "in_read": "117.3万"
+          },
+          {
+            "title": "系统赋我长生，我熬死了所有人",
+            "in_read": "107.1万"
+          }
+        ]
+      }
+    },
+    {
+      "name": "番茄玄幻脑洞新书榜",
+      "url": "https://fanqienovel.com/rank/1_1_257",
+      "trust_level": "A",
+      "used_for": [
+        "观察脑洞玄幻新书方向"
+      ],
+      "evidence": {
+        "stats_cutoff": "2026-03-19 24:00",
+        "examples": [
+          {
+            "title": "无敌镖人，开局护送灭世帝女！",
+            "in_read": "111.9万"
+          },
+          {
+            "title": "莫欺老年穷：一天涨一年功力！",
+            "in_read": "58.4万"
+          },
+          {
+            "title": "身为万人迷大师兄的我只想下班",
+            "in_read": "43.7万"
+          }
+        ]
+      }
+    }
+  ],
+  "findings": {
+    "finding_mode": "current_snapshot_only",
+    "hot_genres": [
+      {
+        "name": "传统玄幻",
+        "signal": "官方阅读榜头部仍有 100 万级在读作品，说明经典修炼/宗门/世界观展开仍有稳定需求。",
+        "confidence": "medium"
+      },
+      {
+        "name": "玄幻脑洞",
+        "signal": "阅读榜与新书榜都出现高在读头部，且高概念开局更密集，说明脑洞子类在当前快照里并不边缘。",
+        "confidence": "medium"
+      }
+    ],
+    "hot_tags": [
+      {
+        "tag": "长生",
+        "signal": "出现在玄幻脑洞阅读榜头部与传统玄幻新书头部样本中。",
+        "evidence_titles": [
+          "开局长生万古，苟到天荒地老",
+          "系统赋我长生，我熬死了所有人",
+          "长生不死百万年，我被误认为大帝"
+        ]
+      },
+      {
+        "tag": "系统/命格/词条",
+        "signal": "在新书榜中反复充当第一钩子，强调规则可见、成长反馈快。",
+        "evidence_titles": [
+          "命格坐享其成，开局弟弟被退婚",
+          "无敌镖人，开局护送灭世帝女！",
+          "系统赋我长生，我熬死了所有人"
+        ]
+      },
+      {
+        "tag": "苟道/慢热/无系统",
+        "signal": "传统玄幻与脑洞玄幻的存量头部里，都能看到“非后宫、无系统、慢热、苟王”一类自我标注。",
+        "evidence_titles": [
+          "天渊",
+          "惊鸿",
+          "开局长生万古，苟到天荒地老"
+        ]
+      },
+      {
+        "tag": "身份反差/误认/退婚",
+        "signal": "新书样本偏爱一眼可懂的反差冲突，方便标题与简介直接完成钩子。",
+        "evidence_titles": [
+          "命格坐享其成，开局弟弟被退婚",
+          "长生不死百万年，我被误认为大帝",
+          "无耻老登，强当岳父"
+        ]
+      }
+    ],
+    "opening_patterns": [
+      {
+        "pattern": "一句话高概念开局",
+        "detail": "标题直接给出机制或反差，例如“长生”“命格”“误认大帝”“一天涨一年功力”。",
+        "confidence": "medium"
+      },
+      {
+        "pattern": "简介前两句即交代规则收益",
+        "detail": "常见写法是先交代系统/词条/命格规则，再展示第一批可预期收益，降低读者理解门槛。",
+        "confidence": "medium"
+      },
+      {
+        "pattern": "旧母题加快反馈节奏",
+        "detail": "退婚、宗门、镖人、长生、修炼等老题材仍在，但往往通过更明确的数值回报或身份反差加速起势。",
+        "confidence": "medium"
+      }
+    ],
+    "cool_point_patterns": [
+      {
+        "pattern": "超长时间跨度",
+        "detail": "长生视角、自带历史纵深，容易制造故人消散、时代更替、主角仍在的爽感。"
+      },
+      {
+        "pattern": "规则显性化",
+        "detail": "系统、命格、词条把成长收益写明，读者能快速预判后续爽点。"
+      },
+      {
+        "pattern": "低位身份反杀",
+        "detail": "老年穷、被退婚、被误认、看门老头等低位开局，方便迅速拉出逆袭张力。"
+      },
+      {
+        "pattern": "传统玄幻的稳态卖点仍可用",
+        "detail": "非后宫、无系统、腹黑、幽默、布局天下等标签，在传统玄幻头部存量书里仍有可见吸引力。"
+      }
+    ],
+    "platform_notes": [
+      {
+        "note": "番茄官方榜单明确按在读数据排序，且每天 15:00 前更新到前一日数据。",
+        "confidence": "high"
+      },
+      {
+        "note": "从当前官方页面看，平台内部并未只给一个大类“玄幻”，而是细分为至少“传统玄幻”和“玄幻脑洞”。",
+        "confidence": "high"
+      },
+      {
+        "note": "由于本次仅做 quick 扫描，以上结论都应视为 2026-03-18 至 2026-03-19 榜单快照信号，而不是长期趋势定论。",
+        "confidence": "high"
+      }
+    ]
+  },
+  "confidence": {
+    "overall": "medium",
+    "reason": "本次使用了可信的官方番茄榜单页，且覆盖了玄幻相关的阅读榜与新书榜；但证据仍是单次 quick 快照，没有跨时间序列、后台转化数据或用户行为细项，所以不应上调到 high。",
+    "evidence_profile": {
+      "trusted_external_data_in_current_run": true,
+      "official_sources_used": 5,
+      "time_series_depth": "single_snapshot",
+      "platform_backend_data": false
+    }
+  },
+  "gaps": [
+    "没有跨周、跨月的榜单时间序列，不能稳健判断趋势上升或下降。",
+    "没有番茄站内搜索热词、读者评论聚类、完读率、留存率等行为数据。",
+    "没有作者后台维度的数据，无法判断题材转化效率与推荐放量节奏。",
+    "本次只覆盖官方榜单显性样本，未覆盖更多腰部作品，因此更适合做方向校准，不适合做精细立项。"
+  ],
+  "apply_recommendations": [
+    {
+      "type": "writing_direction",
+      "suggestion": "如果要对齐番茄当前玄幻快照，优先考虑“传统玄幻基底 + 明确高概念钩子”的组合，而不是纯设定堆叠。",
+      "confidence": "low",
+      "note": "这是基于榜单样本的保守建议，不等同于平台官方推荐。"
+    },
+    {
+      "type": "hook_design",
+      "suggestion": "标题与首段可以更明确地暴露主角机制、身份反差或收益规则，提升首屏可读性。",
+      "confidence": "low",
+      "note": "属于从样本中提炼的写法建议，不是趋势结论。"
+    }
+  ]
+}

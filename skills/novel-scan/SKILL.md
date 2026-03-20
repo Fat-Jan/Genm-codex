@@ -1,0 +1,121 @@
+---
+name: novel-scan
+description: Run a report-only market scan for a Codex-managed novel project by organizing external source candidates, recording confidence, and writing a local `.mighty/market-data.json` without default profile rewrites.
+---
+
+# Novel Scan
+
+Use this skill when the user wants a market/trend scan that informs writing direction or future profile adjustments.
+
+## Positioning
+
+This is an experimental **report-only** implementation.
+
+It should:
+
+- organize scan targets
+- record candidate sources
+- summarize findings conservatively
+- write a local `.mighty/market-data.json`
+
+It should not by default:
+
+- rewrite `shared/profiles/`
+- rewrite project profile state
+- pretend that weak or missing sources are strong evidence
+
+## Inputs
+
+- optional `platform`
+- optional `genre`
+- optional `depth`
+  - `quick`
+  - `standard`
+  - `deep`
+- optional explicit mode:
+  - `report-only`
+  - `project-annotate`
+
+## Preconditions
+
+- `.mighty/` exists or can be created inside the current project
+
+## Data source policy
+
+Follow the Phase 7A contract:
+
+- Level A: official / platform pages
+- Level B: stable extraction layer
+- Level C: search / aggregation layer
+- Level D: user-provided material
+
+If no trustworthy source material is actually fetched or provided in the current run:
+
+- do not fabricate findings
+- write a low-confidence skeleton instead
+
+## Output file
+
+- `.mighty/market-data.json`
+
+## Workflow
+
+1. Parse the requested platform / genre / depth.
+2. Determine scan mode:
+   - default to `report-only`
+3. Build a source plan:
+   - target platforms
+   - candidate source categories
+   - trust levels
+4. Check what evidence is actually available in the current run:
+   - user-provided text
+   - local source files
+   - explicitly fetched external content if the environment and prompt make that appropriate
+5. If evidence is insufficient:
+   - write a conservative market-data skeleton
+   - set low confidence
+   - list the missing evidence
+6. If evidence exists:
+   - summarize only defensible findings
+   - separate findings from suggestions
+   - keep trust attribution visible
+7. Save the result to `.mighty/market-data.json`.
+8. Return:
+   - mode used
+   - sources considered
+   - confidence
+   - whether the result is only a scaffold or a real report
+
+## Recommended result shape
+
+```json
+{
+  "version": "1.0",
+  "scan_time": "<timestamp>",
+  "mode": "report-only",
+  "targets": {
+    "platforms": [],
+    "genre": ""
+  },
+  "sources": [],
+  "findings": {
+    "hot_genres": [],
+    "hot_tags": [],
+    "opening_patterns": [],
+    "cool_point_patterns": [],
+    "platform_notes": []
+  },
+  "confidence": {
+    "overall": "low",
+    "reason": "insufficient trusted source material in current run"
+  },
+  "gaps": [],
+  "apply_recommendations": []
+}
+```
+
+## Notes
+
+- This version is useful even when it only records a source plan plus confidence and gaps.
+- Treat “report-only” as the safe default.
+- If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.

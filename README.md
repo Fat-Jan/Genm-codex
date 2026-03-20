@@ -124,6 +124,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-7-scope.md`
 - `docs/phase-7a-scan-contract.md`
 - `docs/phase-7b-selective-sync-governance.md`
+- `docs/phase-8-scope.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 

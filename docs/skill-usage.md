@@ -21,6 +21,7 @@
 - `genm-novel-index`
 - `genm-novel-log`
 - `genm-novel-learn`
+- `genm-novel-scan`
 - `genm-novel-polish`
 - `genm-novel-precheck`
  - `genm-novel-snapshot`
@@ -46,6 +47,7 @@
 - `novel-index`
 - `novel-log`
 - `novel-learn`
+- `novel-scan`
 - `novel-config`
 - `novel-fix`
 - `novel-test`
@@ -261,6 +263,12 @@
 请使用 novel-learn skill，从第001章到第003章提炼当前项目的写作模式，并更新 learned_patterns。
 ```
 
+### scan
+
+```text
+请使用 novel-scan skill，先为当前项目生成一个 report-only 的市场扫描结果文件，并明确说明当前证据可信度。
+```
+
 ### query
 
 ```text
@@ -344,4 +352,5 @@ title=E2E样本，genre=玄幻，platform=番茄，target_chapters=10
 - 第三阶段已完成 `polish / genre / analyze / resume / index / log`
 - 第四阶段已完成 `fix / snapshot / precheck / workflow / retrieve / spinoff`
 - 第五阶段已完成 `config / test / learn`
+- 第八阶段当前已进入 `scan`
 - `shared/` 资产更新后应重新运行同步脚本

@@ -182,6 +182,26 @@ while reusing copied shared assets from the source `Genm` repository.
 - `sync-shared-from-genm.sh` now supports `--domain`
 - shared dependency map doc: `docs/shared-asset-dependency-map.md`
 
+## Phase 8 Direction
+
+- eighth-phase scope selected
+- scope doc: `docs/phase-8-scope.md`
+- `Phase 8A`: experimental `novel-scan` report-only implementation
+- `Phase 8B`: shared sync observability hardening
+- no default production rollout promised yet
+- `Phase 8A / P0` implementation status: started
+- `novel-scan`: created
+- `Phase 8A / P0` smoke status:
+  - `novel-scan`: pass
+- `Phase 8B` implementation status: started
+- `sync-shared-from-genm.sh`: supports `--report-json`
+
+### Phase 8 current conclusion
+
+- `Phase 8A`: validated
+- `Phase 8B`: partially validated
+- repository now has enough coverage to justify a `v0.12.0` experimental release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

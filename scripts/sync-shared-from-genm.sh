@@ -5,16 +5,18 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 SOURCE_ROOT="$(cd "${SCRIPT_DIR}/../../Genm" && pwd)"
 REPORT_ONLY=false
+REPORT_JSON=false
 DOMAINS=()
 
 usage() {
   cat <<'EOF'
 Usage:
-  sync-shared-from-genm.sh [--report] [--domain <profiles|references|templates>]
+  sync-shared-from-genm.sh [--report] [--report-json] [--domain <profiles|references|templates>]
 
 Examples:
   sync-shared-from-genm.sh
   sync-shared-from-genm.sh --report
+  sync-shared-from-genm.sh --report-json
   sync-shared-from-genm.sh --domain profiles
   sync-shared-from-genm.sh --report --domain references
 EOF
@@ -24,6 +26,10 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --report)
       REPORT_ONLY=true
+      shift
+      ;;
+    --report-json)
+      REPORT_JSON=true
       shift
       ;;
     --domain)
@@ -121,6 +127,39 @@ report_domain() {
   fi
 }
 
+report_domain_json() {
+  local domain="$1"
+  local source_dir
+  local target_dir
+  local target_status
+  source_dir="$(resolve_source_dir "${domain}")"
+  target_dir="$(resolve_target_dir "${domain}")"
+
+  if [[ ! -d "${source_dir}" ]]; then
+    echo "Missing source directory: ${source_dir}" >&2
+    exit 1
+  fi
+
+  if [[ -d "${target_dir}" ]]; then
+    target_status="present"
+  else
+    target_status="missing"
+  fi
+
+  cat <<EOF
+    {
+      "domain": "${domain}",
+      "source": "${source_dir}",
+      "target": "${target_dir}",
+      "source_files": $(count_files "${source_dir}"),
+      "source_subdirs": $(count_dirs "${source_dir}"),
+      "target_status": "${target_status}",
+      "target_files": $(count_files "${target_dir}"),
+      "target_subdirs": $(count_dirs "${target_dir}")
+    }
+EOF
+}
+
 copy_tree() {
   local source_dir="$1"
   local target_dir="$2"
@@ -134,6 +173,22 @@ copy_tree() {
   mkdir -p "$(dirname "${target_dir}")"
   cp -R "${source_dir}" "${target_dir}"
 }
+
+if [[ "${REPORT_JSON}" == true ]]; then
+  echo "{"
+  echo "  \"source_root\": \"${SOURCE_ROOT}\","
+  echo "  \"target_root\": \"${TARGET_ROOT}/shared\","
+  echo "  \"domains\": ["
+  for i in "${!DOMAINS[@]}"; do
+    report_domain_json "${DOMAINS[$i]}"
+    if [[ "$i" -lt $((${#DOMAINS[@]} - 1)) ]]; then
+      echo ","
+    fi
+  done
+  echo "  ]"
+  echo "}"
+  exit 0
+fi
 
 if [[ "${REPORT_ONLY}" == true ]]; then
   echo "# Shared Sync Report"

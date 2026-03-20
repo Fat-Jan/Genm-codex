@@ -120,6 +120,7 @@
 
 - `scripts/sync-shared-from-genm.sh` 已补 `--report`
 - 也已补 `--domain <profiles|references|templates>`
+- 已补 `--report-json`
 - 当前仍不切换 full-copy，只先提供可观测性
 
 ### Step 2：引入“按域同步”模式
