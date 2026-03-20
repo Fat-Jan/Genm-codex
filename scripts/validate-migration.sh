@@ -33,6 +33,7 @@ for skill in \
   novel-init \
   novel-analyze \
   novel-outline \
+  novel-package \
   novel-write \
   novel-review \
   novel-resume \

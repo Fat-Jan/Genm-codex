@@ -35,6 +35,8 @@ Read conditionally:
 - `chapter_meta[N]` review findings
 - `设定集/角色/*.md` when dialogue or OOC risk matters
 - `设定集/力量体系.md` or other setting files when terminology consistency matters
+- `learned_patterns` inside `.mighty/state.json`
+- `../../shared/references/writing/anti-ai-style.md` when prose, description, or all is requested
 
 ## Workflow
 
@@ -42,23 +44,33 @@ Read conditionally:
 2. Determine whether the request is true polish or a structural rewrite request.
 3. If the requested change would alter core plot, continuity, or chapter purpose, stop and recommend `novel-rewrite` instead.
 4. Read the chapter outline and any directly relevant review findings.
-5. Choose the polish focus:
+5. If the project has usable `learned_patterns`, use them as polish preferences:
+   - preferred dialogue style
+   - preferred description density
+   - preferred high-point handling
+   - avoid patterns
+6. Choose the polish focus:
    - `prose`: remove repetition, tighten sentences, improve phrasing
    - `dialogue`: sharpen voice, reduce filler, preserve character tone
    - `description`: improve sensory detail and scene clarity
    - `pacing`: tighten slow sections, reduce explanatory drag, improve transitions
    - `all`: apply a balanced pass without broad structural changes
-6. Preserve:
+7. For prose-like polish, explicitly watch for:
+   - explanation replacing scene display
+   - generic symmetrical phrasing
+   - filler transitions
+   - obvious anti-AI style warnings already known in the project
+8. Preserve:
    - chapter purpose
    - core events
    - named entities
    - continuity with existing state
-7. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
-8. If the user asks for preview or comparison, return:
+9. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
+10. If the user asks for preview or comparison, return:
    - short change summary
    - optional before/after excerpts
    - proposed polished text without saving
-9. Otherwise:
+11. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the polished chapter back to `chapters/第N章.md`
    - update polish metadata in `.mighty/state.json`
@@ -92,3 +104,4 @@ If the project already tracks snapshots, refresh `chapter_snapshots[N]` to match
 - Prefer the smallest edit that improves readability and pull.
 - If the chapter already has unresolved critical review issues, use them as polish priorities.
 - If the user wants side-by-side diff behavior, keep it lightweight in text; do not recreate the old command’s interactive UI flow.
+- If the project has explicit `avoid_patterns`, treat them as first-class polish targets.

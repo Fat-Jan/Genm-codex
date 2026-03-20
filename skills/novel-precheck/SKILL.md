@@ -49,6 +49,8 @@ Read conditionally:
 - `大纲/总纲.md`
 - `大纲/章纲/第NNN章.md`
 - `设定集/角色/主角.md`
+- `learned_patterns` inside `.mighty/state.json`
+- `market_adjustments` inside `.mighty/state.json`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -76,11 +78,13 @@ Resolve shared profile roots in this order:
    - current project platform
    - matching shared profile if available
    - lightweight platform heuristics
+   - project-local `market_adjustments` when they exist
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density
    - weak suspense carryover
    - sparse review coverage
+   - drift from already learned local style preferences when that drift is obvious
 7. Check obvious AI-risk signals conservatively:
    - repetitive filler phrasing
    - explanation-heavy clusters
@@ -136,3 +140,4 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - This is not a legal or policy compliance guarantee.
 - Be conservative: only flag issues you can support from the text.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
+- Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.

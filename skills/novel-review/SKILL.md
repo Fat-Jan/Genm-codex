@@ -49,6 +49,11 @@ Read conditionally:
    - critical issues
    - warnings
    - suggested fixes
+   - recommended next action:
+     - `none`
+     - `novel-fix`
+     - `novel-polish`
+     - `novel-rewrite`
 6. Update review metadata for the chapter inside `.mighty/state.json`.
 7. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
@@ -72,3 +77,4 @@ Update at minimum:
 - Prefer deterministic, evidence-based findings over vague style criticism.
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - Do not claim a review passed unless the report actually shows the score and issues.
+- Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.

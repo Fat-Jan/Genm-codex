@@ -83,6 +83,10 @@ Read conditionally:
      - `learned_patterns.avoid_patterns`
      - `auto_learn_config.last_auto_learn`
      - `auto_learn_config.last_auto_learn_chapter` when chapter-based
+8. When returning the result, explain where the learned signals are most useful next:
+   - `novel-write`
+   - `novel-polish`
+   - `novel-precheck`
 
 ## Output conventions
 
@@ -98,3 +102,4 @@ Prefer:
 - Be conservative when sample size is small.
 - Prefer updating existing learned pattern fields over creating new top-level schema.
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
+- Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.

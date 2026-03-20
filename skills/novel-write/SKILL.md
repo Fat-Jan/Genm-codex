@@ -37,6 +37,8 @@ Read conditionally:
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
 - previous chapter file or summary
+- current `learned_patterns` inside `.mighty/state.json`
+- current `market_adjustments` inside `.mighty/state.json`
 
 ## Workflow
 
@@ -44,13 +46,19 @@ Read conditionally:
 2. Read the target chapter outline from `大纲/章纲/第N章.md`.
 3. Read required setting files from `设定集/`.
 4. Load the shared profile matching the project genre from `../../shared/profiles/`.
-5. Load high-value shared references from `../../shared/references/` only as needed.
-6. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-7. Write `chapters/第N章.md` aligned to:
+5. Read any useful local guidance already present in state:
+   - `learned_patterns`
+   - `market_adjustments`
+6. Load high-value shared references from `../../shared/references/` only as needed.
+7. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+8. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
-8. Update `.mighty/state.json` with:
+   - learned style preferences when they are concrete
+   - learned avoid-patterns when they are concrete
+   - project-local market suggestions when they are relevant and low-risk
+9. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -58,8 +66,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-9. Do not write review scores here unless an actual review step was run.
-10. Recommend running `novel-review` immediately after writing.
+10. Do not write review scores here unless an actual review step was run.
+11. Recommend running `novel-review` immediately after writing.
 
 ## Chapter state update requirements
 
@@ -88,3 +96,5 @@ At minimum, update:
 
 - Keep writing aligned to the outline and current state.
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
+- Treat `learned_patterns` as a preference signal, not a hard rule.
+- Treat `market_adjustments` as packaging or pacing guidance, not as a reason to break canon or outline purpose.

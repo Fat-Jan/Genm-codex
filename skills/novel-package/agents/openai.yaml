@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Package"
+  short_description: "Generate title, synopsis, naming, and hook packaging for a novel project."
+  default_prompt: "Use $novel-package to generate packaging-ready title, synopsis, naming, or opening-hook proposals for the current project."
+
+policy:
+  allow_implicit_invocation: true

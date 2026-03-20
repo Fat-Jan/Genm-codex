@@ -21,6 +21,7 @@
 - `genm-novel-index`
 - `genm-novel-log`
 - `genm-novel-learn`
+- `genm-novel-package`
 - `genm-novel-scan`
 - `genm-novel-polish`
 - `genm-novel-precheck`
@@ -47,6 +48,7 @@
 - `novel-index`
 - `novel-log`
 - `novel-learn`
+- `novel-package`
 - `novel-scan`
 - `novel-config`
 - `novel-fix`
@@ -155,6 +157,18 @@
 - 判断是否具备连接测试前置条件
 - 从本地章节中学习写作模式并回写 `learned_patterns`
 
+## 第九阶段已完成
+
+- `genm-novel-package`
+
+推荐场景：
+
+- 生成书名候选
+- 生成平台适配简介
+- 做角色命名提案
+- 给开篇钩子做包装层优化
+- 输出完整的“书名 + 简介 + 开篇包装”方案
+
 ### character
 
 ```text
@@ -258,6 +272,16 @@
 ```
 
 ### learn
+
+```text
+请使用 novel-learn skill，从第001章到第003章里总结稳定可复用的文风偏好和需要避免的表达模式，并保守回写 learned_patterns。
+```
+
+### package
+
+```text
+请使用 novel-package skill，为当前项目生成一套包装方案：包含书名候选、两版简介和三条开篇包装建议；如合适，可保存到 包装/。
+```
 
 ```text
 请使用 novel-learn skill，从第001章到第003章提炼当前项目的写作模式，并更新 learned_patterns。

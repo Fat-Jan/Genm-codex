@@ -204,6 +204,53 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 8B`: partially validated
 - repository now has enough coverage to justify a `v0.12.0` experimental release line
 
+## Phase 9 Direction
+
+- ninth-phase scope selected
+- scope doc: `docs/phase-9-scope.md`
+- value-gap analysis: `docs/phase-9-writing-value-gap-analysis.md`
+- `Phase 9A`: packaging generation layer
+- `Phase 9B`: quality loop integration
+- execution strategy: run `Phase 9A` and `Phase 9B` in parallel, then unify shared touchpoints
+- `Phase 9A / P0` implementation status: started
+- `novel-package`: created
+- `Phase 9A / P0` smoke status:
+  - `novel-package`: pass
+- `Phase 9A / P0` smoke results: `docs/phase-9a-p0-package-smoke-results.md`
+- `Phase 9B / P0` design status: started
+- quality-loop design doc: `docs/phase-9b-quality-loop-design.md`
+- `Phase 9B / P1` integration status: started
+- low-risk integration applied to:
+  - `novel-write`
+  - `novel-polish`
+  - `novel-review`
+- current integration direction:
+  - `write` reads `learned_patterns` and `market_adjustments` conservatively
+  - `polish` treats `avoid_patterns` and anti-AI guidance as first-class inputs
+  - `review` returns a clearer next-action recommendation (`fix` / `polish` / `rewrite`)
+- `Phase 9B / P1` smoke results: `docs/phase-9b-p1-smoke-results.md`
+- `Phase 9B / P1` smoke status:
+  - `novel-write`: pass
+  - `novel-review`: pass
+  - `novel-polish`: pass
+- `Phase 9A / P1` integration status: started
+- current direction:
+  - `novel-package` prefers project-local `market_adjustments` over raw market snapshots when both exist
+- `Phase 9B / P2` integration status: started
+- current direction:
+  - `novel-precheck` can treat `market_adjustments` and learned patterns as soft final-gate signals
+  - `novel-learn` now points learned output back toward `write / polish / precheck`
+- `Phase 9B / P2` smoke results: `docs/phase-9b-p2-smoke-results.md`
+- `Phase 9B / P2` smoke status:
+  - `novel-precheck`: pass
+  - `novel-learn`: pass
+
+### Phase 9 current conclusion
+
+- `Phase 9A`: validated
+- `Phase 9B`: validated
+- repository now has enough coverage to justify a `v0.13.0` release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

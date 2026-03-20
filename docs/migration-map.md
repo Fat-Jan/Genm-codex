@@ -85,6 +85,12 @@ Phase 1 only migrates the core creation loop and shared asset layer.
 |----------------|-------------|-----------------------------|--------|-------|
 | `build/commands/novel-scan.md` | `skills/novel-scan/SKILL.md` | optional external sources + `.mighty/market-data.json` | done | first version is report-only and confidence-aware, with no default profile rewrites |
 
+## Phase 9A In Progress
+
+| Source Asset | Target Skill | Primary Shared Dependencies | Status | Notes |
+|-------------|-------------|-----------------------------|--------|-------|
+| `build/commands/platform/novel-synopsis-platform-adapt.md` + `build/references/writing/character-naming-guide.md` | `skills/novel-package/SKILL.md` | project state + outline + platform references + naming guide + optional market scan | done | first version unifies title, synopsis, naming, and opening-hook packaging instead of splitting them into multiple commands |
+
 ## Explicit Non-Migration in Phase 1
 
 | Source Area | Decision | Reason |
