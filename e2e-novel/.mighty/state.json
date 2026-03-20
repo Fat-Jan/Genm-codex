@@ -776,9 +776,62 @@
   "character_states": {},
   "setting_versions": {},
   "market_adjustments": {
-    "last_applied": null,
-    "source_scan": null,
-    "adjustments": []
+    "last_applied": "2026-03-20T21:14:00+08:00",
+    "source_scan": {
+      "scan_time": "2026-03-20T21:14:00+08:00",
+      "mode": "project-annotate",
+      "platform": "番茄",
+      "genre": "玄幻",
+      "depth": "quick",
+      "report_kind": "real_report",
+      "confidence": {
+        "overall": "medium",
+        "reason": "本次使用番茄官方榜单总页、传统玄幻阅读榜/新书榜、玄幻脑洞阅读榜/新书榜完成单次 quick 快照扫描；来源可信，但没有时间序列或后台转化数据。"
+      },
+      "sources": [
+        "https://fanqienovel.com/rank/1",
+        "https://fanqienovel.com/rank/1_2_258",
+        "https://fanqienovel.com/rank/1_1_258",
+        "https://fanqienovel.com/rank/1_2_257",
+        "https://fanqienovel.com/rank/1_1_257"
+      ]
+    },
+    "adjustments": [
+      {
+        "id": "tomato-xuanhuan-hook-visibility",
+        "priority": "high",
+        "scope": "project",
+        "applies_to": [
+          "大纲/总纲",
+          "第004章",
+          "第005章"
+        ],
+        "suggestion": "继续保留“传统玄幻宗门升级”主干，但从第4章开始把照骨古镜/残星引脉诀的规则收益写得更显性，尽量在每章前半段就出现一次可见增益或破局信息。",
+        "reason": "番茄玄幻 quick 快照显示，传统玄幻仍有稳定需求，但新书更偏好高概念钩子和规则显性化反馈。"
+      },
+      {
+        "id": "tomato-xuanhuan-trial-arc-fast-payoff",
+        "priority": "high",
+        "scope": "project",
+        "applies_to": [
+          "第004章",
+          "第005章"
+        ],
+        "suggestion": "雾隐谷试炼段不要只铺暗算和氛围，需在前半程尽早兑现一次资源升级、镜纹增强或低位反杀，避免机缘回报滞后。",
+        "reason": "榜单样本里常见“先给规则，再给第一批收益”的快反馈结构；当前项目正进入试炼段，是最容易拖节奏的位置。"
+      },
+      {
+        "id": "tomato-xuanhuan-packaging",
+        "priority": "medium",
+        "scope": "project",
+        "applies_to": [
+          "书名/简介",
+          "卷一卖点表达"
+        ],
+        "suggestion": "对外包装优先突出“废脉杂役 + 古镜映破绽 + 三日内不逆袭就被逐宗”的一句话冲突，不要只写世界观或旧案悬疑。",
+        "reason": "番茄玄幻新书样本反复使用一眼可懂的身份反差、倒计时压力和机制钩子来完成首屏抓取。"
+      }
+    ]
   },
   "dungeons": {
     "completed": [],

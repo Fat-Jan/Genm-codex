@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "scan_time": "2026-03-20T00:00:00+08:00",
-  "mode": "report-only",
+  "scan_time": "2026-03-20T21:14:00+08:00",
+  "mode": "project-annotate",
   "report_kind": "real_report",
   "targets": {
     "platforms": [
@@ -30,6 +30,7 @@
   },
   "source_plan": {
     "requested_scope": {
+      "mode": "project-annotate",
       "platform": "番茄",
       "genre": "玄幻",
       "depth": "quick"
@@ -79,7 +80,8 @@
     ],
     "notes": [
       "本次只将官方番茄榜单页作为事实依据。",
-      "未做跨周、跨月时间序列抓取，因此不输出中长期趋势判断。"
+      "未做跨周、跨月时间序列抓取，因此不输出中长期趋势判断。",
+      "本次结果已同步写入 .mighty/state.json 的 market_adjustments，未改动 shared profile 或其他主状态。"
     ]
   },
   "sources": [
@@ -92,7 +94,7 @@
         "确认榜单更新规则与准入条件"
       ],
       "evidence": {
-        "stats_cutoff": "2026-03-18 24:00",
+        "stats_cutoff": "2026-03-19 24:00",
         "ranking_rule": "按在读数据排序，仅排 1000 在读以上作品；阅读榜 30 万字以上；新书榜 30 万字以下且未断更，完结未超过 90 天。"
       }
     },
@@ -105,11 +107,11 @@
         "提取标题/简介中的高频卖点"
       ],
       "evidence": {
-        "stats_cutoff": "2026-03-18 24:00",
+        "stats_cutoff": "2026-03-19 24:00",
         "examples": [
           {
             "title": "天渊",
-            "in_read": "106.2万"
+            "in_read": "106.3万"
           },
           {
             "title": "惊鸿",
@@ -121,7 +123,7 @@
           },
           {
             "title": "武道长生，不死的我终将无敌",
-            "in_read": "41.5万"
+            "in_read": "41.6万"
           }
         ]
       }
@@ -167,7 +169,7 @@
           },
           {
             "title": "系统赋我长生，我熬死了所有人",
-            "in_read": "107.1万"
+            "in_read": "108.3万"
           }
         ]
       }

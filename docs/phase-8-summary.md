@@ -23,10 +23,12 @@
 
 其中：
 
+- `report-only`：已通过
+- `project-annotate`：已通过
 - 已生成真实的 `.mighty/market-data.json`
+- 已在项目内 `market_adjustments` 下写入项目级建议
 - 本次拿到官方番茄榜单快照
 - 明确保留：
-  - `report-only`
   - `confidence`
   - `gaps`
   - 不默认回写 profile

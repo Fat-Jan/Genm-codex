@@ -38,6 +38,11 @@
 - 暂不支持：
   - `apply-suggestion`
 
+当前进展：
+
+- `report-only`：已完成
+- `project-annotate`：进入实验实现
+
 ### Phase 8B：shared 同步的可观测升级
 
 目标：

@@ -1,6 +1,6 @@
 ---
 name: novel-scan
-description: Run a report-only market scan for a Codex-managed novel project by organizing external source candidates, recording confidence, and writing a local `.mighty/market-data.json` without default profile rewrites.
+description: Run a report-only or project-annotate market scan for a Codex-managed novel project by organizing external source candidates, recording confidence, writing `.mighty/market-data.json`, and optionally annotating project-local market state without default profile rewrites.
 ---
 
 # Novel Scan
@@ -9,7 +9,10 @@ Use this skill when the user wants a market/trend scan that informs writing dire
 
 ## Positioning
 
-This is an experimental **report-only** implementation.
+This is an experimental implementation that currently supports:
+
+- `report-only`
+- `project-annotate`
 
 It should:
 
@@ -17,6 +20,7 @@ It should:
 - record candidate sources
 - summarize findings conservatively
 - write a local `.mighty/market-data.json`
+- optionally annotate project-local market state
 
 It should not by default:
 
@@ -58,6 +62,12 @@ If no trustworthy source material is actually fetched or provided in the current
 
 - `.mighty/market-data.json`
 
+## Project annotation target
+
+When mode is `project-annotate`, the only project state area this skill may update is:
+
+- `.mighty/state.json` → `market_adjustments`
+
 ## Workflow
 
 1. Parse the requested platform / genre / depth.
@@ -80,7 +90,15 @@ If no trustworthy source material is actually fetched or provided in the current
    - separate findings from suggestions
    - keep trust attribution visible
 7. Save the result to `.mighty/market-data.json`.
-8. Return:
+8. If mode is `project-annotate`:
+   - update `.mighty/state.json` conservatively under `market_adjustments`
+   - set:
+     - `last_applied`
+     - `source_scan`
+     - `adjustments`
+   - only use low-risk, project-local suggestion summaries
+   - do not rewrite `shared/profiles/`
+9. Return:
    - mode used
    - sources considered
    - confidence
@@ -118,4 +136,5 @@ If no trustworthy source material is actually fetched or provided in the current
 
 - This version is useful even when it only records a source plan plus confidence and gaps.
 - Treat “report-only” as the safe default.
+- `project-annotate` may update project-local `market_adjustments`, but must not alter shared assets.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.

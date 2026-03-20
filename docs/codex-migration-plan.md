@@ -193,6 +193,8 @@ while reusing copied shared assets from the source `Genm` repository.
 - `novel-scan`: created
 - `Phase 8A / P0` smoke status:
   - `novel-scan`: pass
+- `Phase 8A / P1` smoke status:
+  - `novel-scan`: pass (project-annotate path)
 - `Phase 8B` implementation status: started
 - `sync-shared-from-genm.sh`: supports `--report-json`
 
