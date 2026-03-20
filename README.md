@@ -149,8 +149,11 @@ bash scripts/validate-migration.sh
 - `docs/phase-11-scope.md`
 - `docs/phase-12-scope.md`
 - `docs/phase-11-summary.md`
+- `docs/phase-12-summary.md`
 - `docs/v1-boundary.md`
 - `docs/default-workflows.md`
+- `docs/v1-readiness-checklist.md`
+- `docs/v1-readiness-assessment.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 

@@ -306,6 +306,12 @@ while reusing copied shared assets from the source `Genm` repository.
   - write `docs/v1-readiness-checklist.md`
   - write `docs/v1-readiness-assessment.md`
 
+### Phase 12 current conclusion
+
+- `Phase 12A`: validated
+- `Phase 12B`: validated
+- repository now has enough readiness evidence to justify a `v0.16.0` readiness release line
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
