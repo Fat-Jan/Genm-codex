@@ -2,7 +2,7 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前九阶段的主体迁移与整合，其中第九阶段把包装生成层和质量闭环整合纳入主线；当前已进入第十阶段范围设计。
+本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前九阶段的主体迁移与整合，第十阶段也已经完成第一批“包装收敛 + 质量路由”实现检查点。
 
 ## 当前范围
 
@@ -140,6 +140,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-9b-quality-loop-design.md`
 - `docs/phase-9-summary.md`
 - `docs/phase-10-scope.md`
+- `docs/phase-10-summary.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
