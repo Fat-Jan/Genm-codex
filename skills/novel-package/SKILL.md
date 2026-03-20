@@ -59,6 +59,7 @@ Read conditionally:
 - `设定集/角色/主角.md`
 - `设定集/角色/*.md` when naming a specific supporting character
 - `.mighty/market-data.json`
+- `chapter_meta` for recent review / fix context
 - `../../shared/references/writing/character-naming-guide.md`
 - `../../shared/references/platforms/<platform>-style.md`
 - `references/synopsis-platform-guide.md`
@@ -78,9 +79,13 @@ Read conditionally:
    - main conflict
    - protagonist position
    - strongest hook
-4. If state already contains project-local `market_adjustments`, treat those as the first packaging-side market hints.
-5. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
-6. Resolve packaging mode:
+4. Inspect recent project-local quality signals when they exist:
+   - recent `chapter_meta`
+   - recent `needs_fix`
+   - recent `review_grade`
+5. If state already contains project-local `market_adjustments`, treat those as the first packaging-side market hints.
+6. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
+7. Resolve packaging mode:
 
 ### title
 
@@ -114,8 +119,14 @@ Read conditionally:
   - opening-hook suggestions
   - brief packaging notes
 
-7. If `save` is not requested, return concise proposals only.
-8. If `save` is requested:
+8. Standardize the output into these sections when useful:
+   - `项目定位`
+   - `推荐主方案`
+   - `备选方案`
+   - `暂不推荐方向`
+   - `包装约束`
+9. If `save` is not requested, return concise proposals only.
+10. If `save` is requested:
    - ensure `包装/` exists
    - save to:
      - `包装/书名方案.md`
@@ -123,21 +134,30 @@ Read conditionally:
      - `包装/命名方案.md`
      - `包装/开篇包装.md`
      - or `包装/包装方案.md` for `full`
-9. Do not rewrite `.mighty/state.json` in first-version packaging flows.
+11. Do not rewrite `.mighty/state.json` in first-version packaging flows.
 
 ## Output conventions
 
 Prefer:
 
-- short candidate lists
-- one recommended option
-- compact rationale
+- one recommended main direction
+- 2-4 viable alternatives
+- explicit reasons for what not to push
+- compact packaging constraints tied to current canon and review state
 
 For synopsis output, keep each version clearly labeled by angle, such as:
 
 - 平台稳妥版
 - 冲突强化版
 - 爽点强化版
+
+For full output, prefer this structure:
+
+- `项目定位`
+- `推荐主方案`
+- `备选方案`
+- `暂不推荐方向`
+- `包装约束`
 
 For naming output, explain:
 
@@ -157,6 +177,7 @@ When saving:
 
 - Packaging should amplify what the project already is, not invent a different book.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
+- If recent chapter review says `needs_fix`, do not overpromise packaging that the current text cannot support.
 - Use market-scan output as a weak-to-medium signal unless confidence is clearly high.
 - Keep first-version packaging practical; do not pretend to A/B test live platform response.
 - If the user actually wants prose-level chapter improvement, route to `novel-polish`, `novel-fix`, or `novel-rewrite`.

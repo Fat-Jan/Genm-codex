@@ -72,9 +72,33 @@ Update at minimum:
 - `chapter_meta[chapter].dimension_scores`
 - `chapter_meta[chapter].needs_fix`
 
+When the route is clear, also update:
+
+- `chapter_meta[chapter].recommended_next_action`
+
 ## Notes
 
 - Prefer deterministic, evidence-based findings over vague style criticism.
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - Do not claim a review passed unless the report actually shows the score and issues.
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
+
+## Route rules
+
+Choose the primary route like this:
+
+- `novel-fix`
+  - local payoff weakness
+  - one or two concrete issue clusters
+  - no need to replace chapter purpose or ordering
+- `novel-polish`
+  - anti-AI cleanup
+  - prose tightening
+  - dialogue or description refinement
+  - continuity remains structurally sound
+- `novel-rewrite`
+  - chapter purpose is wrong
+  - event ordering or hook structure has to be rebuilt
+  - multiple major issues point to a structural failure, not a local repair
+
+If none of the above is needed, use `none`.

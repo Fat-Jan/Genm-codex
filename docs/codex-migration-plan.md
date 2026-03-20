@@ -260,6 +260,12 @@ while reusing copied shared assets from the source `Genm` repository.
 - recommended implementation start:
   - normalize `novel-package` output structure
   - tighten `review / precheck` route consistency
+- `Phase 10A / P0` smoke results: `docs/phase-10a-p0-smoke-results.md`
+- `Phase 10B / P0` smoke results: `docs/phase-10b-p0-smoke-results.md`
+- `Phase 10A / P0` smoke status:
+  - `novel-package`: pass
+- `Phase 10B / P0` smoke status:
+  - `novel-precheck`: pass
 
 ## Phase 2 Smoke Status
 

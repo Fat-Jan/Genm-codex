@@ -95,6 +95,7 @@ Resolve shared profile roots in this order:
    - should-fix items
    - strongest positives
    - submission recommendation
+   - packaging readiness
 
 ## Platform guidance
 
@@ -131,6 +132,7 @@ Prefer this shape:
 - 必须修复
 - 建议修复
 - 优势
+- 包装状态
 - 投稿建议
 
 Use `✅ / ⚠️ / ❌` style summaries when helpful.
@@ -141,3 +143,21 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - Be conservative: only flag issues you can support from the text.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
+
+## Submission status conventions
+
+Prefer one of these final labels:
+
+- `ready-now`
+- `revise-then-submit`
+- `do-not-submit`
+
+Also report:
+
+- `packaging-needs-update: yes|no`
+
+Use `packaging-needs-update: yes` when:
+
+- current text has materially shifted away from existing packaging emphasis
+- recent review findings imply the packaging is overpromising
+- market-adjustment packaging advice is clearly not reflected in current outward positioning
