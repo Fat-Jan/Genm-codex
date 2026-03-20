@@ -97,6 +97,7 @@ bash scripts/validate-migration.sh
 阅读：
 
 - `docs/skill-usage.md`
+- `docs/start-here.md`
 
 ### 5. 查看阶段总结
 
@@ -118,6 +119,8 @@ bash scripts/validate-migration.sh
 - `docs/phase-3-scope.md`
 - `docs/phase-4-scope.md`
 - `docs/phase-5-scope.md`
+- `docs/phase-6-scope.md`
+- `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
 ## 说明

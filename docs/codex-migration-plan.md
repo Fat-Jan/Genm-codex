@@ -153,6 +153,22 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 5B`: validated
 - repository now has enough migration coverage to justify a `v0.8.0` release line
 
+## Phase 6 Direction
+
+- sixth-phase scope selected
+- scope doc: `docs/phase-6-scope.md`
+- `Phase 6A`: docs-first help/tutorial consolidation
+- `Phase 6B`: keep `novel-scan` deferred until external trend-scanning contracts are stable
+- `novel-help` / `novel-tutorial`: docs-first, likely non-skillized
+- `novel-scan`: external-dependency candidate, still deferred
+- `Phase 6A` implementation status: completed (docs-first)
+- `Phase 6B`: deferred
+
+### Phase 6 current conclusion
+
+- `Phase 6A`: validated
+- repository now has enough coverage to justify a `v0.9.0` docs-first consolidation release
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
