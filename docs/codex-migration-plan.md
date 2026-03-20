@@ -275,6 +275,7 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 10A / P1` implementation status: started
 - current direction:
   - `novel-package` should report current text-carrying capacity and whether existing packaging needs update
+  - a narrow-judgment shortcut was added so this check does not need to expand into a full packaging proposal first
 - `Phase 10B / P1` implementation status: started
 - current direction:
   - verify `novel-review` can persist `recommended_next_action` into chapter state

@@ -32,6 +32,15 @@ Validate that the packaging layer can reason about:
 - the extremely short `novel-package` follow-up probe did not return a clean final two-line answer within the capture window
 - so the new reasoning inputs are proven, but the exact final user-facing phrasing is not yet fully locked
 
+## Subsequent improvement
+
+After this first checkpoint, the skill was tightened with a narrow-judgment shortcut:
+
+- when the user only asks about current text-carrying capacity
+- or only asks whether packaging should be updated
+
+the skill should now avoid expanding into a full candidate-generation path first.
+
 ## Practical conclusion
 
 The packaging layer is now structurally aligned with the right signals. The remaining gap is output crispness, not missing project context.

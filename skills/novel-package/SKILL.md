@@ -38,6 +38,9 @@ It consumes signals from those systems and turns them into packaging outputs.
 - optional `count`
 - optional `target_character`
 - optional `save`
+- optional narrow judgment intent such as:
+  - current text-carrying capacity
+  - whether existing packaging should be updated
 
 ## Preconditions
 
@@ -89,6 +92,26 @@ Read conditionally:
 6. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
 7. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
 8. Resolve packaging mode:
+
+### narrow judgment shortcut
+
+If the user is only asking for:
+
+- current packaging fit
+- current text-carrying capacity
+- whether existing packaging should be updated
+
+then do not expand into a full candidate set first.
+
+Instead:
+
+1. read:
+   - `.mighty/state.json`
+   - `大纲/总纲.md`
+   - existing packaging under `包装/` when present
+   - only the minimum recent chapter / review context needed
+2. return a concise judgment first
+3. only expand into full packaging proposals if the user also explicitly asks for them
 
 ### title
 
@@ -164,6 +187,11 @@ For full output, prefer this structure:
 - `备选方案`
 - `暂不推荐方向`
 - `包装约束`
+- `是否建议更新现有包装`
+
+For narrow judgment-only output, prefer:
+
+- `正文承载状态`
 - `是否建议更新现有包装`
 
 For naming output, explain:
