@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Precheck"
+  short_description: "Run a read-only pre-submission readiness check."
+  default_prompt: "Use $novel-precheck to assess whether the current chapter range is ready for submission to a target platform."
+
+policy:
+  allow_implicit_invocation: true

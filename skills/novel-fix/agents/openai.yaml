@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Fix"
+  short_description: "Apply focused fixes from chapter review findings."
+  default_prompt: "Use $novel-fix to apply targeted fixes to a reviewed chapter without escalating to a full rewrite."
+
+policy:
+  allow_implicit_invocation: true

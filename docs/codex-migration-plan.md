@@ -87,6 +87,53 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 3B`: validated
 - repository now has enough migration coverage to justify a `v0.4.0` release line
 
+## Phase 4 Direction
+
+- fourth-phase scope selected
+- scope doc: `docs/phase-4-scope.md`
+- `Phase 4A`: `novel-fix`, `novel-snapshot`, `novel-precheck`, `novel-workflow`
+- `Phase 4B`: `novel-retrieve`, `novel-spinoff`
+- deferred for later: `novel-learn`, `novel-scan`
+- low-priority / likely non-skillized: `novel-config`, `novel-test`, `novel-tutorial`, `novel-help`
+- `Phase 4A / P0` implementation status: started
+- `novel-fix`: created
+- `novel-snapshot`: created
+- `Phase 4A / P0` smoke status:
+  - `novel-fix`: pass
+  - `novel-snapshot`: pass
+- `Phase 4A / P1` implementation status: started
+- `novel-precheck`: created
+- `Phase 4A / P2` implementation status: started
+- `novel-workflow`: created
+- `Phase 4A / P1` smoke status:
+  - `novel-precheck`: pass
+- `Phase 4A / P2` smoke status:
+  - `novel-workflow`: pass
+
+### Phase 4A current conclusion
+
+- `Phase 4A`: validated
+- `Phase 4B / P0` implementation status: started
+- `novel-retrieve`: created
+- `Phase 4B / P0` smoke status:
+  - `novel-retrieve`: pass
+- `Phase 4B / P1` implementation status: started
+- `novel-spinoff`: created
+- `Phase 4B / P1` smoke status:
+  - `novel-spinoff`: pass
+
+### Phase 4 current conclusion
+
+- `Phase 4A`: validated
+- `Phase 4B`: validated
+- repository now has enough migration coverage to justify a `v0.6.0` release line
+- `Phase 4B / P1` implementation status: started
+- `novel-spinoff`: created
+- `Phase 4B / P0` smoke status:
+  - `novel-retrieve`: pass
+- `Phase 4B / P0` smoke status:
+  - `novel-retrieve`: pass
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

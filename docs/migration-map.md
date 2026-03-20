@@ -50,6 +50,22 @@ Phase 1 only migrates the core creation loop and shared asset layer.
 | `build/commands/novel-index.md` | `skills/novel-index/SKILL.md` | chapter files + state + optional setting files | done | first version focuses on lightweight `.mighty/index.json`, not heavy entity extraction |
 | `build/commands/novel-log.md` | `skills/novel-log/SKILL.md` | `.mighty/logs/trace.jsonl` | done | first version is a read-only tail/search/stats viewer with clear “log not initialized” behavior |
 
+## Phase 4A In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-fix.md` | `skills/novel-fix/SKILL.md` | chapter review metadata + chapter text + state | done | first version focuses on targeted issue-based fixes, not broad automatic rewriting |
+| `build/commands/novel-snapshot.md` | `skills/novel-snapshot/SKILL.md` | `chapter_snapshots` + `.mighty/snapshots/` | done | first version stays state-centric and reuses the existing snapshot layout |
+| `build/commands/novel-precheck.md` | `skills/novel-precheck/SKILL.md` | chapter text + state + optional shared platform profile | done | first version is a read-only submission-readiness checker, not an upload automator |
+| `build/commands/novel-workflow.md` | `skills/novel-workflow/SKILL.md` | `.mighty/workflow_state.json` + `.mighty/state.json` | done | first version is a lightweight state manager, not a full workflow orchestrator |
+
+## Phase 4B In Progress
+
+| Source Command | Target Skill | Primary Shared Dependencies | Status | Notes |
+|----------------|-------------|-----------------------------|--------|-------|
+| `build/commands/novel-retrieve.md` | `skills/novel-retrieve/SKILL.md` | state + index + character/setting files | done | first version is a writing-oriented retrieval layer, not a second general query engine |
+| `build/commands/novel-spinoff.md` | `skills/novel-spinoff/SKILL.md` | state + canon files + setting files | done | first version is a lightweight single-project spinoff writer, not a multi-book universe manager |
+
 ## Explicit Non-Migration in Phase 1
 
 | Source Area | Decision | Reason |

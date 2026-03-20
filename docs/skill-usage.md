@@ -13,10 +13,14 @@
 - `genm-novel-batch`
 - `genm-novel-character`
 - `genm-novel-foreshadowing`
+- `genm-novel-fix`
 - `genm-novel-genre`
 - `genm-novel-index`
 - `genm-novel-log`
 - `genm-novel-polish`
+- `genm-novel-precheck`
+ - `genm-novel-snapshot`
+ - `genm-novel-workflow`
 - `genm-novel-query`
 - `genm-novel-setting`
 - `genm-novel-status`
@@ -25,7 +29,9 @@
 - `genm-novel-write`
 - `genm-novel-review`
 - `genm-novel-resume`
+- `genm-novel-retrieve`
 - `genm-novel-rewrite`
+ - `genm-novel-spinoff`
 - `genm-novel-export`
 
 同时也会创建对应的 plain 名，例如：
@@ -34,11 +40,17 @@
 - `novel-query`
 - `novel-index`
 - `novel-log`
+- `novel-fix`
+- `novel-precheck`
+ - `novel-snapshot`
 - `novel-status`
+ - `novel-workflow`
 - `novel-analyze`
 - `novel-polish`
 - `novel-genre`
 - `novel-resume`
+- `novel-retrieve`
+ - `novel-spinoff`
 
 ## 调用名说明
 
@@ -72,7 +84,7 @@
 - `genm-novel-status`
 - `genm-novel-batch`
 
-## 第三阶段已起步
+## 第三阶段已完成
 
 - `genm-novel-polish`
 - `genm-novel-genre`
@@ -102,6 +114,24 @@
 - 查询活跃伏笔
 - 统计项目进度
 - 列出角色/物品/地点信息
+
+## 第四阶段已完成
+
+- `genm-novel-fix`
+- `genm-novel-snapshot`
+- `genm-novel-precheck`
+- `genm-novel-workflow`
+- `genm-novel-retrieve`
+- `genm-novel-spinoff`
+
+推荐场景：
+
+- 根据 review 结果做局部修复
+- 查看或加载章节快照
+- 在投稿前做只读预检
+- 查看当前 workflow 是否空闲
+- 获取写作瞬时参考卡
+- 在单项目内写轻量番外
 
 ### character
 
@@ -155,6 +185,42 @@
 
 ```text
 请使用 novel-log skill，检查当前项目的 trace 日志是否已初始化；如果已初始化，再给我最近 10 条摘要。
+```
+
+### fix
+
+```text
+请使用 novel-fix skill，基于第001章的 review 结果，只修最关键的两项问题，并告诉我哪些问题已处理。
+```
+
+### snapshot
+
+```text
+请使用 novel-snapshot skill，列出当前项目已有的章节快照，并告诉我第001章快照里最关键的状态信息。
+```
+
+### precheck
+
+```text
+请使用 novel-precheck skill，对第001章到第003章做番茄平台的投稿前预检，并告诉我现在适不适合直接投稿。
+```
+
+### workflow
+
+```text
+请使用 novel-workflow skill，告诉我当前项目有没有活动中的 workflow；如果没有，就说明现在处于什么状态。
+```
+
+### retrieve
+
+```text
+请使用 novel-retrieve skill，快速告诉我“后山东壁石门”现在在项目里是什么定位，以及写作时最该记住的约束。
+```
+
+### spinoff
+
+```text
+请使用 novel-spinoff skill，基于当前项目写一个“林晚照角色篇”的轻量番外，并明确它不是主线正文章节。
 ```
 
 ### query
@@ -238,4 +304,5 @@ title=E2E样本，genre=玄幻，platform=番茄，target_chapters=10
 - 第三阶段当前只起步了 `polish` 和 `genre`
 - 第三阶段当前也已进入 `analyze / resume / index`
 - 第三阶段已完成 `polish / genre / analyze / resume / index / log`
+- 第四阶段已完成 `fix / snapshot / precheck / workflow / retrieve / spinoff`
 - `shared/` 资产更新后应重新运行同步脚本

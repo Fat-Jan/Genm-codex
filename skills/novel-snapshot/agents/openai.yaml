@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Snapshot"
+  short_description: "Generate, load, list, and diff chapter snapshots."
+  default_prompt: "Use $novel-snapshot to generate or inspect chapter snapshots for the current novel project."
+
+policy:
+  allow_implicit_invocation: true

@@ -2,7 +2,7 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前三阶段迁移，目标是让 Codex 直接使用核心与增强型网文工作台，而不再依赖 Claude 插件清单和旧命令壳。
+本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前四阶段迁移，目标是让 Codex 直接使用核心、增强、编辑控制与写作辅助能力，而不再依赖 Claude 插件清单和旧命令壳。
 
 ## 当前范围
 
@@ -32,6 +32,15 @@ Codex 原生网文创作技能工作区。
 - `genm-novel-resume`
 - `genm-novel-index`
 - `genm-novel-log`
+
+第四阶段已完成的控制与辅助 Skill：
+
+- `genm-novel-fix`
+- `genm-novel-snapshot`
+- `genm-novel-precheck`
+- `genm-novel-workflow`
+- `genm-novel-retrieve`
+- `genm-novel-spinoff`
 
 ## 目录说明
 
@@ -90,6 +99,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-1-summary.md`
 - `docs/phase-2-summary.md`
 - `docs/phase-3-summary.md`
+- `docs/phase-4-summary.md`
 
 ## 参考文档
 
@@ -99,6 +109,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-2-smoke-plan.md`
 - `docs/phase-2-smoke-results.md`
 - `docs/phase-3-scope.md`
+- `docs/phase-4-scope.md`
 
 ## 说明
 

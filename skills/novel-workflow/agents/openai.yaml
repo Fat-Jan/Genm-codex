@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Workflow"
+  short_description: "Inspect and update lightweight workflow state."
+  default_prompt: "Use $novel-workflow to inspect or update the current workflow state for this novel project."
+
+policy:
+  allow_implicit_invocation: true

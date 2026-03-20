@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Retrieve"
+  short_description: "Fetch writing-ready reference context fast."
+  default_prompt: "Use $novel-retrieve to quickly pull the most relevant reference context for a character, setting, item, or plot thread."
+
+policy:
+  allow_implicit_invocation: true

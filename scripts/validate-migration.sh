@@ -36,6 +36,7 @@ for skill in \
   novel-write \
   novel-review \
   novel-resume \
+  novel-retrieve \
   novel-rewrite \
   novel-export \
   novel-query \
@@ -46,8 +47,14 @@ for skill in \
   novel-batch \
   novel-index \
   novel-log \
+  novel-fix \
   novel-polish \
-  novel-genre
+  novel-precheck \
+  novel-genre \
+  novel-snapshot \
+  novel-workflow \
+  novel-retrieve \
+  novel-spinoff
 do
   require_file "${ROOT_DIR}/skills/${skill}/SKILL.md"
 done

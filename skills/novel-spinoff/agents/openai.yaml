@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Spinoff"
+  short_description: "Create a lightweight side story from the current project."
+  default_prompt: "Use $novel-spinoff to write a small side story or character extra that stays aligned with the current project canon."
+
+policy:
+  allow_implicit_invocation: true
