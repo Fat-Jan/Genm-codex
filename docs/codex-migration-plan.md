@@ -169,6 +169,18 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 6A`: validated
 - repository now has enough coverage to justify a `v0.9.0` docs-first consolidation release
 
+## Phase 7 Direction
+
+- seventh-phase scope selected
+- scope doc: `docs/phase-7-scope.md`
+- `Phase 7A`: external trend-scanning contract design for `novel-scan`
+- `Phase 7B`: selective-sync governance design for `shared` assets
+- no direct implementation promised yet
+- `Phase 7A` contract doc: `docs/phase-7a-scan-contract.md`
+- `Phase 7B` governance doc: `docs/phase-7b-selective-sync-governance.md`
+- `sync-shared-from-genm.sh` now supports `--report`
+- `sync-shared-from-genm.sh` now supports `--domain`
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)

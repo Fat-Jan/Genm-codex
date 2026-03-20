@@ -2,7 +2,7 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前五阶段主体迁移，目标是让 Codex 直接使用核心、增强、编辑控制、写作辅助以及环境/学习能力，而不再依赖 Claude 插件清单和旧命令壳。
+本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前已完成前五阶段主体迁移，并进入第七阶段的契约与治理收口，目标是让 Codex 直接使用核心、增强、编辑控制、写作辅助以及环境/学习能力，而不再依赖 Claude 插件清单和旧命令壳。
 
 ## 当前范围
 
@@ -108,6 +108,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-3-summary.md`
 - `docs/phase-4-summary.md`
 - `docs/phase-5-summary.md`
+- `docs/phase-7-summary.md`
 
 ## 参考文档
 
@@ -120,6 +121,9 @@ bash scripts/validate-migration.sh
 - `docs/phase-4-scope.md`
 - `docs/phase-5-scope.md`
 - `docs/phase-6-scope.md`
+- `docs/phase-7-scope.md`
+- `docs/phase-7a-scan-contract.md`
+- `docs/phase-7b-selective-sync-governance.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
