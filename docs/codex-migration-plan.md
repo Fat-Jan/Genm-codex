@@ -280,6 +280,22 @@ while reusing copied shared assets from the source `Genm` repository.
 - current direction:
   - verify `novel-review` can persist `recommended_next_action` into chapter state
 
+### Phase 10 current conclusion
+
+- `Phase 10A`: validated
+- `Phase 10B`: validated
+- repository now has enough coverage to justify a `v0.14.0` convergence release line
+
+## Phase 11 Direction
+
+- eleventh-phase scope selected
+- scope doc: `docs/phase-11-scope.md`
+- `Phase 11A`: `v1.0.0` boundary definition
+- `Phase 11B`: default workflow convergence
+- recommended implementation start:
+  - define the `v1.0.0` boundary
+  - define the default workflow
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
