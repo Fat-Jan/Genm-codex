@@ -127,12 +127,6 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 4A`: validated
 - `Phase 4B`: validated
 - repository now has enough migration coverage to justify a `v0.6.0` release line
-- `Phase 4B / P1` implementation status: started
-- `novel-spinoff`: created
-- `Phase 4B / P0` smoke status:
-  - `novel-retrieve`: pass
-- `Phase 4B / P0` smoke status:
-  - `novel-retrieve`: pass
 
 ## Phase 2 Smoke Status
 
