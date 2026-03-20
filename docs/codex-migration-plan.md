@@ -266,6 +266,18 @@ while reusing copied shared assets from the source `Genm` repository.
   - `novel-package`: pass
 - `Phase 10B / P0` smoke status:
   - `novel-precheck`: pass
+- `Phase 10A / P1` smoke results: `docs/phase-10a-p1-smoke-results.md`
+- `Phase 10B / P1` smoke results: `docs/phase-10b-p1-smoke-results.md`
+- `Phase 10A / P1` smoke status:
+  - `novel-package`: partial pass
+- `Phase 10B / P1` smoke status:
+  - `novel-review`: pass
+- `Phase 10A / P1` implementation status: started
+- current direction:
+  - `novel-package` should report current text-carrying capacity and whether existing packaging needs update
+- `Phase 10B / P1` implementation status: started
+- current direction:
+  - verify `novel-review` can persist `recommended_next_action` into chapter state
 
 ## Phase 2 Smoke Status
 
