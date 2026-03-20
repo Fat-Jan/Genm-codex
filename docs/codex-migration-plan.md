@@ -312,6 +312,16 @@ while reusing copied shared assets from the source `Genm` repository.
 - `Phase 12B`: validated
 - repository now has enough readiness evidence to justify a `v0.16.0` readiness release line
 
+## Phase 13 Direction
+
+- thirteenth-phase scope selected
+- scope doc: `docs/phase-13-scope.md`
+- `Phase 13A`: `v1.0.0-rc1` plan
+- `Phase 13B`: RC exit criteria
+- recommended implementation start:
+  - write `docs/v1-rc-plan.md`
+  - write `docs/v1-rc-exit-criteria.md`
+
 ## Phase 2 Smoke Status
 
 - `novel-query`: pass (after strict directory-bound re-test)
