@@ -11,6 +11,7 @@ Use this skill when a chapter already has review findings and the user wants foc
 
 - `chapter`
 - optional `issues`
+- optional `content_bucket`
 - optional preview intent
 
 ## Preconditions
@@ -32,6 +33,8 @@ Read conditionally:
 - `chapter_meta[N].suggested_fixes`
 - relevant `设定集/角色/*.md`
 - `设定集/力量体系.md`
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## First-version scope
 
@@ -55,6 +58,9 @@ If the required change is too large or would replace most of the chapter, route 
 ## Workflow
 
 1. Read the chapter and current state.
+   - determine `meta.platform`
+   - determine explicit `content_bucket` if provided
+   - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. Read the chapter’s review findings from `chapter_meta`.
 3. Decide whether the requested fix is:
    - `fix` sized: proceed
@@ -64,17 +70,25 @@ If the required change is too large or would replace most of the chapter, route 
    - warnings
    - suggested fixes
    - explicit `issues` filter if the user provided one
-5. Apply the smallest set of changes that materially resolves the chosen issues.
-6. Preserve:
+5. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as fix-side constraints for:
+     - opening urgency
+     - payoff clarity
+     - conflict density
+     - chapter-end carryover
+6. Apply the smallest set of changes that materially resolves the chosen issues.
+7. Preserve:
    - chapter purpose
    - key events
    - named entities
    - continuity with state and setting files
-7. If preview mode is requested:
+8. If preview mode is requested:
    - return a concise fix summary
    - include the proposed modified sections or chapter text
    - do not save
-8. Otherwise:
+9. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the fixed chapter
    - update fix metadata in `.mighty/state.json`
@@ -113,3 +127,4 @@ If the fix resolves previously recorded issues, also update when appropriate:
 - Prefer precise local edits over broad stylistic churn.
 - If the review findings and chapter text disagree, trust the current chapter plus state, not stale assumptions.
 - If the fix requires changing a related file like `设定集/角色/主角.md`, keep that change minimal and explain why.
+- When a Fanqie content bucket is active, use it to sharpen delivery for that bucket, not to broaden the chapter or smuggle in a rewrite.
