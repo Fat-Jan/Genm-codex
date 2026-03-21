@@ -347,6 +347,15 @@ while reusing copied shared assets from the source `Genm` repository.
   - stop expanding default scope
   - focus on blocker-only stabilization
 
+## Phase 16 Direction
+
+- sixteenth-phase scope selected
+- scope doc: `docs/phase-16-scope.md`
+- main action: promote from `v1.0.0-rc1` to formal `v1.0.0`
+- post-promotion rule:
+  - stop using migration-era phase progression as the primary product frame
+  - move into `v1.x` stabilization and evolution
+
 ### Phase 14 current conclusion
 
 - `Phase 14A`: validated
