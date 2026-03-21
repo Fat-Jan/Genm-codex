@@ -81,6 +81,12 @@
   - 结论：`恶女 x 现实情感` 已完成 `golden three`
   - 当前定位：第二条正式深做线、第二条生产模板候选
 
+当前第三条实验线状态：
+
+- [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-tianchong-experiment-status.md)
+  - 结论：`恶女 x 现言甜宠` 已完成 `golden three`
+  - 当前定位：第三条实验线，不升格为生产模板候选
+
 ---
 
 ## 统一字段建议
