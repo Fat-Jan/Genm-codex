@@ -69,6 +69,12 @@
 2. `恶女 x 现实情感`
 3. `恶女 x 现言甜宠`
 
+当前已经收口出来的第一条内部生产模板：
+
+- [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
+  - 结论：`恶女 x 宫斗宅斗` 已可作为第一条番茄女频长篇内部生产模板继续写
+  - 但当前 1-6 章样本若直接外投，仍建议先走一轮集中 `review / fix`
+
 ---
 
 ## 统一字段建议

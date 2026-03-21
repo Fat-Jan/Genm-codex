@@ -64,10 +64,14 @@
 ### 当前建议
 
 - **列为第一条正式深做的恶女生产线**
+- 当前进一步判断：
+  - **已可作为第一条内部生产模板继续写**
+  - 参考：
+    - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
 
 ### 当前样本状态
 
-- 已完成：`package -> write -> review -> fix`
+- 已完成：`package -> golden three -> chapter 6 continuity sample`
 - 当前可直接复用样本：
   - [smoke/e2e-gongdou-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-gongdou-evil)
 
