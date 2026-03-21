@@ -42,6 +42,7 @@
 - `genm-novel-retrieve`
 - `genm-novel-rewrite`
 - `genm-novel-spinoff`
+- `genm-novel-sync`
 - `genm-novel-test`
 - `genm-novel-export`
 
@@ -67,6 +68,7 @@
 - `novel-resume`
 - `novel-retrieve`
  - `novel-spinoff`
+ - `novel-sync`
 
 ## 调用名说明
 
@@ -148,6 +150,7 @@
 - 查看当前 workflow 是否空闲
 - 获取写作瞬时参考卡
 - 在单项目内写轻量番外
+- 把稳定角色 / 地点 / 势力从运行态同步回设定集
 
 ## 第五阶段已完成
 

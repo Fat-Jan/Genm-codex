@@ -102,3 +102,4 @@ Read conditionally:
 - Prefer the smallest setting edit that preserves internal consistency.
 - If a requested change would invalidate existing chapter content, say so explicitly.
 - Only touch `.mighty/state.json` when the project already uses `setting_versions` or related tracking there.
+- If the user mainly wants to materialize stable locations / factions from recent `state` + chapter context back into `设定集/`, prefer `novel-sync` first, then use `novel-setting` for hand-tuned refinement.

@@ -85,3 +85,4 @@ Read conditionally:
 
 - Do not invent large cast bibles unless the user asks.
 - Prefer updating the character file first; only touch `.mighty/state.json` when the project already uses character-state tracking there.
+- If the user mainly wants to materialize stable roles from recent `state` + chapter context back into `设定集/角色/`, prefer `novel-sync` first, then use `novel-character` for hand-tuned refinement.

@@ -48,5 +48,6 @@ install_skill_aliases "novel-resume"
 install_skill_aliases "novel-retrieve"
 install_skill_aliases "novel-rewrite"
 install_skill_aliases "novel-export"
+install_skill_aliases "novel-sync"
 
 echo "Installed Genm-codex skills into ${TARGET_DIR}"

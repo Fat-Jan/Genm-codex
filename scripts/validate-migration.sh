@@ -40,6 +40,7 @@ for skill in \
   novel-retrieve \
   novel-rewrite \
   novel-export \
+  novel-sync \
   novel-query \
   novel-scan \
   novel-status \

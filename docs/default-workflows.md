@@ -52,12 +52,15 @@
    - `novel-fix`
    - `novel-polish`
    - `novel-rewrite`
+4. 每 3-5 章或一个阶段后：
+   - `novel-sync`
 
 目标：
 
 - 先把章节写出来
 - 再做审查
 - 再按问题类型修
+- 再把稳定实体沉淀回 `设定集/`
 
 推荐规则：
 
@@ -144,6 +147,7 @@
 - `novel-character`
 - `novel-setting`
 - `novel-foreshadowing`
+- `novel-sync`
 
 ### 恢复与回溯
 
@@ -198,6 +202,7 @@
 2. 有项目想继续写：`write -> review -> fix/polish/rewrite`
 3. 想投稿：`precheck -> package -> export`
 4. 想稳住风格：`learn -> status`
+5. 设定集长期不更新：`sync -> character/setting`
 
 ---
 

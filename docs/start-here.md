@@ -78,6 +78,21 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 - `novel-resume`
 - `novel-workflow`
 
+### 7. 我发现设定集和当前正文 / state 脱节了
+
+优先用：
+
+- `novel-sync`
+- 再按需用：
+  - `novel-character`
+  - `novel-setting`
+
+最小提示词：
+
+```text
+请使用 novel-sync skill，把当前项目里最近稳定出现的角色、地点和势力同步回设定集。
+```
+
 ## 阶段能力地图
 
 ### 核心闭环

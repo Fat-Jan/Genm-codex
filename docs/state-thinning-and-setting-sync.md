@@ -381,6 +381,11 @@
 - 重要地点同步
 - 重要势力同步
 
+当前已落地的第一版实现：
+
+- `novel-sync`
+- `scripts/sync-setting-assets.py`
+
 ### Phase 3：再考虑进一步瘦身
 
 等同步层稳定后，再判断是否拆：

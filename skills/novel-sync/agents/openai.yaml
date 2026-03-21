@@ -1,0 +1,7 @@
+interface:
+  display_name: "Novel Sync"
+  short_description: "Sync stable state facts back into 设定集 assets."
+  default_prompt: "Use $novel-sync to sync stable characters, locations, and factions from the current project state into 设定集/."
+
+policy:
+  allow_implicit_invocation: true
