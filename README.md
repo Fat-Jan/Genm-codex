@@ -128,6 +128,8 @@ bash scripts/validate-migration.sh
 
 - `docs/migration-map.md`
 - `docs/codex-migration-plan.md`
+- `docs/v1-maintenance-mode.md`
+- `docs/v1.1-roadmap.md`
 - `docs/phase-2-priorities.md`
 - `docs/phase-2-smoke-plan.md`
 - `docs/phase-2-smoke-results.md`
