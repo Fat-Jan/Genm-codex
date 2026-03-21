@@ -37,6 +37,8 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
+- `../../docs/fanqie-rule-priority-matrix.md`
 
 ## First-version scope
 
@@ -82,17 +84,26 @@ If the required change is too large or would replace most of the chapter, route 
      - payoff clarity
      - conflict density
      - chapter-end carryover
-6. Apply the smallest set of changes that materially resolves the chosen issues.
-7. Preserve:
+6. If Fanqie fix rules are active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - use them as third-layer fix-side optimization for:
+     - first-page hook sharpness
+     - explanation density
+     - character vividness
+     - suspense handoff
+   - do not let technique rules override canon, chapter purpose, or active bucket
+7. Apply the smallest set of changes that materially resolves the chosen issues.
+8. Preserve:
    - chapter purpose
    - key events
    - named entities
    - continuity with state and setting files
-8. If preview mode is requested:
+9. If preview mode is requested:
    - return a concise fix summary
    - include the proposed modified sections or chapter text
    - do not save
-9. Otherwise:
+10. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the fixed chapter
    - update fix metadata in `.mighty/state.json`
@@ -131,5 +142,10 @@ If the fix resolves previously recorded issues, also update when appropriate:
 - Prefer precise local edits over broad stylistic churn.
 - If the review findings and chapter text disagree, trust the current chapter plus state, not stale assumptions.
 - If the fix requires changing a related file like `设定集/角色/主角.md`, keep that change minimal and explain why.
+- When Fanqie rules stack, apply them in this order:
+  1. canon / state / chapter purpose
+  2. active bucket
+  3. writing-technique optimization
+  4. tagpack overlay when explicitly active
 - When a Fanqie content bucket is active, use it to sharpen delivery for that bucket, not to broaden the chapter or smuggle in a rewrite.
 - If a first-batch MVP bucket config exists, use it to resolve issues in the most direct bucket-fitting way available.

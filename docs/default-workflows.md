@@ -94,6 +94,12 @@
 - `packaging-needs-update = yes`
   - 先回包装层
 
+当前已验证的番茄女频样本里，最靠近这条工作流完成态的是：
+
+- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
+  - `恶女 x 宫斗宅斗`
+  - 结论：`ready-now`
+
 ---
 
 ## 默认工作流 4：持续学习
@@ -155,6 +161,19 @@
 
 - 仍属于实验能力
 - 它能提供市场信号，但不该成为每个用户默认要跑的步骤
+
+---
+
+## 当前 Fanqie-first 真实状态
+
+- 第一条内部生产模板：
+  - `恶女 x 宫斗宅斗`
+- 首个可投样本：
+  - `恶女 x 宫斗宅斗`
+- 第二条生产模板候选：
+  - `恶女 x 现实情感`
+- 第三条实验线：
+  - `恶女 x 现言甜宠`
 
 ### `novel-config` / `novel-test`
 

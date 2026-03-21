@@ -42,6 +42,8 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
+- `../../docs/fanqie-rule-priority-matrix.md`
 
 ## Workflow
 
@@ -73,23 +75,32 @@ Read conditionally:
      - payoff visibility
      - conflict density
      - chapter-end carryover sharpness
-8. For prose-like polish, explicitly watch for:
+8. If Fanqie polish rules are active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - use them as third-layer polish-side optimization for:
+     - hook sentence sharpness
+     - title / synopsis promise carryover
+     - character liveliness
+     - suspense handoff and map-shift smoothness
+   - do not let technique rules override canon, chapter purpose, or active bucket
+9. For prose-like polish, explicitly watch for:
    - explanation replacing scene display
    - generic symmetrical phrasing
    - filler transitions
    - obvious anti-AI style warnings already known in the project
    - weak bucket-fit delivery when a Fanqie bucket is active
-9. Preserve:
+10. Preserve:
    - chapter purpose
    - core events
    - named entities
    - continuity with existing state
-10. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
-11. If the user asks for preview or comparison, return:
+11. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
+12. If the user asks for preview or comparison, return:
    - short change summary
    - optional before/after excerpts
    - proposed polished text without saving
-12. Otherwise:
+13. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the polished chapter back to `chapters/第N章.md`
    - update polish metadata in `.mighty/state.json`
@@ -124,5 +135,10 @@ If the project already tracks snapshots, refresh `chapter_snapshots[N]` to match
 - If the chapter already has unresolved critical review issues, use them as polish priorities.
 - If the user wants side-by-side diff behavior, keep it lightweight in text; do not recreate the old command’s interactive UI flow.
 - If the project has explicit `avoid_patterns`, treat them as first-class polish targets.
+- When Fanqie rules stack, apply them in this order:
+  1. canon / state / chapter purpose
+  2. active bucket
+  3. writing-technique optimization
+  4. tagpack overlay when explicitly active
 - When a Fanqie content bucket is active, use it to sharpen delivery and readability for that bucket, not to override chapter purpose, canon, or already-accepted plot outcomes.
 - If a first-batch MVP bucket config exists, prefer its reader-motive and ending-hook expectations over generic bucket language.
