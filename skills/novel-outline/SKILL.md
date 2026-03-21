@@ -31,6 +31,7 @@ Use this skill after project initialization, or when the user wants to generate 
 3. If the platform is 番茄 and a `content_bucket` is explicitly given, or a current `genre_profile.bucket` exists, or the user clearly asks for Fanqie-first outline refinement:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
+   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
    - treat those bucket rules as upstream outline constraints, not as mere packaging hints
 4. For `mode=total`:
    - create or update `大纲/总纲.md`
@@ -48,6 +49,8 @@ Use this skill after project initialization, or when the user wants to generate 
      - current bucket’s payoff timing
      - current bucket’s pacing density
      - current bucket’s ending or carryover expectation
+     - current bucket’s primary reader motive when a first-batch MVP template exists
+     - current bucket’s tag pack when a first-batch MVP template exists
 6. Keep chapter outlines specific enough for writing, but short enough to maintain.
 7. If the user asks for multiple options, present 2-3 outline variants before locking one in.
 8. Report which outline files were created or updated, and mention the bucket when one was used.
@@ -63,3 +66,4 @@ Use this skill after project initialization, or when the user wants to generate 
 - If the user asks for broad ideation, provide multiple outline options before locking one in.
 - Do not generate chapter writing content here; this skill ends at outline artifacts.
 - If Fanqie bucket rules are active, they should guide outline shape before packaging and before prose generation.
+- If a first-batch MVP bucket template exists, prefer its hook / payoff / carryover style over generic bucket phrasing.
