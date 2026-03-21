@@ -54,6 +54,7 @@ Read conditionally:
 - `learned_patterns` inside `.mighty/state.json`
 - `market_adjustments` inside `.mighty/state.json`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
@@ -85,7 +86,8 @@ Resolve shared profile roots in this order:
    - project-local `market_adjustments` when they exist
    - Fanqie bucket constraints when `platform=番茄` and a bucket is provided, or when current `genre_profile.bucket` exists, or when the task is clearly bucket-aware
    - when no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the current active bucket
-   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
+   - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
+   - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density
@@ -160,7 +162,7 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
 - Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
-- If a first-batch MVP bucket template exists, prefer its precheck focus over generic bucket commentary.
+- If a first-batch MVP bucket config exists, prefer its `precheck_focus` over generic bucket commentary.
 
 ## Submission status conventions
 

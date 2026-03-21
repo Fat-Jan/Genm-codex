@@ -42,6 +42,7 @@ Read conditionally:
 - current `market_adjustments` inside `.mighty/state.json`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
 
 ## Workflow
@@ -59,7 +60,8 @@ Read conditionally:
 6. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
-   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
+   - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
+   - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as upstream prose constraints for:
      - opening speed
      - payoff timing
@@ -122,4 +124,4 @@ At minimum, update:
 - Treat `learned_patterns` as a preference signal, not a hard rule.
 - Treat `market_adjustments` as packaging or pacing guidance, not as a reason to break canon or outline purpose.
 - When Fanqie bucket constraints are active, use them to tighten chapter rhythm and hook delivery, not to override canon, chapter purpose, or already established plot logic.
-- If a first-batch MVP bucket template exists, prefer its reader-motive and payoff style over generic bucket language.
+- If a first-batch MVP bucket config exists, prefer its reader-motive and payoff style over generic bucket language.

@@ -40,6 +40,7 @@ Read conditionally:
 - `../../shared/references/writing/anti-ai-style.md` when prose, description, or all is requested
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
 
 ## Workflow
@@ -65,7 +66,8 @@ Read conditionally:
 7. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
-   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
+   - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
+   - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as polish-side constraints for:
      - sentence-level opening urgency
      - payoff visibility
@@ -123,4 +125,4 @@ If the project already tracks snapshots, refresh `chapter_snapshots[N]` to match
 - If the user wants side-by-side diff behavior, keep it lightweight in text; do not recreate the old command’s interactive UI flow.
 - If the project has explicit `avoid_patterns`, treat them as first-class polish targets.
 - When a Fanqie content bucket is active, use it to sharpen delivery and readability for that bucket, not to override chapter purpose, canon, or already-accepted plot outcomes.
-- If a first-batch MVP bucket template exists, prefer its reader-motive and ending-hook expectations over generic bucket language.
+- If a first-batch MVP bucket config exists, prefer its reader-motive and ending-hook expectations over generic bucket language.

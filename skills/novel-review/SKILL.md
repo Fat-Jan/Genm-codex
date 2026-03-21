@@ -34,6 +34,7 @@ Read conditionally:
 - shared reference docs for reader-pull, pacing, and anti-AI constraints
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
 
 ## Workflow
@@ -47,7 +48,8 @@ Read conditionally:
 4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
-   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
+   - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
+   - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as upstream review constraints for:
      - opening speed
      - payoff timing
@@ -105,7 +107,7 @@ When the route is clear, also update:
 - Do not claim a review passed unless the report actually shows the score and issues.
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
-- If a first-batch MVP bucket template exists, prefer it over generic bucket commentary when judging fit.
+- If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
 
 ## Route rules
 

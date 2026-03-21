@@ -1,0 +1,147 @@
+version: "1.0"
+strategy: "fanqie-first-mvp"
+
+buckets:
+  qinggan_xianshi:
+    bucket_name: "现实情感"
+    track: "shortform"
+    priority_rank: 1
+    primary_reader_motive:
+      - "痛点代入"
+      - "不公压迫"
+      - "反击与觉醒"
+    tag_pack:
+      - "出轨反击"
+      - "婚恋压迫"
+      - "家庭控制"
+      - "原生家庭创伤"
+      - "女性觉醒"
+      - "离婚反杀"
+    title_formula:
+      - "人物关系 + 核心伤害 + 反击结果"
+      - "社会痛点 + 高情绪词 + 逆转"
+    synopsis_formula:
+      - "先抛最痛的伤害"
+      - "再抛主角被逼到什么程度"
+      - "亮出反击动作或觉醒转折"
+      - "留下更大的关系反噬"
+    opening_rule: "前100到200字必须出现伤害现场，不先铺背景，先给读者情绪立场"
+    payoff_cycle:
+      - "开头即痛点"
+      - "很快给第一次反击"
+      - "中段连续加码"
+      - "结尾用更大的关系反噬或社会性后果收束"
+    ending_hook_rule: "结尾必须留下更大的关系反噬或现实后果，推动继续读下去"
+    precheck_focus:
+      - "情绪是不是够集中"
+      - "痛点是不是够快"
+      - "反击是不是够狠"
+      - "结尾是不是够想看后果"
+
+  gongdou_zhai:
+    bucket_name: "宫斗宅斗"
+    track: "longform"
+    priority_rank: 2
+    primary_reader_motive:
+      - "压迫与翻盘"
+      - "阵营斗法"
+      - "身份抬升"
+    tag_pack:
+      - "嫡庶压制"
+      - "继母陷害"
+      - "假千金真千金"
+      - "赐婚退婚"
+      - "后宅翻盘"
+      - "权谋联姻"
+    title_formula:
+      - "身份反差 + 压制关系 + 高反转"
+      - "明确阵营 + 明确被害 + 明确翻盘点"
+    synopsis_formula:
+      - "先写被谁压"
+      - "再写压到什么程度"
+      - "再写主角靠什么翻盘"
+      - "最后挂出更大的权力链"
+    opening_rule: "第一屏必须见压制关系，主角立刻在局里，第一章末给第一次局内反击或破局准备"
+    payoff_cycle:
+      - "小翻盘"
+      - "被更狠压制"
+      - "身份提升"
+      - "阵营站队"
+      - "章末挂更大局"
+    ending_hook_rule: "章末要把府门局接到更大的婚约局、东宫局或后宅权力局"
+    precheck_focus:
+      - "人物关系清不清"
+      - "压制链是否够狠"
+      - "主角翻盘是不是具体"
+      - "章末有没有更大局势承接"
+
+  xuanhuan_traditional:
+    bucket_name: "传统玄幻"
+    track: "longform"
+    priority_rank: 3
+    primary_reader_motive:
+      - "底层逆袭"
+      - "升级成长"
+      - "世界展开"
+    tag_pack:
+      - "废柴逆袭"
+      - "宗门压迫"
+      - "退婚羞辱"
+      - "父辈旧案"
+      - "金手指显性"
+      - "资源争夺"
+    title_formula:
+      - "身份低位 + 机制金手指 + 生存压力"
+      - "宗门修行体系 + 逆袭承诺"
+    synopsis_formula:
+      - "先给主角低位身份"
+      - "再给倒计时或生存压力"
+      - "再给金手指规则收益"
+      - "最后挂成长主线或旧案主线"
+    opening_rule: "开头要快，第一章就见压迫和翻盘机制，不先做大段世界观"
+    payoff_cycle:
+      - "先受压"
+      - "小反打"
+      - "第一次升级或机缘"
+      - "更大试炼或大比"
+    ending_hook_rule: "章末必须接下一次更大试炼、资源争夺或旧案推进"
+    precheck_focus:
+      - "金手指规则是不是显性"
+      - "升级主线是不是清楚"
+      - "身份反差是否足够强"
+      - "章末承接是否能拉住读者"
+
+  xianyan_tianchong:
+    bucket_name: "现言甜宠"
+    track: "shortform"
+    priority_rank: 4
+    primary_reader_motive:
+      - "高糖关系"
+      - "误会反差"
+      - "轻松打脸"
+    tag_pack:
+      - "先婚后爱"
+      - "协议恋爱"
+      - "误认身份"
+      - "豪门反差"
+      - "带崽闪婚"
+      - "白切黑男主"
+    title_formula:
+      - "人物关系 + 意外事件 + 强甜反差"
+    synopsis_formula:
+      - "快速给关系"
+      - "快速给误会"
+      - "快速给甜宠或打脸"
+      - "留下持续升级的情感钩子"
+    opening_rule: "开场就进关系局，先抛误会或意外，不做慢铺感情线"
+    payoff_cycle:
+      - "开头即高糖或误会"
+      - "很快见第一次反差"
+      - "中段甜虐交替"
+      - "结尾挂情感升级或身份翻转"
+    ending_hook_rule: "结尾要让关系升级或身份误会继续发酵"
+    precheck_focus:
+      - "甜点够不够快"
+      - "误会够不够清楚"
+      - "标题有没有关系张力"
+      - "是否太像普通现言而不够可点"
