@@ -1,0 +1,374 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "闪婚那天，我把京圈太子爷认成司机",
+    "genre": "言情",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 36000,
+    "created_at": "2026-03-21T07:35:00Z",
+    "updated_at": "2026-03-21T08:50:00Z"
+  },
+  "progress": {
+    "current_chapter": 1,
+    "total_words": 2917,
+    "last_write_chapter": 1,
+    "last_write_time": "2026-03-21T08:50:00Z",
+    "milestones": {
+      "golden_three_completed": false,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "林栀",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "海城民政局门口",
+          "origin": "海城"
+        },
+        "inventory": [
+          "结婚证",
+          "工作平板",
+          "租房合同",
+          "陆沉的名片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "快速应变",
+          "情绪管理"
+        ],
+        "status": [
+          "闪婚已成",
+          "被家里催婚",
+          "主动下场开局",
+          "误认男主身份"
+        ],
+        "current_goals": [
+          "先稳住这场闪婚带来的局面",
+          "借这张证把家里和前任先压回去",
+          "弄清陆沉为什么也需要这场婚姻"
+        ],
+        "known_secrets": [
+          "陆沉不是司机，而是陆氏集团执行董事"
+        ],
+        "recent_events": [
+          "林栀在民政局门口主动提出闪婚",
+          "林栀和陆沉当场把证领了",
+          "陈骁亲眼撞见她领证"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "结婚证",
+        "租房合同",
+        "陆沉名片"
+      ],
+      "protagonist_inventory": [
+        "结婚证",
+        "工作平板",
+        "租房合同",
+        "陆沉的名片"
+      ]
+    },
+    "locations": {
+      "current": "海城民政局门口",
+      "visited": [
+        "海城民政局"
+      ],
+      "important": [
+        "民政局",
+        "海城公寓",
+        "陆氏集团"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "陆沉闪婚目的",
+          "description": "陆沉愿意配合闪婚，说明他也有不能明说的现实目的。",
+          "planted_chapter": 1,
+          "expected_range": "3-6",
+          "status": "planned",
+          "related_entities": [
+            "林栀",
+            "陆沉"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "陆沉为什么会愿意陪她把证领了？",
+          "since_chapter": 1
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "摆脱被家里和前任双重拿捏的处境，在这段突如其来的婚姻里重新拿回人生主动权",
+      "location": "海城",
+      "secret": "陆沉并不是普通相亲对象，而是她误认的‘司机’，且这场婚姻对他也另有用途。",
+      "progress": 12
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "林栀被家里和前任同时逼婚",
+      "林栀不是被动上车，而是自己先把婚局掀开",
+      "陆沉真实身份是陆氏集团执行董事"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "陆沉绝不是普通司机或助理。",
+        "since_chapter": 1
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "陆沉为什么也需要这场婚姻",
+      "这场闪婚会先炸到哪一边"
+    ],
+    "key_revelations": [
+      "林栀是主动把自己推进这场闪婚局里的。",
+      "陆沉的真实身份让这场关系绑定瞬间升级。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "轻快带刺，甜里带掌控感",
+      "description_density": "中等",
+      "pacing_preference": "误认开局 -> 关系绑死 -> 身份反差 -> 外部压力升级"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "高糖关系 + 误认反差 + 主动绑死关系",
+    "chapter_words": {
+      "min": 2200,
+      "max": 4200,
+      "target": 3200
+    },
+    "golden_three": {
+      "hook_timing": "第1章见关系反差",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "romance/profile.yaml",
+    "bucket": "现言甜宠",
+    "节奏": {
+      "type": "情感驱动",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 1.0,
+    "strand权重": {
+      "quest": 35,
+      "fire": 40,
+      "constellation": 25
+    },
+    "特殊约束": [
+      {
+        "id": "ROMANCE-001",
+        "description": "男主必须在前3章出场或被强烈暗示",
+        "checkpoint": "前3章"
+      },
+      {
+        "id": "ROMANCE-003",
+        "description": "女主不能无底线原谅",
+        "checkpoint": "冲突解决"
+      }
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "chapter": 1,
+      "title": "证都领了，你现在才想起问我是谁",
+      "path": "chapters/第001章.md",
+      "word_count": 2917,
+      "status": "draft",
+      "created_at": "2026-03-21T08:50:00Z",
+      "updated_at": "2026-03-21T08:50:00Z",
+      "summary": "被前任和家里一起逼到墙角的林栀，在民政局门口主动提出闪婚，先把局掀开。领证之后她才知道自己拉错的不是司机，而是陆氏集团执行董事陆沉，而前任陈骁也在此时亲眼撞见了这场关系绑定。"
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "chapter": 1,
+      "created_at": "2026-03-21T08:50:00Z",
+      "word_count": 2917,
+      "protagonist_state": {
+        "name": "林栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "海城民政局门口",
+          "previous": "海城民政局"
+        },
+        "inventory": [
+          "结婚证",
+          "工作平板",
+          "租房合同",
+          "陆沉的名片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "快速应变",
+          "情绪管理"
+        ],
+        "status": [
+          "闪婚已成",
+          "主动下场开局",
+          "误认男主身份"
+        ],
+        "current_goals": [
+          "先稳住这场闪婚带来的局面",
+          "借这张证把家里和前任先压回去",
+          "弄清陆沉为什么也需要这场婚姻"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "陆沉",
+          "role": "闪婚对象",
+          "relation": "高风险绑定关系",
+          "last_interaction": 1
+        },
+        {
+          "name": "陈骁",
+          "role": "前任",
+          "relation": "外部压力源",
+          "last_interaction": 1
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "陆沉闪婚目的",
+          "status": "planted",
+          "planted_chapter": 1
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "林栀不是被动结婚，而是自己先把局掀开",
+          "陆沉的身份远比她想象中高",
+          "陈骁已经撞见这场闪婚"
+        ],
+        "protagonist_knows": [
+          "自己把事情推进到了没有回头路的地步"
+        ],
+        "protagonist_doesnt_know": [
+          "陆沉为什么会点头",
+          "这场关系绑定会先让谁失控"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "陆沉",
+          "role": "male lead"
+        },
+        {
+          "type": "character",
+          "name": "陈骁",
+          "role": "ex-boyfriend pressure source"
+        },
+        {
+          "type": "location",
+          "name": "海城民政局"
+        }
+      ],
+      "key_events": [
+        "林栀在民政局门口主动提出闪婚",
+        "林栀和陆沉当场把证领了",
+        "林栀得知陆沉真实身份",
+        "陈骁亲眼撞见这场闪婚"
+      ],
+      "summary": "林栀没有再等着别人替她安排人生，而是自己先下手，在民政局门口把一场误认身份的闪婚推成事实。可等她发现陆沉真正是谁时，这局已经大到不能只当挡箭牌了。"
+    }
+  },
+  "summaries_index": {
+    "1": "林栀在民政局门口主动提出闪婚，把一场误认身份的关系直接推成事实。领证后她才发现陆沉根本不是司机，而是陆氏集团执行董事，而前任陈骁也在此时亲眼撞见了这场闪婚。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-21T07:35:00Z",
+    "includes": [
+      "profiles/romance/profile.yaml"
+    ]
+  }
+}
