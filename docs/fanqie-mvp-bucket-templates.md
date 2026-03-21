@@ -31,6 +31,15 @@
 - 女频付费线直接提到前面
 - `现言甜宠` 保留在第一批，但优先级低于 `现实情感`
 
+当前可直接复用的样本入口：
+
+- `现实情感`：
+  - [smoke/e2e-qinggan](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-qinggan)
+- `宫斗宅斗`：
+  - [smoke/e2e-gongdou](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-gongdou)
+- `传统玄幻`：
+  - [e2e-novel](/Users/arm/Desktop/vscode/Genm-codex/e2e-novel)
+
 ---
 
 ## 统一字段建议
