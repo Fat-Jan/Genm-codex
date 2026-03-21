@@ -35,6 +35,7 @@ Use this skill after project initialization, or when the user wants to generate 
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those bucket rules as upstream outline constraints, not as mere packaging hints
 4. If Fanqie outline constraints are active, also read:
+   - `../../docs/fanqie-content-data-layer.md`
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - use them only as outline-side optimization rules for:
@@ -42,6 +43,7 @@ Use this skill after project initialization, or when the user wants to generate 
      - golden-three payoff timing
      - suspense handoff
      - map-shift smoothness
+     - outline recommendation patterns
    - do not let writing-technique rules override outline law or active bucket
 5. For `mode=total`:
    - create or update `大纲/总纲.md`
@@ -51,6 +53,7 @@ Use this skill after project initialization, or when the user wants to generate 
      - payoff cycle
      - bucket-style conflict density
      - title / synopsis promise consistency
+     - title-pattern and outline-pattern consistency when Fanqie content-data-layer signals exist
 6. For `mode=chapter`:
    - create `大纲/章纲/第N章.md`
    - include chapter goal, conflict, reveal, hook, and continuity notes
@@ -61,6 +64,9 @@ Use this skill after project initialization, or when the user wants to generate 
      - current bucket’s ending or carryover expectation
      - current bucket’s primary reader motive when a first-batch MVP template exists
      - current bucket’s tag pack when a first-batch MVP template exists
+      - current data-layer `opening_patterns`
+      - current data-layer `golden_three_expectation`
+      - current data-layer `handoff_patterns`
 7. Keep chapter outlines specific enough for writing, but short enough to maintain.
 8. If the user asks for multiple options, present 2-3 outline variants before locking one in.
 9. Report which outline files were created or updated, and mention the bucket when one was used.
@@ -79,6 +85,7 @@ Use this skill after project initialization, or when the user wants to generate 
 - When both Fanqie bucket constraints and writing-technique rules are active, apply them in this order:
   1. canon / state / total outline
   2. active bucket
-  3. writing-technique optimization
-  4. tagpack flavor if later requested downstream
+  3. Fanqie content-data-layer guidance
+  4. writing-technique optimization
+  5. tagpack flavor if later requested downstream
 - If a first-batch MVP bucket config exists, prefer its hook / payoff / carryover style over generic bucket phrasing.

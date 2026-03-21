@@ -72,6 +72,7 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-content-data-layer.md`
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
@@ -111,10 +112,14 @@ Read conditionally:
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as bucket-layer constraints that sit upstream of packaging
 9. If Fanqie packaging is active, also read:
+   - `../../docs/fanqie-content-data-layer.md`
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - use them as packaging-side optimization rules for:
+     - title patterns
      - title clarity
+     - title cue selection
+     - title risk filtering
      - synopsis click-through structure
      - opening-hook sharpness
    - do not let writing-technique rules override canon or the active bucket
@@ -149,6 +154,11 @@ Instead:
 - produce 3-5 title candidates
 - keep them platform-aware and genre-aware
 - pick one recommended direction
+- when Fanqie data-layer signals are available, vary candidates across:
+  - click-first
+  - steady longform
+  - bucket-safe
+  and explain which pattern each title is using
 
 ### synopsis
 
@@ -161,6 +171,10 @@ Instead:
 - if `target_character` is given, propose 3-7 names for that character
 - otherwise focus on protagonist naming direction
 - use the naming guide conservatively
+- when Fanqie data-layer signals are active, prefer naming that matches:
+  - current bucket readability
+  - current tagpack tone
+  - current title / synopsis positioning
 
 ### opening-hook
 
@@ -241,6 +255,14 @@ When the active bucket matches a first-batch MVP bucket such as `现实情感` o
 - the bucket’s `opening_rule`
 - the bucket’s `tag_pack`
 
+When Fanqie content-data-layer signals are available, also reflect:
+
+- `title_patterns`
+- `title_cues`
+- `synopsis_patterns`
+- `click_through_risk`
+- `overpromise_risk`
+
 When an active tagpack such as `恶女 x 宫斗宅斗` is present, make the packaging output additionally reflect:
 
 - the tagpack’s `positioning`
@@ -265,8 +287,9 @@ When saving:
 - When both Fanqie bucket constraints and Fanqie writing-technique rules are active, apply them in this order:
   1. canon / state / outline
   2. active bucket
-  3. writing-technique optimization
-  4. tagpack overlay
+  3. Fanqie content-data-layer guidance
+  4. writing-technique optimization
+  5. tagpack overlay
 - If a first-batch MVP bucket config exists, prefer it over generic bucket language.
 - If a matching tagpack exists, use it as a second-layer overlay after bucket selection, not as a new standalone bucket.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
