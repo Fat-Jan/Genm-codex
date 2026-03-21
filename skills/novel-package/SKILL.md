@@ -35,6 +35,7 @@ It consumes signals from those systems and turns them into packaging outputs.
   - `opening-hook`
   - `full`
 - optional `platform`
+- optional `content_bucket`
 - optional `count`
 - optional `target_character`
 - optional `save`
@@ -66,6 +67,8 @@ Read conditionally:
 - `包装/*.md` when existing packaging already exists
 - `../../shared/references/writing/character-naming-guide.md`
 - `../../shared/references/platforms/<platform>-style.md`
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 - `references/synopsis-platform-guide.md`
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
@@ -76,6 +79,7 @@ Read conditionally:
    - title
    - genre
    - platform
+   - optional `content_bucket`
    - current progress
    - current `market_adjustments`
 3. Read `大纲/总纲.md` and extract:
@@ -91,7 +95,11 @@ Read conditionally:
 5. If state already contains project-local `market_adjustments`, treat those as the first packaging-side market hints.
 6. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
 7. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
-8. Resolve packaging mode:
+8. If the platform is 番茄 and a content bucket is explicitly given, or the request clearly asks for Fanqie-first packaging:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as bucket-layer constraints that sit upstream of packaging
+9. Resolve packaging mode:
 
 ### narrow judgment shortcut
 
@@ -147,6 +155,7 @@ Instead:
 
 9. Standardize the output into these sections when useful:
    - `项目定位`
+   - `内容桶判断`
    - `正文承载状态`
    - `推荐主方案`
    - `备选方案`
@@ -182,6 +191,7 @@ For synopsis output, keep each version clearly labeled by angle, such as:
 For full output, prefer this structure:
 
 - `项目定位`
+- `内容桶判断`
 - `正文承载状态`
 - `推荐主方案`
 - `备选方案`
@@ -211,6 +221,7 @@ When saving:
 ## Notes
 
 - Packaging should amplify what the project already is, not invent a different book.
+- If Fanqie bucket constraints are present, treat them as upstream constraints rather than mere style hints.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
 - If recent chapter review says `needs_fix`, do not overpromise packaging that the current text cannot support.
 - If existing packaging files already match the current text and market direction, say so explicitly instead of forcing a rewrite.

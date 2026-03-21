@@ -11,11 +11,13 @@ Use this skill when the user wants a submission-readiness check before posting o
 
 - `platform`
 - `chapters`
+- optional `content_bucket`
 - optional focus:
   - `golden-three`
   - `quality`
   - `ai-risk`
   - `platform-fit`
+  - `bucket-fit`
 
 ## Preconditions
 
@@ -51,6 +53,7 @@ Read conditionally:
 - `设定集/角色/主角.md`
 - `learned_patterns` inside `.mighty/state.json`
 - `market_adjustments` inside `.mighty/state.json`
+- `../../docs/fanqie-bucket-constraints.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -79,6 +82,7 @@ Resolve shared profile roots in this order:
    - matching shared profile if available
    - lightweight platform heuristics
    - project-local `market_adjustments` when they exist
+   - Fanqie bucket constraints when `platform=番茄` and a bucket is provided or clearly intended
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density
@@ -96,6 +100,7 @@ Resolve shared profile roots in this order:
    - strongest positives
    - submission recommendation
    - packaging readiness
+   - optional bucket-fit note
 
 ## Platform guidance
 
@@ -132,6 +137,7 @@ Prefer this shape:
 - 必须修复
 - 建议修复
 - 优势
+- 内容桶适配
 - 包装状态
 - 投稿建议
 
@@ -143,6 +149,7 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - Be conservative: only flag issues you can support from the text.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
+- Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
 
 ## Submission status conventions
 
