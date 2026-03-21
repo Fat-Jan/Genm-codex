@@ -32,6 +32,7 @@ It should not:
 - optional `depth`
   - `quick`
   - `deep`
+- optional `content_bucket`
 - optional explicit save intent
 
 ## Preconditions
@@ -54,6 +55,8 @@ Read conditionally:
 - local source file provided by the user
 - `大纲/总纲.md`
 - `设定集/角色/*.md`
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## Workflow
 
@@ -61,21 +64,31 @@ Read conditionally:
    - chapter range
    - local file
    - pasted text
+   - determine explicit `content_bucket` if provided
+   - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. If the user gives only an external link and no retrievable content is available in the current environment:
    - say the source is not directly retrievable in the current path
    - ask for pasted text or a local file instead
 3. Read the source material.
-4. Extract only defensible learning signals:
+4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as an analysis lens for:
+     - opening speed
+     - payoff visibility
+     - conflict density
+     - carryover style
+5. Extract only defensible learning signals:
    - dialogue style
    - description density
    - pacing preference
    - preferred high-point patterns
    - avoid patterns
-5. In `quick` mode:
+6. In `quick` mode:
    - return a concise learning summary
-6. In `deep` mode:
+7. In `deep` mode:
    - provide stronger evidence and more explicit pattern grouping
-7. If the user wants the result saved:
+8. If the user wants the result saved:
    - update `.mighty/state.json`
    - refresh:
      - `learned_patterns.writing_style_preferences`
@@ -83,7 +96,7 @@ Read conditionally:
      - `learned_patterns.avoid_patterns`
      - `auto_learn_config.last_auto_learn`
      - `auto_learn_config.last_auto_learn_chapter` when chapter-based
-8. When returning the result, explain where the learned signals are most useful next:
+9. When returning the result, explain where the learned signals are most useful next:
    - `novel-write`
    - `novel-polish`
    - `novel-precheck`
@@ -103,3 +116,4 @@ Prefer:
 - Prefer updating existing learned pattern fields over creating new top-level schema.
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
 - Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.
+- When a Fanqie content bucket is active, use it to interpret local patterns more precisely, not to overwrite local evidence with generic platform slogans.
