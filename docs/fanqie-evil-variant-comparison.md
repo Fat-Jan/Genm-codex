@@ -65,6 +65,12 @@
 
 - **列为第一条正式深做的恶女生产线**
 
+### 当前样本状态
+
+- 已完成：`package -> write -> review -> fix`
+- 当前可直接复用样本：
+  - [smoke/e2e-gongdou-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-gongdou-evil)
+
 ---
 
 ## 2. 恶女 x 现实情感
@@ -101,6 +107,12 @@
 
 - **列为第二条正式深做的恶女生产线**
 
+### 当前样本状态
+
+- 已完成：`package -> write`
+- 当前可直接复用样本：
+  - [smoke/e2e-qinggan-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-qinggan-evil)
+
 ---
 
 ## 3. 恶女 x 现言甜宠
@@ -135,6 +147,12 @@
 ### 当前建议
 
 - **列为第三条恶女实验线**
+
+### 当前样本状态
+
+- 已完成：`package -> write`
+- 当前可直接复用样本：
+  - [smoke/e2e-tianchong-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-tianchong-evil)
 
 ---
 
