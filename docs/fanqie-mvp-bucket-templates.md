@@ -49,6 +49,16 @@
 - `传统玄幻`
   - 已完成：`scan -> package -> outline -> write -> review -> polish -> fix -> learn`
 
+当前推荐的高价值标签包入口：
+
+- [fanqie-mvp-tagpacks.yaml](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-mvp-tagpacks.yaml)
+
+当前第一批按顺序处理的标签包为：
+
+1. `恶女 x 宫斗宅斗`
+2. `恶女 x 现实情感`
+3. `恶女 x 现言甜宠`
+
 ---
 
 ## 统一字段建议
