@@ -19,6 +19,7 @@ It should:
   - `设定集/角色/`
   - `设定集/地点/`
   - `设定集/势力/`
+ - optionally thin old chapter metadata out of `state`
 
 It should not:
 
@@ -33,6 +34,7 @@ It should not:
   - `characters`
   - `locations`
   - `factions`
+  - `thin-state`
 - optional `recent_chapters`
 - optional explicit lists:
   - `characters`
@@ -84,9 +86,16 @@ Read conditionally:
 6. If a file already exists:
    - keep human-authored content
    - only refresh a generated sync block
-7. Return a compact sync summary:
+7. If `mode=thin-state`:
+   - write `.mighty/state-archive.json`
+   - move old `chapter_meta`
+   - move old `chapter_snapshots`
+   - move old `summaries_index`
+   - keep only a recent chapter window inside `.mighty/state.json`
+8. Return a compact sync summary:
    - files created
    - files refreshed
+   - whether state thinning happened
    - any ambiguous entities that still need human confirmation
 
 ## Notes
@@ -95,3 +104,4 @@ Read conditionally:
 - Use `novel-character` when the user wants to author or revise a specific role card in detail.
 - Use `novel-setting` when the user wants to author or revise a specific location / faction / item file in detail.
 - Use `novel-sync` when the user wants the project to stop depending purely on `state` for long-lived assets.
+- `thin-state` must not alter protagonist runtime state, progress, active foreshadowing, or current quest fields.

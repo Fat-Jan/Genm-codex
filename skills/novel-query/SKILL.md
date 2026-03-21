@@ -37,6 +37,7 @@ Use `.mighty/index.json` when it exists and the request benefits from indexed lo
 
 Read conditionally when needed:
 
+- `.mighty/state-archive.json`
 - `设定集/角色/*.md`
 - `设定集/世界观/*.md`
 - `设定集/力量体系.md`
@@ -101,12 +102,14 @@ Map these requests onto state or index data rather than pretending to execute a 
    - optional filters
 2. Read `.mighty/state.json`.
 3. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
-4. Resolve the request source:
+4. If `.mighty/state-archive.json` exists and the request targets older chapters or full-history chapter metadata, read it next.
+5. Resolve the request source:
    - state-first for current truth
+   - state-archive for old chapter metadata / snapshot / summary history
    - index-first for chapter lookup / summary / mention search
-5. If the answer is fully available from state or index, stop there.
-6. Only read additional files if both state and index lack the needed detail.
-5. Return the smallest useful result:
+6. If the answer is fully available from state, state-archive, or index, stop there.
+7. Only read additional files if state, state-archive, and index all lack the needed detail.
+8. Return the smallest useful result:
    - list for browsing
    - count for totals
    - short summary for direct questions
@@ -134,6 +137,7 @@ Suggested behaviors:
 - `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
 - `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
 - `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries
+  - if state has been thinned, check `state-archive.summaries_index` before falling back to index
 
 ## Index-aware query guidance
 
@@ -159,5 +163,9 @@ If the index is missing and the request clearly wants index-backed data, say so 
 
 - Do not invent missing state.
 - Prefer current state over stale prose files if they disagree.
+- When `state` has been thinned, prefer:
+  1. current `state` for live truth
+  2. `state-archive` for old chapter metadata
+  3. `index` for broad retrieval
 - If the user asks for broad statistics, summarize first and only expand on request.
 - Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.

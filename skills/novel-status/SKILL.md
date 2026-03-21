@@ -31,6 +31,7 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/state-archive.json`
 - `.mighty/index.json`
 - `chapters/` to count written chapters
 - `大纲/总纲.md`
@@ -39,14 +40,15 @@ Read conditionally:
 ## Workflow
 
 1. Read `.mighty/state.json`.
-2. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
-3. Summarize:
+2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
+3. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+4. Summarize:
    - title
    - genre
    - platform
    - current chapter
    - total words
-4. Inspect:
+5. Inspect:
    - `chapter_meta`
    - `chapter_snapshots`
    - `quality_metrics`
@@ -54,7 +56,8 @@ Read conditionally:
    - `plot_threads.suspense`
    - `main_quest`
    - `progress.milestones`
-5. Build the status sections that fit the request:
+   - and when present, archived `chapter_meta` / `chapter_snapshots` coverage
+6. Build the status sections that fit the request:
    - progress
    - quality
    - foreshadowing buckets / timeline
@@ -123,5 +126,6 @@ For `full` or stats-heavy requests, prefer sections such as:
 
 - Prefer state-derived truth over stale prose summaries.
 - If chapter count from files and state disagree, report the mismatch explicitly.
+- If `state` has been thinned, explain which chapters are still live in `state` and which are now only in `state-archive`.
 - If there is insufficient data for a requested statistic, say so directly instead of inferring.
 - Treat `index` as an accelerator and secondary source, not a replacement for `state`.

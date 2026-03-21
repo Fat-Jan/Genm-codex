@@ -28,7 +28,8 @@ Use this skill when the user wants to inspect chapter state history, create a fr
 Prefer this order:
 
 1. `chapter_snapshots` inside `.mighty/state.json`
-2. `.mighty/snapshots/` filesystem artifacts
+2. `chapter_snapshots` inside `.mighty/state-archive.json`
+3. `.mighty/snapshots/` filesystem artifacts
 
 Do not invent a separate third snapshot system.
 
@@ -40,6 +41,7 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/state-archive.json`
 - `.mighty/snapshots/`
 - `chapters/第NNN章.md`
 - `设定集/角色/主角.md`
@@ -72,7 +74,8 @@ Read conditionally:
 
 1. Read `.mighty/state.json`.
 2. Load the requested chapter snapshot from `chapter_snapshots`.
-3. If the structured snapshot is missing, look for a matching filesystem snapshot.
+3. If the structured snapshot is missing, look for it in `.mighty/state-archive.json`.
+4. If the structured snapshot is still missing, look for a matching filesystem snapshot.
 4. Return a concise continuation context:
    - protagonist state
    - active characters
@@ -139,4 +142,4 @@ Do not mutate unrelated sections.
 
 - First version should be conservative and state-centric.
 - If the requested chapter has no snapshot, say so directly and suggest `generate`.
-- If a filesystem snapshot and state snapshot disagree, prefer the state snapshot unless the user explicitly wants raw filesystem artifacts.
+- If a filesystem snapshot and state snapshot disagree, prefer the current `state` snapshot, then the archived `state` snapshot, unless the user explicitly wants raw filesystem artifacts.

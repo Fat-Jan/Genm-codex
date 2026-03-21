@@ -68,7 +68,7 @@
 - `novel-resume`
 - `novel-retrieve`
  - `novel-spinoff`
- - `novel-sync`
+- `novel-sync`
 
 ## 调用名说明
 
@@ -151,6 +151,7 @@
 - 获取写作瞬时参考卡
 - 在单项目内写轻量番外
 - 把稳定角色 / 地点 / 势力从运行态同步回设定集
+- 在长项目里把旧章节元数据归档出 `state`
 
 ## 第五阶段已完成
 

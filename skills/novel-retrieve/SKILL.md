@@ -52,6 +52,7 @@ Always start with:
 
 Use when present:
 
+- `.mighty/state-archive.json`
 - `.mighty/index.json`
 
 Read conditionally:
@@ -81,9 +82,10 @@ Use this priority order:
    - preferred type
    - whether the user wants a compact reference card or broader writing assistance
 2. Read `.mighty/state.json`.
-3. If `.mighty/index.json` exists and helps narrow chapter/entity references, read it.
-4. Resolve by type when the user already gave one.
-5. Otherwise infer the best target bucket:
+3. If `.mighty/state-archive.json` exists and the request targets older chapters or stale entity context, read it.
+4. If `.mighty/index.json` exists and helps narrow chapter/entity references, read it.
+5. Resolve by type when the user already gave one.
+6. Otherwise infer the best target bucket:
    - character
    - setting / location / item / faction
    - power system
@@ -159,5 +161,6 @@ Prefer one of these:
 ## Notes
 
 - Prefer current state over stale prose if they conflict.
+- If `state` has been thinned, use `state-archive` before falling back to chapter text for old chapter/event context.
 - If the request is really a broad project query, recommend `novel-query`.
 - If the request is actually a file update, recommend `novel-character` or `novel-setting`.

@@ -93,6 +93,12 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 请使用 novel-sync skill，把当前项目里最近稳定出现的角色、地点和势力同步回设定集。
 ```
 
+如果项目已经写了很多章，还可以进一步做：
+
+```text
+请使用 novel-sync skill，以 thin-state 模式把旧章节元数据归档出 state，只保留最近章节窗口。
+```
+
 ## 阶段能力地图
 
 ### 核心闭环

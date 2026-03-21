@@ -67,5 +67,6 @@ done
 
 require_file "${ROOT_DIR}/docs/migration-map.md"
 require_file "${ROOT_DIR}/docs/codex-migration-plan.md"
+require_file "${ROOT_DIR}/scripts/thin-state.py"
 
 echo "Migration validation passed"
