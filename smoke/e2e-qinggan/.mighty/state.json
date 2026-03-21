@@ -8,7 +8,7 @@
     "target_chapters": 8,
     "target_words": 32000,
     "created_at": "2026-03-21T05:41:57Z",
-    "updated_at": "2026-03-21T06:12:05Z"
+    "updated_at": "2026-03-21T07:03:43Z"
   },
   "progress": {
     "current_chapter": 1,
@@ -152,17 +152,19 @@
     ]
   },
   "quality_metrics": {
-    "recent_scores": [],
-    "average_score": 0,
+    "recent_scores": [
+      84
+    ],
+    "average_score": 84,
     "trend": "stable",
-    "last_review_chapter": 0,
+    "last_review_chapter": 1,
     "dimension_scores": {
-      "爽点": 0,
-      "一致性": 0,
-      "节奏": 0,
-      "OOC": 0,
-      "连续性": 0,
-      "追读力": 0
+      "爽点": 85,
+      "一致性": 86,
+      "节奏": 78,
+      "OOC": 88,
+      "连续性": 80,
+      "追读力": 84
     }
   },
   "learned_patterns": {
@@ -240,7 +242,28 @@
       "status": "draft",
       "created_at": "2026-03-21T06:10:00Z",
       "updated_at": "2026-03-21T06:12:05Z",
-      "summary": "家庭聚餐上，周承礼和婆家当众贬低沈知意的工作与价值，用房子、孩子和体面逼她继续忍让。沈知意第一次没有再替任何人圆场，而是当众提出离婚。周承礼随即失控威胁她别想从这个家拿走任何东西，也暴露出他阻止离婚背后另有现实利益盘算。"
+      "summary": "家庭聚餐上，周承礼和婆家当众贬低沈知意的工作与价值，用房子、孩子和体面逼她继续忍让。沈知意第一次没有再替任何人圆场，而是当众提出离婚。周承礼随即失控威胁她别想从这个家拿走任何东西，也暴露出他阻止离婚背后另有现实利益盘算。",
+      "review_score": 84,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T07:03:43Z",
+      "dimension_scores": {
+        "爽点": 85,
+        "一致性": 86,
+        "节奏": 78,
+        "OOC": 88,
+        "连续性": 80,
+        "追读力": 84
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix",
+      "warnings": [
+        "中段回溯婚后委屈和家务失衡的说明略多，情绪是够的，但推进会稍慢半拍。",
+        "章末威胁已经成立，但下一章最优的现实切割目标还不够具体，钩子还可以再落一层。"
+      ],
+      "suggested_fixes": [
+        "压缩一两处解释性回忆，把重点收回到现场羞辱和离婚决断。",
+        "在章末或次章开头尽快亮出婚房、存款或证据中的一个具体切割目标。"
+      ]
     }
   },
   "chapter_snapshots": {
