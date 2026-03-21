@@ -12,6 +12,7 @@ Use this skill after a chapter draft exists and the user wants a structured qual
 - `chapter`
 - optional `detail`
 - optional `threshold`
+- optional `content_bucket`
 
 ## Preconditions
 
@@ -31,31 +32,46 @@ Read conditionally:
 
 - previous chapter file or summary for continuity
 - shared reference docs for reader-pull, pacing, and anti-AI constraints
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## Workflow
 
 1. Read `.mighty/state.json`.
+   - determine `meta.platform`
+   - determine explicit `content_bucket` if provided
+   - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. Read `chapters/第N章.md`.
 3. Read the genre/profile context.
-4. Review for:
+4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as upstream review constraints for:
+     - opening speed
+     - payoff timing
+     - conflict density
+     - chapter-end carryover
+5. Review for:
    - hook and reader pull
    - pacing
    - continuity
    - consistency
    - obvious AI-style issues
-5. Produce a structured report with:
+   - bucket-fit when applicable
+6. Produce a structured report with:
    - total score
    - dimension scores
    - critical issues
    - warnings
    - suggested fixes
+   - optional bucket-fit note
    - recommended next action:
      - `none`
      - `novel-fix`
      - `novel-polish`
      - `novel-rewrite`
-6. Update review metadata for the chapter inside `.mighty/state.json`.
-7. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
+7. Update review metadata for the chapter inside `.mighty/state.json`.
+8. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
 ## Outputs
 
@@ -82,6 +98,7 @@ When the route is clear, also update:
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - Do not claim a review passed unless the report actually shows the score and issues.
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
+- When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
 
 ## Route rules
 
