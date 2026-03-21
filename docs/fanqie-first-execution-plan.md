@@ -47,6 +47,7 @@
 - 官网榜单 / 分类榜
 - 阅读榜 / 新书榜
 - 作者专区公告
+- 作者专区教程中心与图文分类说明
 - 短故事功能与数据说明
 - 活动与激励口径
 
@@ -62,6 +63,7 @@
 参考：
 
 - [fanqie-paid-signal-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-paid-signal-matrix.md)
+- [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writer-zone-lessons.md)
 
 ### 2. 当前项目已有番茄基础
 
