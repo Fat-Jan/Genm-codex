@@ -1,0 +1,266 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "庶妹换我婚书那夜，太子先开了口",
+    "genre": "宫斗宅斗",
+    "platform": "番茄",
+    "target_chapters": 12,
+    "target_words": 48000,
+    "created_at": "2026-03-21T06:21:19Z",
+    "updated_at": "2026-03-21T08:38:54Z"
+  },
+  "progress": {
+    "current_chapter": 1,
+    "total_words": 3879,
+    "last_write_chapter": 1,
+    "last_write_time": "2026-03-21T08:38:54Z",
+    "milestones": {
+      "golden_three_completed": false,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "谢云昭",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "安平伯府正厅",
+          "origin": "安平伯府"
+        },
+        "inventory": [
+          "旧婚书抄件",
+          "母亲遗下的半枚玉扣"
+        ],
+        "abilities": [
+          "识人观色",
+          "记账与管事",
+          "临场应对"
+        ],
+        "status": [
+          "伯府庶女",
+          "婚事被夺未成",
+          "被继母压制",
+          "当众反咬逼停换婚书"
+        ],
+        "current_goals": [
+          "保住性命",
+          "夺回婚书主动权",
+          "查清生母旧死因",
+          "应对东宫问婚"
+        ],
+        "known_secrets": [],
+        "recent_events": [
+          "在正厅亮出旧婚书抄件与半枚玉扣，逼停柳氏当夜改婚书",
+          "抛出亡母陪嫁垫付聘银的旧账线索",
+          "东宫詹事府来使奉太子口谕，命伯府携原婚书与信物答话"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "旧婚书抄件",
+        "半枚玉扣"
+      ],
+      "protagonist_inventory": [
+        "旧婚书抄件",
+        "母亲遗下的半枚玉扣"
+      ]
+    },
+    "locations": {
+      "current": "安平伯府正厅",
+      "visited": [
+        "安平伯府正厅"
+      ],
+      "important": [
+        "安平伯府",
+        "祠堂",
+        "东宫"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        "生母陪嫁垫付聘银的旧账",
+        "婚书被换背后另有更深利益",
+        "东宫为何会在今夜介入婚书局"
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        "柳氏会如何应对次日东宫查婚书",
+        "沈家婚书与半枚玉扣会牵出谁"
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "从被压制的庶女位置翻身，进入更高权力层并查清旧案",
+      "location": "安平伯府 / 东宫线",
+      "secret": "继母与庶妹急着换婚书，不只是想夺婚事，还想掩盖上一代留下的账。",
+      "progress": 8
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "原婚书写的是谢云昭的名字",
+      "沈家聘银曾由谢云昭亡母陪嫁先行垫付",
+      "东宫已经注意到安平伯府换婚书一事"
+    ],
+    "protagonist_knows": [
+      "自己手里的旧婚书抄件和半枚玉扣足以逼停当夜换婚书",
+      "亡母旧账能成为反制柳氏的关键抓手",
+      "东宫已经正式介入婚书局"
+    ],
+    "protagonist_doesnt_know": [
+      "太子为何会在今夜得知婚书被换",
+      "柳氏与谢明珠急于换婚书究竟还想掩住什么"
+    ],
+    "key_revelations": [
+      "婚书之争牵连亡母陪嫁旧账",
+      "伯府内宅争斗已被抬到东宫层面"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "含锋带刺、话中有话",
+      "description_density": "中等偏高",
+      "pacing_preference": "压制-试探-反击-挂更大局"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "强压制 + 快反击 + 章末挂更大局",
+    "chapter_words": {
+      "min": 2800,
+      "max": 4200,
+      "target": 3500
+    },
+    "golden_three": {
+      "hook_timing": "第1章直接见压制关系",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "palace-intrigue/profile.yaml",
+    "bucket": "宫斗宅斗",
+    "节奏": {
+      "type": "慢热铺垫型",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 30,
+      "fire": 45,
+      "constellation": 25
+    },
+    "特殊约束": [
+      {
+        "id": "RULE-001",
+        "description": "尊卑有序，下位者不能轻易冒犯上位者",
+        "checkpoint": "行为与对话"
+      },
+      {
+        "id": "RULE-003",
+        "description": "对手要有智商，斗争手段要成立",
+        "checkpoint": "对手塑造"
+      }
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "chapter": 1,
+      "path": "chapters/第001章.md",
+      "title": "婚书被换那夜，太子先开了口",
+      "word_count": 3879,
+      "summary": "谢云昭在正厅面对柳氏与谢明珠逼她认命，亮出旧婚书抄件、半枚玉扣和亡母陪嫁垫聘银的旧账夹页，当众逼停换婚书。柳氏还未来得及压下此事，东宫詹事府来使奉太子口谕，命安平伯府次日携原婚书与信物答话。",
+      "pov": "谢云昭",
+      "location": "安平伯府正厅",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T08:38:54Z"
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "chapter": 1,
+      "path": "chapters/第001章.md",
+      "updated_at": "2026-03-21T08:38:54Z",
+      "word_count": 3879
+    }
+  },
+  "summaries_index": {
+    "1": "谢云昭在正厅亮出旧婚书抄件、半枚玉扣和亡母陪嫁旧账线索，当众逼停柳氏更换婚书。东宫詹事府随即来使，奉太子口谕命伯府携原婚书与信物答话，婚书局被直接抬进更大的权力局。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-21T06:21:19Z",
+    "includes": [
+      "profiles/palace-intrigue/profile.yaml"
+    ]
+  }
+}
