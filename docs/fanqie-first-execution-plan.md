@@ -228,6 +228,14 @@
 
 - 长篇：`宫斗宅斗`
 - 短篇 / 中短：`现实情感`、`现言甜宠`
+- 第一批执行顺序：
+  1. `现实情感`
+  2. `宫斗宅斗`
+  3. `传统玄幻`
+
+对应模板参考：
+
+- [fanqie-mvp-bucket-templates.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-mvp-bucket-templates.md)
 
 ---
 
