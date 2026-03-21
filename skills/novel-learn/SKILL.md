@@ -57,6 +57,7 @@ Read conditionally:
 - `设定集/角色/*.md`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-bucket-templates.md`
 
 ## Workflow
 
@@ -73,6 +74,7 @@ Read conditionally:
 4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
+   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
    - treat those as an analysis lens for:
      - opening speed
      - payoff visibility
@@ -117,3 +119,4 @@ Prefer:
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
 - Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.
 - When a Fanqie content bucket is active, use it to interpret local patterns more precisely, not to overwrite local evidence with generic platform slogans.
+- If a first-batch MVP bucket template exists, prefer its reader-motive and payoff-cycle lens when grouping patterns.

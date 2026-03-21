@@ -35,6 +35,7 @@ Read conditionally:
 - `设定集/力量体系.md`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-bucket-templates.md`
 
 ## First-version scope
 
@@ -73,6 +74,7 @@ If the required change is too large or would replace most of the chapter, route 
 5. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
+   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
    - treat those as fix-side constraints for:
      - opening urgency
      - payoff clarity
@@ -128,3 +130,4 @@ If the fix resolves previously recorded issues, also update when appropriate:
 - If the review findings and chapter text disagree, trust the current chapter plus state, not stale assumptions.
 - If the fix requires changing a related file like `设定集/角色/主角.md`, keep that change minimal and explain why.
 - When a Fanqie content bucket is active, use it to sharpen delivery for that bucket, not to broaden the chapter or smuggle in a rewrite.
+- If a first-batch MVP bucket template exists, use it to resolve issues in the most direct bucket-fitting way available.
