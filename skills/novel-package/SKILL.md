@@ -69,6 +69,7 @@ Read conditionally:
 - `../../shared/references/platforms/<platform>-style.md`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-bucket-templates.md`
 - `references/synopsis-platform-guide.md`
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
@@ -100,6 +101,7 @@ Read conditionally:
 8. If the platform is 番茄 and a content bucket is explicitly given, or a current `genre_profile.bucket` exists, or the request clearly asks for Fanqie-first packaging:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
+   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
    - treat those as bucket-layer constraints that sit upstream of packaging
 9. Resolve packaging mode:
 
@@ -212,6 +214,13 @@ For naming output, explain:
 - what style it signals
 - any risk of overused naming patterns
 
+When the active bucket matches a first-batch MVP bucket such as `现实情感` or `宫斗宅斗`, make the packaging output more concrete by reflecting:
+
+- the bucket’s `title_formula`
+- the bucket’s `synopsis_formula`
+- the bucket’s `opening_rule`
+- the bucket’s `tag_pack`
+
 ## Save behavior
 
 When saving:
@@ -224,6 +233,7 @@ When saving:
 
 - Packaging should amplify what the project already is, not invent a different book.
 - If Fanqie bucket constraints are present, treat them as upstream constraints rather than mere style hints.
+- If a first-batch MVP bucket template exists, prefer it over generic bucket language.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
 - If recent chapter review says `needs_fix`, do not overpromise packaging that the current text cannot support.
 - If existing packaging files already match the current text and market direction, say so explicitly instead of forcing a rewrite.

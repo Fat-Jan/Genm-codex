@@ -54,6 +54,7 @@ Read conditionally:
 - `learned_patterns` inside `.mighty/state.json`
 - `market_adjustments` inside `.mighty/state.json`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/fanqie-mvp-bucket-templates.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -84,6 +85,7 @@ Resolve shared profile roots in this order:
    - project-local `market_adjustments` when they exist
    - Fanqie bucket constraints when `platform=番茄` and a bucket is provided, or when current `genre_profile.bucket` exists, or when the task is clearly bucket-aware
    - when no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the current active bucket
+   - if the current bucket is one of the first-batch MVP buckets, also read `../../docs/fanqie-mvp-bucket-templates.md`
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density
@@ -102,6 +104,13 @@ Resolve shared profile roots in this order:
    - submission recommendation
    - packaging readiness
    - optional bucket-fit note
+
+When the active bucket matches a first-batch MVP bucket such as `现实情感` or `宫斗宅斗`, make the bucket-fit note concrete by checking:
+
+- whether the text is following the bucket’s `opening_rule`
+- whether the chapter or chapter range is delivering the expected `payoff_cycle`
+- whether the outward positioning matches the bucket’s `title_formula` / `synopsis_formula`
+- whether the current text is actually serving the bucket’s `primary_reader_motive`
 
 ## Platform guidance
 
@@ -151,6 +160,7 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
 - Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
+- If a first-batch MVP bucket template exists, prefer its precheck focus over generic bucket commentary.
 
 ## Submission status conventions
 
