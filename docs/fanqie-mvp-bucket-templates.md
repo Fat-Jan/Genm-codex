@@ -40,6 +40,15 @@
 - `传统玄幻`：
   - [e2e-novel](/Users/arm/Desktop/vscode/Genm-codex/e2e-novel)
 
+当前样本成熟度：
+
+- `现实情感`
+  - 已完成：`package -> outline -> write -> review -> fix`
+- `宫斗宅斗`
+  - 已完成：`package -> outline -> write -> review -> fix`
+- `传统玄幻`
+  - 已完成：`scan -> package -> outline -> write -> review -> polish -> fix -> learn`
+
 ---
 
 ## 统一字段建议

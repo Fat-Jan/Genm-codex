@@ -215,7 +215,9 @@
   },
   "chapter_meta": {
     "1": {
+      "chapter": 1,
       "title": "婚书被换那夜",
+      "path": "chapters/第001章.md",
       "word_count": 3544,
       "summary": "柳氏与谢明珠在正堂逼谢云昭按下换婚书手印，谢云昭亮出旧婚书抄件与亡母旧账线索，当场逼停换婚书，章末东宫内侍奉太子口信入府追问婚书归属。",
       "status": "draft",
@@ -233,7 +235,7 @@
         "追读力": 87
       },
       "needs_fix": false,
-      "recommended_next_action": "novel-review",
+      "recommended_next_action": "novel-write",
       "warnings": [],
       "suggested_fixes": [],
       "last_fix_time": "2026-03-21T07:11:33Z",
@@ -246,6 +248,9 @@
   },
   "chapter_snapshots": {
     "1": {
+      "chapter": 1,
+      "path": "chapters/第001章.md",
+      "created_at": "2026-03-21T06:55:24Z",
       "title": "婚书被换那夜",
       "word_count": 3415,
       "summary": "完成开局压制、当场反咬与东宫介入钩子。",
