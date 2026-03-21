@@ -52,7 +52,8 @@
 - 已写到第 4 章：
   - `e2e-novel/chapters/第004章.md`
 - review 已写回：
-  - `recommended_next_action = novel-fix`
+  - 初次 review 曾写回 `recommended_next_action = novel-fix`
+  - 后续定向 fix 后，第 4 章 `needs_fix = false`
 - `fix / polish / rewrite` 路由均已有前序 smoke 证据
 
 ### 3. 投稿准备
@@ -121,6 +122,8 @@
 ## 当前 blocker
 
 - 暂无明确 blocker
+- 样本文本层观察项 `O-003` 已关闭，详见：
+  - [v1-rc-blockers.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-rc-blockers.md)
 - 当前观察项见：
   - [v1-rc-blockers.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-rc-blockers.md)
 

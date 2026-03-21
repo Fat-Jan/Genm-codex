@@ -53,11 +53,16 @@
 
 - 类型：observation
 - 领域：样本文本质量
-- 状态：open
+- 状态：closed
 - 说明：
-  - 当前第 4 章 `recommended_next_action = novel-fix`
-  - 这是样本文本层问题，不是系统级 blocker
-  - 仍可作为 RC 期间继续修正文样本
+  - 原先第 4 章因“即时收益不足 + 章末收束重复”被建议走 `novel-fix`
+  - RC 阶段已对第 4 章做定向修补：
+    - 补上第一枚青云令的即时收益
+    - 把章末直接接回“藏阁 / 父亲血字”线
+  - 当前 chapter meta 已显示：
+    - `needs_fix = false`
+    - `critical_issues = []`
+  - 因此该项不再构成活跃观察点
 
 ---
 
