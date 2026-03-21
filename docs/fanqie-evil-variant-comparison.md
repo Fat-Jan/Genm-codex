@@ -110,10 +110,14 @@
 ### 当前建议
 
 - **列为第二条正式深做的恶女生产线**
+- 当前进一步判断：
+  - **已达到第二条生产模板候选**
+  - 参考：
+    - [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-qinggan-production-candidate.md)
 
 ### 当前样本状态
 
-- 已完成：`package -> write`
+- 已完成：`package -> golden three`
 - 当前可直接复用样本：
   - [smoke/e2e-qinggan-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-qinggan-evil)
 

@@ -75,6 +75,12 @@
   - 结论：`恶女 x 宫斗宅斗` 已可作为第一条番茄女频长篇内部生产模板继续写
   - 但当前 1-6 章样本若直接外投，仍建议先走一轮集中 `review / fix`
 
+当前已经收口出来的第二条生产模板候选：
+
+- [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-qinggan-production-candidate.md)
+  - 结论：`恶女 x 现实情感` 已完成 `golden three`
+  - 当前定位：第二条正式深做线、第二条生产模板候选
+
 ---
 
 ## 统一字段建议
