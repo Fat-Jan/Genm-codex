@@ -133,6 +133,7 @@ bash scripts/validate-migration.sh
 - `docs/fanqie-short-story-adaptation.md`
 - `docs/fanqie-content-buckets.md`
 - `docs/fanqie-bucket-constraints.md`
+- `docs/fanqie-paid-signal-matrix.md`
 - `docs/fanqie-first-execution-plan.md`
 - `docs/phase-2-priorities.md`
 - `docs/phase-2-smoke-plan.md`

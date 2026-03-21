@@ -174,6 +174,12 @@
 
 如果从你现在项目方向出发，我建议优先建模这几类：
 
+注意：
+
+- 这里更偏“内容桶可建模性”和“系统接入顺序”
+- 如果要判断**哪个桶更值得先做成赚钱导向的 MVP**，应优先参考：
+  - [fanqie-paid-signal-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-paid-signal-matrix.md)
+
 ### 长篇桶优先级
 
 1. `传统玄幻`
