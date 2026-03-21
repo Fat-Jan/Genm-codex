@@ -12,6 +12,7 @@ Use this skill when the user wants a submission-readiness check before posting o
 - `platform`
 - `chapters`
 - optional `content_bucket`
+- optional `tagpack`
 - optional focus:
   - `golden-three`
   - `quality`
@@ -56,6 +57,7 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -88,6 +90,7 @@ Resolve shared profile roots in this order:
    - when no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the current active bucket
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
+   - if an explicit `tagpack` is given, or the task clearly asks for a tag-pack route such as `恶女`, also read `../../docs/fanqie-mvp-tagpacks.yaml`
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density
@@ -113,6 +116,12 @@ When the active bucket matches a first-batch MVP bucket such as `现实情感` o
 - whether the chapter or chapter range is delivering the expected `payoff_cycle`
 - whether the outward positioning matches the bucket’s `title_formula` / `synopsis_formula`
 - whether the current text is actually serving the bucket’s `primary_reader_motive`
+
+When a matching tagpack exists, also check:
+
+- whether the protagonist presentation matches the tagpack’s `protagonist_core`
+- whether the chapter is serving the tagpack’s `reader_motive`
+- whether the opening and ending are close to the tagpack’s hook expectations
 
 ## Platform guidance
 
@@ -163,6 +172,7 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
 - Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
 - If a first-batch MVP bucket config exists, prefer its `precheck_focus` over generic bucket commentary.
+- If a matching tagpack exists, use it as a second-layer precheck lens, not as a replacement for the bucket.
 
 ## Submission status conventions
 

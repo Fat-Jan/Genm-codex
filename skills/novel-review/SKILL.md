@@ -13,6 +13,7 @@ Use this skill after a chapter draft exists and the user wants a structured qual
 - optional `detail`
 - optional `threshold`
 - optional `content_bucket`
+- optional `tagpack`
 
 ## Preconditions
 
@@ -36,6 +37,7 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-mvp-tagpacks.yaml`
 
 ## Workflow
 
@@ -43,6 +45,7 @@ Read conditionally:
    - determine `meta.platform`
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
+   - determine explicit `tagpack` if provided
 2. Read `chapters/第N章.md`.
 3. Read the genre/profile context.
 4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
@@ -55,7 +58,11 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-5. Review for:
+5. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+   - read `../../docs/fanqie-mvp-tagpacks.yaml`
+   - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
+   - treat the chosen tagpack as a second-layer review lens after the bucket
+6. Review for:
    - hook and reader pull
    - pacing
    - continuity
@@ -66,7 +73,12 @@ Read conditionally:
      - primary reader motive
      - payoff cycle
      - ending-hook rule
-6. Produce a structured report with:
+   - tagpack fit when a matching tagpack exists:
+     - protagonist_core
+     - reader_motive
+     - opening_rule
+     - ending_hook_rule
+7. Produce a structured report with:
    - total score
    - dimension scores
    - critical issues
@@ -78,8 +90,8 @@ Read conditionally:
      - `novel-fix`
      - `novel-polish`
      - `novel-rewrite`
-7. Update review metadata for the chapter inside `.mighty/state.json`.
-8. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
+8. Update review metadata for the chapter inside `.mighty/state.json`.
+9. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
 ## Outputs
 
@@ -108,6 +120,7 @@ When the route is clear, also update:
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
+- If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.
 
 ## Route rules
 

@@ -13,6 +13,7 @@ Use this skill when the user wants to write the next chapter from the current ou
 - optional `word_count`
 - optional `style`
 - optional `content_bucket`
+- optional `tagpack`
 
 ## Preconditions
 
@@ -44,6 +45,7 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-mvp-tagpacks.yaml`
 
 ## Workflow
 
@@ -51,6 +53,7 @@ Read conditionally:
    - determine `meta.platform`
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
+   - determine explicit `tagpack` if provided
 2. Read the target chapter outline from `大纲/章纲/第N章.md`.
 3. Read required setting files from `设定集/`.
 4. Load the shared profile matching the project genre from `../../shared/profiles/`.
@@ -67,9 +70,13 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-7. Load high-value shared references from `../../shared/references/` only as needed.
-8. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-9. Write `chapters/第N章.md` aligned to:
+7. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+   - read `../../docs/fanqie-mvp-tagpacks.yaml`
+   - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
+   - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
+8. Load high-value shared references from `../../shared/references/` only as needed.
+9. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+10. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -83,7 +90,14 @@ Read conditionally:
      - opening rule
      - payoff cycle
      - ending-hook rule
-10. Update `.mighty/state.json` with:
+   - active tagpack overlay when it exists:
+     - positioning
+     - protagonist_core
+     - reader_motive
+     - opening_rule
+     - payoff_rule
+     - ending_hook_rule
+11. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -91,8 +105,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-11. Do not write review scores here unless an actual review step was run.
-12. Recommend running `novel-review` immediately after writing.
+12. Do not write review scores here unless an actual review step was run.
+13. Recommend running `novel-review` immediately after writing.
 
 ## Chapter state update requirements
 
@@ -125,3 +139,4 @@ At minimum, update:
 - Treat `market_adjustments` as packaging or pacing guidance, not as a reason to break canon or outline purpose.
 - When Fanqie bucket constraints are active, use them to tighten chapter rhythm and hook delivery, not to override canon, chapter purpose, or already established plot logic.
 - If a first-batch MVP bucket config exists, prefer its reader-motive and payoff style over generic bucket language.
+- If a matching tagpack exists, use it as a second-layer style/positioning overlay after bucket selection, not as a substitute for the bucket.

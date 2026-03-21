@@ -36,6 +36,7 @@ It consumes signals from those systems and turns them into packaging outputs.
   - `full`
 - optional `platform`
 - optional `content_bucket`
+- optional `tagpack`
 - optional `count`
 - optional `target_character`
 - optional `save`
@@ -71,6 +72,7 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-mvp-tagpacks.yaml`
 - `references/synopsis-platform-guide.md`
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
@@ -86,6 +88,7 @@ Read conditionally:
    - current progress
    - current `market_adjustments`
    - treat `genre_profile.bucket` as the active `content_bucket` when no explicit `content_bucket` input is provided
+   - determine explicit `tagpack` if provided
 3. Read `大纲/总纲.md` and extract:
    - premise
    - main conflict
@@ -105,7 +108,11 @@ Read conditionally:
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as bucket-layer constraints that sit upstream of packaging
-9. Resolve packaging mode:
+9. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack style such as `恶女`:
+   - read `../../docs/fanqie-mvp-tagpacks.yaml`
+   - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
+   - if a matching tagpack exists, treat it as an overlay on top of the bucket rather than a replacement for the bucket
+10. Resolve packaging mode:
 
 ### narrow judgment shortcut
 
@@ -162,6 +169,7 @@ Instead:
 9. Standardize the output into these sections when useful:
    - `项目定位`
    - `内容桶判断`
+   - `标签包判断`
    - `正文承载状态`
    - `推荐主方案`
    - `备选方案`
@@ -223,6 +231,15 @@ When the active bucket matches a first-batch MVP bucket such as `现实情感` o
 - the bucket’s `opening_rule`
 - the bucket’s `tag_pack`
 
+When an active tagpack such as `恶女 x 宫斗宅斗` is present, make the packaging output additionally reflect:
+
+- the tagpack’s `positioning`
+- the tagpack’s `reader_motive`
+- the tagpack’s `title_cues`
+- the tagpack’s `synopsis_cues`
+- the tagpack’s `opening_rule`
+- the tagpack’s `avoid`
+
 ## Save behavior
 
 When saving:
@@ -236,6 +253,7 @@ When saving:
 - Packaging should amplify what the project already is, not invent a different book.
 - If Fanqie bucket constraints are present, treat them as upstream constraints rather than mere style hints.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket language.
+- If a matching tagpack exists, use it as a second-layer overlay after bucket selection, not as a new standalone bucket.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
 - If recent chapter review says `needs_fix`, do not overpromise packaging that the current text cannot support.
 - If existing packaging files already match the current text and market direction, say so explicitly instead of forcing a rewrite.
