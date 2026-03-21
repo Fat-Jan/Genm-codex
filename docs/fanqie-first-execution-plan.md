@@ -64,6 +64,7 @@
 
 - [fanqie-paid-signal-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-paid-signal-matrix.md)
 - [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writer-zone-lessons.md)
+- [fanqie-rule-priority-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-rule-priority-matrix.md)
 
 ### 2. 当前项目已有番茄基础
 
