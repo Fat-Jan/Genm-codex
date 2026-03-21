@@ -206,6 +206,7 @@
 
 - `novel-package`
 - `novel-precheck`
+- `novel-outline`
 
 ### 当前意义
 
@@ -216,6 +217,7 @@
 
 接入到：
 
+- 大纲判断
 - 包装判断
 - 投稿前判断
 
@@ -223,10 +225,9 @@
 
 如果继续推进这一线，优先顺序应是：
 
-1. 继续稳住 `package / precheck` 的桶级判断
-2. 再考虑让 `outline`
-3. 再考虑让 `genre`
-4. 最后才看是否让 `write` 深接桶级约束
+1. 继续稳住 `package / precheck / outline` 的桶级判断
+2. 再考虑让 `genre`
+3. 最后才看是否让 `write` 深接桶级约束
 
 ---
 
