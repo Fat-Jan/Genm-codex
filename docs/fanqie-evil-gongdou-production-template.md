@@ -3,17 +3,18 @@
 ## 结论
 
 - **内部生产模板：通过**
-- **当前样本直接外投：`revise-then-submit`**
+- **当前样本直接外投：`ready-now`**
 - **packaging-needs-update: no**
 
 一句话判断：
 
 - 这条线已经足够作为 `v1.1` 的第一条番茄女频长篇生产模板继续写
-- 但如果要把当前 1-6 章直接拿去外投，仍建议先补一轮集中 `review / fix / precheck`
+- 当前 1-6 章已经完成统一 review / precheck 收口，可作为首个可投样本使用
 
 本轮深化参考：
 
 - [fanqie-evil-gongdou-production-deep-dive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-deep-dive.md)
+- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
 
 ---
 
@@ -114,15 +115,15 @@
 ### 综合评估
 
 - 作为**内部生产模板**，它已经够格。
-- 作为**当前就拿去外投的首批样本**，仍建议先做一次集中精修。
+- 作为**当前就拿去外投的首批样本**，目前也已经够格。
 
 ### 必须修复
 
-- 对 1-6 章补一轮集中 `review / precheck`
-- 统一再看一遍 1-6 章的章末钩子和外投口径
+- 无
 
 ### 建议修复
 
+- 若要做正式首发版本，建议补一轮轻量语言统一润色
 - 给后续第7章开始的推进，预留一条更强的人物关系压力线，不要只剩账线推进
 
 ### 包装状态
@@ -133,7 +134,7 @@
 
 ### 投稿建议
 
-- `revise-then-submit`
+- `ready-now`
 
 ---
 
@@ -153,4 +154,4 @@
 
 - **把当前 1-6 章原样拿去当外投样本**
 
-那还差最后一层集中质量收口。
+那现在已经可以。

@@ -8,13 +8,13 @@
     "target_chapters": 12,
     "target_words": 48000,
     "created_at": "2026-03-21T06:21:19Z",
-    "updated_at": "2026-03-21T11:25:13Z"
+    "updated_at": "2026-03-21T12:55:12Z"
   },
   "progress": {
     "current_chapter": 6,
     "total_words": 19412,
     "last_write_chapter": 6,
-    "last_write_time": "2026-03-21T11:25:13Z",
+    "last_write_time": "2026-03-21T12:55:12Z",
     "milestones": {
       "golden_three_completed": true,
       "first_arc_completed": false,
@@ -190,18 +190,21 @@
     "recent_scores": [
       86,
       87,
+      88,
+      87,
+      87,
       86
     ],
-    "average_score": 86,
+    "average_score": 87,
     "trend": "stable",
     "last_review_chapter": 6,
     "dimension_scores": {
-      "爽点": 86,
+      "爽点": 87,
       "一致性": 86,
-      "节奏": 85,
+      "节奏": 86,
       "OOC": 88,
       "连续性": 87,
-      "追读力": 87
+      "追读力": 88
     }
   },
   "learned_patterns": {
@@ -350,7 +353,23 @@
       "location": "东宫偏殿",
       "content_bucket": "宫斗宅斗",
       "tagpack": "恶女",
-      "written_at": "2026-03-21T10:10:21Z"
+      "written_at": "2026-03-21T10:10:21Z",
+      "review_score": 88,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 87,
+        "节奏": 87,
+        "OOC": 89,
+        "连续性": 88,
+        "追读力": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
     },
     "4": {
       "chapter": 4,
@@ -362,7 +381,23 @@
       "location": "城郊庄子",
       "content_bucket": "宫斗宅斗",
       "tagpack": "恶女",
-      "written_at": "2026-03-21T10:23:58Z"
+      "written_at": "2026-03-21T10:23:58Z",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 86,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 87,
+        "追读力": 88
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
     },
     "5": {
       "chapter": 5,
@@ -374,7 +409,23 @@
       "location": "安平伯府外院账房",
       "content_bucket": "宫斗宅斗",
       "tagpack": "恶女",
-      "written_at": "2026-03-21T10:31:44Z"
+      "written_at": "2026-03-21T10:31:44Z",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 87,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 88,
+        "追读力": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
     },
     "6": {
       "chapter": 6,
