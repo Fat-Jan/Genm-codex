@@ -8,7 +8,7 @@
     "target_chapters": 8,
     "target_words": 32000,
     "created_at": "2026-03-21T05:41:57Z",
-    "updated_at": "2026-03-21T08:45:00Z"
+    "updated_at": "2026-03-21T09:19:36Z"
   },
   "progress": {
     "current_chapter": 1,
@@ -153,17 +153,19 @@
     ]
   },
   "quality_metrics": {
-    "recent_scores": [],
-    "average_score": 0,
+    "recent_scores": [
+      86
+    ],
+    "average_score": 86,
     "trend": "stable",
-    "last_review_chapter": 0,
+    "last_review_chapter": 1,
     "dimension_scores": {
-      "爽点": 0,
-      "一致性": 0,
-      "节奏": 0,
-      "OOC": 0,
-      "连续性": 0,
-      "追读力": 0
+      "爽点": 88,
+      "一致性": 83,
+      "节奏": 84,
+      "OOC": 89,
+      "连续性": 82,
+      "追读力": 90
     }
   },
   "learned_patterns": {
@@ -241,7 +243,31 @@
       "status": "draft",
       "created_at": "2026-03-21T08:45:00Z",
       "updated_at": "2026-03-21T08:45:00Z",
-      "summary": "家庭聚餐上，周承礼和婆家当众羞辱沈知意，逼她继续忍让。沈知意没有再替任何人圆场，而是边当众提出离婚，边暗中开启录音、联系律师，把这段婚姻最怕被翻开的那本账提前握进自己手里。"
+      "summary": "家庭聚餐上，周承礼和婆家当众羞辱沈知意，逼她继续忍让。沈知意没有再替任何人圆场，而是边当众提出离婚，边暗中开启录音、联系律师，把这段婚姻最怕被翻开的那本账提前握进自己手里。",
+      "content_bucket": "现实情感",
+      "review_score": 86,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T09:19:36Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 83,
+        "节奏": 84,
+        "OOC": 89,
+        "连续性": 82,
+        "追读力": 90
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix",
+      "warnings": [
+        "章纲里前夫姓名仍写为周明远，和正文、状态中的周承礼不一致，后续连续性有风险。",
+        "前任陈骁的信息点只出现一次且未参与本章兑现，会分散首章对婆家压迫与离婚切割主线的注意力。",
+        "中段有两三处解释性复述，削弱了现实情感桶需要的持续推进和压迫密度。"
+      ],
+      "suggested_fixes": [
+        "统一章纲、正文和状态中的关键人名，先消除周明远与周承礼的命名漂移。",
+        "如果陈骁不是下一章立即承接的钩子，就删除或后置这一信息点。",
+        "压缩一两处解释性心理总结，把篇幅让给更具体的账目或证据切割目标。"
+      ]
     }
   },
   "chapter_snapshots": {

@@ -8,7 +8,7 @@
     "target_chapters": 10,
     "target_words": 36000,
     "created_at": "2026-03-21T07:35:00Z",
-    "updated_at": "2026-03-21T08:50:00Z"
+    "updated_at": "2026-03-21T09:20:22Z"
   },
   "progress": {
     "current_chapter": 1,
@@ -155,17 +155,19 @@
     ]
   },
   "quality_metrics": {
-    "recent_scores": [],
-    "average_score": 0,
+    "recent_scores": [
+      85
+    ],
+    "average_score": 85,
     "trend": "stable",
-    "last_review_chapter": 0,
+    "last_review_chapter": 1,
     "dimension_scores": {
-      "爽点": 0,
-      "一致性": 0,
-      "节奏": 0,
-      "OOC": 0,
-      "连续性": 0,
-      "追读力": 0
+      "爽点": 86,
+      "一致性": 84,
+      "节奏": 82,
+      "OOC": 85,
+      "连续性": 83,
+      "追读力": 88
     }
   },
   "learned_patterns": {
@@ -243,7 +245,20 @@
       "status": "draft",
       "created_at": "2026-03-21T08:50:00Z",
       "updated_at": "2026-03-21T08:50:00Z",
-      "summary": "被前任和家里一起逼到墙角的林栀，在民政局门口主动提出闪婚，先把局掀开。领证之后她才知道自己拉错的不是司机，而是陆氏集团执行董事陆沉，而前任陈骁也在此时亲眼撞见了这场关系绑定。"
+      "summary": "被前任和家里一起逼到墙角的林栀，在民政局门口主动提出闪婚，先把局掀开。领证之后她才知道自己拉错的不是司机，而是陆氏集团执行董事陆沉，而前任陈骁也在此时亲眼撞见了这场关系绑定。",
+      "review_score": 85,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T09:20:22Z",
+      "dimension_scores": {
+        "爽点": 86,
+        "一致性": 84,
+        "节奏": 82,
+        "OOC": 85,
+        "连续性": 83,
+        "追读力": 88
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix"
     }
   },
   "chapter_snapshots": {

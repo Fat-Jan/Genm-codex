@@ -59,6 +59,16 @@
 2. `恶女 x 现实情感`
 3. `恶女 x 现言甜宠`
 
+当前对照结论：
+
+- [fanqie-evil-variant-comparison.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-variant-comparison.md)
+
+当前推荐的正式深做顺序：
+
+1. `恶女 x 宫斗宅斗`
+2. `恶女 x 现实情感`
+3. `恶女 x 现言甜宠`
+
 ---
 
 ## 统一字段建议

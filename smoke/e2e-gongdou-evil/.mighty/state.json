@@ -8,7 +8,7 @@
     "target_chapters": 12,
     "target_words": 48000,
     "created_at": "2026-03-21T06:21:19Z",
-    "updated_at": "2026-03-21T08:38:54Z"
+    "updated_at": "2026-03-21T09:20:14Z"
   },
   "progress": {
     "current_chapter": 1,
@@ -136,17 +136,19 @@
     ]
   },
   "quality_metrics": {
-    "recent_scores": [],
-    "average_score": 0,
+    "recent_scores": [
+      82
+    ],
+    "average_score": 82,
     "trend": "stable",
-    "last_review_chapter": 0,
+    "last_review_chapter": 1,
     "dimension_scores": {
-      "爽点": 0,
-      "一致性": 0,
-      "节奏": 0,
-      "OOC": 0,
-      "连续性": 0,
-      "追读力": 0
+      "爽点": 85,
+      "一致性": 74,
+      "节奏": 84,
+      "OOC": 88,
+      "连续性": 72,
+      "追读力": 86
     }
   },
   "learned_patterns": {
@@ -226,7 +228,33 @@
       "location": "安平伯府正厅",
       "content_bucket": "宫斗宅斗",
       "tagpack": "恶女",
-      "written_at": "2026-03-21T08:38:54Z"
+      "written_at": "2026-03-21T08:38:54Z",
+      "review_score": 82,
+      "review_grade": "B",
+      "review_time": "2026-03-21T09:20:14Z",
+      "dimension_scores": {
+        "爽点": 85,
+        "一致性": 74,
+        "节奏": 84,
+        "OOC": 88,
+        "连续性": 72,
+        "追读力": 86
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix",
+      "critical_issues": [
+        "正文实际用于对质的证据只有婚书旧抄，state 与 summary 却写成已亮出半枚玉扣和旧账夹页，证据链与章节事实不一致。",
+        "柳氏母女的核心密谋被主角过于轻易听全，削弱了对手智商与宅斗盘面的严密感。"
+      ],
+      "warnings": [
+        "章末东宫介入的爆点很强，但当前因果桥只落在突然来人，外力抬升略显突兀。",
+        "旧账与玉扣在前段被取出，本章却没有形成可见兑现，读者预期会落空。"
+      ],
+      "suggested_fixes": [
+        "统一正文、summary 与 state 的证据链；要么在正厅明确亮出玉扣和旧账夹页，要么把 summary 改成仅凭婚书旧抄与偷听内容逼停。",
+        "给柳氏母女的信息泄露补一层合理性，例如自信清场、误判主角位置，或只让主角听到关键句。",
+        "在章末补一笔东宫介入来源的轻量提示，强化主角反咬与更大局势抬升之间的因果感。"
+      ]
     }
   },
   "chapter_snapshots": {
