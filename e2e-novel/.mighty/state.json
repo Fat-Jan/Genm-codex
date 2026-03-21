@@ -8,7 +8,7 @@
     "target_chapters": 10,
     "target_words": 30000,
     "created_at": "2026-03-19T14:41:06Z",
-    "updated_at": "2026-03-21T01:58:45Z"
+    "updated_at": "2026-03-21T03:51:43Z"
   },
   "progress": {
     "current_chapter": 4,
@@ -388,6 +388,7 @@
   },
   "genre_profile": {
     "loaded": "shared/profiles/xuanhuan/profile-tomato.yaml",
+    "bucket": "传统玄幻",
     "节奏": {
       "type": "快节奏",
       "opening_speed": "immediate"

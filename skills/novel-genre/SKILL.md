@@ -16,6 +16,7 @@ Use this skill when the user wants to inspect available genres, detect the curre
   - `apply`
 - optional `genre`
 - optional `platform`
+- optional `content_bucket`
 
 ## Preconditions
 
@@ -39,6 +40,8 @@ Read conditionally:
 - `大纲/总纲.md`
 - `设定集/力量体系.md`
 - `chapters/第001章.md` or nearby project files only when genre detection is truly unclear
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## Shared profile root resolution
 
@@ -64,6 +67,7 @@ Use that resolved root consistently for all reads during the task.
 2. Report:
    - current `meta.genre`
    - current `meta.platform`
+   - current `genre_profile.bucket` when present
    - loaded profile path if present
    - resolved profile root if one exists
    - a short summary of the active genre constraints
@@ -75,8 +79,18 @@ Use that resolved root consistently for all reads during the task.
    - total outline
    - power-system or setting files
    - early chapter content when necessary
-3. Return a detected genre plus confidence.
-4. Do not silently rewrite state on detect-only requests.
+3. If the platform is 番茄 and the user asks for bucket detection, or the current task is clearly Fanqie-first:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - infer the best-fit content bucket conservatively from:
+     - title / premise
+     - current hook style
+     - whether the project reads more like `传统玄幻`, `玄幻脑洞`, `东方仙侠`, etc.
+4. Return:
+   - detected genre
+   - detected bucket when applicable
+   - confidence
+5. Do not silently rewrite state on detect-only requests.
 
 ### apply
 
@@ -86,15 +100,22 @@ Use that resolved root consistently for all reads during the task.
 2. Determine the target platform:
    - explicit user input wins
    - otherwise use `meta.platform`
-3. Resolve the shared profile root.
+3. Determine the target content bucket:
+   - explicit `content_bucket` wins
+   - otherwise keep the current `genre_profile.bucket` if one exists
+4. Resolve the shared profile root.
 3. Select the best profile path:
    - prefer `<resolved_root>/<genre>/profile-<platform>.yaml` when it exists
    - otherwise use `<resolved_root>/<genre>/profile.yaml`
    - if the genre is represented by a standalone directory without platform specializations, use its `profile.yaml`
-4. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
-5. Read the chosen profile and extract only the fields needed downstream.
-6. Update `.mighty/state.json` so the project reflects the chosen profile.
-7. Return a concise application summary and next-step guidance.
+5. If the platform is 番茄 and the target bucket is set:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat the bucket as an upstream targeting choice, not as a replacement for genre
+6. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
+7. Read the chosen profile and extract only the fields needed downstream.
+8. Update `.mighty/state.json` so the project reflects the chosen profile.
+9. Return a concise application summary and next-step guidance.
 
 ## State update requirements
 
@@ -109,6 +130,10 @@ When applying a profile, update at minimum:
 - `genre_profile.strand权重`
 - `genre_profile.特殊约束`
 
+When a Fanqie content bucket is explicitly chosen, also update:
+
+- `genre_profile.bucket`
+
 When the selected profile clearly defines platform pacing/word-count guidance, also refresh `platform_config` to keep it aligned with the chosen profile.
 
 ## Output expectations
@@ -120,6 +145,7 @@ When the selected profile clearly defines platform pacing/word-count guidance, a
 ### show / detect
 
 - current or detected genre
+- detected bucket when applicable
 - confidence when detection is involved
 - selected profile path
 - short summary of pacing and constraints
@@ -127,6 +153,7 @@ When the selected profile clearly defines platform pacing/word-count guidance, a
 ### apply
 
 - applied genre
+- applied bucket when applicable
 - resolved profile root
 - selected profile path
 - whether a platform-specific profile was used
@@ -136,6 +163,7 @@ When the selected profile clearly defines platform pacing/word-count guidance, a
 ## Notes
 
 - Keep first-version detection conservative; prefer explicit project state over overconfident inference.
+- For Fanqie buckets, prefer a human-readable bucket name such as `传统玄幻` over inventing a new opaque id.
 - Do not try to recreate the old Hive Bee orchestration.
 - If the requested genre does not exist, list valid choices instead of guessing.
 - Use the smallest useful subset of profile fields in state; do not dump the full profile into `.mighty/state.json`.

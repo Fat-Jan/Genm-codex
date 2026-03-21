@@ -80,8 +80,10 @@ Read conditionally:
    - genre
    - platform
    - optional `content_bucket`
+   - current `genre_profile.bucket`
    - current progress
    - current `market_adjustments`
+   - treat `genre_profile.bucket` as the active `content_bucket` when no explicit `content_bucket` input is provided
 3. Read `大纲/总纲.md` and extract:
    - premise
    - main conflict
@@ -95,7 +97,7 @@ Read conditionally:
 5. If state already contains project-local `market_adjustments`, treat those as the first packaging-side market hints.
 6. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
 7. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
-8. If the platform is 番茄 and a content bucket is explicitly given, or the request clearly asks for Fanqie-first packaging:
+8. If the platform is 番茄 and a content bucket is explicitly given, or a current `genre_profile.bucket` exists, or the request clearly asks for Fanqie-first packaging:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - treat those as bucket-layer constraints that sit upstream of packaging

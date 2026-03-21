@@ -82,7 +82,8 @@ Resolve shared profile roots in this order:
    - matching shared profile if available
    - lightweight platform heuristics
    - project-local `market_adjustments` when they exist
-   - Fanqie bucket constraints when `platform=番茄` and a bucket is provided or clearly intended
+   - Fanqie bucket constraints when `platform=番茄` and a bucket is provided, or when current `genre_profile.bucket` exists, or when the task is clearly bucket-aware
+   - when no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the current active bucket
 6. Check quality and editorial risk:
    - pacing softness
    - payoff density

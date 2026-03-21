@@ -25,9 +25,10 @@ Use this skill after project initialization, or when the user wants to generate 
 
 ## Workflow
 
-1. Read `.mighty/state.json` for `meta.title`, `meta.genre`, and `meta.platform`.
+1. Read `.mighty/state.json` for `meta.title`, `meta.genre`, `meta.platform`, and current `genre_profile.bucket` when present.
+   - if no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the active Fanqie content bucket
 2. Load the relevant shared profile for rhythm and reader expectations.
-3. If the platform is 番茄 and a `content_bucket` is explicitly given, or the user clearly asks for Fanqie-first outline refinement:
+3. If the platform is 番茄 and a `content_bucket` is explicitly given, or a current `genre_profile.bucket` exists, or the user clearly asks for Fanqie-first outline refinement:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - treat those bucket rules as upstream outline constraints, not as mere packaging hints
