@@ -8,13 +8,13 @@
     "target_chapters": 12,
     "target_words": 48000,
     "created_at": "2026-03-21T06:21:19Z",
-    "updated_at": "2026-03-21T06:21:19Z"
+    "updated_at": "2026-03-21T06:55:24Z"
   },
   "progress": {
-    "current_chapter": 0,
-    "total_words": 0,
-    "last_write_chapter": 0,
-    "last_write_time": null,
+    "current_chapter": 1,
+    "total_words": 3415,
+    "last_write_chapter": 1,
+    "last_write_time": "2026-03-21T06:55:24Z",
     "milestones": {
       "golden_three_completed": false,
       "first_arc_completed": false,
@@ -32,7 +32,7 @@
           "layer": 0
         },
         "location": {
-          "current": "安平伯府",
+          "current": "安平伯府正厅",
           "origin": "安平伯府"
         },
         "inventory": [
@@ -55,7 +55,10 @@
           "查清生母旧死因"
         ],
         "known_secrets": [],
-        "recent_events": []
+        "recent_events": [
+          "在正堂以旧婚书抄件和亡母旧账线索逼停换婚书",
+          "东宫内侍奉太子口信入府追问婚书归属"
+        ]
       },
       "active": [],
       "archived": []
@@ -82,29 +85,51 @@
   },
   "plot_threads": {
     "foreshadowing": {
-      "active": [],
+      "active": [
+        "生母死因旧账",
+        "婚书被换的幕后推手",
+        "东宫为何介入"
+      ],
       "pending": [],
       "warning": [],
       "overdue": [],
       "resolved": []
     },
     "suspense": {
-      "active": [],
+      "active": [
+        "柳氏与谢明珠为何急于在今夜换婚书",
+        "太子为何会在婚书当夜点名安平伯府"
+      ],
       "resolved": []
     },
     "main_quest": {
       "target": "从被压制的庶女位置翻身，进入更高权力层并查清旧案",
       "location": "安平伯府 / 东宫线",
       "secret": "继母与庶妹急着换婚书，不只是想夺婚事，还想掩盖上一代留下的账。",
-      "progress": 0
+      "progress": 10
     },
     "side_quests": []
   },
   "knowledge_base": {
-    "reader_knows": [],
-    "protagonist_knows": [],
-    "protagonist_doesnt_know": [],
-    "key_revelations": []
+    "reader_knows": [
+      "柳氏与谢明珠在婚书上动了手脚",
+      "谢云昭手里留有旧婚书抄件和亡母旧账线索",
+      "东宫已经介入安平伯府的婚书风波"
+    ],
+    "protagonist_knows": [
+      "婚书被换并非临时起意",
+      "柳氏认得亡母旧账页",
+      "今夜反击已经把婚书局推到府外"
+    ],
+    "protagonist_doesnt_know": [
+      "太子为何会在今夜插手婚书局",
+      "亡母旧死因背后的完整链条",
+      "婚书被换背后是否还有更高层的授意"
+    ],
+    "key_revelations": [
+      "换婚书不仅是夺婚事，也牵出旧年账目",
+      "谢云昭第一次在正堂当众反咬并逼停压制"
+    ]
   },
   "quality_metrics": {
     "recent_scores": [],
@@ -186,9 +211,27 @@
       }
     ]
   },
-  "chapter_meta": {},
-  "chapter_snapshots": {},
-  "summaries_index": {},
+  "chapter_meta": {
+    "1": {
+      "title": "婚书被换那夜",
+      "word_count": 3415,
+      "summary": "柳氏与谢明珠在正堂逼谢云昭按下换婚书手印，谢云昭亮出旧婚书抄件与亡母旧账线索，当场逼停换婚书，章末东宫内侍奉太子口信入府追问婚书归属。",
+      "status": "draft",
+      "content_bucket": "宫斗宅斗",
+      "updated_at": "2026-03-21T06:55:24Z"
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "title": "婚书被换那夜",
+      "word_count": 3415,
+      "summary": "完成开局压制、当场反咬与东宫介入钩子。",
+      "saved_at": "2026-03-21T06:55:24Z"
+    }
+  },
+  "summaries_index": {
+    "1": "柳氏与谢明珠在正堂逼谢云昭按下换婚书手印，谢云昭亮出旧婚书抄件与亡母旧账线索，当场逼停换婚书，章末东宫内侍奉太子口信入府追问婚书归属。"
+  },
   "character_states": {},
   "setting_versions": {},
   "market_adjustments": {
