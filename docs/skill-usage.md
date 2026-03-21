@@ -154,6 +154,8 @@
 - 在长项目里把旧章节元数据归档出 `state`
 - 把 `learned_patterns / market_adjustments` 从 `state` 旁路到 sidecar 文件
 - 用 `scripts/project-maintenance.py` 跑一次完整维护链
+- 用 `scripts/post-task-maintenance.py` 把维护链挂在 `write / batch / workflow` 后
+- 用 `scripts/review-sync-queue.py` 处理 `sync-review` 队列
 
 ## 第五阶段已完成
 

@@ -29,6 +29,8 @@ Always read what exists:
 
 Read conditionally:
 
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
 - `chapters/第NNN章.md`
 - `大纲/章纲/第NNN章.md`
 - `大纲/总纲.md`
@@ -79,6 +81,7 @@ If there is no usable workflow state:
    - total words
    - protagonist current state
    - active foreshadowing
+   - current learned / market guidance when available in sidecars
    - whether the next chapter outline exists
 3. If the user provided `chapter`, use it as the continuation target.
 4. Otherwise, recommend the next chapter after `progress.current_chapter`.
@@ -124,3 +127,4 @@ Prefer one of these formats:
 - The Codex version does not assume the full legacy workflow engine exists.
 - Treat `workflow_state.json` as advisory state, not as proof that every underlying step artifact exists.
 - If the requested chapter outline is missing, recommend `novel-outline` instead of guessing the continuation path.
+- When sidecar guidance exists, prefer reading it over the summary pointer in `state`.

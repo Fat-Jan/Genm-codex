@@ -34,8 +34,8 @@ Use this skill when the user wants to generate multiple chapters in one ordered 
    - total words
    - notable new entities
    - notable new foreshadowing
-7. After the batch, prefer one maintenance pass:
-   - `scripts/project-maintenance.py <project_root>`
+7. After the batch, the preferred automatic hook is:
+   - `scripts/post-task-maintenance.py <project_root> --trigger batch`
    so the project does not keep accumulating all runtime facts only inside `state.json`
 
 ## Outputs

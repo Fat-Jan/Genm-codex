@@ -24,10 +24,15 @@ Use this skill when the user wants to export chapters from the project into a sh
 
 1. Determine the export range.
 2. Read the selected chapter files.
-3. For `txt`, use the simplest reliable path first.
-4. If a platform-specific export is requested, apply only the relevant formatting rules from shared references.
-5. Write output under `exports/`.
-6. Report:
+3. Read `.mighty/state.json`.
+4. If available, read:
+   - `.mighty/market-adjustments.json`
+   - `.mighty/learned-patterns.json`
+   to surface export-side warnings or packaging reminders
+5. For `txt`, use the simplest reliable path first.
+6. If a platform-specific export is requested, apply only the relevant formatting rules from shared references.
+7. Write output under `exports/`.
+8. Report:
    - exported file path
    - covered chapter range
    - format used
@@ -42,3 +47,4 @@ Use this skill when the user wants to export chapters from the project into a sh
 - Treat single-range `txt` export as the minimum baseline path.
 - Do not promise binary formats unless the environment and dependencies are available.
 - If a requested format is unsupported in the current environment, fall back to `txt` and state the downgrade explicitly.
+- If sidecar guidance suggests packaging drift or unresolved platform risk, mention that in export warnings instead of silently exporting as if the project were submission-ready.

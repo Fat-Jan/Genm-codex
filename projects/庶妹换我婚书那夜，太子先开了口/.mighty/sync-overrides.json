@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-03-21T17:15:12Z",
+  "aliases": {
+    "characters": {},
+    "locations": {},
+    "factions": {},
+    "items": {
+      "母亲遗下的半枚玉扣": "半枚玉扣"
+    }
+  },
+  "ignored": {
+    "characters": [],
+    "locations": [],
+    "factions": [],
+    "items": []
+  }
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-03-21T16:56:19Z",
+  "generated_at": "2026-03-21T17:16:33Z",
   "chapters_window": [
     13,
     14,
@@ -16,11 +16,15 @@
       "name": "沈氏",
       "kind": "character",
       "reason": "only_seen_1_time"
-    },
+    }
+  ],
+  "reviewed_entities": [
     {
-      "name": "母亲遗下的半枚玉扣",
       "kind": "item",
-      "reason": "alias_of_半枚玉扣"
+      "name": "母亲遗下的半枚玉扣",
+      "action": "resolve-alias",
+      "target": "半枚玉扣",
+      "reviewed_at": "2026-03-21T17:15:12Z"
     }
   ]
 }

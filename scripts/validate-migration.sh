@@ -67,6 +67,8 @@ done
 
 require_file "${ROOT_DIR}/docs/migration-map.md"
 require_file "${ROOT_DIR}/docs/codex-migration-plan.md"
+require_file "${ROOT_DIR}/scripts/review-sync-queue.py"
+require_file "${ROOT_DIR}/scripts/post-task-maintenance.py"
 require_file "${ROOT_DIR}/scripts/thin-state.py"
 require_file "${ROOT_DIR}/scripts/split-runtime-guidance.py"
 require_file "${ROOT_DIR}/scripts/project-maintenance.py"

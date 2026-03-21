@@ -217,7 +217,7 @@
   "learned_patterns": {
     "externalized": true,
     "sidecar_file": ".mighty/learned-patterns.json",
-    "last_updated": "2026-03-22T02:50:00Z",
+    "last_updated": "2026-03-21T17:16:33Z",
     "available_sections": [
       "avoid_patterns",
       "high_point_preferences",
@@ -444,7 +444,7 @@
   "market_adjustments": {
     "externalized": true,
     "sidecar_file": ".mighty/market-adjustments.json",
-    "last_updated": "2026-03-22T02:50:00Z",
+    "last_updated": "2026-03-21T17:16:33Z",
     "last_applied": null,
     "source_scan": null,
     "adjustment_count": 0

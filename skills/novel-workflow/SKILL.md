@@ -94,8 +94,8 @@ Always read what exists:
 5. Refresh `last_heartbeat`.
 6. If no pending steps remain, mark task `completed`.
 7. If the completed task was `novel-write` or `novel-batch`, recommend post-write maintenance:
-   - `novel-sync`
-   - or `scripts/project-maintenance.py`
+   - `scripts/post-task-maintenance.py <project_root> --trigger workflow`
+   - or `novel-sync`
 
 ### fail
 

@@ -55,7 +55,10 @@
 4. 每 3-5 章或一个阶段后：
    - `novel-sync`
 5. 每轮正文维护后：
-   - `scripts/project-maintenance.py <project_root>`
+   - 默认自动挂：
+     - `scripts/post-task-maintenance.py <project_root> --trigger write|batch|workflow`
+   - 手动补跑：
+     - `scripts/project-maintenance.py <project_root>`
 6. 章节很多后：
    - `novel-sync (thin-state)`
 
@@ -67,6 +70,7 @@
 - 再把稳定实体沉淀回 `设定集/`
 - 再把 `learned / market` 重负载旁路出 `state`
 - 再把旧章节元数据归档出 `state`
+- 遇到歧义实体时，再收 `sync-review` 队列
 
 推荐规则：
 

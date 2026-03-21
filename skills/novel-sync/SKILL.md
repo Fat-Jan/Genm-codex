@@ -37,6 +37,7 @@ It should not:
   - `locations`
   - `factions`
   - `items`
+  - `review-queue`
   - `thin-state`
 - optional `recent_chapters`
 - optional explicit lists:
@@ -104,6 +105,7 @@ Read conditionally:
 9. Maintain a lightweight ambiguity queue:
    - `.mighty/sync-review.json`
    - use it for low-confidence candidates that should not be materialized blindly
+   - use `.mighty/sync-overrides.json` to record resolved aliases or ignored candidates
 10. Return a compact sync summary:
    - files created
    - files refreshed
@@ -119,3 +121,4 @@ Read conditionally:
 - `thin-state` must not alter protagonist runtime state, progress, active foreshadowing, or current quest fields.
 - Treat `items` as evidence-chain / repeated-use assets; do not create cards for disposable props.
 - For post-write maintenance, prefer running `scripts/project-maintenance.py` so sync, guidance split, and state thinning stay in one path.
+- For queue review/closure, prefer `scripts/review-sync-queue.py`.

@@ -121,9 +121,9 @@ Read conditionally:
    - `summaries_index`
 13. Do not write review scores here unless an actual review step was run.
 14. Recommend running `novel-review` immediately after writing.
-15. After a real writing round, prefer running post-write maintenance:
-   - `scripts/project-maintenance.py <project_root>`
-   so stable entities, runtime guidance, and state thinning stay synchronized.
+15. After a real writing round, the preferred automatic hook is:
+   - `scripts/post-task-maintenance.py <project_root> --trigger write`
+   which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
 
 ## Chapter state update requirements
 

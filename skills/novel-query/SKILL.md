@@ -38,6 +38,8 @@ Use `.mighty/index.json` when it exists and the request benefits from indexed lo
 Read conditionally when needed:
 
 - `.mighty/state-archive.json`
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
 - `设定集/角色/*.md`
 - `设定集/世界观/*.md`
 - `设定集/力量体系.md`
@@ -103,13 +105,17 @@ Map these requests onto state or index data rather than pretending to execute a 
 2. Read `.mighty/state.json`.
 3. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
 4. If `.mighty/state-archive.json` exists and the request targets older chapters or full-history chapter metadata, read it next.
-5. Resolve the request source:
+5. If the request asks about learned style preferences, current market guidance, or project-side writing constraints, read:
+   - `.mighty/learned-patterns.json`
+   - `.mighty/market-adjustments.json`
+6. Resolve the request source:
    - state-first for current truth
    - state-archive for old chapter metadata / snapshot / summary history
+   - sidecar-first for learned / market guidance
    - index-first for chapter lookup / summary / mention search
-6. If the answer is fully available from state, state-archive, or index, stop there.
-7. Only read additional files if state, state-archive, and index all lack the needed detail.
-8. Return the smallest useful result:
+7. If the answer is fully available from state, state-archive, sidecar, or index, stop there.
+8. Only read additional files if state, state-archive, sidecars, and index all lack the needed detail.
+9. Return the smallest useful result:
    - list for browsing
    - count for totals
    - short summary for direct questions
@@ -166,6 +172,7 @@ If the index is missing and the request clearly wants index-backed data, say so 
 - When `state` has been thinned, prefer:
   1. current `state` for live truth
   2. `state-archive` for old chapter metadata
-  3. `index` for broad retrieval
+  3. sidecar files for learned / market guidance
+  4. `index` for broad retrieval
 - If the user asks for broad statistics, summarize first and only expand on request.
 - Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.

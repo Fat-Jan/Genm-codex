@@ -67,8 +67,49 @@ def now_iso() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
-def normalize_item_name(name: str) -> str:
-    return ITEM_ALIAS_MAP.get(name, name)
+def empty_overrides() -> dict:
+    return {
+        "version": "1.0",
+        "updated_at": "",
+        "aliases": {
+            "characters": {},
+            "locations": {},
+            "factions": {},
+            "items": {},
+        },
+        "ignored": {
+            "characters": [],
+            "locations": [],
+            "factions": [],
+            "items": [],
+        },
+    }
+
+
+def load_overrides(project_root: Path) -> dict:
+    path = project_root / ".mighty" / "sync-overrides.json"
+    if not path.exists():
+        return empty_overrides()
+    try:
+        data = json.loads(path.read_text())
+    except Exception:
+        return empty_overrides()
+    base = empty_overrides()
+    for section in ("aliases", "ignored"):
+        base[section].update(data.get(section, {}))
+    base["updated_at"] = data.get("updated_at", "")
+    return base
+
+
+def normalize_name(kind: str, name: str, overrides: dict) -> str:
+    kind_key = f"{kind}s"
+    normalized = ITEM_ALIAS_MAP.get(name, name) if kind == "item" else name
+    return overrides.get("aliases", {}).get(kind_key, {}).get(normalized, normalized)
+
+
+def is_ignored(kind: str, name: str, overrides: dict) -> bool:
+    kind_key = f"{kind}s"
+    return name in set(overrides.get("ignored", {}).get(kind_key, []))
 
 
 def looks_like_personal_name(name: str) -> bool:
@@ -84,7 +125,7 @@ def looks_like_personal_name(name: str) -> bool:
     return True
 
 
-def infer_characters(state: dict, texts: list[str]) -> tuple[list[str], list[dict]]:
+def infer_characters(state: dict, texts: list[str], overrides: dict) -> tuple[list[str], list[dict]]:
     candidates = []
     protagonist = state["entities"]["characters"]["protagonist"]["name"]
     joined = "\n".join(texts)
@@ -98,6 +139,9 @@ def infer_characters(state: dict, texts: list[str]) -> tuple[list[str], list[dic
             continue
         if name in NAME_STOPWORDS:
             continue
+        if is_ignored("character", name, overrides):
+            continue
+        name = normalize_name("character", name, overrides)
         candidates.append(name)
     counts: dict[str, int] = {}
     for c in candidates:
@@ -108,6 +152,9 @@ def infer_characters(state: dict, texts: list[str]) -> tuple[list[str], list[dic
     for c in role_names:
         if c == protagonist or c in NAME_STOPWORDS:
             continue
+        if is_ignored("character", c, overrides):
+            continue
+        c = normalize_name("character", c, overrides)
         role_counts[c] = role_counts.get(c, 0) + 1
     ambiguous = [
         {"name": name, "kind": "character", "reason": f"only_seen_{count}_time"}
@@ -117,18 +164,23 @@ def infer_characters(state: dict, texts: list[str]) -> tuple[list[str], list[dic
     return result, ambiguous
 
 
-def infer_locations(state: dict) -> list[str]:
+def infer_locations(state: dict, overrides: dict) -> list[str]:
     locs = []
     current = state["entities"]["locations"].get("current")
     if current:
-        locs.append(current)
+        current = normalize_name("location", current, overrides)
+        if not is_ignored("location", current, overrides):
+            locs.append(current)
     for x in state["entities"]["locations"].get("important", []):
+        x = normalize_name("location", x, overrides)
+        if is_ignored("location", x, overrides):
+            continue
         if x not in locs:
             locs.append(x)
     return locs
 
 
-def infer_factions(state: dict, texts: list[str], locations: list[str]) -> list[str]:
+def infer_factions(state: dict, texts: list[str], locations: list[str], overrides: dict) -> list[str]:
     factions = []
     joined = "\n".join(texts)
     tokens = re.findall(r"[\u4e00-\u9fff]{2,6}", joined)
@@ -138,6 +190,9 @@ def infer_factions(state: dict, texts: list[str], locations: list[str]) -> list[
             continue
         if any(ch in INVALID_NAME_CHARS for ch in token):
             continue
+        if is_ignored("faction", token, overrides):
+            continue
+        token = normalize_name("faction", token, overrides)
         counts[token] = counts.get(token, 0) + 1
     for token, count in sorted(counts.items(), key=lambda x: (-x[1], x[0])):
         if count >= 2 and token not in factions:
@@ -145,16 +200,18 @@ def infer_factions(state: dict, texts: list[str], locations: list[str]) -> list[
     return factions[:10]
 
 
-def infer_items(state: dict, texts: list[str]) -> tuple[list[str], list[dict]]:
+def infer_items(state: dict, texts: list[str], overrides: dict) -> tuple[list[str], list[dict]]:
     tracked = state.get("entities", {}).get("items", {}).get("tracked", [])
     inventory = state.get("entities", {}).get("items", {}).get("protagonist_inventory", [])
     stable: list[str] = []
     alias_ambiguities: list[dict] = []
     for item in tracked + inventory:
-        normalized = normalize_item_name(item)
+        if is_ignored("item", item, overrides):
+            continue
+        normalized = normalize_name("item", item, overrides)
         if normalized not in stable:
             stable.append(normalized)
-        if normalized != item:
+        if normalized != item and item not in overrides.get("aliases", {}).get("items", {}):
             alias_ambiguities.append({"name": item, "kind": "item", "reason": f"alias_of_{normalized}"})
     return stable[:16], alias_ambiguities[:12]
 
@@ -310,11 +367,18 @@ def write_item_files(project_root: Path, names: list[str], chapter_nums: list[in
 
 def write_review_queue(project_root: Path, chapter_nums: list[int], ambiguities: list[dict]) -> str:
     queue_path = project_root / ".mighty" / "sync-review.json"
+    old_reviewed = []
+    if queue_path.exists():
+        try:
+            old_reviewed = json.loads(queue_path.read_text()).get("reviewed_entities", [])
+        except Exception:
+            old_reviewed = []
     doc = {
         "version": "1.0",
         "generated_at": now_iso(),
         "chapters_window": chapter_nums,
         "ambiguous_entities": ambiguities,
+        "reviewed_entities": old_reviewed,
     }
     queue_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2))
     return str(queue_path)
@@ -324,14 +388,15 @@ def main() -> None:
     args = parse_args()
     project_root = Path(args.project_root)
     state = load_state(project_root)
+    overrides = load_overrides(project_root)
     chapters = recent_chapter_numbers(state, args.recent_chapters)
     texts = chapter_texts(project_root, chapters)
 
-    inferred_characters, char_ambiguities = infer_characters(state, texts)
+    inferred_characters, char_ambiguities = infer_characters(state, texts, overrides)
     characters = parse_csv(args.characters) or inferred_characters
-    locations = parse_csv(args.locations) or infer_locations(state)
-    factions = parse_csv(args.factions) or infer_factions(state, texts, locations)
-    inferred_items, item_ambiguities = infer_items(state, texts)
+    locations = parse_csv(args.locations) or infer_locations(state, overrides)
+    factions = parse_csv(args.factions) or infer_factions(state, texts, locations, overrides)
+    inferred_items, item_ambiguities = infer_items(state, texts, overrides)
     items = parse_csv(args.items) or inferred_items
 
     synced = {"characters": [], "locations": [], "factions": [], "items": []}

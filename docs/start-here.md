@@ -105,6 +105,12 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 python3 scripts/project-maintenance.py <project_root>
 ```
 
+如果你想把维护链挂在写作完成后自动执行，优先用：
+
+```text
+python3 scripts/post-task-maintenance.py <project_root> --trigger write
+```
+
 ## 阶段能力地图
 
 ### 核心闭环

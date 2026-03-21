@@ -32,6 +32,8 @@ Always read:
 Read conditionally:
 
 - `.mighty/state-archive.json`
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
 - `.mighty/index.json`
 - `chapters/` to count written chapters
 - `大纲/总纲.md`
@@ -41,7 +43,8 @@ Read conditionally:
 
 1. Read `.mighty/state.json`.
 2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
-3. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+3. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
+4. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
 4. Summarize:
    - title
    - genre
@@ -56,6 +59,7 @@ Read conditionally:
    - `plot_threads.suspense`
    - `main_quest`
    - `progress.milestones`
+   - sidecar guidance summaries when present
    - and when present, archived `chapter_meta` / `chapter_snapshots` coverage
 6. Build the status sections that fit the request:
    - progress
@@ -129,3 +133,4 @@ For `full` or stats-heavy requests, prefer sections such as:
 - If `state` has been thinned, explain which chapters are still live in `state` and which are now only in `state-archive`.
 - If there is insufficient data for a requested statistic, say so directly instead of inferring.
 - Treat `index` as an accelerator and secondary source, not a replacement for `state`.
+- Treat sidecar files as the preferred place for learned / market guidance once they have been externalized.
