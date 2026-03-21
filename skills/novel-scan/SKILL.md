@@ -30,6 +30,21 @@ It should not by default:
 - rewrite project profile state
 - pretend that weak or missing sources are strong evidence
 
+## Fanqie rule position
+
+When this skill is used in a Fanqie-first project, treat it as an upstream signal producer.
+
+It may:
+
+- recommend likely content buckets
+- summarize title / opening / pattern observations
+
+It must not:
+
+- override canon
+- override the active project bucket without explicit human or workflow choice
+- override bucket rules or writing-technique rules already selected downstream
+
 ## Inputs
 
 - optional `platform`
@@ -92,6 +107,14 @@ When mode is `project-annotate`, the only project state area this skill may upda
    - separate findings from suggestions
    - when the platform is 番茄 and the evidence supports it, infer a small set of likely content buckets
    - if first-batch MVP bucket configs exist, read `../../docs/fanqie-mvp-buckets.yaml`
+   - if Fanqie-first packaging / writing guidance is relevant, also read:
+     - `../../docs/fanqie-writing-techniques.md`
+     - `../../docs/fanqie-rule-priority-matrix.md`
+   - use writing-technique rules only to classify:
+     - title patterns
+     - opening patterns
+     - payoff patterns
+     not to rewrite downstream rules
    - when a recommended bucket matches an existing config entry, include:
      - `config_key`
      - `priority_rank`

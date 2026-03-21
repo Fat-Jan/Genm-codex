@@ -59,6 +59,8 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
+- `../../docs/fanqie-rule-priority-matrix.md`
 
 ## Workflow
 
@@ -82,17 +84,26 @@ Read conditionally:
      - payoff visibility
      - conflict density
      - carryover style
-5. Extract only defensible learning signals:
+5. If Fanqie learning is active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - use them as third-layer grouping hints for:
+     - title / hook preference
+     - golden-three rhythm
+     - character vividness
+     - suspense handoff
+   - do not let technique rules overwrite local evidence from the actual text
+6. Extract only defensible learning signals:
    - dialogue style
    - description density
    - pacing preference
    - preferred high-point patterns
    - avoid patterns
-6. In `quick` mode:
+7. In `quick` mode:
    - return a concise learning summary
-7. In `deep` mode:
+8. In `deep` mode:
    - provide stronger evidence and more explicit pattern grouping
-8. If the user wants the result saved:
+9. If the user wants the result saved:
    - update `.mighty/state.json`
    - refresh:
      - `learned_patterns.writing_style_preferences`
@@ -100,7 +111,7 @@ Read conditionally:
      - `learned_patterns.avoid_patterns`
      - `auto_learn_config.last_auto_learn`
      - `auto_learn_config.last_auto_learn_chapter` when chapter-based
-9. When returning the result, explain where the learned signals are most useful next:
+10. When returning the result, explain where the learned signals are most useful next:
    - `novel-write`
    - `novel-polish`
    - `novel-precheck`
@@ -120,5 +131,10 @@ Prefer:
 - Prefer updating existing learned pattern fields over creating new top-level schema.
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
 - Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.
+- When Fanqie rules stack, group findings in this order:
+  1. actual text evidence
+  2. active bucket lens
+  3. writing-technique lens
+  4. tagpack flavor only if it was explicitly active in the source
 - When a Fanqie content bucket is active, use it to interpret local patterns more precisely, not to overwrite local evidence with generic platform slogans.
 - If a first-batch MVP bucket config exists, prefer its reader-motive and payoff-cycle lens when grouping patterns.
