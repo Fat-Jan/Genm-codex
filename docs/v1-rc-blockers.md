@@ -64,6 +64,20 @@
     - `critical_issues = []`
   - 因此该项不再构成活跃观察点
 
+### O-004 `review` 与 `precheck` 对第 4 章的最终判断仍有轻微分叉
+
+- 类型：observation
+- 领域：质量路由一致性
+- 状态：open
+- 说明：
+  - 第 4 章在 RC 修补后，章级 review 侧已经不再保留 `needs_fix = true`
+  - 但简明番茄 precheck 仍给出 `revise-then-submit`
+  - 这说明：
+    - review 更偏章级局部质量判断
+    - precheck 更偏批量投稿口径与整体批次收益判断
+  - 当前看，这更像**口径差异**，不是系统级 blocker
+  - 但在 RC 期间仍需继续观察，避免用户误以为两者必然同结论
+
 ---
 
 ## 记录规则

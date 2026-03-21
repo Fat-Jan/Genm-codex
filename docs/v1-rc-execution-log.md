@@ -127,6 +127,12 @@
 - 当前观察项见：
   - [v1-rc-blockers.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-rc-blockers.md)
 
+补充说明：
+
+- 当前第 4 章修补后，review 侧已不再保留 must-fix 级问题
+- 但批量投稿口径的 `precheck` 仍更谨慎，给出 `revise-then-submit`
+- 这已作为新 observation 记录，不视为 blocker
+
 ---
 
 ## 下一步
