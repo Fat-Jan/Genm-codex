@@ -8,13 +8,13 @@
     "target_chapters": 12,
     "target_words": 48000,
     "created_at": "2026-03-21T06:21:19Z",
-    "updated_at": "2026-03-21T07:04:46Z"
+    "updated_at": "2026-03-21T07:11:33Z"
   },
   "progress": {
     "current_chapter": 1,
-    "total_words": 3415,
+    "total_words": 3544,
     "last_write_chapter": 1,
-    "last_write_time": "2026-03-21T06:55:24Z",
+    "last_write_time": "2026-03-21T07:11:33Z",
     "milestones": {
       "golden_three_completed": false,
       "first_arc_completed": false,
@@ -216,11 +216,11 @@
   "chapter_meta": {
     "1": {
       "title": "婚书被换那夜",
-      "word_count": 3415,
+      "word_count": 3544,
       "summary": "柳氏与谢明珠在正堂逼谢云昭按下换婚书手印，谢云昭亮出旧婚书抄件与亡母旧账线索，当场逼停换婚书，章末东宫内侍奉太子口信入府追问婚书归属。",
       "status": "draft",
       "content_bucket": "宫斗宅斗",
-      "updated_at": "2026-03-21T06:55:24Z",
+      "updated_at": "2026-03-21T07:11:33Z",
       "review_score": 82,
       "review_grade": "B",
       "review_time": "2026-03-21T07:04:46Z",
@@ -232,15 +232,15 @@
         "连续性": 80,
         "追读力": 87
       },
-      "needs_fix": true,
-      "recommended_next_action": "novel-fix",
-      "warnings": [
-        "前半段从偷听到翻旧账房的过渡已经清楚，但中段对伯府旧格局的解释略多，节奏还能再收。",
-        "东宫介入的钩子很强，但谢云昭对这层更大风险的即时判断还可以再往前递半句。"
-      ],
-      "suggested_fixes": [
-        "压缩一两处说明性段落，把注意力更多留在婚书局当场翻盘上。",
-        "在章末再补一笔谢云昭对东宫介入后果的即时判断，让大局承接更硬。"
+      "needs_fix": false,
+      "recommended_next_action": "novel-review",
+      "warnings": [],
+      "suggested_fixes": [],
+      "last_fix_time": "2026-03-21T07:11:33Z",
+      "fix_count": 1,
+      "fixed_issues": [
+        "压缩前半段从偷听到翻旧账房的说明性段落，把翻盘注意力收回婚书局现场。",
+        "在章末补强谢云昭对东宫介入后果的即时判断，让更大局承接更硬。"
       ]
     }
   },

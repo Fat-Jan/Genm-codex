@@ -8,13 +8,13 @@
     "target_chapters": 8,
     "target_words": 32000,
     "created_at": "2026-03-21T05:41:57Z",
-    "updated_at": "2026-03-21T07:03:43Z"
+    "updated_at": "2026-03-21T07:10:31Z"
   },
   "progress": {
     "current_chapter": 1,
-    "total_words": 2939,
+    "total_words": 2978,
     "last_write_chapter": 1,
-    "last_write_time": "2026-03-21T06:12:05Z",
+    "last_write_time": "2026-03-21T07:10:31Z",
     "milestones": {
       "golden_three_completed": false,
       "first_arc_completed": false,
@@ -238,10 +238,10 @@
       "chapter": 1,
       "title": "我不忍了",
       "path": "chapters/第001章.md",
-      "word_count": 2939,
+      "word_count": 2978,
       "status": "draft",
       "created_at": "2026-03-21T06:10:00Z",
-      "updated_at": "2026-03-21T06:12:05Z",
+      "updated_at": "2026-03-21T07:10:31Z",
       "summary": "家庭聚餐上，周承礼和婆家当众贬低沈知意的工作与价值，用房子、孩子和体面逼她继续忍让。沈知意第一次没有再替任何人圆场，而是当众提出离婚。周承礼随即失控威胁她别想从这个家拿走任何东西，也暴露出他阻止离婚背后另有现实利益盘算。",
       "review_score": 84,
       "review_grade": "B+",
@@ -254,15 +254,18 @@
         "连续性": 80,
         "追读力": 84
       },
-      "needs_fix": true,
-      "recommended_next_action": "novel-fix",
-      "warnings": [
-        "中段回溯婚后委屈和家务失衡的说明略多，情绪是够的，但推进会稍慢半拍。",
-        "章末威胁已经成立，但下一章最优的现实切割目标还不够具体，钩子还可以再落一层。"
-      ],
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "warnings": [],
       "suggested_fixes": [
         "压缩一两处解释性回忆，把重点收回到现场羞辱和离婚决断。",
         "在章末或次章开头尽快亮出婚房、存款或证据中的一个具体切割目标。"
+      ],
+      "last_fix_time": "2026-03-21T07:10:31Z",
+      "fix_count": 1,
+      "fixed_issues": [
+        "压缩中段回溯婚后委屈和家务失衡的解释，让现场冲突推进更紧",
+        "补足章末的现实切割目标，让婚房与财务边界的后续承接更具体"
       ]
     }
   },
