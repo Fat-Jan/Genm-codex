@@ -16,6 +16,7 @@ Use this skill when the user wants to refine an existing chapter without doing a
   - `description`
   - `pacing`
   - `all`
+- optional `content_bucket`
 - optional preview intent
 
 ## Preconditions
@@ -37,10 +38,15 @@ Read conditionally:
 - `设定集/力量体系.md` or other setting files when terminology consistency matters
 - `learned_patterns` inside `.mighty/state.json`
 - `../../shared/references/writing/anti-ai-style.md` when prose, description, or all is requested
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## Workflow
 
 1. Read the current chapter and current state.
+   - determine `meta.platform`
+   - determine explicit `content_bucket` if provided
+   - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. Determine whether the request is true polish or a structural rewrite request.
 3. If the requested change would alter core plot, continuity, or chapter purpose, stop and recommend `novel-rewrite` instead.
 4. Read the chapter outline and any directly relevant review findings.
@@ -55,22 +61,31 @@ Read conditionally:
    - `description`: improve sensory detail and scene clarity
    - `pacing`: tighten slow sections, reduce explanatory drag, improve transitions
    - `all`: apply a balanced pass without broad structural changes
-7. For prose-like polish, explicitly watch for:
+7. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as polish-side constraints for:
+     - sentence-level opening urgency
+     - payoff visibility
+     - conflict density
+     - chapter-end carryover sharpness
+8. For prose-like polish, explicitly watch for:
    - explanation replacing scene display
    - generic symmetrical phrasing
    - filler transitions
    - obvious anti-AI style warnings already known in the project
-8. Preserve:
+   - weak bucket-fit delivery when a Fanqie bucket is active
+9. Preserve:
    - chapter purpose
    - core events
    - named entities
    - continuity with existing state
-9. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
-10. If the user asks for preview or comparison, return:
+10. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
+11. If the user asks for preview or comparison, return:
    - short change summary
    - optional before/after excerpts
    - proposed polished text without saving
-11. Otherwise:
+12. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the polished chapter back to `chapters/第N章.md`
    - update polish metadata in `.mighty/state.json`
@@ -105,3 +120,4 @@ If the project already tracks snapshots, refresh `chapter_snapshots[N]` to match
 - If the chapter already has unresolved critical review issues, use them as polish priorities.
 - If the user wants side-by-side diff behavior, keep it lightweight in text; do not recreate the old command’s interactive UI flow.
 - If the project has explicit `avoid_patterns`, treat them as first-class polish targets.
+- When a Fanqie content bucket is active, use it to sharpen delivery and readability for that bucket, not to override chapter purpose, canon, or already-accepted plot outcomes.

@@ -8,13 +8,13 @@
     "target_chapters": 10,
     "target_words": 30000,
     "created_at": "2026-03-19T14:41:06Z",
-    "updated_at": "2026-03-21T04:22:59Z"
+    "updated_at": "2026-03-21T04:33:57Z"
   },
   "progress": {
     "current_chapter": 5,
-    "total_words": 15374,
+    "total_words": 15459,
     "last_write_chapter": 5,
-    "last_write_time": "2026-03-21T04:09:10Z",
+    "last_write_time": "2026-03-21T04:33:57Z",
     "milestones": {
       "golden_three_completed": true,
       "first_arc_completed": false,
@@ -537,10 +537,10 @@
       "chapter": 5,
       "title": "石室夺机缘，废脉反成试炼头名",
       "path": "chapters/第005章.md",
-      "word_count": 3198,
+      "word_count": 3283,
       "status": "draft",
       "created_at": "2026-03-21T04:09:10Z",
-      "updated_at": "2026-03-21T04:09:10Z",
+      "updated_at": "2026-03-21T04:33:57Z",
       "summary": "沈照和苏小棠闯入石室后，联手顶住镜火傀儡和火针杀局，古镜在吞下镜火后点亮第一道镜纹，并短暂显出镜返雏形。石台裂开后，沈照拿到玄火砂、照骨残页和“镜不在罪，在贪，藏阁有证”的新留字，随后带着四枚青云令冲回谷口，当众压过周通拿下试炼第一。",
       "review_score": 88,
       "review_grade": "B",
@@ -565,7 +565,10 @@
         "把谷中反折袖箭写成借残页余势或一次性的余波兑现，进一步钉死镜返雏形的触发条件与消耗。",
         "在逃离石室到谷口之间补一两个更具体的受伤代价或险些被追上的节点，让后半段张力更完整。",
         "章末多挂出一笔外门大比的明确对手、盘口或公开敌意，把试炼第一直接接成下一章的开场压力。"
-      ]
+      ],
+      "last_polish_time": "2026-03-21T04:33:57Z",
+      "polish_aspect": "prose",
+      "polish_count": 1
     },
     "spinoff:番外1": {
       "chapter": "番外1",
@@ -1019,8 +1022,8 @@
     },
     "5": {
       "chapter": 5,
-      "created_at": "2026-03-21T04:09:10Z",
-      "word_count": 3198,
+      "created_at": "2026-03-21T04:33:57Z",
+      "word_count": 3283,
       "protagonist_state": {
         "name": "沈照",
         "power": {
