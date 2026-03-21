@@ -24,6 +24,11 @@ def read_state(project_root: Path) -> dict:
     return json.loads((project_root / ".mighty" / "state.json").read_text())
 
 
+def load_length_policy() -> dict:
+    policy_path = Path(__file__).resolve().parents[1] / "docs" / "fanqie-chapter-length-policy.json"
+    return json.loads(policy_path.read_text())
+
+
 def chapter_range(state: dict, args: argparse.Namespace) -> tuple[list[int], int]:
     current = int(state["progress"]["current_chapter"])
     if args.start and args.end:
@@ -69,18 +74,31 @@ def prior_baseline(project_root: Path, start: int, window: int = 3) -> float | N
     return sum(vals) / len(vals)
 
 
-def min_chars_threshold(state: dict) -> int:
-    platform = state.get("meta", {}).get("platform")
+def current_length_policy(state: dict, policy: dict) -> dict:
+    bucket = state.get("genre_profile", {}).get("bucket")
+    if bucket and bucket in policy.get("buckets", {}):
+        active = dict(policy["buckets"][bucket])
+        active["bucket_name"] = bucket
+        return active
+
+    track = "longform"
     target_chapters = int(state.get("meta", {}).get("target_chapters") or 0)
-    if platform == "番茄" and target_chapters >= 10:
-        return 1500
-    return 900
+    if target_chapters and target_chapters <= 8:
+        track = "shortform"
+    active = dict(policy["defaults"][track])
+    active["track"] = track
+    active["bucket_name"] = bucket or "__default__"
+    return active
 
 
-def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float | None) -> dict:
+def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float | None, length_policy: dict) -> dict:
     issues = []
     warnings = []
-    min_chars = min_chars_threshold(state)
+    hard_min = int(length_policy["hard_min_chars"])
+    soft_min = int(length_policy["soft_min_chars"])
+    preferred_min = int(length_policy["preferred_min_chars"])
+    preferred_max = int(length_policy["preferred_max_chars"])
+    compressed_threshold = max(900, int(hard_min * 0.85))
 
     if batch_count > SAFE_MAX_BATCH:
         issues.append({
@@ -90,11 +108,17 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
 
     short_run = 0
     for item in metrics:
-        if item["chars"] < min_chars:
+        if item["chars"] < hard_min:
             issues.append({
                 "code": "chapter-too-short",
                 "chapter": item["chapter"],
-                "message": f"第{item['chapter']:03d}章仅 {item['chars']} 字符，低于当前安全阈值 {min_chars}。",
+                "message": f"第{item['chapter']:03d}章仅 {item['chars']} 字符，低于当前硬下限 {hard_min}。",
+            })
+        elif item["chars"] < soft_min:
+            warnings.append({
+                "code": "chapter-below-soft-floor",
+                "chapter": item["chapter"],
+                "message": f"第{item['chapter']:03d}章低于当前软下限 {soft_min}，已开始接近缩水风险。",
             })
         if baseline and item["chars"] < baseline * 0.55:
             issues.append({
@@ -102,7 +126,7 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
                 "chapter": item["chapter"],
                 "message": f"第{item['chapter']:03d}章长度相对前序基线跌破 55%，疑似提纲化压缩。",
             })
-        if item["chars"] < 1200:
+        if item["chars"] < compressed_threshold:
             short_run += 1
         else:
             short_run = 0
@@ -112,7 +136,7 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
                 "chapter": item["chapter"],
                 "message": "连续两章以上明显过短，已接近剧情摘要/提纲化风险。",
             })
-        if item["dialogue_marks"] == 0 and item["chars"] < 1500:
+        if item["dialogue_marks"] == 0 and item["chars"] < soft_min:
             warnings.append({
                 "code": "low-scene-density",
                 "chapter": item["chapter"],
@@ -123,6 +147,13 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
                 "code": "bullet-like-structure",
                 "chapter": item["chapter"],
                 "message": f"第{item['chapter']:03d}章出现较多列表式结构，需确认是否已偏向摘要态。",
+            })
+
+        if item["chars"] > preferred_max * 1.35:
+            warnings.append({
+                "code": "chapter-too-bloated",
+                "chapter": item["chapter"],
+                "message": f"第{item['chapter']:03d}章显著高于推荐上限 {preferred_max}，需警惕注水或单章过满。",
             })
 
     if issues:
@@ -138,6 +169,7 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
     return {
         "status": status,
         "safe_max_batch": SAFE_MAX_BATCH,
+        "length_policy": length_policy,
         "issues": issues,
         "warnings": warnings,
         "recommendation": recommendation,
@@ -148,6 +180,8 @@ def main() -> None:
     args = parse_args()
     root = Path(args.project_root)
     state = read_state(root)
+    policy = load_length_policy()
+    length_policy = current_length_policy(state, policy)
     nums, batch_count = chapter_range(state, args)
     metrics = collect_metrics(root, nums)
     baseline = prior_baseline(root, nums[0]) if nums else None
@@ -158,7 +192,7 @@ def main() -> None:
         "baseline_avg_chars": baseline,
         "metrics": metrics,
     }
-    result.update(evaluate(state, metrics, batch_count, baseline))
+    result.update(evaluate(state, metrics, batch_count, baseline, length_policy))
 
     if args.write_report:
         report_path = root / ".mighty" / "batch-quality-gate.json"

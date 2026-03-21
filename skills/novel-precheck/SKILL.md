@@ -62,6 +62,7 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/fanqie-chapter-length-policy.json`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -110,6 +111,7 @@ Resolve shared profile roots in this order:
    - payoff density
    - weak suspense carryover
    - sparse review coverage
+   - whether chapter length has fallen below the active Fanqie baseline
    - drift from already learned local style preferences when that drift is obvious
 8. Check obvious AI-risk signals conservatively:
    - repetitive filler phrasing

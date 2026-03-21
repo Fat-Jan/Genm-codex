@@ -43,6 +43,7 @@ Read conditionally:
 - `.mighty/market-adjustments.json`
 - current `learned_patterns` summary inside `.mighty/state.json`
 - current `market_adjustments` summary inside `.mighty/state.json`
+- `../../docs/fanqie-chapter-length-policy.json`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
@@ -78,11 +79,13 @@ Read conditionally:
 7. If Fanqie writing is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
+   - `../../docs/fanqie-chapter-length-policy.json`
    - use them as third-layer prose optimization rules for:
      - first-page hook clarity
      - golden-three delivery
      - character vividness
      - suspense handoff and map-shift smoothness
+     - chapter-length baseline
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
 8. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
@@ -111,6 +114,8 @@ Read conditionally:
      - opening_rule
      - payoff_rule
      - ending_hook_rule
+   - and, when Fanqie chapter-length policy exists:
+     - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
 12. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`

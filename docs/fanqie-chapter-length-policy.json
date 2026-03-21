@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "policy_name": "fanqie-chapter-length-policy",
+  "source_type": "official-signals-plus-editorial-synthesis",
+  "defaults": {
+    "longform": {
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2400,
+      "preferred_min_chars": 2600,
+      "preferred_max_chars": 3400
+    },
+    "shortform": {
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1600,
+      "preferred_min_chars": 1800,
+      "preferred_max_chars": 2600
+    }
+  },
+  "buckets": {
+    "宫斗宅斗": {
+      "track": "longform",
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2500,
+      "preferred_min_chars": 2800,
+      "preferred_max_chars": 3600
+    },
+    "传统玄幻": {
+      "track": "longform",
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2500,
+      "preferred_min_chars": 2800,
+      "preferred_max_chars": 3600
+    },
+    "现实情感": {
+      "track": "shortform",
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1800,
+      "preferred_min_chars": 2000,
+      "preferred_max_chars": 2800
+    },
+    "现言甜宠": {
+      "track": "shortform",
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1800,
+      "preferred_min_chars": 2000,
+      "preferred_max_chars": 2800
+    }
+  }
+}
