@@ -121,6 +121,8 @@
 ## 当前 blocker
 
 - 暂无明确 blocker
+- 当前观察项见：
+  - [v1-rc-blockers.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-rc-blockers.md)
 
 ---
 
