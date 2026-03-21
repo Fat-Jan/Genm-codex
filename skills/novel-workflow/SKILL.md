@@ -93,6 +93,9 @@ Always read what exists:
 4. Advance `current_step` to the next pending step when possible.
 5. Refresh `last_heartbeat`.
 6. If no pending steps remain, mark task `completed`.
+7. If the completed task was `novel-write` or `novel-batch`, recommend post-write maintenance:
+   - `novel-sync`
+   - or `scripts/project-maintenance.py`
 
 ### fail
 
@@ -130,3 +133,4 @@ Always read what exists:
 - If the workflow file is malformed, say so directly and recommend reset or manual repair.
 - Treat this as coordination state only.
 - If the user actually wants to continue writing, route to `novel-resume` or `novel-write` rather than pretending workflow state alone performs the work.
+- For long-running projects, do not treat workflow completion as fully stable until maintenance has had a chance to sync settings and thin `state`.

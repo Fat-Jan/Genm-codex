@@ -152,6 +152,8 @@
 - 在单项目内写轻量番外
 - 把稳定角色 / 地点 / 势力从运行态同步回设定集
 - 在长项目里把旧章节元数据归档出 `state`
+- 把 `learned_patterns / market_adjustments` 从 `state` 旁路到 sidecar 文件
+- 用 `scripts/project-maintenance.py` 跑一次完整维护链
 
 ## 第五阶段已完成
 

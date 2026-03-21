@@ -34,6 +34,9 @@ Use this skill when the user wants to generate multiple chapters in one ordered 
    - total words
    - notable new entities
    - notable new foreshadowing
+7. After the batch, prefer one maintenance pass:
+   - `scripts/project-maintenance.py <project_root>`
+   so the project does not keep accumulating all runtime facts only inside `state.json`
 
 ## Outputs
 
@@ -45,3 +48,4 @@ Use this skill when the user wants to generate multiple chapters in one ordered 
 
 - Do not treat batch generation as parallel writing; continuity is more important than speed.
 - Prefer small batches (for example <= 5 chapters) unless the user explicitly asks for more.
+- Treat post-batch maintenance as part of the stable workflow, not as optional cleanup.

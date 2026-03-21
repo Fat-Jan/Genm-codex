@@ -189,6 +189,13 @@
 
 当前先不强制拆，但方向应明确。
 
+第二版增强已落地后，推荐路径应升级为：
+
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
+
+而 `state.json` 只保留它们的轻量摘要 / 指针。
+
 ---
 
 ## 五、设定集应该承担什么角色

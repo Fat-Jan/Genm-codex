@@ -215,14 +215,15 @@
     }
   },
   "learned_patterns": {
-    "writing_style_preferences": {
-      "dialogue_style": "含锋带刺、话中有话",
-      "description_density": "中等偏高",
-      "pacing_preference": "压制-试探-反击-挂更大局"
-    },
-    "high_point_preferences": [],
-    "avoid_patterns": [],
-    "user_feedback": []
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-22T02:50:00Z",
+    "available_sections": [
+      "avoid_patterns",
+      "high_point_preferences",
+      "user_feedback",
+      "writing_style_preferences"
+    ]
   },
   "auto_learn_config": {
     "enabled": true,
@@ -441,9 +442,12 @@
   "character_states": {},
   "setting_versions": {},
   "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_updated": "2026-03-22T02:50:00Z",
     "last_applied": null,
     "source_scan": null,
-    "adjustments": []
+    "adjustment_count": 0
   },
   "dungeons": {
     "completed": [],

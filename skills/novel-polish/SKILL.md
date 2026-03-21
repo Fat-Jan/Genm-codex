@@ -36,7 +36,8 @@ Read conditionally:
 - `chapter_meta[N]` review findings
 - `设定集/角色/*.md` when dialogue or OOC risk matters
 - `设定集/力量体系.md` or other setting files when terminology consistency matters
-- `learned_patterns` inside `.mighty/state.json`
+- `.mighty/learned-patterns.json`
+- `learned_patterns` summary inside `.mighty/state.json`
 - `../../shared/references/writing/anti-ai-style.md` when prose, description, or all is requested
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
@@ -54,7 +55,7 @@ Read conditionally:
 2. Determine whether the request is true polish or a structural rewrite request.
 3. If the requested change would alter core plot, continuity, or chapter purpose, stop and recommend `novel-rewrite` instead.
 4. Read the chapter outline and any directly relevant review findings.
-5. If the project has usable `learned_patterns`, use them as polish preferences:
+5. If the project has usable learned-pattern sidecar data, use it as polish preferences:
    - preferred dialogue style
    - preferred description density
    - preferred high-point handling

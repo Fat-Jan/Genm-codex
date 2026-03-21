@@ -1,6 +1,6 @@
 ---
 name: novel-sync
-description: Sync stable characters, locations, and factions from current project state into `设定集/`, keeping `state` as the runtime truth while steadily materializing long-lived assets.
+description: Sync stable characters, locations, factions, and items from current project state into `设定集/`, keeping `state` as the runtime truth while steadily materializing long-lived assets.
 ---
 
 # Novel Sync
@@ -19,7 +19,9 @@ It should:
   - `设定集/角色/`
   - `设定集/地点/`
   - `设定集/势力/`
- - optionally thin old chapter metadata out of `state`
+  - `设定集/物品/`
+- optionally thin old chapter metadata out of `state`
+- optionally externalize heavy runtime guidance payloads out of `state`
 
 It should not:
 
@@ -34,12 +36,14 @@ It should not:
   - `characters`
   - `locations`
   - `factions`
+  - `items`
   - `thin-state`
 - optional `recent_chapters`
 - optional explicit lists:
   - `characters`
   - `locations`
   - `factions`
+  - `items`
 
 ## Preconditions
 
@@ -82,6 +86,7 @@ Read conditionally:
    - stable active characters
    - important locations
    - important factions
+   - important items
 5. Create missing files conservatively.
 6. If a file already exists:
    - keep human-authored content
@@ -92,7 +97,14 @@ Read conditionally:
    - move old `chapter_snapshots`
    - move old `summaries_index`
    - keep only a recent chapter window inside `.mighty/state.json`
-8. Return a compact sync summary:
+8. In a full maintenance round, prefer also writing:
+   - `.mighty/learned-patterns.json`
+   - `.mighty/market-adjustments.json`
+   while keeping `state` only as a lightweight summary/pointer
+9. Maintain a lightweight ambiguity queue:
+   - `.mighty/sync-review.json`
+   - use it for low-confidence candidates that should not be materialized blindly
+10. Return a compact sync summary:
    - files created
    - files refreshed
    - whether state thinning happened
@@ -105,3 +117,5 @@ Read conditionally:
 - Use `novel-setting` when the user wants to author or revise a specific location / faction / item file in detail.
 - Use `novel-sync` when the user wants the project to stop depending purely on `state` for long-lived assets.
 - `thin-state` must not alter protagonist runtime state, progress, active foreshadowing, or current quest fields.
+- Treat `items` as evidence-chain / repeated-use assets; do not create cards for disposable props.
+- For post-write maintenance, prefer running `scripts/project-maintenance.py` so sync, guidance split, and state thinning stay in one path.

@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -18,9 +19,14 @@ NAME_STOPWORDS = {
     "东宫", "婚书", "旧账", "账页", "顾家", "伯府", "祠堂", "药单", "银票", "副册", "外院",
     "书房", "旧档", "偏殿", "回帖", "实账", "东宫局", "婚书局", "旧案", "顾承州终", "顾家来人",
 }
+INVALID_NAME_CHARS = set("的一是在不了有和也又先后可把会要她他你我这那就让将被从向于与及并仍更还已多怕说进出外内见独连")
+ITEM_ALIAS_MAP = {
+    "母亲遗下的半枚玉扣": "半枚玉扣",
+}
 
 FACTION_SUFFIXES = ("府", "宫", "家", "司", "部", "阁", "宗", "门", "院")
 LOCATION_HINTS = ("房", "堂", "仓", "庄", "院", "门", "廊", "阁", "祠")
+ITEM_HINTS = ("书", "册", "页", "账", "账册", "账页", "回帖", "信", "令签", "玉扣", "药单", "银票", "宫牌", "抄件", "残页")
 
 SYNC_BEGIN = "<!-- NOVEL-SYNC:BEGIN -->"
 SYNC_END = "<!-- NOVEL-SYNC:END -->"
@@ -29,11 +35,12 @@ SYNC_END = "<!-- NOVEL-SYNC:END -->"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Sync stable setting assets from state into 设定集/")
     parser.add_argument("project_root", help="Novel project root")
-    parser.add_argument("--mode", choices=["all", "characters", "locations", "factions"], default="all")
+    parser.add_argument("--mode", choices=["all", "characters", "locations", "factions", "items"], default="all")
     parser.add_argument("--recent-chapters", type=int, default=8)
     parser.add_argument("--characters", default="")
     parser.add_argument("--locations", default="")
     parser.add_argument("--factions", default="")
+    parser.add_argument("--items", default="")
     return parser.parse_args()
 
 
@@ -56,12 +63,36 @@ def chapter_texts(project_root: Path, chapter_numbers: list[int]) -> list[str]:
     return texts
 
 
-def infer_characters(state: dict, texts: list[str]) -> list[str]:
+def now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def normalize_item_name(name: str) -> str:
+    return ITEM_ALIAS_MAP.get(name, name)
+
+
+def looks_like_personal_name(name: str) -> bool:
+    if len(name) not in (2, 3):
+        return False
+    if name[0] not in COMMON_SURNAMES:
+        return False
+    tail = name[1:]
+    if any(ch in INVALID_NAME_CHARS for ch in tail):
+        return False
+    if any(hint in name for hint in FACTION_SUFFIXES + LOCATION_HINTS):
+        return False
+    return True
+
+
+def infer_characters(state: dict, texts: list[str]) -> tuple[list[str], list[dict]]:
     candidates = []
     protagonist = state["entities"]["characters"]["protagonist"]["name"]
     joined = "\n".join(texts)
-    role_names = re.findall(r"[\u4e00-\u9fff]{1,3}(?:氏|爷|娘子|妈妈|嬷嬷|族叔|太子)", joined)
-    personal_names = re.findall(rf"[{COMMON_SURNAMES}][\u4e00-\u9fff]{{1,2}}", joined)
+    role_names = [
+        name for name in re.findall(r"[\u4e00-\u9fff]{1,3}(?:氏|爷|娘子|妈妈|嬷嬷|族叔|太子)", joined)
+        if not any(ch in INVALID_NAME_CHARS for ch in name)
+    ]
+    personal_names = [name for name in re.findall(rf"[{COMMON_SURNAMES}][\u4e00-\u9fff]{{1,2}}", joined) if looks_like_personal_name(name)]
     for name in role_names + personal_names:
         if protagonist in name:
             continue
@@ -71,8 +102,19 @@ def infer_characters(state: dict, texts: list[str]) -> list[str]:
     counts: dict[str, int] = {}
     for c in candidates:
         counts[c] = counts.get(c, 0) + 1
-    result = [name for name, count in sorted(counts.items(), key=lambda x: (-x[1], x[0])) if count >= 2]
-    return result[:12]
+    sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    result = [name for name, count in sorted_counts if count >= 2][:12]
+    role_counts: dict[str, int] = {}
+    for c in role_names:
+        if c == protagonist or c in NAME_STOPWORDS:
+            continue
+        role_counts[c] = role_counts.get(c, 0) + 1
+    ambiguous = [
+        {"name": name, "kind": "character", "reason": f"only_seen_{count}_time"}
+        for name, count in sorted(role_counts.items(), key=lambda x: (-x[1], x[0]))
+        if count == 1 and name not in result
+    ][:12]
+    return result, ambiguous
 
 
 def infer_locations(state: dict) -> list[str]:
@@ -89,11 +131,32 @@ def infer_locations(state: dict) -> list[str]:
 def infer_factions(state: dict, texts: list[str], locations: list[str]) -> list[str]:
     factions = []
     joined = "\n".join(texts)
-    tokens = re.findall(r"[\u4e00-\u9fff]{2,8}", joined)
+    tokens = re.findall(r"[\u4e00-\u9fff]{2,6}", joined)
+    counts: dict[str, int] = {}
     for token in tokens + locations:
-        if token.endswith(FACTION_SUFFIXES) and token not in factions:
+        if not token.endswith(FACTION_SUFFIXES):
+            continue
+        if any(ch in INVALID_NAME_CHARS for ch in token):
+            continue
+        counts[token] = counts.get(token, 0) + 1
+    for token, count in sorted(counts.items(), key=lambda x: (-x[1], x[0])):
+        if count >= 2 and token not in factions:
             factions.append(token)
     return factions[:10]
+
+
+def infer_items(state: dict, texts: list[str]) -> tuple[list[str], list[dict]]:
+    tracked = state.get("entities", {}).get("items", {}).get("tracked", [])
+    inventory = state.get("entities", {}).get("items", {}).get("protagonist_inventory", [])
+    stable: list[str] = []
+    alias_ambiguities: list[dict] = []
+    for item in tracked + inventory:
+        normalized = normalize_item_name(item)
+        if normalized not in stable:
+            stable.append(normalized)
+        if normalized != item:
+            alias_ambiguities.append({"name": item, "kind": "item", "reason": f"alias_of_{normalized}"})
+    return stable[:16], alias_ambiguities[:12]
 
 
 def parse_csv(arg: str) -> list[str]:
@@ -222,6 +285,41 @@ def write_faction_files(project_root: Path, names: list[str], chapter_nums: list
     return out
 
 
+def write_item_files(project_root: Path, names: list[str], chapter_nums: list[int]) -> list[str]:
+    out = []
+    item_dir = project_root / "设定集" / "物品"
+    ensure_dir(item_dir)
+    for name in names:
+        path = item_dir / f"{name}.md"
+        core = [
+            "## 基本信息",
+            f"- 名称：{name}",
+            "- 类型：重要物品",
+            "",
+            "## 故事作用",
+            "- 该物品已被同步层判定为后续仍会参与证据链、身份链或关键推进。",
+        ]
+        sync = [
+            f"- 最近同步章节：第{chapter_nums[0]:03d}章~第{chapter_nums[-1]:03d}章",
+            "- 当前备注：由 state 中的 tracked/protagonist_inventory 与近段正文共同同步生成。",
+        ]
+        write_file(path, f"# {name}", core, sync)
+        out.append(str(path))
+    return out
+
+
+def write_review_queue(project_root: Path, chapter_nums: list[int], ambiguities: list[dict]) -> str:
+    queue_path = project_root / ".mighty" / "sync-review.json"
+    doc = {
+        "version": "1.0",
+        "generated_at": now_iso(),
+        "chapters_window": chapter_nums,
+        "ambiguous_entities": ambiguities,
+    }
+    queue_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2))
+    return str(queue_path)
+
+
 def main() -> None:
     args = parse_args()
     project_root = Path(args.project_root)
@@ -229,17 +327,24 @@ def main() -> None:
     chapters = recent_chapter_numbers(state, args.recent_chapters)
     texts = chapter_texts(project_root, chapters)
 
-    characters = parse_csv(args.characters) or infer_characters(state, texts)
+    inferred_characters, char_ambiguities = infer_characters(state, texts)
+    characters = parse_csv(args.characters) or inferred_characters
     locations = parse_csv(args.locations) or infer_locations(state)
     factions = parse_csv(args.factions) or infer_factions(state, texts, locations)
+    inferred_items, item_ambiguities = infer_items(state, texts)
+    items = parse_csv(args.items) or inferred_items
 
-    synced = {"characters": [], "locations": [], "factions": []}
+    synced = {"characters": [], "locations": [], "factions": [], "items": []}
     if args.mode in ("all", "characters"):
         synced["characters"] = write_character_files(project_root, state, characters, chapters)
     if args.mode in ("all", "locations"):
         synced["locations"] = write_location_files(project_root, locations, chapters)
     if args.mode in ("all", "factions"):
         synced["factions"] = write_faction_files(project_root, factions, chapters)
+    if args.mode in ("all", "items"):
+        synced["items"] = write_item_files(project_root, items, chapters)
+
+    review_queue = write_review_queue(project_root, chapters, char_ambiguities + item_ambiguities)
 
     print(json.dumps({
         "project": str(project_root),
@@ -247,6 +352,8 @@ def main() -> None:
         "characters": [Path(x).name for x in synced["characters"]],
         "locations": [Path(x).name for x in synced["locations"]],
         "factions": [Path(x).name for x in synced["factions"]],
+        "items": [Path(x).name for x in synced["items"]],
+        "review_queue": review_queue,
     }, ensure_ascii=False, indent=2))
 
 

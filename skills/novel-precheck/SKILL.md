@@ -52,8 +52,10 @@ Read conditionally:
 - `大纲/总纲.md`
 - `大纲/章纲/第NNN章.md`
 - `设定集/角色/主角.md`
-- `learned_patterns` inside `.mighty/state.json`
-- `market_adjustments` inside `.mighty/state.json`
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
+- `learned_patterns` summary inside `.mighty/state.json`
+- `market_adjustments` summary inside `.mighty/state.json`
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`

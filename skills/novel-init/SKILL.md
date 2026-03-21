@@ -29,6 +29,8 @@ Create:
 
 ```text
 .mighty/state.json
+.mighty/learned-patterns.json
+.mighty/market-adjustments.json
 chapters/
 大纲/总纲.md
 大纲/卷纲/
@@ -77,12 +79,16 @@ Initialize `.mighty/state.json` with, at minimum:
    - `progress.current_chapter = 0`
    - empty `chapter_meta`, `chapter_snapshots`, `summaries_index`
 6. Seed starter files from `../../shared/templates/` when possible.
-7. Write:
+7. Create lightweight sidecar files:
+   - `.mighty/learned-patterns.json`
+   - `.mighty/market-adjustments.json`
+   and keep `.mighty/state.json` only with small summary/pointer forms for those sections
+8. Write:
    - `大纲/总纲.md` with a minimal outline scaffold
    - `设定集/角色/主角.md` with a starter protagonist scaffold
    - `设定集/力量体系.md` with a minimal system scaffold
-8. Record the chosen profile in `state.genre_profile`.
-9. Report created files, chosen profile, and any fallback decisions.
+9. Record the chosen profile in `state.genre_profile`.
+10. Report created files, chosen profile, and any fallback decisions.
 
 ## Failure handling
 

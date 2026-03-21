@@ -64,6 +64,7 @@ Read conditionally:
 - `设定集/角色/主角.md`
 - `设定集/角色/*.md` when naming a specific supporting character
 - `.mighty/market-data.json`
+- `.mighty/market-adjustments.json`
 - `chapter_meta` for recent review / fix context
 - `包装/*.md` when existing packaging already exists
 - `../../shared/references/writing/character-naming-guide.md`
@@ -89,7 +90,7 @@ Read conditionally:
    - optional `content_bucket`
    - current `genre_profile.bucket`
    - current progress
-   - current `market_adjustments`
+   - current `market_adjustments` summary
    - treat `genre_profile.bucket` as the active `content_bucket` when no explicit `content_bucket` input is provided
    - determine explicit `tagpack` if provided
 3. Read `大纲/总纲.md` and extract:
@@ -102,8 +103,9 @@ Read conditionally:
    - recent `needs_fix`
    - recent `review_grade`
    - recent `recommended_next_action`
-5. If state already contains project-local `market_adjustments`, treat those as the first packaging-side market hints.
-6. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
+5. If `.mighty/market-adjustments.json` exists, treat that as the first packaging-side market hint source.
+6. If state only has a summary/pointer form of `market_adjustments`, use it to locate the sidecar.
+7. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
 7. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
 8. If the platform is 番茄 and a content bucket is explicitly given, or a current `genre_profile.bucket` exists, or the request clearly asks for Fanqie-first packaging:
    - read `../../docs/fanqie-content-buckets.md`
@@ -292,7 +294,7 @@ When saving:
   5. tagpack overlay
 - If a first-batch MVP bucket config exists, prefer it over generic bucket language.
 - If a matching tagpack exists, use it as a second-layer overlay after bucket selection, not as a new standalone bucket.
-- Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
+- Prefer `.mighty/market-adjustments.json` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
 - If recent chapter review says `needs_fix`, do not overpromise packaging that the current text cannot support.
 - If existing packaging files already match the current text and market direction, say so explicitly instead of forcing a rewrite.
 - Use market-scan output as a weak-to-medium signal unless confidence is clearly high.

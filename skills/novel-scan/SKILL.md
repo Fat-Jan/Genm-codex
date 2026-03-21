@@ -81,9 +81,11 @@ If no trustworthy source material is actually fetched or provided in the current
 
 ## Project annotation target
 
-When mode is `project-annotate`, the only project state area this skill may update is:
+When mode is `project-annotate`, the preferred project update target is:
 
-- `.mighty/state.json` → `market_adjustments`
+- `.mighty/market-adjustments.json`
+
+and the runtime state should only keep a lightweight summary/pointer.
 
 ## Workflow
 
@@ -123,7 +125,8 @@ When mode is `project-annotate`, the only project state area this skill may upda
    - keep trust attribution visible
 7. Save the result to `.mighty/market-data.json`.
 8. If mode is `project-annotate`:
-   - update `.mighty/state.json` conservatively under `market_adjustments`
+   - prefer updating `.mighty/market-adjustments.json`
+   - keep `.mighty/state.json` only as a summary / pointer when guidance has been externalized
    - set:
      - `last_applied`
      - `source_scan`
@@ -179,7 +182,7 @@ When mode is `project-annotate`, the only project state area this skill may upda
 
 - This version is useful even when it only records a source plan plus confidence and gaps.
 - Treat “report-only” as the safe default.
-- `project-annotate` may update project-local `market_adjustments`, but must not alter shared assets.
+- `project-annotate` may update project-local market-adjustment sidecar data, but must not alter shared assets.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.
 - When bucket recommendations are produced, keep them small and ranked; prefer 1-3 defensible candidates over a long speculative list.
 - When `config_key` is available, prefer the exact key from `fanqie-mvp-buckets.yaml` so downstream skills can consume the recommendation without fuzzy matching.

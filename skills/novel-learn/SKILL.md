@@ -104,7 +104,8 @@ Read conditionally:
 8. In `deep` mode:
    - provide stronger evidence and more explicit pattern grouping
 9. If the user wants the result saved:
-   - update `.mighty/state.json`
+   - prefer updating `.mighty/learned-patterns.json`
+   - keep `.mighty/state.json` only as a lightweight summary / pointer
    - refresh:
      - `learned_patterns.writing_style_preferences`
      - `learned_patterns.high_point_preferences`
@@ -128,7 +129,7 @@ Prefer:
 ## Notes
 
 - Be conservative when sample size is small.
-- Prefer updating existing learned pattern fields over creating new top-level schema.
+- Prefer updating `.mighty/learned-patterns.json` over growing `state.json`.
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
 - Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.
 - When Fanqie rules stack, group findings in this order:

@@ -39,8 +39,10 @@ Read conditionally:
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
 - previous chapter file or summary
-- current `learned_patterns` inside `.mighty/state.json`
-- current `market_adjustments` inside `.mighty/state.json`
+- `.mighty/learned-patterns.json`
+- `.mighty/market-adjustments.json`
+- current `learned_patterns` summary inside `.mighty/state.json`
+- current `market_adjustments` summary inside `.mighty/state.json`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
@@ -59,9 +61,10 @@ Read conditionally:
 2. Read the target chapter outline from `大纲/章纲/第N章.md`.
 3. Read required setting files from `设定集/`.
 4. Load the shared profile matching the project genre from `../../shared/profiles/`.
-5. Read any useful local guidance already present in state:
-   - `learned_patterns`
-   - `market_adjustments`
+5. Read any useful local guidance already present in the project:
+   - prefer `.mighty/learned-patterns.json`
+   - prefer `.mighty/market-adjustments.json`
+   - if sidecar files are absent, fall back to `state.learned_patterns` / `state.market_adjustments`
 6. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
@@ -118,6 +121,9 @@ Read conditionally:
    - `summaries_index`
 13. Do not write review scores here unless an actual review step was run.
 14. Recommend running `novel-review` immediately after writing.
+15. After a real writing round, prefer running post-write maintenance:
+   - `scripts/project-maintenance.py <project_root>`
+   so stable entities, runtime guidance, and state thinning stay synchronized.
 
 ## Chapter state update requirements
 
@@ -146,8 +152,8 @@ At minimum, update:
 
 - Keep writing aligned to the outline and current state.
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
-- Treat `learned_patterns` as a preference signal, not a hard rule.
-- Treat `market_adjustments` as packaging or pacing guidance, not as a reason to break canon or outline purpose.
+- Treat learned-pattern sidecar data as a preference signal, not a hard rule.
+- Treat market-adjustment sidecar data as packaging or pacing guidance, not as a reason to break canon or outline purpose.
 - When Fanqie rules stack, apply them in this order:
   1. canon / state / chapter outline
   2. active bucket

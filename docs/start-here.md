@@ -99,6 +99,12 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 请使用 novel-sync skill，以 thin-state 模式把旧章节元数据归档出 state，只保留最近章节窗口。
 ```
 
+如果你想一次性做完同步、指导数据旁路和 state 瘦身，可以直接运行：
+
+```text
+python3 scripts/project-maintenance.py <project_root>
+```
+
 ## 阶段能力地图
 
 ### 核心闭环
