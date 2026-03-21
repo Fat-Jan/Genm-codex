@@ -12,6 +12,7 @@ Use this skill when the user wants to write the next chapter from the current ou
 - `chapter`
 - optional `word_count`
 - optional `style`
+- optional `content_bucket`
 
 ## Preconditions
 
@@ -39,26 +40,40 @@ Read conditionally:
 - previous chapter file or summary
 - current `learned_patterns` inside `.mighty/state.json`
 - current `market_adjustments` inside `.mighty/state.json`
+- `../../docs/fanqie-content-buckets.md`
+- `../../docs/fanqie-bucket-constraints.md`
 
 ## Workflow
 
 1. Read `.mighty/state.json`.
+   - determine `meta.platform`
+   - determine explicit `content_bucket` if provided
+   - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. Read the target chapter outline from `大纲/章纲/第N章.md`.
 3. Read required setting files from `设定集/`.
 4. Load the shared profile matching the project genre from `../../shared/profiles/`.
 5. Read any useful local guidance already present in state:
    - `learned_patterns`
    - `market_adjustments`
-6. Load high-value shared references from `../../shared/references/` only as needed.
-7. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-8. Write `chapters/第N章.md` aligned to:
+6. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - read `../../docs/fanqie-content-buckets.md`
+   - read `../../docs/fanqie-bucket-constraints.md`
+   - treat those as upstream prose constraints for:
+     - opening speed
+     - payoff timing
+     - conflict density
+     - chapter-end carryover
+7. Load high-value shared references from `../../shared/references/` only as needed.
+8. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+9. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
    - learned style preferences when they are concrete
    - learned avoid-patterns when they are concrete
    - project-local market suggestions when they are relevant and low-risk
-9. Update `.mighty/state.json` with:
+   - active Fanqie bucket constraints when they exist
+10. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -66,8 +81,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-10. Do not write review scores here unless an actual review step was run.
-11. Recommend running `novel-review` immediately after writing.
+11. Do not write review scores here unless an actual review step was run.
+12. Recommend running `novel-review` immediately after writing.
 
 ## Chapter state update requirements
 
@@ -98,3 +113,4 @@ At minimum, update:
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
 - Treat `learned_patterns` as a preference signal, not a hard rule.
 - Treat `market_adjustments` as packaging or pacing guidance, not as a reason to break canon or outline purpose.
+- When Fanqie bucket constraints are active, use them to tighten chapter rhythm and hook delivery, not to override canon, chapter purpose, or already established plot logic.
