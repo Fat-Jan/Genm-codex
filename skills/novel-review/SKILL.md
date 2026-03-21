@@ -37,7 +37,9 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
+- `../../docs/fanqie-rule-priority-matrix.md`
 
 ## Workflow
 
@@ -58,11 +60,20 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-5. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+5. If Fanqie review is active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - treat them as third-layer review checks for:
+     - title / hook promise carryover
+     - golden-three delivery
+     - character vividness
+     - suspense handoff and map-shift smoothness
+   - do not let technique rules override canon or bucket law
+6. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer review lens after the bucket
-6. Review for:
+7. Review for:
    - hook and reader pull
    - pacing
    - continuity
@@ -78,7 +89,7 @@ Read conditionally:
      - reader_motive
      - opening_rule
      - ending_hook_rule
-7. Produce a structured report with:
+8. Produce a structured report with:
    - total score
    - dimension scores
    - critical issues
@@ -90,8 +101,8 @@ Read conditionally:
      - `novel-fix`
      - `novel-polish`
      - `novel-rewrite`
-8. Update review metadata for the chapter inside `.mighty/state.json`.
-9. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
+9. Update review metadata for the chapter inside `.mighty/state.json`.
+10. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
 ## Outputs
 
@@ -118,6 +129,11 @@ When the route is clear, also update:
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - Do not claim a review passed unless the report actually shows the score and issues.
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
+- When Fanqie rules stack, judge in this order:
+  1. canon / state / chapter purpose
+  2. active bucket fit
+  3. writing-technique fit
+  4. tagpack enhancement fit
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
 - If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.

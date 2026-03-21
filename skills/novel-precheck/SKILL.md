@@ -57,7 +57,9 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
+- `../../docs/fanqie-rule-priority-matrix.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -91,17 +93,27 @@ Resolve shared profile roots in this order:
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - if an explicit `tagpack` is given, or the task clearly asks for a tag-pack route such as `恶女`, also read `../../docs/fanqie-mvp-tagpacks.yaml`
-6. Check quality and editorial risk:
+6. If Fanqie precheck is active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - use them as third-layer precheck rules for:
+     - title / synopsis promise consistency
+     - opening-hook front-loading
+     - golden-three delivery
+     - character vividness
+     - suspense handoff
+   - do not let writing-technique rules override canon or active bucket
+7. Check quality and editorial risk:
    - pacing softness
    - payoff density
    - weak suspense carryover
    - sparse review coverage
    - drift from already learned local style preferences when that drift is obvious
-7. Check obvious AI-risk signals conservatively:
+8. Check obvious AI-risk signals conservatively:
    - repetitive filler phrasing
    - explanation-heavy clusters
    - symmetry / generic phrasing if clearly present
-8. Return a structured report:
+9. Return a structured report:
    - overall readiness
    - must-fix items
    - should-fix items
@@ -169,6 +181,11 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - This is not a legal or policy compliance guarantee.
 - Be conservative: only flag issues you can support from the text.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
+- When Fanqie rules stack, evaluate in this order:
+  1. canon / state / actual chapter text
+  2. active bucket fit
+  3. writing-technique fit
+  4. tagpack fit
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
 - Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
 - If a first-batch MVP bucket config exists, prefer its `precheck_focus` over generic bucket commentary.

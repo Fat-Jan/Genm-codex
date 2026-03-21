@@ -72,7 +72,9 @@ Read conditionally:
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
+- `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
+- `../../docs/fanqie-rule-priority-matrix.md`
 - `references/synopsis-platform-guide.md`
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
@@ -108,11 +110,19 @@ Read conditionally:
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as bucket-layer constraints that sit upstream of packaging
-9. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack style such as `恶女`:
+9. If Fanqie packaging is active, also read:
+   - `../../docs/fanqie-writing-techniques.md`
+   - `../../docs/fanqie-rule-priority-matrix.md`
+   - use them as packaging-side optimization rules for:
+     - title clarity
+     - synopsis click-through structure
+     - opening-hook sharpness
+   - do not let writing-technique rules override canon or the active bucket
+10. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack style such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - if a matching tagpack exists, treat it as an overlay on top of the bucket rather than a replacement for the bucket
-10. Resolve packaging mode:
+11. Resolve packaging mode:
 
 ### narrow judgment shortcut
 
@@ -166,7 +176,7 @@ Instead:
   - opening-hook suggestions
   - brief packaging notes
 
-9. Standardize the output into these sections when useful:
+12. Standardize the output into these sections when useful:
    - `项目定位`
    - `内容桶判断`
    - `标签包判断`
@@ -176,8 +186,8 @@ Instead:
    - `暂不推荐方向`
    - `包装约束`
    - `是否建议更新现有包装`
-10. If `save` is not requested, return concise proposals only.
-11. If `save` is requested:
+13. If `save` is not requested, return concise proposals only.
+14. If `save` is requested:
    - ensure `包装/` exists
    - save to:
      - `包装/书名方案.md`
@@ -252,6 +262,11 @@ When saving:
 
 - Packaging should amplify what the project already is, not invent a different book.
 - If Fanqie bucket constraints are present, treat them as upstream constraints rather than mere style hints.
+- When both Fanqie bucket constraints and Fanqie writing-technique rules are active, apply them in this order:
+  1. canon / state / outline
+  2. active bucket
+  3. writing-technique optimization
+  4. tagpack overlay
 - If a first-batch MVP bucket config exists, prefer it over generic bucket language.
 - If a matching tagpack exists, use it as a second-layer overlay after bucket selection, not as a new standalone bucket.
 - Prefer project-local `market_adjustments` over raw `market-data.json` when both exist, because the former is already filtered into project-usable hints.
