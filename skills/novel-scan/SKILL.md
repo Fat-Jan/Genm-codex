@@ -20,6 +20,7 @@ It should:
 - record candidate sources
 - summarize findings conservatively
 - recommend likely content buckets when evidence supports that
+- expose bucket recommendations in a shape downstream skills can consume
 - write a local `.mighty/market-data.json`
 - optionally annotate project-local market state
 
@@ -90,6 +91,11 @@ When mode is `project-annotate`, the only project state area this skill may upda
    - summarize only defensible findings
    - separate findings from suggestions
    - when the platform is 番茄 and the evidence supports it, infer a small set of likely content buckets
+   - if first-batch MVP bucket configs exist, read `../../docs/fanqie-mvp-buckets.yaml`
+   - when a recommended bucket matches an existing config entry, include:
+     - `config_key`
+     - `priority_rank`
+     - `track`
    - keep bucket reasoning and confidence visible
    - keep trust attribution visible
 7. Save the result to `.mighty/market-data.json`.
@@ -122,7 +128,16 @@ When mode is `project-annotate`, the only project state area this skill may upda
   "sources": [],
   "findings": {
     "hot_genres": [],
-    "recommended_content_buckets": [],
+    "recommended_content_buckets": [
+      {
+        "bucket_name": "",
+        "config_key": "",
+        "priority_rank": 0,
+        "track": "",
+        "confidence": "",
+        "reason": ""
+      }
+    ],
     "hot_tags": [],
     "opening_patterns": [],
     "cool_point_patterns": [],
@@ -144,3 +159,4 @@ When mode is `project-annotate`, the only project state area this skill may upda
 - `project-annotate` may update project-local `market_adjustments`, but must not alter shared assets.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.
 - When bucket recommendations are produced, keep them small and ranked; prefer 1-3 defensible candidates over a long speculative list.
+- When `config_key` is available, prefer the exact key from `fanqie-mvp-buckets.yaml` so downstream skills can consume the recommendation without fuzzy matching.

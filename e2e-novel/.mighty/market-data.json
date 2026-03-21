@@ -214,6 +214,24 @@
         "confidence": "medium"
       }
     ],
+    "recommended_content_buckets": [
+      {
+        "bucket_name": "传统玄幻",
+        "config_key": "xuanhuan_traditional",
+        "priority_rank": 3,
+        "track": "longform",
+        "confidence": "medium",
+        "reason": "当前官方阅读榜和新书榜都能看到传统玄幻的稳定需求，而且本项目已有宗门压迫、金手指显性和升级主线，适合先按传统玄幻稳收线继续做深。"
+      },
+      {
+        "bucket_name": "玄幻脑洞",
+        "config_key": "",
+        "priority_rank": 0,
+        "track": "longform",
+        "confidence": "medium",
+        "reason": "当前番茄玄幻脑洞在阅读榜与新书榜都出现高概念头部样本，说明它是可行备选桶；但当前本地 MVP 配置层还未把它做成第一批正式桶。"
+      }
+    ],
     "hot_tags": [
       {
         "tag": "长生",
