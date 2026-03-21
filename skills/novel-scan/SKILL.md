@@ -19,6 +19,7 @@ It should:
 - organize scan targets
 - record candidate sources
 - summarize findings conservatively
+- recommend likely content buckets when evidence supports that
 - write a local `.mighty/market-data.json`
 - optionally annotate project-local market state
 
@@ -88,6 +89,8 @@ When mode is `project-annotate`, the only project state area this skill may upda
 6. If evidence exists:
    - summarize only defensible findings
    - separate findings from suggestions
+   - when the platform is 番茄 and the evidence supports it, infer a small set of likely content buckets
+   - keep bucket reasoning and confidence visible
    - keep trust attribution visible
 7. Save the result to `.mighty/market-data.json`.
 8. If mode is `project-annotate`:
@@ -102,6 +105,7 @@ When mode is `project-annotate`, the only project state area this skill may upda
    - mode used
    - sources considered
    - confidence
+   - recommended buckets when available
    - whether the result is only a scaffold or a real report
 
 ## Recommended result shape
@@ -118,6 +122,7 @@ When mode is `project-annotate`, the only project state area this skill may upda
   "sources": [],
   "findings": {
     "hot_genres": [],
+    "recommended_content_buckets": [],
     "hot_tags": [],
     "opening_patterns": [],
     "cool_point_patterns": [],
@@ -138,3 +143,4 @@ When mode is `project-annotate`, the only project state area this skill may upda
 - Treat “report-only” as the safe default.
 - `project-annotate` may update project-local `market_adjustments`, but must not alter shared assets.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.
+- When bucket recommendations are produced, keep them small and ranked; prefer 1-3 defensible candidates over a long speculative list.
