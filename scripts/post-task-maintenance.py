@@ -17,6 +17,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--trigger", choices=sorted(SUPPORTED_TRIGGERS), required=True)
     parser.add_argument("--recent-chapters", type=int, default=8)
     parser.add_argument("--retain-recent-chapters", type=int, default=8)
+    parser.add_argument("--batch-count", type=int)
     return parser.parse_args()
 
 
@@ -44,12 +45,26 @@ def main() -> None:
         str(args.retain_recent_chapters),
     ]
     proc = subprocess.run(cmd, capture_output=True, text=True, check=True)
-    print(json.dumps({
+    result = {
         "project": str(root),
         "trigger": args.trigger,
         "action": "ran-maintenance",
         "maintenance_stdout": proc.stdout.strip(),
-    }, ensure_ascii=False, indent=2))
+    }
+
+    if args.trigger == "batch":
+        gate_cmd = [
+            sys.executable,
+            str(script_dir / "check-batch-quality-gate.py"),
+            str(root),
+            "--batch-count",
+            str(args.batch_count or 0),
+            "--write-report",
+        ]
+        gate_proc = subprocess.run(gate_cmd, capture_output=True, text=True, check=True)
+        result["batch_quality_gate"] = json.loads(gate_proc.stdout)
+
+    print(json.dumps(result, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
