@@ -1,5 +1,7 @@
 # Genm-codex `v1.0.0-rc1` 计划
 
+> 历史阶段文档：本文记录的是 `v1.0.0` 正式发布前的 RC 计划；当前正式状态以 [v1-final-decision.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-final-decision.md) 为准。
+
 ## 目标
 
 RC 的目的不是继续扩能力，而是验证：

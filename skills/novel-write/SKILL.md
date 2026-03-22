@@ -32,6 +32,9 @@ Always read:
 - `.mighty/state.json`
 - `大纲/章纲/第N章.md`
 - `设定集/角色/主角.md`
+- `../../shared/references/shared/core-constraints.md`
+- `../../docs/anti-flattening-framework/README.md`
+- `../../docs/anti-flattening-framework/01-总纲.md`
 
 Read conditionally:
 
@@ -51,6 +54,14 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/fanqie-resistance-and-cost-rules.md`
+- `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+- `../../docs/anti-flattening-framework/04-角色动力系统.md`
+- `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+- `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+- `../../docs/anti-flattening-framework/07-场景级群像推进.md`
+- `../../docs/anti-flattening-framework/08-流派故障库.md`
+- `../../docs/anti-flattening-framework/10-工具包与工作流.md`
 
 ## Workflow
 
@@ -59,14 +70,31 @@ Read conditionally:
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
    - determine explicit `tagpack` if provided
-2. Read the target chapter outline from `大纲/章纲/第N章.md`.
-3. Read required setting files from `设定集/`.
-4. Load the shared profile matching the project genre from `../../shared/profiles/`.
-5. Read any useful local guidance already present in the project:
+2. Read `../../shared/references/shared/core-constraints.md`.
+3. Read the target chapter outline from `大纲/章纲/第N章.md`.
+4. Read required setting files from `设定集/`.
+5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
+6. Load the shared profile matching the project genre from `../../shared/profiles/`.
+7. Read any useful local guidance already present in the project:
    - prefer `.mighty/learned-patterns.json`
    - prefer `.mighty/market-adjustments.json`
    - if sidecar files are absent, fall back to `state.learned_patterns` / `state.market_adjustments`
-6. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+8. When the chapter route is multi-character, multi-faction, relationship-heavy, politics-heavy, transmigration, system-driven, or the user explicitly asks for人物活人感/反脸谱化:
+   - read:
+     - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+     - `../../docs/anti-flattening-framework/04-角色动力系统.md`
+     - `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+     - `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+     - `../../docs/anti-flattening-framework/07-场景级群像推进.md`
+     - `../../docs/anti-flattening-framework/08-流派故障库.md`
+     - `../../docs/anti-flattening-framework/10-工具包与工作流.md`
+   - use them as prose-side structural constraints for:
+     - keeping supporting cast from collapsing into pure function roles
+     - preserving non-protagonist goals in scenes
+     - showing relation debt / power asymmetry where relevant
+     - keeping gains earned through visible resistance and cost
+     - leaving scene residue for the next chapter
+9. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -76,24 +104,28 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-7. If Fanqie writing is active, also read:
+10. If Fanqie writing is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-chapter-length-policy.json`
+   - `../../docs/fanqie-resistance-and-cost-rules.md`
    - use them as third-layer prose optimization rules for:
      - first-page hook clarity
      - golden-three delivery
      - character vividness
      - suspense handoff and map-shift smoothness
      - chapter-length baseline
+     - visible resistance
+     - visible cost
+     - partial payoff instead of frictionless resolution
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
-8. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+11. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
-9. Load high-value shared references from `../../shared/references/` only as needed.
-10. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-11. Write `chapters/第N章.md` aligned to:
+12. Load high-value shared references from `../../shared/references/` only as needed.
+13. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+14. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -101,6 +133,11 @@ Read conditionally:
    - learned avoid-patterns when they are concrete
    - project-local market suggestions when they are relevant and low-risk
    - active Fanqie bucket constraints when they exist
+   - active resistance/cost constraints when they exist:
+     - key gain must meet visible resistance
+     - visible cost must remain on page
+     - major alliance or evidence should not arrive frictionlessly
+     - chapter-end win should usually leave residual risk
    - active first-batch MVP bucket template signals when they exist:
      - primary reader motive
      - tag pack
@@ -114,9 +151,14 @@ Read conditionally:
      - opening_rule
      - payoff_rule
      - ending_hook_rule
+   - active anti-flattening rules when they exist:
+     - supporting characters should not only appear as buttons or mouthpieces
+     - at least one meaningful non-protagonist intention should stay visible in a key scene when the route needs群像
+     - important gains should leave relation, risk, or cost residue
+     - relation or faction support should not read as frictionless auto-alignment
    - and, when Fanqie chapter-length policy exists:
      - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-12. Update `.mighty/state.json` with:
+15. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -124,9 +166,9 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-13. Do not write review scores here unless an actual review step was run.
-14. Recommend running `novel-review` immediately after writing.
-15. After a real writing round, the preferred automatic hook is:
+16. Do not write review scores here unless an actual review step was run.
+17. Recommend running `novel-review` immediately after writing.
+18. After a real writing round, the preferred automatic hook is:
    - `scripts/post-task-maintenance.py <project_root> --trigger write`
    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
 
@@ -162,8 +204,11 @@ At minimum, update:
 - When Fanqie rules stack, apply them in this order:
   1. canon / state / chapter outline
   2. active bucket
-  3. writing-technique optimization
-  4. tagpack overlay
+  3. anti-flattening structure rules
+  4. writing-technique optimization
+  5. tagpack overlay
 - When Fanqie bucket constraints are active, use them to tighten chapter rhythm and hook delivery, not to override canon, chapter purpose, or already established plot logic.
+- When Fanqie resistance rules are active, prefer fast scenes with earned gains over frictionless automatic progression.
 - If a first-batch MVP bucket config exists, prefer its reader-motive and payoff style over generic bucket language.
 - If a matching tagpack exists, use it as a second-layer style/positioning overlay after bucket selection, not as a substitute for the bucket.
+- Anti-flattening rules should make people and factions act like real participants in the chapter, but they do not authorize changing the outline goal or smuggling a rewrite into ordinary writing.

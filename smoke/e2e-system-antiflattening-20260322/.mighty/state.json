@@ -1,0 +1,504 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "系统把整栋楼都标成任务对象后，我先敲开了402的门",
+    "genre": "系统流",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-22T04:20:00Z",
+    "updated_at": "2026-03-22T04:20:00Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 8940,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-22T04:20:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "陈曜",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "春来巷七码楼天井",
+          "origin": "海城"
+        },
+        "inventory": [
+          "七码楼租房合同",
+          "备用门禁卡",
+          "维修总闸照片",
+          "401-402漏水视频",
+          "未签字的安全改造同意书"
+        ],
+        "abilities": [
+          "任务拆解",
+          "路线规划",
+          "人群观察",
+          "系统面板：邻里任务"
+        ],
+        "status": [
+          "失业待岗",
+          "已绑定邻里任务系统",
+          "住进春来巷七码楼",
+          "和402方琴、门卫吴建国都建立了脆弱合作",
+          "被系统催签安全改造同意书"
+        ],
+        "current_goals": [
+          "阻止问题条款被整栋楼糊里糊涂签下",
+          "查清物业和开发商为什么急着要七码楼住户签字",
+          "在系统奖励和真实人情之间守住自己的底线"
+        ],
+        "known_secrets": [
+          "系统给出的最快路线是让他直接收齐住户签字，但这条路对住户并不安全",
+          "402方琴最怕的是孩子学籍跟着搬迁中断",
+          "门卫吴建国嘴上拦人，心里却在等一笔能救儿子债的补偿款",
+          "物业文员何书宁急着推进签字，是因为她的绩效和父亲手术费都压在这个月"
+        ],
+        "recent_events": [
+          "陈曜入住七码楼当天绑定邻里任务系统，救下了差点被锁在楼道里的豆豆",
+          "他在第二章的爆管停水里帮整栋楼临时稳住秩序，也第一次发现系统更在乎任务完成率，不在乎谁被坑",
+          "物业第三章拿来安全改造同意书，系统立刻发布三小时收满签字的高额任务，陈曜因此起疑"
+        ]
+      },
+      "active": [
+        {
+          "name": "方琴",
+          "role": "单亲母亲 / 402住户",
+          "relationship": "脆弱合作"
+        },
+        {
+          "name": "吴建国",
+          "role": "门卫",
+          "relationship": "警惕中的合作"
+        },
+        {
+          "name": "何书宁",
+          "role": "物业文员",
+          "relationship": "利益对立中的可撬动人"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "安全改造同意书",
+        "维修总闸照片",
+        "401-402漏水视频"
+      ],
+      "protagonist_inventory": [
+        "七码楼租房合同",
+        "备用门禁卡",
+        "维修总闸照片",
+        "401-402漏水视频",
+        "未签字的安全改造同意书"
+      ]
+    },
+    "locations": {
+      "current": "春来巷七码楼天井",
+      "visited": [
+        "春来巷七码楼402门口",
+        "七码楼楼道",
+        "七码楼天井",
+        "物业办公室"
+      ],
+      "important": [
+        "春来巷七码楼",
+        "七码楼天井",
+        "物业办公室"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "安全改造签字陷阱",
+          "description": "物业和开发商急着推进的安全改造签字里藏着对住户极不利的条款。",
+          "planted_chapter": 3,
+          "expected_range": "4-6",
+          "status": "active",
+          "related_entities": [
+            "陈曜",
+            "何书宁",
+            "吴建国",
+            "方琴"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "系统真正目标",
+          "description": "邻里任务系统更在乎收集签字和任务完成率，而不是住户的真实后果。",
+          "planted_chapter": 2,
+          "expected_range": "5-8",
+          "status": "active",
+          "related_entities": [
+            "陈曜",
+            "系统"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "吴建国儿子的债",
+          "description": "吴建国急着要搬迁补偿，不只是贪钱，而是想替儿子填掉外面的债。",
+          "planted_chapter": 3,
+          "expected_range": "4-6",
+          "status": "active",
+          "related_entities": [
+            "吴建国",
+            "陈曜"
+          ],
+          "importance": "medium"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "系统为什么这么急着让他在三小时内收齐签字？",
+          "since_chapter": 3
+        },
+        {
+          "question": "问题条款到底写在同意书的哪一页？",
+          "since_chapter": 3
+        },
+        {
+          "question": "吴建国是在帮物业，还是也在被人逼着站队？",
+          "since_chapter": 3
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "弄清邻里任务系统和七码楼改造签字背后的真实目标，并决定自己到底站在哪边",
+      "location": "春来巷七码楼",
+      "secret": "系统想把整栋楼的人压成任务对象，但每个人都在拿自己的命和钱做选择。",
+      "progress": 26
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "陈曜刚失业就被系统绑定，系统把整栋楼的居民都标成任务对象",
+      "402方琴和孩子豆豆并不只是需要帮助，她们正被搬迁和学籍问题逼到墙角",
+      "吴建国表面难缠，实际上急着要一笔能救儿子债务的补偿款",
+      "物业拿来的安全改造同意书有问题，但目前没人真正看完"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "系统给的最快解法未必是对人最好的解法。",
+        "since_chapter": 2
+      },
+      {
+        "info": "这栋楼里每个人都不只是任务对象，签不签字背后各有不得不急的理由。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "系统推动签字的真实目的是什么",
+      "安全改造同意书的核心坑条款在哪一页",
+      "物业和开发商到底许了吴建国什么条件"
+    ],
+    "key_revelations": [
+      "系统会把‘最快完成任务’摆在‘他人实际后果’之前。",
+      "七码楼的住户彼此并不团结，每个人都在各自的困境里算账。",
+      "安全改造签字并不是单纯修楼，而是更大的搬迁前置动作。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      85,
+      87
+    ],
+    "average_score": 86,
+    "trend": "up",
+    "last_review_chapter": 4,
+    "dimension_scores": {
+      "爽点": 87,
+      "一致性": 86,
+      "节奏": 85,
+      "OOC": 88,
+      "连续性": 85,
+      "追读力": 88,
+      "人物立体度": 89,
+      "关系张力": 86,
+      "阵营分歧": 87,
+      "代价感": 86
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "紧张直接，带一点人情里的试探和留手",
+      "description_density": "中等",
+      "pacing_preference": "任务推进快，但人和代价不能像面板一样扁平"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "任务驱动 + 现实压力",
+    "chapter_words": {
+      "min": 2800,
+      "max": 3200,
+      "target": 3000
+    },
+    "golden_three": {
+      "hook_timing": "第1章",
+      "cheat_timing": "第1章500字内"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 2,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "system/profile-tomato.yaml",
+    "节奏": {
+      "type": "任务驱动型",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 3000
+    },
+    "爽点密度": 0.9,
+    "strand权重": {
+      "quest": 45,
+      "fire": 30,
+      "constellation": 25
+    }
+  },
+  "chapter_meta": {
+    "1": {
+      "review_score": 85,
+      "review_grade": "B+",
+      "review_time": "2026-03-22T04:20:00Z",
+      "dimension_scores": {
+        "爽点": 86,
+        "一致性": 84,
+        "节奏": 85,
+        "OOC": 88,
+        "连续性": 82,
+        "追读力": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write"
+    },
+    "4": {
+      "chapter": 4,
+      "title": "系统给我三小时拿下签字，我先让402和门卫坐到一张桌上",
+      "path": "chapters/第004章.md",
+      "word_count": 3525,
+      "status": "draft",
+      "created_at": "2026-03-22T06:25:08Z",
+      "updated_at": "2026-03-22T06:25:08Z",
+      "summary": "系统给出三小时收齐改造签字的高额任务，陈曜却当众念出“临时周转安置、不保证回迁”的问题条款，逼七码楼住户第一次把自己的现实账摊上桌。吴建国要补偿救儿子债，方琴要保孩子学籍，何书宁要绩效和父亲手术费，没有一个人只是任务对象。陈曜最终放弃最快任务路径，只赢到“签字被暂时拦下”和一张开发商流转单。",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-22T06:25:38Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 86,
+        "节奏": 85,
+        "OOC": 88,
+        "连续性": 85,
+        "追读力": 88,
+        "人物立体度": 89,
+        "关系张力": 86,
+        "阵营分歧": 87,
+        "代价感": 86
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "系统样本当前已经避免了把住户写成任务包，但后续章节必须继续维持“没有人会无条件站主角”这条底线，否则很容易重新滑回任务节点化。",
+        "本章字数高于当前 3200 平台目标值，后续系统线要继续压缩面板和解释句，把更多空间留给人和后果。"
+      ],
+      "suggested_fixes": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "方琴、吴建国、何书宁都带着自己的现实账，不是按主角任务需要排队出牌",
+          "系统面板明确在推动“最快解”，正文则明确把这条路和人的后果对撞起来"
+        ],
+        "faction_or_relation_failure": [
+          "楼里住户没有自动结盟，条款被拆出来后仍旧各算各账，这一点成立",
+          "何书宁和吴建国都保住了自己的自利逻辑，没有因为主角说得对就立刻转向"
+        ],
+        "minimum_viable_repair_direction": "本章可直接继续写下一章，重点转向‘第一批五户’拨付条件和系统真正目标，不需要先做局部修补。"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "4": {
+      "chapter": 4,
+      "created_at": "2026-03-22T06:25:08Z",
+      "word_count": 3525,
+      "protagonist_state": {
+        "name": "陈曜",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "春来巷七码楼天井",
+          "previous": "门卫桌边"
+        },
+        "inventory": [
+          "七码楼租房合同",
+          "备用门禁卡",
+          "维修总闸照片",
+          "401-402漏水视频",
+          "未签字的安全改造同意书",
+          "开发商流转单"
+        ],
+        "abilities": [
+          "任务拆解",
+          "路线规划",
+          "人群观察",
+          "系统面板：邻里任务"
+        ],
+        "status": [
+          "失业待岗",
+          "已绑定邻里任务系统",
+          "和402方琴、门卫吴建国都建立了脆弱合作",
+          "被系统标记为低效执行",
+          "暂时拦下了第一轮签字"
+        ],
+        "current_goals": [
+          "阻止第一批五户签字被撬开",
+          "查清开发商为什么急着拿到首批拨付条件",
+          "别让系统把楼里的人重新压回任务对象"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "方琴",
+          "role": "402住户",
+          "relation": "有限信任",
+          "last_interaction": 4
+        },
+        {
+          "name": "吴建国",
+          "role": "门卫",
+          "relation": "脆弱停火",
+          "last_interaction": 4
+        },
+        {
+          "name": "何书宁",
+          "role": "物业文员",
+          "relation": "利益对立中的可撬动人",
+          "last_interaction": 4
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "安全改造签字陷阱",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f2",
+          "name": "系统真正目标",
+          "status": "active",
+          "planted_chapter": 2
+        },
+        {
+          "id": "f3",
+          "name": "吴建国儿子的债",
+          "status": "active",
+          "planted_chapter": 3
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "安全改造同意书的附件会直接让住户失去回迁保证",
+          "开发商只要先撬开五户签字，就能启动第一批拨付"
+        ],
+        "protagonist_knows": [
+          "系统的最快路线和住户的真实利益是正面冲突的",
+          "何书宁和吴建国都不是坏人样本，而是各自有被现实顶住的账"
+        ],
+        "protagonist_doesnt_know": [
+          "系统为什么一定要拿到第一批五户签字",
+          "开发商后面还有哪层人盯着这栋楼"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "item",
+          "name": "开发商流转单"
+        }
+      ],
+      "key_events": [
+        "系统催陈曜三小时收满签字",
+        "陈曜当众念出问题条款，拦下第一轮签字",
+        "吴建国承认自己急着拿钱是为了儿子债务",
+        "何书宁翻出开发商流转单，暴露第一批五户拨付条件"
+      ],
+      "summary": "系统和物业一起逼着陈曜走最快签字路线，他却把问题条款和住户各自的现实账都摊到了桌上。这栋楼里没有谁因为他说得对就自动站队，但签字被暂时拦下，开发商要先拿第一批五户拨付的意图也第一次露了面。"
+    }
+  },
+  "summaries_index": {
+    "1": "陈曜搬进春来巷七码楼，当晚绑定了邻里任务系统，并在第一个限时任务里救下差点被反锁在402门口的豆豆。系统的奖励很快，但也第一次把楼里的人清清楚楚地标成了任务对象。",
+    "2": "七码楼爆管停水，系统建议陈曜直接关总闸拿奖励，却会让楼里最弱的几户一起断药断饭。陈曜第一次没走最快路线，也第一次意识到系统只在乎完成率，不在乎谁被坑。",
+    "3": "物业拿着安全改造同意书上门，系统立刻发布三小时收满签字的高额任务。陈曜发现附件条款里藏着“统一搬离、不保证回迁”的坑，也看见吴建国和何书宁都在各自的现实压力里往这份同意书上靠。",
+    "4": "系统和物业一起逼着陈曜走最快签字路线，他却把问题条款和住户各自的现实账都摊到了桌上。这栋楼里没有谁因为他说得对就自动站队，但签字被暂时拦下，开发商要先拿第一批五户拨付的意图也第一次露了面。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.8",
+    "loaded_at": "2026-03-22T04:20:00Z",
+    "includes": [
+      "profiles/system/profile-tomato.yaml"
+    ]
+  }
+}

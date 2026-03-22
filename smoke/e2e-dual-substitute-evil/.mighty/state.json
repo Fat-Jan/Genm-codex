@@ -1,0 +1,1298 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "白月光回国那天，恶毒女配不当替身了",
+    "genre": "言情",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 36000,
+    "created_at": "2026-03-22T07:30:00Z",
+    "updated_at": "2026-03-22T12:34:33+08:00"
+  },
+  "progress": {
+    "current_chapter": 9,
+    "total_words": 30180,
+    "last_write_chapter": 9,
+    "last_write_time": "2026-03-22T12:34:33+08:00",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "姜栀",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "撤离车内",
+          "origin": "海城"
+        },
+        "inventory": [
+          "B-17借阅记录照片",
+          "闻策咨询结算联照片",
+          "应岚口供录音",
+          "归位计划3.2会签页半张照片",
+          "北港流转日志截屏",
+          "终稿封页照片",
+          "潮汐会馆门外录音"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "不再当替身",
+          "恶毒女配剧本已掀桌",
+          "被公开扣上偷档和酒店堵人嫌疑",
+          "真正设局层已浮面",
+          "与许知微站到同一战线",
+          "准备把恶毒女配标签还回去"
+        ],
+        "current_goals": [
+          "用封页、录音和流转链公开反打",
+          "把恶毒女配这顶帽子原样扣回去",
+          "逼两家为归位计划3.2承担台面代价",
+          "在第010章完成最终翻桌"
+        ],
+        "known_secrets": [
+          "真正项目名叫归位计划3.2，应岚只向柏宁交稿",
+          "归位计划3.2走的是双总办会签，且批注里写着姜线保留女配出口",
+          "终稿今晚七点四十会送往潮汐会馆闭门会",
+          "会签责任栏上出现了贺氏董事办主任沈蔚与许太太办公室",
+          "终稿封页标题直接写着知微归位、姜线退场",
+          "许太太和沈蔚亲口承认要先保承川线体面、给姜线留女配出口"
+        ],
+        "recent_events": [
+          "三人顺着交接码追到北港文书中心",
+          "姜栀拿到潮汐会馆闭门会的流转路径与会签责任栏截屏",
+          "许知微在潮汐会馆正面拖住母亲线",
+          "姜栀在后场抢到终稿封页并录下门外对话",
+          "潮汐会馆内部已经启动版本替换"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "B-17借阅记录照片",
+        "闻策咨询结算联照片",
+        "应岚口供录音",
+        "归位计划3.2会签页半张照片",
+        "北港流转日志截屏",
+        "终稿封页照片",
+        "潮汐会馆门外录音"
+      ],
+      "protagonist_inventory": [
+        "B-17借阅记录照片",
+        "闻策咨询结算联照片",
+        "应岚口供录音",
+        "归位计划3.2会签页半张照片",
+        "北港流转日志截屏",
+        "终稿封页照片",
+        "潮汐会馆门外录音"
+      ]
+    },
+    "locations": {
+      "current": "撤离车内",
+      "visited": [
+        "贺家回国晚宴",
+        "栖序珠宝发布会",
+        "贺氏品牌资料室",
+        "许家艺术基金旧展陈库",
+        "机场贵宾休息廊",
+        "西岸酒店会务层",
+        "北港文书中心",
+        "潮汐会馆前厅",
+        "潮汐会馆后场服务梯"
+      ],
+      "important": [
+        "栖序珠宝发布会",
+        "许家艺术基金旧展陈库",
+        "西岸酒店会务层",
+        "北港文书中心",
+        "潮汐会馆"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "替身筛选者",
+          "description": "三年前是谁把姜栀推到替身位上，并准备好了恶毒女配剧本。",
+          "planted_chapter": 2,
+          "expected_range": "9-10",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微",
+            "贺承川"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "description": "许知微已经公开顶撞母亲线，与姜栀正式站到同一战线，但真正公开反打前仍要共同承担反噬。",
+          "planted_chapter": 3,
+          "expected_range": "9-10",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f7",
+          "name": "沈蔚会签线",
+          "description": "沈蔚已经真人浮面，并与许太太一起被门外录音坐实为设局层的一部分。",
+          "planted_chapter": 8,
+          "expected_range": "9-10",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "沈蔚",
+            "许太太"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f8",
+          "name": "版本替换",
+          "description": "潮汐会馆内部已启动版本替换，原件可能在今晚后失效，逼得第010章必须走公开反打而不是继续追纸。",
+          "planted_chapter": 9,
+          "expected_range": "10",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "三年前把姜栀挑进替身位的人到底是谁？",
+          "since_chapter": 2
+        },
+        {
+          "question": "沈蔚和许太太办公室，到底谁在真正拍板？",
+          "since_chapter": 8
+        },
+        {
+          "question": "版本替换后，台面上的人还敢不敢认旧版本？",
+          "since_chapter": 9
+        },
+        {
+          "question": "姜栀会在第010章怎么把恶毒女配标签还回去？",
+          "since_chapter": 9
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "从被塞进替身位和恶毒女配位的那个人，变成真正能改写关系剧本的人",
+      "location": "海城",
+      "secret": "这场替身关系从一开始就不是偶然，而是有人按白月光模板把姜栀推上台。",
+      "progress": 92
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "应岚亲口承认B-17只是Q版样张，真正项目名叫归位计划3.2",
+      "归位计划3.2走的是双总办会签",
+      "终稿今晚七点四十会送往潮汐会馆闭门会",
+      "会签责任栏上有沈蔚和许太太办公室",
+      "终稿封页直接写着知微归位、姜线退场",
+      "许太太和沈蔚亲口说出姜线必须有出口、承川线先保体面",
+      "潮汐会馆内部已经开始版本替换"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "归位计划3.2走的是双总办会签，且会在今晚七点四十送往潮汐会馆闭门会。",
+        "since_chapter": 8
+      },
+      {
+        "info": "会签责任栏上出现了贺氏董事办主任沈蔚与许太太办公室。",
+        "since_chapter": 8
+      },
+      {
+        "info": "终稿封页标题直接写着知微归位、姜线退场，且门外录音已坐实两人要保承川线体面。",
+        "since_chapter": 9
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "三年前最初是谁决定把她放进替身位",
+      "版本替换后会不会有人直接翻脸不认旧版本",
+      "第010章公开反打时哪一方会先断尾自保"
+    ],
+    "key_revelations": [
+      "真正项目名叫归位计划3.2",
+      "归位计划3.2走的是双总办会签",
+      "终稿封页直接写着知微归位、姜线退场",
+      "许太太和沈蔚就是共同设局层的一部分",
+      "潮汐会馆内部已经启动版本替换"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      86,
+      82,
+      81,
+      86,
+      85,
+      84,
+      87,
+      88,
+      89
+    ],
+    "average_score": 85,
+    "trend": "up",
+    "last_review_chapter": 9,
+    "dimension_scores": {
+      "爽点": 90,
+      "一致性": 88,
+      "节奏": 88,
+      "OOC": 89,
+      "连续性": 88,
+      "追读力": 90
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "关系局里带刺，不拖泥带水",
+      "description_density": "中等",
+      "pacing_preference": "错位关系开局 -> 双女主翻面 -> 公共场合反打"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "强关系错位 + 快掀桌 + 双女主翻面",
+    "chapter_words": {
+      "min": 2200,
+      "max": 4200,
+      "target": 3200
+    },
+    "golden_three": {
+      "hook_timing": "第1章直接见替身位和白月光回场",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "substitute/profile.yaml",
+    "bucket": "现言甜宠",
+    "节奏": {
+      "type": "情感驱动",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 0.9,
+    "strand权重": {
+      "quest": 30,
+      "fire": 45,
+      "constellation": 25
+    }
+  },
+  "chapter_meta": {
+    "1": {
+      "review_score": 86,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 86,
+        "节奏": 86,
+        "OOC": 85,
+        "连续性": 85,
+        "追读力": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "none"
+    },
+    "2": {
+      "review_score": 82,
+      "review_grade": "B",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 83,
+        "一致性": 81,
+        "节奏": 80,
+        "OOC": 84,
+        "连续性": 81,
+        "追读力": 83
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix"
+    },
+    "3": {
+      "review_score": 81,
+      "review_grade": "B",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 84,
+        "一致性": 80,
+        "节奏": 79,
+        "OOC": 83,
+        "连续性": 79,
+        "追读力": 84
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix"
+    },
+    "4": {
+      "word_count": 3638,
+      "status": "draft",
+      "written_at": "2026-03-22T11:00:34+08:00",
+      "summary": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 86,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:08:59+08:00",
+      "dimension_scores": {
+        "爽点": 84,
+        "一致性": 86,
+        "节奏": 85,
+        "OOC": 87,
+        "连续性": 86,
+        "追读力": 86,
+        "人物立体度": 86,
+        "关系张力": 88,
+        "阵营分歧": 84,
+        "代价感": 87
+      },
+      "anti_flattening_flags": [
+        "机构角色声道略同质",
+        "许知微知情范围仍需后续兑现"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "机构角色存在轻微功能化，但未压垮主线。",
+        "faction_or_relation_failure": "双女主裂口成立，许家与贺氏的机构性反扑开始分层。",
+        "minimum_viable_repair_direction": "第005章尽快兑现许知微为什么知道B-17，并让机构角色各自带出不同利益口。"
+      }
+    },
+    "5": {
+      "word_count": 3252,
+      "status": "draft",
+      "written_at": "2026-03-22T11:12:37+08:00",
+      "summary": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 85,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:29:18+08:00",
+      "dimension_scores": {
+        "爽点": 84,
+        "一致性": 85,
+        "节奏": 84,
+        "OOC": 87,
+        "连续性": 85,
+        "追读力": 85,
+        "人物立体度": 84,
+        "关系张力": 86,
+        "阵营分歧": 83,
+        "代价感": 86
+      },
+      "anti_flattening_flags": [
+        "林特助功能桥倾向偏强"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "林特助连续承担开门与报线索功能，个人立场仍需后续补强。",
+        "faction_or_relation_failure": "双女主裂口仍在，许家与贺氏的利益切割未被抹平。",
+        "minimum_viable_repair_direction": "后续让林特助付出更具体的自保成本或交代更清晰的个人动机。"
+      }
+    },
+    "6": {
+      "word_count": 3434,
+      "status": "draft",
+      "written_at": "2026-03-22T11:24:12+08:00",
+      "summary": "姜栀顶着“夜闯资料室”的热搜和律师函，跟许知微、林特助一起赶去机场堵应岚。三人借临时贵宾通道抢到短短几分钟，姜栀在公开场域里偷偷开了录音，逼得应岚亲口承认B-17只是Q版样张、真正项目叫“归位计划3.2”，且她只向接口人柏宁交稿。可这份录音只够推进到接口层，不够坐实最终设局人；更糟的是，许知微发现姜栀私开录音后当场翻脸，而林特助又抛出新时间口：柏宁中午会出现在西岸酒店。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 84,
+      "review_grade": "B+",
+      "review_time": "2026-03-22T11:29:18+08:00",
+      "dimension_scores": {
+        "爽点": 85,
+        "一致性": 84,
+        "节奏": 83,
+        "OOC": 86,
+        "连续性": 84,
+        "追读力": 85,
+        "人物立体度": 83,
+        "关系张力": 87,
+        "阵营分歧": 82,
+        "代价感": 86
+      },
+      "anti_flattening_flags": [
+        "机场外部压力动作层偏弱",
+        "林特助功能桥倾向偏强"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "中段主要风险不是主角白拿，而是支撑信息仍有一部分通过林特助顺滑输送。",
+        "faction_or_relation_failure": "双女主关系裂口继续扩大，没有被剧情自动缝合。",
+        "minimum_viable_repair_direction": "第007章让机场与酒店线的外部反制真正落到动作层，并减少林特助的无成本报点感。"
+      }
+    },
+    "7": {
+      "word_count": 3775,
+      "status": "draft",
+      "written_at": "2026-03-22T11:38:21+08:00",
+      "summary": "姜栀、许知微和林特助赶到西岸酒店堵柏宁，却发现酒店门口早就布好了镜头、安保和跟口。林特助的门卡当场被冻结，许知微只能第一次公开认领姜栀，把她带进会务层。柏宁被堵后先删手机、先喊保安，只在慌乱中失口承认项目走的是“双总办会签”；姜栀趁混乱拍下半张“归位计划3.2”会签页，确认批注里仍写着“姜线保留女配出口”。可这张页只有部门和时间，没有最终拍板人名字；更糟的是，林特助在撤离时收到正式撤岗通知，而她们只知道终稿会在今晚八点前再次归档。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 87,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:49:18+08:00",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 87,
+        "节奏": 86,
+        "OOC": 87,
+        "连续性": 86,
+        "追读力": 87,
+        "人物立体度": 85,
+        "关系张力": 88,
+        "阵营分歧": 85,
+        "代价感": 88
+      },
+      "anti_flattening_flags": [
+        "柏宁失口与会签页同场推进效率偏高"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "酒店秘书与安保仍偏功能角色，但本章已承担真实动作阻断。",
+        "faction_or_relation_failure": "许知微公开站边成立，双女主裂口没有被剧情自动缝合。",
+        "minimum_viable_repair_direction": "第008章避免再次依赖对手失口与现场文件同场掉落，改用更高门槛的追终稿动作推进。"
+      }
+    },
+    "8": {
+      "word_count": 3472,
+      "status": "draft",
+      "written_at": "2026-03-22T11:55:13+08:00",
+      "summary": "姜栀和许知微没有直接去堵终稿，而是顺着半张会签页的格式和交接码追到北港文书中心。林特助的设备在路上被远程抹除，只来得及报出“岚序档服”和北港文书中心这两个关键口。到了北港后，姜栀被系统标成高风险访客，许知微只能签下联合责任书，换来五分钟查看当天交接流转的资格。三人最终没看到终稿正文，只从交接箱标签和责任栏里确认：归位计划3.2今晚将送往潮汐会馆闭门会，会签链条上第一次清楚出现“贺氏董事办主任沈蔚”和“许太太办公室”，且箱签仍写着“承川线体面保留”。可系统随即被远程收回，林特助也被彻底抹空权限，她们只知道终稿还会再动一次。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 88,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T12:34:33+08:00",
+      "dimension_scores": {
+        "爽点": 86,
+        "一致性": 88,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 88,
+        "追读力": 87,
+        "人物立体度": 86,
+        "关系张力": 87,
+        "阵营分歧": 86,
+        "代价感": 88
+      },
+      "anti_flattening_flags": [
+        "程序入口便利度略高"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "本章主要靠格式识别和签责推进，支撑角色没有退回纯按钮态。",
+        "faction_or_relation_failure": "许知微的签责站边让关系代价继续真实存在。",
+        "minimum_viable_repair_direction": "后续保持制度门槛，不要让外部系统入口连续两章都被顺利打通。"
+      }
+    },
+    "9": {
+      "word_count": 3559,
+      "status": "draft",
+      "written_at": "2026-03-22T12:34:33+08:00",
+      "summary": "姜栀和许知微兵分两路赶到潮汐会馆闭门会：许知微从前门把许太太、沈蔚和贺承川拖到门边，姜栀则从后场追A-17交接箱。她没有拿到终稿全文，只抢到终稿封页照片，上面直接写着“知微归位 / 姜线退场”，批注仍写着“女配出口保留、承川线体面优先”。更关键的是，她在门外录到许太太和沈蔚亲口承认“姜线必须有出口”“先保承川线体面”。真正设局层因此从责任栏上的名字变成当场可确认的人，但会馆内部也随即启动版本替换，意味着原件很可能在今晚后失效。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 89,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T12:34:33+08:00",
+      "dimension_scores": {
+        "爽点": 90,
+        "一致性": 88,
+        "节奏": 88,
+        "OOC": 89,
+        "连续性": 88,
+        "追读力": 90,
+        "人物立体度": 87,
+        "关系张力": 90,
+        "阵营分歧": 88,
+        "代价感": 89
+      },
+      "anti_flattening_flags": [
+        "版本替换信息仍部分依赖林特助耳听"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "真正设局层已浮面，没有再靠单一功能角色替主角把世界解释完。",
+        "faction_or_relation_failure": "双女主正式站到同一战线，但裂口未被糖化或自动抹平。",
+        "minimum_viable_repair_direction": "第010章若继续写，避免再依赖林特助补充闭门会内部信息，改用公开反打兑现已有证据。"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "4": {
+      "chapter": 4,
+      "created_at": "2026-03-22T11:00:34+08:00",
+      "word_count": 3638,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "贺氏大楼电梯间",
+          "previous": "贺氏品牌资料室"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "许知微递来的合作条件",
+          "B-17借阅记录照片",
+          "半页目录残纸"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被贺氏停职调查",
+          "公司门禁权限失效",
+          "与许知微维持带裂口的临时同盟"
+        ],
+        "current_goals": [
+          "守住自己的名字和解释权",
+          "查清B-17归国包装样张的完整去向",
+          "判断许家卷入深度"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "合作但失衡",
+          "last_interaction": 4
+        },
+        {
+          "name": "贺承川",
+          "role": "旧叙事中心",
+          "relation": "敌对",
+          "last_interaction": 4
+        },
+        {
+          "name": "罗秘书",
+          "role": "董事办执行人",
+          "relation": "敌对",
+          "last_interaction": 4
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "替身筛选者",
+          "status": "active",
+          "planted_chapter": 2
+        },
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f3",
+          "name": "许家卷入深度",
+          "status": "planted",
+          "planted_chapter": 4
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "贺氏会后立刻反扑，试图收走姜栀的解释权和内部权限",
+          "B-17借阅记录显示，旧包装文件曾流向许太太办公室"
+        ],
+        "protagonist_knows": [
+          "许知微刚才公开切开半步，是为了保住继续追档案的门",
+          "B-17归国包装样张的借阅路径已经被拍下"
+        ],
+        "protagonist_doesnt_know": [
+          "林特助是在替谁签收",
+          "许知微到底还隐瞒了多少家里的牌"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "罗秘书",
+          "role": "minor antagonist"
+        },
+        {
+          "type": "character",
+          "name": "林特助",
+          "role": "shadow contact"
+        },
+        {
+          "type": "location",
+          "name": "贺氏品牌资料室"
+        },
+        {
+          "type": "item",
+          "name": "B-17借阅记录照片"
+        }
+      ],
+      "key_events": [
+        "董事办收走姜栀的工作机和工牌，试图把亮档定性为个人失控",
+        "许知微在后台先切开半步，保住继续查档案的入口",
+        "姜栀和许知微在停车场重新谈条件",
+        "姜栀夜闯资料室，拍下B-17借阅记录",
+        "姜栀当场失去全部公司门禁权限"
+      ],
+      "summary": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。"
+    },
+    "5": {
+      "chapter": 5,
+      "created_at": "2026-03-22T11:12:37+08:00",
+      "word_count": 3252,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "许家艺术基金旧馆侧门外",
+          "previous": "许家艺术基金旧展陈库"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被贺氏停职调查",
+          "被公开扣上偷档嫌疑",
+          "锁定外部执行人应岚"
+        ],
+        "current_goals": [
+          "在应岚离开海城前把人拦住",
+          "查清闻策咨询是谁的脏手套",
+          "判断许家卷入深度"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "合作但失衡",
+          "last_interaction": 5
+        },
+        {
+          "name": "林特助",
+          "role": "许家执行层",
+          "relation": "可疑合作者",
+          "last_interaction": 5
+        },
+        {
+          "name": "应岚",
+          "role": "外部执行人",
+          "relation": "未接触目标",
+          "last_interaction": 0
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f3",
+          "name": "许家卷入深度",
+          "status": "active",
+          "planted_chapter": 4
+        },
+        {
+          "id": "f4",
+          "name": "应岚执行线",
+          "status": "planted",
+          "planted_chapter": 5
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "应岚是归国包装和替换候选词路的外部执行人",
+          "姜栀已经被公开往偷档报复上挂"
+        ],
+        "protagonist_knows": [
+          "许知微早就见过B-17催办单的一角",
+          "应岚今天下午会离开海城"
+        ],
+        "protagonist_doesnt_know": [
+          "应岚背后真正的拍板人是谁",
+          "偷拍视频是谁先放给营销号的"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "应岚",
+          "role": "external operator"
+        },
+        {
+          "type": "faction",
+          "name": "闻策咨询"
+        },
+        {
+          "type": "location",
+          "name": "许家艺术基金旧展陈库"
+        },
+        {
+          "type": "item",
+          "name": "闻策咨询结算联照片"
+        }
+      ],
+      "key_events": [
+        "贺氏发布停职调查并开始用偷拍视频带节奏",
+        "姜栀拿B-17照片向许知微换答案",
+        "许知微承认自己早见过B-17催办单",
+        "姜栀在旧展陈库翻出闻策咨询应岚的结算联",
+        "律师函和偷拍视频热搜同步落下，应岚离开海城的时间被抛出"
+      ],
+      "summary": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。"
+    },
+    "6": {
+      "chapter": 6,
+      "created_at": "2026-03-22T11:24:12+08:00",
+      "word_count": 3434,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "机场贵宾楼回程口",
+          "previous": "机场贵宾休息廊"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片",
+          "应岚口供录音"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被公开扣上偷档嫌疑",
+          "拿到应岚半段口供录音",
+          "与许知微同盟裂口扩大"
+        ],
+        "current_goals": [
+          "在柏宁离开西岸酒店前堵住人",
+          "查清归位计划3.2背后的拍板者",
+          "决定这场双女主同盟还能不能继续"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "合作但裂口扩大",
+          "last_interaction": 6
+        },
+        {
+          "name": "应岚",
+          "role": "外部执行人",
+          "relation": "已接触但未拿全口供",
+          "last_interaction": 6
+        },
+        {
+          "name": "林特助",
+          "role": "许家执行层",
+          "relation": "可疑合作者",
+          "last_interaction": 6
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f4",
+          "name": "应岚执行线",
+          "status": "active",
+          "planted_chapter": 5
+        },
+        {
+          "id": "f5",
+          "name": "柏宁接口线",
+          "status": "planted",
+          "planted_chapter": 6
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "归位计划3.2真实存在",
+          "柏宁是应岚的接口人"
+        ],
+        "protagonist_knows": [
+          "应岚只向柏宁交稿",
+          "偷拍视频热搜还会继续反咬自己"
+        ],
+        "protagonist_doesnt_know": [
+          "柏宁背后真正站着谁",
+          "录音一旦用出去会先伤到谁"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "柏宁",
+          "role": "interface person"
+        },
+        {
+          "type": "item",
+          "name": "应岚口供录音"
+        },
+        {
+          "type": "location",
+          "name": "机场贵宾休息廊"
+        }
+      ],
+      "key_events": [
+        "姜栀顶着热搜和律师函继续去机场堵应岚",
+        "姜栀在公开场域里偷偷开了录音",
+        "应岚承认B-17只是Q版样张，真实项目名叫归位计划3.2",
+        "应岚抛出接口人柏宁后迅速抽身",
+        "许知微发现姜栀私开录音，同盟裂口继续扩大"
+      ],
+      "summary": "姜栀顶着“夜闯资料室”的热搜和律师函，跟许知微、林特助一起赶去机场堵应岚。三人借临时贵宾通道抢到短短几分钟，姜栀在公开场域里偷偷开了录音，逼得应岚亲口承认B-17只是Q版样张、真正项目叫“归位计划3.2”，且她只向接口人柏宁交稿。可这份录音只够推进到接口层，不够坐实最终设局人；更糟的是，许知微发现姜栀私开录音后当场翻脸，而林特助又抛出新时间口：柏宁中午会出现在西岸酒店。"
+    },
+    "7": {
+      "chapter": 7,
+      "created_at": "2026-03-22T11:38:21+08:00",
+      "word_count": 3775,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "西岸酒店地库回程车内",
+          "previous": "西岸酒店会务层"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片",
+          "应岚口供录音",
+          "归位计划3.2会签页半张照片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被公开扣上偷档和酒店堵人嫌疑",
+          "拿到归位计划3.2会签页半张照片",
+          "与许知微同盟裂口未合"
+        ],
+        "current_goals": [
+          "在今晚八点前找到终稿归档点",
+          "查清双总办会签背后的真实拍板者",
+          "判断这场双女主同盟还能不能继续"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "公开站边但裂口未合",
+          "last_interaction": 7
+        },
+        {
+          "name": "柏宁",
+          "role": "接口人",
+          "relation": "已接触但未拿全口供",
+          "last_interaction": 7
+        },
+        {
+          "name": "林特助",
+          "role": "失去权限的执行层",
+          "relation": "高成本协助者",
+          "last_interaction": 7
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f5",
+          "name": "柏宁接口线",
+          "status": "active",
+          "planted_chapter": 6
+        },
+        {
+          "id": "f6",
+          "name": "终稿归档点",
+          "status": "planted",
+          "planted_chapter": 7
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "归位计划3.2走的是双总办会签",
+          "终稿今晚还会再归档一次"
+        ],
+        "protagonist_knows": [
+          "半张会签页已经够证明项目不是临时脏活",
+          "林特助已经因为这次协助失去权限"
+        ],
+        "protagonist_doesnt_know": [
+          "双总办具体是谁",
+          "终稿归档点到底在哪"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "item",
+          "name": "归位计划3.2会签页半张照片"
+        },
+        {
+          "type": "concept",
+          "name": "双总办会签"
+        },
+        {
+          "type": "location",
+          "name": "西岸酒店会务层"
+        }
+      ],
+      "key_events": [
+        "西岸酒店的镜头和安保提前到位，外部阻断落到动作层",
+        "许知微第一次公开认领姜栀，把她带进会务层",
+        "柏宁在慌乱中失口承认项目走双总办会签",
+        "姜栀趁混乱拍下归位计划3.2会签页半张照片",
+        "林特助收到正式撤岗通知"
+      ],
+      "summary": "姜栀、许知微和林特助赶到西岸酒店堵柏宁，却发现酒店门口早就布好了镜头、安保和跟口。林特助的门卡当场被冻结，许知微只能第一次公开认领姜栀，把她带进会务层。柏宁被堵后先删手机、先喊保安，只在慌乱中失口承认项目走的是“双总办会签”；姜栀趁混乱拍下半张“归位计划3.2”会签页，确认批注里仍写着“姜线保留女配出口”。可这张页只有部门和时间，没有最终拍板人名字；更糟的是，林特助在撤离时收到正式撤岗通知，而她们只知道终稿会在今晚八点前再次归档。"
+    },
+    "8": {
+      "chapter": 8,
+      "created_at": "2026-03-22T11:55:13+08:00",
+      "word_count": 3472,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "回程车内",
+          "previous": "北港文书中心"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "B-17借阅记录照片",
+          "闻策咨询结算联照片",
+          "应岚口供录音",
+          "归位计划3.2会签页半张照片",
+          "北港流转日志截屏"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "格式识别"
+        ],
+        "status": [
+          "被公开扣上偷档和酒店堵人嫌疑",
+          "拿到潮汐会馆闭门会的交接路径",
+          "与许知微同盟裂口未合"
+        ],
+        "current_goals": [
+          "在今晚七点四十前堵到终稿交接",
+          "查清双总办会签背后的真实拍板者",
+          "判断这场双女主同盟还能不能继续"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "公开签责站边但裂口未合",
+          "last_interaction": 8
+        },
+        {
+          "name": "林特助",
+          "role": "被抹空权限的高成本证人",
+          "relation": "高成本协助者",
+          "last_interaction": 8
+        },
+        {
+          "name": "沈蔚",
+          "role": "贺氏董事办主任",
+          "relation": "未接触的上层会签人",
+          "last_interaction": 0
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f6",
+          "name": "终稿归档点",
+          "status": "active",
+          "planted_chapter": 7
+        },
+        {
+          "id": "f7",
+          "name": "沈蔚会签线",
+          "status": "planted",
+          "planted_chapter": 8
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "终稿今晚会去潮汐会馆闭门会",
+          "责任栏上已出现沈蔚和许太太办公室"
+        ],
+        "protagonist_knows": [
+          "终稿不会留在北港，只会从那里转手",
+          "承川线体面保留是项目里明确写出的保护要求"
+        ],
+        "protagonist_doesnt_know": [
+          "潮汐会馆里谁会拿着终稿正文",
+          "沈蔚和许太太办公室谁才是真正的桌面中心"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "沈蔚",
+          "role": "upper signer"
+        },
+        {
+          "type": "location",
+          "name": "北港文书中心"
+        },
+        {
+          "type": "location",
+          "name": "潮汐会馆"
+        },
+        {
+          "type": "item",
+          "name": "北港流转日志截屏"
+        }
+      ],
+      "key_events": [
+        "姜栀顺着会签页格式和交接码追到北港文书中心",
+        "许知微签下联合责任书，换到五分钟流转查看权限",
+        "三人确认终稿会在今晚七点四十送往潮汐会馆闭门会",
+        "责任栏第一次露出贺氏董事办主任沈蔚与许太太办公室",
+        "林特助设备和权限被彻底抹空"
+      ],
+      "summary": "姜栀和许知微没有直接去堵终稿，而是顺着半张会签页的格式和交接码追到北港文书中心。林特助的设备在路上被远程抹除，只来得及报出“岚序档服”和北港文书中心这两个关键口。到了北港后，姜栀被系统标成高风险访客，许知微只能签下联合责任书，换来五分钟查看当天交接流转的资格。三人最终没看到终稿正文，只从交接箱标签和责任栏里确认：归位计划3.2今晚将送往潮汐会馆闭门会，会签链条上第一次清楚出现“贺氏董事办主任沈蔚”和“许太太办公室”，且箱签仍写着“承川线体面保留”。可系统随即被远程收回，林特助也被彻底抹空权限，她们只知道终稿还会再动一次。"
+    },
+    "9": {
+      "chapter": 9,
+      "created_at": "2026-03-22T12:34:33+08:00",
+      "word_count": 3559,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "撤离车内",
+          "previous": "潮汐会馆后场服务梯"
+        },
+        "inventory": [
+          "应岚口供录音",
+          "归位计划3.2会签页半张照片",
+          "北港流转日志截屏",
+          "终稿封页照片",
+          "潮汐会馆门外录音"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击",
+          "后场追箱"
+        ],
+        "status": [
+          "真正设局层已浮面",
+          "与许知微正式站到同一战线",
+          "准备公开反打"
+        ],
+        "current_goals": [
+          "用封页、录音和流转链公开反打",
+          "把恶毒女配标签原样扣回去",
+          "在第010章完成最后翻桌"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "正式同线",
+          "last_interaction": 9
+        },
+        {
+          "name": "许太太",
+          "role": "设局层",
+          "relation": "正面敌对",
+          "last_interaction": 9
+        },
+        {
+          "name": "沈蔚",
+          "role": "贺氏董事办主任 / 设局层",
+          "relation": "正面敌对",
+          "last_interaction": 9
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f7",
+          "name": "沈蔚会签线",
+          "status": "active",
+          "planted_chapter": 8
+        },
+        {
+          "id": "f8",
+          "name": "版本替换",
+          "status": "planted",
+          "planted_chapter": 9
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "终稿封页直接写着知微归位、姜线退场",
+          "许太太和沈蔚亲口把女配出口与承川线体面说出来了"
+        ],
+        "protagonist_knows": [
+          "版本替换已经启动，继续追原件价值变低",
+          "公开反打的时机已经成熟"
+        ],
+        "protagonist_doesnt_know": [
+          "第010章公开反打后哪一方会先断尾",
+          "幕后更早一层的起笔人是否还藏着"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "许太太",
+          "role": "upper planner"
+        },
+        {
+          "type": "item",
+          "name": "终稿封页照片"
+        },
+        {
+          "type": "item",
+          "name": "潮汐会馆门外录音"
+        }
+      ],
+      "key_events": [
+        "许知微在潮汐会馆前门拖住母亲线和沈蔚",
+        "姜栀在后场抢到终稿封页照片",
+        "许太太与沈蔚在门外亲口说出姜线出口与承川线体面",
+        "潮汐会馆内部启动版本替换",
+        "三人决定第010章不再追原件，而改走公开反打"
+      ],
+      "summary": "姜栀和许知微兵分两路赶到潮汐会馆闭门会：许知微从前门把许太太、沈蔚和贺承川拖到门边，姜栀则从后场追A-17交接箱。她没有拿到终稿全文，只抢到终稿封页照片，上面直接写着“知微归位 / 姜线退场”，批注仍写着“女配出口保留、承川线体面优先”。更关键的是，她在门外录到许太太和沈蔚亲口承认“姜线必须有出口”“先保承川线体面”。真正设局层因此从责任栏上的名字变成当场可确认的人，但会馆内部也随即启动版本替换，意味着原件很可能在今晚后失效。"
+    }
+  },
+  "summaries_index": {
+    "4": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。",
+    "5": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。",
+    "6": "姜栀顶着“夜闯资料室”的热搜和律师函，跟许知微、林特助一起赶去机场堵应岚。三人借临时贵宾通道抢到短短几分钟，姜栀在公开场域里偷偷开了录音，逼得应岚亲口承认B-17只是Q版样张、真正项目叫“归位计划3.2”，且她只向接口人柏宁交稿。可这份录音只够推进到接口层，不够坐实最终设局人；更糟的是，许知微发现姜栀私开录音后当场翻脸，而林特助又抛出新时间口：柏宁中午会出现在西岸酒店。",
+    "7": "姜栀、许知微和林特助赶到西岸酒店堵柏宁，却发现酒店门口早就布好了镜头、安保和跟口。林特助的门卡当场被冻结，许知微只能第一次公开认领姜栀，把她带进会务层。柏宁被堵后先删手机、先喊保安，只在慌乱中失口承认项目走的是“双总办会签”；姜栀趁混乱拍下半张“归位计划3.2”会签页，确认批注里仍写着“姜线保留女配出口”。可这张页只有部门和时间，没有最终拍板人名字；更糟的是，林特助在撤离时收到正式撤岗通知，而她们只知道终稿会在今晚八点前再次归档。",
+    "8": "姜栀和许知微没有直接去堵终稿，而是顺着半张会签页的格式和交接码追到北港文书中心。林特助的设备在路上被远程抹除，只来得及报出“岚序档服”和北港文书中心这两个关键口。到了北港后，姜栀被系统标成高风险访客，许知微只能签下联合责任书，换来五分钟查看当天交接流转的资格。三人最终没看到终稿正文，只从交接箱标签和责任栏里确认：归位计划3.2今晚将送往潮汐会馆闭门会，会签链条上第一次清楚出现“贺氏董事办主任沈蔚”和“许太太办公室”，且箱签仍写着“承川线体面保留”。可系统随即被远程收回，林特助也被彻底抹空权限，她们只知道终稿还会再动一次。",
+    "9": "姜栀和许知微兵分两路赶到潮汐会馆闭门会：许知微从前门把许太太、沈蔚和贺承川拖到门边，姜栀则从后场追A-17交接箱。她没有拿到终稿全文，只抢到终稿封页照片，上面直接写着“知微归位 / 姜线退场”，批注仍写着“女配出口保留、承川线体面优先”。更关键的是，她在门外录到许太太和沈蔚亲口承认“姜线必须有出口”“先保承川线体面”。真正设局层因此从责任栏上的名字变成当场可确认的人，但会馆内部也随即启动版本替换，意味着原件很可能在今晚后失效。"
+  }
+}

@@ -52,6 +52,7 @@ required_elements_per_chapter:
   - forbidden_elements: "无违规"
   - cool_points: "至少1个"
   - hook_type: "必须指定"
+  - resistance_or_cost: "关键推进至少出现其一"
 ```
 
 ### 3. 内容质量验证
@@ -100,6 +101,9 @@ tomato_constraints:
 - ❌ 主角软弱（连续2章无主动行为）
 - ❌ 节奏拖沓（>800字无爽点）
 - ❌ 慢热开局（>1000字无金手指）
+- ❌ 关键证据自动上门
+- ❌ 关键同盟一句话立刻成立
+- ❌ 第三章结尾全赢无残留
 
 ## 🔧 验证工具
 

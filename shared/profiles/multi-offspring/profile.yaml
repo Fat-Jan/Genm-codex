@@ -1,5 +1,13 @@
 name: "多子多福"
 version: "1.1.0"
+
+# ==================== 推进阻力与代价 ====================
+progression_constraints:
+  resistance_rule: "关键推进必须遭遇真实阻力，不能自动到账。"
+  cost_rule: "重要收益应伴随可见代价、暴露或资源损耗。"
+  partial_payoff_rule: "阶段胜利以局部收益为主，不宜一次打穿主线矛盾。"
+  residual_risk_rule: "每次推进后都应保留残留风险，避免章节收口过满。"
+
 description: "主角通过生育或养育获得系统奖励，孩子越多奖励越丰厚，强调家庭温馨和育儿乐趣"
 sub_genres:
   生子系统:

@@ -28,6 +28,9 @@ Use this skill after a chapter draft exists and the user wants a structured qual
 - `.mighty/state.json`
 - `chapters/第N章.md`
 - relevant profile under `../../shared/profiles/`
+- `../../shared/references/shared/core-constraints.md`
+- `../../docs/anti-flattening-framework/README.md`
+- `../../docs/anti-flattening-framework/01-总纲.md`
 
 Read conditionally:
 
@@ -40,6 +43,17 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/fanqie-resistance-and-cost-rules.md`
+- `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
+- `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+- `../../docs/anti-flattening-framework/04-角色动力系统.md`
+- `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+- `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+- `../../docs/anti-flattening-framework/07-场景级群像推进.md`
+- `../../docs/anti-flattening-framework/08-流派故障库.md`
+- `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
+- `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
+- `../../docs/anti-flattening-framework/12-案例对照与校准.md`
 
 ## Workflow
 
@@ -48,9 +62,22 @@ Read conditionally:
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
    - determine explicit `tagpack` if provided
-2. Read `chapters/第N章.md`.
-3. Read the genre/profile context.
-4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+2. Read `../../shared/references/shared/core-constraints.md`.
+3. Read `chapters/第N章.md`.
+4. Read the genre/profile context.
+   - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
+   - when the chapter or request clearly depends on人物立体度、群像关系、阵营冲突、多视角、穿书/穿越/系统/权谋等题材风险, or when no explicit exemption is given for a lightweight pass, also read:
+     - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
+     - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+     - `../../docs/anti-flattening-framework/04-角色动力系统.md`
+     - `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+     - `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+     - `../../docs/anti-flattening-framework/07-场景级群像推进.md`
+     - `../../docs/anti-flattening-framework/08-流派故障库.md`
+     - `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
+     - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
+     - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+5. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -60,25 +87,35 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-5. If Fanqie review is active, also read:
+6. If Fanqie review is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
+   - `../../docs/fanqie-resistance-and-cost-rules.md`
    - treat them as third-layer review checks for:
      - title / hook promise carryover
      - golden-three delivery
      - character vividness
      - suspense handoff and map-shift smoothness
+     - whether the chapter is fast but too smooth
+     - whether key gains have visible resistance and cost
    - do not let technique rules override canon or bucket law
-6. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+7. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer review lens after the bucket
-7. Review for:
+8. Review for:
    - hook and reader pull
    - pacing
    - continuity
    - consistency
    - obvious AI-style issues
+   - protagonist privilege balance
+   - character agency / role independence
+   - relationship tension structure
+   - faction divergence when factions or alliances are present
+   - conflict / cost / consequence chain visibility
+   - scene mobility: whether only the protagonist is allowed to act
+   - genre fault control when the route is high-risk for flattening
    - bucket-fit when applicable
    - bucket template fit when a first-batch MVP template exists:
      - primary reader motive
@@ -89,20 +126,30 @@ Read conditionally:
      - reader_motive
      - opening_rule
      - ending_hook_rule
-8. Produce a structured report with:
+   - resistance/cost fit:
+     - evidence too automatic
+     - alliance too easy
+     - payoff too complete
+     - residual risk too weak
+9. Produce a structured report with:
    - total score
    - dimension scores
    - critical issues
    - warnings
    - suggested fixes
+   - optional `anti_flattening_summary` with:
+     - protagonist_privilege_risk
+     - cast_flattening_signals
+     - faction_or_relation_failure
+     - minimum viable repair direction
    - optional bucket-fit note
    - recommended next action:
      - `none`
      - `novel-fix`
      - `novel-polish`
      - `novel-rewrite`
-9. Update review metadata for the chapter inside `.mighty/state.json`.
-10. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
+10. Update review metadata for the chapter inside `.mighty/state.json`.
+11. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
 ## Outputs
 
@@ -122,6 +169,7 @@ Update at minimum:
 When the route is clear, also update:
 
 - `chapter_meta[chapter].recommended_next_action`
+- `chapter_meta[chapter].anti_flattening_flags` when the chapter shows clear cast / relation / faction imbalance
 
 ## Notes
 
@@ -132,11 +180,13 @@ When the route is clear, also update:
 - When Fanqie rules stack, judge in this order:
   1. canon / state / chapter purpose
   2. active bucket fit
-  3. writing-technique fit
-  4. tagpack enhancement fit
+  3. anti-flattening structure fit
+  4. writing-technique fit
+  5. tagpack enhancement fit
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
 - If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.
+- If anti-flattening findings point to protagonist privilege overload, hollow support cast, fake faction conflict, or zero-cost manipulation, surface them before cosmetic style notes.
 
 ## Route rules
 

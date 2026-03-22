@@ -62,6 +62,16 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 - 轻量精修：`novel-polish`
 - 定向重写：`novel-rewrite`
 
+如果你关心的是：
+
+- 人物像不像活人
+- 群像会不会围着主角转
+- 阵营是不是只有一个声道
+
+优先把 `novel-outline`、`novel-write`、`novel-review`、`novel-precheck` 跑成一组，并参考：
+
+- [反脸谱化体系](./anti-flattening-framework/README.md)
+
 ### 批量写作特别提醒
 
 - **一次性最多只生成 3 章**
@@ -182,3 +192,4 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 2. 不存在：从 `novel-init` 开始
 3. 存在：先跑 `novel-status`
 4. 想知道完整主线：看 [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
+5. 想优先打磨人物、关系和群像：看 [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)

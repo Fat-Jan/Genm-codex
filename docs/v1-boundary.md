@@ -1,5 +1,7 @@
 # Genm-codex `v1.0.0` 边界定义
 
+> 历史阶段文档：本文记录的是正式发布前的边界判断；当前正式状态以 [v1-final-decision.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-final-decision.md) 为准。
+
 ## 目的
 
 这份文档定义：

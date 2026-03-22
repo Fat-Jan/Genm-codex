@@ -87,11 +87,22 @@
 最小创作闭环：
 
 1. `novel-init`
-2. `novel-outline`
-3. `novel-write`
-4. `novel-review`
-5. `novel-rewrite`
-6. `novel-export`
+2. 古代家族权力题材先补 `宅门真值表 + 小型家谱`
+3. 涉及朝堂/东宫/地方官场时再补 `官职真值表 + 权力层级图`
+4. `novel-outline`
+5. `novel-write`
+6. `novel-review`
+7. `novel-rewrite`
+8. `novel-export`
+
+反脸谱化与群像打磨入口：
+
+- [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+- `novel-outline` 现在会按需读取这组文档来锁角色分层、关系结构、阵营分歧与后果链
+- `novel-write` 现在会按需读取这组文档来约束非主角行动、关系负债与场景残账
+- `novel-review` 现在会按需把主角特权、角色独立性、关系张力和流派故障纳入结构审查
+- `novel-fix` 现在会在局部修补范围内读取快速修复动作，而不是把人物补丁偷渡成整章重写
+- `novel-precheck` 现在会在投稿前检查主角特权失衡、阵营单声道和推进过顺风险
 
 ## 第二阶段已迁入
 
@@ -180,6 +191,17 @@
 - 做角色命名提案
 - 给开篇钩子做包装层优化
 - 输出完整的“书名 + 简介 + 开篇包装”方案
+- 古代项目在锁标题前补一轮主角名 / 关系词风控
+
+### ancient route
+
+```text
+如果当前项目是宫斗宅斗、古代言情或历史家族权力线，先创建并填写：
+- 设定集/家族/宅门真值表.md
+- 设定集/家族/小型家谱.md
+
+再进入 novel-outline 和 novel-package。
+```
 
 ### character
 
@@ -301,6 +323,16 @@
 
 ```text
 请使用 novel-package skill，为当前项目生成一套包装方案：包含书名候选、两版简介和三条开篇包装建议；如合适，可保存到 包装/。
+```
+
+### ancient office route
+
+```text
+如果当前项目涉及朝堂、东宫、地方官场、军政或宗室封爵，先创建并填写：
+- 设定集/官制/官职真值表.md
+- 设定集/官制/权力层级图.md
+
+再进入 novel-outline 和 novel-package。
 ```
 
 ```text

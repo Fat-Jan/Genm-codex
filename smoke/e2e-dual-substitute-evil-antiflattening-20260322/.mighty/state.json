@@ -1,0 +1,870 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "白月光回国那天，恶毒女配不当替身了",
+    "genre": "言情",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 36000,
+    "created_at": "2026-03-22T07:30:00Z",
+    "updated_at": "2026-03-22T03:41:24Z"
+  },
+  "progress": {
+    "current_chapter": 6,
+    "total_words": 20139,
+    "last_write_chapter": 6,
+    "last_write_time": "2026-03-22T03:41:24Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "姜栀",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "许家艺术基金旧馆侧门外",
+          "origin": "海城"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "不再当替身",
+          "恶毒女配剧本已掀桌",
+          "被贺氏停职调查",
+          "被公开扣上偷档嫌疑",
+          "与许知微维持带裂口的临时同盟",
+          "锁定外部执行人应岚",
+          "已从应岚口中坐实替换候选是预设产品位",
+          "锁定R-Blue旧项目目录"
+        ],
+        "current_goals": [
+          "守住自己的名字和解释权",
+          "今晚十二点前抢到R-Blue底稿",
+          "查清闻策咨询是谁的脏手套",
+          "判断许家在替身剧本里到底站哪一层",
+          "压住偷拍视频第二轮扩散，不让所有证据都像报复"
+        ],
+        "known_secrets": [
+          "她不是巧合撞进这段关系，而是被有意选中的低配替身",
+          "许知微回国并不是为了和贺承川复合",
+          "贺家和许家都曾试图利用白月光叙事包装利益局",
+          "B-17归国包装样张曾在贺氏董事办与许太太办公室之间流转",
+          "外部顾问闻策咨询的应岚负责过归国包装、替换候选和舆论词路",
+          "替换候选并不是临时玩笑，而是一套可复制的预设产品逻辑",
+          "应岚把相关底稿挂在R-Blue旧项目目录下"
+        ],
+        "recent_events": [
+          "两人在发布会上反手改写叙事，把贺承川推回被审视的位置",
+          "发布会后贺氏立刻反扑，收走姜栀的工作机和工牌",
+          "姜栀夜闯资料室，抢到了B-17借阅记录照片和半页目录残纸",
+          "贺氏开始用偷拍视频把姜栀往偷档和报复方向推",
+          "姜栀在许家旧展陈库翻出闻策咨询应岚的结算联",
+          "姜栀和许知微在机场侧厅截住应岚，从她口中逼出“替换候选”是预设逻辑",
+          "林特助补出R-Blue旧项目目录将在今晚十二点前被远程清理"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "订婚戒",
+        "替身筛选简报截图",
+        "B-17借阅记录照片",
+        "半页目录残纸",
+        "闻策咨询结算联照片"
+      ],
+      "protagonist_inventory": [
+        "退回的订婚戒",
+        "三年前替身筛选简报截图",
+        "B-17借阅记录照片",
+        "半页目录残纸",
+        "闻策咨询结算联照片"
+      ]
+    },
+    "locations": {
+      "current": "海城机场出发层外",
+      "visited": [
+        "贺家回国晚宴",
+        "晚宴后台休息室",
+        "地下车库",
+        "栖序珠宝发布会",
+        "贺氏大楼地下停车场",
+        "贺氏品牌资料室",
+        "许家艺术基金旧馆接待室",
+        "许家艺术基金旧展陈库",
+        "海城机场贵宾侧厅"
+      ],
+      "important": [
+        "贺家晚宴厅",
+        "贺氏集团",
+        "栖序珠宝发布会",
+        "许家艺术基金",
+        "贺氏品牌资料室",
+        "许家艺术基金旧展陈库",
+        "海城机场贵宾侧厅"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "替身筛选者",
+          "description": "三年前是谁把姜栀推到替身位上，并准备好了恶毒女配剧本。",
+          "planted_chapter": 2,
+          "expected_range": "5-7",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微",
+            "贺承川"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "description": "姜栀和许知微重新成交，但裂口没有消失，互相利用和互相保留同时存在。",
+          "planted_chapter": 3,
+          "expected_range": "5-7",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "许家卷入深度",
+          "description": "许家确实经手过B-17，但到底是配合者、搬运者还是也被外部包装反向利用，仍未坐实。",
+          "planted_chapter": 4,
+          "expected_range": "5-7",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微",
+            "林特助"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f4",
+          "name": "应岚执行线",
+          "description": "闻策咨询的应岚负责归国包装和替换候选词路，她知道的东西可能比两家台面人物都多。",
+          "planted_chapter": 5,
+          "expected_range": "6-7",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微",
+            "应岚"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f5",
+          "name": "R-Blue旧项目目录",
+          "description": "替换候选和归国包装底稿被挂在R-Blue旧项目目录下，而且会在今晚十二点前被远程清理。",
+          "planted_chapter": 6,
+          "expected_range": "6-7",
+          "status": "active",
+          "related_entities": [
+            "姜栀",
+            "许知微",
+            "应岚",
+            "林特助"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "三年前把姜栀挑进替身位的人到底是谁？",
+          "since_chapter": 2
+        },
+        {
+          "question": "许知微回国真正想拿回的，到底只是自由，还是更大的家族利益？",
+          "since_chapter": 2
+        },
+        {
+          "question": "贺承川失去对白月光和女配两条线的掌控后，会先反咬谁？",
+          "since_chapter": 3
+        },
+        {
+          "question": "许太太办公室为什么会签收B-17归国包装样张？",
+          "since_chapter": 4
+        },
+        {
+          "question": "应岚是在替谁执行这套归国包装和替换候选剧本？",
+          "since_chapter": 5
+        },
+        {
+          "question": "R-Blue旧项目目录里到底留着谁写下的底稿？",
+          "since_chapter": 6
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "从被塞进替身位和恶毒女配位的那个人，变成真正能改写关系剧本的人",
+      "location": "海城",
+      "secret": "这场替身关系从一开始就不是偶然，而是有人按白月光模板把姜栀推上台。",
+      "progress": 48
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "姜栀一直被放在白月光低配替身的位置上",
+      "白月光许知微回国后并没有按剧本踩姜栀",
+      "贺氏会后立刻反扑，试图把亮档行为定性成姜栀个人失控",
+      "姜栀抢到的B-17借阅记录显示，旧包装文件曾在贺氏董事办与许太太办公室之间流转",
+      "许知微早就看过B-17催办单的一角",
+      "闻策咨询的应岚参与了归国包装、替换候选和舆论词路",
+      "姜栀已经被公开往“偷档报复”方向带节奏"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "许知微并不是回国抢男人，而是也想拆掉这套白月光剧本。",
+        "since_chapter": 2
+      },
+      {
+        "info": "自己当年被卷进替身位不是巧合。",
+        "since_chapter": 2
+      },
+      {
+        "info": "B-17归国包装样张曾由罗秘书借出，并由许太太办公室林特助签收。",
+        "since_chapter": 4
+      },
+      {
+        "info": "闻策咨询的应岚负责过归国包装、替换候选和舆论词路，且今天下午会离开海城。",
+        "since_chapter": 5
+      },
+      {
+        "info": "应岚已承认“替换候选”不止姜栀一个，这是一套预设产品逻辑。",
+        "since_chapter": 6
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "三年前是谁决定用她来替代许知微",
+      "许家在替身剧本里到底站在哪一层",
+      "应岚背后真正付钱和拍板的人是谁",
+      "偷拍视频是贺氏单独放的，还是有人在外面接应",
+      "R-Blue目录里是否只留着执行底稿，还是还连着最终拍板痕迹"
+    ],
+    "key_revelations": [
+      "真正值得追的不是谁爱谁，而是谁在写这套关系剧本",
+      "发布会后的第一轮反扑证明，贺氏和许家都在争解释权与档案入口",
+      "B-17借阅记录把旧剧本的搬运路径第一次钉到了纸面上",
+      "许知微早就见过B-17催办单的一角",
+      "外部顾问闻策咨询的应岚参与了归国包装与替换候选词路",
+      "替换候选是预设产品位，不是姜栀单独遭遇的一次临时失控",
+      "R-Blue旧项目目录成为下一步最值钱的抢档入口"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      86,
+      82,
+      81,
+      86,
+      88
+    ],
+    "average_score": 84.8,
+    "trend": "up",
+    "last_review_chapter": 6,
+    "dimension_scores": {
+      "爽点": 88,
+      "一致性": 87,
+      "节奏": 86,
+      "OOC": 89,
+      "连续性": 86,
+      "追读力": 88,
+      "人物立体度": 88,
+      "关系张力": 90,
+      "阵营分歧": 87,
+      "代价感": 87
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "关系局里带刺，不拖泥带水",
+      "description_density": "中等",
+      "pacing_preference": "错位关系开局 -> 双女主翻面 -> 公共场合反打"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "强关系错位 + 快掀桌 + 双女主翻面",
+    "chapter_words": {
+      "min": 2200,
+      "max": 4200,
+      "target": 3200
+    },
+    "golden_three": {
+      "hook_timing": "第1章直接见替身位和白月光回场",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "substitute/profile.yaml",
+    "bucket": "现言甜宠",
+    "节奏": {
+      "type": "情感驱动",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 0.9,
+    "strand权重": {
+      "quest": 30,
+      "fire": 45,
+      "constellation": 25
+    }
+  },
+  "chapter_meta": {
+    "1": {
+      "review_score": 86,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 86,
+        "节奏": 86,
+        "OOC": 85,
+        "连续性": 85,
+        "追读力": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "none"
+    },
+    "2": {
+      "review_score": 82,
+      "review_grade": "B",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 83,
+        "一致性": 81,
+        "节奏": 80,
+        "OOC": 84,
+        "连续性": 81,
+        "追读力": 83
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix"
+    },
+    "3": {
+      "review_score": 81,
+      "review_grade": "B",
+      "review_time": "2026-03-22T11:50:00+08:00",
+      "dimension_scores": {
+        "爽点": 84,
+        "一致性": 80,
+        "节奏": 79,
+        "OOC": 83,
+        "连续性": 79,
+        "追读力": 84
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix"
+    },
+    "4": {
+      "word_count": 3638,
+      "status": "draft",
+      "written_at": "2026-03-22T11:00:34+08:00",
+      "summary": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。",
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "review_score": 86,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T11:08:59+08:00",
+      "dimension_scores": {
+        "爽点": 84,
+        "一致性": 86,
+        "节奏": 85,
+        "OOC": 87,
+        "连续性": 86,
+        "追读力": 86,
+        "人物立体度": 86,
+        "关系张力": 88,
+        "阵营分歧": 84,
+        "代价感": 87
+      },
+      "anti_flattening_flags": [
+        "机构角色声道略同质",
+        "许知微知情范围仍需后续兑现"
+      ],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": "机构角色存在轻微功能化，但未压垮主线。",
+        "faction_or_relation_failure": "双女主裂口成立，许家与贺氏的机构性反扑开始分层。",
+        "minimum_viable_repair_direction": "第005章尽快兑现许知微为什么知道B-17，并让机构角色各自带出不同利益口。"
+      }
+    },
+    "5": {
+      "word_count": 3252,
+      "status": "draft",
+      "written_at": "2026-03-22T11:12:37+08:00",
+      "summary": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。",
+      "needs_fix": false,
+      "recommended_next_action": "novel-review"
+    },
+    "6": {
+      "chapter": 6,
+      "path": "chapters/第006章.md",
+      "title": "她去拦应岚时，白月光先替她挡了第一道镜头",
+      "word_count": 4199,
+      "summary": "姜栀没有在旧馆直接爆图，而是和许知微、林特助重新谈条件后追到机场侧厅截住应岚。她顶着偷拍视频和法务追咬的压力，逼应岚承认“替换候选”不止她一个，这是一套预设产品逻辑，并顺势锁到R-Blue旧项目目录。许知微替她挡下第一轮镜头，但裂口没有消失，下一战被压成今晚十二点前抢底稿。",
+      "pov": "姜栀",
+      "location": "海城机场贵宾侧厅 / 出发层外",
+      "content_bucket": "双女主替身白月光",
+      "tagpack": "恶女",
+      "written_at": "2026-03-22T03:22:16Z",
+      "updated_at": "2026-03-22T03:41:24Z",
+      "status": "draft",
+      "review_score": 88,
+      "review_grade": "A-",
+      "review_time": "2026-03-22T03:41:24Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 87,
+        "节奏": 86,
+        "OOC": 89,
+        "连续性": 86,
+        "追读力": 88,
+        "人物立体度": 88,
+        "关系张力": 90,
+        "阵营分歧": 87,
+        "代价感": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "本章已经压回平台上限内，但仍高于当前 3200 目标值，后续同线章节要继续控制机场对话段的信息密度。"
+      ],
+      "suggested_fixes": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "双女主关系仍保持裂口与交易性，没有塌成自动互信",
+          "应岚具备职业话术、反咬能力和收口节奏，不再只是功能型执行人"
+        ],
+        "faction_or_relation_failure": [
+          "许知微和林特助都不是单纯站队者，这点成立",
+          "双女主裂口仍在，且已通过镜头风险和许家代价被重新钉实"
+        ],
+        "minimum_viable_repair_direction": "本章可以直接继续下一章，重点转向R-Blue争夺，不需要再在同一场景上做局部修补。"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "4": {
+      "chapter": 4,
+      "created_at": "2026-03-22T11:00:34+08:00",
+      "word_count": 3638,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "贺氏大楼电梯间",
+          "previous": "贺氏品牌资料室"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "许知微递来的合作条件",
+          "B-17借阅记录照片",
+          "半页目录残纸"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被贺氏停职调查",
+          "公司门禁权限失效",
+          "与许知微维持带裂口的临时同盟"
+        ],
+        "current_goals": [
+          "守住自己的名字和解释权",
+          "查清B-17归国包装样张的完整去向",
+          "判断许家卷入深度"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "合作但失衡",
+          "last_interaction": 4
+        },
+        {
+          "name": "贺承川",
+          "role": "旧叙事中心",
+          "relation": "敌对",
+          "last_interaction": 4
+        },
+        {
+          "name": "罗秘书",
+          "role": "董事办执行人",
+          "relation": "敌对",
+          "last_interaction": 4
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "替身筛选者",
+          "status": "active",
+          "planted_chapter": 2
+        },
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f3",
+          "name": "许家卷入深度",
+          "status": "planted",
+          "planted_chapter": 4
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "贺氏会后立刻反扑，试图收走姜栀的解释权和内部权限",
+          "B-17借阅记录显示，旧包装文件曾流向许太太办公室"
+        ],
+        "protagonist_knows": [
+          "许知微刚才公开切开半步，是为了保住继续追档案的门",
+          "B-17归国包装样张的借阅路径已经被拍下"
+        ],
+        "protagonist_doesnt_know": [
+          "林特助是在替谁签收",
+          "许知微到底还隐瞒了多少家里的牌"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "罗秘书",
+          "role": "minor antagonist"
+        },
+        {
+          "type": "character",
+          "name": "林特助",
+          "role": "shadow contact"
+        },
+        {
+          "type": "location",
+          "name": "贺氏品牌资料室"
+        },
+        {
+          "type": "item",
+          "name": "B-17借阅记录照片"
+        }
+      ],
+      "key_events": [
+        "董事办收走姜栀的工作机和工牌，试图把亮档定性为个人失控",
+        "许知微在后台先切开半步，保住继续查档案的入口",
+        "姜栀和许知微在停车场重新谈条件",
+        "姜栀夜闯资料室，拍下B-17借阅记录",
+        "姜栀当场失去全部公司门禁权限"
+      ],
+      "summary": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。"
+    },
+    "5": {
+      "chapter": 5,
+      "created_at": "2026-03-22T11:12:37+08:00",
+      "word_count": 3252,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "许家艺术基金旧馆侧门外",
+          "previous": "许家艺术基金旧展陈库"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被贺氏停职调查",
+          "被公开扣上偷档嫌疑",
+          "锁定外部执行人应岚"
+        ],
+        "current_goals": [
+          "在应岚离开海城前把人拦住",
+          "查清闻策咨询是谁的脏手套",
+          "判断许家卷入深度"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "合作但失衡",
+          "last_interaction": 5
+        },
+        {
+          "name": "林特助",
+          "role": "许家执行层",
+          "relation": "可疑合作者",
+          "last_interaction": 5
+        },
+        {
+          "name": "应岚",
+          "role": "外部执行人",
+          "relation": "未接触目标",
+          "last_interaction": 0
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f3",
+          "name": "许家卷入深度",
+          "status": "active",
+          "planted_chapter": 4
+        },
+        {
+          "id": "f4",
+          "name": "应岚执行线",
+          "status": "planted",
+          "planted_chapter": 5
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "应岚是归国包装和替换候选词路的外部执行人",
+          "姜栀已经被公开往偷档报复上挂"
+        ],
+        "protagonist_knows": [
+          "许知微早就见过B-17催办单的一角",
+          "应岚今天下午会离开海城"
+        ],
+        "protagonist_doesnt_know": [
+          "应岚背后真正的拍板人是谁",
+          "偷拍视频是谁先放给营销号的"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "应岚",
+          "role": "external operator"
+        },
+        {
+          "type": "faction",
+          "name": "闻策咨询"
+        },
+        {
+          "type": "location",
+          "name": "许家艺术基金旧展陈库"
+        },
+        {
+          "type": "item",
+          "name": "闻策咨询结算联照片"
+        }
+      ],
+      "key_events": [
+        "贺氏发布停职调查并开始用偷拍视频带节奏",
+        "姜栀拿B-17照片向许知微换答案",
+        "许知微承认自己早见过B-17催办单",
+        "姜栀在旧展陈库翻出闻策咨询应岚的结算联",
+        "律师函和偷拍视频热搜同步落下，应岚离开海城的时间被抛出"
+      ],
+      "summary": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。"
+    },
+    "6": {
+      "chapter": 6,
+      "created_at": "2026-03-22T03:22:16Z",
+      "word_count": 4199,
+      "protagonist_state": {
+        "name": "姜栀",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "海城机场出发层外",
+          "previous": "海城机场贵宾侧厅"
+        },
+        "inventory": [
+          "退回的订婚戒",
+          "三年前替身筛选简报截图",
+          "B-17借阅记录照片",
+          "半页目录残纸",
+          "闻策咨询结算联照片",
+          "R-Blue项目目录后缀"
+        ],
+        "abilities": [
+          "品牌策划",
+          "公关控场",
+          "临场反击"
+        ],
+        "status": [
+          "被贺氏停职调查",
+          "被公开扣上偷档嫌疑",
+          "与许知微维持带裂口的临时同盟",
+          "已从应岚口中坐实替换候选逻辑",
+          "锁定R-Blue旧项目目录"
+        ],
+        "current_goals": [
+          "今晚十二点前抢到R-Blue底稿",
+          "压住偷拍视频第二轮扩散",
+          "判断许家在替身剧本里到底站哪一层"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "许知微",
+          "role": "第二核心女性角色",
+          "relation": "再合作但裂口仍在",
+          "last_interaction": 6
+        },
+        {
+          "name": "应岚",
+          "role": "外部执行人",
+          "relation": "正面交锋",
+          "last_interaction": 6
+        },
+        {
+          "name": "林特助",
+          "role": "自保型有限协助者",
+          "relation": "半步合作",
+          "last_interaction": 6
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f2",
+          "name": "双女主同盟是否稳定",
+          "status": "active",
+          "planted_chapter": 3
+        },
+        {
+          "id": "f4",
+          "name": "应岚执行线",
+          "status": "active",
+          "planted_chapter": 5
+        },
+        {
+          "id": "f5",
+          "name": "R-Blue旧项目目录",
+          "status": "planted",
+          "planted_chapter": 6
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "应岚承认替换候选不止姜栀一个，说明这套关系剧本从一开始就是预设产品",
+          "R-Blue旧项目目录将在今晚十二点前被远程清理"
+        ],
+        "protagonist_knows": [
+          "许知微愿意挡镜头，但不等于她会交出全部底牌",
+          "应岚最怕的不是被堵，而是R-Blue目录被人先摸到"
+        ],
+        "protagonist_doesnt_know": [
+          "R-Blue目录里最终会留下谁的拍板痕迹",
+          "应岚背后到底是贺家、许家，还是另一层更外面的操盘人"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "item",
+          "name": "R-Blue项目目录后缀"
+        },
+        {
+          "type": "location",
+          "name": "海城机场贵宾侧厅"
+        }
+      ],
+      "key_events": [
+        "姜栀和许知微、林特助重新谈条件，决定先追应岚再抢底稿",
+        "许知微在第一轮镜头前替姜栀挡下半步",
+        "应岚承认替换候选不是临时玩笑，而是一套预设产品逻辑",
+        "林特助补出R-Blue旧项目目录和午夜清理倒计时"
+      ],
+      "summary": "姜栀在旧馆外没有直接爆图，而是和许知微、林特助重新谈条件后追到机场侧厅截住应岚。她顶着偷拍视频和法务追咬的压力，逼应岚承认“替换候选”是一套预设产品逻辑，并顺着林特助补出的提示锁到R-Blue旧项目目录。许知微替她挡下第一轮镜头，但裂口没有消失，下一战被明确压到今晚十二点前的云盘抢底稿。"
+    }
+  },
+  "summaries_index": {
+    "4": "发布会后贺氏立刻反扑，董事办收走姜栀的工作机和工牌，试图把公开亮档定义成她的个人失控。许知微在后台先切开半步以保住档案入口，两人在停车场重新谈条件后，姜栀夜闯资料室抢出B-17借阅记录，却只拿到罗秘书借出、许太太办公室林特助签收的搬运痕迹，并当场失去全部公司权限。",
+    "5": "次日一早，贺氏把姜栀挂上停职调查，并开始用偷拍视频往“夜闯资料室、偷档报复”上带节奏。姜栀没有立刻放出B-17照片，而是拿它逼许知微和林特助交代来源，随后在许家艺术基金旧展陈库里翻到“闻策咨询-应岚”负责归国包装与替换候选词路的结算联，确认两家之外还有外部执行人。可她刚拿到这层线索，偷拍视频和律师函就同时落下，而林特助又抛出新时间压迫：应岚当天下午就要飞离海城。",
+    "6": "姜栀和许知微、林特助重新谈条件后，追到机场侧厅截住应岚。她在偷拍视频和法务追咬下逼应岚承认“替换候选”不止她一个，这是一套预设产品逻辑，并顺势锁到R-Blue旧项目目录。许知微替她挡下第一轮镜头，但同盟仍带裂口，下一战被压成今晚十二点前抢底稿。"
+  }
+}

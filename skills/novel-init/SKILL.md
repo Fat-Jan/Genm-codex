@@ -36,12 +36,23 @@ chapters/
 大纲/卷纲/
 大纲/章纲/
 设定集/角色/主角.md
+设定集/家族/
+设定集/官制/
 设定集/势力/
 设定集/地点/
 设定集/物品/
 设定集/世界观/
 设定集/力量体系.md
 参考资料/
+```
+
+For ancient-family-power routes such as `宫斗宅斗 / 古代言情 / 历史家族权力`, also create:
+
+```text
+设定集/家族/宅门真值表.md
+设定集/家族/小型家谱.md
+设定集/官制/官职真值表.md
+设定集/官制/权力层级图.md
 ```
 
 ## State requirements
@@ -68,9 +79,12 @@ Initialize `.mighty/state.json` with, at minimum:
 
 1. Validate required inputs.
 2. Resolve the closest matching profile slug from `../../shared/profiles/`.
-3. Create the canonical project directories.
-4. Initialize `.mighty/state.json` using the v5 state shape from the source project as the baseline.
-5. Fill the initial state with:
+3. Detect whether this is an ancient-family-power route.
+   - Use genre, resolved profile slug, and any obvious project framing.
+   - Typical matches include `palace-intrigue`, `ancient-romance`, `historical`, and projects whose core conflict depends on 宅门 / 宗族 / 嫡庶 / 继室 / 婚配法统.
+4. Create the canonical project directories.
+5. Initialize `.mighty/state.json` using the v5 state shape from the source project as the baseline.
+6. Fill the initial state with:
    - `meta.title`
    - `meta.genre`
    - `meta.platform`
@@ -78,17 +92,32 @@ Initialize `.mighty/state.json` with, at minimum:
    - `meta.target_words`
    - `progress.current_chapter = 0`
    - empty `chapter_meta`, `chapter_snapshots`, `summaries_index`
-6. Seed starter files from `../../shared/templates/` when possible.
-7. Create lightweight sidecar files:
+   - keep `chapter_meta` extensible for later per-chapter review fields such as:
+     - `recommended_next_action`
+     - `anti_flattening_flags`
+     - `anti_flattening_summary`
+7. Seed starter files from `../../shared/templates/` when possible.
+   - If this is an ancient-family-power route, seed first:
+     - `设定集/家族/宅门真值表.md` from `../../shared/templates/project/ancient-household-truth-sheet.md`
+     - `设定集/家族/小型家谱.md` from `../../shared/templates/project/ancient-mini-genealogy.md`
+     - `设定集/官制/官职真值表.md` from `../../shared/templates/project/ancient-office-truth-sheet.md`
+     - `设定集/官制/权力层级图.md` from `../../shared/templates/project/ancient-power-ladder.md`
+   - These files are upstream truth artifacts, not optional decoration.
+8. Create lightweight sidecar files:
    - `.mighty/learned-patterns.json`
    - `.mighty/market-adjustments.json`
    and keep `.mighty/state.json` only with small summary/pointer forms for those sections
-8. Write:
+9. Write:
    - `大纲/总纲.md` with a minimal outline scaffold
    - `设定集/角色/主角.md` with a starter protagonist scaffold
    - `设定集/力量体系.md` with a minimal system scaffold
-9. Record the chosen profile in `state.genre_profile`.
-10. Report created files, chosen profile, and any fallback decisions.
+   - If this is an ancient-family-power route, mark the initial total outline as provisional until:
+     - protagonist mother source exists
+     - core rival relation exists
+     - birth-order map exists for any `二姑娘 / 三姑娘` style terms
+     - core office titles and actual power chain are no longer empty when the story depends on官场/宫廷/地方权力
+10. Record the chosen profile in `state.genre_profile`.
+11. Report created files, chosen profile, whether the ancient-family-power route was detected, and any fallback decisions.
 
 ## Failure handling
 
@@ -102,3 +131,6 @@ Initialize `.mighty/state.json` with, at minimum:
 - Prefer creating a minimal valid state over filling every optional field.
 - If no exact genre profile exists, choose the nearest profile slug and state the fallback explicitly.
 - Do not silently create a root-level `state.json`; the canonical path is `.mighty/state.json`.
+- For ancient-family-power routes, do not treat `大纲/总纲.md` as fully locked at init time unless the household truth sheet and mini genealogy already support the outward relation words.
+- For ancient-family-power routes, do not freeze官名 into outward packaging until the office truth sheet and power ladder are minimally filled.
+- `chapter_meta` is the preferred place for lightweight per-chapter structural review signals; do not create a parallel top-level anti-flattening store.
