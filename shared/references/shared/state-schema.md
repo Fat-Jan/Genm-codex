@@ -444,6 +444,10 @@ version: "1.0"
 | recommended_next_action | string | `none/fix/polish/rewrite/write` 等路由建议 |
 | anti_flattening_flags | string[] | 反脸谱化风险标签，保持轻量 |
 | anti_flattening_summary | object | 可选结构摘要，记录主角特权、关系、阵营、代价链等问题 |
+| last_close_time | string | 最近一次 `novel-close` 执行时间 |
+| last_close_route | string | 最近一次 `novel-close` 选择的主路由 |
+| last_close_review_score_before | number | 最近一次 `novel-close` 首轮 review 分数 |
+| last_close_review_score_after | number | 最近一次 `novel-close` 末轮 review 分数 |
 
 ### 反脸谱化轻量约定
 

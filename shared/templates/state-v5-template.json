@@ -161,7 +161,14 @@
     "strand权重": {},
     "特殊约束": []
   },
-  "chapter_meta": {},
+  "chapter_meta": {
+    "<chapter_number>": {
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
   "chapter_snapshots": {},
   "summaries_index": {},
   "character_states": {},
