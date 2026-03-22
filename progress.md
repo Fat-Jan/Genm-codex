@@ -219,6 +219,53 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-23
+
+### Workflow Tuning: 章节修订单章收敛模式
+- **Status:** complete
+- Actions taken:
+  - 将 `docs/default-workflows.md` 的正文生产主线调整为“review -> 单章收敛修订轮 -> 单次复审”
+  - 更新 `skills/novel-review/SKILL.md`，要求默认把问题收成 1-3 个 issue clusters，并在两轮修订未收口时升级 `novel-rewrite`
+  - 更新 `skills/novel-fix/SKILL.md`，要求一次修订轮尽量收口同章局部问题，并吸收顺手可做的轻量措辞修补
+  - 更新 `skills/novel-polish/SKILL.md`，要求默认使用单次 `all` 向润色，不再鼓励多轮微修
+  - 更新 `docs/skill-usage.md` 的推荐顺序与示例提示词，使新工作流可直接照抄执行
+  - 运行 `bash scripts/validate-migration.sh`，确认结构校验通过
+- Files created/modified:
+  - `docs/default-workflows.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-fix/SKILL.md` (updated)
+  - `skills/novel-polish/SKILL.md` (updated)
+  - `progress.md` (updated)
+
+### Workflow Tuning: `novel-close` 单章收口轮
+- **Status:** complete
+- Actions taken:
+  - 新建 `skills/novel-close/SKILL.md`，固化 `review -> 单一路由 -> re-review` 契约
+  - 新建 `skills/novel-close/agents/openai.yaml`
+  - 更新 `scripts/install-skills.sh`，为 `novel-close` 创建 plain / genm 双别名
+  - 更新 `scripts/validate-migration.sh`，把 `novel-close` 纳入迁移结构校验
+  - 更新 `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json`，补充 `last_close_*` 轻量字段
+  - 更新 `README.md`、`docs/default-workflows.md`、`docs/skill-usage.md`、`docs/start-here.md`，把 `novel-close` 挂进默认正文生产入口
+  - 更新 `skills/novel-write/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-polish/SKILL.md`、`skills/novel-fix/SKILL.md`，对齐新收口轮的相邻提示
+  - 运行迁移结构校验和技能安装校验，确认新 skill 可发现、可安装
+- Files created/modified:
+  - `skills/novel-close/SKILL.md` (created)
+  - `skills/novel-close/agents/openai.yaml` (created)
+  - `scripts/install-skills.sh` (updated)
+  - `scripts/validate-migration.sh` (updated)
+  - `shared/references/shared/state-schema.md` (updated)
+  - `shared/templates/state-v5-template.json` (updated)
+  - `README.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-polish/SKILL.md` (updated)
+  - `skills/novel-fix/SKILL.md` (updated)
+  - `progress.md` (updated)
+
 ## Test Results
 | Test | Input | Expected | Actual | Status |
 |------|-------|----------|--------|--------|
@@ -234,6 +281,9 @@
 | 现实情感副本字数一致性 | 比对副本第004章正文实际字数与 `chapter_meta["4"].word_count` | 两者一致 | `4209 / 4209` | ✓ |
 | 系统副本 state 可解析 | `python3` 加载系统副本 `.mighty/state.json` | JSON 合法 | `system smoke state json: ok` | ✓ |
 | 系统副本字数一致性 | 比对副本第004章正文实际字数与 `chapter_meta["4"].word_count` | 两者一致 | `3525 / 3525` | ✓ |
+| `novel-close` 迁移结构校验 | `bash scripts/validate-migration.sh` | 校验通过 | `Migration validation passed` | ✓ |
+| `novel-close` 安装脚本校验 | `bash scripts/install-skills.sh` | 安装成功 | `Installed Genm-codex skills into /Users/arm/.codex/skills` | ✓ |
+| `novel-close` 本地链接存在性 | `ls -l ~/.codex/skills | rg "novel-close|genm-novel-close"` | 两个链接均存在 | `novel-close` / `genm-novel-close` symlink ok | ✓ |
 
 ## Error Log
 | Timestamp | Error | Attempt | Resolution |
@@ -278,9 +328,23 @@
   - 已重生章纲：
     - `第002章.md`
     - `第003章.md`
-  - 当前判断：
-    - 这条线的正文后续更适合 `rewrite`
-    - 不建议继续直接补第4-5章正文
+
+## Session Update: 2026-03-22 23:20
+
+- 已新增 `宫斗宅斗` bucket 专用的故障漏斗判定卡：
+  - `docs/gongdou-zhaidou-fault-funnel-review-card.md`
+- 已将该判定卡自动接入：
+  - `skills/novel-review/SKILL.md`
+  - `skills/novel-write/SKILL.md`
+- 当前行为约定：
+  - `novel-review` 在 active bucket 为 `宫斗宅斗` 时强制先跑故障漏斗
+  - `novel-write` 在 active bucket 为 `宫斗宅斗` 时先做轻量漏斗预检
+- 已更新使用文档：
+  - `docs/skill-usage.md`
+
+- 当前判断：
+  - 这条线的正文后续更适合 `rewrite`
+  - 不建议继续直接补第4-5章正文
 
 ## Session Update: 2026-03-22 11:05
 
