@@ -55,6 +55,7 @@ Read conditionally:
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
 - `../../docs/fanqie-resistance-and-cost-rules.md`
+- `../../docs/gongdou-zhaidou-fault-funnel-review-card.md`
 - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
 - `../../docs/anti-flattening-framework/04-角色动力系统.md`
 - `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
@@ -109,6 +110,7 @@ Read conditionally:
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-chapter-length-policy.json`
    - `../../docs/fanqie-resistance-and-cost-rules.md`
+   - when the active bucket is `宫斗宅斗`, also read `../../docs/gongdou-zhaidou-fault-funnel-review-card.md`
    - use them as third-layer prose optimization rules for:
      - first-page hook clarity
      - golden-three delivery
@@ -118,6 +120,11 @@ Read conditionally:
      - visible resistance
      - visible cost
      - partial payoff instead of frictionless resolution
+     - when the active bucket is `宫斗宅斗`, run a lightweight funnel preflight before drafting:
+       - lock one effective transaction unit with a concrete contested object
+       - ensure the chapter will change at least one of power / information / relationship / resource ledgers
+       - ensure one non-protagonist role carries an independent agenda in the core scene
+       - block summary-only progression, threat-only carryover, and authority-only shortcut wins
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
 11. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
@@ -156,6 +163,11 @@ Read conditionally:
      - at least one meaningful non-protagonist intention should stay visible in a key scene when the route needs群像
      - important gains should leave relation, risk, or cost residue
      - relation or faction support should not read as frictionless auto-alignment
+   - when the active bucket is `宫斗宅斗` and the funnel card is active:
+     - do not let the chapter pass as summary-only progression
+     - make the contested object, blocker, and changed ledger legible on page
+     - avoid resolving the chapter mainly through one authority shortcut
+     - keep at least one key non-protagonist role from collapsing into pure delivery or reaction
    - and, when Fanqie chapter-length policy exists:
      - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
 15. Update `.mighty/state.json` with:
@@ -167,7 +179,7 @@ Read conditionally:
    - `chapter_snapshots`
    - `summaries_index`
 16. Do not write review scores here unless an actual review step was run.
-17. Recommend running `novel-review` immediately after writing.
+17. Recommend running `novel-close` immediately after writing.
 18. After a real writing round, the preferred automatic hook is:
    - `scripts/post-task-maintenance.py <project_root> --trigger write`
    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
@@ -186,7 +198,7 @@ At minimum, update:
 
 - `chapters/第N章.md`
 - updated `.mighty/state.json`
-- optional note recommending `novel-review`
+- optional note recommending `novel-close`
 
 ## Failure handling
 
@@ -212,3 +224,4 @@ At minimum, update:
 - If a first-batch MVP bucket config exists, prefer its reader-motive and payoff style over generic bucket language.
 - If a matching tagpack exists, use it as a second-layer style/positioning overlay after bucket selection, not as a substitute for the bucket.
 - Anti-flattening rules should make people and factions act like real participants in the chapter, but they do not authorize changing the outline goal or smuggling a rewrite into ordinary writing.
+- When the active bucket is `宫斗宅斗`, the funnel card should be used as a light preflight, not as a full review pass; it is there to stop thin transaction skeletons from becoming finished chapters.

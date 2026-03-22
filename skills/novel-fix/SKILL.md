@@ -51,7 +51,7 @@ Read conditionally:
 
 ## First-version scope
 
-This version is a targeted fixer, not a universal editor.
+This version is a targeted convergent fixer, not a universal editor.
 
 Good fit:
 
@@ -59,6 +59,7 @@ Good fit:
 - patch continuity gaps
 - strengthen weak hook or payoff beats
 - align chapter text with existing character/state files
+- finish all local issue clusters that belong to the same repair round
 
 Not a good fit:
 
@@ -67,6 +68,12 @@ Not a good fit:
 - outline-level changes
 
 If the required change is too large or would replace most of the chapter, route to `novel-rewrite`.
+
+Default intent for the current workflow:
+
+- finish one chapter’s local repair work in one pass when possible
+- avoid leaving easy same-scene fixes for another micro-pass
+- if two repair attempts still do not close the chapter, escalate instead of nibbling
 
 ## Workflow
 
@@ -84,15 +91,20 @@ If the required change is too large or would replace most of the chapter, route 
      - `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
      - `../../docs/anti-flattening-framework/10-工具包与工作流.md`
      - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
-4. Decide whether the requested fix is:
+4. Check prior repair-attempt history from `chapter_meta`.
+   - use `fix_count + polish_count` when available
+   - if repair attempts are already `>= 2` and the same critical issues still survive, stop and recommend `novel-rewrite`
+5. Decide whether the requested fix is:
    - `fix` sized: proceed
    - `rewrite` sized: stop and recommend `novel-rewrite`
-5. Build a fix plan from:
+6. Build a fix plan from:
    - critical issues
    - warnings
    - suggested fixes
    - explicit `issues` filter if the user provided one
-6. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - default to covering all local issue clusters from the latest review, not just one tiny symptom
+   - if multiple easy fixes land in the same scene or paragraph, batch them into the same edit pass
+7. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -102,7 +114,7 @@ If the required change is too large or would replace most of the chapter, route 
      - payoff clarity
      - conflict density
      - chapter-end carryover
-7. If Fanqie fix rules are active, also read:
+8. If Fanqie fix rules are active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-resistance-and-cost-rules.md`
@@ -114,23 +126,24 @@ If the required change is too large or would replace most of the chapter, route 
      - resistance / cost visibility
      - partial payoff repair
    - do not let technique rules override canon, chapter purpose, or active bucket
-8. Apply the smallest set of changes that materially resolves the chosen issues.
+9. Apply the smallest set of changes that materially resolves the chosen issues.
    - when anti-flattening repair is active, prefer local repairs such as:
      - adding a hidden need
      - adding a non-protagonist action beat
      - restoring a relation debt or power asymmetry
      - making cost / residual risk visible
+   - when you already touch a sentence or paragraph for a local repair, also absorb trivial wording / redundancy cleanup there instead of leaving a second micro-pass for `novel-polish`
    - do not smuggle a full structural rewrite into a fix pass
-9. Preserve:
+10. Preserve:
    - chapter purpose
    - key events
    - named entities
    - continuity with state and setting files
-10. If preview mode is requested:
+11. If preview mode is requested:
    - return a concise fix summary
    - include the proposed modified sections or chapter text
    - do not save
-11. Otherwise:
+12. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the fixed chapter
    - update fix metadata in `.mighty/state.json`
@@ -167,6 +180,8 @@ If the fix resolves previously recorded issues, also update when appropriate:
 ## Notes
 
 - Prefer precise local edits over broad stylistic churn.
+- This skill may be selected as the primary route inside `novel-close`.
+- Prefer one convergent local repair pass over several tiny follow-up passes.
 - If the review findings and chapter text disagree, trust the current chapter plus state, not stale assumptions.
 - If the fix requires changing a related file like `设定集/角色/主角.md`, keep that change minimal and explain why.
 - When Fanqie rules stack, apply them in this order:
