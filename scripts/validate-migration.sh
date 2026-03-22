@@ -32,6 +32,7 @@ require_non_empty_dir "${ROOT_DIR}/shared/templates"
 for skill in \
   novel-init \
   novel-analyze \
+  novel-close \
   novel-outline \
   novel-package \
   novel-write \
