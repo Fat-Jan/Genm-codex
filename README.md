@@ -35,6 +35,7 @@ Codex 原生网文创作技能工作区。
 
 第四阶段已完成的控制与辅助 Skill：
 
+- `genm-novel-close`
 - `genm-novel-fix`
 - `genm-novel-snapshot`
 - `genm-novel-precheck`
@@ -100,6 +101,7 @@ bash scripts/validate-migration.sh
 - 但在 Codex 会话里，通常真正被发现和触发的是各个 `SKILL.md` frontmatter 里的 `name`
 - 因此实际提示词里，优先使用：
   - `novel-init`
+  - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
@@ -183,3 +185,4 @@ bash scripts/validate-migration.sh
 - `Genm` 仍然是源仓库
 - `Genm-codex` 负责 Codex 原生 Skill 层
 - `shared/` 资产应通过脚本同步，不建议手工维护两份
+- `novel-close` 现在提供单章收口轮入口，内部执行 `review -> route -> re-review`，但不改变 `review / fix / polish / rewrite` 的边界

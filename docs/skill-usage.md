@@ -20,6 +20,7 @@
 - `genm-novel-character`
 - `genm-novel-foreshadowing`
 - `genm-novel-config`
+- `genm-novel-close`
 - `genm-novel-fix`
 - `genm-novel-genre`
 - `genm-novel-index`
@@ -56,6 +57,7 @@
 - `novel-package`
 - `novel-scan`
 - `novel-config`
+- `novel-close`
 - `novel-fix`
 - `novel-test`
 - `novel-precheck`
@@ -76,6 +78,7 @@
 - 在 Codex 会话中，优先使用各个 `SKILL.md` frontmatter 中的 `name` 来触发 skill
 - 因此实际提示词里更推荐写：
   - `novel-init`
+  - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
@@ -89,8 +92,8 @@
 1. `novel-init`
 2. `novel-outline`
 3. `novel-write`
-4. `novel-review`
-5. `novel-rewrite`
+4. `novel-close`
+5. 仍未收口时再按结果进入 `novel-rewrite`
 6. `novel-export`
 
 ## 第二阶段已迁入
@@ -222,7 +225,13 @@
 ### polish
 
 ```text
-请使用 novel-polish skill，对第001章做 prose + pacing 向的轻量润色，并同步更新状态元数据。
+请使用 novel-polish skill，对第001章做一次 `all` 向收口润色，优先解决剩余语言层问题，并同步更新状态元数据。
+```
+
+### close
+
+```text
+请使用 novel-close skill，对第001章做一次 `auto` 模式单章收口；如果只剩语言层问题，就把压 AI 味放在 `novel-polish` 分支里完成，并在必要时复审。
 ```
 
 ### genre
@@ -246,7 +255,7 @@
 ### fix
 
 ```text
-请使用 novel-fix skill，基于第001章的 review 结果，只修最关键的两项问题，并告诉我哪些问题已处理。
+请使用 novel-fix skill，基于第001章的 review 结果，一次性处理本章所有局部问题，并告诉我哪些 issue clusters 已收口、哪些必须升级到 rewrite。
 ```
 
 ### snapshot
