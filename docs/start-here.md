@@ -15,8 +15,8 @@
 3. `novel-outline`
 4. `novel-package`
 5. `novel-write`
-6. `novel-review`
-7. `novel-rewrite`
+6. `novel-close`
+7. 必要时再 `novel-rewrite`
 8. `novel-export`
 
 最小提示词：
@@ -56,11 +56,17 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 
 ### 4. 我写完一章，想修
 
-按问题类型选：
+默认先用：
 
-- 局部修补：`novel-fix`
-- 轻量精修：`novel-polish`
-- 定向重写：`novel-rewrite`
+- `novel-close`
+
+它内部会跑：
+
+- `novel-review`
+- 再按结果进入：
+  - 局部修补：`novel-fix`
+  - 轻量精修：`novel-polish`
+  - 定向重写：`novel-rewrite`
 
 如果你关心的是：
 

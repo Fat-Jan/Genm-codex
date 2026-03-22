@@ -20,6 +20,7 @@
 - `genm-novel-character`
 - `genm-novel-foreshadowing`
 - `genm-novel-config`
+- `genm-novel-close`
 - `genm-novel-fix`
 - `genm-novel-genre`
 - `genm-novel-index`
@@ -56,6 +57,7 @@
 - `novel-package`
 - `novel-scan`
 - `novel-config`
+- `novel-close`
 - `novel-fix`
 - `novel-test`
 - `novel-precheck`
@@ -76,6 +78,7 @@
 - 在 Codex 会话中，优先使用各个 `SKILL.md` frontmatter 中的 `name` 来触发 skill
 - 因此实际提示词里更推荐写：
   - `novel-init`
+  - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
@@ -91,9 +94,9 @@
 3. 涉及朝堂/东宫/地方官场时再补 `官职真值表 + 权力层级图`
 4. `novel-outline`
 5. `novel-write`
-6. `novel-review`
-7. `novel-rewrite`
-8. `novel-export`
+6. `novel-close`
+7. 仍未收口时再按结果进入 `novel-rewrite`
+10. `novel-export`
 
 反脸谱化与群像打磨入口：
 
@@ -101,8 +104,13 @@
 - `novel-outline` 现在会按需读取这组文档来锁角色分层、关系结构、阵营分歧与后果链
 - `novel-write` 现在会按需读取这组文档来约束非主角行动、关系负债与场景残账
 - `novel-review` 现在会按需把主角特权、角色独立性、关系张力和流派故障纳入结构审查
-- `novel-fix` 现在会在局部修补范围内读取快速修复动作，而不是把人物补丁偷渡成整章重写
+- `novel-review` 现在默认会把单章问题收成可一次执行的 issue clusters，并在两轮修订仍未收口时上推 `novel-rewrite`
+- `novel-close` 现在是默认推荐的单章收口轮入口，内部固定执行 `novel-review -> 单一路由 -> re-review`
+- `novel-fix` 现在会在局部修补范围内读取快速修复动作，并尽量一次收口同章的局部问题，而不是把人物补丁偷渡成整章重写
+- `novel-polish` 现在默认偏向单次 `all` 向润色，不鼓励把 prose / dialogue / pacing 拆成多轮微修
 - `novel-precheck` 现在会在投稿前检查主角特权失衡、阵营单声道和推进过顺风险
+- 当当前 bucket 为 `宫斗宅斗` 时，`novel-write` 会自动加一层轻量“故障漏斗”预检，`novel-review` 会自动读取专项判定卡并补充 `gongdou_funnel_summary`
+- 专项判定卡入口： [gongdou-zhaidou-fault-funnel-review-card.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gongdou-zhaidou-fault-funnel-review-card.md)
 
 ## 第二阶段已迁入
 
@@ -244,7 +252,13 @@
 ### polish
 
 ```text
-请使用 novel-polish skill，对第001章做 prose + pacing 向的轻量润色，并同步更新状态元数据。
+请使用 novel-polish skill，对第001章做一次 `all` 向收口润色，优先解决剩余语言层问题，并同步更新状态元数据。
+```
+
+### close
+
+```text
+请使用 novel-close skill，对第001章做一次 `auto` 模式单章收口；如果只剩语言层问题，就把压 AI 味放在 `novel-polish` 分支里完成，并在必要时复审。
 ```
 
 ### genre
@@ -268,7 +282,7 @@
 ### fix
 
 ```text
-请使用 novel-fix skill，基于第001章的 review 结果，只修最关键的两项问题，并告诉我哪些问题已处理。
+请使用 novel-fix skill，基于第001章的 review 结果，一次性处理本章所有局部问题，并告诉我哪些 issue clusters 已收口、哪些必须升级到 rewrite。
 ```
 
 ### snapshot
