@@ -125,7 +125,7 @@ Read conditionally:
    - `chapter_snapshots`
    - `summaries_index`
 13. Do not write review scores here unless an actual review step was run.
-14. Recommend running `novel-review` immediately after writing.
+14. Recommend running `novel-close` immediately after writing.
 15. After a real writing round, the preferred automatic hook is:
    - `scripts/post-task-maintenance.py <project_root> --trigger write`
    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
@@ -144,7 +144,7 @@ At minimum, update:
 
 - `chapters/第N章.md`
 - updated `.mighty/state.json`
-- optional note recommending `novel-review`
+- optional note recommending `novel-close`
 
 ## Failure handling
 

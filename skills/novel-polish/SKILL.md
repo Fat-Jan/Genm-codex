@@ -7,6 +7,12 @@ description: Polish an existing chapter in a Codex-managed novel project by impr
 
 Use this skill when the user wants to refine an existing chapter without doing a full rewrite.
 
+Default intent for the current workflow:
+
+- use one polish pass to close the chapter’s remaining language-layer issues
+- do not split polish into many micro-rounds unless the user explicitly asks
+- if the chapter still has critical issues after two repair attempts, escalate instead of polishing forever
+
 ## Inputs
 
 - `chapter`
@@ -53,20 +59,25 @@ Read conditionally:
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
 2. Determine whether the request is true polish or a structural rewrite request.
-3. If the requested change would alter core plot, continuity, or chapter purpose, stop and recommend `novel-rewrite` instead.
-4. Read the chapter outline and any directly relevant review findings.
-5. If the project has usable learned-pattern sidecar data, use it as polish preferences:
+3. Check prior repair-attempt history from `chapter_meta`.
+   - use `fix_count + polish_count` when available
+   - if repair attempts are already `>= 2` and critical review issues still remain, stop and recommend `novel-rewrite`
+4. If the requested change would alter core plot, continuity, or chapter purpose, stop and recommend `novel-rewrite` instead.
+5. Read the chapter outline and any directly relevant review findings.
+6. If the project has usable learned-pattern sidecar data, use it as polish preferences:
    - preferred dialogue style
    - preferred description density
    - preferred high-point handling
    - avoid patterns
-6. Choose the polish focus:
+7. Choose the polish focus.
+   - default to one balanced `all` pass when the user did not explicitly request a narrower aspect
    - `prose`: remove repetition, tighten sentences, improve phrasing
    - `dialogue`: sharpen voice, reduce filler, preserve character tone
    - `description`: improve sensory detail and scene clarity
    - `pacing`: tighten slow sections, reduce explanatory drag, improve transitions
    - `all`: apply a balanced pass without broad structural changes
-7. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+   - do not break one polish round into separate prose / dialogue / pacing micro-passes unless the user explicitly asks for that granularity
+8. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -76,7 +87,7 @@ Read conditionally:
      - payoff visibility
      - conflict density
      - chapter-end carryover sharpness
-8. If Fanqie polish rules are active, also read:
+9. If Fanqie polish rules are active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - use them as third-layer polish-side optimization for:
@@ -85,23 +96,24 @@ Read conditionally:
      - character liveliness
      - suspense handoff and map-shift smoothness
    - do not let technique rules override canon, chapter purpose, or active bucket
-9. For prose-like polish, explicitly watch for:
+10. For prose-like polish, explicitly watch for:
    - explanation replacing scene display
    - generic symmetrical phrasing
    - filler transitions
    - obvious anti-AI style warnings already known in the project
    - weak bucket-fit delivery when a Fanqie bucket is active
-10. Preserve:
+11. If current review findings still show unresolved local content / continuity / hook issues that belong in `novel-fix`, stop and recommend `novel-fix` before polishing.
+12. Preserve:
    - chapter purpose
    - core events
    - named entities
    - continuity with existing state
-11. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
-12. If the user asks for preview or comparison, return:
+13. Keep the word-count delta modest by default, roughly within `±10%` unless the user explicitly wants a bigger change.
+14. If the user asks for preview or comparison, return:
    - short change summary
    - optional before/after excerpts
    - proposed polished text without saving
-13. Otherwise:
+15. Otherwise:
    - create a backup under `.mighty/backup/`
    - save the polished chapter back to `chapters/第N章.md`
    - update polish metadata in `.mighty/state.json`
@@ -132,7 +144,8 @@ If the project already tracks snapshots, refresh `chapter_snapshots[N]` to match
 ## Notes
 
 - This skill is for refinement, not redesign.
-- Prefer the smallest edit that improves readability and pull.
+- This skill may be selected as the primary route inside `novel-close`.
+- Prefer the smallest edit that improves readability and pull, but finish the chosen polish scope in one round instead of many tiny passes.
 - If the chapter already has unresolved critical review issues, use them as polish priorities.
 - If the user wants side-by-side diff behavior, keep it lightweight in text; do not recreate the old command’s interactive UI flow.
 - If the project has explicit `avoid_patterns`, treat them as first-class polish targets.

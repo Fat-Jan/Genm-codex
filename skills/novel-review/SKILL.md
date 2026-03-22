@@ -7,6 +7,12 @@ description: Review a chapter in a Codex-managed novel project for quality, cont
 
 Use this skill after a chapter draft exists and the user wants a structured quality assessment.
 
+Default intent for the current workflow:
+
+- collect the chapter’s actionable problems in one review pass
+- prefer a single repair round over repeated micro-fixes
+- if the chapter still has critical issues after two repair attempts, route up to `novel-rewrite`
+
 ## Inputs
 
 - `chapter`
@@ -89,20 +95,36 @@ Read conditionally:
      - reader_motive
      - opening_rule
      - ending_hook_rule
-8. Produce a structured report with:
+8. Before routing, collapse findings into at most `3` actionable issue clusters.
+   - each cluster should map to one repair action family, not a one-line tweak
+   - if multiple small issues live in the same paragraph / beat / scene, group them together
+   - distinguish:
+     - structural blockers
+     - local repair items
+     - language-layer cleanup items
+9. Check repair-attempt history in `chapter_meta`.
+   - treat `fix_count + polish_count` as the current repair-attempt total when present
+   - if repair attempts are already `>= 2` and critical issues still remain, prefer `novel-rewrite`
+10. Produce a structured report with:
    - total score
    - dimension scores
    - critical issues
    - warnings
    - suggested fixes
+   - `issue_clusters`
+   - optional `repair_pass_plan` with:
+     - primary_route
+     - cluster_order
+     - clusters_to_finish_now
+     - trivial_polish_can_be_absorbed_in_fix
    - optional bucket-fit note
    - recommended next action:
      - `none`
      - `novel-fix`
      - `novel-polish`
      - `novel-rewrite`
-9. Update review metadata for the chapter inside `.mighty/state.json`.
-10. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
+11. Update review metadata for the chapter inside `.mighty/state.json`.
+12. If the chapter falls below threshold, explicitly recommend `novel-rewrite`.
 
 ## Outputs
 
@@ -127,8 +149,11 @@ When the route is clear, also update:
 
 - Prefer deterministic, evidence-based findings over vague style criticism.
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
+- If the user wants one bounded convergence pass rather than a review-only report, recommend `novel-close`.
 - Do not claim a review passed unless the report actually shows the score and issues.
 - Prefer `novel-fix` for narrow local issues, `novel-polish` for language-layer issues, and `novel-rewrite` for structural problems.
+- Default review output should help a single repair round finish the chapter, not create a long tail of tiny follow-up edits.
+- Do not emit many single-line fix tips when they can be merged into one issue cluster and solved together.
 - When Fanqie rules stack, judge in this order:
   1. canon / state / chapter purpose
   2. active bucket fit
@@ -146,14 +171,17 @@ Choose the primary route like this:
   - local payoff weakness
   - one or two concrete issue clusters
   - no need to replace chapter purpose or ordering
+  - prefer this route over `novel-polish` when both local content issues and trivial prose issues coexist; minor wording cleanup should be absorbed into the same repair round
 - `novel-polish`
   - anti-AI cleanup
   - prose tightening
   - dialogue or description refinement
   - continuity remains structurally sound
+  - language-layer cleanup is the primary remaining issue after local content is already sound
 - `novel-rewrite`
   - chapter purpose is wrong
   - event ordering or hook structure has to be rebuilt
   - multiple major issues point to a structural failure, not a local repair
+  - repair attempts are already `>= 2` and the chapter still has unresolved critical issues or still falls below threshold
 
 If none of the above is needed, use `none`.
