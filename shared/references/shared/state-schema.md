@@ -429,6 +429,45 @@ version: "1.0"
 
 ---
 
+## 五、章节元数据扩展约定 (chapter_meta)
+
+`chapter_meta` 保持可扩展，但扩展必须落在单章级，不得额外新造平行顶层状态中心。
+
+推荐字段：
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| review_score | number | 当前章节总评 |
+| review_grade | string | 当前章节评级 |
+| review_time | string | 最近 review 时间 |
+| dimension_scores | object | 评审维度分数 |
+| recommended_next_action | string | `none/fix/polish/rewrite/write` 等路由建议 |
+| anti_flattening_flags | string[] | 反脸谱化风险标签，保持轻量 |
+| anti_flattening_summary | object | 可选结构摘要，记录主角特权、关系、阵营、代价链等问题 |
+| last_close_time | string | 最近一次 `novel-close` 执行时间 |
+| last_close_route | string | 最近一次 `novel-close` 选择的主路由 |
+| last_close_review_score_before | number | 最近一次 `novel-close` 首轮 review 分数 |
+| last_close_review_score_after | number | 最近一次 `novel-close` 末轮 review 分数 |
+
+### 反脸谱化轻量约定
+
+- `anti_flattening_flags` 只记录明显结构风险，不做大段分析存储
+- `anti_flattening_summary` 只有在 review 明确识别到关键问题时才写
+- 不为反脸谱化单独创建新的顶层 state 区块
+
+### `dimension_scores` 附加键约定
+
+除已有质量维度外，可追加：
+
+- `人物立体度`
+- `关系张力`
+- `阵营分歧`
+- `代价感`
+
+这些键是可选增强项，不要求每次 review 全量写入，但一旦写入应保持语义稳定
+
+---
+
 ## 六、摘要索引结构 (summaries_index)
 
 ```json
