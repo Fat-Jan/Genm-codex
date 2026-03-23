@@ -61,6 +61,7 @@ Read conditionally:
 - `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
 - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
 - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+- `../../docs/strong-quality-gate-policy.json`
 
 ## Workflow
 
@@ -148,6 +149,9 @@ Read conditionally:
      - effective transaction unit
      - transaction realism
      - living participants instead of function roles
+   - when the project uses the strong quality gate:
+     - surface policy-backed hard blockers before softer style notes
+     - do not contradict a known write-preflight / close-gate blocker with a casual “looks fine”
 9. Before routing, collapse findings into at most `3` actionable issue clusters.
    - each cluster should map to one repair action family, not a one-line tweak
    - if multiple small issues live in the same paragraph / beat / scene, group them together
@@ -230,6 +234,7 @@ When the route is clear, also update:
 - If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.
 - If anti-flattening findings point to protagonist privilege overload, hollow support cast, fake faction conflict, or zero-cost manipulation, surface them before cosmetic style notes.
 - When the active bucket is `宫斗宅斗`, apply the funnel card before broad style commentary; if layer one fails, treat that as a structural failure rather than a mere pacing note.
+- When strong-gate policy is present, treat it as the source of hard-block semantics; `novel-review` may explain and route around blockers, but should not redefine the blocker thresholds here.
 
 ## Route rules
 

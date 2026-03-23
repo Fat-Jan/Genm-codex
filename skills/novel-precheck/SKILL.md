@@ -67,6 +67,7 @@ Read conditionally:
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
 - `../../docs/fanqie-chapter-length-policy.json`
+- `../../docs/strong-quality-gate-policy.json`
 - `../../docs/fanqie-resistance-and-cost-rules.md`
 - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
 - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -121,6 +122,10 @@ Resolve shared profile roots in this order:
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - if an explicit `tagpack` is given, or the task clearly asks for a tag-pack route such as `恶女`, also read `../../docs/fanqie-mvp-tagpacks.yaml`
+   - when the active bucket is `宫斗宅斗`, explicitly inspect palace-specific adjustment ids when present:
+     - `scan-surface-hook`
+     - `scan-frontload-conflict`
+     - `scan-kinship-truth-check`
 8. If Fanqie precheck is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
@@ -132,6 +137,13 @@ Resolve shared profile roots in this order:
      - character vividness
      - suspense handoff
      - resistance / cost / residual-risk visibility
+     - when the active bucket is `宫斗宅斗`, also treat palace-specific adjustments as concrete precheck lenses:
+       - `scan-surface-hook`
+         - has the chapter range actually front-loaded婚配错位 / 赐婚 / 和离 / 高门关系冲突
+       - `scan-frontload-conflict`
+         - do chapters 1-3 complete at least one压迫->反击 / 压迫->换账 loop
+       - `scan-kinship-truth-check`
+         - are relation words still consistent with household truth files across title / synopsis / outline /正文
    - do not let writing-technique rules override canon or active bucket
 9. Check quality and editorial risk:
    - pacing softness
@@ -157,6 +169,9 @@ Resolve shared profile roots in this order:
      - 证据是否过于自动上门
      - 同盟是否达成过快
      - 胜利是否没有代价或残留风险
+   - if strong quality gate is active, check:
+     - whether the chapter range is already carrying unresolved hard blockers from the same policy
+     - whether submission should be blocked until those hard blockers are cleared
 10. Check obvious AI-risk signals conservatively:
    - repetitive filler phrasing
    - explanation-heavy clusters
@@ -186,6 +201,20 @@ When a matching tagpack exists, also check:
 - whether the protagonist presentation matches the tagpack’s `protagonist_core`
 - whether the chapter is serving the tagpack’s `reader_motive`
 - whether the opening and ending are close to the tagpack’s hook expectations
+
+## 宫斗宅斗路线的宫廷市场调整检查
+
+### 触发条件
+- 先检查显式输入的 `content_bucket`，再依赖 `.mighty/state.json` 中的 `genre_profile.bucket`（或 `meta.genre`）来判定是否属于宫斗宅斗。只有当 bucket 直接等于 `宫斗宅斗`、或者 genre 字段含有“宫斗”、“宅斗”等关键词并且章节明显在处理古代家族/嫡庶/婚配/权谋冲突时，才把当前检查流程视为 palace route，否则直接跳过下面的 palace-specific check。
+- 当触发条件成立后，优先读取 `.mighty/market-adjustments.json`，缺失时回退到 `state.market_adjustments` 的 summary/pointer，并只看 `id` 是 `scan-surface-hook`、`scan-frontload-conflict`、`scan-kinship-truth-check` 的记录。其他 bucket 仍然可以读取通用市场调整，但这三条不能跨桶参考。
+
+### 检查项
+- `scan-surface-hook`：检查首章或所请求范围内是否明确展现身份反差、赐婚/婚配错位、位阶冲突等钩子，并且第一章或前三章已经安排了具体的钩子交易单元（如赐婚书/封官令/权力位阶对抗）。如果章节或 outline 里没有 hooking 结果，就标记 `hook` 相关 warning。
+- `scan-frontload-conflict`：查验章节是否至少在第一轮冲突单元同时出现压迫/陷害与回应/反击，并在报告中指出冲突段落、反击段落及其收益/信息节点。如果出现拖延、只写受压或反击在后续章节才出现，提前提示“冲突前置/反击缺失”。
+- `scan-kinship-truth-check`：检查是否先行读取或补齐 `设定集/家族/宅门真值表.md`、`设定集/家族/小型家谱.md`（必要时含 `设定集/官制/官职真值表.md`），并在具体 relation 词汇出现前确认真值。报告中需明确指出每个嫡庶/婚配/位阶词汇的真值来源，防止词汇与真值脱节。
+
+### 备选情况
+- 如果 palace-specific adjustments 仅存在于 `state.market_adjustments` 的 summary/pointer，只要 summary 提供了钩子、冲突或亲族真值的提示，就按上述检查处理。若当前路线不属宫斗宅斗或缺少这组 id，则该小节直接不做检查。
 
 ## Platform guidance
 
@@ -233,6 +262,7 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 
 - This is not a legal or policy compliance guarantee.
 - Be conservative: only flag issues you can support from the text.
+- When strong-gate policy is present, use it to justify hard submission blockers without re-copying the threshold table into this skill.
 - If there is too little data for a reliable decision, say so directly and recommend a narrower precheck or more review first.
 - When Fanqie rules stack, evaluate in this order:
   1. canon / state / actual chapter text

@@ -58,6 +58,7 @@ Read conditionally:
 - `../../docs/fanqie-rule-priority-matrix.md`
 - `../../docs/fanqie-resistance-and-cost-rules.md`
 - `../../docs/gongdou-zhaidou-fault-funnel-review-card.md`
+- `../../docs/strong-quality-gate-policy.json`
 - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
 - `../../docs/anti-flattening-framework/04-角色动力系统.md`
 - `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
@@ -82,6 +83,10 @@ Read conditionally:
    - prefer `.mighty/learned-patterns.json`
    - prefer `.mighty/market-adjustments.json`
    - if sidecar files are absent, fall back to `state.learned_patterns` / `state.market_adjustments`
+   - when the active bucket is `宫斗宅斗`, explicitly inspect palace-specific adjustment ids when present:
+     - `scan-surface-hook`
+     - `scan-frontload-conflict`
+     - `scan-kinship-truth-check`
 8. When the chapter route is multi-character, multi-faction, relationship-heavy, politics-heavy, transmigration, system-driven, or the user explicitly asks for人物活人感/反脸谱化:
    - read:
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -127,14 +132,30 @@ Read conditionally:
        - ensure the chapter will change at least one of power / information / relationship / resource ledgers
        - ensure one non-protagonist role carries an independent agenda in the core scene
        - block summary-only progression, threat-only carryover, and authority-only shortcut wins
+     - when palace-specific adjustments exist, additionally enforce:
+       - `scan-surface-hook`
+         - front-load婚配错位 / 赐婚 / 和离 / 高门关系压力 in the first visible movement when the route depends on them
+       - `scan-frontload-conflict`
+         - do not postpone the first meaningful反击 / 换账 if this chapter is part of the opening pressure unit
+       - `scan-kinship-truth-check`
+         - reject convenient relation words or称谓 that the current household truth sheet cannot support
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
 11. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
 12. Load high-value shared references from `../../shared/references/` only as needed.
-13. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-14. Write `chapters/第N章.md` aligned to:
+13. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
+   - read `../../docs/strong-quality-gate-policy.json`
+   - treat it as the single rule source for required truth files
+   - if the required truth source is missing, stop before writing
+   - report the blocking gap explicitly and route the user to the smallest upstream action such as:
+     - `novel-setting`
+     - `novel-character`
+     - `novel-scan` only when external research is truly needed
+   - do not hallucinate missing truth just to satisfy the chapter
+14. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+15. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -170,9 +191,12 @@ Read conditionally:
      - make the contested object, blocker, and changed ledger legible on page
      - avoid resolving the chapter mainly through one authority shortcut
      - keep at least one key non-protagonist role from collapsing into pure delivery or reaction
-   - and, when Fanqie chapter-length policy exists:
-     - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-15. Update `.mighty/state.json` with:
+     - if `scan-surface-hook` exists, keep the opening conflict legible on page instead of hiding it in background exposition
+     - if `scan-frontload-conflict` exists, close the chapter after at least one concrete pressure->counter exchange
+     - if `scan-kinship-truth-check` exists, keep kinship / title words consistent with the truth sheet even in dialogue shorthand
+     - and, when Fanqie chapter-length policy exists:
+       - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
+16. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -180,23 +204,37 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-16. Do not write review scores here unless an actual review step was run.
-17. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
-   - run this only for a normal single-chapter `novel-write`
-   - do not inherit this behavior into `novel-batch`
-   - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
-   - otherwise attempt `novel-close` only when all guards pass:
-     - `.mighty/state.json` exists
-     - `大纲/章纲/第N章.md` exists
-     - the chapter file was written successfully
-     - current workflow state is not clearly failed or malformed when workflow state exists
-     - the user did not explicitly request a write-only pass
-   - if guards fail, do not fake execution; report the exact skip reason
-   - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
-18. After a real writing round, the preferred maintenance hook remains:
-   - `scripts/post-task-maintenance.py <project_root> --trigger write`
-   which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
-   - maintenance is not the place where prose mutation or `novel-close` execution should live
+17. Do not write review scores here unless an actual review step was run.
+18. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+    - run this only for a normal single-chapter `novel-write`
+    - do not inherit this behavior into `novel-batch`
+    - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
+    - otherwise attempt `novel-close` only when all guards pass:
+      - `.mighty/state.json` exists
+      - `大纲/章纲/第N章.md` exists
+      - the chapter file was written successfully
+      - current workflow state is not clearly failed or malformed when workflow state exists
+      - the user did not explicitly request a write-only pass
+    - if guards fail, do not fake execution; report the exact skip reason
+    - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
+19. After a real writing round, the preferred maintenance hook remains:
+    - `scripts/post-task-maintenance.py <project_root> --trigger write`
+    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
+    - maintenance is not the place where prose mutation or `novel-close` execution should live
+
+## 宫斗宅斗路线的宫廷市场调整
+
+### 触发条件
+- 先确认显式输入的 `content_bucket`，再依赖 `.mighty/state.json` 中的 `genre_profile.bucket`（或 `meta.genre`）来判定当前路线是否属于宫斗宅斗。只要 bucket 是 `宫斗宅斗`，或者 genre 里有 “宫斗”、“宅斗” 之类关键词并且故事明显围绕古代家族权力/婚配/嫡庶冲突展开，就把当前任务视为宫斗宅斗；否则不再消费 palace-specific adjustments。
+- 仅在上述判定成立时，才尝试加载 palace-specific 市场调整：优先读取 `.mighty/market-adjustments.json` 的调整列表，文件缺失时再回退到 `.mighty/state.json -> market_adjustments` 的 summary/pointer。只处理 `id` 为 `scan-surface-hook`、`scan-frontload-conflict`、`scan-kinship-truth-check` 的条目，其它 bucket 也能读通用市场建议，但这三条不能跨桶生效。
+
+### 写作约束
+- `scan-surface-hook`：要求写作在首章或前三章明确交代强钩子，突出身份反差、赐婚/婚配错位、位阶冲突或其他高概念元素，并把“钩子交易单元”写成有物件/场景的组合。不仅在开头预告，也要在章纲里指明具体的段落/动作负责这个钩子（比如第一章通过赐婚书/封官令展开钩子冲突）。
+- `scan-frontload-conflict`：在写作中把陷害/压制等主要冲突简明地放入首轮剧情单元，并让反击或策略回应在相邻段落完成，避免只写受压后拖延到后面。还要在章纲里明确冲突段落、反击动作、收益/信息节点之间的节奏链条，让编写时不会跳过这一“压迫→反击→初步收益”路径。
+- `scan-kinship-truth-check`：在写任何嫡庶、赐婚、位阶、家权等关系词之前，预先读取或补全相关 truth sheet（至少包括 `设定集/家族/宅门真值表.md`、`设定集/家族/小型家谱.md`，必要时也要查 `设定集/官制/官职真值表.md`），并把关系真值转化成可查证事实（如“嫡长女代表正室血脉，庶妹同父异母”）。章纲与章节内容也要标注这些词的真值来源，避免因外延词汇违反既定真值。
+
+### 备选情况
+- 如果 palace-specific adjustments 只写在 `state.market_adjustments` 的 summary/pointer 中，只要 summary 里有关于钩子、前置冲突或亲族真值的提示，就按上述逻辑执行。当前线路不属于宫斗宅斗或未提供该组 id 时，此段直接跳过。
 
 ## Chapter state update requirements
 
@@ -227,6 +265,7 @@ At minimum, update:
 ## Notes
 
 - Keep writing aligned to the outline and current state.
+- Strong write-time blocking rules must resolve from `../../docs/strong-quality-gate-policy.json`, not from duplicated prose thresholds in this skill.
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
 - Treat learned-pattern sidecar data as a preference signal, not a hard rule.
 - Treat market-adjustment sidecar data as packaging or pacing guidance, not as a reason to break canon or outline purpose.
