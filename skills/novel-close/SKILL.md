@@ -7,12 +7,15 @@ description: Close one chapter through a bounded review -> route -> re-review pa
 
 Use this skill when the user wants one explicit chapter-convergence pass instead of manually stitching together `novel-review`, `novel-fix`, `novel-polish`, or `novel-rewrite`.
 
+This skill may also be invoked as the guarded post-write close step after `novel-write`.
+
 Default intent for the current workflow:
 
 - always start from a fresh review
 - execute at most one main repair route in a single pass
 - re-review after any real text change
 - keep anti-AI cleanup inside the `novel-polish` boundary instead of letting `novel-review` edit text
+- remain the executor for chapter convergence; upstream write flows decide whether to hand off here
 
 ## Inputs
 
@@ -173,6 +176,7 @@ Do not create a new top-level workflow or quality state center for this feature.
 ## Notes
 
 - This skill is an orchestrator, not a new editor.
+- `novel-close` remains the executor; `novel-write` may decide whether to attempt the post-write handoff.
 - `novel-review` stays read-only.
 - `novel-polish` remains the only explicit anti-AI cleanup route.
 - If routing is ambiguous, prefer safety:
