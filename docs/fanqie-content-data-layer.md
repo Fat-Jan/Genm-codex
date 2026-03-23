@@ -63,7 +63,22 @@
 - 作者专区教程中心
 - 写作技巧图文
 
-### 4. 样本层
+### 4. 设定一致性层
+
+回答：
+
+- 这个桶里哪些身份关系必须先闭合
+- 嫡庶、继室、齿序、尊卑这些词能不能直接写进标题
+- 项目当前有没有“标题好看但设定不成立”的风险
+
+来源：
+
+- `shared/templates/genres/宫斗宅斗.md`
+- `shared/profiles/palace-intrigue/profile.yaml`
+- `shared/references/writing/ancient-household-kinship-guide.md`
+- 项目自己的总纲 / 角色卡 / state
+
+### 5. 样本层
 
 回答：
 
@@ -91,6 +106,7 @@
 - [fanqie-writing-techniques.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writing-techniques.md)
 - [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writer-zone-lessons.md)
 - [fanqie-rule-priority-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-rule-priority-matrix.md)
+- [fanqie-resistance-and-cost-rules.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-resistance-and-cost-rules.md)
 
 ### 样本层
 
@@ -141,6 +157,12 @@
 - `payoff_timing`
 - `handoff_patterns`
 - `map_shift_risk`
+- `kinship_schema`
+- `relation_consistency_checks`
+- `resistance_patterns`
+- `cost_patterns`
+- `partial_payoff_patterns`
+- `trust_curve_patterns`
 
 #### `opening_patterns`
 
@@ -149,6 +171,7 @@
 - 第一屏要给什么
 - 第 1 章里先抛压制、异常还是关系绑定
 - 第 3 章前必须兑现什么
+- 第 2 章必须在哪卡一下
 
 ### C. 对 `character naming`
 
@@ -161,6 +184,9 @@
 - `male_lead_style`
 - `female_lead_style`
 - `supporting_role_style`
+- `external_name_collision_risk`
+- `title_similarity_risk`
+- `search_scope`
 
 #### `naming_style`
 
@@ -209,12 +235,16 @@
   - `opening_patterns`
   - `golden_three_expectation`
   - `handoff_patterns`
+  - `resistance_patterns`
+  - `cost_patterns`
+  - `partial_payoff_patterns`
 - 让大纲不是只会写：
   - goal / conflict / reveal / hook
 - 还会明确：
   - 第 1 章为什么能点进去
   - 第 2 章为什么不掉速
   - 第 3 章为什么必须硬兑现
+  - 第 3 章为什么不能赢得太满
 
 ### 3. 角色名字风格
 
@@ -223,6 +253,7 @@
 - 现有命名指南过于平台泛化
 - 还不够 Fanqie-first
 - 也还没围绕当前最重要的桶来写
+- 还缺一层投前检索，不足以拦住撞名 / 高相似度风险
 
 打磨方向：
 
@@ -236,6 +267,7 @@
   - 男主命名风格
   - 配角命名风格
   - 禁忌
+  - 投稿前的最小检索门
 
 ---
 
@@ -246,12 +278,14 @@
 1. **书名自动生成**
 2. **大纲推荐生成**
 3. **角色名字风格**
+4. **关系谱系闭环**
 
 原因：
 
 - 书名直接影响点击
 - 大纲直接影响前三章
 - 命名影响辨识度和风格统一
+- 宫斗宅斗这类桶如果关系谱系不闭合，会直接把包装、总纲、正文一起带偏
 
 这三层都比继续补更多外围文档更值钱。
 

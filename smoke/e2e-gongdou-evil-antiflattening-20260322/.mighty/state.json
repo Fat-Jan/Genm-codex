@@ -1,0 +1,617 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "庶妹换我婚书那夜，太子先开了口",
+    "genre": "宫斗宅斗",
+    "platform": "番茄",
+    "target_chapters": 12,
+    "target_words": 48000,
+    "created_at": "2026-03-21T06:21:19Z",
+    "updated_at": "2026-03-22T03:05:00Z"
+  },
+  "progress": {
+    "current_chapter": 7,
+    "total_words": 22483,
+    "last_write_chapter": 7,
+    "last_write_time": "2026-03-22T03:02:51Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "谢云昭",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "安平伯府正院佛堂外",
+          "origin": "安平伯府"
+        },
+        "inventory": [
+          "旧婚书抄件",
+          "原婚书",
+          "母亲遗下的半枚玉扣",
+          "聘银旧账册",
+          "东宫令签",
+          "顾家旧回帖"
+        ],
+        "abilities": [
+          "识人观色",
+          "记账与管事",
+          "临场应对"
+        ],
+        "status": [
+          "伯府庶女",
+          "婚书与旧账暂归己身",
+          "手持东宫令签",
+          "已抢下崔妈妈",
+          "与周管事一线正面撞上",
+          "已把父亲拖进旧账局",
+          "已锁定冯忠与佛堂线",
+          "族内支持开始出现分裂"
+        ],
+        "current_goals": [
+          "保住性命",
+          "天亮前抢回仍在府中的半页实账",
+          "守住崔妈妈、婚书、旧账册、东宫令签与顾家旧回帖",
+          "防冯忠连夜转移账页或钥匙房旧簿",
+          "在三日内带实证回东宫",
+          "查清生母旧死因"
+        ],
+        "known_secrets": [
+          "原婚书、半枚玉扣与聘银旧账册已经构成可以递到东宫的证据链",
+          "柳氏早就动过聘礼和陪嫁旧账，不是临时起意换婚书",
+          "崔妈妈极可能知道沈氏旧账后手，所以柳氏一定会抢在她前面灭口",
+          "关键账页已被外院周管事先拿走，顾家旧回帖上另有一处暗记可对证",
+          "伯爷书房暗匣里确实压着与顾家初聘有关的旧纸，伯爷并不干净",
+          "第三只手是伯爷身边常管钥匙和书信的冯忠",
+          "半页实账仍未出府，且和佛堂经匣、账匣夹层、钥匙房旧簿这条线连在一起"
+        ],
+        "recent_events": [
+          "带着东宫令签直扑外院账房，当众抢下顾家旧回帖并逼周管事吐出口风",
+          "顺着旧回帖暗记与周管事供词，确认关键账页曾送进伯爷书房暗匣",
+          "夜审花厅里周管事承认当年顾家初聘多出的银子被挪作外院周转，书房外又抓到翻窗婆子，半页实账仍在府中流转",
+          "谢云昭夜审赵婆子，逼出冯忠与佛堂匣角线，确认半页实账仍在府内且天亮前会有人再动"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "旧婚书抄件",
+        "原婚书",
+        "半枚玉扣",
+        "聘银旧账册",
+        "东宫令签",
+        "顾家旧回帖",
+        "顾家旧回帖暗记线索"
+      ],
+      "protagonist_inventory": [
+        "旧婚书抄件",
+        "原婚书",
+        "母亲遗下的半枚玉扣",
+        "聘银旧账册",
+        "东宫令签",
+        "顾家旧回帖",
+        "顾家旧回帖暗记线索"
+      ]
+    },
+    "locations": {
+      "current": "安平伯府正院佛堂外",
+      "visited": [
+        "安平伯府正厅",
+        "东宫偏殿",
+        "城郊庄子",
+        "安平伯府外院账房",
+        "安平伯府书房",
+        "安平伯府正院花厅",
+        "安平伯府正院偏厅",
+        "安平伯府正院佛堂"
+      ],
+      "important": [
+        "安平伯府",
+        "祠堂",
+        "东宫",
+        "城郊庄子",
+        "安平伯府外院账房",
+        "安平伯府书房",
+        "安平伯府正院佛堂",
+        "钥匙房"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        "生母陪嫁垫付聘银的旧账",
+        "婚书被换背后另有更深利益",
+        "东宫为何会盯上伯府婚书旧账",
+        "顾家旧回帖上的暗记会指向谁",
+        "周管事为何能先一步拿到账页",
+        "那半页实账最终落在了谁手里",
+        "冯忠为什么会替伯爷一线先摸佛堂匣角"
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        "东宫真正盯上的到底是婚书归属还是伯府旧账",
+        "沈氏旧账、顾家旧回帖和半枚玉扣最终会牵出谁",
+        "天亮前半页实账会被谁先抢到",
+        "冯忠背后到底只站着伯爷，还是还连着别的手"
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "从被压制的庶女位置翻身，进入更高权力层并查清旧案",
+      "location": "正院佛堂线 / 钥匙房线",
+      "secret": "继母与庶妹急着换婚书，不只是想夺婚事，还想掩盖上一代留下的账。",
+      "progress": 50
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "原婚书写的是谢云昭的名字",
+      "沈家聘银曾由谢云昭亡母陪嫁先行垫付",
+      "柳氏早就动过聘礼和陪嫁旧账",
+      "太子已开口，谁再换谢云昭的婚书便按欺东宫论",
+      "柳氏已抢先派人去庄子处理崔妈妈",
+      "关键账页曾落到周管事手里，顾家旧回帖上另有暗记",
+      "伯爷书房暗匣里压着与顾家初聘有关的旧纸，伯爷本人并不干净"
+    ],
+    "protagonist_knows": [
+      "自己手里的旧婚书抄件和半枚玉扣足以逼停当夜换婚书",
+      "原婚书、半枚玉扣和聘银旧账册已经构成完整反制证据链",
+      "亡母旧账能成为反制柳氏的关键抓手",
+      "东宫已经正式介入婚书局，并且要她本人带证回话",
+      "崔妈妈是下一步最关键的证人",
+      "周管事和顾家旧回帖将成为下一步追账的关键入口",
+      "伯爷书房与外院账房这两层已经可以连成一条脏账线"
+    ],
+    "protagonist_doesnt_know": [
+      "太子为何会在今夜得知婚书被换",
+      "柳氏与谢明珠急于换婚书究竟还想掩住什么",
+      "东宫介入婚书局背后还牵着哪一层旧账",
+      "那半页实账现在究竟落在谁手里",
+      "周管事背后到底只站着柳氏，还是另有更深的人"
+    ],
+    "key_revelations": [
+      "婚书之争牵连亡母陪嫁旧账",
+      "伯府内宅争斗已被抬到东宫层面",
+      "柳氏并非临时夺婚，而是早就动过聘礼和陪嫁账",
+      "东宫关心的不是婚事本身，而是谁敢借婚书坏规矩",
+      "沈氏旧账还有关键账页，并未被柳氏完全拿稳",
+      "顾家初聘多出来的一笔银子曾被外院挪作周转，父亲这层也已沾手",
+      "翻窗婆子真正听的是冯忠，她怕的也是儿子契书不保",
+      "半页实账仍在府内，没有被连夜送出谢家"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      86,
+      87,
+      88,
+      87,
+      87,
+      86,
+      88
+    ],
+    "average_score": 87,
+    "trend": "improving",
+    "last_review_chapter": 7,
+    "dimension_scores": {
+      "爽点": 87,
+      "一致性": 88,
+      "节奏": 86,
+      "OOC": 89,
+      "连续性": 87,
+      "追读力": 88,
+      "人物立体度": 88,
+      "关系张力": 87,
+      "阵营分歧": 86,
+      "代价感": 85
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "含锋带刺、话中有话",
+      "description_density": "中等偏高",
+      "pacing_preference": "压制-试探-反击-挂更大局"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "强压制 + 快反击 + 章末挂更大局",
+    "chapter_words": {
+      "min": 2800,
+      "max": 4200,
+      "target": 3500
+    },
+    "golden_three": {
+      "hook_timing": "第1章直接见压制关系",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "palace-intrigue/profile.yaml",
+    "bucket": "宫斗宅斗",
+    "节奏": {
+      "type": "慢热铺垫型",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 30,
+      "fire": 45,
+      "constellation": 25
+    },
+    "特殊约束": [
+      {
+        "id": "RULE-001",
+        "description": "尊卑有序，下位者不能轻易冒犯上位者",
+        "checkpoint": "行为与对话"
+      },
+      {
+        "id": "RULE-003",
+        "description": "对手要有智商，斗争手段要成立",
+        "checkpoint": "对手塑造"
+      }
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "chapter": 1,
+      "path": "chapters/第001章.md",
+      "title": "婚书被换那夜，太子先开了口",
+      "word_count": 3995,
+      "summary": "谢云昭在正厅面对柳氏与谢明珠逼她认命，亮出旧婚书抄件、半枚玉扣和亡母陪嫁垫聘银的旧账夹页，当众逼停换婚书。就在柳氏想压下此事时，顾家已连夜把婚书异动递到东宫，詹事府奉太子口谕来问婚书归属，婚书局被当场抬进更大的权力层。",
+      "pov": "谢云昭",
+      "location": "安平伯府正厅",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T09:30:00Z",
+      "review_score": 86,
+      "review_grade": "B",
+      "review_time": "2026-03-21T09:20:14Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 85,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 84,
+        "追读力": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": [],
+      "last_fix_time": "2026-03-21T09:30:00Z",
+      "fix_count": 1,
+      "fixed_issues": [
+        "补齐了正厅对质时的证据链，让婚书旧抄、玉扣和旧账夹页在正文里都形成可见兑现。",
+        "补强了柳氏母女泄密的合理性与东宫介入的因果桥。"
+      ]
+    },
+    "2": {
+      "chapter": 2,
+      "path": "chapters/第002章.md",
+      "title": "东宫问婚，先低头的不是我",
+      "word_count": 2739,
+      "summary": "东宫点名问婚后，谢云昭借势逼族叔与伯爷开匣，当众翻出原婚书和沈氏垫付聘银的旧账，坐实婚书归属与柳氏早动旧账的事实。她在这一章里第一次意识到，柳氏真正怕的还不只是她进东宫回话，而是怕那些仍活着、还记得旧账的老人先开口。",
+      "pov": "谢云昭",
+      "location": "安平伯府正厅",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T10:04:46Z",
+      "updated_at": "2026-03-21T11:25:13Z",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T11:25:13Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 85,
+        "节奏": 86,
+        "OOC": 89,
+        "连续性": 86,
+        "追读力": 88
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": [],
+      "last_fix_time": "2026-03-21T11:25:13Z",
+      "fix_count": 1,
+      "fixed_issues": [
+        "补强了柳氏此刻真正惧怕的是旧人开口，而不只是谢云昭进东宫回话。",
+        "把第3章的庄子旧人线在第2章末提前压出来，减少承接跳感。"
+      ]
+    },
+    "3": {
+      "chapter": 3,
+      "path": "chapters/第003章.md",
+      "title": "太子只问一句：谁敢再换她的婚书",
+      "word_count": 3411,
+      "summary": "谢云昭在东宫没有哭求婚事，而是把婚书与旧账改写成“谁敢坏规矩”的问题。太子开口定下谁再换她婚书便按欺东宫论，并给她三日之限带崔妈妈回话；她刚出东宫就得知柳氏的人已先赶往庄子灭口，当即带着令签转去追人。",
+      "pov": "谢云昭",
+      "location": "东宫偏殿",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T10:10:21Z",
+      "review_score": 88,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 87,
+        "节奏": 87,
+        "OOC": 89,
+        "连续性": 88,
+        "追读力": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
+    },
+    "4": {
+      "chapter": 4,
+      "path": "chapters/第004章.md",
+      "title": "东宫令签压下来，先跪的不是我",
+      "word_count": 3142,
+      "summary": "谢云昭持东宫令签赶到庄子，当众压住柳氏派去灭口的管事娘子和庄头，抢下崔妈妈这条活证。崔妈妈告诉她，沈氏旧账的关键账页已被外院周管事先拿走，顾家旧回帖上另有暗记可对证，庄子线顺势把下一战推向外院账房。",
+      "pov": "谢云昭",
+      "location": "城郊庄子",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T10:23:58Z",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 86,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 87,
+        "追读力": 88
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
+    },
+    "5": {
+      "chapter": 5,
+      "path": "chapters/第005章.md",
+      "title": "她带着东宫令签，直接踩进了外院账房",
+      "word_count": 3083,
+      "summary": "谢云昭没有先回内院，而是带着崔妈妈和东宫令签直扑外院账房，当众从火盆边抢下顾家旧回帖。她逼得周管事失口承认那页关键账曾送进伯爷书房暗匣，婚书局第一次真正咬到伯府男人的书房门前。",
+      "pov": "谢云昭",
+      "location": "安平伯府外院账房",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T10:31:44Z",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T12:55:12Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 87,
+        "节奏": 86,
+        "OOC": 88,
+        "连续性": 88,
+        "追读力": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": []
+    },
+    "6": {
+      "chapter": 6,
+      "path": "chapters/第006章.md",
+      "title": "那页账不认柳氏，认的是父亲的书房锁",
+      "word_count": 3042,
+      "summary": "谢云昭借旧回帖暗记、崔妈妈证词和族叔在场，夜开伯爷书房暗匣，坐实顾家初聘里那笔银子曾被外院挪用。她在这一章里不只撬开了父亲这层，也逼得柳氏母女当场失态；真正的半页实账仍未现身，书房外又抓到翻窗婆子，说明这页账还在府中流转。",
+      "pov": "谢云昭",
+      "location": "安平伯府正院花厅",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-21T10:31:44Z",
+      "updated_at": "2026-03-21T11:25:13Z",
+      "review_score": 86,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T11:25:13Z",
+      "dimension_scores": {
+        "爽点": 86,
+        "一致性": 86,
+        "节奏": 85,
+        "OOC": 88,
+        "连续性": 87,
+        "追读力": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [],
+      "suggested_fixes": [],
+      "last_fix_time": "2026-03-21T11:25:13Z",
+      "fix_count": 1,
+      "fixed_issues": [
+        "补强了柳氏母女在周管事供词后的失态与压迫感，人物关系压力更完整。",
+        "把第6章的冲突从单纯书房证据推进，修成了父亲线和柳氏线同时抬升的章末钩子。"
+      ]
+    },
+    "7": {
+      "chapter": 7,
+      "path": "chapters/第007章.md",
+      "title": "翻窗的人不认柳氏，认的是父亲身边那只最干净的手",
+      "word_count": 3071,
+      "summary": "谢云昭夜审翻窗婆子，借儿子契书与钥匙房差事这条线，逼出伯爷身边的冯忠才是先摸佛堂匣角的人。她随后压向佛堂，在空缝、账灰和被扯断的青绦里坐实半页实账仍在府内，也让族叔、二房和伯爷这三股力量彻底分开站位，下一战被压成天亮前先抢到账页。",
+      "pov": "谢云昭",
+      "location": "安平伯府正院偏厅 / 佛堂外",
+      "content_bucket": "宫斗宅斗",
+      "tagpack": "恶女",
+      "written_at": "2026-03-22T02:47:16Z",
+      "updated_at": "2026-03-22T03:02:51Z",
+      "status": "draft",
+      "review_score": 88,
+      "review_grade": "B+",
+      "review_time": "2026-03-22T03:05:00Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 88,
+        "节奏": 86,
+        "OOC": 89,
+        "连续性": 87,
+        "追读力": 88,
+        "人物立体度": 88,
+        "关系张力": 87,
+        "阵营分歧": 86,
+        "代价感": 85
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "族叔与二房老婶当前都带着自保算盘，后续章节需要继续维持这层分歧，避免重新滑回支持者单声道。"
+      ],
+      "suggested_fixes": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "赵婆子的软肋、二房老婶的切割心态和族叔的族面算盘都已留在台面上，人物不是功能件",
+          "主角信息命中率已通过前置来源补丁落地，不再显得像临场开天眼"
+        ],
+        "faction_or_relation_failure": [
+          "族叔与二房老婶的支持带有各自算盘，这层群像价值成立",
+          "伯爷与冯忠的拦门、护佛堂和抢先压门动作已形成足够的对立面临场策略"
+        ],
+        "minimum_viable_repair_direction": "本章已完成最小可用修复，后续重点转向维持分歧和残账，而不是继续压同一簇问题。"
+      },
+      "last_fix_time": "2026-03-22T03:02:51Z",
+      "fix_count": 2,
+      "fixed_issues": [
+        "补出谢云昭为何能把怀疑落到赵婆子儿子契书与钥匙房差事上的前置来源，降低了信息优势悬浮感。",
+        "增强了佛堂一段里伯爷、冯忠、族叔和二房老婶的即时反制与切割动作，让高潮不再只剩主角单向推进。",
+        "将第007章压回接近章纲区间，去掉夜审和佛堂段的重复说明，保留倒计时压迫感。"
+      ],
+      "fix_reason": "第二轮局部修补：压缩重复说明，保留多方算盘结构，进一步让章末倒计时和半胜残账更集中。"
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "chapter": 1,
+      "path": "chapters/第001章.md",
+      "updated_at": "2026-03-21T09:30:00Z",
+      "word_count": 3995
+    },
+    "2": {
+      "chapter": 2,
+      "path": "chapters/第002章.md",
+      "updated_at": "2026-03-21T11:25:13Z",
+      "word_count": 2739
+    },
+    "3": {
+      "chapter": 3,
+      "path": "chapters/第003章.md",
+      "updated_at": "2026-03-21T10:10:21Z",
+      "word_count": 3411
+    },
+    "4": {
+      "chapter": 4,
+      "path": "chapters/第004章.md",
+      "updated_at": "2026-03-21T10:23:58Z",
+      "word_count": 3142
+    },
+    "5": {
+      "chapter": 5,
+      "path": "chapters/第005章.md",
+      "updated_at": "2026-03-21T10:31:44Z",
+      "word_count": 3083
+    },
+    "6": {
+      "chapter": 6,
+      "path": "chapters/第006章.md",
+      "updated_at": "2026-03-21T11:25:13Z",
+      "word_count": 3042
+    },
+    "7": {
+      "chapter": 7,
+      "path": "chapters/第007章.md",
+      "updated_at": "2026-03-22T03:02:51Z",
+      "word_count": 3071
+    }
+  },
+  "summaries_index": {
+    "1": "谢云昭在正厅亮出旧婚书抄件、半枚玉扣和亡母陪嫁账页，当众逼停柳氏更换婚书。就在柳氏想压下此事时，顾家已把婚书异动递到东宫，詹事府来使奉太子口谕问婚书归属，婚书局被直接抬进更大的权力局。",
+    "2": "东宫问婚后，谢云昭借势逼族叔与伯爷开匣，当众翻出原婚书和沈氏垫付聘银的旧账，坐实婚书归属。她也在这一章里第一次意识到，柳氏真正怕的不只是她进东宫，而是旧人先开口，庄子旧人线因此提前压了出来。",
+    "3": "谢云昭在东宫没有求婚，而是把婚书和旧账改写成坏规矩的问题。太子开口定下谁再换婚书便按欺东宫论，并给她三日之限带崔妈妈回话；她出宫便得知柳氏已派人赶往庄子灭口，立刻转道追去。",
+    "4": "谢云昭持东宫令签赶到庄子，当众压住柳氏派去灭口的管事娘子和庄头，抢下崔妈妈。崔妈妈说出关键账页已落到外院周管事手里，顾家旧回帖上另有暗记，庄子线因此把下一步直接推向外院账房。",
+    "5": "谢云昭带着东宫令签和崔妈妈直扑外院账房，当众从火盆边抢下顾家旧回帖。她逼得周管事失口承认那页关键账曾送进伯爷书房暗匣，战场由柳氏和庄子继续抬高到伯府书房。",
+    "6": "谢云昭借旧回帖暗记、崔妈妈证词和族叔在场，夜开伯爷书房暗匣，坐实顾家初聘里那笔银子曾被外院挪用。她也逼得柳氏母女在花厅里同时失态；真正的半页实账仍未现身，书房外又抓到翻窗婆子，说明这页账还在府中流转。",
+    "7": "谢云昭夜审翻窗婆子，借儿子契书和钥匙旧规逼出伯爷身边的冯忠才是先摸佛堂匣角的人。她随后冲到佛堂，虽然没直接抢到账页，却在匣底空缝和账灰中坐实半页实账仍在府内，下一战被压成天亮前先抢到账页。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-21T06:21:19Z",
+    "includes": [
+      "profiles/palace-intrigue/profile.yaml"
+    ]
+  }
+}

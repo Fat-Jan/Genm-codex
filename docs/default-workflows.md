@@ -21,8 +21,14 @@
 
 1. `novel-init`
 2. `novel-genre`
-3. `novel-outline`
-4. `novel-package`
+3. 古代家族权力题材先补：
+   - `设定集/家族/宅门真值表.md`
+   - `设定集/家族/小型家谱.md`
+   - 涉及朝堂/东宫/地方官场时再补：
+     - `设定集/官制/官职真值表.md`
+     - `设定集/官制/权力层级图.md`
+4. `novel-outline`
+5. `novel-package`
 
 目标：
 
@@ -30,10 +36,13 @@
 - 选定题材 / 平台
 - 形成总纲与章纲
 - 形成第一版包装方案
+- 尽早锁定角色分层、叙事权边界、关系结构和阵营分歧
 
 最小原则：
 
 - 先有书的方向
+- 古代家族权力题材先有谱系真值
+- 官场古代题材先有官制真值
 - 再写正文
 
 ---
@@ -52,19 +61,26 @@
 推荐顺序：
 
 1. `novel-write`
-2. `novel-review`
-3. 根据 review 路由进入：
-   - `novel-fix`
-   - `novel-polish`
-   - `novel-rewrite`
-4. 每 3-5 章或一个阶段后：
+   - 单章默认会守卫式自动尝试一次 `novel-close`
+   - 可显式用 `skip_close=true` 跳过
+2. `novel-close`
+   - 作为默认的单章收口轮入口
+   - 内部执行：
+     - `novel-review`
+     - 单一路由：
+       - `novel-fix`
+       - `novel-polish`
+       - `novel-rewrite`
+       - 或 `none`
+     - 若正文被修改，再做一次 `novel-review`
+3. 每 3-5 章或一个阶段后：
    - `novel-sync`
-5. 每轮正文维护后：
+4. 每轮正文维护后：
    - 默认自动挂：
      - `scripts/post-task-maintenance.py <project_root> --trigger write|batch|workflow`
    - 手动补跑：
      - `scripts/project-maintenance.py <project_root>`
-6. 章节很多后：
+5. 章节很多后：
    - `novel-sync (thin-state)`
 
 目标：
@@ -79,10 +95,31 @@
 
 推荐规则：
 
+- `novel-close` 是默认的单章收口轮入口，用来显式执行 `review -> route -> re-review`
+- 单章 `novel-write` 默认会尝试守卫式自动收口；`novel-batch` 不继承这个默认行为
+- `novel-review` 应一次性把问题收成 1-3 个可执行 issue clusters，而不是散成很多微修提示
+- 单章默认目标是“一次修订轮收口”：
+  - 一次 `novel-fix` 尽量解决全部局部问题
+  - 只有当语言层是主要剩余风险时才单独进 `novel-polish`
+  - 不鼓励 `fix -> 再补一句 -> 再 polish 一点 -> 再补一句` 这种多轮微修
+- `novel-close` 一次只应走一条主路由，不允许在同一轮里 `fix + polish`
+- 当同章已经发生 2 轮修订尝试且关键问题仍未消失时，默认升级到 `novel-rewrite`
 - 局部问题 -> `novel-fix`
-- 语言层问题 -> `novel-polish`
-- 结构层问题 -> `novel-rewrite`
+- 语言层问题且结构已稳 -> `novel-polish`
+- 结构层问题或两轮修订未收口 -> `novel-rewrite`
 - 批量写作 -> 最多 `3` 章 / 批，并在每批后过质量门
+- `skip_close=true` 只在你明确想要“这次只写不收口”时使用
+- `novel-review` 默认也应检查：
+  - 主角特权是否吃掉他人人生
+  - 关键角色是否只剩功能位
+  - 关系 / 阵营是否写成单声道
+  - 推进是否留下真实代价与残账
+- `novel-write` 应尽量在正文阶段就避免把配角写成按钮
+- `novel-precheck` 应把人物/关系/阵营失衡视为投稿前风险，而不只看平台节奏
+
+反脸谱化工作流参考：
+
+- [workflow-usage-guide-2026-03-22.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/workflow-usage-guide-2026-03-22.md)
 
 ---
 
@@ -117,7 +154,7 @@
 
 - [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
   - `恶女 x 宫斗宅斗`
-  - 结论：`ready-now`
+  - 当前状态：`do-not-submit`，待补谱系与命名风控
 
 ---
 
@@ -187,13 +224,17 @@
 ## 当前 Fanqie-first 真实状态
 
 - 第一条内部生产模板：
-  - `恶女 x 宫斗宅斗`
+  - 暂无已冻结样本
 - 首个可投样本：
-  - `恶女 x 宫斗宅斗`
+  - 暂无
 - 第二条生产模板候选：
   - `恶女 x 现实情感`
 - 第三条实验线：
   - `恶女 x 现言甜宠`
+- 第四条候选实验线：
+  - `恶毒女配 x 双女主替身白月光`
+- 待重验样本：
+  - `恶女 x 宫斗宅斗`
 
 ### `novel-config` / `novel-test`
 
@@ -215,6 +256,8 @@
 如果你不知道该用哪个 skill，先套这条判断：
 
 1. 没项目：`init -> genre -> outline -> package`
+   - 古代家族权力题材：`init -> 家族真值表/小家谱 -> outline -> package`
+   - 古代官场/宫廷权力题材：`init -> 家族真值表/官职真值表 -> outline -> package`
 2. 有项目想继续写：`write -> review -> fix/polish/rewrite`
 3. 想投稿：`precheck -> package -> export`
 4. 想稳住风格：`learn -> status`

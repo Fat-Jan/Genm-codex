@@ -7,8 +7,9 @@
 - `恶女 x 宫斗宅斗`
 - `恶女 x 现实情感`
 - `恶女 x 现言甜宠`
+- `恶毒女配 x 双女主替身白月光`
 
-这三条线里，哪条更适合继续做成正式生产模板线。
+当前样本已跑通的前三条线里，哪条更适合继续做成正式生产模板线；以及第四条新增候选线该放在哪个位置。
 
 ---
 
@@ -19,6 +20,12 @@
 - [smoke/e2e-gongdou-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-gongdou-evil)
 - [smoke/e2e-qinggan-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-qinggan-evil)
 - [smoke/e2e-tianchong-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-tianchong-evil)
+
+第四条新增候选线当前已有：
+
+- 公开作品面信号
+- 本地 profile 资产
+- `golden three -> chapter 9 validation sample` 样本闭环
 
 可比较的维度包括：
 
@@ -65,15 +72,16 @@
 
 - **列为第一条正式深做的恶女生产线**
 - 当前进一步判断：
-  - **已可作为第一条内部生产模板继续写**
+  - **方向仍成立，但当前样本不再视为已冻结内部生产模板**
   - 参考：
     - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
 
 ### 当前样本状态
 
 - 已完成：`package -> golden three -> chapter 6 continuity sample`
-- 当前可直接复用样本：
+- 当前样本状态：
   - [smoke/e2e-gongdou-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-gongdou-evil)
+  - 定位：待重验样本
 
 ---
 
@@ -169,6 +177,44 @@
 
 ---
 
+## 4. 恶毒女配 x 双女主替身白月光
+
+### 当前判断
+
+- **可以入仓，且已完成验证样本闭环；当前仍适合作为第四条候选实验线**
+
+### 原因
+
+1. 公开平台上能看到稳定存在
+   这说明它不是纯脑补标签，而是平台可以承载的关系组合。
+
+2. 本地已经有 `substitute` profile
+   也就是说，这条线不是从零开始。
+
+3. 已有 `golden three -> chapter 9 validation sample`
+   这说明它已经不只是概念样本，但仍然没有第二个独立复现样本，所以还没资格和前三条线争主资源。
+
+### 当前建议
+
+- **列为第四条付费候选实验线**
+- 当前进一步判断：
+  - **可立项，不可冒充已验证线**
+  - 参考：
+    - [fanqie-evil-dual-female-substitute-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-dual-female-substitute-candidate.md)
+
+### 当前样本状态
+
+- 已完成：
+  - 本地 profile 资产
+  - 市场候选判断
+  - `golden three`
+  - `chapter 9 validation sample`
+  - `第007-009章` 集中 review
+- 当前可直接复用样本：
+  - [smoke/e2e-dual-substitute-evil](/Users/arm/Desktop/vscode/Genm-codex/smoke/e2e-dual-substitute-evil)
+
+---
+
 ## 最终顺序
 
 当前明确顺序为：
@@ -176,6 +222,7 @@
 1. `恶女 x 宫斗宅斗`
 2. `恶女 x 现实情感`
 3. `恶女 x 现言甜宠`
+4. `恶毒女配 x 双女主替身白月光`
 
 ---
 
@@ -188,6 +235,7 @@
 1. 先把 `恶女 x 宫斗宅斗` 做成正式生产模板线
 2. 再把 `恶女 x 现实情感` 做成第二条付费线
 3. `恶女 x 现言甜宠` 保留为实验样本，等前两条稳定后再加强
+4. `恶毒女配 x 双女主替身白月光` 先做 smoke，再决定是否升格
 
 ---
 

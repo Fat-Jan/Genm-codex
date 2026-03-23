@@ -108,7 +108,11 @@
       "节奏": 0,
       "OOC": 0,
       "连续性": 0,
-      "追读力": 0
+      "追读力": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
     }
   },
   "learned_patterns": {
@@ -157,7 +161,14 @@
     "strand权重": {},
     "特殊约束": []
   },
-  "chapter_meta": {},
+  "chapter_meta": {
+    "<chapter_number>": {
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
   "chapter_snapshots": {},
   "summaries_index": {},
   "character_states": {},

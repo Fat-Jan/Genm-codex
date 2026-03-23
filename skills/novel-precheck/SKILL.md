@@ -19,6 +19,7 @@ Use this skill when the user wants a submission-readiness check before posting o
   - `ai-risk`
   - `platform-fit`
   - `bucket-fit`
+  - `anti-flattening`
 
 ## Preconditions
 
@@ -46,6 +47,9 @@ Always read:
 
 - `.mighty/state.json`
 - requested `chapters/第NNN章.md`
+- `../../shared/references/shared/core-constraints.md`
+- `../../docs/anti-flattening-framework/README.md`
+- `../../docs/anti-flattening-framework/01-总纲.md`
 
 Read conditionally:
 
@@ -63,6 +67,16 @@ Read conditionally:
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
 - `../../docs/fanqie-chapter-length-policy.json`
+- `../../docs/fanqie-resistance-and-cost-rules.md`
+- `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
+- `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+- `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+- `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+- `../../docs/anti-flattening-framework/08-流派故障库.md`
+- `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
+- `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+- `../../shared/references/writing/ancient-household-kinship-guide.md`
+- `../../shared/references/writing/ancient-office-hierarchy-guide.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -80,13 +94,24 @@ Resolve shared profile roots in this order:
 
 1. Parse the requested platform and chapter range.
 2. Read `.mighty/state.json`.
-3. Read the target chapters.
-4. If the range includes chapters 1-3, run a stronger “golden three” check:
+3. Read `../../shared/references/shared/core-constraints.md`.
+4. Read the target chapters.
+5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
+6. When the route is multi-character, multi-faction, politics-heavy, relationship-heavy, transmigration/system-heavy, or the user explicitly asks for反脸谱化预检:
+   - read:
+     - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
+     - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
+     - `../../docs/anti-flattening-framework/05-关系网络与阵营分歧.md`
+     - `../../docs/anti-flattening-framework/06-冲突-信息差-后果链.md`
+     - `../../docs/anti-flattening-framework/08-流派故障库.md`
+     - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
+     - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+5. If the range includes chapters 1-3, run a stronger “golden three” check:
    - hook arrival speed
    - protagonist presence
    - first conflict
    - payoff or hook continuity
-5. Check platform fit using:
+7. Check platform fit using:
    - current project platform
    - matching shared profile if available
    - lightweight platform heuristics
@@ -96,32 +121,55 @@ Resolve shared profile roots in this order:
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - if an explicit `tagpack` is given, or the task clearly asks for a tag-pack route such as `恶女`, also read `../../docs/fanqie-mvp-tagpacks.yaml`
-6. If Fanqie precheck is active, also read:
+8. If Fanqie precheck is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
+   - `../../docs/fanqie-resistance-and-cost-rules.md`
    - use them as third-layer precheck rules for:
      - title / synopsis promise consistency
      - opening-hook front-loading
      - golden-three delivery
      - character vividness
      - suspense handoff
+     - resistance / cost / residual-risk visibility
    - do not let writing-technique rules override canon or active bucket
-7. Check quality and editorial risk:
+9. Check quality and editorial risk:
    - pacing softness
    - payoff density
    - weak suspense carryover
    - sparse review coverage
+   - protagonist privilege overload or all-problems-solved-by-main-character risk
+   - whether key supporting roles still behave like independent people
+   - whether relations or factions have collapsed into a single voice
+   - whether major gains are too smooth, too cheap, or too unopposed
    - whether chapter length has fallen below the active Fanqie baseline
    - drift from already learned local style preferences when that drift is obvious
-8. Check obvious AI-risk signals conservatively:
+   - if the bucket is ancient-family-power, check relation-schema risk:
+     - 嫡庶是否能回到明确法统
+     - `二姑娘 / 三姑娘` 等齿序称谓是否闭合
+     - outward packaging relation words是否和正文真值一致
+   - if the text depends on ancient office hierarchy, check office-schema risk:
+     - 官名、品秩、实权是否分清
+     - 是否存在跨代混用
+     - 地方 / 东宫 / 内廷 / 外朝权力链是否错位
+   - if Fanqie resistance rules are active, check:
+     - 推进是否过顺
+     - 证据是否过于自动上门
+     - 同盟是否达成过快
+     - 胜利是否没有代价或残留风险
+10. Check obvious AI-risk signals conservatively:
    - repetitive filler phrasing
    - explanation-heavy clusters
    - symmetry / generic phrasing if clearly present
-9. Return a structured report:
+11. Check outward-facing originality risk conservatively:
+   - title / synopsis / protagonist name是否存在明显高相似度风险
+   - if the project is submission-facing and naming/title checks were not run, say so directly
+12. Return a structured report:
    - overall readiness
    - must-fix items
    - should-fix items
    - strongest positives
+   - optional anti-flattening note
    - submission recommendation
    - packaging readiness
    - optional bucket-fit note
@@ -174,6 +222,7 @@ Prefer this shape:
 - 必须修复
 - 建议修复
 - 优势
+- 反脸谱化风险
 - 内容桶适配
 - 包装状态
 - 投稿建议
@@ -188,12 +237,14 @@ Use `✅ / ⚠️ / ❌` style summaries when helpful.
 - When Fanqie rules stack, evaluate in this order:
   1. canon / state / actual chapter text
   2. active bucket fit
-  3. writing-technique fit
-  4. tagpack fit
+  3. anti-flattening structure fit
+  4. writing-technique fit
+  5. tagpack fit
 - Treat `market_adjustments` as soft platform-fit hints, not as a reason to override the actual chapter text.
 - Treat Fanqie content-bucket constraints as upstream targeting rules, not as proof that the project already fits that bucket.
 - If a first-batch MVP bucket config exists, prefer its `precheck_focus` over generic bucket commentary.
 - If a matching tagpack exists, use it as a second-layer precheck lens, not as a replacement for the bucket.
+- If anti-flattening issues are strong enough to imply hollow support cast, fake faction conflict, or protagonist privilege overload, surface them before cosmetic prose notes.
 
 ## Submission status conventions
 
@@ -212,3 +263,6 @@ Use `packaging-needs-update: yes` when:
 - current text has materially shifted away from existing packaging emphasis
 - recent review findings imply the packaging is overpromising
 - market-adjustment packaging advice is clearly not reflected in current outward positioning
+- canon / kinship contradictions make current relation-word packaging unsafe
+- title / name similarity risk is unresolved
+- office-title / power-chain contradictions make current官名包装 unsafe

@@ -1,5 +1,7 @@
 # Genm-codex `v1.0.0` Readiness Assessment
 
+> 历史阶段文档：本文记录的是进入 RC 讨论前的评估结论；当前正式状态以 [v1-final-decision.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-final-decision.md) 为准。
+
 ## 评估目的
 
 这份文档基于：

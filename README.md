@@ -35,6 +35,7 @@ Codex 原生网文创作技能工作区。
 
 第四阶段已完成的控制与辅助 Skill：
 
+- `genm-novel-close`
 - `genm-novel-fix`
 - `genm-novel-snapshot`
 - `genm-novel-precheck`
@@ -62,6 +63,11 @@ Codex 原生网文创作技能工作区。
 - 包装与市场信号收敛检查点
 - 质量路由稳定化检查点
 
+第十七阶段已完成的整合方向：
+
+- 反脸谱化质量门进入默认质量链
+- 跨流派结构样本闭环
+
 ## 目录说明
 
 ```text
@@ -83,8 +89,10 @@ bash scripts/install-skills.sh
 ### 2. 同步共享资产
 
 ```bash
-bash scripts/sync-shared-from-genm.sh
+bash scripts/sync-shared-from-genm.sh --report
 ```
+
+确认报告结果符合预期后，再执行真正的同步。
 
 ### 3. 校验迁移状态
 
@@ -100,6 +108,7 @@ bash scripts/validate-migration.sh
 - 但在 Codex 会话里，通常真正被发现和触发的是各个 `SKILL.md` frontmatter 里的 `name`
 - 因此实际提示词里，优先使用：
   - `novel-init`
+  - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
@@ -110,6 +119,7 @@ bash scripts/validate-migration.sh
 
 阅读：
 
+- `使用流程总览.md`
 - `docs/skill-usage.md`
 - `docs/start-here.md`
 
@@ -123,6 +133,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-4-summary.md`
 - `docs/phase-5-summary.md`
 - `docs/phase-7-summary.md`
+- `docs/phase-17-summary.md`
 
 ## 参考文档
 
@@ -166,6 +177,7 @@ bash scripts/validate-migration.sh
 - `docs/phase-14-summary.md`
 - `docs/phase-15-summary.md`
 - `docs/phase-16-summary.md`
+- `docs/phase-17-summary.md`
 - `docs/v1-boundary.md`
 - `docs/default-workflows.md`
 - `docs/v1-readiness-checklist.md`
@@ -175,6 +187,7 @@ bash scripts/validate-migration.sh
 - `docs/v1-rc-execution-log.md`
 - `docs/v1-final-decision.md`
 - `docs/writing-model-strategy.md`
+- `docs/anti-flattening-framework/README.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
@@ -183,3 +196,7 @@ bash scripts/validate-migration.sh
 - `Genm` 仍然是源仓库
 - `Genm-codex` 负责 Codex 原生 Skill 层
 - `shared/` 资产应通过脚本同步，不建议手工维护两份
+- `novel-close` 现在提供单章收口轮入口，内部执行 `review -> route -> re-review`，但不改变 `review / fix / polish / rewrite` 的边界
+- 单章 `novel-write` 现在默认会守卫式自动尝试一次 `novel-close`；`novel-batch` 不继承该默认行为，显式传 `skip_close=true` 可跳过
+- `novel-outline` / `novel-review` / `novel-fix` 现在会按需读取 `docs/anti-flattening-framework/`，把反脸谱化与群像约束纳入默认质量闭环
+- `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查

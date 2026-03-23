@@ -4,6 +4,14 @@ name: "直播文"
 version: "3.0"
 template: templates/genres/直播文.md
 
+# ==================== 推进阻力与代价 ====================
+progression_constraints:
+  resistance_rule: "关键推进必须遭遇真实阻力，不能自动到账。"
+  cost_rule: "重要收益应伴随可见代价、暴露或资源损耗。"
+  partial_payoff_rule: "阶段胜利以局部收益为主，不宜一次打穿主线矛盾。"
+  residual_risk_rule: "每次推进后都应保留残留风险，避免章节收口过满。"
+
+
 # ==================== 流派细分定义 ====================
 sub_genres:
   game_livestream:

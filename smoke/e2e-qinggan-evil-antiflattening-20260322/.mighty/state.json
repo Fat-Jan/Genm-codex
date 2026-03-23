@@ -1,0 +1,649 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "离婚后我不再忍了",
+    "genre": "现实题材",
+    "platform": "番茄",
+    "target_chapters": 8,
+    "target_words": 32000,
+    "created_at": "2026-03-21T05:41:57Z",
+    "updated_at": "2026-03-22T04:06:40Z"
+  },
+  "progress": {
+    "current_chapter": 4,
+    "total_words": 12980,
+    "last_write_chapter": 4,
+    "last_write_time": "2026-03-22T04:06:40Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "沈知意",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "海城银行门口",
+          "origin": "海城"
+        },
+        "inventory": [
+          "个人证件",
+          "工作电脑",
+          "离婚相关资料",
+          "手机",
+          "经营贷代扣通知",
+          "银行流水与代扣证明",
+          "律师函草稿"
+        ],
+        "abilities": [
+          "法律常识",
+          "谈判能力",
+          "新媒体运营"
+        ],
+        "status": [
+          "公开提出离婚",
+          "开始主动留证",
+          "已拿到婚房与代扣证据",
+          "经营贷代扣已申请解除",
+          "开始追查首付款异常",
+          "已把经营贷伪签问题抬到公司法务和HR面前",
+          "已确认婚房首付款里的三十万来自母亲账户"
+        ],
+        "current_goals": [
+          "完成经营贷与共同账户切割",
+          "保全婚房、流水和共同支出证据",
+          "查清婚房首付款里那笔三十万的真实去向",
+          "不再给周承礼一家留转圜空间"
+        ],
+        "known_secrets": [
+          "周承礼最怕的不是离婚本身，而是她开始认真算账",
+          "她的工资卡被擅自绑进周家经营贷代扣链里",
+          "婚房首付款里疑似混入了她母亲转来的三十万",
+          "伪签授权和经营贷代扣已经不再只是夫妻纠纷，而是现实规则风险",
+          "那三十万确实来自母亲，而不是周家所谓的首付支援"
+        ],
+        "recent_events": [
+          "沈知意在家庭聚餐上被当众羞辱后，第一次公开提出离婚并同步录音留证",
+          "她回婚房拿走婚房资料与代扣通知，坐实自己的工资卡正在替周家经营贷自动扣款",
+          "她在银行完成代扣核验与撤销申请，并顺着流水看见婚房首付款里有母亲转来的三十万异常款项",
+          "周承礼和周母堵到她公司门口求和，她反手把经营贷和伪签材料摆到公司法务与HR面前",
+          "她从母亲口中坐实婚房首付款里的三十万确实来自母亲账户，并从周承礼的反应里确认这才是更深的账"
+        ]
+      },
+      "active": [],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "离婚相关资料",
+        "房贷流水",
+        "经营贷代扣通知",
+        "银行流水与代扣证明"
+      ],
+      "protagonist_inventory": [
+        "个人证件",
+        "工作电脑",
+        "离婚相关资料",
+        "手机",
+        "经营贷代扣通知",
+        "银行流水与代扣证明",
+        "律师函草稿"
+      ]
+    },
+    "locations": {
+      "current": "公司楼下停车区",
+      "visited": [
+        "海城餐厅",
+        "婚房",
+        "海城银行",
+        "公司会议室"
+      ],
+      "important": [
+        "婚房",
+        "海城餐厅",
+        "海城银行",
+        "公司会议室"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "利益切割异常",
+          "description": "周承礼对离婚的慌乱远超正常反应，说明婚房、流水或其他共同财务里还藏着不能翻开的账。",
+          "planted_chapter": 1,
+          "expected_range": "2-4",
+          "status": "active",
+          "related_entities": [
+            "沈知意",
+            "周承礼",
+            "婚房"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "婚房首付款来源异常",
+          "description": "婚房首付款里混入了沈知意母亲转来的三十万，这笔钱被谁抹平成了周家出资仍未查清。",
+          "planted_chapter": 3,
+          "expected_range": "4-6",
+          "status": "active",
+          "related_entities": [
+            "沈知意",
+            "周承礼",
+            "婚房"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "周承礼到底在怕哪一笔账被翻出来？",
+          "since_chapter": 1
+        },
+        {
+          "question": "婚房首付款里的三十万最终被谁算进了周家那套说法里？",
+          "since_chapter": 3
+        },
+        {
+          "question": "周承礼会不会先去找她母亲补口供或改说法？",
+          "since_chapter": 4
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "摆脱失衡婚姻，重建自我与生活秩序",
+      "location": "海城",
+      "secret": "前夫与婆家的控制不只来自情感问题，还牵连现实利益切割。",
+      "progress": 34
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "沈知意长期在婚姻里被情感贬低和家庭控制",
+      "周承礼和婆家最看重的是房子、钱和体面",
+      "沈知意已经开始主动留证并准备算账",
+      "她的工资卡被绑进周家经营贷代扣链里",
+      "婚房首付款里疑似有她母亲转来的三十万"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "周承礼真正怕的是她开始认真把账摊开。",
+        "since_chapter": 1
+      },
+      {
+        "info": "经营贷代扣和婚房首付款都不干净，这场离婚远不只是情绪问题。",
+        "since_chapter": 3
+      },
+      {
+        "info": "那三十万确实来自母亲账户，而且周承礼一听见这件事就明显慌了。",
+        "since_chapter": 4
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "周承礼究竟隐瞒了哪些财务问题",
+      "婚房首付款里那三十万最后被谁吞平了",
+      "这场离婚切割接下来会先从经营贷还是首付款链爆开",
+      "周承礼会不会先一步去找母亲改口"
+    ],
+    "key_revelations": [
+      "沈知意第一次在公开场合明确提出离婚。",
+      "她不再只是翻脸，而是同步开始留证与切割。",
+      "经营贷代扣已经坐实，婚房首付款也开始显出来源异常。",
+      "经营贷与伪签问题已经升级成公司法务也看得见的现实风险。",
+      "首付款里那笔三十万来自母亲，而不是周家自称的首付支援。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [
+      86,
+      87
+    ],
+    "average_score": 86.5,
+    "trend": "up",
+    "last_review_chapter": 4,
+    "dimension_scores": {
+      "爽点": 87,
+      "一致性": 86,
+      "节奏": 85,
+      "OOC": 89,
+      "连续性": 86,
+      "追读力": 87,
+      "人物立体度": 87,
+      "关系张力": 84,
+      "阵营分歧": 85,
+      "代价感": 89
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "现实克制但句句顶住要害",
+      "description_density": "中等",
+      "pacing_preference": "痛点开局 -> 公开翻脸 -> 现实留证 -> 下一步切割"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "黄金三章强钩子 + 现实切割线",
+    "chapter_words": {
+      "min": 2000,
+      "max": 5000,
+      "target": 4000
+    },
+    "golden_three": {
+      "hook_timing": "第1章",
+      "cheat_timing": "不适用"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 0,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "realistic/profile.yaml",
+    "bucket": "现实情感",
+    "节奏": {
+      "type": "现实奋斗型",
+      "tension_ratio": "5:5",
+      "typical_chapter_length": 4500
+    },
+    "爽点密度": 0.7,
+    "strand权重": {
+      "quest": 40,
+      "fire": 25,
+      "constellation": 35
+    },
+    "特殊约束": [
+      {
+        "id": "REAL-001",
+        "description": "现实感要强",
+        "checkpoint": "整体氛围"
+      },
+      {
+        "id": "REAL-002",
+        "description": "不能太悬浮",
+        "checkpoint": "情节设计"
+      }
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "chapter": 1,
+      "title": "你们敢当众踩我，我就敢把账摊开",
+      "path": "chapters/第001章.md",
+      "word_count": 2916,
+      "status": "draft",
+      "created_at": "2026-03-21T08:45:00Z",
+      "updated_at": "2026-03-21T10:57:21Z",
+      "summary": "家庭聚餐上，周承礼和婆家当众羞辱沈知意，逼她继续忍让。沈知意没有再替任何人圆场，而是边当众提出离婚，边暗中开启录音、联系律师，把这段婚姻最怕被翻开的那本账提前握进自己手里。",
+      "content_bucket": "现实情感",
+      "review_score": 86,
+      "review_grade": "B+",
+      "review_time": "2026-03-21T09:19:36Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 83,
+        "节奏": 84,
+        "OOC": 89,
+        "连续性": 82,
+        "追读力": 90
+      },
+      "needs_fix": true,
+      "recommended_next_action": "novel-fix",
+      "warnings": [
+        "中段有两三处解释性复述，削弱了现实情感桶需要的持续推进和压迫密度。"
+      ],
+      "suggested_fixes": [
+        "压缩一两处解释性心理总结，把篇幅让给更具体的账目或证据切割目标。"
+      ]
+    },
+    "2": {
+      "chapter": 2,
+      "title": "你们不让我拿东西，我就先把流水带走",
+      "path": "chapters/第002章.md",
+      "word_count": 2899,
+      "status": "draft",
+      "created_at": "2026-03-21T10:57:21Z",
+      "updated_at": "2026-03-21T10:57:21Z",
+      "summary": "沈知意回婚房拿证件和资料，周承礼母子一边拦她，一边试图继续把她拖回情绪战。她没有再吵输赢，而是当场拿走婚房资料和经营贷代扣通知，坐实自己的工资卡正在替周家的经营贷自动扣款。",
+      "content_bucket": "现实情感"
+    },
+    "3": {
+      "chapter": 3,
+      "title": "你们拿我的工资还贷，还想让我净身出户",
+      "path": "chapters/第003章.md",
+      "word_count": 2956,
+      "status": "draft",
+      "created_at": "2026-03-21T10:57:21Z",
+      "updated_at": "2026-03-21T10:57:21Z",
+      "summary": "沈知意在银行核实，发现自己的工资卡确实被绑进了周家经营贷的自动代扣链，并立即申请解除。她同步让律师发函保全财务线，又顺着流水看见婚房首付款里混入了母亲转来的三十万，离婚账从经营贷切到了首付款来源异常。",
+      "content_bucket": "现实情感"
+    },
+    "4": {
+      "chapter": 4,
+      "title": "他把求和闹到我公司门口，我先把那张假签字拍给了法务",
+      "path": "chapters/第004章.md",
+      "word_count": 4209,
+      "status": "draft",
+      "created_at": "2026-03-22T04:06:40Z",
+      "updated_at": "2026-03-22T04:06:40Z",
+      "summary": "周承礼和周母把“求和”闹到沈知意公司门口，想逼她先停律师和银行那边。沈知意没有回情绪战，而是把代扣、伪签和律师函摆到公司法务和HR面前，把这件事抬成现实风险。会议室散后，她又从母亲口中坐实婚房首付款里的三十万确实来自母亲账户，并从周承礼的反应里确认，这才是更深的账。",
+      "content_bucket": "现实情感",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-22T04:15:00Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 86,
+        "节奏": 85,
+        "OOC": 89,
+        "连续性": 86,
+        "追读力": 87,
+        "人物立体度": 87,
+        "关系张力": 84,
+        "阵营分歧": 85,
+        "代价感": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "公司领导、HR、法务和母亲这几条支持线已经带出各自顾虑，后续章节需要继续维持他们的自保逻辑，不能很快滑成无条件撑腰。",
+        "本章字数略高于当前 4000 目标值，但仍在平台上限内，后续现实线仍应优先保留动作和凭证，少放重复解释。"
+      ],
+      "suggested_fixes": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "公司一侧给会议室和法务，不是站队，而是为了先隔离风险",
+          "母亲愿意翻转账凭证，不是完全认同女主做法，而是终于意识到那笔钱可能被吞平"
+        ],
+        "faction_or_relation_failure": [
+          "现实情感线里的支持者没有写成统一口径，这一点成立",
+          "前夫与婆家的施压也没有只剩骂人，而是试图把切割拖回体面和私事框架"
+        ],
+        "minimum_viable_repair_direction": "本章可以直接继续写第5章，重点转向首付款追账与母亲证据链，不需要先做局部修补。"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "chapter": 1,
+      "created_at": "2026-03-21T08:45:00Z",
+      "word_count": 2916,
+      "protagonist_state": {
+        "name": "沈知意",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "海城餐厅门口",
+          "previous": "海城餐厅包间"
+        },
+        "inventory": [
+          "个人证件",
+          "工作电脑",
+          "离婚相关资料",
+          "手机"
+        ],
+        "abilities": [
+          "法律常识",
+          "谈判能力",
+          "新媒体运营"
+        ],
+        "status": [
+          "公开提出离婚",
+          "开始主动留证",
+          "准备搬离婚房"
+        ],
+        "current_goals": [
+          "把婚房、流水和共同支出证据先抓到手里",
+          "联系律师并启动切割",
+          "不再给周承礼一家留转圜空间"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周承礼",
+          "role": "前夫",
+          "relation": "对立",
+          "last_interaction": 1
+        },
+        {
+          "name": "周母",
+          "role": "前婆婆",
+          "relation": "对立",
+          "last_interaction": 1
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "利益切割异常",
+          "status": "planted",
+          "planted_chapter": 1
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "沈知意没有再忍，而是开始同步留证和算账",
+          "周承礼和婆家最怕她碰的是具体利益切割"
+        ],
+        "protagonist_knows": [
+          "只靠翻脸不够，必须马上把证据抓到手里"
+        ],
+        "protagonist_doesnt_know": [
+          "周承礼究竟藏了哪一笔账",
+          "下一步先炸开的会是哪条利益线"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "character",
+          "name": "周承礼",
+          "role": "spouse-antagonist"
+        },
+        {
+          "type": "character",
+          "name": "周母",
+          "role": "family-antagonist"
+        },
+        {
+          "type": "location",
+          "name": "海城餐厅"
+        }
+      ],
+      "key_events": [
+        "沈知意在家庭聚餐上被当众羞辱",
+        "沈知意开启录音并同步联系律师",
+        "沈知意第一次公开提出离婚",
+        "周承礼威胁她什么都别想拿走"
+      ],
+      "summary": "沈知意没有再做那个替所有人圆场的人。她在当众提出离婚的同时，已经把录音和证据线同步握到手里，准备把这段婚姻里最见不得光的账一笔笔算回来。"
+    },
+    "2": {
+      "chapter": 2,
+      "created_at": "2026-03-21T10:57:21Z",
+      "word_count": 2899
+    },
+    "3": {
+      "chapter": 3,
+      "created_at": "2026-03-21T10:57:21Z",
+      "word_count": 2956
+    },
+    "4": {
+      "chapter": 4,
+      "created_at": "2026-03-22T04:06:40Z",
+      "word_count": 4209,
+      "protagonist_state": {
+        "name": "沈知意",
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "公司楼下停车区",
+          "previous": "公司会议室"
+        },
+        "inventory": [
+          "个人证件",
+          "工作电脑",
+          "离婚相关资料",
+          "手机",
+          "经营贷代扣通知",
+          "银行流水与代扣证明",
+          "律师函草稿",
+          "母亲三十万转账线索"
+        ],
+        "abilities": [
+          "法律常识",
+          "谈判能力",
+          "新媒体运营"
+        ],
+        "status": [
+          "公开提出离婚",
+          "开始主动留证",
+          "已拿到婚房与代扣证据",
+          "经营贷代扣已申请解除",
+          "开始追查首付款异常",
+          "已把经营贷和伪签问题抬到公司法务面前",
+          "已坐实三十万来自母亲账户"
+        ],
+        "current_goals": [
+          "完成经营贷与共同账户切割",
+          "保全婚房、流水和共同支出证据",
+          "查清婚房首付款里那笔三十万的真实去向",
+          "不再给周承礼一家留转圜空间"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周承礼",
+          "role": "前夫",
+          "relation": "对立",
+          "last_interaction": 4
+        },
+        {
+          "name": "周母",
+          "role": "前婆婆",
+          "relation": "对立",
+          "last_interaction": 4
+        },
+        {
+          "name": "许雯",
+          "role": "闺蜜",
+          "relation": "支持但关注法律风险",
+          "last_interaction": 4
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "利益切割异常",
+          "status": "active",
+          "planted_chapter": 1
+        },
+        {
+          "id": "f2",
+          "name": "婚房首付款来源异常",
+          "status": "active",
+          "planted_chapter": 3
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "经营贷与伪签已经抬到职场合规风险层",
+          "婚房首付款里的三十万确实来自沈知意母亲"
+        ],
+        "protagonist_knows": [
+          "周承礼真正怕的不是离婚本身，而是这三十万来源被坐实",
+          "公司愿意给会议室和法务，不是站队，而是为了先隔离风险"
+        ],
+        "protagonist_doesnt_know": [
+          "周承礼接下来会先补哪条口供",
+          "首付款里那三十万到底被谁算平"
+        ]
+      },
+      "new_entities": [
+        {
+          "type": "location",
+          "name": "公司会议室"
+        }
+      ],
+      "key_events": [
+        "周承礼和周母堵到公司门口求和",
+        "沈知意把经营贷和伪签材料摆到HR与法务面前",
+        "母亲亲口承认那三十万确实是当年给她压底的钱",
+        "周承礼因三十万来源被问中而明显失态"
+      ],
+      "summary": "周承礼和周母把“求和”闹到沈知意公司门口，想逼她先停律师和银行那边。沈知意没有回情绪战，而是把代扣、伪签和律师函摆到公司法务和HR面前，把这件事抬成现实风险。会议室散后，她又从母亲口中坐实婚房首付款里的三十万确实来自母亲账户，并从周承礼的反应里确认，这才是更深的账。"
+    }
+  },
+  "summaries_index": {
+    "1": "家庭聚餐上，周承礼和婆家当众羞辱沈知意，逼她继续忍让。沈知意当众提出离婚，同时开启录音、联系律师，把这场婚姻里最怕被翻开的账先抓进自己手里。",
+    "2": "沈知意回婚房拿证件和资料，周承礼母子试图继续把她拖回情绪战。她当场拿走婚房资料和经营贷代扣通知，坐实自己的工资卡正在替周家的经营贷自动扣款。",
+    "3": "沈知意在银行核实并申请解除经营贷代扣，又让律师发函保全财务线。顺着流水，她第一次看见婚房首付款里混入了母亲转来的三十万，离婚账从经营贷正式切到了首付款来源异常。",
+    "4": "周承礼和周母把“求和”闹到沈知意公司门口，想逼她先停律师和银行那边。沈知意没有回情绪战，而是把代扣、伪签和律师函摆到公司法务和HR面前，把这件事抬成现实风险。会议室散后，她又从母亲口中坐实婚房首付款里的三十万确实来自母亲账户，并从周承礼的反应里确认，这才是更深的账。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": null,
+    "source_scan": null,
+    "adjustments": []
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-21T05:41:57Z",
+    "includes": [
+      "profiles/realistic/profile.yaml"
+    ]
+  }
+}

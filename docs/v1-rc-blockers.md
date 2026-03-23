@@ -1,5 +1,7 @@
 # Genm-codex `v1.0.0-rc1` Blocker Log
 
+> 历史阶段文档：本文记录的是 `v1.0.0` 正式发布前的 blocker 台账；当前正式状态以 [v1-final-decision.md](/Users/arm/Desktop/vscode/Genm-codex/docs/v1-final-decision.md) 为准。
+
 ## 目的
 
 这份文档记录 RC1 阶段真正值得拦住正式版的 blocker，以及当前已知但不构成 blocker 的观察项。

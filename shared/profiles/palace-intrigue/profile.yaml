@@ -7,6 +7,14 @@ description: "后宫争斗、宅门内斗、权谋复仇题材"
 version: "3.0"
 template: templates/genres/宫斗宅斗.md
 
+# ==================== 推进阻力与代价 ====================
+progression_constraints:
+  resistance_rule: "关键推进必须遭遇真实阻力，不能自动到账。"
+  cost_rule: "重要收益应伴随可见代价、暴露或资源损耗。"
+  partial_payoff_rule: "阶段胜利以局部收益为主，不宜一次打穿主线矛盾。"
+  residual_risk_rule: "每次推进后都应保留残留风险，避免章节收口过满。"
+
+
 # ==================== 流派细分定义 ====================
 sub_genres:
   harem:
@@ -135,6 +143,11 @@ constraints:
     description: "斗争手段要符合时代背景"
     mandatory: false
     checkpoint: 斗争手段设计
+
+  - id: RULE-005
+    description: "家族谱系和齿序称谓必须闭环，继室/嫡庶/排行不能互相打架"
+    mandatory: true
+    checkpoint: 人物关系、书名简介与正文称谓
 
 # ==================== 黄金三章 ====================
 golden_three:

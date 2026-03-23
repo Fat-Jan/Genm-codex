@@ -1,0 +1,2 @@
+model: gpt-5
+default_prompt: "Use $novel-close to converge one reviewed chapter through one bounded repair route."
