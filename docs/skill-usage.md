@@ -98,6 +98,12 @@
 7. 仍未收口时再按结果进入 `novel-rewrite`
 10. `novel-export`
 
+补充规则：
+
+- 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
+- `novel-batch` 不会继承这个默认行为
+- 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
+
 反脸谱化与群像打磨入口：
 
 - [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
@@ -106,6 +112,7 @@
 - `novel-review` 现在会按需把主角特权、角色独立性、关系张力和流派故障纳入结构审查
 - `novel-review` 现在默认会把单章问题收成可一次执行的 issue clusters，并在两轮修订仍未收口时上推 `novel-rewrite`
 - `novel-close` 现在是默认推荐的单章收口轮入口，内部固定执行 `novel-review -> 单一路由 -> re-review`
+- `novel-write` 现在在单章模式下会默认守卫式自动尝试 `novel-close`，并在跳过时说明原因
 - `novel-fix` 现在会在局部修补范围内读取快速修复动作，并尽量一次收口同章的局部问题，而不是把人物补丁偷渡成整章重写
 - `novel-polish` 现在默认偏向单次 `all` 向润色，不鼓励把 prose / dialogue / pacing 拆成多轮微修
 - `novel-precheck` 现在会在投稿前检查主角特权失衡、阵营单声道和推进过顺风险
@@ -261,6 +268,12 @@
 请使用 novel-close skill，对第001章做一次 `auto` 模式单章收口；如果只剩语言层问题，就把压 AI 味放在 `novel-polish` 分支里完成，并在必要时复审。
 ```
 
+### write-only
+
+```text
+请使用 novel-write skill，写第016章，并设置 `skip_close=true`；这次只写正文，不自动进入收口轮。
+```
+
 ### genre
 
 ```text
@@ -358,6 +371,37 @@
 ```text
 请使用 novel-scan skill，先为当前项目生成一个 report-only 的市场扫描结果文件，并明确说明当前证据可信度。
 ```
+
+如果你要直接跑最小可执行入口，而不是只靠 skill 提示词，可以用：
+
+```bash
+python3 scripts/novel_scan.py <project_root> --platform 番茄 --genre 玄幻 --depth quick --mode report-only
+```
+
+补充：
+
+- 当前默认内置来源只覆盖 `番茄 + 玄幻 + quick`
+- 其他组合建议额外传 `--source-url <url>`
+- `--mode project-annotate` 会额外写：
+  - `.mighty/market-adjustments.json`
+  - `.mighty/state.json -> market_adjustments` 轻量摘要
+- 这个入口仍然是实验能力，不属于默认生产主线
+
+如果当前问题先卡在“正文抓取不稳定”，而你需要一个不阻塞调研的获取层，可以先用：
+
+```bash
+python3 scripts/acquire_source_text.py <url> --pretty
+```
+
+说明：
+
+- 默认顺序是 `fetch MCP -> direct HTML extract -> search fallback`
+- 如果没有配置 `--fetch-cmd` / `GENM_FETCH_MCP_CMD`，`fetch` 阶段会自动退到 `r.jina.ai` reader proxy
+- 如果没有配置 `--search-cmd` / `GENM_SEARCH_FALLBACK_CMD`，`search fallback` 会自动退到 `Bing RSS`
+- 会统一返回 `status / source_type / failure_reason / attempts`
+- 重点是稳定返回结构化结果，不是承诺任意站点都能拿到完整正文
+- 默认 `--min-body-chars = 300`，过短页面会被判成不足正文；做连通性检查时可临时降到 `50`
+- 如需持久化域名跳过策略，可额外传 `--policy-file <path>`
 
 ### query
 

@@ -61,7 +61,10 @@
 推荐顺序：
 
 1. `novel-write`
+   - 单章默认会守卫式自动尝试一次 `novel-close`
+   - 可显式用 `skip_close=true` 跳过
 2. `novel-close`
+   - 作为默认的单章收口轮入口
    - 内部执行：
      - `novel-review`
      - 单一路由：
@@ -93,6 +96,7 @@
 推荐规则：
 
 - `novel-close` 是默认的单章收口轮入口，用来显式执行 `review -> route -> re-review`
+- 单章 `novel-write` 默认会尝试守卫式自动收口；`novel-batch` 不继承这个默认行为
 - `novel-review` 应一次性把问题收成 1-3 个可执行 issue clusters，而不是散成很多微修提示
 - 单章默认目标是“一次修订轮收口”：
   - 一次 `novel-fix` 尽量解决全部局部问题
@@ -104,6 +108,7 @@
 - 语言层问题且结构已稳 -> `novel-polish`
 - 结构层问题或两轮修订未收口 -> `novel-rewrite`
 - 批量写作 -> 最多 `3` 章 / 批，并在每批后过质量门
+- `skip_close=true` 只在你明确想要“这次只写不收口”时使用
 - `novel-review` 默认也应检查：
   - 主角特权是否吃掉他人人生
   - 关键角色是否只剩功能位

@@ -197,5 +197,6 @@ bash scripts/validate-migration.sh
 - `Genm-codex` 负责 Codex 原生 Skill 层
 - `shared/` 资产应通过脚本同步，不建议手工维护两份
 - `novel-close` 现在提供单章收口轮入口，内部执行 `review -> route -> re-review`，但不改变 `review / fix / polish / rewrite` 的边界
+- 单章 `novel-write` 现在默认会守卫式自动尝试一次 `novel-close`；`novel-batch` 不继承该默认行为，显式传 `skip_close=true` 可跳过
 - `novel-outline` / `novel-review` / `novel-fix` 现在会按需读取 `docs/anti-flattening-framework/`，把反脸谱化与群像约束纳入默认质量闭环
 - `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查

@@ -19,6 +19,11 @@
 7. 必要时再 `novel-rewrite`
 8. `novel-export`
 
+补充：
+
+- 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
+- 如果你这次只想写，不想自动收口，显式加 `skip_close=true`
+
 最小提示词：
 
 ```text
@@ -68,6 +73,8 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - 轻量精修：`novel-polish`
   - 定向重写：`novel-rewrite`
 
+如果你是刚用 `novel-write` 写完单章，通常不必再额外提醒一次，默认会先尝试自动进入这条收口链。
+
 如果你关心的是：
 
 - 人物像不像活人
@@ -81,6 +88,7 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 ### 批量写作特别提醒
 
 - **一次性最多只生成 3 章**
+- `novel-batch` 默认**不会**在每章后自动跑 `novel-close`
 - 超过 3 章很容易出现：
   - 字数断崖
   - 提纲化短章
