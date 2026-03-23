@@ -96,6 +96,12 @@
 5. 仍未收口时再按结果进入 `novel-rewrite`
 6. `novel-export`
 
+补充规则：
+
+- 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
+- `novel-batch` 不会继承这个默认行为
+- 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
+
 ## 第二阶段已迁入
 
 - `genm-novel-character`
@@ -232,6 +238,12 @@
 
 ```text
 请使用 novel-close skill，对第001章做一次 `auto` 模式单章收口；如果只剩语言层问题，就把压 AI 味放在 `novel-polish` 分支里完成，并在必要时复审。
+```
+
+### write-only
+
+```text
+请使用 novel-write skill，写第016章，并设置 `skip_close=true`；这次只写正文，不自动进入收口轮。
 ```
 
 ### genre

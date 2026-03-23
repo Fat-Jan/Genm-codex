@@ -186,3 +186,4 @@ bash scripts/validate-migration.sh
 - `Genm-codex` 负责 Codex 原生 Skill 层
 - `shared/` 资产应通过脚本同步，不建议手工维护两份
 - `novel-close` 现在提供单章收口轮入口，内部执行 `review -> route -> re-review`，但不改变 `review / fix / polish / rewrite` 的边界
+- 单章 `novel-write` 现在默认会守卫式自动尝试一次 `novel-close`；`novel-batch` 不继承该默认行为，显式传 `skip_close=true` 可跳过
