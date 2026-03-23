@@ -219,6 +219,398 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-23 开篇方法与剧情层次规则层
+
+### Phase 1: Discovery & Design Lock
+- **Status:** complete
+- Actions taken:
+  - 读取当前 `task_plan.md`、`findings.md`、`progress.md`
+  - 读取 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md`
+  - 读取 `docs/phase-9-summary.md`、`docs/phase-17-summary.md`、`docs/fanqie-writing-techniques.md`
+  - 读取 `skills/novel-outline/SKILL.md`、`skills/novel-write/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-query/SKILL.md`、`skills/novel-package/SKILL.md`
+  - 确认新框架承载层、模块体量与接线范围
+  - 写入设计说明与实施计划：
+    - `docs/superpowers/specs/2026-03-23-opening-and-plot-framework-design.md`
+    - `docs/superpowers/plans/2026-03-23-opening-and-plot-framework.md`
+- Files created/modified:
+  - `docs/superpowers/specs/2026-03-23-opening-and-plot-framework-design.md` (created)
+  - `docs/superpowers/plans/2026-03-23-opening-and-plot-framework.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 2: Red Test
+- **Status:** complete
+- Actions taken:
+  - 新增 `tests/test_opening_plot_framework.py`，用于校验新框架文件、skill 接线、入口文档暴露与 state schema 评分键说明
+  - 运行 `python -m unittest tests.test_opening_plot_framework -v`
+  - 确认在实现前按预期失败：
+    - 新框架目录不存在
+    - 5 个 skill 尚未引用新文档
+    - 入口文档未暴露新框架
+    - state schema 尚未记录新评分键
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (created)
+
+### Phase 3: Framework Docs
+- **Status:** complete
+- Actions taken:
+  - 新建 `docs/opening-and-plot-framework/README.md`
+  - 新建 6 个主模块，覆盖开篇目标、构件公式、故障修正、剧情层次、推进链与题材特化接口
+- Files created/modified:
+  - `docs/opening-and-plot-framework/README.md` (created)
+  - `docs/opening-and-plot-framework/01-开篇目标与成功标准.md` (created)
+  - `docs/opening-and-plot-framework/02-开篇构件与组合公式.md` (created)
+  - `docs/opening-and-plot-framework/03-开篇故障与修正.md` (created)
+  - `docs/opening-and-plot-framework/04-剧情层次模型.md` (created)
+  - `docs/opening-and-plot-framework/05-推进链与残账设计.md` (created)
+  - `docs/opening-and-plot-framework/06-题材特化接口.md` (created)
+
+### Phase 4: Skill Wiring
+- **Status:** complete
+- Actions taken:
+  - 为 `novel-outline` 增加开篇承诺、前三章兑现路径、主推进线与残账读取规则
+  - 为 `novel-write` 增加开篇故障防护、层次清晰度和推进账本约束
+  - 为 `novel-review` 增加开篇抓力、层次清晰度和推进有效性审查点
+  - 为 `novel-precheck` 增加黄金三章、主线/次级线与推进残账预检
+  - 为 `novel-package` 增加开篇 promise 与正文承载力对齐规则
+- Files created/modified:
+  - `skills/novel-outline/SKILL.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-precheck/SKILL.md` (updated)
+  - `skills/novel-package/SKILL.md` (updated)
+
+### Phase 5: Entry Docs & State Contract
+- **Status:** complete
+- Actions taken:
+  - 在 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 暴露新框架入口
+  - 在 `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json` 中补充 `开篇抓力 / 层次清晰度 / 推进有效性`
+- Files created/modified:
+  - `README.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `shared/references/shared/state-schema.md` (updated)
+  - `shared/templates/state-v5-template.json` (updated)
+
+### Phase 6: Verification & Delivery
+- **Status:** complete
+- Actions taken:
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+  - 回写 `task_plan.md`、`findings.md`、`progress.md`
+- Files created/modified:
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 7: Fanqie Priority Overlays
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_opening_plot_framework.py`，先为番茄优先分类清单和 P0 overlay 骨架加红灯断言
+  - 运行 `python -m unittest tests.test_opening_plot_framework -v`，确认新增文档和 skill 读取路径在实现前失败
+  - 新建 `docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+  - 新建 `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md`
+  - 新建 8 张番茄 P0 特化卡：
+    - `宫斗宅斗`
+    - `职场婚恋`
+    - `青春甜宠`
+    - `豪门总裁`
+    - `都市日常`
+    - `玄幻脑洞`
+    - `都市脑洞`
+    - `历史脑洞`
+  - 更新 `docs/opening-and-plot-framework/README.md` 与 `06-题材特化接口.md`
+  - 为 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 增加：
+    - `fanqie-priority-categories-2026-03.md`
+    - `fanqie-p0-overlays/<bucket>.md`
+    的条件读取路径
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `docs/opening-and-plot-framework/06-题材特化接口.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/宫斗宅斗.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/职场婚恋.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/青春甜宠.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/豪门总裁.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/都市日常.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/玄幻脑洞.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/都市脑洞.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/历史脑洞.md` (created)
+  - `skills/novel-outline/SKILL.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-precheck/SKILL.md` (updated)
+  - `skills/novel-package/SKILL.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 8: Fanqie P0 Medium-Depth Cards
+- **Status:** complete
+- Actions taken:
+  - 读取 8 张现有 overlay，以及对应的 `shared/templates/genres/*.md` / `shared/profiles/*/profile*.yaml`
+  - 扩展 `tests/test_opening_plot_framework.py`，要求 8 张 P0 卡必须包含：
+    - `开篇公式`
+    - `黄金三章最低要求`
+    - `高频故障清单`
+    - `precheck 专项检查点`
+  - 运行测试并确认新增结构断言在实现前失败
+  - 将 8 张 P0 卡统一升级成中等深度版，并保留 `剧情层次重点`
+  - 更新 `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md`
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/宫斗宅斗.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/职场婚恋.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/青春甜宠.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/豪门总裁.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/都市日常.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/玄幻脑洞.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/都市脑洞.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/历史脑洞.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 9: Fanqie P0 Checkcards
+- **Status:** complete
+- Actions taken:
+  - 读取 `docs/gongdou-zhaidou-fault-funnel-review-card.md`，确认现有 bucket 级专项卡模式
+  - 扩展 `tests/test_opening_plot_framework.py`，要求新增：
+    - `fanqie-p0-checkcards/` 目录与 8 张卡
+    - `novel-review` / `novel-precheck` 的新读取路径
+    - 8 张卡的统一结构
+  - 运行测试并确认在实现前失败
+  - 新建 `docs/opening-and-plot-framework/fanqie-p0-checkcards/README.md`
+  - 为 8 类新增专项检查卡，统一覆盖：
+    - `自动触发范围`
+    - `对 novel-review`
+    - `对 novel-precheck`
+    - `核心检查问题`
+    - `红灯判定`
+  - 更新 `docs/opening-and-plot-framework/README.md` 与 `fanqie-p0-overlays/README.md`
+  - 更新 `skills/novel-review/SKILL.md` / `skills/novel-precheck/SKILL.md`
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/README.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/宫斗宅斗.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/职场婚恋.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/青春甜宠.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/豪门总裁.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/都市日常.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/玄幻脑洞.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/都市脑洞.md` (created)
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/历史脑洞.md` (created)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-precheck/SKILL.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 10: Fanqie P0 Output Contract
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_opening_plot_framework.py`，要求：
+    - 新增 `fanqie-p0-output-contract.md`
+    - `novel-review` 包含 `fanqie_bucket_review_summary`
+    - `novel-precheck` 包含 `fanqie_bucket_precheck_summary`
+    - `state-schema` 包含 `fanqie_bucket_flags / fanqie_bucket_summary`
+  - 运行测试并确认在实现前失败
+  - 新建 `docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+  - 更新 `docs/opening-and-plot-framework/README.md`
+  - 更新 `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json`
+  - 更新 `skills/novel-review/SKILL.md` / `skills/novel-precheck/SKILL.md`
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-output-contract.md` (created)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `shared/references/shared/state-schema.md` (updated)
+  - `shared/templates/state-v5-template.json` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-precheck/SKILL.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 11: Real Project Smoke
+- **Status:** complete
+- Actions taken:
+  - 读取 `projects/庶女谋略/.mighty/state.json`
+  - 读取总纲与第001-003章章纲 / 正文
+  - 基于真实项目手工生成一版 `fanqie_bucket_review_summary`
+  - 基于真实项目手工生成一版 `fanqie_bucket_precheck_summary`
+  - 新建只读 smoke 文档，记录判断依据与结论，不直接写回活项目 state
+- Files created/modified:
+  - `docs/opening-and-plot-framework/real-project-smoke-shunvmoulue-fanqie-p0-2026-03-23.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 12: Real Project Writeback
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_opening_plot_framework.py`，要求 `projects/庶女谋略/.mighty/state.json` 中存在：
+    - `chapter_meta["003"].fanqie_bucket_flags`
+    - `chapter_meta["003"].fanqie_bucket_summary.bucket = 宫斗宅斗`
+  - 运行测试并确认在写回前失败
+  - 将 `第003章` 的轻量 bucket 样本真实写回 `projects/庶女谋略/.mighty/state.json`
+  - 更新 `real-project-smoke-shunvmoulue-fanqie-p0-2026-03-23.md`，把样本结论从“只读验证”改成“轻量写回样本验证”
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+  - 额外用 JSON 读取确认：
+    - `fanqie_bucket_summary.bucket = 宫斗宅斗`
+    - `fanqie_bucket_flags = []`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `projects/庶女谋略/.mighty/state.json` (updated)
+  - `docs/opening-and-plot-framework/real-project-smoke-shunvmoulue-fanqie-p0-2026-03-23.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 13: Reusable Smoke Template
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_opening_plot_framework.py`，要求：
+    - `fanqie-p0-smoke-template.md` 存在
+    - `docs/opening-and-plot-framework/README.md` 能发现该模板入口
+    - 模板包含可复用的固定章节结构
+  - 运行测试并确认在实现前失败
+  - 新建 `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
+  - 更新 `docs/opening-and-plot-framework/README.md`
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md` (created)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 14: Cross-Project Smoke
+- **Status:** complete
+- Actions taken:
+  - 读取 `projects/庶妹换我婚书那夜，太子先开了口/.mighty/state.json`
+  - 读取该项目总纲与第001-003章章纲 / 正文
+  - 基于 `fanqie-p0-smoke-template.md` 生成第二份真实项目 smoke
+  - 新建 `real-project-smoke-hunshu-taizi-fanqie-p0-2026-03-23.md`
+  - 保持本轮为只读 smoke，不改第二个项目 state
+  - 重新运行 `python -m unittest tests.test_opening_plot_framework -v`，结果 `OK`
+  - 重新运行 `bash scripts/validate-migration.sh`，结果 `Migration validation passed`
+- Files created/modified:
+  - `docs/opening-and-plot-framework/real-project-smoke-hunshu-taizi-fanqie-p0-2026-03-23.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 15: Smoke Tool Design
+- **Status:** complete
+- Actions taken:
+  - 基于当前框架、真实样本与模板，收束“二合一 smoke 工具”的设计
+  - 明确默认模式为 `draft`
+  - 明确默认禁止 `writeback`
+  - 新建设计文档：
+    - `docs/superpowers/specs/2026-03-23-fanqie-p0-smoke-tool-design.md`
+- Files created/modified:
+  - `docs/superpowers/specs/2026-03-23-fanqie-p0-smoke-tool-design.md` (created)
+  - `progress.md` (updated)
+
+### Phase 16: Smoke Tool Implementation Planning
+- **Status:** complete
+- Actions taken:
+  - 读取 `fanqie-p0-smoke-tool-design.md`
+  - 对照 `tests/test_novel_scan.py` 与 `scripts/novel_scan.py` 的脚本/测试风格
+  - 写出实现计划：
+    - `docs/superpowers/plans/2026-03-23-fanqie-p0-smoke-tool.md`
+- Files created/modified:
+  - `docs/superpowers/plans/2026-03-23-fanqie-p0-smoke-tool.md` (created)
+  - `task_plan.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 17: Smoke Tool V1 Implementation
+- **Status:** complete
+- Actions taken:
+  - 新建 `tests/test_fanqie_p0_smoke.py`
+  - 按 TDD 依次补红灯与绿灯：
+    - CLI 默认模式 / 显式模式 / bucket 推断 / 写回护栏
+    - helper：`load_state` / `normalize_chapter_key` / `slugify_project_title` / `default_output_path`
+    - `scaffold` 模式
+    - `draft` 模式
+    - `writeback` 模式
+  - 新建并实现 `scripts/fanqie_p0_smoke.py`
+  - 更新 `docs/opening-and-plot-framework/README.md`
+  - 更新 `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
+  - 运行：
+    - `python -m unittest tests.test_fanqie_p0_smoke -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+  - 试跑：
+    - `python3 scripts/fanqie_p0_smoke.py --project-root "projects/庶女谋略" --chapter 003 --chapters 001-003 --output /tmp/fanqie-p0-shunv-smoke.md`
+    - `python3 scripts/fanqie_p0_smoke.py --project-root "projects/庶妹换我婚书那夜，太子先开了口" --chapter 003 --chapters 001-003 --output /tmp/fanqie-p0-hunshu-smoke.md`
+- Files created/modified:
+  - `tests/test_fanqie_p0_smoke.py` (created)
+  - `scripts/fanqie_p0_smoke.py` (created)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+## Session: 2026-03-23
+
+### Out-of-band Maintenance: novel-scan 信任边界与文档口径校正
+- **Status:** complete
+- Actions taken:
+  - 为 `scripts/novel_scan.py` 增加回归测试，覆盖低可信 `project-annotate` 禁止写回、`report-only` 清理陈旧 sidecar、以及番茄总榜 query 变体过滤
+  - 收紧 `project-annotate` 写回门槛，仅在当前结果达到中高可信时写 `.mighty/market-adjustments.json` 与 `state.json` 轻量摘要
+  - 修复 `report-only` 模式下遗留 `market_adjustments` sidecar/state 的陈旧数据问题
+  - 修复番茄总榜 URL 带 query string 时未被排除、进而污染 tag 推断的问题
+  - 对齐 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/phase-7a-scan-contract.md`、`docs/fanqie-content-data-layer.md` 与 `skills/novel-scan/SKILL.md` 的实验态与写回边界说明
+- Verification:
+  - `python3 -m pytest -q tests/test_novel_scan.py`
+  - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/novel_scan.py` (updated)
+  - `tests/test_novel_scan.py` (updated)
+  - `skills/novel-scan/SKILL.md` (updated)
+  - `docs/phase-7a-scan-contract.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/fanqie-content-data-layer.md` (updated)
+  - `README.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `progress.md` (updated)
+
+### Out-of-band Prototype: 番茄私有码位字体映射
+- **Status:** complete
+- Actions taken:
+  - 新建 `scripts/prototype_fanqie_font_map.py`，把番茄子集字体去混淆原型收成独立脚本，不污染 `novel_scan` 主逻辑
+  - 为原型补最小测试，覆盖私有码位提取、唯一签名解映射、近似候选排序、建议映射门槛
+  - 实测确认番茄榜单页是自定义 webfont 私有码位混淆，不是普通编码错误
+  - 实测确认 exact glyph hash 不足以直接命中，但基于归一化轮廓片段的近似匹配可把样例中的 ` /  /  / ` 分别推到 `天 / 三 / 生 / 无`
+  - 通过原型样例得到建议解码：`天渊 沐潇三生 无系统`
+- Verification:
+  - `python3 -m pytest -q tests/test_novel_scan.py tests/test_fanqie_font_map_prototype.py`
+  - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/prototype_fanqie_font_map.py` (created)
+  - `tests/test_fanqie_font_map_prototype.py` (created)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-23
 
 ### Workflow Tuning: 章节修订单章收敛模式
@@ -597,3 +989,251 @@
 - 已运行迁移结构校验：
   - `bash scripts/validate-migration.sh`
   - 结果：`Migration validation passed`
+
+## Session Update: 2026-03-23 15:56
+
+- 已按 `novel-close` 的单路由收口方式处理 `projects/庶女谋略` 第016章：
+  - 先做一轮新复审，判断为 `novel-fix` 尺度
+  - 不走 `polish` / `rewrite`
+- 已备份原稿到：
+  - `projects/庶女谋略/.mighty/backup/第016章-20260323-closure-before-fix.md`
+- 已将第016章正文压缩并收束为聚焦版：
+  - 保留 `针线房尺头单 -> 礼数分层 -> 林姨娘误读 -> 林若雪口风 -> 出入记名 -> 册页实物` 主链
+  - 删除大段重复解释
+  - 补入“主动记账”动作，避免整章只剩被动观察
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `chapter_meta[016].fix_count = 1`
+  - `chapter_meta[016].review_score = 87`
+  - `chapter_meta[016].recommended_next_action = none`
+  - 新增 `last_close_*` 元数据
+  - 同步更新 `chapter_snapshots[016]`、`summaries_index[016]`
+  - `progress.total_words = 66444`
+- 本轮收口残余：
+  - 第016章当前字数仍略高于目标上限，但已回到可控区间
+
+## Session Update: 2026-03-23 16:21
+
+- 已按 `novel-write` 写出 `projects/庶女谋略` 第017章，并保留默认 post-write close：
+  - 核心交易单元锁定为“庚帖条目与婚配比较”
+  - 让 `王氏 / 苏文渊 / 小桃` 在同一条婚配账上呈现不同立场
+  - 章末把“出门见客”收成明确的“带去给人看”
+- 本轮判断不以字数为第一优先：
+  - 以是否言之有物、是否推进婚配线、是否把人物位置关系写清为主
+  - 不为满足章长限制而机械增删无效内容
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 17`
+  - 新增 `chapter_meta[017]`
+  - 新增 `chapter_snapshots[017]`
+  - 新增 `summaries_index[017]`
+  - 更新主角 `status / current_goals / recent_events`
+  - 新增 suspense：`后日出门时谁会真正把苏照棠看进眼里`
+- 已按守卫式自动收口记录：
+  - `last_close_route = none`
+  - `review_score = 88`
+  - 下一章建议：尽快把“被看”兑现成具体场面
+
+## Session Update: 2026-03-23 16:40
+
+- 已按 `novel-batch` 的安全上限连续写出 `projects/庶女谋略` 第018-020章：
+  - `018`：把婚配线从“相看前准备”推进到“嫡庶价码明码化”
+  - `019`：把婚配压力从府内安排推进到寺会相看现场
+  - `020`：完成“高嫁未必是路”的卷末认知翻面，并自然挂出第二卷“借势破局”
+- 本轮遵循“三章链”而不是单章孤立写法：
+  - `定价 -> 相看 -> 认知翻面`
+  - 每章都保留有效交易单元，不为凑字数回填空内容
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 20`
+  - `progress.total_words = 95797`
+  - 新增 `chapter_meta[018-020]`
+  - 新增 `chapter_snapshots[018-020]`
+  - 新增 `summaries_index[018-020]`
+  - 更新主角 `status / current_goals / recent_events`
+  - 更新 suspense：
+    - 保留 `苏照棠的名字会被送去谁家相看`
+    - 新增 `苏照棠会借谁的势改写自己的婚配去处`
+    - 结清 `后日出门时谁会真正把苏照棠看进眼里`
+- 已运行批量质量门并通过：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 18 --end 20 --batch-count 3 --write-report`
+  - 结果：`status = pass`
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 17:05
+
+- 已按“先补完整卷前段章纲，再继续正文”的思路，为 `projects/庶女谋略` 新建第二卷前段 `021-030` 全套章纲：
+  - `021-023`：借势起手
+  - `024-026`：第一次换账，并把高门旧闻推上台面
+  - `027-030`：外家抬价、借差立位、成国公府前影与阶段收束
+- 本轮补纲不是零散补三章，而是把第二卷前段先锁成一条完整推进链：
+  - 从 `借风入账` 起手
+  - 到 `风不是巧合` 收第一阶段
+- 已确认十份新章纲都具备可直接写作的基本结构：
+  - `核心问题`
+  - `章节目标`
+  - `场景拆解`
+  - `本章账本`
+  - `章末钩子`
+- 下一步可以直接按三章工作流规则卡，从 `021-023` 开始连续写正文，不需要再回补第二卷前段方向
+
+## Session Update: 2026-03-23 17:11
+
+- 已按三章工作流规则卡连续写出 `projects/庶女谋略` 第021-023章：
+  - `021`：借寺会余风入账，第一次摸到回礼名册
+  - `022`：从名册和旧备注里坐实冯家二房这门不利婚事
+  - `023`：借苏文渊“照规矩慢慢来”的口气，把冯家口风先往后拖住半步
+- 本轮仍以内容推进为第一标准：
+  - `借差事入门 -> 看账辨轻重 -> 顺手换账`
+  - 没有为了满足软门槛回填无效段落
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 23`
+  - `progress.total_words = 102523`
+  - 新增 `chapter_meta[021-023]`
+  - 新增 `chapter_snapshots[021-023]`
+  - 新增 `summaries_index[021-023]`
+  - 更新主角 `status / current_goals / recent_events`
+  - suspense 变更：
+    - 结清 `苏照棠会借谁的势改写自己的婚配去处`
+    - 新增 `旧礼例册里的成国公府名字后面到底连着谁`
+- 已运行批量质量门：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 21 --end 23 --batch-count 3 --write-report`
+  - 结果：`status = warn`
+  - 原因：三章均低于软下限，但无 `fail` 级问题
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 17:57
+
+- 已继续按同一工作流写出 `projects/庶女谋略` 第024-026章：
+  - `024`：旧礼例册中第一次完整碰到“成国公府、寄居顾氏、旧例沿此”
+  - `025`：林若雪带来半句旧闻，让寄居表姑娘第一次从“旧账”变成“人影”
+  - `026`：通过被抹掉的残字，把婚配账与旧闻账正式并到一起，并挂出下一轮小宴新局
+- 本轮未触发额外 MCP 补设定：
+  - 当前项目内设定文件足够支持这组三章
+  - 仍未进入必须外查官制/礼制/高门谱系细则的阶段
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 26`
+  - `progress.total_words = 109274`
+  - 新增 `chapter_meta[024-026]`
+  - 新增 `chapter_snapshots[024-026]`
+  - 新增 `summaries_index[024-026]`
+  - 更新主角 `status / current_goals / recent_events`
+  - suspense 变更：
+    - 结清 `旧礼例册里的成国公府名字后面到底连着谁`
+    - 新增 `那位被抹掉名字的寄居表姑娘究竟留下了什么`
+- 已运行批量质量门：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 24 --end 26 --batch-count 3 --write-report`
+  - 结果：`status = warn`
+  - 原因：三章均低于软下限，但无 `fail` 级问题
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 18:12
+
+- 已继续按同一三章工作流写出 `projects/庶女谋略` 第027-029章：
+  - `027`：王家外家正式开始替主角抬价，主角锁定“借结果主义”这条路
+  - `028`：借小宴席次与迎客差事，把“可用”换成更主动的一寸位置
+  - `029`：成国公府第一次从旧册残影变成现实中的外院来往名目
+- 本轮未触发额外 MCP 补设定：
+  - 当前项目内家谱、势力、角色卡仍足够支撑这一组推进
+  - 还没进入必须外查官制/礼制细则的阶段
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 29`
+  - `progress.total_words = 115640`
+  - 新增 `chapter_meta[027-029]`
+  - 新增 `chapter_snapshots[027-029]`
+  - 新增 `summaries_index[027-029]`
+  - 更新主角 `status / current_goals / recent_events`
+  - suspense 变更：
+    - 结清 `那位被抹掉名字的寄居表姑娘究竟留下了什么`
+    - 新增 `成国公府外院正在动的这条线，会把苏照棠引到谁身上`
+- 已运行批量质量门：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 27 --end 29 --batch-count 3 --write-report`
+  - 结果：`status = warn`
+  - 原因：三章均低于软下限，但无 `fail` 级问题
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 18:23
+
+- 已继续按同一三章工作流写出 `projects/庶女谋略` 第030-032章：
+  - `030`：把 `021-030` 的并账判断正式收成“风不是巧合”
+  - `031`：在小宴现场把主角从“被看的人”换成“在场有用的人”
+  - `032`：通过三房转出的回帖与“顾氏旧份并销”，第一次真正坐实顾含真后嫁裴氏旁支三房
+- 本轮按既有项目设定直接写作，未触发额外 MCP 补资料：
+  - 当前家谱、势力、角色卡仍足够支撑 `030-032`
+  - 尚未进入必须外查高门礼制或官制的节点
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 32`
+  - `progress.total_words = 121710`
+  - 新增 `chapter_meta[030-032]`
+  - 新增 `chapter_snapshots[030-032]`
+  - 新增 `summaries_index[030-032]`
+  - 更新主角 `status / current_goals / recent_events`
+  - suspense 变更：
+    - 结清 `成国公府外院正在动的这条线，会把苏照棠引到谁身上`
+    - 新增 `裴氏旁支三房后面那个仍在动的人到底是谁`
+- 已运行批量质量门：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 30 --end 32 --batch-count 3 --write-report`
+  - 结果：`status = warn`
+  - 原因：三章均低于软下限，但无 `fail` 级问题
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 18:45
+
+- 已按 review 结论对 `projects/庶女谋略` 第030-032章做一轮有价值的润色扩写：
+  - `030`：补强“并账推进”从抽象判断落到现实触点与前文记忆上的重量
+  - `031`：补入小宴中的具体试探与口风抬价，让“照人局”更像现场而非结果汇报
+  - `032`：补强“三房线”背后仍连着活人的危险感与现实阻力
+- 本轮明确执行新的章节硬线：
+  - 正文在“内容有效”前提下，每章不少于 `3000` 字
+- 已同步更新 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.total_words = 124645`
+  - `chapter_meta[030-032].word_count` 全部刷新到最新版本
+  - `chapter_snapshots[030-032].word_count` 全部刷新到最新版本
+  - `meta.updated_at / progress.last_write_time` 同步更新
+- 已重新运行批量质量门并通过：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 30 --end 32 --batch-count 3 --write-report`
+  - 结果：`status = pass`
+- 已重新运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-23 19:34
+
+- 已按默认流程先补后写，为 `projects/庶女谋略` 新建并消费第033-035章章纲：
+  - `033`：外院缺口
+  - `034`：名字半露
+  - `035`：活人接线
+- 已继续按同一三章工作流写出第033-035章：
+  - `033`：借外院礼货与回帖缺口，继续往里争位置
+  - `034`：把活人线大致锁进裴则安这一层
+  - `035`：把“先锁位置，再锁活人”正式收成下一阶段策略
+- 本轮明确满足当前章节硬线：
+  - `033 = 3002`
+  - `034 = 3001`
+  - `035 = 3000`
+- 本轮未触发额外 MCP 补设定：
+  - 当前项目内设定仍足够支撑这一组三章
+  - 尚未进入必须外查更细高门礼制 / 官制节点
+- 已回写 `projects/庶女谋略/.mighty/state.json`：
+  - `progress.current_chapter = 35`
+  - `progress.total_words = 133648`
+  - 新增 `chapter_meta[033-035]`
+  - 新增 `chapter_snapshots[033-035]`
+  - 新增 `summaries_index[033-035]`
+  - 更新主角 `status / current_goals / recent_events`
+  - suspense 变更：
+    - 结清 `裴氏旁支三房后面那个仍在动的人到底是谁`
+    - 新增 `苏照棠还能再争到哪一层位置，去继续摸裴则安和顾含真旧案`
+- 已运行批量质量门并通过：
+  - `python3 scripts/check-batch-quality-gate.py projects/庶女谋略 --start 33 --end 35 --batch-count 3 --write-report`
+  - 结果：`status = pass`
+- 已运行维护钩子：
+  - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
+  - 结果：`ran-maintenance`

@@ -50,6 +50,8 @@ Always read:
 - `../../shared/references/shared/core-constraints.md`
 - `../../docs/anti-flattening-framework/README.md`
 - `../../docs/anti-flattening-framework/01-总纲.md`
+- `../../docs/opening-and-plot-framework/README.md`
+- `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 
 Read conditionally:
 
@@ -76,6 +78,15 @@ Read conditionally:
 - `../../docs/anti-flattening-framework/08-流派故障库.md`
 - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
 - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+- `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+- `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+- `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+- `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+- `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+- `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
 - `../../shared/references/writing/ancient-household-kinship-guide.md`
 - `../../shared/references/writing/ancient-office-hierarchy-guide.md`
 - `../shared/profiles/<genre>/profile-<platform>.yaml`
@@ -98,6 +109,7 @@ Resolve shared profile roots in this order:
 3. Read `../../shared/references/shared/core-constraints.md`.
 4. Read the target chapters.
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
+   - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 6. When the route is multi-character, multi-faction, politics-heavy, relationship-heavy, transmigration/system-heavy, or the user explicitly asks for反脸谱化预检:
    - read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
@@ -107,6 +119,17 @@ Resolve shared profile roots in this order:
      - `../../docs/anti-flattening-framework/08-流派故障库.md`
      - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
      - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+6a. When the range includes chapters 1-3, or the user explicitly asks for开篇/剧情层次预检:
+   - read:
+     - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+     - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+     - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+     - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+     - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+     - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
+     - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md` when the active Fanqie bucket matches a P0 checkcard file
 5. If the range includes chapters 1-3, run a stronger “golden three” check:
    - hook arrival speed
    - protagonist presence
@@ -137,6 +160,7 @@ Resolve shared profile roots in this order:
      - character vividness
      - suspense handoff
      - resistance / cost / residual-risk visibility
+     - bucket-specific submission red flags before generic softness notes
      - when the active bucket is `宫斗宅斗`, also treat palace-specific adjustments as concrete precheck lenses:
        - `scan-surface-hook`
          - has the chapter range actually front-loaded婚配错位 / 赐婚 / 和离 / 高门关系冲突
@@ -146,6 +170,10 @@ Resolve shared profile roots in this order:
          - are relation words still consistent with household truth files across title / synopsis / outline /正文
    - do not let writing-technique rules override canon or active bucket
 9. Check quality and editorial risk:
+   - whether the opening promise is visible enough in chapters 1-3
+   - whether chapters 1-3 contain a real first exchange or first payoff instead of pressure-only motion
+   - whether the range can clearly name its primary line and touched secondary line
+   - whether major movement changes only events, or also changes information / relation / cost / residue ledgers
    - pacing softness
    - payoff density
    - weak suspense carryover
@@ -185,6 +213,13 @@ Resolve shared profile roots in this order:
    - should-fix items
    - strongest positives
    - optional anti-flattening note
+   - when the active bucket matches a Fanqie P0 bucket, optionally include `fanqie_bucket_precheck_summary` with:
+     - bucket
+     - submission_fit
+     - opening_status
+     - golden_three_status
+     - packaging_alignment
+     - top_blocker
    - submission recommendation
    - packaging readiness
    - optional bucket-fit note
@@ -257,6 +292,7 @@ Prefer this shape:
 - 投稿建议
 
 Use `✅ / ⚠️ / ❌` style summaries when helpful.
+- Opening-and-plot rules should support opening strength, layering, and progression judgment, but they should not override canon or active bucket law.
 
 ## Notes
 

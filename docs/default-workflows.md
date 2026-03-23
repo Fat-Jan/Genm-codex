@@ -115,6 +115,9 @@
 - 批量写作 -> 最多 `3` 章 / 批，并在每批后过质量门
 - `skip_close=true` 只在你明确想要“这次只写不收口”时使用
 - `novel-review` 默认也应检查：
+  - 开篇承诺是否在前 1-3 章可见且有近期兑现路径
+  - 剧情是否能分清主推进线和被触动的次级线
+  - 推进是否真的改变了信息、关系、代价或残账账本
   - 主角特权是否吃掉他人人生
   - 关键角色是否只剩功能位
   - 关系 / 阵营是否写成单声道
@@ -128,6 +131,10 @@
 反脸谱化工作流参考：
 
 - [workflow-usage-guide-2026-03-22.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/workflow-usage-guide-2026-03-22.md)
+
+开篇与剧情层次工作流参考：
+
+- [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
 
 ---
 

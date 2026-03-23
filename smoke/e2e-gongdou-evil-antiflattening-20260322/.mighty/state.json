@@ -594,9 +594,77 @@
   "character_states": {},
   "setting_versions": {},
   "market_adjustments": {
-    "last_applied": null,
-    "source_scan": null,
-    "adjustments": []
+    "last_applied": "2026-03-23T07:38:11Z",
+    "source_scan": {
+      "scan_time": "2026-03-23T07:38:11Z",
+      "mode": "project-annotate",
+      "platform": "番茄",
+      "genre": "宫斗宅斗",
+      "depth": "quick",
+      "report_kind": "real_report",
+      "confidence": {
+        "overall": "medium",
+        "reason": "当前运行中拿到了至少一个 A 级官方来源，但仍只是单次快照，没有时间序列或后台行为数据。"
+      },
+      "sources": [
+        "https://fanqienovel.com/rank/0",
+        "https://fanqienovel.com/rank/0_2_246",
+        "https://fanqienovel.com/rank/0_1_246",
+        "https://fanqienovel.com/rank/0_2_1139",
+        "https://fanqienovel.com/rank/0_1_1139"
+      ]
+    },
+    "adjustments": [
+      {
+        "id": "scan-manual-review-first",
+        "priority": "medium",
+        "scope": "project",
+        "applies_to": [
+          "包装",
+          "开篇钩子",
+          "后续写作方向"
+        ],
+        "suggestion": "先基于本轮市场来源做人工复核，再把稳定信号同步到包装或写作链。",
+        "reason": "当前脚本已经拿到真实来源，但仍属于单次快照，不宜直接上升为强约束。"
+      },
+      {
+        "id": "scan-surface-hook",
+        "priority": "high",
+        "scope": "project",
+        "applies_to": [
+          "包装",
+          "简介",
+          "开篇前三章"
+        ],
+        "suggestion": "优先把婚配错位、赐婚拉扯或高门关系冲突写到首屏最前面，不要把主钩子拖到后段。",
+        "reason": "当前宫斗宅斗样本显示，婚配与位阶关系本身就能承担第一钩子。"
+      },
+      {
+        "id": "scan-frontload-conflict",
+        "priority": "high",
+        "scope": "project",
+        "applies_to": [
+          "开篇前3章",
+          "首轮冲突单元"
+        ],
+        "suggestion": "让陷害与反击尽量在同一轮剧情里闭合，避免长期只受压不回击。",
+        "reason": "当前宫斗宅斗样本里，先压后反击的即时兑现是高频追读点。"
+      },
+      {
+        "id": "scan-kinship-truth-check",
+        "priority": "high",
+        "scope": "project",
+        "applies_to": [
+          "书名关系词",
+          "简介",
+          "章纲",
+          "设定集/家族"
+        ],
+        "suggestion": "涉及嫡女、庶妹、县主、郡主、和离、赐婚等关系词时，先补齐嫡庶、齿序、婚配与家权真值，再让包装和正文消费。",
+        "reason": "当前市场偏好确实吃高门婚配和关系冲突，但这类词如果脱离真值，会比普通题材更快出戏。"
+      }
+    ],
+    "sidecar_file": "smoke/e2e-gongdou-evil-antiflattening-20260322/.mighty/market-adjustments.json"
   },
   "dungeons": {
     "completed": [],

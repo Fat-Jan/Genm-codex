@@ -133,6 +133,15 @@
 - 当当前 bucket 为 `宫斗宅斗` 时，`novel-write` 会自动加一层轻量“故障漏斗”预检，`novel-review` 会自动读取专项判定卡并补充 `gongdou_funnel_summary`
 - 专项判定卡入口： [gongdou-zhaidou-fault-funnel-review-card.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gongdou-zhaidou-fault-funnel-review-card.md)
 
+开篇方法与剧情层次入口：
+
+- [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- `novel-outline` 现在会按需读取这组文档来锁开篇承诺、前三章兑现路径、主推进线和次级线触动
+- `novel-write` 现在会按需读取这组文档来避免背景先行、压力空转和只有事件没有账本变化
+- `novel-review` 现在会按需把开篇抓力、层次清晰度和推进有效性纳入结构审查
+- `novel-precheck` 现在会在投稿前检查首屏 promise、黄金三章兑现和推进残账
+- `novel-package` 现在会按需读取这组文档，把包装承诺和正文实际可兑现节点对齐
+
 ## 第二阶段已迁入
 
 - `genm-novel-character`

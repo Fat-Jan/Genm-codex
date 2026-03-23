@@ -1,0 +1,46 @@
+{
+  "project": "projects/庶女谋略",
+  "chapters": [
+    33,
+    34,
+    35
+  ],
+  "batch_count": 3,
+  "baseline_avg_chars": 3001.6666666666665,
+  "metrics": [
+    {
+      "chapter": 33,
+      "chars": 3002,
+      "lines": 174,
+      "dialogue_marks": 42,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 34,
+      "chars": 3001,
+      "lines": 195,
+      "dialogue_marks": 42,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 35,
+      "chars": 3000,
+      "lines": 213,
+      "dialogue_marks": 37,
+      "bullet_lines": 0
+    }
+  ],
+  "status": "pass",
+  "safe_max_batch": 3,
+  "length_policy": {
+    "track": "longform",
+    "hard_min_chars": 2000,
+    "soft_min_chars": 2500,
+    "preferred_min_chars": 2800,
+    "preferred_max_chars": 3600,
+    "bucket_name": "宫斗宅斗"
+  },
+  "issues": [],
+  "warnings": [],
+  "recommendation": "当前批次通过质量门，但后续仍建议一次性最多 3 章。"
+}

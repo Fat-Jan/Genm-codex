@@ -2,3 +2,9 @@
 e2e-novel/.mighty/backup/
 **/.mighty/backup/
 **/.mighty/maintenance-report.json
+.tmp/
+scripts/__pycache__/
+tests/__pycache__/
+**/.mighty/market-data.json
+**/.mighty/market-adjustments.json
+**/.mighty/sync-review.json

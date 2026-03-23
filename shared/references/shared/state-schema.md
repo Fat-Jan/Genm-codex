@@ -444,6 +444,8 @@ version: "1.0"
 | recommended_next_action | string | `none/fix/polish/rewrite/write` 等路由建议 |
 | anti_flattening_flags | string[] | 反脸谱化风险标签，保持轻量 |
 | anti_flattening_summary | object | 可选结构摘要，记录主角特权、关系、阵营、代价链等问题 |
+| fanqie_bucket_flags | string[] | 命中番茄 bucket 时的轻量风险标签 |
+| fanqie_bucket_summary | object | 可选 bucket 级摘要，记录当前主故障与红灯 |
 | last_close_time | string | 最近一次 `novel-close` 执行时间 |
 | last_close_route | string | 最近一次 `novel-close` 选择的主路由 |
 | last_close_review_score_before | number | 最近一次 `novel-close` 首轮 review 分数 |
@@ -455,10 +457,19 @@ version: "1.0"
 - `anti_flattening_summary` 只有在 review 明确识别到关键问题时才写
 - 不为反脸谱化单独创建新的顶层 state 区块
 
+### 番茄 bucket 轻量约定
+
+- `fanqie_bucket_flags` 只在 bucket 级红灯清晰时写
+- `fanqie_bucket_summary` 只保留主故障、红灯和 bucket 档位，不存长段评语
+- 不为 bucket 专项检查单独创建新的顶层 state 区块
+
 ### `dimension_scores` 附加键约定
 
 除已有质量维度外，可追加：
 
+- `开篇抓力`
+- `层次清晰度`
+- `推进有效性`
 - `人物立体度`
 - `关系张力`
 - `阵营分歧`
