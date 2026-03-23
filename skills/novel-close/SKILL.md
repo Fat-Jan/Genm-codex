@@ -60,6 +60,7 @@ Read conditionally:
   - `warnings`
   - `issue_clusters`
 - `大纲/章纲/第N章.md` when route ambiguity needs chapter-purpose confirmation
+- `../../docs/strong-quality-gate-policy.json` when post-write hard blocking must be evaluated
 
 ## Workflow
 
@@ -89,8 +90,15 @@ Read conditionally:
 8. If the route is `novel-rewrite`:
    - stop and explicitly surface rewrite as the correct next move
    - do not downgrade rewrite-sized work into `novel-fix` or `novel-polish`
-9. If chapter text changed, run a second `novel-review`.
-10. Persist lightweight close metadata inside `chapter_meta[N]` when the project tracks those fields.
+9. Before reporting close success, run the strong post-write hard gate when the project uses `../../docs/strong-quality-gate-policy.json`.
+   - treat the policy file as the single rule source for hard blockers
+   - if the gate reports a blocker, `novel-close` must not report the chapter as closed for this pass
+   - route the chapter back to:
+     - `novel-fix` for bounded local repair
+     - `novel-rewrite` for structural failure
+   - do not let a cosmetic polish path override a hard blocker
+10. If chapter text changed, run a second `novel-review`.
+11. Persist lightweight close metadata inside `chapter_meta[N]` when the project tracks those fields.
 
 ### `mode=review-only`
 
@@ -152,6 +160,11 @@ Typical qualifying language-layer issues:
 
 - any actual text change must be followed by a final `novel-review`
 
+### Strong Hard Gate
+
+- `novel-close` cannot declare convergence success when the strong post-write gate still reports objective blockers
+- block only on policy-backed hard failures, not on vague style discomfort
+
 ## Output conventions
 
 Return:
@@ -184,3 +197,4 @@ Do not create a new top-level workflow or quality state center for this feature.
   - mixed local-content and language issues -> prefer `novel-fix`
   - pure language cleanup -> prefer `novel-polish`
 - If the user wants a single bounded convergence pass rather than a review-only report, this skill is the preferred entry point.
+- Strong post-write blockers must resolve from `../../docs/strong-quality-gate-policy.json`, not from duplicated threshold text in this skill.

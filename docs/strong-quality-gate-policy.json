@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "policy_name": "strong-quality-gate-policy",
+  "source_type": "strong-quality-gate-v1",
+  "defaults": {
+    "longform": {
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2400,
+      "preferred_min_chars": 2600,
+      "preferred_max_chars": 3400
+    },
+    "shortform": {
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1600,
+      "preferred_min_chars": 1800,
+      "preferred_max_chars": 2600
+    }
+  },
+  "buckets": {
+    "宫斗宅斗": {
+      "track": "longform",
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2500,
+      "preferred_min_chars": 2800,
+      "preferred_max_chars": 3600
+    },
+    "传统玄幻": {
+      "track": "longform",
+      "hard_min_chars": 2000,
+      "soft_min_chars": 2500,
+      "preferred_min_chars": 2800,
+      "preferred_max_chars": 3600
+    },
+    "现实情感": {
+      "track": "shortform",
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1800,
+      "preferred_min_chars": 2000,
+      "preferred_max_chars": 2800
+    },
+    "现言甜宠": {
+      "track": "shortform",
+      "hard_min_chars": 1200,
+      "soft_min_chars": 1800,
+      "preferred_min_chars": 2000,
+      "preferred_max_chars": 2800
+    }
+  },
+  "pre_write_gate": {
+    "truth_sources": {
+      "kinship_truth": [
+        "设定集/家族/宅门真值表.md",
+        "设定集/家族/小型家谱.md"
+      ],
+      "office_truth": [
+        "设定集/官制/官职真值表.md",
+        "设定集/官制/权力层级图.md"
+      ],
+      "world_rule_support": [
+        "设定集/世界观/*.md",
+        "设定集/世界观/世界观真值表.md"
+      ]
+    }
+  },
+  "post_write_gate": {
+    "shrinkage": {
+      "baseline_drop_ratio": 0.55,
+      "compressed_ratio_of_hard_min": 0.85,
+      "compressed_floor_chars": 900,
+      "summary_like_run_min_chapters": 2,
+      "lookback_window": 3
+    },
+    "malformed_text": {
+      "repeated_exact_token_min_occurrences": 3,
+      "repeated_fragment_min_occurrences": 3,
+      "duplicated_sentence_fragment_min_occurrences": 2,
+      "punctuation_corruption_min_occurrences": 3
+    }
+  },
+  "sync_gate": {
+    "characters": {
+      "min_confidence_mentions": 2,
+      "max_person_name_chars": 3,
+      "reject_if_contains": [
+        "里",
+        "上",
+        "中",
+        "后",
+        "着",
+        "过",
+        "旧",
+        "记",
+        "签",
+        "次",
+        "姑娘"
+      ],
+      "reject_exact_names": [
+        "张纸",
+        "白褙子",
+        "花厅里",
+        "危险",
+        "席次",
+        "张小签",
+        "张转记",
+        "顾氏旧",
+        "顾姑娘",
+        "路数",
+        "封迟来",
+        "任务",
+        "裴氏旁"
+      ],
+      "reject_suffixes": [
+        "里",
+        "中",
+        "上",
+        "下"
+      ],
+      "phrase_fragment_reject_min_occurrences": 2,
+      "repetitive_noise_reject_min_occurrences": 2,
+      "min_phrase_fragment_chars": 2,
+      "garment_or_object_hints": [
+        "褙子",
+        "尺头",
+        "单",
+        "纸",
+        "匣",
+        "簿",
+        "账"
+      ]
+    }
+  }
+}

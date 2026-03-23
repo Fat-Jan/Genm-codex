@@ -7,6 +7,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
+import strong_quality_gate
+
 
 COMMON_SURNAMES = (
     "赵钱孙李周吴郑王冯陈褚卫蒋沈韩杨朱秦尤许何吕张孔曹严华金魏陶姜戚谢邹喻柏水窦章"
@@ -125,15 +127,21 @@ def looks_like_personal_name(name: str) -> bool:
     return True
 
 
-def infer_characters(state: dict, texts: list[str], overrides: dict) -> tuple[list[str], list[dict]]:
+def infer_characters(state: dict, texts: list[str], overrides: dict, policy: dict) -> tuple[list[str], list[dict]]:
     candidates = []
     protagonist = state["entities"]["characters"]["protagonist"]["name"]
     joined = "\n".join(texts)
     role_names = [
-        name for name in re.findall(r"[\u4e00-\u9fff]{1,3}(?:氏|爷|娘子|妈妈|嬷嬷|族叔|太子)", joined)
+        name
+        for name in re.findall(r"[\u4e00-\u9fff]{1,3}(?:氏|爷|娘子|妈妈|嬷嬷|族叔|太子)", joined)
         if not any(ch in INVALID_NAME_CHARS for ch in name)
+        and (name == "太子" or name[0] in COMMON_SURNAMES)
     ]
-    personal_names = [name for name in re.findall(rf"[{COMMON_SURNAMES}][\u4e00-\u9fff]{{1,2}}", joined) if looks_like_personal_name(name)]
+    personal_names = [
+        name
+        for name in re.findall(rf"(?<![\u4e00-\u9fff])[{COMMON_SURNAMES}][\u4e00-\u9fff]{{1,2}}(?![\u4e00-\u9fff])", joined)
+        if looks_like_personal_name(name) and "氏" not in name[1:]
+    ]
     for name in role_names + personal_names:
         if protagonist in name:
             continue
@@ -147,7 +155,27 @@ def infer_characters(state: dict, texts: list[str], overrides: dict) -> tuple[li
     for c in candidates:
         counts[c] = counts.get(c, 0) + 1
     sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
-    result = [name for name, count in sorted_counts if count >= 2][:12]
+    result: list[str] = []
+    rejected: list[dict] = []
+    rejected_names: set[str] = set()
+    for name, count in sorted_counts:
+        decision = strong_quality_gate.classify_sync_candidate(
+            name=name,
+            occurrences=count,
+            policy=policy,
+            phrase_fragment_hits=count if any(token in name for token in policy.get("sync_gate", {}).get("characters", {}).get("reject_if_contains", [])) else 0,
+            repetitive_noise_hits=0,
+        )
+        if decision["accepted"]:
+            result.append(name)
+        else:
+            rejected_names.add(name)
+            rejected.append({
+                "name": name,
+                "kind": "character",
+                "reason": ",".join(decision["reasons"]) if decision["reasons"] else "rejected-by-gate",
+            })
+    result = result[:12]
     role_counts: dict[str, int] = {}
     for c in role_names:
         if c == protagonist or c in NAME_STOPWORDS:
@@ -156,10 +184,10 @@ def infer_characters(state: dict, texts: list[str], overrides: dict) -> tuple[li
             continue
         c = normalize_name("character", c, overrides)
         role_counts[c] = role_counts.get(c, 0) + 1
-    ambiguous = [
+    ambiguous = rejected + [
         {"name": name, "kind": "character", "reason": f"only_seen_{count}_time"}
         for name, count in sorted(role_counts.items(), key=lambda x: (-x[1], x[0]))
-        if count == 1 and name not in result
+        if count == 1 and name not in result and name not in rejected_names
     ][:12]
     return result, ambiguous
 
@@ -389,10 +417,11 @@ def main() -> None:
     project_root = Path(args.project_root)
     state = load_state(project_root)
     overrides = load_overrides(project_root)
+    policy = strong_quality_gate.load_policy()
     chapters = recent_chapter_numbers(state, args.recent_chapters)
     texts = chapter_texts(project_root, chapters)
 
-    inferred_characters, char_ambiguities = infer_characters(state, texts, overrides)
+    inferred_characters, char_ambiguities = infer_characters(state, texts, overrides, policy)
     characters = parse_csv(args.characters) or inferred_characters
     locations = parse_csv(args.locations) or infer_locations(state, overrides)
     factions = parse_csv(args.factions) or infer_factions(state, texts, locations, overrides)

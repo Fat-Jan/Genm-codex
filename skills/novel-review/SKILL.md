@@ -46,6 +46,7 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/strong-quality-gate-policy.json`
 
 ## Workflow
 
@@ -95,6 +96,9 @@ Read conditionally:
      - reader_motive
      - opening_rule
      - ending_hook_rule
+   - when the project uses the strong quality gate:
+     - surface policy-backed hard blockers before softer style notes
+     - do not contradict a known write-preflight / close-gate blocker with a casual “looks fine”
 8. Before routing, collapse findings into at most `3` actionable issue clusters.
    - each cluster should map to one repair action family, not a one-line tweak
    - if multiple small issues live in the same paragraph / beat / scene, group them together
@@ -162,6 +166,7 @@ When the route is clear, also update:
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
 - If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.
+- When strong-gate policy is present, treat it as the source of hard-block semantics; `novel-review` may explain and route around blockers, but should not redefine the blocker thresholds here.
 
 ## Route rules
 
