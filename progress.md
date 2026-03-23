@@ -551,3 +551,24 @@
   - `docs/v1-rc-plan.md`
   - `docs/v1-rc-exit-criteria.md`
   - `docs/v1-rc-blockers.md`
+
+## Session Update: 2026-03-23 13:30
+
+- 已为 `novel-write` 增加守卫式自动收口契约：
+  - 单章写作默认尝试 `novel-close`
+  - 支持显式 `skip_close=true`
+  - `novel-batch` 不继承该默认行为
+- 已明确 `novel-close` 是 post-write handoff 的执行器：
+  - `novel-write` 决定是否触发
+  - `novel-close` 负责 `review -> route -> re-review`
+- 已更新用户入口文档：
+  - `README.md`
+  - `docs/default-workflows.md`
+  - `docs/start-here.md`
+  - `docs/skill-usage.md`
+- 已完成边界核查：
+  - `skills/novel-batch/SKILL.md` 未引入 auto-close
+  - `scripts/post-task-maintenance.py` 未引入 prose mutation
+- 已运行迁移结构校验：
+  - `bash scripts/validate-migration.sh`
+  - 结果：`Migration validation passed`
