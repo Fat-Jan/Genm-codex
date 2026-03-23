@@ -14,6 +14,7 @@ Use this skill when the user wants to write the next chapter from the current ou
 - optional `style`
 - optional `content_bucket`
 - optional `tagpack`
+- optional `skip_close`
 
 ## Preconditions
 
@@ -39,6 +40,7 @@ Read conditionally:
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
 - previous chapter file or summary
+- `.mighty/workflow_state.json` when workflow safety must be checked before post-write auto-close
 - `.mighty/learned-patterns.json`
 - `.mighty/market-adjustments.json`
 - current `learned_patterns` summary inside `.mighty/state.json`
@@ -125,10 +127,22 @@ Read conditionally:
    - `chapter_snapshots`
    - `summaries_index`
 13. Do not write review scores here unless an actual review step was run.
-14. Recommend running `novel-close` immediately after writing.
-15. After a real writing round, the preferred automatic hook is:
+14. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+   - run this only for a normal single-chapter `novel-write`
+   - do not inherit this behavior into `novel-batch`
+   - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
+   - otherwise attempt `novel-close` only when all guards pass:
+     - `.mighty/state.json` exists
+     - `大纲/章纲/第N章.md` exists
+     - the chapter file was written successfully
+     - current workflow state is not clearly failed or malformed when workflow state exists
+     - the user did not explicitly request a write-only pass
+   - if guards fail, do not fake execution; report the exact skip reason
+   - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
+15. After a real writing round, the preferred maintenance hook remains:
    - `scripts/post-task-maintenance.py <project_root> --trigger write`
    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
+   - maintenance is not the place where prose mutation or `novel-close` execution should live
 
 ## Chapter state update requirements
 
@@ -144,7 +158,10 @@ At minimum, update:
 
 - `chapters/第N章.md`
 - updated `.mighty/state.json`
-- optional note recommending `novel-close`
+- optional write summary including:
+  - whether auto-close was attempted
+  - whether it ran or was skipped
+  - route used or skip reason when available
 
 ## Failure handling
 
@@ -159,6 +176,7 @@ At minimum, update:
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
 - Treat learned-pattern sidecar data as a preference signal, not a hard rule.
 - Treat market-adjustment sidecar data as packaging or pacing guidance, not as a reason to break canon or outline purpose.
+- `novel-write` does not inline `review -> route -> re-review`; guarded post-write convergence should hand off to `novel-close`.
 - When Fanqie rules stack, apply them in this order:
   1. canon / state / chapter outline
   2. active bucket
