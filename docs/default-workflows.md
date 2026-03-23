@@ -52,19 +52,31 @@
 推荐顺序：
 
 1. `novel-write`
-2. `novel-review`
-3. 根据 review 路由进入：
-   - `novel-fix`
-   - `novel-polish`
-   - `novel-rewrite`
-4. 每 3-5 章或一个阶段后：
+   - 写前先过资料充分性强门：
+     - 需要的真值表 / 规则文件缺失时，直接阻断本章写作
+   - 单章默认会守卫式自动尝试一次 `novel-close`
+   - 可显式用 `skip_close=true` 跳过
+2. `novel-close`
+   - 作为默认的单章收口轮入口
+   - 内部执行：
+     - `novel-review`
+     - 单一路由：
+       - `novel-fix`
+       - `novel-polish`
+       - `novel-rewrite`
+       - 或 `none`
+     - 若正文被修改，再做一次 `novel-review`
+   - 若强质量门仍有客观 blocker：
+     - 不允许把本章标记为已收口
+     - 必须回到 `novel-fix` 或 `novel-rewrite`
+3. 每 3-5 章或一个阶段后：
    - `novel-sync`
-5. 每轮正文维护后：
+4. 每轮正文维护后：
    - 默认自动挂：
      - `scripts/post-task-maintenance.py <project_root> --trigger write|batch|workflow`
    - 手动补跑：
      - `scripts/project-maintenance.py <project_root>`
-6. 章节很多后：
+5. 章节很多后：
    - `novel-sync (thin-state)`
 
 目标：
@@ -79,10 +91,23 @@
 
 推荐规则：
 
+- `novel-close` 是默认的单章收口轮入口，用来显式执行 `review -> route -> re-review`
+- 单章 `novel-write` 默认会尝试守卫式自动收口；`novel-batch` 不继承这个默认行为
+- `novel-review` 应一次性把问题收成 1-3 个可执行 issue clusters，而不是散成很多微修提示
+- 单章默认目标是“一次修订轮收口”：
+  - 一次 `novel-fix` 尽量解决全部局部问题
+  - 只有当语言层是主要剩余风险时才单独进 `novel-polish`
+  - 不鼓励 `fix -> 再补一句 -> 再 polish 一点 -> 再补一句` 这种多轮微修
+- `novel-close` 一次只应走一条主路由，不允许在同一轮里 `fix + polish`
+- 当同章已经发生 2 轮修订尝试且关键问题仍未消失时，默认升级到 `novel-rewrite`
 - 局部问题 -> `novel-fix`
-- 语言层问题 -> `novel-polish`
-- 结构层问题 -> `novel-rewrite`
+- 语言层问题且结构已稳 -> `novel-polish`
+- 结构层问题或两轮修订未收口 -> `novel-rewrite`
 - 批量写作 -> 最多 `3` 章 / 批，并在每批后过质量门
+- `skip_close=true` 只在你明确想要“这次只写不收口”时使用
+- 强拦截规则只认：
+  - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)
+  - 不在多个 skill 文案里重复维护阈值
 
 ---
 
@@ -215,7 +240,7 @@
 如果你不知道该用哪个 skill，先套这条判断：
 
 1. 没项目：`init -> genre -> outline -> package`
-2. 有项目想继续写：`write -> review -> fix/polish/rewrite`
+2. 有项目想继续写：`write -> close -> fix/polish/rewrite`
 3. 想投稿：`precheck -> package -> export`
 4. 想稳住风格：`learn -> status`
 5. 设定集长期不更新：`sync -> character/setting`

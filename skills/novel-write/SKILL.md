@@ -14,6 +14,7 @@ Use this skill when the user wants to write the next chapter from the current ou
 - optional `style`
 - optional `content_bucket`
 - optional `tagpack`
+- optional `skip_close`
 
 ## Preconditions
 
@@ -39,6 +40,7 @@ Read conditionally:
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
 - previous chapter file or summary
+- `.mighty/workflow_state.json` when workflow safety must be checked before post-write auto-close
 - `.mighty/learned-patterns.json`
 - `.mighty/market-adjustments.json`
 - current `learned_patterns` summary inside `.mighty/state.json`
@@ -51,6 +53,7 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/strong-quality-gate-policy.json`
 
 ## Workflow
 
@@ -92,8 +95,17 @@ Read conditionally:
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
 9. Load high-value shared references from `../../shared/references/` only as needed.
-10. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-11. Write `chapters/第N章.md` aligned to:
+10. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
+   - read `../../docs/strong-quality-gate-policy.json`
+   - treat it as the single rule source for required truth files
+   - if the required truth source is missing, stop before writing
+   - report the blocking gap explicitly and route the user to the smallest upstream action such as:
+     - `novel-setting`
+     - `novel-character`
+     - `novel-scan` only when external research is truly needed
+   - do not hallucinate missing truth just to satisfy the chapter
+11. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+12. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -116,7 +128,7 @@ Read conditionally:
      - ending_hook_rule
    - and, when Fanqie chapter-length policy exists:
      - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-12. Update `.mighty/state.json` with:
+13. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -124,11 +136,23 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-13. Do not write review scores here unless an actual review step was run.
-14. Recommend running `novel-review` immediately after writing.
-15. After a real writing round, the preferred automatic hook is:
+14. Do not write review scores here unless an actual review step was run.
+15. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+   - run this only for a normal single-chapter `novel-write`
+   - do not inherit this behavior into `novel-batch`
+   - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
+   - otherwise attempt `novel-close` only when all guards pass:
+     - `.mighty/state.json` exists
+     - `大纲/章纲/第N章.md` exists
+     - the chapter file was written successfully
+     - current workflow state is not clearly failed or malformed when workflow state exists
+     - the user did not explicitly request a write-only pass
+   - if guards fail, do not fake execution; report the exact skip reason
+   - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
+16. After a real writing round, the preferred maintenance hook remains:
    - `scripts/post-task-maintenance.py <project_root> --trigger write`
    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
+   - maintenance is not the place where prose mutation or `novel-close` execution should live
 
 ## Chapter state update requirements
 
@@ -144,7 +168,10 @@ At minimum, update:
 
 - `chapters/第N章.md`
 - updated `.mighty/state.json`
-- optional note recommending `novel-review`
+- optional write summary including:
+  - whether auto-close was attempted
+  - whether it ran or was skipped
+  - route used or skip reason when available
 
 ## Failure handling
 
@@ -156,9 +183,11 @@ At minimum, update:
 ## Notes
 
 - Keep writing aligned to the outline and current state.
+- Strong write-time blocking rules must resolve from `../../docs/strong-quality-gate-policy.json`, not from duplicated prose thresholds in this skill.
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
 - Treat learned-pattern sidecar data as a preference signal, not a hard rule.
 - Treat market-adjustment sidecar data as packaging or pacing guidance, not as a reason to break canon or outline purpose.
+- `novel-write` does not inline `review -> route -> re-review`; guarded post-write convergence should hand off to `novel-close`.
 - When Fanqie rules stack, apply them in this order:
   1. canon / state / chapter outline
   2. active bucket

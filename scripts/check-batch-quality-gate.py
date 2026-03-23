@@ -5,6 +5,8 @@ import argparse
 import json
 from pathlib import Path
 
+import strong_quality_gate
+
 
 SAFE_MAX_BATCH = 3
 
@@ -25,8 +27,7 @@ def read_state(project_root: Path) -> dict:
 
 
 def load_length_policy() -> dict:
-    policy_path = Path(__file__).resolve().parents[1] / "docs" / "fanqie-chapter-length-policy.json"
-    return json.loads(policy_path.read_text())
+    return strong_quality_gate.load_policy()
 
 
 def chapter_range(state: dict, args: argparse.Namespace) -> tuple[list[int], int]:
@@ -58,6 +59,7 @@ def collect_metrics(project_root: Path, nums: list[int]) -> list[dict]:
             "lines": lines,
             "dialogue_marks": dialogue,
             "bullet_lines": bullet_lines,
+            "text": text,
         })
     return result
 
@@ -75,30 +77,21 @@ def prior_baseline(project_root: Path, start: int, window: int = 3) -> float | N
 
 
 def current_length_policy(state: dict, policy: dict) -> dict:
-    bucket = state.get("genre_profile", {}).get("bucket")
-    if bucket and bucket in policy.get("buckets", {}):
-        active = dict(policy["buckets"][bucket])
-        active["bucket_name"] = bucket
-        return active
-
-    track = "longform"
-    target_chapters = int(state.get("meta", {}).get("target_chapters") or 0)
-    if target_chapters and target_chapters <= 8:
-        track = "shortform"
-    active = dict(policy["defaults"][track])
-    active["track"] = track
-    active["bucket_name"] = bucket or "__default__"
-    return active
+    return strong_quality_gate.resolve_length_policy(state, policy)
 
 
-def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float | None, length_policy: dict) -> dict:
+def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float | None, policy: dict) -> dict:
     issues = []
     warnings = []
+    length_policy = current_length_policy(state, policy)
     hard_min = int(length_policy["hard_min_chars"])
     soft_min = int(length_policy["soft_min_chars"])
-    preferred_min = int(length_policy["preferred_min_chars"])
     preferred_max = int(length_policy["preferred_max_chars"])
-    compressed_threshold = max(900, int(hard_min * 0.85))
+    shrinkage_policy = policy.get("post_write_gate", {}).get("shrinkage", {})
+    compressed_threshold = max(
+        int(shrinkage_policy.get("compressed_floor_chars", 900) or 900),
+        int(hard_min * float(shrinkage_policy.get("compressed_ratio_of_hard_min", 0.85) or 0.85)),
+    )
 
     if batch_count > SAFE_MAX_BATCH:
         issues.append({
@@ -108,24 +101,15 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
 
     short_run = 0
     for item in metrics:
-        if item["chars"] < hard_min:
-            issues.append({
-                "code": "chapter-too-short",
-                "chapter": item["chapter"],
-                "message": f"第{item['chapter']:03d}章仅 {item['chars']} 字符，低于当前硬下限 {hard_min}。",
-            })
-        elif item["chars"] < soft_min:
-            warnings.append({
-                "code": "chapter-below-soft-floor",
-                "chapter": item["chapter"],
-                "message": f"第{item['chapter']:03d}章低于当前软下限 {soft_min}，已开始接近缩水风险。",
-            })
-        if baseline and item["chars"] < baseline * 0.55:
-            issues.append({
-                "code": "sharp-length-drop",
-                "chapter": item["chapter"],
-                "message": f"第{item['chapter']:03d}章长度相对前序基线跌破 55%，疑似提纲化压缩。",
-            })
+        gate_result = strong_quality_gate.evaluate_post_write_gate(
+            state=state,
+            chapter_text=item["text"],
+            baseline_avg_chars=baseline,
+            policy=policy,
+            chapter_number=item["chapter"],
+        )
+        issues.extend(gate_result["issues"])
+        warnings.extend(gate_result["warnings"])
         if item["chars"] < compressed_threshold:
             short_run += 1
         else:
@@ -190,9 +174,9 @@ def main() -> None:
         "chapters": nums,
         "batch_count": batch_count,
         "baseline_avg_chars": baseline,
-        "metrics": metrics,
+        "metrics": [{k: v for k, v in item.items() if k != "text"} for item in metrics],
     }
-    result.update(evaluate(state, metrics, batch_count, baseline, length_policy))
+    result.update(evaluate(state, metrics, batch_count, baseline, policy))
 
     if args.write_report:
         report_path = root / ".mighty" / "batch-quality-gate.json"

@@ -20,6 +20,7 @@
 - `genm-novel-character`
 - `genm-novel-foreshadowing`
 - `genm-novel-config`
+- `genm-novel-close`
 - `genm-novel-fix`
 - `genm-novel-genre`
 - `genm-novel-index`
@@ -49,25 +50,35 @@
 同时也会创建对应的 plain 名，例如：
 
 - `novel-init`
-- `novel-query`
+- `novel-analyze`
+- `novel-batch`
+- `novel-character`
+- `novel-foreshadowing`
+- `novel-close`
+- `novel-fix`
+- `novel-genre`
 - `novel-index`
 - `novel-log`
 - `novel-learn`
 - `novel-package`
 - `novel-scan`
-- `novel-config`
-- `novel-fix`
-- `novel-test`
-- `novel-precheck`
- - `novel-snapshot`
-- `novel-status`
- - `novel-workflow`
-- `novel-analyze`
 - `novel-polish`
-- `novel-genre`
+- `novel-precheck`
+- `novel-query`
+- `novel-setting`
+- `novel-snapshot`
+- `novel-spinoff`
+- `novel-status`
+- `novel-config`
+- `novel-test`
+- `novel-outline`
+- `novel-workflow`
+- `novel-write`
+- `novel-review`
 - `novel-resume`
 - `novel-retrieve`
- - `novel-spinoff`
+- `novel-rewrite`
+- `novel-export`
 - `novel-sync`
 
 ## 调用名说明
@@ -76,6 +87,7 @@
 - 在 Codex 会话中，优先使用各个 `SKILL.md` frontmatter 中的 `name` 来触发 skill
 - 因此实际提示词里更推荐写：
   - `novel-init`
+  - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
@@ -89,9 +101,20 @@
 1. `novel-init`
 2. `novel-outline`
 3. `novel-write`
-4. `novel-review`
-5. `novel-rewrite`
+4. `novel-close`
+5. 仍未收口时再按结果进入 `novel-rewrite`
 6. `novel-export`
+
+补充规则：
+
+- 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
+- `novel-batch` 不会继承这个默认行为
+- 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
+- 当前默认强质量门已经接进主线：
+  - 写前若缺真值表 / 世界规则 / 时代资料，`novel-write` 应直接阻断，而不是带着脑补开写
+  - 收口前若仍存在短章 / 明显缩水 / malformed text / 可证伪设定违和等 hard blocker，`novel-close` 不应判定本章收口成功
+  - 单一规则源是：
+    - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)
 
 ## 第二阶段已迁入
 
@@ -156,6 +179,7 @@
 - 用 `scripts/project-maintenance.py` 跑一次完整维护链
 - 用 `scripts/post-task-maintenance.py` 把维护链挂在 `write / batch / workflow` 后
 - 用 `scripts/review-sync-queue.py` 处理 `sync-review` 队列
+- `sync-setting-assets.py` 现在默认会把低置信候选压进 `sync-review`，而不是直接沉淀成角色卡
 
 ## 第五阶段已完成
 
@@ -222,7 +246,19 @@
 ### polish
 
 ```text
-请使用 novel-polish skill，对第001章做 prose + pacing 向的轻量润色，并同步更新状态元数据。
+请使用 novel-polish skill，对第001章做一次 `all` 向收口润色，优先解决剩余语言层问题，并同步更新状态元数据。
+```
+
+### close
+
+```text
+请使用 novel-close skill，对第001章做一次 `auto` 模式单章收口；如果只剩语言层问题，就把压 AI 味放在 `novel-polish` 分支里完成，并在必要时复审。
+```
+
+### write-only
+
+```text
+请使用 novel-write skill，写第016章，并设置 `skip_close=true`；这次只写正文，不自动进入收口轮。
 ```
 
 ### genre
@@ -246,7 +282,7 @@
 ### fix
 
 ```text
-请使用 novel-fix skill，基于第001章的 review 结果，只修最关键的两项问题，并告诉我哪些问题已处理。
+请使用 novel-fix skill，基于第001章的 review 结果，一次性处理本章所有局部问题，并告诉我哪些 issue clusters 已收口、哪些必须升级到 rewrite。
 ```
 
 ### snapshot
@@ -309,10 +345,18 @@
 
 ### scan
 
+这是一个**实验能力**：
+
+- 当前可用，但不属于默认生产主线
+- 默认内置来源只覆盖 `番茄 + 玄幻 + quick`
+- `project-annotate` 只有在当前运行达到中高可信时，才会写：
+  - `.mighty/market-adjustments.json`
+  - `.mighty/state.json -> market_adjustments` 轻量摘要
+- 如果结果是 low confidence 或 skeleton，会只保留 `.mighty/market-data.json`
+
 ```text
 请使用 novel-scan skill，先为当前项目生成一个 report-only 的市场扫描结果文件，并明确说明当前证据可信度。
 ```
-
 ### query
 
 ```text
