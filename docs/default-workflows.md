@@ -61,6 +61,8 @@
 推荐顺序：
 
 1. `novel-write`
+   - 写前先过资料充分性强门：
+     - 需要的真值表 / 规则文件缺失时，直接阻断本章写作
    - 单章默认会守卫式自动尝试一次 `novel-close`
    - 可显式用 `skip_close=true` 跳过
 2. `novel-close`
@@ -73,6 +75,9 @@
        - `novel-rewrite`
        - 或 `none`
      - 若正文被修改，再做一次 `novel-review`
+   - 若强质量门仍有客观 blocker：
+     - 不允许把本章标记为已收口
+     - 必须回到 `novel-fix` 或 `novel-rewrite`
 3. 每 3-5 章或一个阶段后：
    - `novel-sync`
 4. 每轮正文维护后：
@@ -116,6 +121,9 @@
   - 推进是否留下真实代价与残账
 - `novel-write` 应尽量在正文阶段就避免把配角写成按钮
 - `novel-precheck` 应把人物/关系/阵营失衡视为投稿前风险，而不只看平台节奏
+- 强拦截规则只认：
+  - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)
+  - 不在多个 skill 文案里重复维护阈值
 
 反脸谱化工作流参考：
 
