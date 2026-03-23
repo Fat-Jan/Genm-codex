@@ -266,6 +266,28 @@
   - `skills/novel-fix/SKILL.md` (updated)
   - `progress.md` (updated)
 
+### Workflow Tuning: `novel-write` 默认守卫式自动收口
+- **Status:** complete
+- Actions taken:
+  - 更新 `skills/novel-write/SKILL.md`，新增 `skip_close` 输入与单章写作后的 guarded auto-close 契约
+  - 更新 `skills/novel-close/SKILL.md`，明确其是 `novel-write` 的 post-write handoff 执行器
+  - 更新 `README.md`、`docs/default-workflows.md`、`docs/start-here.md`、`docs/skill-usage.md`
+    - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
+    - `novel-batch` 不继承该默认行为
+    - 显式传 `skip_close=true` 可跳过
+  - 进行边界核查：
+    - `skills/novel-batch/SKILL.md` 未引入 auto-close
+    - `scripts/post-task-maintenance.py` 未引入 prose mutation
+  - 运行 `bash scripts/validate-migration.sh`，确认结构校验通过
+- Files created/modified:
+  - `skills/novel-write/SKILL.md` (updated)
+  - `skills/novel-close/SKILL.md` (updated)
+  - `README.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `progress.md` (updated)
+
 ## Test Results
 | Test | Input | Expected | Actual | Status |
 |------|-------|----------|--------|--------|
@@ -284,6 +306,9 @@
 | `novel-close` 迁移结构校验 | `bash scripts/validate-migration.sh` | 校验通过 | `Migration validation passed` | ✓ |
 | `novel-close` 安装脚本校验 | `bash scripts/install-skills.sh` | 安装成功 | `Installed Genm-codex skills into /Users/arm/.codex/skills` | ✓ |
 | `novel-close` 本地链接存在性 | `ls -l ~/.codex/skills | rg "novel-close|genm-novel-close"` | 两个链接均存在 | `novel-close` / `genm-novel-close` symlink ok | ✓ |
+| `novel-write` auto-close 迁移结构校验 | `bash scripts/validate-migration.sh` | 校验通过 | `Migration validation passed` | ✓ |
+| `novel-batch` 边界检查 | `rg -n "novel-close|auto-close|skip_close" skills/novel-batch/SKILL.md` | 无匹配 | `exit 1 (no matches)` | ✓ |
+| 维护链边界检查 | `rg -n "novel-close|auto-close" scripts/post-task-maintenance.py` | 无匹配 | `exit 1 (no matches)` | ✓ |
 
 ## Error Log
 | Timestamp | Error | Attempt | Resolution |
