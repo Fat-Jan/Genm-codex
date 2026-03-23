@@ -19,6 +19,7 @@
 - [番茄 P0 专项检查卡](./fanqie-p0-checkcards/README.md)
 - [番茄 P0 输出契约](./fanqie-p0-output-contract.md)
 - [番茄 P0 Smoke Template](./fanqie-p0-smoke-template.md)
+- [番茄 P0 压力测试结果（2026-03-24）](./fanqie-p0-pressure-results-2026-03-24.md)
 
 如果你想直接生成 smoke 草稿，可运行：
 
@@ -107,3 +108,4 @@ python3 scripts/fanqie_p0_smoke.py --project-root "<project_root>" --chapter 003
 - [番茄 P0 专项检查卡](./fanqie-p0-checkcards/README.md)
 - [番茄 P0 输出契约](./fanqie-p0-output-contract.md)
 - [番茄 P0 Smoke Template](./fanqie-p0-smoke-template.md)
+- [番茄 P0 压力测试结果（2026-03-24）](./fanqie-p0-pressure-results-2026-03-24.md)

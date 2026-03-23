@@ -119,7 +119,7 @@ Phase 5
 在仓库内落成一组跨题材通用的“开篇方法 + 剧情层次”规则层文档，并将其接入 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package`，同时补齐入口文档、轻量 state 评分键说明与可执行验证。
 
 ## Current Phase
-Phase 16
+Phase 18
 
 ## Phases
 
@@ -255,6 +255,21 @@ Phase 16
 - [x] 试跑两个真实项目的 `draft` 模式
 - **Status:** complete
 
+### Phase 17: Smoke Tool V1.1
+- [x] 为 `draft` 输出增加 `confidence / evidence_count / evidence_sources`
+- [x] 读取本地 `market_adjustments / learned_patterns`
+- [x] 增加 `writeback_preview`
+- [x] 对更多 P0 bucket 提供保守的 low-confidence draft
+- [x] 运行脚本测试、框架回归测试与迁移校验
+- **Status:** complete
+
+### Phase 18: Pressure Matrix
+- [x] 选择支持桶与非支持桶样本
+- [x] 批量运行 `fanqie_p0_smoke.py`
+- [x] 汇总 `draft / scaffold-only` 结果
+- [x] 输出压力测试文档
+- **Status:** complete
+
 ## Additional Decisions
 | Decision | Rationale |
 |----------|-----------|
@@ -264,3 +279,4 @@ Phase 16
 | 8 张 P0 卡统一升级为中等深度版，而不是只深做 2-3 张 | 保持覆盖面，同时避免一步写成过深、过散的专项手册 |
 | bucket 级专项检查使用单独 `fanqie-p0-checkcards/` 目录 | 将“怎么写”与“怎么审 / 怎么拦”分层，避免 overlay 卡承担过多职责 |
 | `review / precheck` 用单独输出契约承接 Fanqie P0 卡 | 让 bucket 规则真正进入稳定输出，而不只停在“按需读取” |
+| `fanqie_p0_smoke.py` v1.1 对更多 P0 bucket 只给低置信草稿 | 扩覆盖面，但不把 smoke 工具伪装成全自动判断器 |

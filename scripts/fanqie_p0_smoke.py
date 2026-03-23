@@ -19,6 +19,10 @@ SUPPORTED_P0_BUCKETS = {
     "历史脑洞",
 }
 
+BUCKET_ALIASES = {
+    "现言甜宠": "青春甜宠",
+}
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -46,14 +50,21 @@ def load_state(project_root: str | Path) -> dict:
 
 
 def infer_bucket(state: dict, explicit_bucket: str | None = None) -> str | None:
-    if explicit_bucket in SUPPORTED_P0_BUCKETS:
-        return explicit_bucket
+    candidate = explicit_bucket
+    if candidate in BUCKET_ALIASES:
+        candidate = BUCKET_ALIASES[candidate]
+    if candidate in SUPPORTED_P0_BUCKETS:
+        return candidate
     genre_profile = state.get("genre_profile") or {}
     bucket = genre_profile.get("bucket")
+    if bucket in BUCKET_ALIASES:
+        bucket = BUCKET_ALIASES[bucket]
     if bucket in SUPPORTED_P0_BUCKETS:
         return bucket
     meta = state.get("meta") or {}
     genre = meta.get("genre")
+    if genre in BUCKET_ALIASES:
+        genre = BUCKET_ALIASES[genre]
     if genre in SUPPORTED_P0_BUCKETS:
         return genre
     return None
@@ -88,6 +99,11 @@ def chapter_file(project_root: Path, chapter: str | int) -> Path:
     return project_root / "chapters" / f"第{key}章.md"
 
 
+def chapter_outline_file(project_root: Path, chapter: str | int) -> Path:
+    key = normalize_chapter_key(chapter)
+    return project_root / "大纲" / "章纲" / f"第{key}章.md"
+
+
 def parse_chapter_range(chapters: str | None) -> list[str]:
     if not chapters:
         return []
@@ -100,17 +116,64 @@ def parse_chapter_range(chapters: str | None) -> list[str]:
     return [f"{value:03d}" for value in range(start, end + 1)]
 
 
-def evidence_is_sufficient_for_draft(project_root: Path, bucket: str | None, chapter: str | None, chapters: str | None) -> bool:
-    if bucket != "宫斗宅斗":
-        return False
+def load_sidecars(project_root: str | Path) -> dict:
+    project_root = Path(project_root)
+    results = {}
+    mapping = {
+        "market_adjustments": project_root / ".mighty" / "market-adjustments.json",
+        "learned_patterns": project_root / ".mighty" / "learned-patterns.json",
+    }
+    for key, path in mapping.items():
+        if path.exists():
+            results[key] = json.loads(path.read_text(encoding="utf-8"))
+    return results
+
+
+def collect_evidence_sources(project_root: Path, chapter: str | None, chapters: str | None) -> list[Path]:
     required = []
+    state_path = project_root / ".mighty" / "state.json"
+    if state_path.exists():
+        required.append(state_path)
     if chapter:
-        required.append(chapter_file(project_root, chapter))
+        outline = chapter_outline_file(project_root, chapter)
+        if outline.exists():
+            required.append(outline)
+        body = chapter_file(project_root, chapter)
+        if body.exists():
+            required.append(body)
     for key in parse_chapter_range(chapters):
-        required.append(chapter_file(project_root, key))
-    if not required:
-        return False
+        outline = chapter_outline_file(project_root, key)
+        if outline.exists():
+            required.append(outline)
+        body = chapter_file(project_root, key)
+        if body.exists():
+            required.append(body)
+    deduped = []
+    seen = set()
     for path in required:
+        if path not in seen:
+            deduped.append(path)
+            seen.add(path)
+    return deduped
+
+
+def evidence_is_sufficient_for_draft(project_root: Path, bucket: str | None, chapter: str | None, chapters: str | None) -> bool:
+    if bucket not in SUPPORTED_P0_BUCKETS:
+        return False
+    chapter_paths = []
+    if chapter:
+        chapter_paths.append(chapter_file(project_root, chapter))
+    for key in parse_chapter_range(chapters):
+        chapter_paths.append(chapter_file(project_root, key))
+    deduped_chapters = []
+    seen = set()
+    for path in chapter_paths:
+        if path not in seen:
+            deduped_chapters.append(path)
+            seen.add(path)
+    if not deduped_chapters:
+        return False
+    for path in deduped_chapters:
         if not path.exists():
             return False
         if len(path.read_text(encoding="utf-8").strip()) < 500:
@@ -137,25 +200,75 @@ def draft_recommended_focus(project_root: Path, chapter: str | None) -> str:
 
 
 def build_review_summary(project_root: Path, bucket: str, chapter: str | None) -> dict:
-    return {
+    summary = {
         "bucket": bucket,
-        "bucket_grade": "pass",
-        "promise_match": "pass",
-        "first_three_status": "pass",
-        "primary_failure": "none",
-        "top_red_flag": "none",
         "recommended_focus": draft_recommended_focus(project_root, chapter),
     }
+    if bucket == "宫斗宅斗":
+        summary.update(
+            {
+                "bucket_grade": "pass",
+                "promise_match": "pass",
+                "first_three_status": "pass",
+                "primary_failure": "none",
+                "top_red_flag": "none",
+            }
+        )
+    else:
+        summary.update(
+            {
+                "bucket_grade": "draft",
+                "promise_match": "draft",
+                "first_three_status": "draft",
+                "primary_failure": "needs-human-check",
+                "top_red_flag": "none",
+            }
+        )
+    return summary
 
 
 def build_precheck_summary(bucket: str) -> dict:
-    return {
+    summary = {
         "bucket": bucket,
-        "submission_fit": "fit",
-        "opening_status": "pass",
-        "golden_three_status": "pass",
-        "packaging_alignment": "aligned",
-        "top_blocker": "none",
+    }
+    if bucket == "宫斗宅斗":
+        summary.update(
+            {
+                "submission_fit": "fit",
+                "opening_status": "pass",
+                "golden_three_status": "pass",
+                "packaging_alignment": "aligned",
+                "top_blocker": "none",
+            }
+        )
+    else:
+        summary.update(
+            {
+                "submission_fit": "draft",
+                "opening_status": "draft",
+                "golden_three_status": "draft",
+                "packaging_alignment": "draft",
+                "top_blocker": "needs-human-check",
+            }
+        )
+    return summary
+
+
+def compute_confidence(bucket: str, evidence_sources: list[Path], sidecars: dict) -> str:
+    if bucket == "宫斗宅斗" and len(evidence_sources) >= 3:
+        return "high"
+    if len(evidence_sources) >= 2:
+        return "low"
+    return "low"
+
+
+def build_writeback_preview(*, chapter: str | None, bucket: str, confidence: str, writeback_status: str = "pending") -> dict:
+    return {
+        "chapter": normalize_chapter_key(chapter) if chapter else None,
+        "fields": ["fanqie_bucket_flags", "fanqie_bucket_summary"],
+        "bucket": bucket,
+        "confidence": confidence,
+        "status": writeback_status,
     }
 
 
@@ -264,6 +377,11 @@ def render_draft_markdown(
     chapters: str | None,
     review_summary: dict,
     precheck_summary: dict,
+    confidence: str,
+    evidence_count: int,
+    evidence_sources: list[Path],
+    signals_used: list[str],
+    writeback_preview: dict,
 ) -> str:
     lines = [
         f"# Fanqie P0 Smoke Draft: {title}",
@@ -282,19 +400,22 @@ def render_draft_markdown(
     lines.extend(
         [
             "",
+            f"- confidence：`{confidence}`",
+            f"- evidence_count: `{evidence_count}`",
+            "",
             "## 证据来源",
             "",
         ]
     )
-    if chapter:
-        lines.append(f"- `{relpath(chapter_file(project_root, chapter))}`")
-    for key in parse_chapter_range(chapters):
-        path = chapter_file(project_root, key)
-        if chapter and key == normalize_chapter_key(chapter):
-            continue
+    for path in evidence_sources:
         lines.append(f"- `{relpath(path)}`")
     lines.extend(
         [
+            "",
+            "## 辅助信号",
+            "",
+            f"evidence_sources: {evidence_count}",
+            f"signals_used: {', '.join(signals_used) if signals_used else 'none'}",
             "",
             "## 手工 `novel-review` 样本",
             "",
@@ -306,6 +427,12 @@ def render_draft_markdown(
             "",
             "```md",
             *render_summary_block("fanqie_bucket_precheck_summary", precheck_summary),
+            "```",
+            "",
+            "## writeback 预览",
+            "",
+            "```md",
+            *render_summary_block("writeback_preview", writeback_preview),
             "```",
             "",
             "## 结论",
@@ -335,6 +462,9 @@ def run_smoke(
     title = (state.get("meta") or {}).get("title") or project_root.name
     raw_genre = (state.get("meta") or {}).get("genre")
     resolved_bucket = infer_bucket(state, explicit_bucket=bucket)
+    evidence_sources = collect_evidence_sources(project_root, chapter, chapters)
+    sidecars = load_sidecars(project_root)
+    signals_used = sorted(sidecars.keys())
     effective_mode = "scaffold" if mode == "scaffold" or resolved_bucket is None else mode
     degraded_reason = None
     if effective_mode == "draft" and not evidence_is_sufficient_for_draft(project_root, resolved_bucket, chapter, chapters):
@@ -348,9 +478,13 @@ def run_smoke(
     path.parent.mkdir(parents=True, exist_ok=True)
     review_summary = None
     precheck_summary = None
+    confidence = None
+    writeback_preview = None
     if effective_mode in {"draft", "writeback"} and resolved_bucket:
         review_summary = build_review_summary(project_root, resolved_bucket, chapter)
         precheck_summary = build_precheck_summary(resolved_bucket)
+        confidence = compute_confidence(resolved_bucket, evidence_sources, sidecars)
+        writeback_preview = build_writeback_preview(chapter=chapter, bucket=resolved_bucket, confidence=confidence)
     if effective_mode == "draft" and resolved_bucket:
         content = render_draft_markdown(
             project_root=project_root,
@@ -360,6 +494,11 @@ def run_smoke(
             chapters=chapters,
             review_summary=review_summary,
             precheck_summary=precheck_summary,
+            confidence=confidence,
+            evidence_count=len(evidence_sources),
+            evidence_sources=evidence_sources,
+            signals_used=signals_used,
+            writeback_preview=writeback_preview,
         )
     else:
         content = render_scaffold_markdown(
@@ -381,12 +520,23 @@ def run_smoke(
             chapter=chapter,
             summary=review_summary,
         )
+        writeback_preview = build_writeback_preview(
+            chapter=chapter,
+            bucket=resolved_bucket,
+            confidence=confidence or "low",
+            writeback_status=writeback_status,
+        )
     return {
         "effective_mode": effective_mode,
         "output_path": str(path),
         "bucket": resolved_bucket,
         "writeback_allowed": writeback and effective_mode == "writeback",
         "writeback_status": writeback_status,
+        "confidence": confidence,
+        "evidence_count": len(evidence_sources),
+        "evidence_sources": [str(path) for path in evidence_sources],
+        "signals_used": signals_used,
+        "writeback_preview": writeback_preview,
     }
 
 

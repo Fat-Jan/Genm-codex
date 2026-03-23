@@ -89,6 +89,16 @@ class FanqieP0SmokeCliTests(unittest.TestCase):
 
         self.assertIsNone(module.infer_bucket(state))
 
+    def test_infer_bucket_maps_xianyan_tianchong_to_qingchun_tianchong(self) -> None:
+        module = load_module()
+
+        state = {
+            "meta": {"genre": "言情"},
+            "genre_profile": {"bucket": "现言甜宠"},
+        }
+
+        self.assertEqual(module.infer_bucket(state), "青春甜宠")
+
     def test_writeback_is_not_allowed_without_explicit_flag(self) -> None:
         module = load_module()
 
@@ -279,6 +289,117 @@ class FanqieP0SmokeDraftTests(unittest.TestCase):
             self.assertIn("证据不足", content)
             self.assertIn("scaffold-only", content)
 
+    def test_draft_mode_adds_confidence_evidence_and_writeback_preview(self) -> None:
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_path = Path(tmpdir) / "draft-smoke.md"
+
+            result = module.run_smoke(
+                project_root=REPO_ROOT / "projects/庶女谋略",
+                chapter="003",
+                chapters="001-003",
+                mode="draft",
+                output_path=output_path,
+                date_str="2026-03-24",
+            )
+
+            self.assertEqual(result["effective_mode"], "draft")
+            self.assertEqual(result["confidence"], "high")
+            self.assertGreaterEqual(result["evidence_count"], 4)
+            self.assertIn("market_adjustments", result["signals_used"])
+            self.assertIn("learned_patterns", result["signals_used"])
+            self.assertIn("writeback_preview", result)
+
+            content = output_path.read_text(encoding="utf-8")
+            self.assertIn("confidence: high", content)
+            self.assertIn("evidence_count:", content)
+            self.assertIn("evidence_sources:", content)
+            self.assertIn("writeback_preview:", content)
+
+    def test_non_palace_p0_bucket_gets_conservative_draft_not_fake_strong_judgment(self) -> None:
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir) / "project"
+            mighty = project_root / ".mighty"
+            chapters_dir = project_root / "chapters"
+            mighty.mkdir(parents=True)
+            chapters_dir.mkdir(parents=True)
+            (mighty / "state.json").write_text(
+                json.dumps(
+                    {
+                        "meta": {"title": "甜宠样本", "genre": "青春甜宠", "platform": "番茄"},
+                        "genre_profile": {"bucket": "青春甜宠"},
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            for key in ("001", "002", "003"):
+                (chapters_dir / f"第{key}章.md").write_text("校园心动与互动升级。" * 80, encoding="utf-8")
+            output_path = Path(tmpdir) / "draft-smoke.md"
+
+            result = module.run_smoke(
+                project_root=project_root,
+                chapter="003",
+                chapters="001-003",
+                mode="draft",
+                output_path=output_path,
+                date_str="2026-03-24",
+            )
+
+            self.assertEqual(result["effective_mode"], "draft")
+            self.assertEqual(result["confidence"], "low")
+            content = output_path.read_text(encoding="utf-8")
+            self.assertIn("bucket: 青春甜宠", content)
+            self.assertIn("bucket_grade: draft", content)
+
+    def test_xianyan_tianchong_alias_sample_generates_qingchun_tianchong_draft(self) -> None:
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_path = Path(tmpdir) / "draft-smoke.md"
+
+            result = module.run_smoke(
+                project_root=REPO_ROOT / "smoke/e2e-tianchong-evil",
+                chapter="003",
+                chapters="001-003",
+                mode="draft",
+                output_path=output_path,
+                date_str="2026-03-24",
+            )
+
+            self.assertEqual(result["effective_mode"], "draft")
+            self.assertEqual(result["bucket"], "青春甜宠")
+            self.assertEqual(result["confidence"], "low")
+            content = output_path.read_text(encoding="utf-8")
+            self.assertIn("bucket：`青春甜宠`", content)
+            self.assertIn("bucket_grade: draft", content)
+
+    def test_load_sidecars_reads_market_and_learned_patterns(self) -> None:
+        module = load_module()
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir) / "project"
+            mighty = project_root / ".mighty"
+            mighty.mkdir(parents=True)
+            (mighty / "market-adjustments.json").write_text(
+                json.dumps({"version": "1", "data": {"adjustments": [{"id": "scan-surface-hook"}]}}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+            (mighty / "learned-patterns.json").write_text(
+                json.dumps({"version": "1", "data": {"avoid_patterns": ["背景先行"]}}, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            sidecars = module.load_sidecars(project_root)
+
+            self.assertIn("market_adjustments", sidecars)
+            self.assertIn("learned_patterns", sidecars)
+            self.assertEqual(sidecars["market_adjustments"]["data"]["adjustments"][0]["id"], "scan-surface-hook")
+            self.assertEqual(sidecars["learned_patterns"]["data"]["avoid_patterns"][0], "背景先行")
+
 
 class FanqieP0SmokeWritebackTests(unittest.TestCase):
     def make_project(self, tmpdir: str) -> Path:
@@ -316,6 +437,7 @@ class FanqieP0SmokeWritebackTests(unittest.TestCase):
                     chapters="001-003",
                     mode="writeback",
                     writeback=False,
+                    output_path=Path(tmpdir) / "writeback-smoke.md",
                 )
 
     def test_writeback_only_writes_bucket_fields_and_preserves_review_fields(self) -> None:
@@ -329,6 +451,7 @@ class FanqieP0SmokeWritebackTests(unittest.TestCase):
                 chapters="001-003",
                 mode="writeback",
                 writeback=True,
+                output_path=Path(tmpdir) / "writeback-smoke.md",
             )
 
             self.assertEqual(result["effective_mode"], "writeback")
@@ -358,6 +481,7 @@ class FanqieP0SmokeWritebackTests(unittest.TestCase):
                 chapters="001-003",
                 mode="writeback",
                 writeback=True,
+                output_path=Path(tmpdir) / "writeback-smoke.md",
             )
 
             self.assertEqual(result["writeback_status"], "conflict")

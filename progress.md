@@ -571,6 +571,68 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+### Phase 18: Smoke Tool V1.1
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_fanqie_p0_smoke.py`，增加：
+    - `confidence`
+    - `evidence_count`
+    - `evidence_sources`
+    - `writeback_preview`
+    - `load_sidecars`
+    - 非 `宫斗宅斗` P0 bucket 的保守 `draft`
+  - 先运行红灯，确认新增能力缺失时测试失败
+  - 更新 `scripts/fanqie_p0_smoke.py`：
+    - 新增 `load_sidecars`
+    - 读取本地 `market-adjustments.json` / `learned-patterns.json`
+    - 为 `draft` 输出补 `confidence / evidence_count / evidence_sources`
+    - 新增 `writeback_preview`
+    - 对其它 P0 bucket 提供低置信 `draft`
+  - 更新：
+    - `docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+    - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
+  - 运行：
+    - `python -m unittest tests.test_fanqie_p0_smoke -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+  - 试跑：
+    - `projects/庶女谋略`
+    - `projects/庶妹换我婚书那夜，太子先开了口`
+- Files created/modified:
+  - `scripts/fanqie_p0_smoke.py` (updated)
+  - `tests/test_fanqie_p0_smoke.py` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-output-contract.md` (updated)
+  - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 19: Pressure Matrix
+- **Status:** complete
+- Actions taken:
+  - 批量运行 `fanqie_p0_smoke.py` 于：
+    - `projects/庶女谋略`
+    - `projects/庶妹换我婚书那夜，太子先开了口`
+    - `smoke/e2e-tianchong`
+    - `smoke/e2e-tianchong-evil`
+    - `smoke/e2e-qinggan-evil-antiflattening-20260322`
+    - `smoke/e2e-dual-substitute-evil-antiflattening-20260322`
+    - `smoke/e2e-system-antiflattening-20260322`
+  - 汇总结果：
+    - 两个 `宫斗宅斗` 项目输出 `draft`
+    - 两个 `现言甜宠` 代理样本在 alias 后输出 `draft`
+    - 一个 `现言甜宠` 代理样本因证据不足降级为 `scaffold-only`
+    - 两个非 P0 样本保守降级为 `scaffold-only`
+  - 新建结果文档：
+    - `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md`
+  - 更新 `docs/opening-and-plot-framework/README.md`
+- Files created/modified:
+  - `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md` (created)
+  - `docs/opening-and-plot-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-23
 
 ### Out-of-band Maintenance: novel-scan 信任边界与文档口径校正

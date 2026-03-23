@@ -287,6 +287,39 @@
 - 脚本已对两个真实项目完成 `draft` 模式试跑：
   - `projects/庶女谋略`
   - `projects/庶妹换我婚书那夜，太子先开了口`
+- `v1.1` 已新增：
+  - `confidence`
+  - `evidence_count`
+  - `evidence_sources`
+  - `writeback_preview`
+- `v1.1` 已支持读取本地 sidecar：
+  - `.mighty/market-adjustments.json`
+  - `.mighty/learned-patterns.json`
+- sidecar 当前只作为辅助信号使用：
+  - 进入 `signals_used`
+  - 参与 `confidence` 与 preview 信息
+  - 不覆盖主 bucket 判断
+- 对非 `宫斗宅斗` 的其他 P0 bucket，当前策略是：
+  - 证据足够时可生成 `draft`
+  - 但 `bucket_grade / submission_fit` 先保持 `draft`
+  - `confidence` 默认偏低
+- 已完成 `fanqie_p0_smoke.py v1.1` 的样本压测矩阵：
+  - `projects/庶女谋略`
+  - `projects/庶妹换我婚书那夜，太子先开了口`
+  - `smoke/e2e-tianchong`
+  - `smoke/e2e-tianchong-evil`
+  - `smoke/e2e-qinggan-evil-antiflattening-20260322`
+  - `smoke/e2e-dual-substitute-evil-antiflattening-20260322`
+  - `smoke/e2e-system-antiflattening-20260322`
+- 压测结果表明：
+  - `宫斗宅斗` 路线可稳定输出 `high confidence draft`
+  - `现言甜宠 -> 青春甜宠` alias 已生效，但仍受证据门槛约束：
+    - `smoke/e2e-tianchong-evil` 与 `smoke/e2e-dual-substitute-evil-antiflattening-20260322` 当前可输出 `low confidence draft`
+    - `smoke/e2e-tianchong` 当前因证据不足降级为 `scaffold-only`
+  - `现实情感 / 系统流` 当前会保守降级成 `scaffold-only`
+  - 工具当前边界清晰，没有因为“番茄项目”而假装高置信命中
+- 新增结果文档：
+  - `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md`
 
 ## Technical Decisions
 | Decision | Rationale |
@@ -348,6 +381,7 @@
 - `docs/opening-and-plot-framework/real-project-smoke-shunvmoulue-fanqie-p0-2026-03-23.md`
 - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
 - `docs/opening-and-plot-framework/real-project-smoke-hunshu-taizi-fanqie-p0-2026-03-23.md`
+- `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md`
 - `scripts/fanqie_p0_smoke.py`
 - `tests/test_fanqie_p0_smoke.py`
 - `skills/novel-outline/SKILL.md`
