@@ -120,11 +120,17 @@
 
 ### 模式 2：project-annotate
 
-只允许在项目内增加“市场观察结果”，例如：
+只允许在项目内增加“市场观察结果”与低风险项目内建议，例如：
 
 - `.mighty/market-data.json`
+- `.mighty/market-adjustments.json`
+- `.mighty/state.json -> market_adjustments` 轻量摘要 / 指针
 
-仍不直接改 shared profile。
+约束：
+
+- 只有当前运行拿到中高可信证据时，才允许写入 `market-adjustments`
+- low confidence 或 skeleton 结果只保留 `market-data.json`
+- 仍不直接改 shared profile
 
 ### 模式 3：apply-suggestion
 
@@ -132,6 +138,7 @@
 
 - 一份待应用建议
 - 或一个局部 project-level override
+- 或更强的 bucket / profile 级决策
 
 不直接改 shared 源资产。
 
@@ -139,6 +146,7 @@
 
 - 默认改写 `shared/profiles/`
 - 没有可信来源分层时直接回写权重
+- 低可信结果直接写入 `market-adjustments`
 - 把搜索层线索当成确定结论
 
 ## 退化路径
@@ -156,6 +164,22 @@
 
 - 收集 URL 与来源清单
 - 输出“待人工抓取/待用户提供内容”
+
+### 有网络但抓取层不稳定
+
+当前仓库已补一个 report-only 获取辅助脚本：
+
+- `scripts/acquire_source_text.py`
+
+它的定位不是保证“任意站点都能拿到正文”，而是保证“任意输入都能稳定返回结构化结果”：
+
+- 先尝试 `fetch MCP`
+- 当前如果没有显式配置外部 `fetch MCP` 命令，会先退到 `r.jina.ai` reader proxy
+- 再退到直抓 HTML + 内建正文提取
+- 最后退到搜索回退 provider；当前默认可用的是 `Bing RSS`
+- 始终返回统一状态、来源类型、失败原因和尝试记录
+
+因此后续 scan/report-only 流程如果要接抓取层，应该优先复用这类稳定结果结构，而不是把单一抓取工具当作唯一入口。
 
 ### 数据不足
 
@@ -202,3 +226,9 @@
 4. 回写边界明确
 
 做到这四点，才值得进入实现阶段。
+
+补充：
+
+- 如果只是先把不稳定抓取层包成可消费结果，当前可直接复用：
+  - `python3 scripts/acquire_source_text.py <url> --pretty`
+- 但它仍然是 report-only helper，不代表 `novel-scan` 已进入默认工作流。

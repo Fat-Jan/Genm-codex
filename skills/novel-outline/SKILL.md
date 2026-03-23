@@ -31,6 +31,8 @@ Always read:
 - `../../shared/references/shared/core-constraints.md`
 - `../../docs/anti-flattening-framework/README.md`
 - `../../docs/anti-flattening-framework/01-总纲.md`
+- `../../docs/opening-and-plot-framework/README.md`
+- `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 
 ## Conditional reads
 
@@ -51,6 +53,13 @@ Also read these when generating or materially revising outlines, especially for 
 - `../../docs/anti-flattening-framework/07-场景级群像推进.md`
 - `../../docs/anti-flattening-framework/08-流派故障库.md`
 - `../../docs/anti-flattening-framework/10-工具包与工作流.md`
+- `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+- `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+- `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+- `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+- `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 
 ## Workflow
 
@@ -58,6 +67,7 @@ Also read these when generating or materially revising outlines, especially for 
    - if no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the active Fanqie content bucket
 2. Read `../../shared/references/shared/core-constraints.md`.
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
+   - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 3. Load the relevant shared profile for rhythm and reader expectations.
    - when doing total-outline generation or any outline refinement that clearly depends on人物立体度、群像关系、阵营冲突、穿书/穿越/系统/权谋等高风险题材，also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
@@ -68,7 +78,18 @@ Also read these when generating or materially revising outlines, especially for 
      - `../../docs/anti-flattening-framework/07-场景级群像推进.md`
      - `../../docs/anti-flattening-framework/08-流派故障库.md`
      - `../../docs/anti-flattening-framework/10-工具包与工作流.md`
+     - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+     - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+     - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+     - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+     - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
    - use them as outline-side structure rules for:
+     - opening promise and first-three delivery shape
+     - first conflict / first payoff placement when opening strength matters
+     - primary line vs touched subline clarity
+     - event, information-gap, cost, and residue chaining
      - protagonist privilege boundaries
      - role tier allocation
      - independent character motives
@@ -86,6 +107,7 @@ Also read these when generating or materially revising outlines, especially for 
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-resistance-and-cost-rules.md`
+   - project-local `.mighty/market-adjustments.json` when it exists
    - when the active bucket is `宫斗宅斗` or another ancient-family-power route, also read `../../shared/references/writing/ancient-household-kinship-guide.md`
    - when the project涉及朝堂/东宫/地方官场/军政/封爵，也 read `../../shared/references/writing/ancient-office-hierarchy-guide.md`
    - use them only as outline-side optimization rules for:
@@ -97,6 +119,13 @@ Also read these when generating or materially revising outlines, especially for 
      - kinship / birth-order consistency
      - office / power-chain consistency
      - resistance / cost / partial-payoff design
+   - when the active bucket is `宫斗宅斗`, explicitly consume palace-specific adjustment ids when present:
+     - `scan-surface-hook`
+       - front-load婚配错位 / 赐婚 / 和离 / 权臣高门关系冲突 into total-outline premise and first 1-3 chapter hooks
+     - `scan-frontload-conflict`
+       - ensure the opening chapter group contains at least one visible pressure->counter or pressure->ledger-shift unit
+     - `scan-kinship-truth-check`
+       - do not freeze outward relation words in total outline or chapter outline until household truth files can support嫡庶 / 齿序 / 婚配法统
    - do not let writing-technique rules override outline law or active bucket
 6. If this is an ancient-family-power route and either kinship file is missing:
    - create `设定集/家族/宅门真值表.md` from `../../shared/templates/project/ancient-household-truth-sheet.md` or a minimal equivalent
@@ -109,6 +138,11 @@ Also read these when generating or materially revising outlines, especially for 
 8. For `mode=total`:
    - create or update `大纲/总纲.md`
    - include hook, premise, main conflict, arc direction, and ending direction
+   - when opening-and-plot rules are active, explicitly lock:
+     - opening promise
+     - first-three chapter exchange / payoff path
+     - main line and the most important supporting line
+     - which early gain should leave residual risk
    - when anti-flattening rules are active, explicitly lock:
      - protagonist privilege boundary
      - role tiers for core cast / important support / functional roles
@@ -133,6 +167,11 @@ Also read these when generating or materially revising outlines, especially for 
 9. For `mode=chapter`:
    - create `大纲/章纲/第N章.md`
    - include chapter goal, conflict, reveal, hook, and continuity notes
+   - when opening-and-plot rules are active, also include:
+     - the chapter’s primary line
+     - which secondary line is touched but not fully resolved
+     - when the chapter is in 1-3, where the opening conflict and first exchange land on page
+     - what residue, debt, or unsettled question carries into the next chapter
    - when anti-flattening rules are active, also include:
      - active mover / defender in the key scene
      - which supporting role or opposing role has an independent agenda in the chapter
@@ -152,11 +191,29 @@ Also read these when generating or materially revising outlines, especially for 
      - current data-layer `cost_patterns`
      - current data-layer `partial_payoff_patterns`
    - if the chapter depends on ancient-family-power kinship logic, keep chapter称谓 consistent with the truth sheet even when the broader total outline is still provisional
+   - if palace-specific adjustments exist, the chapter outline should also make explicit:
+     - where the first婚配/位阶 pressure point lands on page
+     - which ledger changes in the chapter
+     - which relation word or称谓 has already passed truth-sheet validation
    - if the chapter depends on office hierarchy, keep官名、节制链、称呼 consistent with the office truth sheet even when the broader total outline is still provisional
 10. Keep chapter outlines specific enough for writing, but short enough to maintain.
 11. If the user asks for multiple options, present 2-3 outline variants before locking one in.
 12. Report which outline files were created or updated, and mention the bucket when one was used.
    - if anti-flattening rules were active, also mention the main structural locks or warnings applied
+
+## 宫斗宅斗路线的宫廷市场调整
+
+### 触发条件
+- 先检查显式输入 `content_bucket`，再回到 `.mighty/state.json` 中的 `genre_profile.bucket`。当任一项是 `宫斗宅斗`，或者 `meta.genre`/`genre_profile.bucket` 字段明显包含 “宫斗”、“宅斗” 等关键词，并且项目当前处于古代家族权力、嫡庶/婚配、朝堂权谋等线索上，就把当前路线判为宫斗宅斗；否则即便 `market_adjustments` 里存在 palace-specific id，该段调整也不应用。
+- 仅在判定为宫斗宅斗后，才读取 `.mighty/market-adjustments.json`（优先），或者当该文件缺失时使用 `state.market_adjustments` 的 summary/指针。其他 bucket 仍然可以访问通用 `market_adjustments`，但下面三条 palace-specific id 不能跨桶生效：`scan-surface-hook`、`scan-frontload-conflict`、`scan-kinship-truth-check`。
+
+### 约束释义
+- `scan-surface-hook`：把包装/总纲/章纲前三章的钩子当作硬约束。总纲要提前写出身份反差、赐婚/婚配错位、权力位阶冲突等钩子元素，并在章纲里指明哪一段承担“高概念+低位冲突”的交易单元；如果已经出现赐婚书、封官诏那类物件，明确指出第一章或前三章的“钩子搏杀”节点。
+- `scan-frontload-conflict`：要求章纲和写作流程把首轮冲突（陷害/压迫/权谋联动）与反击/反运作落在同一轮剧情中，不能只留单边压制。总纲在节奏刻度上要锁定“压制→反击→初步收益”链条，章纲需写清冲突地点、反击动作与收益/信息节点。
+- `scan-kinship-truth-check`：在首次使用嫡庶/赐婚/位阶关系词前，强制读取或补齐 `设定集/家族/宅门真值表.md`、`设定集/家族/小型家谱.md`（必要时包括 `设定集/官制/官职真值表.md`），把关系真值写成可查证的事实（如“嫡长女坐正房，庶妹母亲是某豪门余血”），并在总纲/章纲/包装描述中注明真值来源，确保词汇和描述不会偏离设定。
+
+### 备选情况
+- 当 only `state.market_adjustments` 提供 summary/pointer 时，只要 summary 里提到钩子、前置冲突或亲族真值的提示，就照上述逻辑落地。若 palace-specific amendment 缺失或当前线路不属宫斗宅斗，该部分直接跳过。
 
 ## Output files
 
@@ -175,6 +232,7 @@ Also read these when generating or materially revising outlines, especially for 
 - Do not generate chapter writing content here; this skill ends at outline artifacts.
 - If Fanqie bucket rules are active, they should guide outline shape before packaging and before prose generation.
 - Anti-flattening rules should improve人物、关系、阵营与后果结构, but cannot override canon, state truth, or active bucket law.
+- Opening-and-plot rules should improve开篇承诺、层次清晰度与推进账本, but cannot override canon, state truth, or active bucket law.
 - If ancient kinship constraints are active and the minimal household schema cannot be made self-consistent, stop short of a “final” outline and return the inconsistency first.
 - For ancient-family-power routes, the preferred order is:
   1. household truth sheet

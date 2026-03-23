@@ -79,11 +79,35 @@ If no trustworthy source material is actually fetched or provided in the current
 
 - `.mighty/market-data.json`
 
+## Executable helper
+
+当前仓库提供了一个最小可执行脚本：
+
+- `python3 scripts/novel_scan.py <project_root> --platform <平台> --genre <题材> --depth quick --mode report-only`
+
+它的定位是：
+
+- 先把 source plan、外部来源抓取结果和 confidence 落成真实文件
+- `project-annotate` 时，只在当前证据达到中高可信后，再把项目级建议收成 sidecar + 轻量 state 摘要
+- 优先复用 `scripts/acquire_source_text.py`，避免单个抓取工具失效就把整条扫描链卡死
+
+当前内置默认来源仍然有限：
+
+- 已内置：`番茄 + 玄幻 + quick`
+- 其他组合建议显式传 `--source-url`
+
 ## Project annotation target
 
 When mode is `project-annotate`, the preferred project update target is:
 
 - `.mighty/market-adjustments.json`
+
+but only when the current run has medium/high confidence evidence.
+
+Otherwise:
+
+- keep only `.mighty/market-data.json`
+- do not leave stale `market-adjustments` sidecars behind
 
 and the runtime state should only keep a lightweight summary/pointer.
 
@@ -125,13 +149,14 @@ and the runtime state should only keep a lightweight summary/pointer.
    - keep trust attribution visible
 7. Save the result to `.mighty/market-data.json`.
 8. If mode is `project-annotate`:
-   - prefer updating `.mighty/market-adjustments.json`
+   - only update `.mighty/market-adjustments.json` when confidence is medium/high
    - keep `.mighty/state.json` only as a summary / pointer when guidance has been externalized
    - set:
      - `last_applied`
      - `source_scan`
      - `adjustments`
    - only use low-risk, project-local suggestion summaries
+   - if confidence stays low or the result degrades to skeleton, keep only `market-data.json`
    - do not rewrite `shared/profiles/`
 9. Return:
    - mode used

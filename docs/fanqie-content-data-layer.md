@@ -121,7 +121,8 @@
 - [fanqie-mvp-buckets.yaml](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-mvp-buckets.yaml)
 - [fanqie-mvp-tagpacks.yaml](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-mvp-tagpacks.yaml)
 - `.mighty/market-data.json`
-- `.mighty/state.json -> market_adjustments`
+- `.mighty/market-adjustments.json`
+- `.mighty/state.json -> market_adjustments` 轻量摘要 / 指针
 
 ---
 

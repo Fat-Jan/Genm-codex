@@ -85,6 +85,16 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 
 - [反脸谱化体系](./anti-flattening-framework/README.md)
 
+如果你关心的是：
+
+- 开头抓不抓人
+- 前三章会不会只有承诺没有兑现
+- 剧情是不是只有一根线在硬推
+
+优先把 `novel-outline`、`novel-write`、`novel-review`、`novel-precheck`、`novel-package` 跑成一组，并参考：
+
+- [开篇方法与剧情层次框架](./opening-and-plot-framework/README.md)
+
 ### 批量写作特别提醒
 
 - **一次性最多只生成 3 章**
@@ -193,7 +203,9 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 ## 还没有纳入默认工作流的内容
 
 - `novel-scan`
-  - 仍然暂缓，因为它依赖外部趋势采集契约
+  - 目前已是可用的实验能力
+  - 适合在明确需要外部市场信号时单独运行
+  - 但仍不属于默认主工作流的一部分
 
 - `novel-help` / `novel-tutorial`
   - 当前由这份文档、README 和 `skill-usage.md` 承担职责
@@ -207,3 +219,4 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 3. 存在：先跑 `novel-status`
 4. 想知道完整主线：看 [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
 5. 想优先打磨人物、关系和群像：看 [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+6. 想优先打磨开篇抓力、前三章兑现和剧情层次：看 [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)

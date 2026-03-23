@@ -109,6 +109,9 @@
       "OOC": 0,
       "连续性": 0,
       "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
       "人物立体度": 0,
       "关系张力": 0,
       "阵营分歧": 0,
@@ -163,6 +166,8 @@
   },
   "chapter_meta": {
     "<chapter_number>": {
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
       "last_close_time": null,
       "last_close_route": "",
       "last_close_review_score_before": 0,

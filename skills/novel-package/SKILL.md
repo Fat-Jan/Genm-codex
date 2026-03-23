@@ -58,6 +58,8 @@ Always read:
 Read for packaging generation:
 
 - `大纲/总纲.md`
+- `../../docs/opening-and-plot-framework/README.md`
+- `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 
 Read conditionally:
 
@@ -82,6 +84,11 @@ Read conditionally:
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-mvp-tagpacks.yaml`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+- `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+- `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `references/synopsis-platform-guide.md`
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
@@ -103,24 +110,44 @@ Read conditionally:
    - main conflict
    - protagonist position
    - strongest hook
-4. If this is an ancient-family-power route and household truth files exist, read them before proposing outward relation words.
-5. If the project clearly depends on court / palace / local-office / military rank logic and office truth files exist, read them before proposing outward官名.
-6. Inspect recent project-local quality signals when they exist:
+4. Read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`.
+5. If the request is `opening-hook`, `full`, or clearly depends on stronger first-screen packaging, also read:
+   - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+   - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+   - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+   - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+   - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
+   - use them as packaging-side rules for:
+     - keeping the opening promise legible
+     - avoiding overpromising without a near-term payoff node
+     - making the hook land on a concrete exchange rather than generic hype
+6. If this is an ancient-family-power route and household truth files exist, read them before proposing outward relation words.
+7. If the project clearly depends on court / palace / local-office / military rank logic and office truth files exist, read them before proposing outward官名.
+8. Inspect recent project-local quality signals when they exist:
    - recent `chapter_meta`
    - recent `needs_fix`
    - recent `review_grade`
    - recent `recommended_next_action`
-7. If `.mighty/market-adjustments.json` exists, treat that as the first packaging-side market hint source.
-8. If state only has a summary/pointer form of `market_adjustments`, use it to locate the sidecar.
-9. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
-10. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
-11. If the platform is 番茄 and a content bucket is explicitly given, or a current `genre_profile.bucket` exists, or the request clearly asks for Fanqie-first packaging:
+9. If `.mighty/market-adjustments.json` exists, treat that as the first packaging-side market hint source.
+   When the active bucket equals `宫斗宅斗`，或 explicit `content_bucket=宫斗宅斗`，或 state/tagpack/genre 明显归属于宫廷/古代家族/宫斗宅斗这类路线时，额外从 adjustments 里查找以下 id：
+   - `scan-surface-hook`
+   - `scan-frontload-conflict`
+   - `scan-kinship-truth-check`
+   这些 id 仅在 palace 路线可读/可用，其他 bucket 不要外溢这些约束。
+   每个命中后的 adjustment 必须转成具体包装指令并写入输出的 `包装约束` 段落，同时说明消费位置（书名、简介、开篇钩子等）：
+   - `scan-surface-hook`：把钩点（婚配错位、赐婚/和离、高门婚配/权臣拉扯等）明确前置到首屏中的某个标题候选、简介段句或开篇包装提示，并交代哪个节奏节点落该钩子，防止钩子被压到中后段。
+   - `scan-frontload-conflict`：包装承诺必须体现“先压后反击/换账”结构，说明压迫、陷害和即时反扑在前三章或首轮冲突单元一起闭合；若当前候选未满足，标出缺口和补救节点（比如第二章前置陷害）。
+   - `scan-kinship-truth-check`：涉及嫡庶、齿序、赐婚、宫廷头衔等关系词前，要先读 `设定集/家族/宅门真值表.md`、`设定集/家族/小型家谱.md`（必要时再访 `设定集/官制/官职真值表.md`），包装主方案只输出已通过真值的关系词，未确认时声明为暂定方向并加注真实值缺口。
+10. If state only has a summary/pointer form of `market_adjustments`, use it to locate the sidecar.
+11. If `.mighty/market-data.json` exists, use it conservatively as a secondary signal.
+12. If existing packaging files already exist under `包装/`, read them before proposing replacements so the new output can explain whether the current packaging should be kept, tightened, or replaced.
+13. If the platform is 番茄 and a content bucket is explicitly given, or a current `genre_profile.bucket` exists, or the request clearly asks for Fanqie-first packaging:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
    - use `../../docs/fanqie-mvp-bucket-templates.md` as a fallback explanatory reference
    - treat those as bucket-layer constraints that sit upstream of packaging
-12. If Fanqie packaging is active, also read:
+14. If Fanqie packaging is active, also read:
    - `../../docs/fanqie-content-data-layer.md`
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
@@ -136,11 +163,11 @@ Read conditionally:
      - kinship / birth-order consistency before relation words are pushed into outward packaging
      - office-title / power-chain consistency before官名 is pushed into outward packaging
    - do not let writing-technique rules override canon or the active bucket
-13. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack style such as `恶女`:
+15. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack style such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - if a matching tagpack exists, treat it as an overlay on top of the bucket rather than a replacement for the bucket
-14. Resolve packaging mode:
+16. Resolve packaging mode:
 
 Before finalizing title / synopsis / naming for submission-facing or replacement packaging:
 
@@ -249,6 +276,7 @@ Prefer:
 
 - one recommended main direction
 - 2-4 viable alternatives
+- Opening-and-plot rules should help package真实的开篇 promise，而不是放大正文无法兑现的空承诺。
 - explicit reasons for what not to push
 - compact packaging constraints tied to current canon and review state
 

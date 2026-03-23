@@ -53,6 +53,12 @@ Codex 原生网文创作技能工作区。
 
 - `genm-novel-package`
 
+实验态但已安装的 Skill：
+
+- `genm-novel-scan`
+  - 当前可用，但不属于默认工作流
+  - 更适合在明确需要外部市场信号时单独运行
+
 第九阶段已完成的整合方向：
 
 - 包装生成层
@@ -113,6 +119,7 @@ bash scripts/validate-migration.sh
   - `novel-status`
   - `novel-polish`
   - `novel-genre`
+  - `novel-scan`（实验态，非默认工作流）
 - 不要把 `genm-` 前缀默认当成必须的调用名
 
 ### 4. 查看使用说明
@@ -188,6 +195,7 @@ bash scripts/validate-migration.sh
 - `docs/v1-final-decision.md`
 - `docs/writing-model-strategy.md`
 - `docs/anti-flattening-framework/README.md`
+- `docs/opening-and-plot-framework/README.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
@@ -200,3 +208,4 @@ bash scripts/validate-migration.sh
 - 单章 `novel-write` 现在默认会守卫式自动尝试一次 `novel-close`；`novel-batch` 不继承该默认行为，显式传 `skip_close=true` 可跳过
 - `novel-outline` / `novel-review` / `novel-fix` 现在会按需读取 `docs/anti-flattening-framework/`，把反脸谱化与群像约束纳入默认质量闭环
 - `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查
+- `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 现在也可按需读取 `docs/opening-and-plot-framework/`，把开篇承诺、剧情层次和推进残账纳入默认工作流规则层

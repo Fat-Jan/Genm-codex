@@ -1,0 +1,1623 @@
+{
+  "$schema": "state-archive-v1.json",
+  "version": "1.0",
+  "archived_at": "2026-03-23T11:37:22Z",
+  "retained_recent_chapters": [
+    "028",
+    "029",
+    "030",
+    "031",
+    "032",
+    "033",
+    "034",
+    "035"
+  ],
+  "chapter_meta": {
+    "001": {
+      "title": "穿越",
+      "word_count": 5469,
+      "written_at": "2026-03-22T20:45:00+08:00",
+      "updated_at": "2026-03-22T23:58:00+08:00",
+      "status": "draft",
+      "summary": "苏照棠病后在西院醒来，通过花笺、抄页、荷包和小桃的前情说明确认自己穿越成苏府庶出二姑娘。她得知自己昨夜在正院病中受罚，对照原著意识到若借病不赴花园之约，就会再次被钉死在低位，于是决定带病赴约。"
+    },
+    "002": {
+      "title": "花园试探",
+      "word_count": 4031,
+      "written_at": "2026-03-22T23:59:00+08:00",
+      "updated_at": "2026-03-22T23:59:00+08:00",
+      "status": "draft",
+      "summary": "苏照棠带病赴花园之约，在苏婉柔布好的场面里第一次没有按原著那样退让。她守礼却不认低，借体面话稳住自己，也因此第一次被父亲与下人公开看见她的变化。"
+    },
+    "003": {
+      "title": "正院定性",
+      "word_count": 3985,
+      "written_at": "2026-03-23T00:08:00+08:00",
+      "updated_at": "2026-03-23T00:08:00+08:00",
+      "status": "draft",
+      "summary": "苏照棠在正院请安时面对王氏的重新评估。王氏没有立刻全面施压，而是先用病后懂事、知足守礼替她和西院定性，令苏照棠意识到后续真正的压制会顺着用度和分寸慢慢落下来。"
+    },
+    "004": {
+      "title": "月例之争",
+      "word_count": 3986,
+      "written_at": "2026-03-23T00:18:00+08:00",
+      "updated_at": "2026-03-23T00:18:00+08:00",
+      "status": "draft",
+      "summary": "西院月例银子虽未短，药材、炭火和布匹却被暗换了一等。苏照棠没有直接去闹，而是借父亲经过西院时看见不体面的用度问题，逼得下面把份例补回，但也因此换来更快的风声和更深的戒备。"
+    },
+    "005": {
+      "title": "嫡姐反咬",
+      "word_count": 4003,
+      "written_at": "2026-03-23T00:27:00+08:00",
+      "updated_at": "2026-03-23T00:27:00+08:00",
+      "status": "draft",
+      "summary": "月例补回后，苏婉柔借花厅里的体面场面和正院传来的口风，把苏照棠改写成病后会算计、会借势的人。苏照棠因此第一次明确意识到，苏府真正难缠的不只是资源账，还有别人替她写的人设和名声账。"
+    },
+    "006": {
+      "title": "表姑娘来投",
+      "word_count": 3985,
+      "written_at": "2026-03-23T00:36:00+08:00",
+      "updated_at": "2026-03-23T00:36:00+08:00",
+      "status": "draft",
+      "summary": "偏院表姑娘林若雪被堵在廊下时，苏照棠选择出手替她解围。她没有把这次帮助写成收拢，而是在林若雪的谨慎与提醒中确认：低位人的感谢和靠近都带着自保，自己每一次伸手也都会被正院记成拉人心。"
+    },
+    "007": {
+      "title": "婚事风声",
+      "word_count": 4199,
+      "written_at": "2026-03-23T00:54:00+08:00",
+      "updated_at": "2026-03-23T00:54:00+08:00",
+      "status": "draft",
+      "summary": "林若雪带来正院翻生辰册、摸门第的风声后，苏照棠第一次切实感到婚配已从远景变成现实分配。她看清在太太和姨娘眼里，庶女的婚事本质上是一种摆放，而父亲随后的传唤也让她意识到自己正在被重新估值。"
+    },
+    "008": {
+      "title": "父亲的考校",
+      "word_count": 3987,
+      "written_at": "2026-03-23T00:54:00+08:00",
+      "updated_at": "2026-03-23T00:54:00+08:00",
+      "status": "draft",
+      "summary": "苏照棠被叫到书房外候问，面对苏文渊关于月例与用度的试探。她第一次在父权中心前展露会看细账、会分轻重的一面，也因此被归入可再看看的一类女儿，却更清楚地看见父亲的视线绝不是靠山。"
+    },
+    "009": {
+      "title": "席面失衡",
+      "word_count": 4018,
+      "written_at": "2026-03-23T00:54:00+08:00",
+      "updated_at": "2026-03-23T00:54:00+08:00",
+      "status": "draft",
+      "summary": "王氏借家宴故意给苏照棠留出一个看似照顾、实则失礼的座次，想在众人面前把她重新摆回尴尬位置。苏照棠用规矩把这一步错还了回去，在公开席面上第一次稳稳保住体面，也让所有人更确认她已不再是从前那个受气庶女。"
+    },
+    "010": {
+      "title": "第一次立威",
+      "word_count": 3991,
+      "written_at": "2026-03-23T01:22:00+08:00",
+      "updated_at": "2026-03-23T01:22:00+08:00",
+      "status": "draft",
+      "summary": "苏照棠借林若雪掌握的旧账，在针线房当众把西院和偏院份例被调包的事翻出来，逼得针线房当场补齐并把锅落回办差不公上。她由此第一次真正让下层开始怕她会记账、会留证、会把事做成公账。"
+    },
+    "011": {
+      "title": "父亲留意",
+      "word_count": 3988,
+      "written_at": "2026-03-23T01:22:00+08:00",
+      "updated_at": "2026-03-23T01:22:00+08:00",
+      "status": "draft",
+      "summary": "针线房立威后，苏文渊进一步把夏日用度账交到苏照棠手里试她，确认她不仅会看细账，也知道如何收锋。她因此更加清楚，父亲的视线是一种条件式使用，而非真正的偏爱或靠山。"
+    },
+    "012": {
+      "title": "姨娘受牵",
+      "word_count": 3987,
+      "written_at": "2026-03-23T01:22:00+08:00",
+      "updated_at": "2026-03-23T01:22:00+08:00",
+      "status": "draft",
+      "summary": "在苏照棠被父亲进一步看见之后，最先遭殃的却是林姨娘房里的炭火、热水和药材。苏照棠第一次真正意识到，自己每往前一步，代价未必先落在自己身上，也开始从单纯破局转向兼顾代价与保护身边人的经营。"
+    },
+    "013": {
+      "title": "抄经避锋",
+      "word_count": 3990,
+      "written_at": "2026-03-23T02:05:00+08:00",
+      "updated_at": "2026-03-23T02:05:00+08:00",
+      "status": "draft",
+      "summary": "王氏以抄经静心和学礼收口，试图把苏照棠病后的锋芒压回去。苏照棠却主动顺势收锋，在表面安分里换来一段观察空间，也借此等到王家女眷即将上门的消息。"
+    },
+    "014": {
+      "title": "外家看人",
+      "word_count": 3578,
+      "written_at": "2026-03-23T02:05:00+08:00",
+      "updated_at": "2026-03-23T12:19:10+08:00",
+      "status": "draft",
+      "summary": "王氏娘家女眷上门后，苏照棠第一次在外客的眼睛里感到自己正被衡量和定价。她意识到婚配不是某个人喜不喜欢，而是一整套家族先看、先估、再摆放人的机制。",
+      "last_fix_time": "2026-03-23T12:19:10+08:00",
+      "fix_count": 1,
+      "fixed_issues": [
+        "压缩重复解释段，保留婚配=估价/摆放的核心推进",
+        "把王氏圆场与苏文渊划线的压力差异拆开",
+        "保留余波，不把章末写成满解释收束"
+      ]
+    },
+    "015": {
+      "title": "名声回潮",
+      "word_count": 4016,
+      "written_at": "2026-03-23T02:05:00+08:00",
+      "updated_at": "2026-03-23T12:35:50+08:00",
+      "status": "draft",
+      "summary": "父亲那句“聪明别写在脸上”正式把苏照棠纳入可用但需约束的范围。她到此第一次不再只问如何赢一局，而开始追问家族与门第准备把自己摆到什么位置上。",
+      "last_fix_time": "2026-03-23T12:35:50+08:00",
+      "fix_count": 3,
+      "fixed_issues": [
+        "压缩主题复盘与解释腔",
+        "保留林姨娘/小桃/父权三层压力，不再并成同一回声",
+        "把章末收成下一阶段问题，而不是重复总论",
+        "补入针线房尺头单场景，把父权划线落到具体资源调整",
+        "让“被摆放”从抽象判断变成可见的衣料、花样和位置差",
+        "补入正院实发料子与再量肩身通知，强化章末现实挂钩"
+      ],
+      "review_score": 86,
+      "review_grade": "A",
+      "review_time": "2026-03-23T12:38:18+08:00",
+      "dimension_scores": {
+        "narrative_power_balance": 13,
+        "character_agency": 17,
+        "relationship_tension": 14,
+        "faction_divergence": 8,
+        "conflict_and_cost": 17,
+        "scene_mobility": 8,
+        "genre_fault_control": 9,
+        "人物立体度": 17,
+        "关系张力": 14,
+        "阵营分歧": 8,
+        "代价感": 17
+      },
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "critical_issues": [],
+      "warnings": [
+        "仍有少量总结句可在后续统一润色轮里继续压缩，但已不构成当前章的收口阻塞。"
+      ],
+      "suggested_fixes": [
+        "后续若做语言层统一精修，可再压一轮总结句，把已经成立的判断继续交给动作和他人反应承载。"
+      ],
+      "issue_clusters": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "score": 86,
+        "grade": "pass",
+        "critical_issues": [],
+        "warnings": [
+          "人物立场差异和关系余波已成立，只剩少量语言层重复可在统一润色轮中处理。"
+        ],
+        "suggested_fixes": [
+          "后续如做全卷润色，可继续压缩少量总结句。"
+        ],
+        "recommended_next_action": "none"
+      }
+    },
+    "016": {
+      "title": "议亲风起",
+      "word_count": 5231,
+      "written_at": "2026-03-23T12:50:24+08:00",
+      "updated_at": "2026-03-23T15:56:44+08:00",
+      "status": "draft",
+      "summary": "针线房、礼数课和出入规矩先一步重排，把苏照棠正式推入“待议亲姑娘”的筹备序列。她从尺头单、礼数分层和口风里看清自己正被重新定样，并开始主动记下这笔议亲账。",
+      "last_fix_time": "2026-03-23T15:56:44+08:00",
+      "fix_count": 1,
+      "fixed_issues": [
+        "压缩重复解释段，把议亲起势收回到针线房、礼数课、出入记名和册页四个有效节点",
+        "补强主角主动记账动作，避免整章只剩被动观察",
+        "将章末钩子收成实物证据落地，保留婚配线正式启动的余波"
+      ],
+      "review_score": 87,
+      "review_grade": "A",
+      "review_time": "2026-03-23T15:56:44+08:00",
+      "dimension_scores": {
+        "narrative_power_balance": 13,
+        "character_agency": 17,
+        "relationship_tension": 15,
+        "faction_divergence": 8,
+        "conflict_and_cost": 16,
+        "scene_mobility": 9,
+        "genre_fault_control": 9,
+        "人物立体度": 17,
+        "关系张力": 15,
+        "阵营分歧": 8,
+        "代价感": 16
+      },
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "critical_issues": [],
+      "warnings": [
+        "当前章长仍略高于目标上限，但已回到可控范围，不构成本轮收口阻塞。"
+      ],
+      "suggested_fixes": [
+        "后续若做整卷统一压章，可再微收数百字，把个别解释句继续交给动作承载。"
+      ],
+      "issue_clusters": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "score": 87,
+        "grade": "pass",
+        "critical_issues": [],
+        "warnings": [
+          "议亲账已从风声落成可见实物，主角也有了主动记账动作；当前只剩轻微章长余量。"
+        ],
+        "suggested_fixes": [
+          "后续统一润色时可再微收数百字。"
+        ],
+        "recommended_next_action": "none"
+      },
+      "last_close_time": "2026-03-23T15:56:44+08:00",
+      "last_close_route": "novel-fix",
+      "last_close_review_score_before": 74,
+      "last_close_review_score_after": 87
+    },
+    "017": {
+      "title": "庚帖轻重",
+      "word_count": 6229,
+      "written_at": "2026-03-23T16:21:59+08:00",
+      "updated_at": "2026-03-23T16:21:59+08:00",
+      "status": "draft",
+      "summary": "苏照棠从庚帖条目、王氏与父亲的对话里，第一次真正看清自己和苏婉柔会在议亲桌上怎样被轻重衡量。她也开始像记账一样拆看婚配标准，并意识到后日出门并不是体面，而是给人相看。",
+      "review_score": 88,
+      "review_grade": "A",
+      "review_time": "2026-03-23T16:21:59+08:00",
+      "dimension_scores": {
+        "narrative_power_balance": 13,
+        "character_agency": 18,
+        "relationship_tension": 15,
+        "faction_divergence": 9,
+        "conflict_and_cost": 16,
+        "scene_mobility": 9,
+        "genre_fault_control": 8,
+        "人物立体度": 18,
+        "关系张力": 15,
+        "阵营分歧": 9,
+        "代价感": 16
+      },
+      "needs_fix": false,
+      "recommended_next_action": "none",
+      "critical_issues": [],
+      "warnings": [
+        "本章主要改动的是信息账与关系认知，下一章需尽快把“被看”兑现成具体场面，避免婚配线连续停留在认知层。"
+      ],
+      "suggested_fixes": [
+        "下一章直接把出门相看落成可见压力与现场换账。"
+      ],
+      "issue_clusters": [],
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {
+        "score": 88,
+        "grade": "pass",
+        "critical_issues": [],
+        "warnings": [
+          "王氏、苏文渊和小桃在同一条婚配账上各有不同立场，人物没有塌成单一功能；后续只要尽快兑现外部场景即可。"
+        ],
+        "suggested_fixes": [
+          "下一章把“给人看”落成具体见客或相看场面。"
+        ],
+        "recommended_next_action": "none"
+      },
+      "last_close_time": "2026-03-23T16:21:59+08:00",
+      "last_close_route": "none",
+      "last_close_review_score_before": 88,
+      "last_close_review_score_after": 88
+    },
+    "018": {
+      "title": "嫡庶价码",
+      "word_count": 8106,
+      "written_at": "2026-03-23T16:40:41+08:00",
+      "updated_at": "2026-03-23T16:40:41+08:00",
+      "status": "draft",
+      "summary": "王氏送来的新衣新饰让苏照棠看清，被打扮并不等于被重视，而是被按用途整备。下人口风和林若雪的坦白则把嫡庶价码说得更赤裸，也让她第一次真正追问前头争来的那些东西究竟值不值。",
+      "batch_written": true
+    },
+    "019": {
+      "title": "花会相看",
+      "word_count": 7216,
+      "written_at": "2026-03-23T16:40:41+08:00",
+      "updated_at": "2026-03-23T16:40:41+08:00",
+      "status": "draft",
+      "summary": "净明寺一行把婚配压力从府内安排推到外头的公开目光里。苏照棠在花会相看中学会控制曝光，也第一次从现实样本里看见高门体面背后的规训；回府后，她又听见王氏那句“得配个能压住她的人家”。",
+      "batch_written": true
+    },
+    "020": {
+      "title": "高嫁未必是路",
+      "word_count": 7802,
+      "written_at": "2026-03-23T16:40:41+08:00",
+      "updated_at": "2026-03-23T16:40:41+08:00",
+      "status": "draft",
+      "summary": "王氏与周妈妈的真话，让苏照棠把原著里那门人人看着都好的婚事，和眼前“压住她”的安排严丝合缝地对上。她也在与林姨娘的错位安慰里，正式确定第二卷的起手不是先逃，而是先借势。",
+      "batch_written": true
+    },
+    "021": {
+      "title": "借风入账",
+      "word_count": 2299,
+      "written_at": "2026-03-23T17:11:27+08:00",
+      "updated_at": "2026-03-23T17:11:27+08:00",
+      "status": "draft",
+      "summary": "寺会后的外部风评很快反推回苏府账上，苏照棠也顺势借到誊写回礼名册的差事。她第一次真正摸到账册边角，看见外头是怎样替自己写价码的。",
+      "batch_written": true
+    },
+    "022": {
+      "title": "回礼名册",
+      "word_count": 2139,
+      "written_at": "2026-03-23T17:11:27+08:00",
+      "updated_at": "2026-03-23T17:11:27+08:00",
+      "status": "draft",
+      "summary": "从回礼名册和旧备注里，苏照棠坐实了一门看似体面、实则补空位的冯家二房婚事，也更冷地看清“稳妥”二字背后真正值钱的东西。",
+      "batch_written": true
+    },
+    "023": {
+      "title": "顺手换账",
+      "word_count": 2288,
+      "written_at": "2026-03-23T17:11:27+08:00",
+      "updated_at": "2026-03-23T17:11:27+08:00",
+      "status": "draft",
+      "summary": "苏照棠借苏文渊那句“照规矩慢慢来”，把冯家二房的口风往后拖住了半步。她也因此被继续留在旧礼例差事里，并顺手摸到了成国公府的名字痕迹。",
+      "batch_written": true
+    },
+    "024": {
+      "title": "旧册有名",
+      "word_count": 2068,
+      "written_at": "2026-03-23T17:57:39+08:00",
+      "updated_at": "2026-03-23T17:57:39+08:00",
+      "status": "draft",
+      "summary": "苏照棠在旧礼例册里，第一次完整碰到“成国公府、寄居顾氏、旧例沿此”这条被压着的旧账。她也因此更明确地意识到，高门旧闻和眼前婚配账很可能本来就是同一套做法的前账与后账。",
+      "batch_written": true
+    },
+    "025": {
+      "title": "半句旧闻",
+      "word_count": 2358,
+      "written_at": "2026-03-23T17:57:39+08:00",
+      "updated_at": "2026-03-23T17:57:39+08:00",
+      "status": "draft",
+      "summary": "林若雪带来的半句旧闻，让那位被夸作“稳当、安静、好命”的寄居表姑娘第一次有了人的影子。苏照棠也由此第一次明确怀疑，世界的异常未必只从自己开始。",
+      "batch_written": true
+    },
+    "026": {
+      "title": "残字无名",
+      "word_count": 2015,
+      "written_at": "2026-03-23T17:57:39+08:00",
+      "updated_at": "2026-03-23T17:57:39+08:00",
+      "status": "draft",
+      "summary": "苏照棠从旧礼例册里被抹掉的残字，第一次确认那位寄居表姑娘并非无名无痕。她也正式把婚配账和旧闻账并到账上，同时意识到下一轮小宴会把两条线一起往前推。",
+      "batch_written": true
+    },
+    "027": {
+      "title": "外家抬价",
+      "word_count": 2016,
+      "written_at": "2026-03-23T18:12:35+08:00",
+      "updated_at": "2026-03-23T18:12:35+08:00",
+      "status": "draft",
+      "summary": "王家外家开始替苏照棠往上抬价，让她更清楚“抬一抬”未必比“压一压”安全。她也因此明确了第二卷接下来该借的，不是怜惜，而是父亲只认结果的那杆秤。",
+      "batch_written": true
+    }
+  },
+  "chapter_snapshots": {
+    "001": {
+      "chapter": 1,
+      "created_at": "2026-03-22T23:58:00+08:00",
+      "word_count": 5469,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "现代"
+        },
+        "status": [
+          "刚穿越",
+          "病后初醒",
+          "准备赴花园之约"
+        ],
+        "current_goals": [
+          "改写第一次试探的结果",
+          "不让苏婉柔轻易看轻自己"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "忠心待观察",
+          "last_interaction": 1
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "前期压制者",
+          "last_interaction": 0
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在病后醒来后完成身份与节点确认，补足了昨夜在正院病中受辱的前情，意识到若再按原著借病退场，就会把病后变化的解释权交给别人，因此决定带病赴花园之约。"
+    },
+    "002": {
+      "chapter": 2,
+      "created_at": "2026-03-22T23:59:00+08:00",
+      "word_count": 4031,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府内院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "病后初醒",
+          "第一次公开亮相"
+        ],
+        "current_goals": [
+          "应对正院定性",
+          "守住病后变化的解释权"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "忠心且开始明确感知主角变化",
+          "last_interaction": 2
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "正式将主角视作需要重新记账的对象",
+          "last_interaction": 2
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "第一次在公开场面里注意到主角变化",
+          "last_interaction": 2
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在花园里完成第一次公开试探，没有像原著那样借病退让。她守住体面与边界，让苏婉柔、下人和父亲都看见了她的变化，也因此把自己推入了正院重新定性的视线之内。"
+    },
+    "003": {
+      "chapter": 3,
+      "created_at": "2026-03-23T00:08:00+08:00",
+      "word_count": 3985,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府内院"
+        },
+        "status": [
+          "病后变化已被正院注意",
+          "开始被重新定性"
+        ],
+        "current_goals": [
+          "应对后续用度压制",
+          "守住病后变化的解释权"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "正式把主角纳入重新评估和定性的对象",
+          "last_interaction": 3
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "将主角变化递送到正院并继续协同压制",
+          "last_interaction": 3
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "在正院场合中表现出低位求稳的恐惧",
+          "last_interaction": 3
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "开始理解正院压人的方式不仅是罚而是定性",
+          "last_interaction": 3
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在正院请安中面对王氏的第一轮定性，没有被直接发落，却被一句句病后懂事和知足守礼锁住了后续口风。她因此看清，正院真正的压制将从资源分配和名声解释权开始。"
+    },
+    "004": {
+      "chapter": 4,
+      "created_at": "2026-03-23T00:18:00+08:00",
+      "word_count": 3986,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "已被正院盯上",
+          "完成第一次资源层面的局部反击"
+        ],
+        "current_goals": [
+          "应对名声反咬",
+          "不让西院再次被轻易压回去"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "开始配合主角做局，但对后果仍会本能害怕",
+          "last_interaction": 4
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "对主角出头后的后果更为恐惧",
+          "last_interaction": 4
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "第一次具体看见西院份例被亏待的难看之处",
+          "last_interaction": 4
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在月例被暗扣后没有直接理论，而是借父亲看见西院用度难看的机会补回了药材、炭火和布匹份例。她因此第一次在资源层面赢回一点位置，但也换来了更快传播的心机名声。"
+    },
+    "005": {
+      "chapter": 5,
+      "created_at": "2026-03-23T00:27:00+08:00",
+      "word_count": 4003,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "局部小胜后遭遇名声反咬",
+          "开始意识到人设也可被做账"
+        ],
+        "current_goals": [
+          "应对名声反咬",
+          "判断谁还能靠近自己"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "从试探升级为用体面和风声系统性处理主角",
+          "last_interaction": 5
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "开始意识到名声账比份例账更难应对",
+          "last_interaction": 5
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在花厅里正面承接苏婉柔的温柔反咬，意识到自己正被从受气庶女改写成心思深、会借势的人。她第一次明确把名声当成另一种必须记录和经营的账本。"
+    },
+    "006": {
+      "chapter": 6,
+      "created_at": "2026-03-23T00:36:00+08:00",
+      "word_count": 3985,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "开始处理低位关系账",
+          "被正院进一步记成会往外伸手的人"
+        ],
+        "current_goals": [
+          "稳住与林若雪的脆弱互信",
+          "应对正院对自己拉人心的警惕"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "与主角建立起脆弱但真实的互信起点",
+          "last_interaction": 6
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "开始理解主角替人出手也会被算进势力账",
+          "last_interaction": 6
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在林若雪被堵于廊下时选择出手，却没有把对方轻易写成盟友。她通过林若雪的谨慎和提醒，第一次真正看见低位女性的另一种活法，也明白自己每一次往外伸手都会被正院记账。"
+    },
+    "007": {
+      "chapter": 7,
+      "created_at": "2026-03-23T00:54:00+08:00",
+      "word_count": 4199,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "婚配压力由风声转为现实",
+          "开始把高嫁视作可能的新壳"
+        ],
+        "current_goals": [
+          "看清婚配背后的摆放逻辑",
+          "不把出府误当作自由"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "作为低位信息来源，其价值首次被坐实",
+          "last_interaction": 7
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "把婚配视作庶女可能的出路，暴露与主角的认知差",
+          "last_interaction": 7
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角通过林若雪带来的风声和正院、东院近期动作，确认婚配线已启动。她第一次把原著里那门体面婚事与眼前的现实分配逻辑真正对应起来，开始警惕高嫁未必是奖赏。"
+    },
+    "008": {
+      "chapter": 8,
+      "created_at": "2026-03-23T00:54:00+08:00",
+      "word_count": 3987,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府前院"
+        },
+        "status": [
+          "被父亲条件式看见",
+          "更清楚父权与靠山的差别"
+        ],
+        "current_goals": [
+          "利用父权视线而不误认父爱",
+          "防备正院借此进一步升级压制"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "第一次明确将主角归入可再看一看的女儿",
+          "last_interaction": 8
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "将父亲的问话误读为好兆头，进一步凸显与主角的认知差",
+          "last_interaction": 8
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在书房外受问，第一次清晰感到父亲看重的是她是否可用、是否会看事，而非她本人值不值得疼。她因此把“被看见”与“被照顾”彻底分开，也预见正院会借这一层视线进一步做局。"
+    },
+    "009": {
+      "chapter": 9,
+      "created_at": "2026-03-23T00:54:00+08:00",
+      "word_count": 4018,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府花厅"
+        },
+        "status": [
+          "在公开席面上稳住了位置",
+          "被内宅更广泛地重新看见"
+        ],
+        "current_goals": [
+          "应对更细更隐蔽的正院手段",
+          "为下一轮真正立威做准备"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "开始在公开场面借座次和体面重新压制主角",
+          "last_interaction": 9
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "在公开席面上进一步确认主角已成真正对手",
+          "last_interaction": 9
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "在公开场面中再次看见主角稳住体面的能力",
+          "last_interaction": 9
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-001",
+          "name": "花园试探"
+        },
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在家宴里识破座次陷阱，用规矩把错误的位置推回给正院，首次在众目睽睽的席面上保住体面。她因此被更多人确认病后已彻底不同，也将迎来更隐蔽、更持久的后手。"
+    },
+    "010": {
+      "chapter": 10,
+      "created_at": "2026-03-23T01:22:00+08:00",
+      "word_count": 3991,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府针线房"
+        },
+        "status": [
+          "在下层真正立住了分量",
+          "局部小高潮完成"
+        ],
+        "current_goals": [
+          "应对立威后的更高强度关注",
+          "不让下层旧戏码再轻易落到西院头上"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "开始在旧账和信息上与主角形成低强度协同",
+          "last_interaction": 10
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "更明确地理解主角所谓立威不是靠闹而是靠记账和证据",
+          "last_interaction": 10
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-001",
+          "name": "花园试探"
+        },
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在针线房翻出旧账，第一次真正把西院从‘谁都能糊弄’的位置上往前挪开。她因此在下层建立了第一层不容轻慢的威信，也把自己更完整地推入了正院、东院与父亲的视线。"
+    },
+    "011": {
+      "chapter": 11,
+      "created_at": "2026-03-23T01:22:00+08:00",
+      "word_count": 3988,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府前院偏厅"
+        },
+        "status": [
+          "开始被父亲带条件地使用",
+          "被看见的代价显著上升"
+        ],
+        "current_goals": [
+          "分清被使用与被偏爱的差别",
+          "防止正院借此进一步做局"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "开始试用主角的细账能力，而非只是远远留意",
+          "last_interaction": 11
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "仍会本能把父亲的看见误读为机会",
+          "last_interaction": 11
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-001",
+          "name": "花园试探"
+        },
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在前院偏厅接受了比前几章更实质的一次考校，开始被父亲归入可以试用的序列。与此同时，下层、东院和正院都更清楚地意识到，她已不再只是个会回话的庶女，而是个值得重新防备的人。"
+    },
+    "012": {
+      "chapter": 12,
+      "created_at": "2026-03-23T01:22:00+08:00",
+      "word_count": 3987,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "林姨娘偏院"
+        },
+        "status": [
+          "开始把代价管理纳入策略",
+          "意识到身边人会先替自己挨刀"
+        ],
+        "current_goals": [
+          "让自己的人少替自己受损",
+          "在不盲退的前提下学会更细地经营"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "以自身受牵为代价，把主角往更现实的经营思路上推了一步",
+          "last_interaction": 12
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "开始理解代价管理比单纯争赢更重要",
+          "last_interaction": 12
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-001",
+          "name": "花园试探"
+        },
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在林姨娘房里的冷炭、迟药与补气丸施恩之间，第一次看清高位者如何把惩罚做成疏忽、再把疏忽做成恩典。她也因此从单纯破局，开始往更复杂的经营思路上转。"
+    },
+    "013": {
+      "chapter": 13,
+      "created_at": "2026-03-23T02:05:00+08:00",
+      "word_count": 3990,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府小佛堂",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "主动进入收锋期",
+          "开始用表面安分换观察空间"
+        ],
+        "current_goals": [
+          "让正院和东院先松一线",
+          "在安静中收集更有价值的风声"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "开始误判主角已被压回去半步",
+          "last_interaction": 13
+        },
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "开始理解主角这次收锋是在等而不是认输",
+          "last_interaction": 13
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-001",
+          "name": "花园试探"
+        },
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在小佛堂抄经、学礼、少言，看似被正院收住，实则主动用安分换来一段更适合观察和等消息的空档。她由此第一次系统性地把“收锋”用成策略。"
+    },
+    "014": {
+      "chapter": 14,
+      "created_at": "2026-03-23T02:05:00+08:00",
+      "word_count": 3578,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府花厅",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "被外客正式估价",
+          "婚配线由风声升级为现实定类"
+        ],
+        "current_goals": [
+          "看清自己在婚配市场里的位置",
+          "不把稳妥与体面误认成奖赏"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "开始借外家女眷与外客口风替主角定类",
+          "last_interaction": 14
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "仍把婚配视作庶女可能的出口",
+          "last_interaction": 14
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在外客眼里第一次清晰感到自己并不是被真正看见，而是在被顺手估价。她因此把原著里那门“稳妥”的高嫁，第一次彻底看作一套先看、先算、再摆放的现实机制。"
+    },
+    "015": {
+      "chapter": 15,
+      "created_at": "2026-03-23T02:05:00+08:00",
+      "word_count": 4016,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府花厅"
+        },
+        "status": [
+          "开始从局部应对转向位置思维",
+          "被正式纳入家族监看区域"
+        ],
+        "current_goals": [
+          "看清自己将被摆放到哪一种位置",
+          "为婚配主线与下一阶段博弈提前换视角"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "以提醒之名划下‘可用但不可太露锋’的边界",
+          "last_interaction": 15
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "再次把父权提醒误读成记挂，凸显与主角的认知差",
+          "last_interaction": 15
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在父亲那句‘聪明别写在脸上’里彻底听懂：家族允许她有用，却不允许她像个有自我的人那样长出来。她也由此从‘这一局怎么赢’转向‘他们准备把我摆成什么人’的思考。"
+    },
+    "016": {
+      "chapter": 16,
+      "created_at": "2026-03-23T12:50:24+08:00",
+      "word_count": 5231,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "婚配线正式进入现实筹备",
+          "开始从资源和规矩层面被重新定价"
+        ],
+        "current_goals": [
+          "看清婚配筹备如何把自己往某个位置上修",
+          "在不显得心大的前提下继续观察议亲线"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "把被纳入婚配安排继续误读成好兆头，和主角的认知差进一步拉开",
+          "last_interaction": 16
+        },
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "提供管事媳妇私下口风，让主角更清楚自己会被配到“压得住”的地方",
+          "last_interaction": 16
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "通过被优先配置的衣料和礼数位置，继续稳坐嫡长女应得的明面规格",
+          "last_interaction": 16
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在针线房、礼数课和出入安排的变化里，第一次真正看见婚配线已经从风声变成现实筹备。她也开始把尺头单、出入牌子和线头一起记进账里，确认议亲不再只是别人嘴里的闲话。"
+    },
+    "017": {
+      "chapter": 17,
+      "created_at": "2026-03-23T16:21:59+08:00",
+      "word_count": 6229,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "开始把婚配账拆成可比较的条件",
+          "彻底放弃父亲会替自己选自由的幻想"
+        ],
+        "current_goals": [
+          "在后日出门前看清自己会被谁、按什么标准相看",
+          "继续把婚配线当成一张可破的账来记"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "把主角和嫡女一起放上议亲桌，却按不同规格分配去处和门第",
+          "last_interaction": 17
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "默认主角是婚配分配的一部分，明确表态要给她寻个“压得住”的地方",
+          "last_interaction": 17
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "见证主角把婚配线从恐惧转成记账式拆解，也更直接看见相看包装的冷意",
+          "last_interaction": 17
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角从庚帖条目和父母对话里，第一次真正看清自己会怎样被放到议亲桌上轻重衡量。她也把婚配标准一笔笔记进账里，并意识到后日出门不是体面，而是给人相看。"
+    },
+    "018": {
+      "chapter": 18,
+      "created_at": "2026-03-23T16:40:41+08:00",
+      "word_count": 8106,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "开始从衣饰和口风里拆看婚配价码",
+          "对前头争来的体面是否值得产生更冷的怀疑"
+        ],
+        "current_goals": [
+          "看清嫡庶差会怎样被算成婚配价码",
+          "在寺会相看前先把别人替自己定价的标准记明白"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "更直白地感受到主角正在被当成婚配货单来整备",
+          "last_interaction": 18
+        },
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "用低位女孩的自保算法提醒主角，“稳妥”常常只是别被最差地卖掉",
+          "last_interaction": 18
+        },
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "通过新衣新饰和整备规格，继续按用途给主角定分寸",
+          "last_interaction": 18
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角从新衣新饰、下人口风和林若雪的坦白里，看清婚配里的嫡庶价码。她也第一次冷下来追问：前头争来的那些赢面，会不会只是把自己送进更讲究的笼子。"
+    },
+    "019": {
+      "chapter": 19,
+      "created_at": "2026-03-23T16:40:41+08:00",
+      "word_count": 7216,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "净明寺",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "在外部场合第一次完成被相看",
+          "学会在更大场域里主动控制自己的曝光"
+        ],
+        "current_goals": [
+          "不让自己在花会相看里彻底变成可供挑选的物件",
+          "继续从外头人的目光里确认高门是否真是活路"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "把主角放在刚好能被看见、却不能抢风头的位置上",
+          "last_interaction": 19
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "在寺会相看中继续占据嫡长女该有的明面优先级",
+          "last_interaction": 19
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "亲眼看见外头女眷的目光如何把姑娘们筛成不同价位",
+          "last_interaction": 19
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "净明寺一行把婚配压力从府内安排推到外部目光里。主角在花会相看中保住了分寸，也第一次从现实样本里看见高门体面背后的规训；回府后，那句“得配个能压住她的人家”彻底坐实了她的不安。"
+    },
+    "020": {
+      "chapter": 20,
+      "created_at": "2026-03-23T16:40:41+08:00",
+      "word_count": 7802,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "净明寺"
+        },
+        "status": [
+          "彻底确认高嫁未必是路",
+          "决定下一步先借势，不先逃"
+        ],
+        "current_goals": [
+          "借父权、风向和外部目光继续为自己换筹码",
+          "为第二卷的借势破局准备更主动的位置"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "明确把主角视作需要被送去“压住”的婚配筹码",
+          "last_interaction": 20
+        },
+        {
+          "name": "林姨娘",
+          "role": "生母",
+          "relation": "继续以旧式安慰理解“体面婚事”，和主角的世界边界进一步拉开",
+          "last_interaction": 20
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "见证主角从婚配恐惧转向借势破局的决心",
+          "last_interaction": 20
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角偷听到王氏与周妈妈的真话，正式把原著里的“好婚事”和现实里的“压住她”对上。她也在与林姨娘的错位安慰后，确定第二卷起手不是先逃，而是先借势。"
+    },
+    "021": {
+      "chapter": 21,
+      "created_at": "2026-03-23T17:11:27+08:00",
+      "word_count": 2299,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府正院偏厅",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "借寺会后的风评第一次摸到回礼名册",
+          "开始明确区分“入账权”和“改账权”"
+        ],
+        "current_goals": [
+          "借回礼名册看清外头谁在替自己写价码",
+          "先做手，再做眼，不急着在差事里露锋"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "允许主角做手，却严守中馈边界，不让她轻易看透整本账",
+          "last_interaction": 21
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "顺着外头风评把主角点进回礼差事，体现可用性高于偏爱",
+          "last_interaction": 21
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "把这桩差事视作杂活，却也本能防着庶妹碰到门第和名单",
+          "last_interaction": 21
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角借寺会后的风评换到誊写回礼名册的差事，第一次碰到外头替自己写下的价码，也由此确认第二卷第一步不是反打，而是先借进账门。"
+    },
+    "022": {
+      "chapter": 22,
+      "created_at": "2026-03-23T17:11:27+08:00",
+      "word_count": 2139,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府正院偏厅",
+          "previous": "苏府正院偏厅"
+        },
+        "status": [
+          "从回礼名册里坐实一门不利婚配口风",
+          "更清楚外头如何连她的母系与西院分量一起衡量"
+        ],
+        "current_goals": [
+          "把冯家二房这门看似体面的口风先拖住",
+          "继续把外部评语和婚配去处之间的关系记成明账"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周妈妈",
+          "role": "正院心腹妈妈",
+          "relation": "一边用主角誊册，一边更明确地防她看到账后的轻重和旧备注",
+          "last_interaction": 22
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "第一次通过写在纸上的婚配口风看清“稳妥”背后究竟是什么去处",
+          "last_interaction": 22
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角从回礼名册和旧备注里，看清外头是怎样把自己写成“庶女合”的，也坐实了冯家二房这门看似体面、实则补空位的不利婚事。"
+    },
+    "023": {
+      "chapter": 23,
+      "created_at": "2026-03-23T17:11:27+08:00",
+      "word_count": 2288,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府正院偏厅"
+        },
+        "status": [
+          "借父亲口气把冯家口风往后拖住了半步",
+          "顺手换回了继续碰旧礼例和中馈边角的机会"
+        ],
+        "current_goals": [
+          "继续用规则和体面逻辑拖慢不利婚配推进",
+          "顺着旧礼例册里的成国公府名字摸向更深的旧闻"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "被主角借她和父亲最看重的规矩话头反推了一寸，因此对她更重新估量",
+          "last_interaction": 23
+        },
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "第一次更清楚地看见主角不是硬顶，而是在别人账上顺手改字",
+          "last_interaction": 23
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角借苏文渊“照规矩慢慢来”的口气，把冯家二房这门口风先拖住了一寸，也顺手换回继续誊旧礼例的机会，并在册页里第一次看见成国公府的名字痕迹。"
+    },
+    "024": {
+      "chapter": 24,
+      "created_at": "2026-03-23T17:57:39+08:00",
+      "word_count": 2068,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府正院偏厅",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "第一次完整碰到成国公府旧礼例上的异常名字线",
+          "更明确地把高门旧闻视作眼前婚配账的前账"
+        ],
+        "current_goals": [
+          "继续在不惹疑的前提下摸清寄居顾氏旧例",
+          "不让眼前婚配推进因自己分心而失控"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周妈妈",
+          "role": "正院心腹妈妈",
+          "relation": "在主角碰到成国公府旧礼例后反应更快，说明这条旧账确实被正院刻意压着",
+          "last_interaction": 24
+        },
+        {
+          "name": "苏婉柔",
+          "role": "嫡姐",
+          "relation": "流露出自己知道这条旧事不该让庶妹多碰的一面",
+          "last_interaction": 24
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角在旧礼例册里第一次完整碰到“成国公府、寄居顾氏、旧例沿此”这条被压着的旧账，也更明确地意识到，高门旧闻和眼前婚配账本就是同一套做法的前账与后账。"
+    },
+    "025": {
+      "chapter": 25,
+      "created_at": "2026-03-23T17:57:39+08:00",
+      "word_count": 2358,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府正院偏厅"
+        },
+        "status": [
+          "第一次把寄居表姑娘病故的旧闻和自己眼前婚配账真正并到一起",
+          "开始把“世界异常可能不只自己一人”当成行动假设"
+        ],
+        "current_goals": [
+          "继续以边角拼接方式摸旧闻，不惊动正院",
+          "在婚配线继续推进前保住自己还能查的空间"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "用低位女孩的恐惧记忆，把顾含真式旧闻第一次讲成有体感的人影",
+          "last_interaction": 25
+        },
+        {
+          "name": "小桃",
+          "role": "贴身丫鬟",
+          "relation": "从旁见证主角开始把自己的遭遇和旧闻真正照到一起",
+          "last_interaction": 25
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "林若雪带来的半句旧闻，让主角第一次真正怀疑，自己并非唯一一个试过不按安排活的人。她也把这条旧闻正式当成行动假设，而不是旁人的悲剧闲话。"
+    },
+    "026": {
+      "chapter": 26,
+      "created_at": "2026-03-23T17:57:39+08:00",
+      "word_count": 2015,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府西院"
+        },
+        "status": [
+          "确认旧闻背后有被刻意抹掉的名字痕迹",
+          "开始同时把婚配账和旧闻账当成必须并行处理的两本账"
+        ],
+        "current_goals": [
+          "在下一轮小宴里守住眼前去处",
+          "顺着残字和旧例把成国公府旧闻继续往下摸"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周妈妈",
+          "role": "正院心腹妈妈",
+          "relation": "越发明显地防着主角碰旧册深处，反向证明那条线确实要紧",
+          "last_interaction": 26
+        },
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "推出把婚配、中馈和外家脸面绑在一起的小宴新局，逼主角两线并守",
+          "last_interaction": 26
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "主角从被抹掉的残字确认那位寄居表姑娘并非无名无痕，也由此决定把眼前婚配账与高门旧闻账一并守住；与此同时，王氏又推出了把婚配、中馈与外家脸面绑在一起的新局。"
+    },
+    "027": {
+      "chapter": 27,
+      "created_at": "2026-03-23T18:12:35+08:00",
+      "word_count": 2016,
+      "protagonist_state": {
+        "name": "苏照棠",
+        "location": {
+          "current": "苏府西院",
+          "previous": "苏府正院偏厅"
+        },
+        "status": [
+          "看清外家开始替自己抬价",
+          "明确第二卷要借的是父亲只认结果的秤"
+        ],
+        "current_goals": [
+          "把眼下‘先别急着定她去处’做成更合算的结果",
+          "防住外家借抬价把自己送进更危险门第"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "王氏",
+          "role": "继母",
+          "relation": "把主角当成既可压也可抬的筹码，按最值的用法细算去处",
+          "last_interaction": 27
+        },
+        {
+          "name": "苏文渊",
+          "role": "父亲",
+          "relation": "再次明确只看结果和秤，不在意外家抬价本身的好坏",
+          "last_interaction": 27
+        },
+        {
+          "name": "林若雪",
+          "role": "寄居表姑娘",
+          "relation": "点破低位姑娘被抬价往往意味着会被换去更大的体面位置",
+          "last_interaction": 27
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "FS-002",
+          "name": "原著并非全知"
+        }
+      ],
+      "summary": "外家开始替主角往上抬价，让她更清楚“再看一看”也可能只是换到更贵的去处。她也因此真正锁定了下一步策略：去碰父亲只认结果的那杆秤。"
+    }
+  },
+  "summaries_index": {
+    "001": "苏照棠病后在西院醒来，通过多重线索确认自己穿越成苏府庶出二姑娘，得知昨夜在正院病中受罚后，决定带病赴花园之约，不再按原著方式退让。",
+    "002": "苏照棠赴花园之约，在苏婉柔的公开试探中守礼却不认低，第一次公开没有按原著那样退，也因此被父亲和正院真正看见。",
+    "003": "苏照棠在正院请安中被王氏重新定性，意识到后续压制不会先落成大罚，而会顺着知足守礼和资源分配慢慢压下来。",
+    "004": "西院月例虽未少银子，却被暗换了药材、炭火和布匹。苏照棠借父亲视线补回了份例，却也因此换来更快的名声反噬。",
+    "005": "月例小胜之后，苏婉柔开始把苏照棠改写成病后会算计、会借势的庶女，苏照棠也第一次明确意识到名声是一笔更难洗的账。",
+    "006": "苏照棠替林若雪解围，却没有把这份帮助误判成收拢。她第一次通过另一个低位女孩的反应，看清了脆弱互信与势力账之间的张力。",
+    "007": "林若雪带来的风声让婚配第一次从远景变成现实分配，苏照棠也开始真正警惕高嫁未必是奖赏。",
+    "008": "苏照棠在书房外接受父亲的考校，被归入可再看一看的女儿，也更清楚父权视线绝不是靠山。",
+    "009": "苏照棠在家宴席面上识破座次陷阱，用规矩守住了自己的位置与体面，同时把自己更彻底地放进了所有人的视线里。",
+    "010": "苏照棠借针线房旧账完成了第一次真正立威，让下层第一次明确知道她会记账、会留证、也会把事做成公账。",
+    "011": "苏照棠在更实质的父权考校里被归入‘可再看一看’的序列，也因此更深地感到被看见本身就是新的压力。",
+    "012": "林姨娘替苏照棠先挨了一刀，让她第一次真正把代价管理和保护身边人纳入自己的策略里。",
+    "013": "苏照棠在抄经收锋中看似退了半步，实则换来更适合观察和等待的空档，也为外家看人这一局提前腾出了位置。",
+    "014": "外家女眷上门后，婚配第一次在苏照棠眼里变成清清楚楚的‘定价’和‘摆放’，而不再只是遥远命运。",
+    "015": "父亲的提醒让苏照棠正式转向位置思维：她不再只问如何赢一局，而开始问家族与门第准备把自己装进哪一种壳里。",
+    "016": "针线房、礼数课和出入规矩先一步重排，把苏照棠正式推入待议亲姑娘的筹备序列。她从尺头单、礼数分层和口风里看清自己正被重新定样，并开始主动记下这笔议亲账。",
+    "017": "苏照棠从庚帖条目、父母对话和出门包装里，第一次真正看清自己会怎样被放到议亲桌上轻重衡量。她也开始像看账一样拆看婚配标准，并意识到后日出门不是体面，而是给人相看。",
+    "018": "王氏送来的新衣新饰和下人口风，把嫡庶在婚配里的价码说得更赤裸。林若雪的自保算法也让苏照棠第一次真正追问：前头争来的那些赢面，究竟值不值。",
+    "019": "净明寺一行把婚配压力从府内安排推到外部目光里。苏照棠学会在花会相看中控制曝光，也从现实样本里更冷地看见高门体面背后的规训。",
+    "020": "偷听到“得配个能压住她的人家”之后，苏照棠终于确认高嫁未必是路。她也在与林姨娘的错位安慰后，正式决定第二卷起手要先借势，不先逃。",
+    "021": "寺会后的风评很快反推回苏府账上，苏照棠也顺势借到誊写回礼名册的差事。她第一次真正摸到账册边角，看见外头是怎样替自己写价码的。",
+    "022": "从回礼名册和旧备注里，苏照棠坐实了一门看似体面、实则补空位的冯家二房婚事，也更冷地看清“稳妥”二字背后真正值钱的东西。",
+    "023": "苏照棠借苏文渊那句“照规矩慢慢来”，把冯家二房的口风往后拖住了半步。她也因此被继续留在旧礼例差事里，并顺手摸到了成国公府的名字痕迹。",
+    "024": "在旧礼例册里，苏照棠第一次完整碰到“成国公府、寄居顾氏、旧例沿此”这条被压着的旧账，也更清楚地意识到，高门旧闻和眼前婚配账原本就是同一套账法的前账与后账。",
+    "025": "林若雪带来的半句旧闻，让那位被夸作稳当好命的寄居表姑娘第一次有了人的影子。苏照棠也由此第一次把“也许以前还有别人和自己一样”当成了行动假设。",
+    "026": "通过被抹掉的残字，苏照棠第一次确认旧闻背后更像有意处理过的名字。她也正式把婚配账与旧闻账并到一起，而王氏则推出了下一轮把婚配、中馈和外家脸面绑在一起的新局。",
+    "027": "外家开始替苏照棠往上抬价，让她更清楚‘再看一看’也可能只是换到更危险的体面去处。她也因此明确，接下来要借的是父亲只认结果的那杆秤。"
+  }
+}

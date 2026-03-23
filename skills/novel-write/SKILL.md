@@ -36,6 +36,8 @@ Always read:
 - `../../shared/references/shared/core-constraints.md`
 - `../../docs/anti-flattening-framework/README.md`
 - `../../docs/anti-flattening-framework/01-总纲.md`
+- `../../docs/opening-and-plot-framework/README.md`
+- `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 
 Read conditionally:
 
@@ -66,6 +68,13 @@ Read conditionally:
 - `../../docs/anti-flattening-framework/07-场景级群像推进.md`
 - `../../docs/anti-flattening-framework/08-流派故障库.md`
 - `../../docs/anti-flattening-framework/10-工具包与工作流.md`
+- `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+- `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+- `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+- `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+- `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 
 ## Workflow
 
@@ -78,6 +87,7 @@ Read conditionally:
 3. Read the target chapter outline from `大纲/章纲/第N章.md`.
 4. Read required setting files from `设定集/`.
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
+   - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 6. Load the shared profile matching the project genre from `../../shared/profiles/`.
 7. Read any useful local guidance already present in the project:
    - prefer `.mighty/learned-patterns.json`
@@ -102,7 +112,21 @@ Read conditionally:
      - showing relation debt / power asymmetry where relevant
      - keeping gains earned through visible resistance and cost
      - leaving scene residue for the next chapter
-9. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+9. When the chapter is in 1-3, or the request clearly depends on stronger opening pull, clearer multi-line progression, or chapter-level layering:
+   - read:
+     - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+     - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+     - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+     - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+     - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
+   - use them as prose-side structure rules for:
+     - keeping the opening promise legible on page in early chapters
+     - avoiding background-first openings and pressure-only openings
+     - making the chapter’s primary line and touched subline readable
+     - ensuring an event also changes information, cost, or residue ledgers
+10. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -112,7 +136,7 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-10. If Fanqie writing is active, also read:
+11. If Fanqie writing is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-chapter-length-policy.json`
@@ -140,12 +164,12 @@ Read conditionally:
        - `scan-kinship-truth-check`
          - reject convenient relation words or称谓 that the current household truth sheet cannot support
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
-11. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+12. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
-12. Load high-value shared references from `../../shared/references/` only as needed.
-13. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
+13. Load high-value shared references from `../../shared/references/` only as needed.
+14. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
    - read `../../docs/strong-quality-gate-policy.json`
    - treat it as the single rule source for required truth files
    - if the required truth source is missing, stop before writing
@@ -154,8 +178,8 @@ Read conditionally:
      - `novel-character`
      - `novel-scan` only when external research is truly needed
    - do not hallucinate missing truth just to satisfy the chapter
-14. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-15. Write `chapters/第N章.md` aligned to:
+15. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+16. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -186,6 +210,11 @@ Read conditionally:
      - at least one meaningful non-protagonist intention should stay visible in a key scene when the route needs群像
      - important gains should leave relation, risk, or cost residue
      - relation or faction support should not read as frictionless auto-alignment
+   - active opening-and-plot rules when they exist:
+     - in early chapters, the opening promise should be legible before background explanation takes over
+     - opening chapters should not only stack pressure; they should show at least one visible exchange, misread, or ledger change
+     - the chapter should make its primary line readable and avoid letting every change collapse into one flat event stream
+     - important progress should leave information, relation, risk, or cost residue for the next chapter
    - when the active bucket is `宫斗宅斗` and the funnel card is active:
      - do not let the chapter pass as summary-only progression
      - make the contested object, blocker, and changed ledger legible on page
@@ -196,7 +225,7 @@ Read conditionally:
      - if `scan-kinship-truth-check` exists, keep kinship / title words consistent with the truth sheet even in dialogue shorthand
      - and, when Fanqie chapter-length policy exists:
        - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-16. Update `.mighty/state.json` with:
+17. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -204,8 +233,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-17. Do not write review scores here unless an actual review step was run.
-18. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+18. Do not write review scores here unless an actual review step was run.
+19. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
     - run this only for a normal single-chapter `novel-write`
     - do not inherit this behavior into `novel-batch`
     - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
@@ -217,7 +246,7 @@ Read conditionally:
       - the user did not explicitly request a write-only pass
     - if guards fail, do not fake execution; report the exact skip reason
     - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
-19. After a real writing round, the preferred maintenance hook remains:
+20. After a real writing round, the preferred maintenance hook remains:
     - `scripts/post-task-maintenance.py <project_root> --trigger write`
     which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
     - maintenance is not the place where prose mutation or `novel-close` execution should live
@@ -269,6 +298,7 @@ At minimum, update:
 - Do not invent structural state fields ad hoc; prefer extending the existing `.mighty/state.json` shape conservatively.
 - Treat learned-pattern sidecar data as a preference signal, not a hard rule.
 - Treat market-adjustment sidecar data as packaging or pacing guidance, not as a reason to break canon or outline purpose.
+- Opening-and-plot rules should improve开篇承诺、层次清晰度和推进账本, but they should not override canon, bucket law, or the already-frozen chapter purpose.
 - `novel-write` does not inline `review -> route -> re-review`; guarded post-write convergence should hand off to `novel-close`.
 - When Fanqie rules stack, apply them in this order:
   1. canon / state / chapter outline

@@ -37,6 +37,8 @@ Default intent for the current workflow:
 - `../../shared/references/shared/core-constraints.md`
 - `../../docs/anti-flattening-framework/README.md`
 - `../../docs/anti-flattening-framework/01-总纲.md`
+- `../../docs/opening-and-plot-framework/README.md`
+- `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 
 Read conditionally:
 
@@ -61,6 +63,15 @@ Read conditionally:
 - `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
 - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
 - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+- `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+- `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+- `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+- `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+- `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+- `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
+- `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
 - `../../docs/strong-quality-gate-policy.json`
 
 ## Workflow
@@ -74,6 +85,7 @@ Read conditionally:
 3. Read `chapters/第N章.md`.
 4. Read the genre/profile context.
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
+   - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - when the chapter or request clearly depends on人物立体度、群像关系、阵营冲突、多视角、穿书/穿越/系统/权谋等题材风险, or when no explicit exemption is given for a lightweight pass, also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -85,6 +97,15 @@ Read conditionally:
      - `../../docs/anti-flattening-framework/09-诊断信号与快速修复.md`
      - `../../docs/anti-flattening-framework/11-检查清单与评分规约.md`
      - `../../docs/anti-flattening-framework/12-案例对照与校准.md`
+     - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
+     - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
+     - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
+     - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
+     - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
+     - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
+     - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
+     - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md` when the active Fanqie bucket matches a P0 checkcard file
 5. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
@@ -100,6 +121,7 @@ Read conditionally:
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-resistance-and-cost-rules.md`
    - when the active bucket is `宫斗宅斗`, also read `../../docs/gongdou-zhaidou-fault-funnel-review-card.md`
+   - when the active bucket matches a Fanqie P0 bucket, also read `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
    - treat them as third-layer review checks for:
      - title / hook promise carryover
      - golden-three delivery
@@ -107,6 +129,7 @@ Read conditionally:
      - suspense handoff and map-shift smoothness
      - whether the chapter is fast but too smooth
      - whether key gains have visible resistance and cost
+     - bucket-specific structural red flags before generic commentary
      - when the active bucket is `宫斗宅斗`, run the funnel card as a strict first-pass gate:
        - effective transaction unit exists
        - the transaction changes at least one ledger
@@ -119,10 +142,21 @@ Read conditionally:
    - treat the chosen tagpack as a second-layer review lens after the bucket
 8. Review for:
    - hook and reader pull
+   - opening hook clarity and opening promise carryover when the chapter is in 1-3 or still serving the opening contract
+   - whether the chapter is background-first, pressure-only, or missing a near-term exchange
    - pacing
    - continuity
    - consistency
    - obvious AI-style issues
+   - plot layering clarity:
+     - main line readability
+     - touched subline readability
+     - whether relationship / rule changes are actually legible as lines
+   - progression effectiveness:
+     - event movement
+     - information-gap movement
+     - cost movement
+     - residual-risk movement
    - protagonist privilege balance
    - character agency / role independence
    - relationship tension structure
@@ -179,6 +213,14 @@ Read conditionally:
      - cast_flattening_signals
      - faction_or_relation_failure
      - minimum viable repair direction
+   - when the active bucket matches a Fanqie P0 bucket, optionally include `fanqie_bucket_review_summary` with:
+     - bucket
+     - bucket_grade
+     - promise_match
+     - first_three_status
+     - primary_failure
+     - top_red_flag
+     - recommended_focus
    - when the active bucket is `宫斗宅斗`, also include `gongdou_funnel_summary` with:
      - funnel_grade
      - failed_layer
@@ -213,6 +255,12 @@ When the route is clear, also update:
 
 - `chapter_meta[chapter].recommended_next_action`
 - `chapter_meta[chapter].anti_flattening_flags` when the chapter shows clear cast / relation / faction imbalance
+- `chapter_meta[chapter].fanqie_bucket_flags` when the bucket-specific red flags are clear and stable
+- `chapter_meta[chapter].fanqie_bucket_summary` when a short bucket-level summary would help downstream routing
+- when useful, `chapter_meta[chapter].dimension_scores` may also include:
+  - `开篇抓力`
+  - `层次清晰度`
+  - `推进有效性`
 
 ## Notes
 
@@ -230,6 +278,7 @@ When the route is clear, also update:
   4. writing-technique fit
   5. tagpack enhancement fit
 - When Fanqie bucket constraints are active, use them to judge whether the chapter is delivering the expected click-through and carryover shape for that bucket, not to override canon or chapter purpose.
+- Opening-and-plot rules should help judge开篇承诺、层次清晰度与推进账本, but should not override canon, bucket law, or the actual chapter purpose.
 - If a first-batch MVP bucket config exists, prefer it over generic bucket commentary when judging fit.
 - If a matching tagpack exists, use it as a second-layer lens on top of bucket fit, not as a new bucket.
 - If anti-flattening findings point to protagonist privilege overload, hollow support cast, fake faction conflict, or zero-cost manipulation, surface them before cosmetic style notes.
