@@ -91,5 +91,12 @@
     "last_modified": "2026-03-24T04:50:25Z",
     "genre": "都市日常",
     "platform": "番茄"
-  }
+  },
+  "opening_strategy": "搬回老小区后，我靠蹭饭认识了整栋楼 当前开篇先把主冲突拍到桌上。",
+  "multi_line_guardrails": [
+    "主线先推进真实位置变化，次线只轻触更大盘。"
+  ],
+  "content_standard_alerts": [
+    "避免解释先于事件。"
+  ]
 }

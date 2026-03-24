@@ -219,6 +219,417 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-24 番茄起盘协议栈与 Compiler 层
+
+### Phase 1: Discovery & Spec Lock
+- **Status:** complete
+- Actions taken:
+  - 读取 `README.md`、`docs/start-here.md`、`docs/default-workflows.md` 与现有 `opening-and-plot-framework`
+  - 反复调研番茄官方写作区与通用结构资料，比较“成熟剧情架构库 / 单主架构卡 / 协议栈”三种路径
+  - 最终确定采用“番茄起盘协议栈 + compiler + 两本账”，并将通用框架降为映射参考
+  - 新建正式 spec：`docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- Files created/modified:
+  - `docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 2: Implementation Planning
+- **Status:** complete
+- Actions taken:
+  - 读取 `writing-plans` 技能要求与现有 `docs/superpowers/plans/` 样式
+  - 复查 `tests/test_opening_plot_framework.py`、`tests/test_writing_core_framework.py`、`skills/novel-outline/SKILL.md` 与 `state-schema.md`
+  - 固化 v1 落点为“协议栈文档树 + compiler CLI + 轻量写回 + 五个 skill 接线 + 两个真实 smoke artifact”
+  - 新建实施计划：`docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
+- Files created/modified:
+  - `docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+## Session: 2026-03-24 写作基本功与内容标准规则层
+
+### Phase 1: Boundary Lock
+- **Status:** complete
+- Actions taken:
+  - 读取现有 `opening-and-plot-framework`、`anti-flattening-framework`、`fanqie-writing-techniques`、`fanqie-writer-zone-lessons`
+  - 确认 `剧情层次` 继续复用 `opening-and-plot-framework`
+  - 确认新框架只补 `基本功 / 内容标准 / memory / 包装输入`
+- Files created/modified:
+  - `docs/superpowers/plans/2026-03-24-writing-core-framework.md` (created)
+
+### Phase 2: Red Test
+- **Status:** complete
+- Actions taken:
+  - 新建 `tests/test_writing_core_framework.py`
+  - 运行 `python -m unittest tests.test_writing_core_framework -v`
+  - 确认失败点集中在：框架文件缺失、skill 未接线、entry docs 未暴露、state contract 未扩展
+- Files created/modified:
+  - `tests/test_writing_core_framework.py` (created)
+
+### Phase 3: Docs + Wiring
+- **Status:** complete
+- Actions taken:
+  - 新建 `docs/writing-core-framework/` 全套文档
+  - 更新 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn`
+  - 更新 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md`
+  - 更新 `shared/references/shared/state-schema.md`、`shared/templates/state-v5-template.json`、`docs/state-thinning-and-setting-sync.md`
+- Files created/modified:
+  - `docs/writing-core-framework/README.md` (created)
+  - `docs/writing-core-framework/01-写作基本功总纲.md` (created)
+  - `docs/writing-core-framework/02-叙述-镜头-信息投放.md` (created)
+  - `docs/writing-core-framework/03-对白-动作-情绪-段落节奏.md` (created)
+  - `docs/writing-core-framework/04-剧情层次与多线编排接口.md` (created)
+  - `docs/writing-core-framework/05-内容标准与常见失格.md` (created)
+  - `docs/writing-core-framework/06-精品审核与投稿前判断.md` (created)
+  - `docs/writing-core-framework/07-memory-压缩信号约定.md` (created)
+  - `docs/writing-core-framework/08-开篇包装输入接口.md` (created)
+  - `skills/novel-outline/SKILL.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `skills/novel-review/SKILL.md` (updated)
+  - `skills/novel-precheck/SKILL.md` (updated)
+  - `skills/novel-package/SKILL.md` (updated)
+  - `skills/novel-learn/SKILL.md` (updated)
+  - `README.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `shared/references/shared/state-schema.md` (updated)
+  - `shared/templates/state-v5-template.json` (updated)
+  - `docs/state-thinning-and-setting-sync.md` (updated)
+
+### Phase 4: Verification
+- **Status:** complete
+- Actions taken:
+  - 运行 `python -m unittest tests.test_writing_core_framework -v`
+  - 回归 `python -m unittest tests.test_opening_plot_framework -v`
+  - 运行 `bash scripts/validate-migration.sh`
+  - 读取 `projects/宗门垫底那年，我把废丹卖成了天价` 的 `state / learned-patterns / market-adjustments / 总纲 / 第001-003章`
+  - 新建 `docs/writing-core-framework/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md`
+  - 为样本项目补最小 writeback：
+    - `.mighty/learned-patterns.json` 增加 `opening_strategy / multi_line_guardrails / content_standard_alerts`
+    - `.mighty/state.json` 增加 `chapter_meta["003"].content_standard_flags / packaging_alignment_note`
+  - 运行 `python -m json.tool` 校验样本 JSON 文件
+- Files created/modified:
+  - `docs/writing-core-framework/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md` (created)
+  - `projects/宗门垫底那年，我把废丹卖成了天价/.mighty/learned-patterns.json` (updated)
+  - `projects/宗门垫底那年，我把废丹卖成了天价/.mighty/state.json` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 5: Proactive Enhancement
+- **Status:** complete
+- Actions taken:
+  - 复核剩余缺口，确认最值钱的增强项是补第二条异路数真实样本
+  - 读取 `projects/离婚冷静期那天，前夫把董事会席位押给了我` 的 `state / learned-patterns / market-adjustments / 总纲 / 第001-003章`
+  - 新建 `docs/writing-core-framework/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md`
+  - 为第二个样本项目补最小 writeback：
+    - `.mighty/learned-patterns.json` 增加 `opening_strategy / multi_line_guardrails / content_standard_alerts`
+    - `.mighty/state.json` 增加 `learned_patterns.available_sections`
+    - `.mighty/state.json` 增加 `chapter_meta["003"].content_standard_flags / packaging_alignment_note`
+  - 再次运行 `python -m json.tool` 校验第二个样本 JSON
+  - 再次运行 `python -m unittest tests.test_writing_core_framework -v`
+  - 再次运行 `python -m unittest tests.test_opening_plot_framework -v`
+  - 再次运行 `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/writing-core-framework/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md` (created)
+  - `projects/离婚冷静期那天，前夫把董事会席位押给了我/.mighty/learned-patterns.json` (updated)
+  - `projects/离婚冷静期那天，前夫把董事会席位押给了我/.mighty/state.json` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 6: Packaging Closure
+- **Status:** complete
+- Actions taken:
+  - 将两条真实样本的 `packaging-needs-update = yes` 继续推进为实际包装文件
+  - 新建：
+    - `projects/宗门垫底那年，我把废丹卖成了天价/包装/包装方案.md`
+    - `projects/离婚冷静期那天，前夫把董事会席位押给了我/包装/包装方案.md`
+  - 更新两份 `writing-core-framework` smoke 文档，补 `收口更新`
+  - 再次运行：
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `projects/宗门垫底那年，我把废丹卖成了天价/包装/包装方案.md` (created)
+  - `projects/离婚冷静期那天，前夫把董事会席位押给了我/包装/包装方案.md` (created)
+  - `docs/writing-core-framework/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md` (updated)
+  - `docs/writing-core-framework/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 7: Regression Guardrails
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_writing_core_framework.py`
+  - 新增对以下事实的自动校验：
+    - 两份真实 smoke 文档存在
+    - 两份样本包装文件存在并包含 `推荐书名 / 推荐简介`
+    - 两个样本项目的 `learned-patterns.json` 含 `opening_strategy / multi_line_guardrails / content_standard_alerts`
+    - 两个样本项目的 `state.json` 含 `content_standard_flags / packaging_alignment_note`
+  - 运行：
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `tests/test_writing_core_framework.py` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 8: Smoke Automation
+- **Status:** complete
+- Actions taken:
+  - 新建 `scripts/writing_core_smoke.py`
+  - 以最小可用边界实现：
+    - `draft`
+    - `writeback`
+    - `save-packaging`
+  - 新建 `tests/test_writing_core_smoke.py`
+  - 将脚本入口挂回 `docs/writing-core-framework/README.md`
+  - 运行：
+    - `python -m unittest tests.test_writing_core_smoke -v`
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/writing_core_smoke.py` (created)
+  - `tests/test_writing_core_smoke.py` (created)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 9: Scripted Third Sample
+- **Status:** complete
+- Actions taken:
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/搬回老小区后，我靠蹭饭认识了整栋楼` 上跑 `writeback + save-packaging`
+  - 发现第一次产出的 `都市日常` 包装文案把 outline markdown 标题污染进 synopsis
+  - 先为该问题补 RED 测试，再修脚本：
+    - 新增 `extract_outline_pitch`
+    - 为 `都市日常` 增加专用 packaging 模板
+    - 让脚本在 `packaging_status = written` 时显式写 `收口更新`
+  - 重生成第三条样本文档与包装产物
+  - 将第三条样本纳入 `tests/test_writing_core_framework.py` 回归集合
+  - 再次运行：
+    - `python -m unittest tests.test_writing_core_smoke -v`
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/writing-core-framework/real-project-smoke-搬回老小区后-我靠蹭饭认识了整栋楼-2026-03-24.md` (created/updated)
+  - `projects/搬回老小区后，我靠蹭饭认识了整栋楼/包装/包装方案.md` (created/updated)
+  - `scripts/writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 10: Fourth Sample + Richer Templates
+- **Status:** complete
+- Actions taken:
+  - 为 `scripts/writing_core_smoke.py` 增加 `历史脑洞` 与 `职场婚恋` 的显式 packaging 模板
+  - 发现 `历史脑洞` / `职场婚恋` 仍在走 generic 分支后，先补 RED 测试，再做最小实现
+  - 修正 `extract_outline_pitch`，让其跳过 fenced code block
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/我在县衙当杂吏，靠翻旧案升了堂` 上跑 `writeback + save-packaging`
+  - 生成：
+    - `docs/writing-core-framework/real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md`
+    - `projects/我在县衙当杂吏，靠翻旧案升了堂/包装/包装方案.md`
+  - 将第四条样本挂回 `docs/writing-core-framework/README.md`
+  - 将第四条样本纳入 `tests/test_writing_core_framework.py` 回归集合
+  - 运行：
+    - `python -m unittest tests.test_writing_core_smoke -v`
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `docs/writing-core-framework/real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/包装/包装方案.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 11: Fifth Sample + Wider Bucket Templates
+- **Status:** complete
+- Actions taken:
+  - 为 `scripts/writing_core_smoke.py` 增加 `青春甜宠` 与 `都市脑洞` 的显式 packaging 模板
+  - 发现 `职场婚恋` 样本的 `总纲` 里存在 fenced yaml，会把 `书名:` 污染进 packaging synopsis
+  - 先补 RED 测试，再修 `extract_outline_pitch`，让它跳过整个 fenced block
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/她升职那天，前上司成了我合租室友` 上跑 `writeback + save-packaging`
+  - 生成：
+    - `docs/writing-core-framework/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md`
+    - `projects/她升职那天，前上司成了我合租室友/包装/包装方案.md`
+  - 将第五条样本挂回 `docs/writing-core-framework/README.md`
+  - 将第五条样本纳入 `tests/test_writing_core_framework.py` 回归集合
+  - 运行：
+    - `python -m unittest tests.test_writing_core_smoke -v`
+    - `python -m unittest tests.test_writing_core_framework -v`
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `docs/writing-core-framework/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md` (created)
+  - `projects/她升职那天，前上司成了我合租室友/包装/包装方案.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 12: Sixth Sample + Batch Entry
+- **Status:** complete
+- Actions taken:
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/转学第一天，我把校草认成了新来的代课老师` 上跑 `writeback + save-packaging`
+  - 生成：
+    - `docs/writing-core-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md`
+    - `projects/转学第一天，我把校草认成了新来的代课老师/包装/包装方案.md`
+  - 新建 `scripts/batch_writing_core_smoke.py`
+  - 新建 `tests/test_batch_writing_core_smoke.py`
+  - 修复 batch 脚本 import 路径问题，确保它能在测试环境下加载 `writing_core_smoke`
+  - 将第六条样本和 batch 入口挂回 `docs/writing-core-framework/README.md`
+  - 将第六条样本纳入 `tests/test_writing_core_framework.py` 回归集合
+  - 运行：
+    - `python -m unittest tests.test_batch_writing_core_smoke tests.test_writing_core_smoke tests.test_writing_core_framework tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/writing-core-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md` (created)
+  - `projects/转学第一天，我把校草认成了新来的代课老师/包装/包装方案.md` (created)
+  - `scripts/batch_writing_core_smoke.py` (created)
+  - `tests/test_batch_writing_core_smoke.py` (created)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 13: Seventh Sample + Batch Summary
+- **Status:** complete
+- Actions taken:
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/我赔光积蓄那天，系统先把违约金打到了账上` 上跑 `writeback + save-packaging`
+  - 生成：
+    - `docs/writing-core-framework/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md`
+    - `projects/我赔光积蓄那天，系统先把违约金打到了账上/包装/包装方案.md`
+  - 扩展 `scripts/batch_writing_core_smoke.py`
+    - 新增 `summary_report` 写出能力
+  - 扩展 `tests/test_batch_writing_core_smoke.py`
+    - 校验 batch `writeback + save-packaging + summary_report`
+  - 将第七条样本挂回 `docs/writing-core-framework/README.md`
+  - 将第七条样本纳入 `tests/test_writing_core_framework.py` 回归集合
+  - 运行：
+    - `python -m unittest tests.test_batch_writing_core_smoke tests.test_writing_core_smoke tests.test_writing_core_framework tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/writing-core-framework/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md` (created)
+  - `projects/我赔光积蓄那天，系统先把违约金打到了账上/包装/包装方案.md` (created)
+  - `scripts/batch_writing_core_smoke.py` (updated)
+  - `tests/test_batch_writing_core_smoke.py` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 14: Palace Sidecar + Repo Batch Baseline
+- **Status:** complete
+- Actions taken:
+  - 为 `scripts/writing_core_smoke.py` 增加 `宫斗宅斗` 显式 packaging 模板
+  - 增加 sidecar 保存策略：
+    - 若 `包装/包装方案.md` 已存在且非空，则写 `包装/包装方案-writing-core.md`
+  - 使用 `scripts/writing_core_smoke.py` 在 `projects/庶妹换我婚书那夜，太子先开了口` 上跑 `writeback + save-packaging`
+  - 生成：
+    - `docs/writing-core-framework/real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md`
+    - `projects/庶妹换我婚书那夜，太子先开了口/包装/包装方案-writing-core.md`
+  - 新建仓库内固定 batch 基线：
+    - `docs/writing-core-framework/batch-smoke-manifest.json`
+    - `docs/writing-core-framework/batch-output/summary-report.json`
+    - 3 个固定 batch output smoke 文件
+  - 运行：
+    - `python -m unittest tests.test_batch_writing_core_smoke tests.test_writing_core_smoke tests.test_writing_core_framework tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/writing_core_smoke.py` (updated)
+  - `docs/writing-core-framework/real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md` (created)
+  - `projects/庶妹换我婚书那夜，太子先开了口/包装/包装方案-writing-core.md` (created)
+  - `docs/writing-core-framework/batch-smoke-manifest.json` (created)
+  - `docs/writing-core-framework/batch-output/summary-report.json` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md` (created)
+  - `tests/test_writing_core_smoke.py` (updated)
+  - `tests/test_batch_writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 15: Batch Aggregation Hardening
+- **Status:** complete
+- Actions taken:
+  - 为 `scripts/batch_writing_core_smoke.py` 增加聚合 summary：
+    - `generated_at`
+    - `mode`
+    - `count / success_count / failure_count`
+    - `bucket_counts`
+    - `packaging_status_counts`
+    - `writeback_status_counts`
+    - `failed_projects`
+  - 修复 batch 对不存在项目不会失败的问题：
+    - 显式要求 `.mighty/state.json` 必须存在
+    - 将失败项目写入 `failed_projects`，不中断整批
+  - 重跑固定 batch 基线，刷新：
+    - `docs/writing-core-framework/batch-output/summary-report.json`
+    - 3 条固定 batch smoke 文件
+  - 运行：
+    - `python -m unittest tests.test_batch_writing_core_smoke tests.test_writing_core_smoke tests.test_writing_core_framework tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `scripts/batch_writing_core_smoke.py` (updated)
+  - `tests/test_batch_writing_core_smoke.py` (updated)
+  - `docs/writing-core-framework/batch-output/summary-report.json` (updated)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 16: Full Batch Baseline Expansion
+- **Status:** complete
+- Actions taken:
+  - 将 `docs/writing-core-framework/batch-smoke-manifest.json` 从 3 项扩到 8 个代表性 bucket
+  - 重跑固定 batch output，刷新：
+    - `docs/writing-core-framework/batch-output/summary-report.json`
+    - 8 条固定 batch smoke 文件
+  - 用 `scripts/writing_core_smoke.py` 跑通 `宫斗宅斗` sidecar 样本并确认 `written-sidecar` 规则进入回归
+  - 运行：
+    - `python -m unittest tests.test_batch_writing_core_smoke tests.test_writing_core_smoke tests.test_writing_core_framework tests.test_opening_plot_framework -v`
+    - `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/writing-core-framework/batch-smoke-manifest.json` (updated)
+  - `docs/writing-core-framework/batch-output/summary-report.json` (updated)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-搬回老小区后-我靠蹭饭认识了整栋楼-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md` (created)
+  - `docs/writing-core-framework/batch-output/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md` (created)
+  - `docs/writing-core-framework/README.md` (updated)
+  - `tests/test_writing_core_smoke.py` (updated)
+  - `tests/test_batch_writing_core_smoke.py` (updated)
+  - `tests/test_writing_core_framework.py` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-24
 
 ### Historical Brainhole Minimal Sample

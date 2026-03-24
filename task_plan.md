@@ -218,6 +218,189 @@ Phase 26
 - [x] 读取 `projects/庶女谋略` 的 state、总纲、前 1-3 章
 - [x] 基于真实项目手工生成一版 `fanqie_bucket_review_summary`
 - [x] 基于真实项目手工生成一版 `fanqie_bucket_precheck_summary`
+
+---
+
+# Task Plan: 番茄起盘协议栈与 Compiler 层
+
+## Goal
+在仓库内落成一组“番茄起盘协议栈”规则文档、一个保守的 `launch_stack` compiler CLI、轻量 sidecar/state 约定，并将其最小接入 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package`。
+
+## Current Phase
+Phase 2
+
+## Phases
+
+### Phase 1: Discovery & Spec Lock
+- [x] 读取现有 `opening-and-plot-framework` / `writing-core-framework` / 相关测试与技能合同
+- [x] 调研番茄官方与通用叙事框架资料，确认“协议栈优于单主架构卡”
+- [x] 写出正式 spec：`docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- **Status:** complete
+
+### Phase 2: Implementation Planning
+- [x] 读取 `writing-plans` 技能与现有计划样式
+- [x] 固化 v1 范围为：`Premise / Pivot / Launch Grammar / Retention Protocol / compiler / 轻量写回`
+- [x] 写出实施计划：`docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
+- **Status:** complete
+
+### Phase 3: Contract Red Tests
+- [ ] 新增 `tests/test_fanqie_launch_stack.py`
+- [ ] 锁 launch-stack 文档树、skill 接线、state 约定、CLI 存在性
+- [ ] 运行测试确认先失败
+- **Status:** pending
+
+### Phase 4: Launch-Stack Docs
+- [ ] 创建 `docs/opening-and-plot-framework/fanqie-launch-stack/`
+- [ ] 写 4 层主模块与 compiler contract
+- [ ] 写 6 张起盘语法卡
+- **Status:** pending
+
+### Phase 5: Compiler CLI
+- [ ] 新建 `scripts/fanqie_launch_stack.py`
+- [ ] 实现保守 `draft` 推断
+- [ ] 实现显式 `writeback`
+- **Status:** pending
+
+### Phase 6: Skill Wiring
+- [ ] 更新 `novel-outline`
+- [ ] 更新 `novel-write`
+- [ ] 更新 `novel-review`
+- [ ] 更新 `novel-precheck`
+- [ ] 更新 `novel-package`
+- **Status:** pending
+
+### Phase 7: State & Sidecar Contract
+- [ ] 更新 `state-schema` / `state-v5-template`
+- [ ] 记录 `.mighty/launch-stack.json` 与 ledger sidecar 约定
+- [ ] 对齐 `novel-init` / thin-state 文档
+- **Status:** pending
+
+### Phase 8: Smoke & Verification
+- [ ] 生成 2 个真实项目 smoke artifact
+- [ ] 运行 launch-stack 测试
+- [ ] 回归 opening/writing-core 测试与迁移校验
+- **Status:** pending
+
+## Key Questions
+1. v1 是否应该把“平台留存协议”独立于起盘语法卡，而不是继续塞进 bucket overlay？
+2. `launch_stack` 应该只做 sidecar，还是同时写回最小 state 镜像字段？
+3. 真实项目 smoke 应优先覆盖哪两种早期起盘类型，才能最快暴露误判？
+
+## Decisions Made
+| Decision | Rationale |
+|----------|-----------|
+| 用“番茄起盘协议栈”替代“单主架构卡” | 一部书的前期判断常常是支点、语法、平台协议、题材义务的组合，单一卡片太粗 |
+| 第一版只做开篇到黄金三章 | 番茄最敏感的留人区间在这里，收益最高且范围可控 |
+| 通用框架只做映射参考，不做运行时真源 | Save the Cat / 三幕式 / Story Circle 适合解释和校准，不适合直接当番茄执行规则 |
+| 详细结果写 `.mighty/launch-stack.json`，state 只镜像 4 个轻字段 | 延续项目“文档真源 + sidecar 运行结果 + 轻 state”模式 |
+| `Hook Ledger / Payoff Ledger` 只在 v1 建立占位合同 | 先跑通协议栈与 compiler，不把第一版拖进重型自动化 |
+
+## Errors Encountered
+| Error | Attempt | Resolution |
+|-------|---------|------------|
+| 尚无 | 0 | 当前处于设计与计划阶段，未进入实现 |
+
+## Notes
+- 复用 `docs/opening-and-plot-framework/` 作为承载层，不新造平行顶层框架目录
+- 复用现有 `tests/test_opening_plot_framework.py` 与 `tests/test_writing_core_framework.py` 的合同测试模式
+- 默认优先落“文档真源 + compiler + 轻量写回”，不直接做黑盒 orchestrator
+
+---
+
+# Task Plan: 写作基本功与内容标准规则层
+
+## Goal
+在仓库内落成一组“写作基本功 / 内容标准 / memory 压缩信号 / 开篇包装输入”方法论文档，复用现有 `opening-and-plot-framework` 作为剧情层次真源，并接入 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn`。
+
+## Current Phase
+Phase 5
+
+## Phases
+
+### Phase 1: Boundary Lock
+- [x] 确认 `剧情层次` 不重写，继续复用 `docs/opening-and-plot-framework/`
+- [x] 确认新框架仅补 `基本功 / 内容标准 / memory / 包装输入`
+- [x] 确认承载层为 `docs/writing-core-framework/`
+- **Status:** complete
+
+### Phase 2: Red Test
+- [x] 新增 `tests/test_writing_core_framework.py`
+- [x] 运行测试并确认先失败
+- **Status:** complete
+
+### Phase 3: Docs + Wiring
+- [x] 创建 `docs/writing-core-framework/` 8 个文档
+- [x] 更新 6 个 consumer skill 的读取合同
+- [x] 更新入口文档、state schema、state template 与瘦身说明
+- **Status:** complete
+
+### Phase 4: Verification
+- [x] 运行 `python -m unittest tests.test_writing_core_framework -v`
+- [x] 回归 `python -m unittest tests.test_opening_plot_framework -v`
+- [x] 运行 `bash scripts/validate-migration.sh`
+- [x] 在真实项目上补一份 `package + precheck + memory writeback` 手工 smoke
+- **Status:** complete
+
+### Phase 5: Smoke Automation
+- [x] 新增 `scripts/writing_core_smoke.py`
+- [x] 新增 `tests/test_writing_core_smoke.py`
+- [x] 将脚本入口挂回 `docs/writing-core-framework/README.md`
+- [x] 跑完新旧测试与迁移校验
+- **Status:** complete
+
+### Phase 6: Scripted Third Sample
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `都市日常` 真实样本
+- [x] 生成第三条样本的 `包装/包装方案.md`
+- [x] 将第三条样本纳入 `writing-core-framework` 回归护栏
+- **Status:** complete
+
+### Phase 7: Fourth Sample + Richer Templates
+- [x] 为 `历史脑洞` 和 `职场婚恋` 增加显式 bucket 包装模板
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `历史脑洞` 第四条真实样本
+- [x] 将第四条样本纳入 `writing-core-framework` 回归护栏
+- **Status:** complete
+
+### Phase 8: Fifth Sample + Wider Bucket Templates
+- [x] 为 `青春甜宠` 和 `都市脑洞` 增加显式 bucket 包装模板
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `职场婚恋` 第五条真实样本
+- [x] 将第五条样本纳入 `writing-core-framework` 回归护栏
+- **Status:** complete
+
+### Phase 9: Sixth Sample + Batch Entry
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `青春甜宠` 第六条真实样本
+- [x] 新增 `scripts/batch_writing_core_smoke.py`
+- [x] 将第六条样本与 batch 入口纳入回归护栏
+- **Status:** complete
+
+### Phase 10: Seventh Sample + Batch Summary
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `都市脑洞` 第七条真实样本
+- [x] 为 batch 入口补 `writeback + save-packaging + summary_report`
+- [x] 将第七条样本与 batch summary 能力纳入回归护栏
+- **Status:** complete
+
+### Phase 11: Palace Sidecar + Repo Batch Baseline
+- [x] 使用 `scripts/writing_core_smoke.py` 跑通 `宫斗宅斗` 脚本化样本
+- [x] 在已有包装文件存在时落 `包装方案-writing-core.md` sidecar，不覆盖人工收口版
+- [x] 将 batch 能力落成仓库内固定 manifest + fixed output dir + summary report 基线
+- **Status:** complete
+
+### Phase 12: Batch Aggregation + Full Baseline
+- [x] 为 batch summary 增加聚合统计与失败收集
+- [x] 将固定 batch baseline 从 3 项扩到 8 个代表性 bucket
+- [x] 跑通固定 batch output 与全量回归
+- **Status:** complete
+
+## Decisions Made
+| Decision | Rationale |
+|----------|-----------|
+| 新框架命名为 `docs/writing-core-framework/` | 避免和现有 `opening-and-plot-framework` 重叠，同时覆盖 craft + standard + memory + package 输入 |
+| `剧情层次` 继续复用原框架 | 避免重写同一套结构理论，保持单一事实源 |
+| memory 只收压缩信号，不造新顶层区块 | 保持 `.mighty/state.json` 轻量，符合既有 state 设计 |
+
+## Errors Encountered
+| Error | Attempt | Resolution |
+|-------|---------|------------|
+| 大补丁在 `skills/novel-precheck/SKILL.md` 上下文对齐失败 | 1 | 改为分批小补丁，先改 state / 入口文档，再逐个 skill 接线 |
 - [x] 产出只读 smoke 文档，不污染活项目 state
 - **Status:** complete
 

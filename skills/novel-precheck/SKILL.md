@@ -52,6 +52,7 @@ Always read:
 - `../../docs/anti-flattening-framework/01-总纲.md`
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+- `../../docs/writing-core-framework/README.md`
 
 Read conditionally:
 
@@ -83,6 +84,9 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
 - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
 - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/writing-core-framework/05-内容标准与常见失格.md`
+- `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+- `../../docs/writing-core-framework/08-开篇包装输入接口.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
@@ -110,6 +114,7 @@ Resolve shared profile roots in this order:
 4. Read the target chapters.
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+   - also read `../../docs/writing-core-framework/README.md`
 6. When the route is multi-character, multi-faction, politics-heavy, relationship-heavy, transmigration/system-heavy, or the user explicitly asks for反脸谱化预检:
    - read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
@@ -130,6 +135,15 @@ Resolve shared profile roots in this order:
      - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
      - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
      - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md` when the active Fanqie bucket matches a P0 checkcard file
+6b. When the precheck needs stronger execution or submission judgment:
+   - read:
+     - `../../docs/writing-core-framework/05-内容标准与常见失格.md`
+     - `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+     - `../../docs/writing-core-framework/08-开篇包装输入接口.md`
+   - use them to judge:
+     - whether current prose is scene-based enough for submission
+     - whether packaging is overpromising current delivery
+     - whether current opening promise and near-term payoff timing are aligned
 5. If the range includes chapters 1-3, run a stronger “golden three” check:
    - hook arrival speed
    - protagonist presence
@@ -161,6 +175,7 @@ Resolve shared profile roots in this order:
      - suspense handoff
      - resistance / cost / residual-risk visibility
      - bucket-specific submission red flags before generic softness notes
+     - packaging promise vs actual opening delivery
      - when the active bucket is `宫斗宅斗`, also treat palace-specific adjustments as concrete precheck lenses:
        - `scan-surface-hook`
          - has the chapter range actually front-loaded婚配错位 / 赐婚 / 和离 / 高门关系冲突

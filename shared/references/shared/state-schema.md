@@ -446,6 +446,8 @@ version: "1.0"
 | anti_flattening_summary | object | 可选结构摘要，记录主角特权、关系、阵营、代价链等问题 |
 | fanqie_bucket_flags | string[] | 命中番茄 bucket 时的轻量风险标签 |
 | fanqie_bucket_summary | object | 可选 bucket 级摘要，记录当前主故障与红灯 |
+| content_standard_flags | string[] | 当前章节明确命中的内容标准失格标签 |
+| packaging_alignment_note | string | 当前章节与外层包装承诺的轻量对齐说明 |
 | last_close_time | string | 最近一次 `novel-close` 执行时间 |
 | last_close_route | string | 最近一次 `novel-close` 选择的主路由 |
 | last_close_review_score_before | number | 最近一次 `novel-close` 首轮 review 分数 |
@@ -462,6 +464,15 @@ version: "1.0"
 - `fanqie_bucket_flags` 只在 bucket 级红灯清晰时写
 - `fanqie_bucket_summary` 只保留主故障、红灯和 bucket 档位，不存长段评语
 - 不为 bucket 专项检查单独创建新的顶层 state 区块
+
+### 写作基本功压缩信号约定
+
+- `learned_patterns.opening_strategy` 只保留当前项目可执行的开篇策略
+- `learned_patterns.multi_line_guardrails` 只保留当前项目仍在生效的多线编排提醒
+- `learned_patterns.content_standard_alerts` 只保留重复出现、值得下游消费的失格提醒
+- `chapter_meta[N].content_standard_flags` 只在单章失格明确时写
+- `chapter_meta[N].packaging_alignment_note` 只保留一句包装承诺对齐判断
+- 这些字段都应保持轻量，不存课程长文
 
 ### `dimension_scores` 附加键约定
 

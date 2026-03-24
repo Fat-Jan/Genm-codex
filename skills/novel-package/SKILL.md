@@ -60,6 +60,7 @@ Read for packaging generation:
 - `大纲/总纲.md`
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+- `../../docs/writing-core-framework/README.md`
 
 Read conditionally:
 
@@ -87,6 +88,8 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
 - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
 - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+- `../../docs/writing-core-framework/08-开篇包装输入接口.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `references/synopsis-platform-guide.md`
@@ -111,16 +114,20 @@ Read conditionally:
    - protagonist position
    - strongest hook
 4. Read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`.
+   - also read `../../docs/writing-core-framework/README.md`
 5. If the request is `opening-hook`, `full`, or clearly depends on stronger first-screen packaging, also read:
    - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
    - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
    - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+   - `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+   - `../../docs/writing-core-framework/08-开篇包装输入接口.md`
    - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
    - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
    - use them as packaging-side rules for:
      - keeping the opening promise legible
      - avoiding overpromising without a near-term payoff node
      - making the hook land on a concrete exchange rather than generic hype
+     - converting opening method, genre-difference, premium-review, and overpromise cues into compact packaging constraints
 6. If this is an ancient-family-power route and household truth files exist, read them before proposing outward relation words.
 7. If the project clearly depends on court / palace / local-office / military rank logic and office truth files exist, read them before proposing outward官名.
 8. Inspect recent project-local quality signals when they exist:

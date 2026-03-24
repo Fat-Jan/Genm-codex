@@ -214,6 +214,7 @@ bash scripts/validate-migration.sh
 - `docs/gate-triage-rollout-2026-03-24.md`
 - `docs/anti-flattening-framework/README.md`
 - `docs/opening-and-plot-framework/README.md`
+- `docs/writing-core-framework/README.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
@@ -227,3 +228,4 @@ bash scripts/validate-migration.sh
 - `novel-outline` / `novel-review` / `novel-fix` 现在会按需读取 `docs/anti-flattening-framework/`，把反脸谱化与群像约束纳入默认质量闭环
 - `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查
 - `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 现在也可按需读取 `docs/opening-and-plot-framework/`，把开篇承诺、剧情层次和推进残账纳入默认工作流规则层
+- `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn` 现在也可按需读取 `docs/writing-core-framework/`，把写作基本功、内容标准、memory 压缩信号和开篇包装输入纳入默认质量链

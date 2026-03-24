@@ -155,6 +155,15 @@
 - `novel-precheck` 现在会在投稿前检查首屏 promise、黄金三章兑现和推进残账
 - `novel-package` 现在会按需读取这组文档，把包装承诺和正文实际可兑现节点对齐
 
+写作基本功与内容标准入口：
+
+- [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+- `novel-write` 现在会按需读取这组文档来约束镜头、信息投放、对白动作和段落节奏
+- `novel-review` 现在会按需把内容标准失格、执行层风险和包装对齐问题收成可执行问题簇
+- `novel-precheck` 现在会按需把精品审核、投稿前判断和包装过度承诺风险纳入最终建议
+- `novel-package` 现在会按需读取这组文档，把“开篇方法 / 类型差异 / 精品审核标准”压成包装约束
+- `novel-learn` 现在会按这组文档把 memory 收成压缩信号，而不是长篇理论
+
 ## 第二阶段已迁入
 
 - `genm-novel-character`

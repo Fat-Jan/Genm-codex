@@ -34,6 +34,7 @@ Always read:
 - `../../docs/anti-flattening-framework/01-总纲.md`
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+- `../../docs/writing-core-framework/README.md`
 
 ## Conditional reads
 
@@ -59,6 +60,8 @@ Also read these when generating or materially revising outlines, especially for 
 - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
 - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
 - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/writing-core-framework/04-剧情层次与多线编排接口.md`
+- `../../docs/writing-core-framework/08-开篇包装输入接口.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 
@@ -69,6 +72,7 @@ Also read these when generating or materially revising outlines, especially for 
 2. Read `../../shared/references/shared/core-constraints.md`.
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+   - also read `../../docs/writing-core-framework/README.md`
 3. Load the relevant shared profile for rhythm and reader expectations.
    - when doing total-outline generation or any outline refinement that clearly depends on人物立体度、群像关系、阵营冲突、穿书/穿越/系统/权谋等高风险题材，also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
@@ -84,6 +88,8 @@ Also read these when generating or materially revising outlines, especially for 
      - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
      - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
      - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/writing-core-framework/04-剧情层次与多线编排接口.md`
+     - `../../docs/writing-core-framework/08-开篇包装输入接口.md` when the outline pass is also shaping outward opening promise
      - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
      - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
    - use them as outline-side structure rules for:
@@ -97,6 +103,8 @@ Also read these when generating or materially revising outlines, especially for 
      - relation / faction splits
      - conflict, information-gap, and cost loops
      - scene-level residual consequence design
+     - chapter-level line ownership and touched-subline reminders
+     - opening promise shaping that should survive into writing and packaging without overpromising
 4. If the platform is 番茄 and a `content_bucket` is explicitly given, or a current `genre_profile.bucket` exists, or the user clearly asks for Fanqie-first outline refinement:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`

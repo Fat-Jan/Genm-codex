@@ -38,6 +38,7 @@ Always read:
 - `../../docs/anti-flattening-framework/01-总纲.md`
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+- `../../docs/writing-core-framework/README.md`
 
 Read conditionally:
 
@@ -74,6 +75,10 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
 - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
 - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/writing-core-framework/01-写作基本功总纲.md`
+- `../../docs/writing-core-framework/02-叙述-镜头-信息投放.md`
+- `../../docs/writing-core-framework/03-对白-动作-情绪-段落节奏.md`
+- `../../docs/writing-core-framework/05-内容标准与常见失格.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 
@@ -89,6 +94,7 @@ Read conditionally:
 4. Read required setting files from `设定集/`.
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+   - also read `../../docs/writing-core-framework/README.md`
 6. Load the shared profile matching the project genre from `../../shared/profiles/`.
 7. Read any useful local guidance already present in the project:
    - prefer `.mighty/learned-patterns.json`
@@ -127,6 +133,18 @@ Read conditionally:
      - avoiding background-first openings and pressure-only openings
      - making the chapter’s primary line and touched subline readable
      - ensuring an event also changes information, cost, or residue ledgers
+10. When the chapter needs stronger execution craft, or the draft risk is explanation-heavy / dialogue-heavy / summary-heavy:
+   - read:
+     - `../../docs/writing-core-framework/01-写作基本功总纲.md`
+     - `../../docs/writing-core-framework/02-叙述-镜头-信息投放.md`
+     - `../../docs/writing-core-framework/03-对白-动作-情绪-段落节奏.md`
+     - `../../docs/writing-core-framework/05-内容标准与常见失格.md`
+   - use them as prose-side execution rules for:
+     - scene anchoring before explanation
+     - keeping viewpoint and information delivery stable
+     - preventing floating dialogue
+     - preventing summary-replacing-drama
+     - preventing frictionless gain beats
 10. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`

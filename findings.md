@@ -127,6 +127,306 @@
 - 本轮任务暂未使用需要单独转存的图像/PDF信息
 
 ---
+
+# Findings & Decisions: 番茄起盘协议栈与 Compiler 层
+
+## Requirements
+- 用户希望在现有项目里找到比“成熟剧情架构库”更好的方案，用于番茄优先路线
+- 用户已认可将方案收成正式 spec，并继续进入实施计划
+- 第一版目标不是整卷结构，而是“开篇到黄金三章”的起盘与留存闭环
+
+## Research Findings
+- 番茄官方“写在落笔前，如何构思一本男频网文小说”更强调：
+  - 一句话故事
+  - 故事支点
+  - 切入事件
+  - 三幕式 / 节拍器
+  说明平台原生入口并不是“先选一个大结构名”
+- 番茄官方“如何稳定剧情，让读者追更不停？”更强调：
+  - 首页见山
+  - 章末留钩
+  - 前十万字稳定
+  说明平台级留存规则应该独立成层，而不是藏在某张架构卡里
+- 番茄官方“开篇即爆点！三步公式打造高黏性开头（上）”与宫斗经验文都说明：
+  - 前三章要不断给期待
+  - 主角不应靠低级失误制造压制
+  - 早期推进要有真实小兑现与残账
+- 通用框架资料（Save the Cat / Story Grid / serial-writing articles）更适合当：
+  - 解释语言
+  - 映射参考
+  - 场景句法校准工具
+  而不适合直接作为番茄运行时真源
+- 仓库现有最稳定的模式仍然是：
+  - `docs/` 承载单一事实源
+  - `shared/references/shared/state-schema.md` 承载 state 真值
+  - 小脚本承载保守自动化
+  - `tests/*.py` 锁文档 / skill / 合同回归
+- `opening-and-plot-framework` 已有 Fanqie P0 overlays / checkcards / output contract / smoke 模式，可复用其承载层与测试模式，而不应新造平行框架
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 采用“番茄起盘协议栈 + compiler + 两本账” | 比“单主架构卡”更能表达支点、语法、平台协议、题材义务与场景句法的组合 |
+| 运行时对象命名为 `launch_stack` | 比 `plot_architecture_selection` 更贴起盘范围，也避免与整本书结构混淆 |
+| 协议栈分为 `Premise / Pivot / Launch Grammar / Retention Protocol / Genre Obligations / Scene Engine` | 保持边界清楚，便于 skill 消费与未来扩展 |
+| 第一版仅落实 `Premise / Pivot / Launch Grammar / Retention Protocol / compiler / 轻量写回` | 控制范围，先跑通最有价值的番茄开篇闭环 |
+| sidecar 采用 `.mighty/launch-stack.json`，并预留 `.mighty/hook-ledger.json` 与 `.mighty/payoff-ledger.json` | 详细结果与账本不挤进 `state.json`，符合现有轻 state 模式 |
+| `state.json` 只镜像 4 个轻字段 | 避免把 `state` 变成第二套方法论中心 |
+
+## Issues Encountered
+| Issue | Resolution |
+|-------|------------|
+| `writing-plans` 技能默认要求 plan-review subagent，但当前没有用户明确授权委派 | 先由主会话自行写计划并做本地自查；若后续用户明确选择委派执行，再进入 subagent 路线 |
+
+## Resources
+- `docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- `docs/opening-and-plot-framework/README.md`
+- `tests/test_opening_plot_framework.py`
+- `tests/test_writing_core_framework.py`
+- `shared/references/shared/state-schema.md`
+- `https://fanqienovel.com/writer/zone/article/7226296687315124284`
+- `https://fanqienovel.com/writer/zone/article/7605818896267870270`
+- `https://fanqienovel.com/writer/zone/article/7478303864752455705`
+- `https://fanqienovel.com/writer/zone/article/7273042943110283326`
+- `https://savethecat.com/tips-and-tactics/free-tool-alert-the-save-the-cat-genre-mapper`
+- `https://storygrid.com/wp-content/uploads/2017/04/foolscap-story-grid.pdf`
+- `https://storygrid.com/5-commandments-storytelling-revisited/`
+- `https://janefriedman.com/serial-novel-writing/`
+
+---
+
+# Findings & Decisions: 写作基本功与内容标准规则层
+
+## Requirements
+- 用户希望把 `写作基本功 / 剧情层次 / 内容标准` 做成类似反脸谱化框架的项目级方法论文档
+- `memory` 层只沉淀可执行的压缩信号，不存整套课程
+- `包装层` 需要能直接消费“开篇方法 / 类型化开篇差异 / 精品审核标准”
+
+## Research Findings
+- `剧情层次` 这一层已经由 `docs/opening-and-plot-framework/` 跑通，适合继续作为单一事实源复用
+- 当前真正缺的不是另一套剧情层次文档，而是：
+  - 正文执行层的 `写作基本功`
+  - review / precheck 可消费的 `内容标准`
+  - `learned_patterns` / `chapter_meta` 可落地的压缩信号约定
+  - `novel-package` 可直接读取的开篇包装输入接口
+- `shared/references/shared/state-schema.md` 与 `docs/state-thinning-and-setting-sync.md` 已明确 state 应保持轻量，适合继续把新增信号压在 `learned_patterns` 和 `chapter_meta`
+- `docs/fanqie-writing-techniques.md` 与 `docs/fanqie-writer-zone-lessons.md` 提供了足够的源材料，但此前仍以提炼文档形态存在，没有被重组为新的方法论框架
+- 本轮已新增 `docs/writing-core-framework/`，包含：
+  - `README.md`
+  - `01-写作基本功总纲.md`
+  - `02-叙述-镜头-信息投放.md`
+  - `03-对白-动作-情绪-段落节奏.md`
+  - `04-剧情层次与多线编排接口.md`
+  - `05-内容标准与常见失格.md`
+  - `06-精品审核与投稿前判断.md`
+  - `07-memory-压缩信号约定.md`
+  - `08-开篇包装输入接口.md`
+- `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn` 已完成显式读取接线
+- `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 已增加新框架入口
+- `shared/templates/state-v5-template.json` 已增加：
+  - `learned_patterns.opening_strategy`
+  - `learned_patterns.multi_line_guardrails`
+  - `learned_patterns.content_standard_alerts`
+  - `chapter_meta[N].content_standard_flags`
+  - `chapter_meta[N].packaging_alignment_note`
+- `shared/references/shared/state-schema.md` 已把上述字段收成轻量约定，而不是新顶层 state 中心
+- 新增测试 `tests/test_writing_core_framework.py` 已完成红绿闭环
+- 回归测试 `tests/test_opening_plot_framework.py` 仍通过，说明本轮没有破坏既有开篇框架合同
+- `bash scripts/validate-migration.sh` 通过，说明结构层改动没有破坏迁移校验
+- 已新增真实样本文档：
+  - `docs/writing-core-framework/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md`
+- 已补第二条异路数真实样本文档：
+  - `docs/writing-core-framework/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md`
+- 已将两条样本最初的 `packaging-needs-update = yes` 继续闭成真实包装产物：
+  - `projects/宗门垫底那年，我把废丹卖成了天价/包装/包装方案.md`
+  - `projects/离婚冷静期那天，前夫把董事会席位押给了我/包装/包装方案.md`
+- 已为这两条样本补自动回归护栏：
+  - `tests/test_writing_core_framework.py` 现在会校验：
+    - 两份真实 smoke 文档存在
+    - 两份 `包装/包装方案.md` 存在且包含标题/简介
+    - 两个样本项目的 `learned_patterns` 已含压缩信号
+    - 两个样本项目的 `state.chapter_meta["003"]` 已含 `content_standard_flags / packaging_alignment_note`
+- 已在样本项目 `projects/宗门垫底那年，我把废丹卖成了天价` 中做最小 writeback：
+  - `.mighty/learned-patterns.json` 增加：
+    - `opening_strategy`
+    - `multi_line_guardrails`
+    - `content_standard_alerts`
+  - `.mighty/state.json` 增加或刷新：
+    - `learned_patterns.available_sections`
+    - `chapter_meta["003"].content_standard_flags`
+    - `chapter_meta["003"].packaging_alignment_note`
+    - `constraints_loaded.includes += docs/writing-core-framework/README.md`
+- 这条样本给出的收口判断是：
+  - `投稿建议 = ready-now`
+  - `packaging-needs-update = yes`
+  - 原因不是正文不过关，而是当前项目还没有外层包装文件，且第 4-5 章前不宜把“丹院黑幕已揭开”包装成已兑现卖点
+- 已在第二个样本项目 `projects/离婚冷静期那天，前夫把董事会席位押给了我` 中做最小 writeback：
+  - `.mighty/learned-patterns.json` 增加：
+    - `opening_strategy`
+    - `multi_line_guardrails`
+    - `content_standard_alerts`
+  - `.mighty/state.json` 增加：
+    - `learned_patterns.available_sections`
+    - `chapter_meta["003"].content_standard_flags`
+    - `chapter_meta["003"].packaging_alignment_note`
+- 第二条样本给出的收口判断是：
+  - `投稿建议 = ready-now`
+  - `packaging-needs-update = yes`
+  - 原因不是黄金三章不过关，而是“合伙人”位置还没兑现成后续真实控制权，不宜提前包装成已赢下董事会或家族盘
+- 现阶段这两条样本的 `packaging-needs-update = yes` 已不再停在判断层，而是已经被消化成新的 `包装/包装方案.md`
+- 现阶段这条线不仅有产物，还已有自动测试守护，不会因为后续文档或样本漂移悄悄失效
+- 已新增 `scripts/writing_core_smoke.py`
+  - 目标是把当前 `writing-core-framework` 的真实样本收口流程收成最小可复用 helper
+  - 当前支持：
+    - `draft`
+    - `writeback`
+    - `save-packaging`
+  - 当前输出：
+    - `packaging_judgment`
+    - `precheck_summary`
+    - `content_standard_summary`
+    - `writeback_preview`
+- 已新增 `tests/test_writing_core_smoke.py`
+  - 校验 CLI 默认参数
+  - 校验真实项目 draft 输出结构
+  - 校验临时项目 `writeback + save-packaging` 会真正写回压缩信号和包装文件
+- 已用 `scripts/writing_core_smoke.py` 跑通第三条脚本化真实样本：
+  - `docs/writing-core-framework/real-project-smoke-搬回老小区后-我靠蹭饭认识了整栋楼-2026-03-24.md`
+  - `projects/搬回老小区后，我靠蹭饭认识了整栋楼/包装/包装方案.md`
+- 为了避免“能跑但文案脏”的伪闭环，已补 city-daily 质量护栏：
+  - `tests/test_writing_core_smoke.py` 现在会拦：
+    - outline 标题被错误拼进 synopsis
+    - 产出的包装文件含脏 markdown 标题
+- `tests/test_writing_core_framework.py` 现在已把第三条脚本化样本也纳入回归集合
+- 已为 `writing_core_smoke.py` 增加更细的 bucket 特化模板：
+  - `历史脑洞`
+  - `职场婚恋`
+- 已用 `scripts/writing_core_smoke.py` 跑通第四条脚本化真实样本：
+  - `docs/writing-core-framework/real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md`
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/包装/包装方案.md`
+- `tests/test_writing_core_smoke.py` 现在会校验：
+  - `历史脑洞` draft 输出含 `卷宗回响 / 旧案 / 制度压力和翻案脑洞`
+  - `职场婚恋` draft 输出含 `升职接锅 / 合租揭面 / 试运行窗口`
+- `tests/test_writing_core_framework.py` 现在已把第四条样本也纳入回归集合
+- 已继续为 `writing_core_smoke.py` 增加更细的 bucket 特化模板：
+  - `青春甜宠`
+  - `都市脑洞`
+- 已用 `scripts/writing_core_smoke.py` 跑通第五条脚本化真实样本：
+  - `docs/writing-core-framework/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md`
+  - `projects/她升职那天，前上司成了我合租室友/包装/包装方案.md`
+- 为避免 `职场婚恋` 总纲中的 YAML / fenced block 污染包装简介，`extract_outline_pitch` 已升级为跳过整个 fenced block，而不只跳过 fence 标记行
+- `tests/test_writing_core_smoke.py` 现在会额外校验：
+  - `青春甜宠` draft 输出含 `身份错认 / 学习互助`
+  - `都市脑洞` draft 输出含 `到账`
+  - `职场婚恋` writeback 产物不再落成 `书名:` 这类脏简介
+- `tests/test_writing_core_framework.py` 现在已把第五条样本也纳入回归集合
+- 已用 `scripts/writing_core_smoke.py` 跑通第六类常用模板能力：
+  - `青春甜宠` draft 模板
+  - `都市脑洞` draft 模板
+- 已用 `scripts/writing_core_smoke.py` 跑通第五条真实脚本化样本：
+  - `docs/writing-core-framework/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md`
+  - `projects/她升职那天，前上司成了我合租室友/包装/包装方案.md`
+- 当前 `writing_core_smoke.py` 已覆盖的显式 bucket 模板为：
+  - `玄幻脑洞`
+  - `豪门总裁`
+  - `都市日常`
+  - `历史脑洞`
+  - `职场婚恋`
+  - `青春甜宠`
+  - `都市脑洞`
+- 已用 `scripts/writing_core_smoke.py` 跑通第六条真实脚本化样本：
+  - `docs/writing-core-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md`
+  - `projects/转学第一天，我把校草认成了新来的代课老师/包装/包装方案.md`
+- 已新增 `scripts/batch_writing_core_smoke.py`
+  - 当前支持通过 manifest + output dir 批量跑多个项目的 `draft` / `writeback`
+- 已新增 `tests/test_batch_writing_core_smoke.py`
+  - 校验 manifest 参数解析
+  - 校验两项目 batch draft 会真实生成多个输出文件
+- batch 入口现已支持：
+  - `writeback`
+  - `save-packaging`
+  - `summary_report`
+- 已用 `scripts/writing_core_smoke.py` 跑通第七条真实脚本化样本：
+  - `docs/writing-core-framework/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md`
+  - `projects/我赔光积蓄那天，系统先把违约金打到了账上/包装/包装方案.md`
+- 当前 `writing_core_smoke.py` 的显式 bucket 模板已覆盖：
+  - `玄幻脑洞`
+  - `豪门总裁`
+  - `都市日常`
+  - `历史脑洞`
+  - `职场婚恋`
+  - `青春甜宠`
+  - `都市脑洞`
+- 已用 `scripts/writing_core_smoke.py` 跑通 `宫斗宅斗` 脚本化样本：
+  - `docs/writing-core-framework/real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md`
+  - `projects/庶妹换我婚书那夜，太子先开了口/包装/包装方案-writing-core.md`
+- 对已有更成熟包装产物的项目，`save-packaging` 现已支持 sidecar 策略：
+  - 保留原 `包装/包装方案.md`
+  - 新增 `包装/包装方案-writing-core.md`
+  - `packaging_status = written-sidecar`
+- 已新增仓库内固定 batch 基线：
+  - manifest: `docs/writing-core-framework/batch-smoke-manifest.json`
+  - output dir: `docs/writing-core-framework/batch-output/`
+  - summary report: `docs/writing-core-framework/batch-output/summary-report.json`
+- 固定 batch 基线当前已覆盖：
+  - `宫斗宅斗`
+  - `豪门总裁`
+  - `都市日常`
+  - `玄幻脑洞`
+  - `历史脑洞`
+  - `青春甜宠`
+  - `职场婚恋`
+  - `都市脑洞`
+- `docs/writing-core-framework/batch-output/summary-report.json` 现已从原始列表升级为聚合报告，包含：
+  - `generated_at`
+  - `mode`
+  - `count / success_count / failure_count`
+  - `bucket_counts`
+  - `packaging_status_counts`
+  - `writeback_status_counts`
+  - `failed_projects`
+- 固定 batch output 目录现在已 materialize：
+  - `real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md`
+  - `real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md`
+  - `real-project-smoke-搬回老小区后-我靠蹭饭认识了整栋楼-2026-03-24.md`
+  - `real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md`
+  - `real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md`
+  - `real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md`
+  - `real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md`
+  - `real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md`
+- `tests/test_batch_writing_core_smoke.py` 现在会校验：
+  - batch `writeback + save-packaging + summary_report`
+  - summary report 中的项目结果统计
+- `tests/test_writing_core_framework.py` 现在已把：
+  - 第八条宫斗样本
+  - 固定 batch manifest
+  - 固定 batch output 文件
+  一并纳入回归集合
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 新框架命名为 `writing-core-framework` | 让框架名覆盖 craft / standard / memory / packaging input，而不是错误暗示只管剧情 |
+| `04-剧情层次与多线编排接口.md` 只做桥接，不做理论重写 | 保持 `opening-and-plot-framework` 作为剧情层次真源 |
+| 仅向 `learned_patterns` 与 `chapter_meta` 注入压缩字段 | 符合“只沉淀可执行压缩信号”的 memory 目标 |
+| 用真实项目做 report + 最小 writeback，而不是只停在 smoke 文档 | 让 `writing-core-framework` 同时在 package / precheck / memory 三层都落到仓库证据 |
+| 第二条样本优先选现实豪门线 | 用和玄幻脑洞明显不同的路数验证“类型化开篇差异”和包装约束不是单题材特化 |
+| 自动化优先做最小 smoke helper，而不是上来造完整 workflow 引擎 | 当前最高收益是把手工闭环变成可重复执行的最小工具，而不是过度工程 |
+| 第三条样本优先用 `都市日常` 路线并通过脚本生成 | 这样能同时验证跨 bucket 能力和自动化工具链，不只是再手工补一条案例 |
+| 第四条样本优先选 `历史脑洞`，同时为 `职场婚恋` 补模板 | 这样既验证另一条完全不同的制度型路线，也让脚本的 bucket 特化能力从 3 类扩到 5 类 |
+| 第五条样本优先选 `职场婚恋`，同时补 `青春甜宠 / 都市脑洞` 模板 | 这样既把现实职场关系线也打进真实样本，又把显式模板继续扩到更常用的番茄路数 |
+| 第六条样本优先选 `青春甜宠`，同时补 batch 入口 | 这样既补足校园甜宠线真实闭环，也让工具链从单项目执行推进到多项目批处理 |
+| 第七条样本优先选 `都市脑洞`，并补 batch summary report | 这样既把最后一类常用都市系统流样本落地，也让批处理入口具备真正可消费的批量结果摘要 |
+| `宫斗宅斗` 采用 sidecar 包装文件而不是覆盖现有主包装 | 该项目已有人工收口版包装，脚本化能力应补强而不是破坏已有高质量产物 |
+| 固定 batch 基线先用 `draft` 跑 3 条代表性样本 | 这样能拿到稳定、低风险、可持续更新的仓库内批跑基线，再逐步扩到更激进的 writeback 基线 |
+| 固定 batch 基线扩到 8 个 representative buckets | 让仓库内长期基线真正覆盖当前显式模板集，而不是只覆盖 3 条轻量样本 |
+
+## Issues Encountered
+| Issue | Resolution |
+|-------|------------|
+| 大补丁在 `novel-precheck` 上下文对齐失败 | 改为逐文件小补丁，降低 skill 合同修改风险 |
+
+---
 *Update this file after every 2 view/browser/search operations*
 *This prevents visual information from being lost*
 

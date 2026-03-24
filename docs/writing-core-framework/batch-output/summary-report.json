@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-03-24T12:07:57Z",
+  "mode": "draft",
+  "count": 8,
+  "success_count": 8,
+  "failure_count": 0,
+  "outputs": [
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-继母换我婚书那夜-太子先开了口-2026-03-24.md",
+      "bucket": "宫斗宅斗",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-离婚冷静期那天-前夫把董事会席位押给了我-2026-03-24.md",
+      "bucket": "豪门总裁",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-搬回老小区后-我靠蹭饭认识了整栋楼-2026-03-24.md",
+      "bucket": "都市日常",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-宗门垫底那年-我把废丹卖成了天价-2026-03-24.md",
+      "bucket": "玄幻脑洞",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-我在县衙当杂吏-靠翻旧案升了堂-2026-03-24.md",
+      "bucket": "历史脑洞",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-2026-03-24.md",
+      "bucket": "青春甜宠",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-她升职那天-前上司成了我合租室友-2026-03-24.md",
+      "bucket": "职场婚恋",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    },
+    {
+      "effective_mode": "draft",
+      "output_path": "docs/writing-core-framework/batch-output/real-project-smoke-我赔光积蓄那天-系统先把违约金打到了账上-2026-03-24.md",
+      "bucket": "都市脑洞",
+      "writeback_status": "skipped",
+      "packaging_status": "skipped"
+    }
+  ],
+  "failed_projects": [],
+  "bucket_counts": {
+    "宫斗宅斗": 1,
+    "豪门总裁": 1,
+    "都市日常": 1,
+    "玄幻脑洞": 1,
+    "历史脑洞": 1,
+    "青春甜宠": 1,
+    "职场婚恋": 1,
+    "都市脑洞": 1
+  },
+  "packaging_status_counts": {
+    "skipped": 8
+  },
+  "writeback_status_counts": {
+    "skipped": 8
+  }
+}

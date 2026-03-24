@@ -9,6 +9,16 @@
     },
     "high_point_preferences": [],
     "avoid_patterns": [],
-    "user_feedback": []
+    "user_feedback": [],
+    "opening_strategy": "第一章先落继母压制与婚书被换，第二章把旧账和规矩抬上桌，第三章让东宫开口锁住第一轮反击。",
+    "multi_line_guardrails": [
+      "主线先稳住婚书局和女主位置，次线只轻触伯府旧账、顾家旧线和更高宫中权力网。",
+      "每章都要同时推进压制关系变化和证据链变化，不要只靠口舌压人。"
+    ],
+    "content_standard_alerts": [
+      "避免后宅吵架替代权力换账",
+      "避免太子口谕变成万能捷径",
+      "不要提前把宫中旧案写透。"
+    ]
   }
 }

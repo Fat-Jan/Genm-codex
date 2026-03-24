@@ -121,6 +121,16 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 
 - [开篇方法与剧情层次框架](./opening-and-plot-framework/README.md)
 
+如果你关心的是：
+
+- 正文是不是总在解释、不在演出
+- 对白是不是悬浮
+- 包装 promise 会不会超过正文承载
+
+优先把 `novel-write`、`novel-review`、`novel-precheck`、`novel-package`、`novel-learn` 跑成一组，并参考：
+
+- [写作基本功与内容标准框架](./writing-core-framework/README.md)
+
 ### 批量写作特别提醒
 
 - **一次性最多只生成 3 章**
@@ -261,3 +271,4 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 4. 想知道完整主线：看 [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
 5. 想优先打磨人物、关系和群像：看 [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
 6. 想优先打磨开篇抓力、前三章兑现和剧情层次：看 [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+7. 想优先打磨正文执行、内容标准、memory 压缩信号和开篇包装承诺：看 [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)

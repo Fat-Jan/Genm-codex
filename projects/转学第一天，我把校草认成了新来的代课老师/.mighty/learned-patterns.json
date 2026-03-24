@@ -17,6 +17,13 @@
       "只有心动没有事件",
       "男主无代价发糖"
     ],
-    "user_feedback": []
+    "user_feedback": [],
+    "opening_strategy": "转学第一天，我把校草认成了新来的代课老师 当前开篇先把主冲突拍到桌上。",
+    "multi_line_guardrails": [
+      "主线先推进真实位置变化，次线只轻触更大盘。"
+    ],
+    "content_standard_alerts": [
+      "避免解释先于事件。"
+    ]
   }
 }

@@ -14,5 +14,12 @@
     "只有网上震惊没有现实后果",
     "设定说明盖过剧情"
   ],
-  "user_feedback": []
+  "user_feedback": [],
+  "opening_strategy": "我赔光积蓄那天，系统先把违约金打到了账上 当前开篇先把主冲突拍到桌上。",
+  "multi_line_guardrails": [
+    "主线先推进真实位置变化，次线只轻触更大盘。"
+  ],
+  "content_standard_alerts": [
+    "避免解释先于事件。"
+  ]
 }

@@ -126,6 +126,9 @@
     },
     "high_point_preferences": [],
     "avoid_patterns": [],
+    "opening_strategy": "",
+    "multi_line_guardrails": [],
+    "content_standard_alerts": [],
     "user_feedback": []
   },
   "auto_learn_config": {
@@ -168,6 +171,8 @@
     "<chapter_number>": {
       "fanqie_bucket_flags": [],
       "fanqie_bucket_summary": {},
+      "content_standard_flags": [],
+      "packaging_alignment_note": "",
       "last_close_time": null,
       "last_close_route": "",
       "last_close_review_score_before": 0,

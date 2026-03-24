@@ -118,6 +118,7 @@
 - 少量 `quality_metrics`
 - 少量 `market_adjustments`
 - 少量 `learned_patterns`
+- 少量 `opening_strategy / multi_line_guardrails / content_standard_alerts`
 
 ### 说明
 
@@ -195,6 +196,12 @@
 - `.mighty/market-adjustments.json`
 
 而 `state.json` 只保留它们的轻量摘要 / 指针。
+
+这同样适用于：
+
+- `opening_strategy`
+- `multi_line_guardrails`
+- `content_standard_alerts`
 
 ---
 

@@ -166,6 +166,10 @@
 
 - [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
 
+写作基本功与内容标准工作流参考：
+
+- [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+
 ---
 
 ## 默认工作流 3：投稿准备

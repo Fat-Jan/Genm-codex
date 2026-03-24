@@ -14,5 +14,12 @@
     "脑洞只炫技不改局势",
     "公堂角色全变成功能人"
   ],
-  "user_feedback": []
+  "user_feedback": [],
+  "opening_strategy": "我在县衙当杂吏，靠翻旧案升了堂 当前开篇先把主冲突拍到桌上。",
+  "multi_line_guardrails": [
+    "主线先推进真实位置变化，次线只轻触更大盘。"
+  ],
+  "content_standard_alerts": [
+    "避免解释先于事件。"
+  ]
 }

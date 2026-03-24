@@ -61,6 +61,7 @@ Read conditionally:
 - `../../docs/fanqie-mvp-bucket-templates.md`
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/writing-core-framework/07-memory-压缩信号约定.md`
 
 ## Workflow
 
@@ -99,6 +100,9 @@ Read conditionally:
    - pacing preference
    - preferred high-point patterns
    - avoid patterns
+   - `opening_strategy`
+   - `multi_line_guardrails`
+   - `content_standard_alerts`
 7. In `quick` mode:
    - return a concise learning summary
 8. In `deep` mode:
@@ -110,6 +114,9 @@ Read conditionally:
      - `learned_patterns.writing_style_preferences`
      - `learned_patterns.high_point_preferences`
      - `learned_patterns.avoid_patterns`
+     - `learned_patterns.opening_strategy`
+     - `learned_patterns.multi_line_guardrails`
+     - `learned_patterns.content_standard_alerts`
      - `auto_learn_config.last_auto_learn`
      - `auto_learn_config.last_auto_learn_chapter` when chapter-based
 10. When returning the result, explain where the learned signals are most useful next:

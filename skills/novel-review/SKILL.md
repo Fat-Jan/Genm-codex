@@ -39,6 +39,7 @@ Default intent for the current workflow:
 - `../../docs/anti-flattening-framework/01-总纲.md`
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+- `../../docs/writing-core-framework/README.md`
 
 Read conditionally:
 
@@ -68,6 +69,12 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
 - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
 - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+- `../../docs/writing-core-framework/01-写作基本功总纲.md`
+- `../../docs/writing-core-framework/02-叙述-镜头-信息投放.md`
+- `../../docs/writing-core-framework/03-对白-动作-情绪-段落节奏.md`
+- `../../docs/writing-core-framework/05-内容标准与常见失格.md`
+- `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+- `../../docs/writing-core-framework/07-memory-压缩信号约定.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
@@ -86,6 +93,7 @@ Read conditionally:
 4. Read the genre/profile context.
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
+   - also read `../../docs/writing-core-framework/README.md`
    - when the chapter or request clearly depends on人物立体度、群像关系、阵营冲突、多视角、穿书/穿越/系统/权谋等题材风险, or when no explicit exemption is given for a lightweight pass, also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -102,6 +110,12 @@ Read conditionally:
      - `../../docs/opening-and-plot-framework/04-剧情层次模型.md`
      - `../../docs/opening-and-plot-framework/05-推进链与残账设计.md`
      - `../../docs/opening-and-plot-framework/06-题材特化接口.md`
+     - `../../docs/writing-core-framework/01-写作基本功总纲.md`
+     - `../../docs/writing-core-framework/02-叙述-镜头-信息投放.md`
+     - `../../docs/writing-core-framework/03-对白-动作-情绪-段落节奏.md`
+     - `../../docs/writing-core-framework/05-内容标准与常见失格.md`
+     - `../../docs/writing-core-framework/06-精品审核与投稿前判断.md`
+     - `../../docs/writing-core-framework/07-memory-压缩信号约定.md`
      - `../../docs/opening-and-plot-framework/fanqie-p0-output-contract.md`
      - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
      - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md` when the active Fanqie bucket matches a P0 overlay file
@@ -157,6 +171,16 @@ Read conditionally:
      - information-gap movement
      - cost movement
      - residual-risk movement
+   - execution craft:
+     - whether explanation is crowding out scene
+     - whether dialogue is floating without action anchors
+     - whether emotion is mostly label-based instead of consequence-based
+     - whether paragraph rhythm has collapsed into summary
+   - content-standard fit:
+     - background-first opening
+     - summary-replacing-drama
+     - frictionless gain
+     - overpromise relative to near-term payoff
    - protagonist privilege balance
    - character agency / role independence
    - relationship tension structure
