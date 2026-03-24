@@ -254,6 +254,10 @@ def classify_sync_candidate(
         accepted = False
         reasons.append("school-grade-token")
 
+    if any(name.endswith(suffix) for suffix in ("师兄", "师姐", "师弟", "师妹", "执事", "长老", "掌柜")):
+        accepted = False
+        reasons.append("role-title-token")
+
     min_mentions = int(characters.get("min_confidence_mentions", 0) or 0)
     if occurrences < min_mentions:
         accepted = False
