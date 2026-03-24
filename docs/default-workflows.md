@@ -28,9 +28,12 @@
      - `设定集/官制/官职真值表.md`
      - `设定集/官制/权力层级图.md`
 4. `novel-outline`
-5. `setting gate`
+5. 如果当前项目是番茄平台，先编译起盘协议栈：
+   - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
+   - 番茄平台项目必跑；非番茄项目可跳过
+6. `setting gate`
    - `python3 scripts/setting_gate.py <project_root> --stage outline`
-6. `novel-package`
+7. `novel-package`
 
 目标：
 
@@ -46,6 +49,7 @@
 - 先有书的方向
 - 古代家族权力题材先有谱系真值
 - 官场古代题材先有官制真值
+- 如果当前项目是番茄平台，`novel-outline` 后先编译 `.mighty/launch-stack.json`
 - 总纲完成后先过 `setting gate`
 - 再写正文
 
@@ -205,7 +209,7 @@
 
 当前已验证的番茄女频样本里，最靠近这条工作流完成态的是：
 
-- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
+- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-submission-assessment.md)
   - `恶女 x 宫斗宅斗`
   - 当前状态：`do-not-submit`，待补谱系与命名风控
 

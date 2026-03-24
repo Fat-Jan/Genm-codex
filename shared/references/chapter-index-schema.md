@@ -1064,8 +1064,8 @@ compatibility:
 
 ## 十、相关文档
 
-- [findings.md](/findings.md) - 问题分析和解决方案
-- [task_plan.md](/task_plan.md) - Phase 2.5 规划
+- [findings.md](../../findings.md) - 项目级问题分析和解决方案
+- [task_plan.md](../../task_plan.md) - 当前活跃计划
 - [truth-files-guide.md](./truth-files-guide.md) - 真相文件使用指南
 - [post-write-validator.md](../validators/post-write-validator.md) - 写后验证器
 - [on-demand-loading.md](./on-demand-loading.md) - 按需加载技术方案

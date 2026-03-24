@@ -150,7 +150,7 @@ Read conditionally:
      - preventing floating dialogue
      - preventing summary-replacing-drama
      - preventing frictionless gain beats
-10. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+11. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -160,7 +160,7 @@ Read conditionally:
      - payoff timing
      - conflict density
      - chapter-end carryover
-11. If Fanqie writing is active, also read:
+12. If Fanqie writing is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - `../../docs/fanqie-chapter-length-policy.json`
@@ -188,12 +188,12 @@ Read conditionally:
        - `scan-kinship-truth-check`
          - reject convenient relation words or称谓 that the current household truth sheet cannot support
    - do not let writing-technique rules override canon, chapter purpose, or active bucket
-12. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
+13. If an explicit `tagpack` is given, or the request clearly asks for a tag-pack route such as `恶女`:
    - read `../../docs/fanqie-mvp-tagpacks.yaml`
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
-13. Load high-value shared references from `../../shared/references/` only as needed.
-14. Before drafting, check `.mighty/setting-gate.json`.
+14. Load high-value shared references from `../../shared/references/` only as needed.
+15. Before drafting, check `.mighty/setting-gate.json`.
    - if it is missing, stale relative to the current outline pass, or not in `passed` status, stop before writing
    - route back to `setting gate(outline)`:
      - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage outline`
@@ -203,7 +203,7 @@ Read conditionally:
      - `minimal_next_action`
    - prefer the gate's `minimal_next_action.suggested_commands` over ad-hoc guessing
    - do not bypass this gate just because the relevant facts seem obvious from recent context
-15. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
+16. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
    - read `../../docs/strong-quality-gate-policy.json`
    - treat it as the single rule source for required truth files
    - if the required truth source is missing, stop before writing
@@ -212,8 +212,8 @@ Read conditionally:
      - `novel-character`
      - `novel-scan` only when external research is truly needed
    - do not hallucinate missing truth just to satisfy the chapter
-16. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-17. Write `chapters/第N章.md` aligned to:
+17. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+18. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -259,7 +259,7 @@ Read conditionally:
      - if `scan-kinship-truth-check` exists, keep kinship / title words consistent with the truth sheet even in dialogue shorthand
      - and, when Fanqie chapter-length policy exists:
        - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-18. Update `.mighty/state.json` with:
+19. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -267,8 +267,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-19. Do not write review scores here unless an actual review step was run.
-20. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+20. Do not write review scores here unless an actual review step was run.
+21. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
     - run this only for a normal single-chapter `novel-write`
     - do not inherit this behavior into `novel-batch`
     - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
@@ -280,7 +280,7 @@ Read conditionally:
       - the user did not explicitly request a write-only pass
     - if guards fail, do not fake execution; report the exact skip reason
     - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
-21. After a real writing round, the preferred maintenance hook remains:
+22. After a real writing round, the preferred maintenance hook remains:
     - `scripts/post-task-maintenance.py <project_root> --trigger write`
     which should call the maintenance chain for `setting gate(write-post)`, stable entities, runtime guidance, and state thinning.
     - maintenance is not the place where prose mutation or `novel-close` execution should live

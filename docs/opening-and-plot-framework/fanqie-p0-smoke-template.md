@@ -78,7 +78,7 @@ bucket：
 
 目标章节：
 
-- [第NNN章正文](/absolute/path/to/chapter.md)
+- `第NNN章正文：<project_root>/chapters/第NNN章.md`
 
 ### 结论
 
@@ -115,9 +115,9 @@ fanqie_bucket_review_summary:
 
 目标范围：
 
-- [第001章正文](/absolute/path/to/chapter1.md)
-- [第002章正文](/absolute/path/to/chapter2.md)
-- [第003章正文](/absolute/path/to/chapter3.md)
+- `第001章正文：<project_root>/chapters/第001章.md`
+- `第002章正文：<project_root>/chapters/第002章.md`
+- `第003章正文：<project_root>/chapters/第003章.md`
 
 ### 样本输出
 

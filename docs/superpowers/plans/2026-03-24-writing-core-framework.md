@@ -17,7 +17,7 @@
 - Read: `docs/opening-and-plot-framework/README.md`
 - Read: `docs/anti-flattening-framework/README.md`
 - Read: `docs/fanqie-writing-techniques.md`
-- Read: `docs/fanqie-writer-zone-lessons.md`
+- Read: `docs/research/fanqie/fanqie-writer-zone-lessons.md`
 
 - [ ] **Step 1: Freeze the single-source decision**
 

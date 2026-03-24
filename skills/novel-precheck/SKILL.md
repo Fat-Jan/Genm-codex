@@ -94,7 +94,6 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
 - `../../shared/references/writing/ancient-household-kinship-guide.md`
 - `../../shared/references/writing/ancient-office-hierarchy-guide.md`
-- `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
 ## Shared profile resolution
@@ -104,8 +103,7 @@ If the project already has `meta.genre` and `meta.platform`, and a matching shar
 Resolve shared profile roots in this order:
 
 1. `shared/profiles/`
-2. `../shared/profiles/`
-3. `../../shared/profiles/`
+2. `../../shared/profiles/`
 
 ## Workflow
 

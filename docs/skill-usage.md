@@ -102,10 +102,12 @@
 2. 古代家族权力题材先补 `宅门真值表 + 小型家谱`
 3. 涉及朝堂/东宫/地方官场时再补 `官职真值表 + 权力层级图`
 4. `novel-outline`
-5. `python3 scripts/setting_gate.py <project_root> --stage outline`
-6. `novel-write`
-7. `novel-close`
-8. 仍未收口时再按结果进入 `novel-rewrite`
+5. 如果当前项目是番茄平台，补一轮起盘协议栈编译：
+   - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
+6. `python3 scripts/setting_gate.py <project_root> --stage outline`
+7. `novel-write`
+8. `novel-close`
+9. 仍未收口时再按结果进入 `novel-rewrite`
 10. `novel-export`
 
 补充规则：
@@ -114,6 +116,9 @@
 - `novel-batch` 不会继承这个默认行为
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
 - `novel-outline` 完成后，默认应先过一次 `setting gate`
+- 如果当前项目是番茄平台，`novel-outline` 后先运行一次 `fanqie_launch_stack.py`，把 `.mighty/launch-stack.json` 从 `preselect` placeholder 写成正式 sidecar
+  - 命令入口：
+    - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
   - 命令入口：
     - `python3 scripts/setting_gate.py <project_root> --stage outline`
 - `novel-write` 现在应先检查 `.mighty/setting-gate.json`

@@ -74,7 +74,7 @@
 - 当前进一步判断：
   - **方向仍成立，但当前样本不再视为已冻结内部生产模板**
   - 参考：
-    - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
+    - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-production-template.md)
 
 ### 当前样本状态
 
@@ -121,7 +121,7 @@
 - 当前进一步判断：
   - **已达到第二条生产模板候选**
   - 参考：
-    - [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-qinggan-production-candidate.md)
+    - [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-qinggan-production-candidate.md)
 
 ### 当前样本状态
 
@@ -167,7 +167,7 @@
   - **黄金三章已成立**
   - 但仍维持第三条实验线定位
   - 参考：
-    - [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-tianchong-experiment-status.md)
+    - [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-tianchong-experiment-status.md)
 
 ### 当前样本状态
 
@@ -200,7 +200,7 @@
 - 当前进一步判断：
   - **可立项，不可冒充已验证线**
   - 参考：
-    - [fanqie-evil-dual-female-substitute-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-dual-female-substitute-candidate.md)
+    - [fanqie-evil-dual-female-substitute-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-dual-female-substitute-candidate.md)
 
 ### 当前样本状态
 

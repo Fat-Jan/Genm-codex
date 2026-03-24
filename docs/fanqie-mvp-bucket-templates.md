@@ -61,7 +61,7 @@
 
 当前对照结论：
 
-- [fanqie-evil-variant-comparison.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-variant-comparison.md)
+- [fanqie-evil-variant-comparison.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-variant-comparison.md)
 
 当前推荐的正式深做顺序：
 
@@ -76,17 +76,17 @@
   - 待重验样本
   - 原因：宅门谱系闭环与命名风控不足
   - 参考：
-    - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
+    - [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-production-template.md)
 
 当前已经收口出来的第二条生产模板候选：
 
-- [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-qinggan-production-candidate.md)
+- [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-qinggan-production-candidate.md)
   - 结论：`恶女 x 现实情感` 已完成 `golden three`
   - 当前定位：第二条正式深做线、第二条生产模板候选
 
 当前第三条实验线状态：
 
-- [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-tianchong-experiment-status.md)
+- [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-tianchong-experiment-status.md)
   - 结论：`恶女 x 现言甜宠` 已完成 `golden three`
   - 当前定位：第三条实验线，不升格为生产模板候选
 

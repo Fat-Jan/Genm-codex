@@ -22,7 +22,6 @@ Use this skill when the user wants to inspect available genres, detect the curre
 
 - one of the shared profile roots exists:
   - `shared/profiles/`
-  - `../shared/profiles/`
   - `../../shared/profiles/`
 - `.mighty/state.json` exists for `show`, `detect`, and `apply`
 
@@ -48,8 +47,7 @@ Read conditionally:
 Before listing or applying any profile, resolve the first existing profile root from:
 
 1. `shared/profiles/`
-2. `../shared/profiles/`
-3. `../../shared/profiles/`
+2. `../../shared/profiles/`
 
 Use that resolved root consistently for all reads during the task.
 

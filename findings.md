@@ -210,7 +210,7 @@
   - `learned_patterns` / `chapter_meta` 可落地的压缩信号约定
   - `novel-package` 可直接读取的开篇包装输入接口
 - `shared/references/shared/state-schema.md` 与 `docs/state-thinning-and-setting-sync.md` 已明确 state 应保持轻量，适合继续把新增信号压在 `learned_patterns` 和 `chapter_meta`
-- `docs/fanqie-writing-techniques.md` 与 `docs/fanqie-writer-zone-lessons.md` 提供了足够的源材料，但此前仍以提炼文档形态存在，没有被重组为新的方法论框架
+- `docs/fanqie-writing-techniques.md` 与 `docs/research/fanqie/fanqie-writer-zone-lessons.md` 提供了足够的源材料，但此前仍以提炼文档形态存在，没有被重组为新的方法论框架
 - 本轮已新增 `docs/writing-core-framework/`，包含：
   - `README.md`
   - `01-写作基本功总纲.md`

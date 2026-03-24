@@ -36,8 +36,6 @@ Read conditionally:
 - `大纲/总纲.md`
 - `设定集/角色/*.md`
 - `设定集/力量体系.md`
-- `../shared/profiles/<genre>/profile.yaml`
-- `../shared/profiles/<genre>/profile-<platform>.yaml`
 - `../../shared/profiles/<genre>/profile.yaml`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
 
@@ -46,8 +44,7 @@ Read conditionally:
 If the user provides `genre`, or if the project already has `meta.genre`, resolve shared profile roots in this order:
 
 1. `shared/profiles/`
-2. `../shared/profiles/`
-3. `../../shared/profiles/`
+2. `../../shared/profiles/`
 
 Only read the specific profile files needed for the active project genre/platform.
 

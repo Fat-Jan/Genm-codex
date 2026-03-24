@@ -171,7 +171,7 @@ def compile_launch_stack(
 
     return {
         "version": "1.0",
-        "phase": "draft",
+        "phase": "locked",
         "premise_line": build_premise_line(state, outline_text),
         "primary_pivot": primary_pivot,
         "secondary_pivot": secondary_pivot,
@@ -218,11 +218,25 @@ def _write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _is_preselect_placeholder(path: Path) -> bool:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+
+    return (
+        payload.get("phase") == "preselect"
+        and not payload.get("premise_line")
+        and not payload.get("primary_pivot")
+        and not payload.get("launch_grammar", {}).get("primary")
+    )
+
+
 def write_launch_stack_sidecars(project_root: Path, result: dict, force: bool = False) -> None:
     mighty = project_root / ".mighty"
     mighty.mkdir(parents=True, exist_ok=True)
     sidecar_path = mighty / "launch-stack.json"
-    if sidecar_path.exists() and not force:
+    if sidecar_path.exists() and not force and not _is_preselect_placeholder(sidecar_path):
         raise RuntimeError("launch-stack.json already exists")
 
     _write_json(sidecar_path, result)

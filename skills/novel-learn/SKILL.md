@@ -48,6 +48,7 @@ It should not:
 Always read:
 
 - `.mighty/state.json`
+- `../../docs/writing-core-framework/README.md`
 
 Read conditionally:
 
@@ -55,12 +56,14 @@ Read conditionally:
 - local source file provided by the user
 - `大纲/总纲.md`
 - `设定集/角色/*.md`
+- `.mighty/launch-stack.json`
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
 - `../../docs/fanqie-mvp-buckets.yaml`
 - `../../docs/fanqie-mvp-bucket-templates.md`
 - `../../docs/fanqie-writing-techniques.md`
 - `../../docs/fanqie-rule-priority-matrix.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 - `../../docs/writing-core-framework/07-memory-压缩信号约定.md`
 
 ## Workflow
@@ -75,7 +78,9 @@ Read conditionally:
    - say the source is not directly retrievable in the current path
    - ask for pasted text or a local file instead
 3. Read the source material.
-4. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
+4. Read `../../docs/writing-core-framework/README.md`.
+   - when the result will be saved, also use `../../docs/writing-core-framework/07-memory-压缩信号约定.md` as the single memory contract
+5. If the platform is 番茄 and a bucket is explicitly given, or current `genre_profile.bucket` exists, or the task is clearly bucket-aware:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - if the current bucket is one of the first-batch MVP buckets, prefer reading `../../docs/fanqie-mvp-buckets.yaml`
@@ -85,7 +90,14 @@ Read conditionally:
      - payoff visibility
      - conflict density
      - carryover style
-5. If Fanqie learning is active, also read:
+6. If `.mighty/launch-stack.json` exists, also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`.
+   - compare local early-chapter evidence against:
+     - `primary_pivot`
+     - `launch_grammar.primary`
+     - `retention_protocol`
+     - current `drift_signal`
+   - treat launch-stack as an early-phase hypothesis to verify, not as a truth source that can override actual text evidence
+7. If Fanqie learning is active, also read:
    - `../../docs/fanqie-writing-techniques.md`
    - `../../docs/fanqie-rule-priority-matrix.md`
    - use them as third-layer grouping hints for:
@@ -94,7 +106,7 @@ Read conditionally:
      - character vividness
      - suspense handoff
    - do not let technique rules overwrite local evidence from the actual text
-6. Extract only defensible learning signals:
+8. Extract only defensible learning signals:
    - dialogue style
    - description density
    - pacing preference
@@ -103,11 +115,11 @@ Read conditionally:
    - `opening_strategy`
    - `multi_line_guardrails`
    - `content_standard_alerts`
-7. In `quick` mode:
+9. In `quick` mode:
    - return a concise learning summary
-8. In `deep` mode:
+10. In `deep` mode:
    - provide stronger evidence and more explicit pattern grouping
-9. If the user wants the result saved:
+11. If the user wants the result saved:
    - prefer updating `.mighty/learned-patterns.json`
    - keep `.mighty/state.json` only as a lightweight summary / pointer
    - refresh:
@@ -119,7 +131,12 @@ Read conditionally:
      - `learned_patterns.content_standard_alerts`
      - `auto_learn_config.last_auto_learn`
      - `auto_learn_config.last_auto_learn_chapter` when chapter-based
-10. When returning the result, explain where the learned signals are most useful next:
+   - when `.mighty/launch-stack.json` exists, update only the lightweight drift mirror in `.mighty/state.json`:
+     - keep `launch_stack_drift_signal = none` when evidence is aligned or too weak
+     - use `watch` when opening strategy / payoff rhythm appears to drift but the pivot is still plausible
+     - use `strong` when the actual early-chapter route clearly diverges from the saved pivot or launch grammar
+   - do not rewrite the full `launch-stack.json` sidecar inside `novel-learn`; if drift is `watch` or `strong`, recommend rerunning `fanqie_launch_stack.py`
+12. When returning the result, explain where the learned signals are most useful next:
    - `novel-write`
    - `novel-polish`
    - `novel-precheck`
@@ -146,3 +163,4 @@ Prefer:
   4. tagpack flavor only if it was explicitly active in the source
 - When a Fanqie content bucket is active, use it to interpret local patterns more precisely, not to overwrite local evidence with generic platform slogans.
 - If a first-batch MVP bucket config exists, prefer its reader-motive and payoff-cycle lens when grouping patterns.
+- When a launch-stack sidecar exists, treat `drift_signal` as a conservative feedback channel only; `novel-learn` may refresh the mirror risk level, but it should not silently replace the compiled sidecar itself.

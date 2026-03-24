@@ -43,10 +43,6 @@ Default intent for the current workflow:
 - `.mighty/state.json`
 - `chapters/第N章.md`
 - `../../docs/default-workflows.md`
-- `../novel-review/SKILL.md`
-- `../novel-fix/SKILL.md`
-- `../novel-polish/SKILL.md`
-- `../novel-rewrite/SKILL.md`
 
 Read conditionally:
 
@@ -190,6 +186,7 @@ Do not create a new top-level workflow or quality state center for this feature.
 
 - This skill is an orchestrator, not a new editor.
 - `novel-close` remains the executor; `novel-write` may decide whether to attempt the post-write handoff.
+- Do not preload child skill contracts here. Once `novel-review` / `novel-fix` / `novel-polish` / `novel-rewrite` is selected, let that skill load its own required reads and boundaries.
 - `novel-review` stays read-only.
 - `novel-polish` remains the only explicit anti-AI cleanup route.
 - If routing is ambiguous, prefer safety:

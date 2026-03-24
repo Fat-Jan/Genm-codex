@@ -47,7 +47,7 @@
 包括：
 
 - [fanqie-writing-techniques.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writing-techniques.md)
-- [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writer-zone-lessons.md)
+- [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-writer-zone-lessons.md)
 
 一句话：
 

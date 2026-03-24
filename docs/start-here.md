@@ -13,17 +13,25 @@
 1. `novel-init`
 2. `novel-genre`
 3. `novel-outline`
-4. `setting gate`
-5. `novel-package`
-6. `novel-write`
-7. `novel-close`
-8. 必要时再 `novel-rewrite`
-9. `novel-export`
+4. 如果当前项目是番茄平台，先编译 `launch-stack`
+5. `setting gate`
+6. `novel-package`
+7. `novel-write`
+8. `novel-close`
+9. 必要时再 `novel-rewrite`
+10. `novel-export`
 
 补充：
 
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - 如果你这次只想写，不想自动收口，显式加 `skip_close=true`
+- 如果当前项目是番茄平台，`novel-outline` 之后先运行：
+
+```text
+python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback
+```
+
+- 这一步会把 `.mighty/launch-stack.json` 从 `preselect` placeholder 编译成正式 sidecar
 - `novel-outline` 完成后，先跑一次 `setting gate` 再开始写：
 
 ```text

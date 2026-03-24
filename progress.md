@@ -1697,8 +1697,8 @@
 
 - 已按“保留为已完成验证样本”收口 `smoke/e2e-dual-substitute-evil`
 - 已更新候选线与对照文档：
-  - `docs/fanqie-evil-dual-female-substitute-candidate.md`
-  - `docs/fanqie-evil-variant-comparison.md`
+  - `docs/research/fanqie/fanqie-evil-dual-female-substitute-candidate.md`
+  - `docs/research/fanqie/fanqie-evil-variant-comparison.md`
 - 已在 `docs/sample-remediation-priority-matrix-2026-03-22.md` 增加后续注记：
   - 该样本已不再属于待回收对象
   - 当前定位改为 **已完成验证样本闭环**
@@ -2211,3 +2211,63 @@
   - `python3 -m unittest tests.test_opening_plot_framework -v`
   - `bash scripts/validate-migration.sh`
 - 已将实现分支 rebase 到当前 `main`，准备继续整合
+
+## Session Update: 2026-03-25 ISSUES Follow-up Audit
+
+- 用户指出上一轮“测试修了但文档未真实落地”的漏检问题后，重新做了文件系统级复核
+- 新增 `tests/test_issue_regressions.py`
+  - 锁 `ISSUES.md` 原始 10 项问题的最终落地状态
+- 新增 `tests/test_repo_path_integrity.py`
+  - 锁 3 个 skill 的相对 repo 路径
+  - 锁 6 个关键 README / 规则文档的本地链接可解析
+- 重新补齐并验证：
+  - `task_plan.md` 收为单一活跃计划
+  - `docs/INDEX.md`
+  - `docs/research/fanqie/README.md`
+  - `smoke/README.md`
+  - `ISSUES.md` 每条问题的“已处理并归档”状态
+- 额外修复了上一轮没有横向扫出的路径问题：
+  - `skills/novel-genre/SKILL.md`
+  - `skills/novel-analyze/SKILL.md`
+  - `skills/novel-precheck/SKILL.md`
+  - `docs/opening-and-plot-framework/README.md`
+  - `docs/anti-flattening-framework/README.md`
+  - `docs/writing-core-framework/README.md`
+  - `docs/writing-core-framework/04-剧情层次与多线编排接口.md`
+  - `docs/opening-and-plot-framework/fanqie-p0-overlays/README.md`
+  - `docs/opening-and-plot-framework/fanqie-p0-checkcards/README.md`
+- 最新验证：
+  - `python3 -m unittest tests.test_issue_regressions -v`
+  - `python3 -m unittest tests.test_repo_path_integrity -v`
+  - `bash scripts/validate-migration.sh`
+  - `python3 -m unittest`
+  - 结果：`203 tests` 全绿
+- 额外的全仓 Markdown 链接审计还剩 `16` 处未解析项：
+  - 其中 `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md` 的 `/absolute/path/...` 为模板占位
+  - 其余主要集中在 `shared/` 同步资产里的历史引用，不属于当前默认工作流面向用户的断链
+
+## Session Update: 2026-03-25 Shared Link Closure
+
+- 没有停在“给清单”，而是继续把 `shared/` 与模板层剩余断链全部处理完
+- 已修复：
+  - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
+    - 将 `/absolute/path/...` 伪链接改成纯占位文本
+  - `shared/references/serial-generation-mode.md`
+  - `shared/references/chapter-index-schema.md`
+  - `shared/references/shared/state-schema.md`
+- 已新增兼容文档，接回历史引用：
+  - `shared/references/truth-files-spec.md`
+  - `shared/references/truth-files-guide.md`
+  - `shared/references/commands/novel-review.md`
+  - `shared/validators/post-write-validator.md`
+- 已新增可复用审计脚本：
+  - `scripts/audit_local_links.py`
+  - 特点：忽略 fenced code block，只审计真实 Markdown 本地链接
+- 已新增测试：
+  - `tests/test_markdown_link_audit.py`
+- 最新验证：
+  - `python3 scripts/audit_local_links.py`
+  - `python3 -m unittest tests.test_markdown_link_audit tests.test_repo_path_integrity tests.test_issue_regressions -v`
+  - `bash scripts/validate-migration.sh`
+  - `python3 -m unittest`
+  - 当前结果：`204 tests` 全绿，Markdown 本地链接审计结果为 `NO_BROKEN_LOCAL_MARKDOWN_LINKS`

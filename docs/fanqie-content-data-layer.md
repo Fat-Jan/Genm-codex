@@ -104,17 +104,17 @@
 ### 写法层
 
 - [fanqie-writing-techniques.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writing-techniques.md)
-- [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-writer-zone-lessons.md)
+- [fanqie-writer-zone-lessons.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-writer-zone-lessons.md)
 - [fanqie-rule-priority-matrix.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-rule-priority-matrix.md)
 - [fanqie-resistance-and-cost-rules.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-resistance-and-cost-rules.md)
 
 ### 样本层
 
 - [fanqie-mvp-bucket-templates.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-mvp-bucket-templates.md)
-- [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-template.md)
-- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
-- [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-qinggan-production-candidate.md)
-- [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-tianchong-experiment-status.md)
+- [fanqie-evil-gongdou-production-template.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-production-template.md)
+- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-submission-assessment.md)
+- [fanqie-evil-qinggan-production-candidate.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-qinggan-production-candidate.md)
+- [fanqie-evil-tianchong-experiment-status.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-tianchong-experiment-status.md)
 
 ### 机器可消费层
 

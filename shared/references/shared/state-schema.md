@@ -571,7 +571,7 @@ version: "1.0"
 所有涉及 state.json 结构的模块必须在文档开头引用本文件：
 
 ```markdown
-> **结构定义**: 参考 [state-schema.md](../references/shared/state-schema.md)
+> **结构定义**: 参考 [state-schema.md](./state-schema.md)
 ```
 
 </instructions>

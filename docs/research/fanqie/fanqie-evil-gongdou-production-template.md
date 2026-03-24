@@ -15,8 +15,8 @@
 
 本轮深化参考：
 
-- [fanqie-evil-gongdou-production-deep-dive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-production-deep-dive.md)
-- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/fanqie-evil-gongdou-submission-assessment.md)
+- [fanqie-evil-gongdou-production-deep-dive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-production-deep-dive.md)
+- [fanqie-evil-gongdou-submission-assessment.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/fanqie-evil-gongdou-submission-assessment.md)
 
 ---
 

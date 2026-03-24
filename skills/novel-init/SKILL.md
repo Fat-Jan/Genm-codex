@@ -110,9 +110,41 @@ Initialize `.mighty/state.json` with, at minimum:
    - `.mighty/launch-stack.json`
    - `.mighty/market-adjustments.json`
    and keep `.mighty/state.json` only with small summary/pointer forms for those sections
+   - initialize `.mighty/launch-stack.json` with a contract-compatible placeholder instead of an empty file:
+```json
+{
+  "version": "1.0",
+  "phase": "preselect",
+  "premise_line": "",
+  "primary_pivot": "",
+  "secondary_pivot": "",
+  "launch_grammar": {
+    "primary": "",
+    "candidates": [],
+    "confidence": "low"
+  },
+  "retention_protocol": {
+    "enabled_rules": [],
+    "priority_rules": [],
+    "violations": []
+  },
+  "compiler_output": {
+    "outline_focus": [],
+    "chapter_1_3_targets": [],
+    "review_watchpoints": [],
+    "precheck_risks": [],
+    "package_guardrails": []
+  },
+  "confidence": "low",
+  "drift_signal": "none",
+  "reselect_note": ""
+}
+```
    - initialize launch-stack mirrors in `state.json`:
      - `active_launch_grammar`
      - `active_primary_pivot`
+     - `launch_stack_phase`
+     - `launch_stack_drift_signal`
 9. Write:
    - `大纲/总纲.md` with a minimal outline scaffold
    - `设定集/角色/主角.md` with a starter protagonist scaffold
