@@ -131,6 +131,10 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 
 - [写作基本功与内容标准框架](./writing-core-framework/README.md)
 
+如果你走的是番茄优先路线，而且想先知道“这本书主要靠什么起盘、主要靠什么留人”，再加一层：
+
+- [番茄起盘协议栈](./opening-and-plot-framework/fanqie-launch-stack/README.md)
+
 ### 批量写作特别提醒
 
 - **一次性最多只生成 3 章**

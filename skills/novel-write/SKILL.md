@@ -39,6 +39,7 @@ Always read:
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 - `../../docs/writing-core-framework/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 
 Read conditionally:
 
@@ -95,6 +96,10 @@ Read conditionally:
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - also read `../../docs/writing-core-framework/README.md`
+   - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+   - when `.mighty/launch-stack.json` exists, consume:
+     - `retention_protocol`
+     - `compiler_output.chapter_1_3_targets`
 6. Load the shared profile matching the project genre from `../../shared/profiles/`.
 7. Read any useful local guidance already present in the project:
    - prefer `.mighty/learned-patterns.json`

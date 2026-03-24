@@ -53,6 +53,7 @@ Always read:
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 - `../../docs/writing-core-framework/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 
 Read conditionally:
 
@@ -115,6 +116,8 @@ Resolve shared profile roots in this order:
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - also read `../../docs/writing-core-framework/README.md`
+   - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+   - when `.mighty/launch-stack.json` exists, consume launch-side `precheck_risks` and surface any `drift_signal`
 6. When the route is multi-character, multi-faction, politics-heavy, relationship-heavy, transmigration/system-heavy, or the user explicitly asks for反脸谱化预检:
    - read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`

@@ -4,6 +4,10 @@ Codex 原生网文创作技能工作区。
 
 本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前默认工作流、边界与样本闭环已通过 RC 检查，并已进入正式 `v1.0.0` 阶段。
 
+当前新增的番茄优先方向：
+
+- 番茄起盘协议栈
+
 ## 当前范围
 
 第一阶段已完成的核心 Skill：
@@ -215,6 +219,7 @@ bash scripts/validate-migration.sh
 - `docs/anti-flattening-framework/README.md`
 - `docs/opening-and-plot-framework/README.md`
 - `docs/writing-core-framework/README.md`
+- `docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 - `docs/start-here.md`
 - `docs/phase-5-scope.md`
 
@@ -229,3 +234,4 @@ bash scripts/validate-migration.sh
 - `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查
 - `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 现在也可按需读取 `docs/opening-and-plot-framework/`，把开篇承诺、剧情层次和推进残账纳入默认工作流规则层
 - `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn` 现在也可按需读取 `docs/writing-core-framework/`，把写作基本功、内容标准、memory 压缩信号和开篇包装输入纳入默认质量链
+- 番茄优先项目现在还可以先读取“番茄起盘协议栈”，把 `pivot / launch grammar / retention protocol` 编译成早期规则输入

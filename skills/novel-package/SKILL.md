@@ -61,6 +61,7 @@ Read for packaging generation:
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 - `../../docs/writing-core-framework/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 
 Read conditionally:
 
@@ -115,6 +116,8 @@ Read conditionally:
    - strongest hook
 4. Read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`.
    - also read `../../docs/writing-core-framework/README.md`
+   - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+   - when `.mighty/launch-stack.json` exists, consume `compiler_output.package_guardrails`
 5. If the request is `opening-hook`, `full`, or clearly depends on stronger first-screen packaging, also read:
    - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
    - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`

@@ -193,6 +193,7 @@
 第二版增强已落地后，推荐路径应升级为：
 
 - `.mighty/learned-patterns.json`
+- `.mighty/launch-stack.json`
 - `.mighty/market-adjustments.json`
 
 而 `state.json` 只保留它们的轻量摘要 / 指针。
@@ -202,6 +203,8 @@
 - `opening_strategy`
 - `multi_line_guardrails`
 - `content_standard_alerts`
+
+其中 `launch_stack` 这类起盘协议结果尤其不适合直接塞成长段分析，应该优先走 sidecar。
 
 ---
 

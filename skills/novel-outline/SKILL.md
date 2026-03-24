@@ -35,6 +35,8 @@ Always read:
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 - `../../docs/writing-core-framework/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/05-compiler-contract.md`
 
 ## Conditional reads
 
@@ -73,6 +75,8 @@ Also read these when generating or materially revising outlines, especially for 
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - also read `../../docs/writing-core-framework/README.md`
+   - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md` and `../../docs/opening-and-plot-framework/fanqie-launch-stack/05-compiler-contract.md`
+   - if `.mighty/launch-stack.json` exists, prefer its current launch-side compiler hints over recomputing a separate launch guess inside this skill
 3. Load the relevant shared profile for rhythm and reader expectations.
    - when doing total-outline generation or any outline refinement that clearly depends on人物立体度、群像关系、阵营冲突、穿书/穿越/系统/权谋等高风险题材，also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`

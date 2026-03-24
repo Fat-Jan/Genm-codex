@@ -40,6 +40,7 @@ Default intent for the current workflow:
 - `../../docs/opening-and-plot-framework/README.md`
 - `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
 - `../../docs/writing-core-framework/README.md`
+- `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 
 Read conditionally:
 
@@ -94,6 +95,8 @@ Read conditionally:
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - also read `../../docs/writing-core-framework/README.md`
+   - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+   - when `.mighty/launch-stack.json` exists, use it as an extra launch-side rubric and report `launch_alignment` / `drift_signal` when early-phase delivery明显偏离
    - when the chapter or request clearly depends on人物立体度、群像关系、阵营冲突、多视角、穿书/穿越/系统/权谋等题材风险, or when no explicit exemption is given for a lightweight pass, also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`

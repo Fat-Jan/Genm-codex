@@ -164,6 +164,16 @@
 - `novel-package` 现在会按需读取这组文档，把“开篇方法 / 类型差异 / 精品审核标准”压成包装约束
 - `novel-learn` 现在会按这组文档把 memory 收成压缩信号，而不是长篇理论
 
+番茄起盘协议栈入口：
+
+- [fanqie-launch-stack/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/fanqie-launch-stack/README.md)
+- `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 现在可以按需读取这组文档与 `.mighty/launch-stack.json`
+- 这层优先处理：
+  - `premise`
+  - `pivot`
+  - `launch grammar`
+  - `retention protocol`
+
 ## 第二阶段已迁入
 
 - `genm-novel-character`

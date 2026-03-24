@@ -448,6 +448,10 @@ version: "1.0"
 | fanqie_bucket_summary | object | 可选 bucket 级摘要，记录当前主故障与红灯 |
 | content_standard_flags | string[] | 当前章节明确命中的内容标准失格标签 |
 | packaging_alignment_note | string | 当前章节与外层包装承诺的轻量对齐说明 |
+| active_launch_grammar | string | 当前生效的起盘语法，详细结果见 `.mighty/launch-stack.json` |
+| active_primary_pivot | string | 当前主要起盘支点，详细结果见 `.mighty/launch-stack.json` |
+| launch_stack_phase | string | 当前起盘协议栈阶段，如 `draft/locked/reselected` |
+| launch_stack_drift_signal | string | 当前起盘协议栈漂移信号，如 `none/watch/strong` |
 | last_close_time | string | 最近一次 `novel-close` 执行时间 |
 | last_close_route | string | 最近一次 `novel-close` 选择的主路由 |
 | last_close_review_score_before | number | 最近一次 `novel-close` 首轮 review 分数 |
@@ -473,6 +477,13 @@ version: "1.0"
 - `chapter_meta[N].content_standard_flags` 只在单章失格明确时写
 - `chapter_meta[N].packaging_alignment_note` 只保留一句包装承诺对齐判断
 - 这些字段都应保持轻量，不存课程长文
+
+### 起盘协议栈轻量约定
+
+- `active_launch_grammar` / `active_primary_pivot` 只记录当前生效结论
+- `launch_stack_phase` / `launch_stack_drift_signal` 只记录阶段与漂移风险
+- 详细 `launch_stack` 结果、候选与 compiler 输出，应保存在 `.mighty/launch-stack.json`
+- 不为起盘协议栈新增顶层长分析区块
 
 ### `dimension_scores` 附加键约定
 

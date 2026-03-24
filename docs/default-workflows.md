@@ -170,6 +170,10 @@
 
 - [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
 
+番茄起盘协议栈参考：
+
+- [fanqie-launch-stack/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/fanqie-launch-stack/README.md)
+
 ---
 
 ## 默认工作流 3：投稿准备
