@@ -301,3 +301,54 @@ Phase 18
 | bucket 级专项检查使用单独 `fanqie-p0-checkcards/` 目录 | 将“怎么写”与“怎么审 / 怎么拦”分层，避免 overlay 卡承担过多职责 |
 | `review / precheck` 用单独输出契约承接 Fanqie P0 卡 | 让 bucket 规则真正进入稳定输出，而不只停在“按需读取” |
 | `fanqie_p0_smoke.py` v1.1 对更多 P0 bucket 只给低置信草稿 | 扩覆盖面，但不把 smoke 工具伪装成全自动判断器 |
+
+---
+
+# Task Plan: Setting Gate 闭环
+
+## Goal
+在仓库内落成一条统一的 `setting gate` 闭环：初始化时激进补基础设定骨架，`outline` 后做本地优先的设定覆盖硬门，必要时才允许 MCP 作为候选输入，并在写后维护链中把稳定信息继续沉淀回 `设定集/`。
+
+## Current Phase
+Phase 5
+
+## Phases
+
+### Phase 1: Discovery & Plan Lock
+- [x] 读取现有 `strong_quality_gate`、`sync-setting-assets.py`、maintenance 链与相关 skill 合同
+- [x] 写 `setting gate` 设计 spec 与实现计划
+- **Status:** complete
+
+### Phase 2: Core Gate Red-Green
+- [x] 新增 `tests/test_setting_gate.py`
+- [x] 先拿到红灯
+- [x] 实现 `docs/setting-gate-policy.json` 与 `scripts/setting_gate.py`
+- [x] 跑通最小红绿闭环
+- **Status:** complete
+
+### Phase 3: Maintenance & Queue Wiring
+- [x] 让 `project-maintenance.py` 在 sync 前先跑 `setting_gate.py --stage write-post`
+- [x] 扩展 `sync-review.json` 字段，承接 gate 与 sync 的共享 review 队列
+- [x] 重新跑测试确认通过
+- **Status:** complete
+
+### Phase 4: Skill & Workflow Wiring
+- [x] 更新 `novel-init / novel-outline / novel-write / novel-sync / novel-scan`
+- [x] 更新 `docs/start-here.md / docs/default-workflows.md / docs/skill-usage.md`
+- [x] 用合同测试验证新事实已挂到默认工作流
+- **Status:** complete
+
+### Phase 5: Verification & Delivery
+- [x] 运行 `python3 -m unittest tests.test_setting_gate tests.test_strong_quality_gate -v`
+- [x] 运行 `bash scripts/validate-migration.sh`
+- [x] 对两个稀疏真实项目跑 `setting_gate.py --report-only`
+- [x] 回写 findings / progress
+- **Status:** complete
+
+## Key Decisions
+| Decision | Rationale |
+|----------|-----------|
+| `setting gate` 用单独 JSON policy + 单独脚本承载 | 避免把规则散进多个 skill 文案与脚本 |
+| `outline` 后为硬门，`write` 前检查 `.mighty/setting-gate.json` | 直接针对“设定集太空仍开写”的根因 |
+| 本地优先补卡，MCP 只做硬缺口候选输入 | 降低噪声与 canon 污染风险 |
+| review 队列复用 `.mighty/sync-review.json` | 避免新增平行 review 数据结构 |

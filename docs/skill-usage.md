@@ -102,9 +102,10 @@
 2. 古代家族权力题材先补 `宅门真值表 + 小型家谱`
 3. 涉及朝堂/东宫/地方官场时再补 `官职真值表 + 权力层级图`
 4. `novel-outline`
-5. `novel-write`
-6. `novel-close`
-7. 仍未收口时再按结果进入 `novel-rewrite`
+5. `python3 scripts/setting_gate.py <project_root> --stage outline`
+6. `novel-write`
+7. `novel-close`
+8. 仍未收口时再按结果进入 `novel-rewrite`
 10. `novel-export`
 
 补充规则：
@@ -112,6 +113,11 @@
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - `novel-batch` 不会继承这个默认行为
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
+- `novel-outline` 完成后，默认应先过一次 `setting gate`
+  - 命令入口：
+    - `python3 scripts/setting_gate.py <project_root> --stage outline`
+- `novel-write` 现在应先检查 `.mighty/setting-gate.json`
+  - 若状态不是 `passed`，先回 gate，不要直接写
 - 当前默认强质量门已经接进主线：
   - 写前若缺真值表 / 世界规则 / 时代资料，`novel-write` 应直接阻断，而不是带着脑补开写
   - 收口前若仍存在短章 / 明显缩水 / malformed text / 可证伪设定违和等 hard blocker，`novel-close` 不应判定本章收口成功
@@ -204,8 +210,10 @@
 - 把 `learned_patterns / market_adjustments` 从 `state` 旁路到 sidecar 文件
 - 用 `scripts/project-maintenance.py` 跑一次完整维护链
 - 用 `scripts/post-task-maintenance.py` 把维护链挂在 `write / batch / workflow` 后
+- 维护链现在应先跑 `scripts/setting_gate.py <project_root> --stage write-post`
 - 用 `scripts/review-sync-queue.py` 处理 `sync-review` 队列
 - `sync-setting-assets.py` 现在默认会把低置信候选压进 `sync-review`，而不是直接沉淀成角色卡
+- `novel-scan` 现在只应该给 `setting gate` 提供 research candidates，不直接改 canon
 
 ## 第五阶段已完成
 

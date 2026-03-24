@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "policy_name": "setting-gate-policy",
+  "source_type": "setting-gate-v1",
+  "coverage_requirements": {
+    "asset_types": [
+      "characters",
+      "locations",
+      "factions",
+      "items",
+      "rules"
+    ],
+    "hard_block_truth_keys": [
+      "world_rule_support",
+      "kinship_truth",
+      "office_truth"
+    ],
+    "stage_tags": {
+      "init": "init-bootstrap",
+      "outline": "outline-gate-local",
+      "write": "write-preflight-local",
+      "write-post": "write-sync-local"
+    }
+  },
+  "mcp_escalation": {
+    "default_mode": "local-first",
+    "eligible_truth_keys": [
+      "world_rule_support",
+      "kinship_truth",
+      "office_truth"
+    ],
+    "eligible_domains": [
+      "legal",
+      "labor",
+      "financial",
+      "medical",
+      "school",
+      "ancient-office",
+      "ancient-rite",
+      "ancient-household"
+    ]
+  },
+  "risk_grades": {
+    "low": {
+      "requires_user_confirmation": false
+    },
+    "medium": {
+      "requires_user_confirmation": false
+    },
+    "high": {
+      "requires_user_confirmation": true
+    }
+  },
+  "candidate_rules": {
+    "characters": {
+      "max_auto_create": 12
+    },
+    "locations": {
+      "max_auto_create": 8
+    },
+    "factions": {
+      "max_auto_create": 8
+    },
+    "items": {
+      "max_auto_create": 8
+    }
+  },
+  "high_risk_classes": [
+    "mcp",
+    "causal-rule",
+    "institutional-truth",
+    "identity-shift"
+  ]
+}

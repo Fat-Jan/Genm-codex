@@ -44,6 +44,7 @@ It must not:
 - override canon
 - override the active project bucket without explicit human or workflow choice
 - override bucket rules or writing-technique rules already selected downstream
+- bypass `setting gate` and write external facts straight into `设定集/`
 
 ## Inputs
 
@@ -158,6 +159,7 @@ and the runtime state should only keep a lightweight summary/pointer.
    - only use low-risk, project-local suggestion summaries
    - if confidence stays low or the result degrades to skeleton, keep only `market-data.json`
    - do not rewrite `shared/profiles/`
+   - when the project is blocked by `setting gate`, treat scan results as candidate input for the gate and review queue, not as confirmed canon
 9. Return:
    - mode used
    - sources considered
@@ -208,6 +210,7 @@ and the runtime state should only keep a lightweight summary/pointer.
 - This version is useful even when it only records a source plan plus confidence and gaps.
 - Treat “report-only” as the safe default.
 - `project-annotate` may update project-local market-adjustment sidecar data, but must not alter shared assets.
+- `novel-scan` is upstream of `setting gate` when external research is truly needed; it should feed candidate material, not direct canon writes.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.
 - When bucket recommendations are produced, keep them small and ranked; prefer 1-3 defensible candidates over a long speculative list.
 - When `config_key` is available, prefer the exact key from `fanqie-mvp-buckets.yaml` so downstream skills can consume the recommendation without fuzzy matching.

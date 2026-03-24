@@ -1399,3 +1399,43 @@
   - `python -m unittest tests.test_opening_plot_framework -v`
   - `bash scripts/validate-migration.sh`
   - 结果全部通过
+
+## Session Update: 2026-03-24 Setting Gate 闭环
+
+- 已新建 `docs/superpowers/specs/2026-03-24-setting-gate-design.md` 并确认设计锁定：
+  - 激进补卡
+  - `outline` 后硬门
+  - 本地优先，MCP 只做硬缺口候选
+  - 模型先分级，用户只确认高风险
+- 已在隔离 worktree `~/.config/superpowers/worktrees/Genm-codex/setting-gate` 中实现第一版 `setting gate`
+- 已新增：
+  - `docs/setting-gate-policy.json`
+  - `scripts/setting_gate.py`
+  - `tests/test_setting_gate.py`
+- 已完成 TDD 红绿闭环：
+  - 先验证 `setting-gate-policy.json` 与 `setting_gate.py` 缺失时红灯
+  - 再实现最小 gate，让测试转绿
+  - 再补 maintenance / queue / skill-contract 红灯并转绿
+- 已完成写后维护接线：
+  - `scripts/project-maintenance.py` 现在先跑 `setting_gate.py --stage write-post`
+  - `scripts/sync-setting-assets.py` 现在保留并扩展共享 `sync-review.json`
+- 已完成 skill / workflow 文档接线：
+  - `skills/novel-init/SKILL.md`
+  - `skills/novel-outline/SKILL.md`
+  - `skills/novel-write/SKILL.md`
+  - `skills/novel-sync/SKILL.md`
+  - `skills/novel-scan/SKILL.md`
+  - `docs/start-here.md`
+  - `docs/default-workflows.md`
+  - `docs/skill-usage.md`
+- 已运行验证：
+  - `python3 -m unittest tests.test_setting_gate tests.test_strong_quality_gate -v`
+  - `bash scripts/validate-migration.sh`
+  - 结果：全部通过
+- 已对两个稀疏真实项目做 `report-only` smoke：
+  - `projects/公司裁我那天，系统先赔了我一百万`
+    - 自动补卡候选：`韩振 / 林乔 / 宋雯 / 曜石互联大厦 / 劳动合同电子版 ...`
+    - 结果：`status = passed`
+  - `projects/转学第一天，我把校草认成了新来的代课老师`
+    - 自动补卡候选：`江叙白 / 周圆圆 / 汪老师 / 程宁 / 海城一中高二（七）班 / 广播站 ...`
+    - 结果：`status = passed`

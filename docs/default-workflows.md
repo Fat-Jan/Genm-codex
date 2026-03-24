@@ -28,13 +28,16 @@
      - `设定集/官制/官职真值表.md`
      - `设定集/官制/权力层级图.md`
 4. `novel-outline`
-5. `novel-package`
+5. `setting gate`
+   - `python3 scripts/setting_gate.py <project_root> --stage outline`
+6. `novel-package`
 
 目标：
 
 - 建好项目骨架
 - 选定题材 / 平台
 - 形成总纲与章纲
+- 在写正文前补齐或阻断高风险设定缺口
 - 形成第一版包装方案
 - 尽早锁定角色分层、叙事权边界、关系结构和阵营分歧
 
@@ -43,6 +46,7 @@
 - 先有书的方向
 - 古代家族权力题材先有谱系真值
 - 官场古代题材先有官制真值
+- 总纲完成后先过 `setting gate`
 - 再写正文
 
 ---
@@ -61,6 +65,8 @@
 推荐顺序：
 
 1. `novel-write`
+   - 写前先确认 `.mighty/setting-gate.json = passed`
+   - 若未通过，先回 `python3 scripts/setting_gate.py <project_root> --stage outline`
    - 写前先过资料充分性强门：
      - 需要的真值表 / 规则文件缺失时，直接阻断本章写作
    - 单章默认会守卫式自动尝试一次 `novel-close`
@@ -85,6 +91,7 @@
      - `scripts/post-task-maintenance.py <project_root> --trigger write|batch|workflow`
    - 手动补跑：
      - `scripts/project-maintenance.py <project_root>`
+   - 维护链应先跑 `setting gate(write-post)`，再继续 sync / guidance split / thin-state
 5. 章节很多后：
    - `novel-sync (thin-state)`
 
@@ -94,6 +101,7 @@
 - 再做审查
 - 再按问题类型修
 - 再把稳定实体沉淀回 `设定集/`
+- 再把写后新稳定信息回灌到 `setting gate` 和 `sync-review`
 - 再把 `learned / market` 重负载旁路出 `state`
 - 再把旧章节元数据归档出 `state`
 - 遇到歧义实体时，再收 `sync-review` 队列
