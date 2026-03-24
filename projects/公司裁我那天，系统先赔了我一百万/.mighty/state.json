@@ -1,0 +1,423 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "公司裁我那天，系统先赔了我一百万",
+    "genre": "都市脑洞",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-24T10:00:00Z",
+    "updated_at": "2026-03-24T13:00:00Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 7205,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T10:00:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "周既明",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "亏损赔付系统 Lv1",
+          "layer": 1
+        },
+        "location": {
+          "current": "曜石互联大厦",
+          "origin": "临江"
+        },
+        "inventory": [
+          "手机",
+          "劳动合同电子版",
+          "项目原始需求文档",
+          "云盘时间戳截图",
+          "银行到账短信"
+        ],
+        "abilities": [
+          "亏损赔付系统",
+          "证据锁定",
+          "损失测算",
+          "产品方案拆解"
+        ],
+        "status": [
+          "刚被曜石互联裁员",
+          "已绑定亏损赔付系统",
+          "已收到一百万元生存预赔金",
+          "与公司进入维权对撞",
+          "面临行业黑名单风险"
+        ],
+        "current_goals": [
+          "拿回属于自己的裁员赔偿和项目成果归属",
+          "确认亏损赔付系统的边界",
+          "保住母亲的治疗和自己的现金流"
+        ],
+        "known_secrets": [
+          "韩振把周既明做完的赔付模型包装成了自己的融资方案",
+          "林乔推动他签个人原因离职，是为了把公司这轮非法裁员做成零补偿",
+          "宋雯愿意帮忙，不是出于同情，而是因为韩振下一步也会把锅压到她头上",
+          "系统只能赔付已被现实验证的损失，不能替他伪造证据或直接改写别人选择"
+        ],
+        "recent_events": [
+          "周既明在裁员会议室里被要求立刻签个人原因离职",
+          "系统在他最缺现金的时候先打来一百万元生存预赔金",
+          "他用这笔钱补上母亲的治疗押金和房贷预警款",
+          "他在第三章用证据和现场对质逼公司当场转账赔偿"
+        ]
+      },
+      "active": [
+        {
+          "name": "韩振",
+          "role": "产品总监",
+          "relationship": "当前直接对手"
+        },
+        {
+          "name": "林乔",
+          "role": "HRBP",
+          "relationship": "执行裁员的人"
+        },
+        {
+          "name": "宋雯",
+          "role": "前同组运营",
+          "relationship": "带条件的临时帮手"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "解除劳动关系协议",
+        "项目赔付模型原始文档",
+        "证据保全回执"
+      ],
+      "protagonist_inventory": [
+        "手机",
+        "劳动合同电子版",
+        "项目原始需求文档",
+        "云盘时间戳截图",
+        "银行到账短信"
+      ]
+    },
+    "locations": {
+      "current": "曜石互联大厦",
+      "visited": [
+        "曜石互联七号会议室",
+        "市二院收费处",
+        "公证处自助窗口",
+        "曜石互联十八层会议区"
+      ],
+      "important": [
+        "曜石互联大厦",
+        "市二院",
+        "公证处",
+        "十八层融资会议室"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "行业黑名单风险",
+          "description": "周既明逼公司赔钱后，韩振和人事体系可能在行业里封杀他。",
+          "planted_chapter": 3,
+          "expected_range": "4-6",
+          "status": "active",
+          "related_entities": [
+            "周既明",
+            "韩振",
+            "林乔"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "赔付系统的资金来源",
+          "description": "系统为什么能先垫付一百万元，它到底靠什么判定和结算现实亏损。",
+          "planted_chapter": 1,
+          "expected_range": "5-8",
+          "status": "active",
+          "related_entities": [
+            "周既明",
+            "亏损赔付系统"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "系统为什么会抢在公司赔偿前先赔钱？",
+          "since_chapter": 1
+        },
+        {
+          "question": "韩振会不会用行业关系继续卡周既明的工作机会？",
+          "since_chapter": 3
+        }
+      ],
+      "resolved": [
+        {
+          "question": "公司会不会把周既明逼到零补偿离场？",
+          "resolved_chapter": 3
+        }
+      ]
+    },
+    "main_quest": {
+      "target": "把亏损赔付系统变成周既明翻盘现实处境的工具，同时查清谁在制造他的亏损链条",
+      "location": "临江市",
+      "secret": "系统并不奖励躺赢，它只赔付被现实证实的损失，并把每一次翻盘都变成更大的博弈入口。",
+      "progress": 22
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "曜石互联正在用违法裁员和项目成果挪用一起压周既明",
+      "周既明在最缺钱的时候绑定了亏损赔付系统",
+      "系统先给了他一百万元生存预赔金，但要求他自己完成现实层面的证据和反制"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "系统能为已验证损失提前垫付生存资金。",
+        "since_chapter": 1
+      },
+      {
+        "info": "系统能赔付操作成本，但不会替他伪造证据。",
+        "since_chapter": 2
+      },
+      {
+        "info": "韩振已经准备把他赶出公司后的损失继续放大到行业层面。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "系统资金从哪来",
+      "下一轮赔付链会牵到谁",
+      "宋雯会不会在关键时刻倒向公司"
+    ],
+    "key_revelations": [
+      "韩振在融资会前盗用了周既明的赔付模型",
+      "公司愿意当场转账，是因为真正怕的是被投资人看到法律和归属风险"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "简洁直接，偏都市口语",
+      "description_density": "低到中",
+      "pacing_preference": "快节奏，先事件后解释"
+    },
+    "high_point_preferences": [
+      "现实困局立刻落地",
+      "机制快速见效",
+      "三章内完成小闭环"
+    ],
+    "avoid_patterns": [
+      "设定讲解过长",
+      "收益白拿",
+      "冲突只停在嘴上"
+    ],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "快节奏爽文",
+    "chapter_words": {
+      "min": 2000,
+      "max": 5000,
+      "target": 2500
+    },
+    "golden_three": {
+      "hook_timing": "第1章点亮机制，第2章改变现实处境，第3章完成一次小爽点闭环",
+      "cheat_timing": "第1章"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 2,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "shared/profiles/urban-brainhole/profile.yaml",
+    "bucket": "都市脑洞",
+    "节奏": {
+      "type": "快节奏爽文"
+    },
+    "爽点密度": 1.3,
+    "strand权重": {
+      "quest": 0.5,
+      "fire": 0.35,
+      "constellation": 0.15
+    },
+    "特殊约束": [
+      "第一章直接落现实困局",
+      "脑洞机制快速点亮",
+      "第三章前形成小爽点闭环"
+    ]
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 2366,
+      "summary": "周既明在裁员会议室里被逼签个人原因离职，亏损赔付系统当场激活并先打来一百万元生存预赔金。",
+      "recommended_next_action": "novel-write",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "都市脑洞",
+        "bucket_grade": "draft",
+        "promise_match": "draft",
+        "first_three_status": "draft",
+        "primary_failure": "needs-human-check",
+        "top_red_flag": "none",
+        "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "002": {
+      "word_count": 2017,
+      "summary": "周既明先用预赔金补上母亲治疗和房贷风险，再用公证保全试出系统边界，并撞见韩振盗用他的方案。",
+      "recommended_next_action": "novel-write",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "都市脑洞",
+        "bucket_grade": "draft",
+        "promise_match": "draft",
+        "first_three_status": "draft",
+        "primary_failure": "needs-human-check",
+        "top_red_flag": "none",
+        "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "003": {
+      "word_count": 2822,
+      "summary": "周既明在融资会议室外反杀韩振，逼公司当场转账赔偿，完成第一轮小爽点闭环，但新的行业风险也随之冒头。",
+      "recommended_next_action": "novel-precheck",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "都市脑洞",
+        "bucket_grade": "draft",
+        "promise_match": "draft",
+        "first_three_status": "draft",
+        "primary_failure": "needs-human-check",
+        "top_red_flag": "none",
+        "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
+  "chapter_snapshots": {
+    "001": {
+      "updated_at": "2026-03-24T10:00:00Z",
+      "summary": "裁员会议室触发系统，新手预赔金到账。"
+    },
+    "002": {
+      "updated_at": "2026-03-24T10:00:00Z",
+      "summary": "预赔金先改现实处境，证据保全和项目盗用线浮出。"
+    },
+    "003": {
+      "updated_at": "2026-03-24T10:00:00Z",
+      "summary": "融资会对质逼出当场赔偿，第一轮爽点闭环完成。"
+    }
+  },
+  "summaries_index": {
+    "001": "裁员会场直接触发系统，主角从零补偿风险切到一百万预赔金。",
+    "002": "系统第一次真实改变主角生活压力，随后把项目盗用问题推到台前。",
+    "003": "主角靠证据和现场对质让公司赔钱并丢脸，但更大的职业风险刚露头。"
+  },
+  "character_states": {
+    "周既明": {
+      "mindset": "从被动挨裁切到带着系统和现金流主动反制",
+      "trust_map": {
+        "韩振": "对立",
+        "林乔": "警惕",
+        "宋雯": "有限合作"
+      }
+    }
+  },
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": "2026-03-24T10:00:00Z",
+    "source_scan": "manual-minimal-sample",
+    "adjustments": [
+      {
+        "id": "urban-brainhole-fast-open",
+        "summary": "前200字必须落出现实困局和脑洞触发，不做背景铺垫。"
+      },
+      {
+        "id": "urban-brainhole-first-loop",
+        "summary": "前三章完成一次现实处境改变和小爽点闭环，但保留更大风险。"
+      }
+    ]
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.8",
+    "loaded_at": "2026-03-24T10:00:00Z",
+    "includes": [
+      "docs/opening-and-plot-framework/fanqie-p0-overlays/都市脑洞.md",
+      "docs/opening-and-plot-framework/fanqie-p0-checkcards/都市脑洞.md"
+    ]
+  }
+}

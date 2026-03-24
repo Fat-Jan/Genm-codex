@@ -270,6 +270,27 @@ Phase 18
 - [x] 输出压力测试文档
 - **Status:** complete
 
+### Phase 19: Real P0 Project Validation
+- [x] 读取两个真实非宫斗 P0 项目的 state、总纲、前 1-3 章
+- [x] 生成两份真实项目 smoke 文档
+- [x] 确认 `青春甜宠 / 都市脑洞` 两条线都能产出结构化 `draft`
+- [x] 将结论写入 findings / progress
+- **Status:** complete
+
+### Phase 20: Second Real Writeback Sample
+- [x] 为 `青春甜宠` 真实项目补第二条写回样本测试
+- [x] 将 `第003章` 的 bucket 样本轻量写回项目 state
+- [x] 更新对应 smoke 文档
+- [x] 运行测试与迁移校验
+- **Status:** complete
+
+### Phase 21: Third Real Writeback Sample
+- [x] 为 `都市脑洞` 真实项目补第三条写回样本测试
+- [x] 将 `第003章` 的 bucket 样本轻量写回项目 state
+- [x] 更新对应 smoke 文档
+- [x] 运行测试与迁移校验
+- **Status:** complete
+
 ## Additional Decisions
 | Decision | Rationale |
 |----------|-----------|

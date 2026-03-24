@@ -270,6 +270,26 @@ class OpeningAndPlotFrameworkTests(unittest.TestCase):
         self.assertIn("fanqie_bucket_summary", chapter)
         self.assertEqual(chapter["fanqie_bucket_summary"].get("bucket"), "宫斗宅斗")
 
+    def test_qingchun_tianchong_real_project_state_contains_bucket_writeback(self) -> None:
+        state_path = REPO_ROOT / "projects/转学第一天，我把校草认成了新来的代课老师/.mighty/state.json"
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        chapter_meta = state.get("chapter_meta", {})
+        self.assertIn("003", chapter_meta)
+        chapter = chapter_meta["003"]
+        self.assertIn("fanqie_bucket_flags", chapter)
+        self.assertIn("fanqie_bucket_summary", chapter)
+        self.assertEqual(chapter["fanqie_bucket_summary"].get("bucket"), "青春甜宠")
+
+    def test_dushi_naodong_real_project_state_contains_bucket_writeback(self) -> None:
+        state_path = REPO_ROOT / "projects/公司裁我那天，系统先赔了我一百万/.mighty/state.json"
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        chapter_meta = state.get("chapter_meta", {})
+        self.assertIn("003", chapter_meta)
+        chapter = chapter_meta["003"]
+        self.assertIn("fanqie_bucket_flags", chapter)
+        self.assertIn("fanqie_bucket_summary", chapter)
+        self.assertEqual(chapter["fanqie_bucket_summary"].get("bucket"), "都市脑洞")
+
     def test_fanqie_p0_smoke_template_has_reusable_sections(self) -> None:
         content = (REPO_ROOT / "docs/opening-and-plot-framework/fanqie-p0-smoke-template.md").read_text(
             encoding="utf-8"

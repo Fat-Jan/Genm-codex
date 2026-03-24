@@ -633,6 +633,58 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+### Phase 20: Real P0 Project Validation
+- **Status:** complete
+- Actions taken:
+  - 读取 `projects/转学第一天，我把校草认成了新来的代课老师` 的 state、总纲、前 1-3 章
+  - 读取 `projects/公司裁我那天，系统先赔了我一百万` 的 state、总纲、前 1-3 章
+  - 对两个真实项目分别运行：
+    - `python3 scripts/fanqie_p0_smoke.py --project-root "<project_root>" --chapter 003 --chapters 001-003`
+  - 新增两份真实项目 smoke 文档：
+    - `real-project-smoke-转学第一天-我把校草认成了新来的代课老师-fanqie-p0-2026-03-24.md`
+    - `real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md`
+  - 确认两条线都稳定输出：
+    - `fanqie_bucket_review_summary`
+    - `fanqie_bucket_precheck_summary`
+    - `confidence`
+    - `evidence_count`
+    - `signals_used`
+    - `writeback_preview`
+  - 当前结论：
+    - `青春甜宠` 真实项目：`draft`, `confidence = low`
+    - `都市脑洞` 真实项目：`draft`, `confidence = low`
+- Files created/modified:
+  - `docs/opening-and-plot-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-fanqie-p0-2026-03-24.md` (created)
+  - `docs/opening-and-plot-framework/real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md` (created)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 21: Third Real Writeback Sample
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_opening_plot_framework.py`，要求 `都市脑洞` 真实项目的 `chapter_meta["003"]` 存在 `fanqie_bucket_summary.bucket = 都市脑洞`
+  - 运行红灯，确认写回前测试失败
+  - 将 `projects/公司裁我那天，系统先赔了我一百万/.mighty/state.json` 中：
+    - `chapter_meta["003"].fanqie_bucket_summary.bucket = 都市脑洞`
+    - `bucket_grade = draft`
+    - 其余保持轻量
+  - 更新对应 smoke 文档，明确这是一条低置信写回样本
+  - 运行：
+    - `python -m unittest tests.test_opening_plot_framework -v`
+    - `python -m unittest tests.test_fanqie_p0_smoke -v`
+    - `bash scripts/validate-migration.sh`
+  - 额外确认：
+    - `fanqie_bucket_summary.bucket = 都市脑洞`
+    - `fanqie_bucket_summary.bucket_grade = draft`
+- Files created/modified:
+  - `projects/公司裁我那天，系统先赔了我一百万/.mighty/state.json` (updated)
+  - `docs/opening-and-plot-framework/real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md` (updated)
+  - `tests/test_opening_plot_framework.py` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-23
 
 ### Out-of-band Maintenance: novel-scan 信任边界与文档口径校正
@@ -1121,6 +1173,35 @@
   - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
   - 结果：`ran-maintenance`
 
+## Session Update: 2026-03-24 00:30
+
+- 已在 `projects/转学第一天，我把校草认成了新来的代课老师` 创建最小可跑的番茄 `青春甜宠` 项目骨架：
+  - `.mighty/state.json`
+  - `.mighty/learned-patterns.json`
+  - `.mighty/market-adjustments.json`
+  - `大纲/总纲.md`
+  - `设定集/角色/主角.md`
+  - `设定集/力量体系.md`
+- 已按 `novel-outline` 最小样本要求落出第001-003章章纲，并锁定：
+  - 第001章：误认身份强情绪入口
+  - 第002章：食堂/操场场景中的互动升级与误判
+  - 第003章：广播站试音 + 学习互助表的小兑现
+- 已写出第001-003章正文，且没有扩写到第004章以后：
+  - `第001章 = 2278`
+  - `第002章 = 2296`
+  - `第003章 = 2401`
+- 已回写 `projects/转学第一天，我把校草认成了新来的代课老师/.mighty/state.json`：
+  - `progress.current_chapter = 3`
+  - `progress.total_words = 6975`
+  - 新增 `chapter_meta[001-003]`
+  - 新增 `summaries_index[001-003]`
+  - 显式锁定 `genre_profile.bucket = 青春甜宠`
+- 已完成最小验证：
+  - JSON sidecar / state 全部可解析
+  - `python3 scripts/fanqie_p0_smoke.py --project-root "projects/转学第一天，我把校草认成了新来的代课老师" --chapter 003 --chapters 001-003 --mode draft`
+  - 已生成 smoke draft：
+    - `docs/opening-and-plot-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-fanqie-p0-2026-03-24.md`
+
 ## Session Update: 2026-03-23 17:05
 
 - 已按“先补完整卷前段章纲，再继续正文”的思路，为 `projects/庶女谋略` 新建第二卷前段 `021-030` 全套章纲：
@@ -1299,3 +1380,22 @@
 - 已运行维护钩子：
   - `python3 scripts/post-task-maintenance.py projects/庶女谋略 --trigger batch --batch-count 3`
   - 结果：`ran-maintenance`
+
+## Session Update: 2026-03-24 Fanqie P0 非宫斗与第二写回样本
+
+- 已验证两个真实非宫斗 P0 项目：
+  - `projects/转学第一天，我把校草认成了新来的代课老师`
+  - `projects/公司裁我那天，系统先赔了我一百万`
+- 两个项目都成功生成真实项目 smoke 文档：
+  - `青春甜宠`：`draft`, `confidence = low`
+  - `都市脑洞`：`draft`, `confidence = low`
+- 已新增 `现言甜宠 -> 青春甜宠` alias，并验证 `smoke/e2e-tianchong*` 可输出 `low confidence draft`
+- 已把 `青春甜宠` 项目的 `第003章` 做成第二条真实写回样本：
+  - `chapter_meta["003"].fanqie_bucket_flags = []`
+  - `chapter_meta["003"].fanqie_bucket_summary.bucket = "青春甜宠"`
+  - `chapter_meta["003"].fanqie_bucket_summary.bucket_grade = "draft"`
+- 已运行验证：
+  - `python -m unittest tests.test_fanqie_p0_smoke -v`
+  - `python -m unittest tests.test_opening_plot_framework -v`
+  - `bash scripts/validate-migration.sh`
+  - 结果全部通过

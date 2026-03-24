@@ -1,0 +1,402 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "转学第一天，我把校草认成了新来的代课老师",
+    "genre": "青春甜宠",
+    "platform": "番茄",
+    "target_chapters": 36,
+    "target_words": 120000,
+    "created_at": "2026-03-24T00:00:00Z",
+    "updated_at": "2026-03-24T12:00:00Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 6975,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T00:00:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "林栀夏",
+        "aliases": [
+          "栀夏"
+        ],
+        "power": {
+          "realm": "校园关系局",
+          "level": "转学生起步",
+          "layer": 1
+        },
+        "location": {
+          "current": "海城一中高二（七）班",
+          "origin": "临川二中"
+        },
+        "inventory": [
+          "转学通知单",
+          "新校服外套",
+          "广播稿打印页",
+          "江叙白借出的数学笔记"
+        ],
+        "abilities": [
+          "临场应变",
+          "普通话和稿件朗读",
+          "在陌生环境里快速观察人"
+        ],
+        "status": [
+          "刚转入海城一中",
+          "和江叙白形成学习互助关系",
+          "进入校园广播站试用名单"
+        ],
+        "current_goals": [
+          "尽快跟上海城一中的课程进度",
+          "别再因为第一天的误认闹笑话",
+          "在新班级里找到稳定位置"
+        ],
+        "known_secrets": [
+          "江叙白看上去冷，其实会在别人最狼狈的时候伸手",
+          "江叙白给她的笔记不是谁都能拿到的统一资料",
+          "广播站学姐程宁盯着她，不只是单纯八卦"
+        ],
+        "recent_events": [
+          "转学第一天把江叙白认成了代课老师",
+          "江叙白替她刷了第一顿午饭",
+          "林栀夏通过广播站试音",
+          "江叙白在学习互助表上写下了自己的名字"
+        ]
+      },
+      "active": [
+        {
+          "name": "江叙白",
+          "role": "高二（七）班学习委员、年级榜前列、校草",
+          "relationship": "误认对象 -> 学习搭子"
+        },
+        {
+          "name": "周圆圆",
+          "role": "同桌、班级消息中心",
+          "relationship": "新朋友"
+        },
+        {
+          "name": "汪老师",
+          "role": "高二（七）班班主任",
+          "relationship": "班级管理者"
+        },
+        {
+          "name": "程宁",
+          "role": "广播站学姐",
+          "relationship": "带观察的前辈"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "江叙白借出的数学笔记",
+        "学习互助登记表",
+        "广播站试音稿"
+      ],
+      "protagonist_inventory": [
+        "转学通知单",
+        "新校服外套",
+        "广播稿打印页",
+        "江叙白借出的数学笔记"
+      ]
+    },
+    "locations": {
+      "current": "海城一中高二（七）班",
+      "visited": [
+        "海城一中教学楼",
+        "高二（七）班教室",
+        "教务处",
+        "食堂一楼",
+        "操场",
+        "广播站"
+      ],
+      "important": [
+        "高二（七）班教室",
+        "食堂一楼",
+        "操场跑道",
+        "广播站"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "误认老师的外号会不会传开",
+          "description": "林栀夏第一天当众把江叙白叫成老师，这个梗会持续影响两人的校园关系。",
+          "planted_chapter": 1,
+          "expected_range": "3-8",
+          "status": "planted",
+          "related_entities": [
+            "林栀夏",
+            "江叙白"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "学习互助关系会不会变成更暧昧的绑定",
+          "description": "江叙白在学习互助表上写下林栀夏的名字，给后续的相处留下公开理由和额外压力。",
+          "planted_chapter": 3,
+          "expected_range": "4-12",
+          "status": "planted",
+          "related_entities": [
+            "林栀夏",
+            "江叙白",
+            "汪老师"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "name": "江叙白为什么会对林栀夏格外上心",
+          "since_chapter": 2
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "让林栀夏在新学校站稳脚跟，并把和江叙白的关系从误认推到心动成长线",
+      "location": "海城一中",
+      "secret": "江叙白的主动靠近并不只是老师安排",
+      "progress": 15
+    },
+    "side_quests": [
+      {
+        "name": "广播站试用",
+        "status": "opened",
+        "since_chapter": 3
+      }
+    ]
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "林栀夏第一天就在全班面前社死",
+      "江叙白愿意在关键时刻拉她一把",
+      "学习互助表和广播站试用都让两人产生了新的公开关联"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "江叙白不是高冷到不理人，只是说话少、做事稳。",
+        "since_chapter": 1
+      },
+      {
+        "info": "自己想在新班级立住脚，不能一直躲在转学生身份后面。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "江叙白为什么会主动提出带她做学习互助",
+      "程宁对她的观察更多是善意还是试探"
+    ],
+    "key_revelations": [
+      {
+        "chapter": 2,
+        "info": "江叙白借出的笔记不是统一资料，而是他自己的整理本。"
+      },
+      {
+        "chapter": 3,
+        "info": "林栀夏不只是被照顾，她也能靠自己的台风拿到广播站试用机会。"
+      }
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "校园口语化，轻快，不装成熟",
+      "description_density": "中低，优先动作和场景细节",
+      "pacing_preference": "黄金三章快推进，每章都要换账"
+    },
+    "high_point_preferences": [
+      "误认身份带来的社死与反差",
+      "校园日常里的偏爱瞬间",
+      "小兑现先落在公开关系和场景绑定上"
+    ],
+    "avoid_patterns": [
+      "背景大段先行",
+      "只有心动没有事件",
+      "男主无代价发糖"
+    ],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "shortform",
+    "chapter_words": {
+      "min": 1800,
+      "max": 2800,
+      "target": 2400
+    },
+    "golden_three": {
+      "hook_timing": "第一屏进入误认身份和社死场面",
+      "cheat_timing": "第3章给学习搭子和广播站试用的双兑现"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "shared/profiles/sweet-romance/profile.yaml",
+    "bucket": "青春甜宠",
+    "subgenre": "校园甜宠流",
+    "节奏": {
+      "type": "短篇快节奏",
+      "golden_three": "误认身份 -> 互动升级 -> 小兑现"
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 20,
+      "fire": 50,
+      "constellation": 30
+    },
+    "特殊约束": [
+      "校园场景必须真实参与剧情",
+      "第2章必须出现互动升级或误判",
+      "第3章必须有小兑现且保留残留风险"
+    ]
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 2278,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "opening_role": "强情绪入口",
+      "recommended_next_action": "novel-write",
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "002": {
+      "word_count": 2296,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "opening_role": "互动升级与误判",
+      "recommended_next_action": "novel-write",
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "003": {
+      "word_count": 2401,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "青春甜宠",
+        "bucket_grade": "draft",
+        "promise_match": "draft",
+        "first_three_status": "draft",
+        "primary_failure": "needs-human-check",
+        "top_red_flag": "none",
+        "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
+      },
+      "opening_role": "小兑现与残账",
+      "recommended_next_action": "novel-write",
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "001": "林栀夏转学第一天就在高二（七）班门口把江叙白认成了代课老师，当众社死，也因此被全班记住。",
+    "002": "江叙白替没开卡的林栀夏刷了午饭，又把自己的笔记借给她，互动升级；林栀夏却误以为这一切只是老师安排的公事公办。",
+    "003": "林栀夏靠自己的台风拿到广播站试用机会，江叙白则在学习互助表上写下她的名字，关系获得第一次明确落点。"
+  },
+  "character_states": {
+    "林栀夏": {
+      "emotion": "紧张里带着一点被接住后的心动",
+      "public_status": "高二（七）班新转学生",
+      "relationship_to_江叙白": "从社死对象变成学习搭子"
+    },
+    "江叙白": {
+      "emotion": "克制，但对林栀夏有明确关注",
+      "public_status": "高二（七）班学习委员",
+      "relationship_to_林栀夏": "从被误认的人变成主动照顾她的人"
+    }
+  },
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": "2026-03-24T00:00:00Z",
+    "source_scan": "manual-init",
+    "adjustments": [
+      {
+        "id": "campus-hook-fast",
+        "summary": "第一屏必须进入关系错位和校园社死场景。"
+      },
+      {
+        "id": "golden-three-small-payoff",
+        "summary": "第三章兑现先落在关系绑定和校园位置变化，不一次吃满告白线。"
+      }
+    ]
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.8",
+    "loaded_at": "2026-03-24T00:00:00Z",
+    "includes": [
+      "docs/anti-flattening-framework/README.md",
+      "docs/anti-flattening-framework/01-总纲.md",
+      "docs/opening-and-plot-framework/README.md",
+      "docs/opening-and-plot-framework/01-开篇目标与成功标准.md",
+      "docs/opening-and-plot-framework/fanqie-p0-overlays/青春甜宠.md"
+    ]
+  }
+}

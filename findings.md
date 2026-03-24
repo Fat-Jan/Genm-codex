@@ -320,6 +320,44 @@
   - 工具当前边界清晰，没有因为“番茄项目”而假装高置信命中
 - 新增结果文档：
   - `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md`
+- 已完成第二条真实写回样本：
+  - 项目：`projects/转学第一天，我把校草认成了新来的代课老师`
+  - 章节：`chapter_meta["003"]`
+  - 写回字段：
+    - `fanqie_bucket_flags = []`
+    - `fanqie_bucket_summary.bucket = "青春甜宠"`
+    - `fanqie_bucket_summary.bucket_grade = "draft"`
+- 这说明：
+  - 低置信 bucket 草稿也可以轻量写回
+  - 但会明确保留 `draft` 档位，不伪装成正式通过结论
+- 现已完成第三条真实写回样本：
+  - 项目：`projects/公司裁我那天，系统先赔了我一百万`
+  - 章节：`chapter_meta["003"]`
+  - 写回字段：
+    - `fanqie_bucket_flags = []`
+    - `fanqie_bucket_summary.bucket = "都市脑洞"`
+    - `fanqie_bucket_summary.bucket_grade = "draft"`
+- 这说明：
+  - `都市脑洞` 真实项目也已完成低置信写回样本
+  - 当前工具已拥有：
+    - `宫斗宅斗` 高置信写回样本
+    - `青春甜宠` 低置信写回样本
+    - `都市脑洞` 低置信写回样本
+- 已完成两个真实非宫斗 P0 项目验证：
+  - `projects/转学第一天，我把校草认成了新来的代课老师`
+  - `projects/公司裁我那天，系统先赔了我一百万`
+- 结果：
+  - `青春甜宠` 真实项目可稳定输出 `draft`
+  - `都市脑洞` 真实项目可稳定输出 `draft`
+  - 两条线都能输出：
+    - `fanqie_bucket_review_summary`
+    - `fanqie_bucket_precheck_summary`
+    - `confidence`
+    - `evidence_count`
+    - `signals_used`
+    - `writeback_preview`
+  - 当前两条线的 `confidence` 都是 `low`
+  - 这符合当前工具边界：已支持真实非宫斗 P0 项目，但还不伪装成高置信判断器
 
 ## Technical Decisions
 | Decision | Rationale |
@@ -382,6 +420,8 @@
 - `docs/opening-and-plot-framework/fanqie-p0-smoke-template.md`
 - `docs/opening-and-plot-framework/real-project-smoke-hunshu-taizi-fanqie-p0-2026-03-23.md`
 - `docs/opening-and-plot-framework/fanqie-p0-pressure-results-2026-03-24.md`
+- `docs/opening-and-plot-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-fanqie-p0-2026-03-24.md`
+- `docs/opening-and-plot-framework/real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md`
 - `scripts/fanqie_p0_smoke.py`
 - `tests/test_fanqie_p0_smoke.py`
 - `skills/novel-outline/SKILL.md`
