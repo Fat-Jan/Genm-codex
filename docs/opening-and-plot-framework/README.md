@@ -4,6 +4,10 @@
 
 它不是某个单独流派的技巧附录，而是跨题材通用的结构骨架。
 
+如果当前项目是番茄优先，且你想先锁“这本书到底靠什么起盘、靠什么留人、靠什么完成黄金三章第一次硬兑现”，优先再看：
+
+- [fanqie-launch-stack/README.md](./fanqie-launch-stack/README.md)
+
 ## 使用原则
 
 1. 先看 `01-开篇目标与成功标准.md`，明确开篇到底要完成什么。
@@ -59,6 +63,8 @@ python3 scripts/fanqie_p0_smoke.py --project-root "<project_root>" --chapter 003
 - `--mode writeback --writeback`
 
 ## 技能读取包
+
+在 bucket overlay 之前，番茄项目现在可以先用 `fanqie-launch-stack` 做起盘层判断，再把结果编译给后续的 `outline / write / review / precheck / package`。
 
 ### `novel-outline` 上游结构包
 

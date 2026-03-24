@@ -1,0 +1,68 @@
+{
+  "version": "1.0",
+  "phase": "draft",
+  "premise_line": "离婚冷静期那天，前夫把董事会席位押给了我",
+  "primary_pivot": "inciting-event",
+  "secondary_pivot": "character-conflict",
+  "launch_grammar": {
+    "primary": "bonding-reversal",
+    "candidates": [
+      {
+        "id": "bonding-reversal",
+        "score": 44.0
+      }
+    ],
+    "confidence": "high"
+  },
+  "retention_protocol": {
+    "enabled_rules": [
+      "first-page-hook",
+      "chapter-end-hook",
+      "hook-handover",
+      "first-hard-payoff",
+      "half-win-with-residual",
+      "no-foolish-humiliation",
+      "early-stability"
+    ],
+    "priority_rules": [
+      "first-page-hook",
+      "chapter-end-hook",
+      "first-hard-payoff"
+    ],
+    "violations": []
+  },
+  "compiler_output": {
+    "outline_focus": [
+      "锁定 `inciting-event` 支点",
+      "前 1-3 章按 `bonding-reversal` 推进"
+    ],
+    "chapter_1_3_targets": [
+      "第001章给首屏钩子",
+      "第002章给交换、误判或加压",
+      "第003章给第一次硬兑现或半胜带残账"
+    ],
+    "review_watchpoints": [
+      "关系推进是否只有口头拉扯",
+      "第一次站位变化是否留下现实后果"
+    ],
+    "precheck_risks": [
+      "前三章只有 promise 没有换账",
+      "章末钩子没有接力"
+    ],
+    "package_guardrails": [
+      "不要把未兑现的大卖点包装成已兑现事实"
+    ]
+  },
+  "hook_ledger_summary": {
+    "count": 0
+  },
+  "payoff_ledger_summary": {
+    "count": 0
+  },
+  "confidence": "high",
+  "drift_signal": "none",
+  "reselect_note": "",
+  "target_chapter": "003",
+  "chapter_range": "001-003",
+  "effective_mode": "draft"
+}

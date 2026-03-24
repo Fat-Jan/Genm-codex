@@ -823,3 +823,54 @@
 - `projects/庶妹换我婚书那夜，太子先开了口/chapters/第003章.md`
 - `shared/references/shared/state-schema.md`
 - `shared/templates/state-v5-template.json`
+
+---
+
+# Findings & Decisions: 番茄起盘协议栈与 Compiler 层
+
+## Requirements
+- 为番茄优先路线新增一层比“成熟剧情架构库”更可执行的起盘规则层
+- 第一版只覆盖开篇到黄金三章
+- 结果需要能被 `outline / write / review / precheck / package` 直接消费
+
+## Research Findings
+- 番茄官方课程更强调：
+  - 一句话故事
+  - 故事支点
+  - 切入事件
+  - 首页见山
+  - 章末留钩
+  而不是先选抽象结构名
+- 仅用“主架构卡”仍然太粗，因为真实起盘同时涉及：
+  - 支点
+  - 推进语法
+  - 平台级留存协议
+  - 题材义务
+  - 场景句法
+- 仓库现有最稳模式仍然是：
+  - `docs/` 做单一事实源
+  - `scripts/` 做保守自动化
+  - `state.json` 保持轻
+  - sidecar 承担详细运行结果
+- `opening-and-plot-framework` 已有稳定入口和回归测试，适合作为承载层
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 命名为 `launch_stack` | 避免与整本书总结构混淆 |
+| 文档树放在 `docs/opening-and-plot-framework/fanqie-launch-stack/` | 复用现有方法论文档承载层 |
+| 运行结果写 `.mighty/launch-stack.json` | 保持 `state` 轻量且可恢复 |
+| `state` 只镜像 4 个轻字段 | 避免新造平行状态中心 |
+| 第一版固定 compiler 输出 5 组下游输入 | 避免每个 skill 自己解释协议栈 |
+
+## Issues Encountered
+| Issue | Resolution |
+|-------|------------|
+| 隔离 worktree 基于干净 `HEAD`，不包含用户当前脏工作树里的 `writing-core` 测试集 | 将其明确记录为“待整合后再跑”的回归项，不在该 worktree 内伪造通过 |
+
+## Resources
+- `docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- `docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
+- `docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
+- `scripts/fanqie_launch_stack.py`
+- `tests/test_fanqie_launch_stack.py`

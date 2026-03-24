@@ -2175,3 +2175,39 @@
   - `青春甜宠`：`medium / pass / fit`
   - `都市日常`：`medium / pass / fit`
 - 到这里，`P0 8 桶` 已全部完成双样本覆盖
+
+## Session Update: 2026-03-24 番茄起盘协议栈与 Compiler 层
+
+- 已新增 `docs/opening-and-plot-framework/fanqie-launch-stack/`
+  - `README`
+  - 4 层主模块
+  - 6 张起盘语法卡
+  - `compiler contract`
+- 已新增 `scripts/fanqie_launch_stack.py`
+  - 支持保守 `draft`
+  - 支持显式 `writeback`
+  - 生成 `.mighty/launch-stack.json`
+  - 只镜像 4 个轻字段到 `state`
+- 已新增 `tests/test_fanqie_launch_stack.py`
+- 已更新：
+  - `novel-outline`
+  - `novel-write`
+  - `novel-review`
+  - `novel-precheck`
+  - `novel-package`
+  - `novel-init`
+  - `state-schema`
+  - `state-v5-template`
+  - `README.md`
+  - `docs/start-here.md`
+  - `docs/skill-usage.md`
+  - `docs/default-workflows.md`
+  - `docs/state-thinning-and-setting-sync.md`
+- 已生成两条真实 smoke：
+  - `离婚冷静期那天，前夫把董事会席位押给了我`
+  - `宗门垫底那年，我把废丹卖成了天价`
+- 已完成验证：
+  - `python3 -m unittest tests.test_fanqie_launch_stack -v`
+  - `python3 -m unittest tests.test_opening_plot_framework -v`
+  - `bash scripts/validate-migration.sh`
+- 已将实现分支 rebase 到当前 `main`，准备继续整合

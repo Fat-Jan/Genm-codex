@@ -519,3 +519,94 @@ Phase 5
 | bucket 级专项检查使用单独 `fanqie-p0-checkcards/` 目录 | 将“怎么写”与“怎么审 / 怎么拦”分层，避免 overlay 卡承担过多职责 |
 | `review / precheck` 用单独输出契约承接 Fanqie P0 卡 | 让 bucket 规则真正进入稳定输出，而不只停在“按需读取” |
 | `fanqie_p0_smoke.py` v1.1 对更多 P0 bucket 只给低置信草稿 | 扩覆盖面，但不把 smoke 工具伪装成全自动判断器 |
+
+---
+
+# Task Plan: 番茄起盘协议栈与 Compiler 层
+
+## Goal
+在仓库内落成“番茄起盘协议栈”文档树、保守 `launch_stack` compiler CLI、轻量 sidecar/state 合同，并将其最小接入 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package`。
+
+## Current Phase
+Phase 8
+
+## Phases
+
+### Phase 1: Discovery & Spec Lock
+- [x] 调研番茄官方与通用结构资料
+- [x] 将“主架构卡”收束成“起盘协议栈 + compiler + 两本账”
+- [x] 固化正式 spec
+- **Status:** complete
+
+### Phase 2: Contract Red Tests
+- [x] 新增 `tests/test_fanqie_launch_stack.py`
+- [x] 锁文档树、CLI、skill/state 合同
+- [x] 运行红测确认缺口
+- **Status:** complete
+
+### Phase 3: Launch-Stack Docs
+- [x] 创建 `docs/opening-and-plot-framework/fanqie-launch-stack/`
+- [x] 写 4 层主模块与 compiler contract
+- [x] 写 6 张起盘语法卡
+- **Status:** complete
+
+### Phase 4: Compiler CLI
+- [x] 新建 `scripts/fanqie_launch_stack.py`
+- [x] 实现保守 `draft` 推断
+- [x] 实现显式 `writeback`
+- **Status:** complete
+
+### Phase 5: Skill Wiring
+- [x] 更新 `novel-outline`
+- [x] 更新 `novel-write`
+- [x] 更新 `novel-review`
+- [x] 更新 `novel-precheck`
+- [x] 更新 `novel-package`
+- **Status:** complete
+
+### Phase 6: State & Sidecar Contract
+- [x] 更新 `state-schema` / `state-v5-template`
+- [x] 补 `novel-init` / thin-state sidecar 说明
+- [x] 保持 state 只镜像 4 个轻字段
+- **Status:** complete
+
+### Phase 7: Entry Docs
+- [x] 更新 `README.md`
+- [x] 更新 `docs/start-here.md`
+- [x] 更新 `docs/skill-usage.md`
+- [x] 更新 `docs/default-workflows.md`
+- [x] 更新 `docs/opening-and-plot-framework/README.md`
+- **Status:** complete
+
+### Phase 8: Smoke & Verification
+- [x] 生成 2 个真实项目 launch-stack smoke artifact
+- [x] 运行 `tests.test_fanqie_launch_stack`
+- [x] 回归 `tests.test_opening_plot_framework`
+- [x] 运行 `bash scripts/validate-migration.sh`
+- **Status:** complete
+
+## Key Questions
+1. 平台级留存协议应该继续藏在 bucket overlay 里，还是独立成层？
+2. `launch_stack` 结果应该写多重，才不会把 `state` 再次做胖？
+3. 第一版最小 smoke 应覆盖哪两种起盘类型，才能最快暴露误判？
+
+## Decisions Made
+| Decision | Rationale |
+|----------|-----------|
+| 用“番茄起盘协议栈”替代“单主架构卡” | 更符合番茄起盘的真实组合结构 |
+| 通用框架只做映射参考 | 避免把 Save the Cat / Story Circle 误当运行时真源 |
+| 详细结果写 `.mighty/launch-stack.json` | 保持 `state` 轻量，延续 sidecar 模式 |
+| 第一版只做开篇到黄金三章 | 收益最高且范围可控 |
+| 真实 smoke 先覆盖关系驱动与资源驱动 | 能最快暴露两类常见误判 |
+
+## Errors Encountered
+| Error | Attempt | Resolution |
+|-------|---------|------------|
+| worktree 内 `tests/test_writing_core_framework.py` 缺失 | 1 | 明确记录该 worktree 基于干净 `HEAD`，本轮最终验证不包含这组仅存在于用户当前脏工作树的测试 |
+
+## Notes
+- launch-stack 最初在隔离 worktree 内实现，并已完成 rebase onto `main`
+- 最终验证证据是：
+  - `python3 -m unittest tests.test_fanqie_launch_stack -v`
+  - `python3 -m unittest tests.test_opening_plot_framework -v`
+  - `bash scripts/validate-migration.sh`

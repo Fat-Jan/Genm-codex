@@ -30,6 +30,7 @@ Create:
 ```text
 .mighty/state.json
 .mighty/learned-patterns.json
+.mighty/launch-stack.json
 .mighty/market-adjustments.json
 .mighty/setting-gate.json
 chapters/
@@ -106,8 +107,12 @@ Initialize `.mighty/state.json` with, at minimum:
    - These files are upstream truth artifacts, not optional decoration.
 8. Create lightweight sidecar files:
    - `.mighty/learned-patterns.json`
+   - `.mighty/launch-stack.json`
    - `.mighty/market-adjustments.json`
    and keep `.mighty/state.json` only with small summary/pointer forms for those sections
+   - initialize launch-stack mirrors in `state.json`:
+     - `active_launch_grammar`
+     - `active_primary_pivot`
 9. Write:
    - `大纲/总纲.md` with a minimal outline scaffold
    - `设定集/角色/主角.md` with a starter protagonist scaffold

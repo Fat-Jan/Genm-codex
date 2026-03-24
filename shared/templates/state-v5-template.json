@@ -167,6 +167,10 @@
     "strand权重": {},
     "特殊约束": []
   },
+  "active_launch_grammar": "",
+  "active_primary_pivot": "",
+  "launch_stack_phase": "",
+  "launch_stack_drift_signal": "none",
   "chapter_meta": {
     "<chapter_number>": {
       "fanqie_bucket_flags": [],
