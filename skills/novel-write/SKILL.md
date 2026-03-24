@@ -174,6 +174,11 @@ Read conditionally:
    - if it is missing, stale relative to the current outline pass, or not in `passed` status, stop before writing
    - route back to `setting gate(outline)`:
      - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage outline`
+   - when the gate is `blocked` or `review_required`, read:
+     - `blocking_gaps`
+     - `review_items`
+     - `minimal_next_action`
+   - prefer the gate's `minimal_next_action.suggested_commands` over ad-hoc guessing
    - do not bypass this gate just because the relevant facts seem obvious from recent context
 15. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
    - read `../../docs/strong-quality-gate-policy.json`

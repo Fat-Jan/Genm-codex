@@ -119,7 +119,7 @@ Phase 5
 在仓库内落成一组跨题材通用的“开篇方法 + 剧情层次”规则层文档，并将其接入 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package`，同时补齐入口文档、轻量 state 评分键说明与可执行验证。
 
 ## Current Phase
-Phase 18
+Phase 26
 
 ## Phases
 
@@ -289,6 +289,41 @@ Phase 18
 - [x] 将 `第003章` 的 bucket 样本轻量写回项目 state
 - [x] 更新对应 smoke 文档
 - [x] 运行测试与迁移校验
+- **Status:** complete
+
+### Phase 22: Record Sync & Final Verification
+- [x] 将 `青春甜宠 / 都市脑洞` 的最终判断同步到 `findings.md` / `progress.md`
+- [x] 更新压力测试文档，纳入两个真实非宫斗 P0 项目与当前最终结论
+- [x] 重新运行脚本测试、框架回归测试与迁移校验
+- **Status:** complete
+
+### Phase 23: Additional Non-Palace P0 Validation
+- [x] 为 `职场婚恋 / 都市日常 / 玄幻脑洞` 三个真实项目新增 smoke 约束测试
+- [x] 收紧 `fanqie_p0_smoke.py` 的三类 bucket 强信号判定
+- [x] 修复 `writeback` 输出会把 smoke 文档回退成空模板的问题
+- [x] 修复空占位字段导致的假冲突，并补幂等 `already-written` 路径
+- [x] 将三条真实项目的 `chapter_meta["003"]` 轻量写回并复跑验证
+- **Status:** complete
+
+### Phase 24: Gap Tracker & Next-Hop Handoff
+- [x] 新增 `fanqie-p0-gap-tracker-2026-03.md`
+- [x] 在框架 README 中暴露剩余桶缺口与下一跳入口
+- [x] 用测试锁住 gap tracker 与样本入口发现性
+- **Status:** complete
+
+### Phase 25: P0 Full Coverage Validation
+- [x] 为 `历史脑洞 / 豪门总裁` 两个真实项目新增 smoke 约束测试
+- [x] 收紧 `fanqie_p0_smoke.py` 的两类 bucket 强信号判定
+- [x] 兼容 `chapter_meta` 的 `3 / 003` 双键风格，并升级 legacy bucket 占位写回
+- [x] 将两条真实项目的 `chapter_meta["003"/"3"]` 轻量写回并复跑验证
+- [x] 将压力结果与 gap tracker 更新为 `P0 8 桶全覆盖`
+- **Status:** complete
+
+### Phase 26: Second-Sample Expansion
+- [x] 新建第二条 `豪门总裁 / 都市脑洞 / 玄幻脑洞` 真实项目样本
+- [x] 为三条样本补最小运行态文件、总纲、章纲和前三章正文
+- [x] 运行 `draft -> writeback` 并确认 smoke 文档落地
+- [x] 将 gap tracker 与 pressure results 更新为新的优先级
 - **Status:** complete
 
 ## Additional Decisions

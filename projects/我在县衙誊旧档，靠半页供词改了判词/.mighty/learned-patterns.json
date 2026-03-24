@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "古今结合，短句压迫感强，优先堂前对话与文书交锋",
+    "description_density": "中低，优先案牍、动作和制度压力",
+    "pacing_preference": "前三章必须让旧案、卷宗机制和上位者阻力同场"
+  },
+  "high_point_preferences": [
+    "小吏靠半页供词撬动堂前判词",
+    "旧案翻口必须伴随位置变化",
+    "制度内反制比单纯喊冤更有爽点"
+  ],
+  "avoid_patterns": [
+    "大段历史设定讲义",
+    "只炫脑洞不改局势",
+    "堂上角色全沦为功能纸片人"
+  ],
+  "user_feedback": []
+}

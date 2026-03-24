@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "外门药田被夺那天，我靠废丹拍卖赚回了灵石",
+    "genre": "玄幻脑洞",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-24T09:40:00Z",
+    "updated_at": "2026-03-24T07:55:33Z"
+  },
+  "genre_profile": {
+    "bucket": "玄幻脑洞"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 9600,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T09:40:00Z"
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 3200
+    },
+    "002": {
+      "word_count": 3200
+    },
+    "003": {
+      "word_count": 3200,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "玄幻脑洞",
+        "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      }
+    }
+  }
+}

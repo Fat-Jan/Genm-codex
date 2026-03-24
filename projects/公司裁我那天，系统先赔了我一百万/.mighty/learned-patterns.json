@@ -1,22 +1,22 @@
 {
-  "writing_style_preferences": {
-    "dialogue_style": "简洁直接，偏都市口语",
-    "description_density": "低到中",
-    "pacing_preference": "快节奏，先事件后解释"
-  },
-  "high_point_preferences": [
-    "现实困局立刻落地",
-    "系统快速见效但不给万能捷径",
-    "三章内形成一次完整小爽点闭环"
-  ],
-  "avoid_patterns": [
-    "大段讲设定",
-    "空转嘴炮",
-    "收益白拿"
-  ],
-  "user_feedback": [
-    "第一章直接落现实困局",
-    "第二章机制第一次改变现实处境",
-    "第三章形成一次完整小爽点闭环"
-  ]
+  "version": "1.0",
+  "last_updated": "2026-03-24T04:40:18Z",
+  "data": {
+    "writing_style_preferences": {
+      "dialogue_style": "简洁直接，偏都市口语",
+      "description_density": "低到中",
+      "pacing_preference": "快节奏，先事件后解释"
+    },
+    "high_point_preferences": [
+      "现实困局立刻落地",
+      "机制快速见效",
+      "三章内完成小闭环"
+    ],
+    "avoid_patterns": [
+      "设定讲解过长",
+      "收益白拿",
+      "冲突只停在嘴上"
+    ],
+    "user_feedback": []
+  }
 }

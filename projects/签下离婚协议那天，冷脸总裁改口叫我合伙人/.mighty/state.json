@@ -1,0 +1,395 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "签下离婚协议那天，冷脸总裁改口叫我合伙人",
+    "genre": "豪门总裁",
+    "platform": "番茄",
+    "target_chapters": 12,
+    "target_words": 36000,
+    "created_at": "2026-03-24T05:30:00Z",
+    "updated_at": "2026-03-24T07:07:32Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 7378,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T05:55:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "乔见星",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "",
+          "layer": 0
+        },
+        "location": {
+          "current": "合景律师事务所十二楼会议室",
+          "origin": "海城"
+        },
+        "inventory": [
+          "离婚协议附件",
+          "岚序项目底层账本",
+          "供应商续约备忘录",
+          "岚序门店试运营排期表"
+        ],
+        "abilities": [
+          "品牌操盘",
+          "危机公关",
+          "供应链换账",
+          "高压谈判"
+        ],
+        "status": [
+          "与傅沉砚进入协议离婚流程",
+          "岚序项目实际操盘人",
+          "团队归属和收益被董事会盯上",
+          "已拿到岚序项目七十二小时授权",
+          "被傅沉砚公开称为项目合伙人"
+        ],
+        "current_goals": [
+          "保住岚序项目和自己的团队",
+          "把七十二小时授权变成稳定位置",
+          "借热搜和试运营数据逼出背后改协议的人"
+        ],
+        "known_secrets": [
+          "宋曼华想把岚序并进联姻对象名下的新消费板块",
+          "傅沉砚今天的离婚节点和董事会并购表决绑定在一起",
+          "傅沉砚愿意公开给她位置，是在借她继续逼内部站队"
+        ],
+        "recent_events": [
+          "乔见星在律师事务所拒签被改过的离婚协议",
+          "她被傅沉砚带进曜石集团，拿到岚序七十二小时授权",
+          "傅沉砚在临江店公开称她为岚序项目合伙人"
+        ]
+      },
+      "active": [
+        {
+          "name": "傅沉砚",
+          "role": "男主 / 曜石集团总裁",
+          "relationship": "协议婚姻对象，现实利益高度绑定"
+        },
+        {
+          "name": "宋曼华",
+          "role": "反对者 / 副董事长",
+          "relationship": "想借离婚把女主和项目一起清出局"
+        },
+        {
+          "name": "唐意",
+          "role": "女主核心同伴",
+          "relationship": "岚序运营负责人，跟着女主一起背锅"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "离婚协议附件",
+        "岚序项目底层账本",
+        "供应商续约备忘录",
+        "董事会临时表决议程"
+      ],
+      "protagonist_inventory": [
+        "离婚协议附件",
+        "岚序项目底层账本",
+        "供应商续约备忘录",
+        "岚序门店试运营排期表"
+      ]
+    },
+    "locations": {
+      "current": "岚序临江店",
+      "visited": [
+        "合景律师事务所",
+        "曜石集团总部",
+        "岚序临江店"
+      ],
+      "important": [
+        "合景律师事务所",
+        "曜石集团总部",
+        "岚序临江店"
+      ]
+    },
+    "factions": {
+      "active": [
+        {
+          "name": "曜石集团"
+        },
+        {
+          "name": "岚序项目组"
+        }
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "离婚协议附件被动过手脚",
+          "description": "删改条款的人想借离婚把岚序项目和乔见星的团队一起并走。",
+          "planted_chapter": 1,
+          "expected_range": "2-4",
+          "status": "active",
+          "related_entities": [
+            "乔见星",
+            "傅沉砚",
+            "宋曼华"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "傅沉砚真正要借谁开刀",
+          "description": "他答应离婚不只是为了切关系，也为了借这次局把集团内部的人逼出来。",
+          "planted_chapter": 2,
+          "expected_range": "4-6",
+          "status": "active",
+          "related_entities": [
+            "傅沉砚",
+            "宋曼华"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "是谁改了离婚协议附件，真正想吞掉岚序的人是谁？",
+          "since_chapter": 1
+        },
+        {
+          "question": "傅沉砚把乔见星重新拉回牌桌，到底是利用还是站边？",
+          "since_chapter": 2
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "乔见星从被离婚清退的傅太太，翻成能和傅沉砚并肩换账的项目合伙人",
+      "location": "海城",
+      "secret": "董事会和联姻盘都在盯岚序的控制权，离婚只是吞并的第一步。",
+      "progress": 24
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "乔见星和傅沉砚今天要签离婚协议",
+      "乔见星不是被动太太，而是岚序项目真正的操盘人",
+      "董事会想借离婚把她和她的团队一起清出去",
+      "傅沉砚并不完全站在上位，他也被董事会和联姻盘卡住",
+      "乔见星已经拿到七十二小时项目授权",
+      "傅沉砚已公开把她介绍成岚序项目合伙人"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "宋曼华一直想把岚序交给联姻对象的家族资本来接盘。",
+        "since_chapter": 0
+      },
+      {
+        "info": "傅沉砚至少愿意在公开场合给她位置，但这不等于信任已经成立。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "傅沉砚是否事先知道协议附件被改",
+      "董事会里还有谁和宋曼华站在一起",
+      "傅沉砚给她合伙人位置，到底是站边还是借她钓人"
+    ],
+    "key_revelations": [
+      "离婚协议里的删改条款不是情绪问题，而是吞项目的入口。",
+      "乔见星能跟傅家硬碰，不是靠婚姻身份，而是靠她手里的项目控制点。",
+      "“合伙人”称谓一旦公开，后面的舆论盘和联姻盘都会升级。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "高压短句，互相试探，话里带账本",
+      "description_density": "中等偏低",
+      "pacing_preference": "离婚开局 -> 董事会加压 -> 合伙人换称谓"
+    },
+    "high_point_preferences": [
+      "资源压制正面亮相",
+      "关系称谓当场换账",
+      "公开场合给位置而不是只给暧昧"
+    ],
+    "avoid_patterns": [
+      "男主一出手就无代价摆平一切",
+      "女主只靠被偏爱获得位置",
+      "豪门只剩穿搭和脸"
+    ],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "高压关系博弈",
+    "chapter_words": {
+      "min": 2000,
+      "max": 3600,
+      "target": 3000
+    },
+    "golden_three": {
+      "hook_timing": "首章离婚签字场直接进冲突",
+      "cheat_timing": "第三章公开换称谓并给小兑现"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "ceo-romance",
+    "bucket": "豪门总裁",
+    "节奏": {
+      "type": "情感驱动型",
+      "tension_ratio": "5:5"
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 25,
+      "fire": 50,
+      "constellation": 25
+    },
+    "特殊约束": [
+      "男主专一",
+      "女主必须有现实能力和选择权",
+      "前三章至少一次公开资源换账"
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "word_count": 2401,
+      "summary": "乔见星在律师事务所拒签被做过手脚的离婚协议，逼出岚序项目和离婚同桌换账的真相。",
+      "primary_line": "拒签离婚协议，抢回谈判权",
+      "unresolved_questions": [
+        "协议是谁改的",
+        "傅沉砚是否知情"
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "2": {
+      "word_count": 2484,
+      "summary": "乔见星被带进董事会前置会，用项目价值和现场数据换回七十二小时授权，高压互动升级到公开牌桌。",
+      "primary_line": "在集团高压局里换回授权和团队保护期",
+      "unresolved_questions": [
+        "临江店能不能扛住",
+        "宋曼华后手是什么"
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "3": {
+      "word_count": 2493,
+      "summary": "乔见星稳住临江店试运营，傅沉砚当众改口叫她合伙人，给出第一笔真实位置兑现。",
+      "primary_line": "把公开称谓升级换成真实项目位置",
+      "unresolved_questions": [
+        "热搜会先炸到哪边",
+        "合伙人身份能维持多久"
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "豪门总裁",
+        "recommended_focus": "下一章要把合伙人位置兑现成真实资源和舆论代价，别让豪门总裁只停在称谓升级。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "1": "离婚协议第九页被改，乔见星拒签并用项目账本逼停清退流程。",
+    "2": "董事会前置会高压升级，乔见星拿到岚序七十二小时授权。",
+    "3": "临江店试运营稳住，傅沉砚当众称她为岚序项目合伙人。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": "2026-03-24T05:30:00Z",
+    "source_scan": null,
+    "adjustments": [
+      {
+        "id": "manual-haomen-opening",
+        "summary": "首章必须把离婚、项目收益和家族盘捆在同一张桌上。"
+      }
+    ]
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.8",
+    "loaded_at": "2026-03-24T05:30:00Z",
+    "includes": [
+      "docs/anti-flattening-framework/01-总纲.md",
+      "docs/opening-and-plot-framework/01-开篇目标与成功标准.md",
+      "docs/opening-and-plot-framework/fanqie-p0-overlays/豪门总裁.md"
+    ]
+  }
+}

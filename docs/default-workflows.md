@@ -49,6 +49,28 @@
 - 总纲完成后先过 `setting gate`
 - 再写正文
 
+### Gate Triage
+
+当 `setting gate` 返回 `blocked` 或 `review_required` 时，优先按这条应急链处理：
+
+1. 如确实缺外部 research 线索，可先跑 `novel-scan`
+2. 再跑 `setting gate`
+3. 若有高风险候选或歧义项，进入 `review-sync-queue`
+4. 用 `novel-status` / `novel-resume` / `novel-query` 读取：
+   - `gate status`
+   - `blocking_gaps`
+   - `review_items`
+   - `minimal_next_action`
+
+约束：
+
+- `novel-scan -> setting gate -> review-sync-queue` 是候选审阅链，不是 canon 写入链
+- gate 未通过时，不直接进入 `novel-write`
+
+进一步说明见：
+
+- [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gate-triage.md)
+
 ---
 
 ## 默认工作流 2：正文生产
@@ -241,6 +263,8 @@
 
 - 仍属于实验能力
 - 它能提供市场信号，但不该成为每个用户默认要跑的步骤
+- 如果明确需要外部 research 来辅助 `setting gate`，也只应通过可选候选 sidecar 进入 review queue
+- 不允许因为 `novel-scan` 结果存在，就直接改写 `设定集/` 或跳过本地 truth gate
 
 ---
 

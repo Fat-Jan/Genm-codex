@@ -1,0 +1,380 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "宗门垫底那年，我把废丹卖成了天价",
+    "genre": "玄幻",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-24T00:00:00Z",
+    "updated_at": "2026-03-24T05:14:26Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 0,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T00:00:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "沈砚秋",
+        "aliases": [
+          "外门废丹童",
+          "宗门垫底"
+        ],
+        "power": {
+          "realm": "炼气境",
+          "level": "二层",
+          "layer": 2
+        },
+        "location": {
+          "current": "青岚宗外门废丹窖",
+          "origin": "青石坊"
+        },
+        "inventory": [
+          "碎纹丹秤",
+          "剩余低质废火丹",
+          "外门保名牌",
+          "下品灵石一袋"
+        ],
+        "abilities": [
+          "识别废丹残效",
+          "判断丹药适配人群",
+          "拆卖残效定价"
+        ],
+        "status": [
+          "外门月考垫底",
+          "暂时保住留宗资格",
+          "手里有第一桶灵石",
+          "被许观盯上",
+          "被秦执炉注意"
+        ],
+        "current_goals": [
+          "保住外门身份和住处",
+          "继续从废丹里挖出可卖价值",
+          "找到下一批更值钱的废丹",
+          "防住丹房和内门的夺秤之手"
+        ],
+        "known_secrets": [
+          "碎纹丹秤能看见废丹真正可售的残效",
+          "废丹不是一律无用，而是卖错了人",
+          "秦执炉那炉废火丹里藏着能压火毒的残效"
+        ],
+        "recent_events": [
+          "月考垫底后差点被逐下山",
+          "在废丹窖里唤醒碎纹丹秤",
+          "用废火丹帮陆长河压住火毒",
+          "在外门小集把废丹卖出天价"
+        ]
+      },
+      "active": [
+        {
+          "name": "许观",
+          "role": "外门丹房管库执事",
+          "relationship": "敌对"
+        },
+        {
+          "name": "乔双双",
+          "role": "外门小集摊主",
+          "relationship": "互利盟友"
+        },
+        {
+          "name": "陆长河",
+          "role": "火脉受创的内门弟子",
+          "relationship": "潜在人脉"
+        },
+        {
+          "name": "秦执炉",
+          "role": "内门丹师弟子",
+          "relationship": "后续强敌"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "碎纹丹秤",
+        "废火丹",
+        "凝脉冷砂",
+        "外门保名牌"
+      ],
+      "protagonist_inventory": [
+        "碎纹丹秤",
+        "剩余低质废火丹",
+        "外门保名牌",
+        "下品灵石一袋"
+      ]
+    },
+    "locations": {
+      "current": "外门小集",
+      "visited": [
+        "青岚宗山门",
+        "外门月榜石壁",
+        "外门废丹窖",
+        "丹房偏院",
+        "外门小集"
+      ],
+      "important": [
+        "外门废丹窖",
+        "丹房偏院",
+        "外门小集",
+        "内门丹院"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "碎纹丹秤来历",
+          "description": "这杆能给废丹重新定价的秤，和沈砚秋母亲当年离宗有关。",
+          "planted_chapter": 1,
+          "expected_range": "5-15",
+          "status": "planted",
+          "related_entities": [
+            "沈砚秋",
+            "碎纹丹秤"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "秦执炉的废丹问题",
+          "description": "内门丢出来的那批废火丹并不简单，背后可能牵到丹院秘方和压价链。",
+          "planted_chapter": 3,
+          "expected_range": "4-10",
+          "status": "planted",
+          "related_entities": [
+            "秦执炉",
+            "废火丹",
+            "丹院"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "name": "谁会来抢秤",
+          "since_chapter": 3
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "从废丹窖翻身，借碎纹丹秤在宗门里站稳脚跟",
+      "location": "青岚宗",
+      "secret": "废丹真正的价值链被人故意压住",
+      "progress": 12
+    },
+    "side_quests": [
+      {
+        "name": "保住外门身份",
+        "status": "temporary pass"
+      }
+    ]
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "沈砚秋处在外门最底层",
+      "碎纹丹秤可以识别废丹残效",
+      "废丹已经开始替沈砚秋换来灵石和人脉"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "废丹要卖给对的人，价格会完全不同",
+        "since_chapter": 1
+      },
+      {
+        "info": "许观会盯上任何能给他带来油水的东西",
+        "since_chapter": 1
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "碎纹丹秤为什么会认他为主",
+      "秦执炉会不会顺藤摸瓜找到他"
+    ],
+    "key_revelations": [
+      "废火丹对火毒反噬者有短时稳脉效果"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-24T05:15:37Z",
+    "available_sections": [
+      "avoid_patterns",
+      "high_point_preferences",
+      "user_feedback",
+      "writing_style_preferences"
+    ]
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "快节奏爽文",
+    "chapter_words": {
+      "min": 2000,
+      "max": 5000,
+      "target": 2500
+    },
+    "golden_three": {
+      "hook_timing": "第1章点亮脑洞机制，第2章第一次见效，第3章形成小爽点闭环",
+      "cheat_timing": "第1章"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 2,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "shared/profiles/xuanhuan/profile.yaml",
+    "bucket": "玄幻脑洞",
+    "节奏": {
+      "type": "快节奏爽文"
+    },
+    "爽点密度": 1.3,
+    "strand权重": {
+      "quest": 0.5,
+      "fire": 0.35,
+      "constellation": 0.15
+    },
+    "特殊约束": [
+      "第一章直接落身份困局和资源差距",
+      "脑洞点尽快点亮并立刻影响现实处境",
+      "第二章必须有第一次机制见效",
+      "第三章完成小爽点闭环"
+    ]
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 2720,
+      "summary": "沈砚秋月考垫底，差点被逐下山，却在废丹窖里唤醒碎纹丹秤，看见废火丹真正的价值。",
+      "recommended_next_action": "novel-write",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "002": {
+      "word_count": 3005,
+      "summary": "沈砚秋用废火丹替陆长河压住火毒，第一次把废丹换成灵石和留宗资格，机制真正改了他的账本。",
+      "recommended_next_action": "novel-write",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "003": {
+      "word_count": 3436,
+      "summary": "沈砚秋在外门小集把废丹卖出天价，当众反打许观，完成第一轮翻身，但也被秦执炉盯上。",
+      "recommended_next_action": "novel-precheck",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "玄幻脑洞",
+        "recommended_focus": "下一章要把废丹生意的放大收益和宗门追责同时顶上来，别让金手指只剩爽感没有反噬。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "001": "月考垫底 -> 废丹窖 -> 碎纹丹秤觉醒",
+    "002": "废火丹救急 -> 灵石到账 -> 留宗资格回稳",
+    "003": "外门小集卖废丹 -> 许观吃瘪 -> 秦执炉盯上"
+  },
+  "character_states": {
+    "沈砚秋": {
+      "stance": "求生转破局",
+      "chapter": 3
+    },
+    "许观": {
+      "stance": "觊觎碎纹丹秤",
+      "chapter": 3
+    }
+  },
+  "setting_versions": {},
+  "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_updated": "2026-03-24T05:15:37Z",
+    "last_applied": "2026-03-24T00:00:00Z",
+    "source_scan": "manual-local-bootstrap",
+    "adjustment_count": 2
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-24T00:00:00Z",
+    "includes": [
+      "docs/anti-flattening-framework/README.md",
+      "docs/opening-and-plot-framework/README.md",
+      "docs/opening-and-plot-framework/fanqie-p0-overlays/玄幻脑洞.md"
+    ]
+  }
+}

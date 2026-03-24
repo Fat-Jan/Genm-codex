@@ -92,11 +92,20 @@
 - `review / precheck` 路由失真
 - `package` 明显高于正文承载
 - `write` 在真实项目里失稳
+- `setting gate` 卡住后用户不知道最小下一步动作
+- gate triage 入口分散，导致默认工作流上的恢复成本偏高
 
 处理方式：
 
 - 直接进主线
 - patch 优先
+
+补充：
+
+- `gate triage` 应被视为默认工作流维护的一部分
+- 它解决的是默认工作流的阻断处理与恢复体验，不是把实验能力升格成默认能力
+- 相关入口可集中参考：
+  - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gate-triage.md)
 
 ### B. 默认主线增强
 

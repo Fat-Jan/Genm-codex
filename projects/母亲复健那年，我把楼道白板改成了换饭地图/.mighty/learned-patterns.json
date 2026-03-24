@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "生活化、带一点楼道人情味，但不散",
+    "description_density": "中低，优先燃气、白板、换饭、康复这些现实抓手",
+    "pacing_preference": "前三章必须完成一次生活改善闭环"
+  },
+  "high_point_preferences": [
+    "小人物靠本事换饭，不靠卖惨",
+    "都市日常也要有账本变化",
+    "康复和人情线必须同场推进"
+  ],
+  "avoid_patterns": [
+    "只有治愈没有现实摩擦",
+    "白板只是装饰物",
+    "第三章前一直停在氛围里"
+  ],
+  "user_feedback": []
+}

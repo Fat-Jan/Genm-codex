@@ -326,29 +326,29 @@
   - 写回字段：
     - `fanqie_bucket_flags = []`
     - `fanqie_bucket_summary.bucket = "青春甜宠"`
-    - `fanqie_bucket_summary.bucket_grade = "draft"`
+    - `fanqie_bucket_summary.bucket_grade = "pass"`
 - 这说明：
-  - 低置信 bucket 草稿也可以轻量写回
-  - 但会明确保留 `draft` 档位，不伪装成正式通过结论
+  - `青春甜宠` 已从“低置信草稿”推进到“中置信、可给出 `pass / fit` 的轻量写回样本”
+  - 当前轻量写回仍然只落 `fanqie_bucket_flags / fanqie_bucket_summary`，不越权改正式 review 主字段
 - 现已完成第三条真实写回样本：
   - 项目：`projects/公司裁我那天，系统先赔了我一百万`
   - 章节：`chapter_meta["003"]`
   - 写回字段：
     - `fanqie_bucket_flags = []`
     - `fanqie_bucket_summary.bucket = "都市脑洞"`
-    - `fanqie_bucket_summary.bucket_grade = "draft"`
+    - `fanqie_bucket_summary.bucket_grade = "warn"`
 - 这说明：
-  - `都市脑洞` 真实项目也已完成低置信写回样本
+  - `都市脑洞` 真实项目也已完成中置信轻量写回样本
   - 当前工具已拥有：
     - `宫斗宅斗` 高置信写回样本
-    - `青春甜宠` 低置信写回样本
-    - `都市脑洞` 低置信写回样本
+    - `青春甜宠` 中置信写回样本
+    - `都市脑洞` 中置信写回样本
 - 已完成两个真实非宫斗 P0 项目验证：
   - `projects/转学第一天，我把校草认成了新来的代课老师`
   - `projects/公司裁我那天，系统先赔了我一百万`
 - 结果：
-  - `青春甜宠` 真实项目可稳定输出 `draft`
-  - `都市脑洞` 真实项目可稳定输出 `draft`
+  - `青春甜宠` 真实项目可稳定输出结构化 `draft`，并已收紧到 `medium confidence + pass / fit`
+  - `都市脑洞` 真实项目可稳定输出结构化 `draft`，并已收紧到 `medium confidence + warn / fit`
   - 两条线都能输出：
     - `fanqie_bucket_review_summary`
     - `fanqie_bucket_precheck_summary`
@@ -356,8 +356,69 @@
     - `evidence_count`
     - `signals_used`
     - `writeback_preview`
-  - 当前两条线的 `confidence` 都是 `low`
-  - 这符合当前工具边界：已支持真实非宫斗 P0 项目，但还不伪装成高置信判断器
+  - 当前两条线的 `confidence` 已提升到 `medium`
+  - 当前判断收束为：
+    - `青春甜宠`：`pass / fit`
+    - `都市脑洞`：`warn / fit`
+  - 这说明非宫斗 P0 真实项目已经从“能跑”推进到“能给更明确的结构判断”
+- 已继续扩到另外三条真实非宫斗 P0 项目：
+  - `projects/她升职那天，前上司成了我合租室友`
+  - `projects/搬回老小区后，我靠蹭饭认识了整栋楼`
+  - `projects/宗门垫底那年，我把废丹卖成了天价`
+- 这三条线当前都已满足：
+  - `confidence = medium`
+  - `bucket_grade = pass`
+  - `submission_fit = fit`
+  - `chapter_meta["003"]` 已完成轻量 writeback
+- 为支撑这轮扩展，`fanqie_p0_smoke.py` 新增了三类真实 bucket 抓手：
+  - `职场婚恋`：`代理 / 甲方 / 合租 / 试运行`
+  - `都市日常`：`燃气 / 白板 / 换饭 / 康复`
+  - `玄幻脑洞`：`碎纹丹秤 / 废火丹 / 外门小集 / 灵石`
+- `writeback` 路径还补了两个真实边界：
+  - 空占位 `fanqie_bucket_summary = {}` 不再误判为冲突
+  - 同一 summary 重跑时返回 `already-written`，不再把真实样本误报成冲突
+- 已新增 `docs/opening-and-plot-framework/fanqie-p0-gap-tracker-2026-03.md`
+  - 把当前已覆盖桶、仍缺真实样本的桶、推荐补桶顺序和下一批项目提示词固化下来
+  - 当前推荐顺序为：
+    - 第三条 `都市脑洞`
+    - 第三条 `豪门总裁`
+    - 第三条 `玄幻脑洞`
+    - 第三条 `历史脑洞`
+- 已继续补齐最后两个 `P0` 缺口桶：
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂`
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人`
+- 当前这两条线也已满足：
+  - `confidence = medium`
+  - `bucket_grade = pass`
+  - `submission_fit = fit`
+  - `chapter_meta["3"/"003"]` 已完成轻量 writeback
+- `fanqie_p0_smoke.py` 进一步补了两类真实 bucket 抓手：
+  - `历史脑洞`：`县衙 / 旧案 / 卷宗 / 主簿房`
+  - `豪门总裁`：`离婚协议 / 董事会 / 合伙人 / 试运营`
+- 为兼容新项目 state，还补了一个写回边界：
+  - `chapter_meta` 若使用 `3 / 003` 这样的双风格键，脚本会优先回写到项目当前已存在的键风格
+- 到这里，当前 `P0 8 桶` 已全部完成至少 1 条真实项目 smoke + 轻量 writeback 样本
+- 已新增第二条 `历史脑洞` 真实样本：
+  - `projects/我在县衙誊旧档，靠半页供词改了判词`
+  - 当前也已收敛到 `confidence = medium / pass / fit`
+  - 这说明 `历史脑洞` 当前门槛已经不只由单一县衙旧案样本支撑
+- 已继续补第二条样本：
+  - `豪门总裁`：`projects/离婚冷静期那天，前夫把董事会席位押给了我`
+  - `都市脑洞`：`projects/我赔光积蓄那天，系统先把违约金打到了账上`
+  - `玄幻脑洞`：`projects/外门药田被夺那天，我靠废丹拍卖赚回了灵石`
+- 这三条当前已分别收敛到：
+  - `豪门总裁`：`medium / pass / fit`
+  - `都市脑洞`：`medium / warn / fit`
+  - `玄幻脑洞`：`medium / pass / fit`
+- 已继续补第二条样本：
+  - `职场婚恋`：`projects/代理续约那天，我和前搭档被公司按进了同一套合租房`
+  - `青春甜宠`：`projects/广播站误放表白信那天，我和学神被迫参加学习互助`
+  - `都市日常`：`projects/母亲复健那年，我把楼道白板改成了换饭地图`
+- 这三条当前已分别收敛到：
+  - `职场婚恋`：`medium / pass / fit`
+  - `青春甜宠`：`medium / pass / fit`
+  - `都市日常`：`medium / pass / fit`
+- 到这里，当前 `P0 8 桶` 已全部完成双样本覆盖
 
 ## Technical Decisions
 | Decision | Rationale |

@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "古今结合，简洁克制，保留县衙语境与官场分寸",
+    "description_density": "中低，优先动作、对话和账本变化",
+    "pacing_preference": "前三章快速兑现脑洞与制度冲突"
+  },
+  "high_point_preferences": [
+    "身份低位时靠旧案碎片撬动上位者秩序",
+    "制度内反制比空喊冤更有爽点",
+    "阶段性翻案要伴随更大风险"
+  ],
+  "avoid_patterns": [
+    "大段历史设定讲义",
+    "脑洞只炫技不改局势",
+    "公堂角色全变成功能人"
+  ],
+  "user_feedback": []
+}

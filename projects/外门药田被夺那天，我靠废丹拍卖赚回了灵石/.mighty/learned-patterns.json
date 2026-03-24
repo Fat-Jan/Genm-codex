@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "玄幻口语化，短句快节奏",
+    "description_density": "中低，优先宗门压迫、资源账和拍卖节奏",
+    "pacing_preference": "前三章必须让废丹价值与现实位置同步变化"
+  },
+  "high_point_preferences": [
+    "穷弟子拿废丹做出高价交易",
+    "第一轮硬兑现要伴随更大风险",
+    "不是无敌横推，是先抢回一口生存资格"
+  ],
+  "avoid_patterns": [
+    "大段设定讲解",
+    "金手指亮相但不改变局势",
+    "只有战斗没有收益变化"
+  ],
+  "user_feedback": []
+}

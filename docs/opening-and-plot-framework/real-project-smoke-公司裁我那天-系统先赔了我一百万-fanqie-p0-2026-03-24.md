@@ -1,6 +1,6 @@
 # Fanqie P0 Smoke Draft: 公司裁我那天，系统先赔了我一百万
 
-> 当前结果为 `draft`，并已作为低置信样本轻量写回 `chapter_meta["003"]`。
+> 当前结果为 `draft`，并已作为中置信样本轻量写回 `chapter_meta["003"]`。
 
 ## 适用范围
 
@@ -9,7 +9,7 @@
 - review 样本章节：`003`
 - precheck 样本范围：`001-003`
 
-- confidence：`low`
+- confidence：`medium`
 - evidence_count: `7`
 
 ## 证据来源
@@ -33,10 +33,10 @@ signals_used: learned_patterns, market_adjustments
 fanqie_bucket_review_summary:
   bucket: 都市脑洞
   recommended_focus: 下一章要尽快把当前残账兑现成具体阻力，避免收益过满。
-  bucket_grade: draft
-  promise_match: draft
-  first_three_status: draft
-  primary_failure: needs-human-check
+  bucket_grade: warn
+  promise_match: pass
+  first_three_status: pass
+  primary_failure: residual-risk-needs-follow-through
   top_red_flag: none
 ```
 
@@ -45,11 +45,11 @@ fanqie_bucket_review_summary:
 ```md
 fanqie_bucket_precheck_summary:
   bucket: 都市脑洞
-  submission_fit: draft
-  opening_status: draft
-  golden_three_status: draft
-  packaging_alignment: draft
-  top_blocker: needs-human-check
+  submission_fit: fit
+  opening_status: pass
+  golden_three_status: pass
+  packaging_alignment: aligned
+  top_blocker: follow-through-needed
 ```
 
 ## writeback 预览
@@ -59,12 +59,12 @@ writeback_preview:
   chapter: 003
   fields: ['fanqie_bucket_flags', 'fanqie_bucket_summary']
   bucket: 都市脑洞
-  confidence: low
+  confidence: medium
   status: pending
 ```
 
 ## 结论
 
-- 当前仍是 `draft`，但已作为第三条真实写回样本轻量写回：
+- 当前 smoke 输出已提升到 `medium confidence`，并已作为第三条真实写回样本轻量写回：
   - `chapter_meta["003"].fanqie_bucket_flags`
   - `chapter_meta["003"].fanqie_bucket_summary`

@@ -1,0 +1,400 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "她升职那天，前上司成了我合租室友",
+    "genre": "现代言情",
+    "platform": "番茄",
+    "target_chapters": 12,
+    "target_words": 48000,
+    "created_at": "2026-03-24T04:49:31Z",
+    "updated_at": "2026-03-24T05:14:26Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 8774,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T04:59:31Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "姜栀",
+        "aliases": [],
+        "power": {
+          "realm": "",
+          "level": "代理客户组长",
+          "layer": 1
+        },
+        "location": {
+          "current": "海临创意园地库",
+          "origin": "海临"
+        },
+        "inventory": [
+          "代理任命邮件",
+          "栖山咖啡Q3投放复盘表",
+          "合租合同",
+          "电脑",
+          "公司门禁卡"
+        ],
+        "abilities": [
+          "品牌策略拆解",
+          "客户提案",
+          "预算重排",
+          "危机沟通"
+        ],
+        "status": [
+          "刚升任代理客户组长",
+          "正在接手栖山咖啡年度续约项目",
+          "租房预算紧张",
+          "与前上司裴述成为新室友",
+          "拿到72小时试运行窗口",
+          "随时可能因为项目失守被撤代理",
+          "正被公司内部流言和抢功风险夹击"
+        ],
+        "current_goals": [
+          "把72小时试运行做出可见回收",
+          "保住栖山咖啡这个年度大客户",
+          "把代理组长的位置坐实",
+          "守住和裴述之间的职业边界",
+          "在有限预算里维持海临的生活"
+        ],
+        "known_secrets": [
+          "公司把她顶上代理组长，不只是看重能力，也是因为没人愿意接栖山咖啡这口锅",
+          "裴述跳去甲方后，第一个要砍的就是高成本低转化的旧投放链",
+          "云麓公寓的合租是贺宁临时补位安排的，她没有第二套住处可退",
+          "裴述不会因为室友关系给她开口子，但会认有效方案",
+          "地库照片已经在公司内部流转，关系误判正在反噬她的职业信用"
+        ],
+        "recent_events": [
+          "姜栀升职当天接手栖山咖啡续约危机，并在新租房里撞见室友是前上司裴述",
+          "她在厨房连夜重排方案，第二天会场上被裴述当众追问投放烂账，同时因同车到场被外界误判关系升级",
+          "她用更贴近核销和转化的试运行方案拿到72小时窗口，并由裴述在会上明确为项目负责人"
+        ]
+      },
+      "active": [
+        {
+          "name": "裴述",
+          "role": "前上司 / 栖山咖啡品牌市场负责人 / 新室友",
+          "relationship": "工作对手兼生活绑定对象"
+        },
+        {
+          "name": "苏蔓",
+          "role": "澜曜互动商务总监",
+          "relationship": "同公司内部竞争者"
+        },
+        {
+          "name": "贺宁",
+          "role": "姜栀好友 / 人力BP",
+          "relationship": "介绍合租和提供职场提醒的人"
+        },
+        {
+          "name": "程竞",
+          "role": "栖山咖啡电商负责人",
+          "relationship": "裴述团队里的实际数据把关人"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "代理任命邮件",
+        "栖山咖啡Q3投放复盘表",
+        "合租合同"
+      ],
+      "protagonist_inventory": [
+        "代理任命邮件",
+        "栖山咖啡Q3投放复盘表",
+        "合租合同",
+        "电脑",
+        "公司门禁卡"
+      ]
+    },
+    "locations": {
+      "current": "海临创意园地库",
+      "visited": [
+        "澜曜互动十五层会议室",
+        "云麓公寓1702",
+        "栖山咖啡品牌中心",
+        "海临创意园地库"
+      ],
+      "important": [
+        "澜曜互动十五层会议室",
+        "云麓公寓1702",
+        "栖山咖啡品牌中心",
+        "海临创意园地库"
+      ]
+    },
+    "factions": {
+      "active": [
+        {
+          "name": "澜曜互动",
+          "role": "乙方代理公司"
+        },
+        {
+          "name": "栖山咖啡",
+          "role": "甲方品牌方"
+        }
+      ],
+      "archived": []
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "代理位随时会被换掉",
+          "description": "姜栀拿到的是代理头衔，不是正式晋升，只要栖山咖啡续约丢单，她的位置就会被公司收回。",
+          "planted_chapter": 1,
+          "expected_range": "2-5",
+          "status": "planted",
+          "related_entities": [
+            "姜栀",
+            "苏蔓",
+            "澜曜互动"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "裴述的真实换岗理由",
+          "description": "裴述从乙方离开并不是简单跳槽，他手里还握着上一轮投放被人为放大的成本问题。",
+          "planted_chapter": 1,
+          "expected_range": "4-8",
+          "status": "planted",
+          "related_entities": [
+            "裴述",
+            "姜栀",
+            "栖山咖啡"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "裴述会不会因为室友关系，对姜栀的方案开口子？",
+          "since_chapter": 1
+        },
+        {
+          "question": "姜栀能不能在试运行窗口里证明自己不是临时顶锅？",
+          "since_chapter": 1
+        }
+      ],
+      "resolved": []
+    },
+    "main_quest": {
+      "target": "姜栀在职场和合租双重绑定下，保住项目、坐实职位，并把和裴述的关系从旧上下级改写成可持续的同盟关系",
+      "location": "海临",
+      "secret": "这次项目危机不是单纯效果差，而是旧投放策略和内部利益分配一起把成本做歪了。",
+      "progress": 26
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "姜栀升职当天接手的是一个可能丢单的大客户",
+      "她和前上司裴述被迫进入同一套合租房",
+      "姜栀的事业线和生活线从第一天起就已经绑死",
+      "第二章里她和裴述的关系被外界误判升级，并直接影响到她的职场声誉",
+      "第三章里她先拿到了72小时试运行窗口，完成了一次职业上的小兑现"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "裴述在甲方端会优先砍不赚钱的旧投放链。",
+        "since_chapter": 0
+      },
+      {
+        "info": "裴述不会为了旧关系放水，她必须拿结果说话。",
+        "since_chapter": 2
+      },
+      {
+        "info": "苏蔓已经在盯她的窗口和模板，随时准备抢走执行成果。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "裴述跳槽背后到底握着哪部分旧投放问题",
+      "苏蔓会不会借这次试运行结果把她顶回原位",
+      "旧投放链里到底是谁坚持了高成本低转化的预算结构"
+    ],
+    "key_revelations": [
+      "裴述既是新室友，也是决定续约窗口生死的甲方负责人。",
+      "姜栀和裴述的同住关系已经被外界拍到，并开始反噬她的职业名誉。",
+      "姜栀用重排后的预算和转化链拿到了72小时试运行窗口。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-24T04:49:31Z",
+    "available_sections": [
+      "dialogue_style",
+      "writing_patterns",
+      "vocabulary_preferences",
+      "chapter_structure"
+    ]
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "黄金三章双线强绑定",
+    "chapter_words": {
+      "min": 2600,
+      "max": 3600,
+      "target": 3200
+    },
+    "golden_three": {
+      "hook_timing": "第一章前300字落职场困局和合租揭面",
+      "cheat_timing": "第三章给出项目试运行小兑现"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "workplace-romance",
+    "bucket": "职场婚恋",
+    "节奏": {
+      "type": "情感驱动型",
+      "tension_ratio": "5:5"
+    },
+    "爽点密度": 0.7,
+    "strand权重": {
+      "quest": 0.35,
+      "fire": 0.3,
+      "constellation": 0.35
+    },
+    "特殊约束": [
+      "工作链路冲突和生活绑定必须同场",
+      "前三章至少完成一次关系或职业换账",
+      "不能把职场写成恋爱背景板"
+    ]
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 3116,
+      "summary": "姜栀升职当天接下栖山咖啡的续约危机，回到新租房后发现新室友竟是前上司裴述，而他正是这次甲方会的负责人。",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "002": {
+      "word_count": 2776,
+      "summary": "裴述在厨房用甲方视角逼姜栀连夜重排方案，第二天会场上又公事公办压她，地库照片随即引发同事对两人关系升级的误判。",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {},
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    },
+    "003": {
+      "word_count": 2882,
+      "summary": "姜栀顶住公司内部抢功和甲方止损压力，用更贴近核销的试运行方案拿到72小时窗口，先保住了继续带项目的资格。",
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "职场婚恋",
+        "recommended_focus": "下一章要把试运行结果和公司内夺功风险同时落地，避免合租关系糖压过职场账。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      },
+      "last_close_time": null,
+      "last_close_route": "",
+      "last_close_review_score_before": 0,
+      "last_close_review_score_after": 0
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "001": "姜栀升职当天接锅，回家撞见新室友是前上司兼甲方负责人裴述。",
+    "002": "厨房改稿和会场对冲让两人的关系被外界误判升级，工作链也因此承压。",
+    "003": "姜栀拿下72小时试运行窗口，职业线出现第一笔小兑现。"
+  },
+  "character_states": {},
+  "setting_versions": {},
+  "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_applied": "2026-03-24T04:49:31Z",
+    "source_scan": "manual-minimal-sample",
+    "adjustments": [
+      {
+        "id": "workplace-romance-frontload-pressure",
+        "summary": "开篇前300字必须出现升职接锅和住处绑定中的至少一个硬困局。"
+      },
+      {
+        "id": "workplace-romance-double-ledger",
+        "summary": "每章至少改动事业账、关系账、资源账中的一项，不能只堆暧昧。"
+      }
+    ]
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-24T04:49:31Z",
+    "includes": [
+      "docs/anti-flattening-framework/README.md",
+      "docs/opening-and-plot-framework/README.md",
+      "docs/opening-and-plot-framework/fanqie-p0-overlays/职场婚恋.md"
+    ]
+  }
+}

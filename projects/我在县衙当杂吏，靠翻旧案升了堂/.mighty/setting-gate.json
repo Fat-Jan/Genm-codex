@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "status": "passed",
+  "checked_after": "outline",
+  "blocking_gaps": [],
+  "auto_created_files": [],
+  "review_queue_count": 0,
+  "mcp_used": false,
+  "mcp_sources": [],
+  "review_items": [],
+  "truth_sources_checked": [],
+  "minimal_next_action": {
+    "action": "none",
+    "reason": "gate passed",
+    "suggested_commands": []
+  }
+}

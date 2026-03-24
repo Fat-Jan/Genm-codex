@@ -1,0 +1,436 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "我在县衙当杂吏，靠翻旧案升了堂",
+    "genre": "历史脑洞",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-24T05:46:49Z",
+    "updated_at": "2026-03-24T07:08:42Z"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 26710,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T05:55:49Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "沈砚",
+        "aliases": [
+          "沈书手"
+        ],
+        "power": {
+          "realm": "",
+          "level": "卷宗回响",
+          "layer": 1
+        },
+        "location": {
+          "current": "清河县县衙二堂外",
+          "origin": "清河县南市"
+        },
+        "inventory": [
+          "旧案卷一箱",
+          "乌木算盘",
+          "残缺验尸格目",
+          "抄录笔刀",
+          "丁酉年盐脚案相关抄录",
+          "乙封旧封存残单"
+        ],
+        "abilities": [
+          "卷宗回响",
+          "抄录归档",
+          "口供比对",
+          "账目敏感"
+        ],
+        "status": [
+          "清河县县衙刑房杂吏",
+          "暂时脱离积案问责第一批替罪羊位置",
+          "已获准在二堂外记供理卷",
+          "被郑主簿盯上"
+        ],
+        "current_goals": [
+          "继续把丁酉年盐脚案往卷宗流转链上查深",
+          "保住眼下得来的二堂外资格",
+          "查清是谁在县衙里故意压旧案"
+        ],
+        "known_secrets": [
+          "他触碰旧卷时能看见被卷宗承认过的事实回响",
+          "卷宗回响只能看见曾经写入公文或供词链的内容，不能凭空造真相",
+          "丁酉年盐脚案卷中原有一句关于钝器伤和票封的关键信息被人压掉",
+          "旧案相关封存曾经转入过主簿房书办名下的流转链"
+        ],
+        "recent_events": [
+          "顾行舟在二堂下三日清积案死令",
+          "沈砚在丁酉年盐脚案中第一次触发卷宗回响",
+          "他借旧状纸和验尸格目矛盾让旧案暂缓销档",
+          "他在南市盐行翻出乙封旧封存残单",
+          "顾行舟准他以后在二堂外记供理卷"
+        ]
+      },
+      "active": [
+        {
+          "name": "顾行舟",
+          "role": "清河县知县",
+          "relationship": "利用与试探并存的上官"
+        },
+        {
+          "name": "魏捕头",
+          "role": "县衙捕头",
+          "relationship": "从轻蔑转为戒备"
+        },
+        {
+          "name": "鲁典吏",
+          "role": "刑房典吏",
+          "relationship": "会把锅往下压的直属上司"
+        },
+        {
+          "name": "何三娘",
+          "role": "旧案死者遗孀",
+          "relationship": "第一桩旧案的重要活口"
+        },
+        {
+          "name": "郑主簿",
+          "role": "主簿",
+          "relationship": "当前最可疑的压案链上位者之一"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "丁酉年盐脚案卷宗",
+        "残缺验尸格目",
+        "何三娘旧状纸",
+        "乙封旧封存残单"
+      ],
+      "protagonist_inventory": [
+        "旧案卷一箱",
+        "乌木算盘",
+        "残缺验尸格目",
+        "抄录笔刀",
+        "丁酉年盐脚案相关抄录",
+        "乙封旧封存残单"
+      ]
+    },
+    "locations": {
+      "current": "清河县县衙二堂外",
+      "visited": [
+        "清河县县衙",
+        "二堂",
+        "刑房档库",
+        "南市盐行"
+      ],
+      "important": [
+        "清河县县衙",
+        "刑房档库",
+        "二堂",
+        "南市盐行"
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "卷宗回响的来历",
+          "description": "沈砚为什么能从旧案卷中看见被记录过的事实链条，这能力与亡父旧职有关。",
+          "planted_chapter": 1,
+          "expected_range": "6-15",
+          "status": "planted",
+          "related_entities": [
+            "沈砚",
+            "卷宗回响",
+            "沈父"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "县衙压案之手",
+          "description": "清河县多年旧案并非单纯积压，有人持续删改、封口、销档。",
+          "planted_chapter": 1,
+          "expected_range": "4-10",
+          "status": "active",
+          "related_entities": [
+            "郑主簿",
+            "鲁典吏",
+            "顾行舟"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "主簿房书办流转链",
+          "description": "丁酉年盐脚案涉案封存曾经通过主簿房书办名义流转，旧案背后可能牵着更上面的簿册链。",
+          "planted_chapter": 3,
+          "expected_range": "4-8",
+          "status": "planted",
+          "related_entities": [
+            "郑主簿",
+            "主簿房书办",
+            "丁酉年盐脚案"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "郑主簿会如何反查沈砚，并把旧案重新压回去？",
+          "since_chapter": 3
+        },
+        {
+          "question": "卷宗回响的来历是否和沈父旧职有关？",
+          "since_chapter": 1
+        }
+      ],
+      "resolved": [
+        {
+          "question": "沈砚会不会在这轮清积案里先被推出去顶责？",
+          "resolved_chapter": 3
+        },
+        {
+          "question": "丁酉年盐脚案会不会被直接销档烂掉？",
+          "resolved_chapter": 2
+        }
+      ]
+    },
+    "main_quest": {
+      "target": "靠翻旧案从杂吏一步步拿到升堂断案的资格，并揭开清河县压案链条",
+      "location": "清河县",
+      "secret": "卷宗回响只能调用被制度留下的痕迹，越靠近真相，越会撞上不愿翻案的人。",
+      "progress": 24
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "顾行舟以三日清积案为由把整个县衙压进问责线",
+      "沈砚触碰旧案卷宗时能看见被记录过又被压掉的事实回响",
+      "丁酉年盐脚案原本的酒后斗殴结论已经站不住",
+      "旧案涉案封存曾通过主簿房书办名义流转"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "卷宗回响只能看见曾经被官方记录过的痕迹。",
+        "since_chapter": 1
+      },
+      {
+        "info": "何六顺死前提过票封与簿册，旧案和盐行账封相关。",
+        "since_chapter": 2
+      },
+      {
+        "info": "丁酉年盐脚案相关封存链曾经绕到主簿房书办手里。",
+        "since_chapter": 3
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "卷宗回响为何只在旧案上显现",
+      "顾行舟究竟想真清案还是借机清人",
+      "郑主簿本人在旧案链里站多深"
+    ],
+    "key_revelations": [
+      "验尸格目里关于钝器伤的判断曾被抹掉",
+      "何三娘当年的旧状被压在卷尾，没有进入正式附录",
+      "乙封旧封存残单证明旧案物证流转与主簿房书办链条有关"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "一致性": 0,
+      "节奏": 0,
+      "OOC": 0,
+      "连续性": 0,
+      "追读力": 0,
+      "开篇抓力": 0,
+      "层次清晰度": 0,
+      "推进有效性": 0,
+      "人物立体度": 0,
+      "关系张力": 0,
+      "阵营分歧": 0,
+      "代价感": 0
+    }
+  },
+  "learned_patterns": {
+    "writing_style_preferences": {
+      "dialogue_style": "古今结合，句子利落",
+      "description_density": "中低",
+      "pacing_preference": "黄金三章快兑现"
+    },
+    "high_point_preferences": [],
+    "avoid_patterns": [],
+    "user_feedback": []
+  },
+  "auto_learn_config": {
+    "enabled": true,
+    "milestone_chapters": 10,
+    "milestone_words": 50000,
+    "quality_threshold": 70,
+    "consecutive_low_quality_trigger": 3,
+    "min_analysis_chapters": 5,
+    "cooldown_hours": 24,
+    "last_auto_learn": null,
+    "last_auto_learn_chapter": 0
+  },
+  "platform_config": {
+    "name": "番茄",
+    "pacing": "创意历史型",
+    "chapter_words": {
+      "min": 2000,
+      "max": 5000,
+      "target": 3200
+    },
+    "golden_three": {
+      "hook_timing": "第一章落制度压力和脑洞切口",
+      "cheat_timing": "第二章让卷宗回响第一次改写现实局面"
+    },
+    "suspense_timing": {
+      "cheat_awakening": 1,
+      "main_goal_reveal": 1,
+      "core_twist": 3
+    }
+  },
+  "genre_profile": {
+    "loaded": "historical-brainhole",
+    "bucket": "历史脑洞",
+    "节奏": {
+      "type": "创意历史型",
+      "tension_ratio": "4:6"
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 45,
+      "fire": 30,
+      "constellation": 25
+    },
+    "特殊约束": [
+      "架空设定要自洽",
+      "历史感要有，但不能用设定讲义代替剧情"
+    ]
+  },
+  "chapter_meta": {
+    "1": {
+      "word_count": 9025,
+      "fanqie_bucket_flags": [
+        "身份困局落地",
+        "制度压力上场",
+        "脑洞切口亮相"
+      ],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "opening_promise": "县衙清积案死线与卷宗回响同章落地",
+        "ledger_change": "沈砚从被动等死转为准备借旧案自救"
+      }
+    },
+    "2": {
+      "word_count": 9028,
+      "fanqie_bucket_flags": [
+        "机制第一次见效",
+        "旧案暂缓销档",
+        "身份处境改善"
+      ],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "mechanism_effect": "卷宗回响提供的矛盾点迫使旧案重核",
+        "ledger_change": "沈砚从替罪羊变为顾行舟暂时可用之人"
+      }
+    },
+    "3": {
+      "word_count": 8657,
+      "fanqie_bucket_flags": [
+        "小闭环形成",
+        "主线未打穿",
+        "更大制度敌意露头"
+      ],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "closure": "丁酉年盐脚案原结论被推翻并重开",
+        "residual_risk": "主簿房流转链露头，郑主簿开始盯上沈砚",
+        "recommended_focus": "下一章要把旧案重开的制度后果和上位者敌意同时压上来，避免历史脑洞只剩翻案爽感。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "1": {
+      "file": "chapters/第001章.md",
+      "updated_at": "2026-03-24T05:55:49Z",
+      "word_count": 9025
+    },
+    "2": {
+      "file": "chapters/第002章.md",
+      "updated_at": "2026-03-24T05:55:49Z",
+      "word_count": 9028
+    },
+    "3": {
+      "file": "chapters/第003章.md",
+      "updated_at": "2026-03-24T05:55:49Z",
+      "word_count": 8657
+    }
+  },
+  "summaries_index": {
+    "1": "顾行舟下三日清积案死令，刑房准备把最底层杂吏沈砚推出去顶责。沈砚在丁酉年盐脚案卷中第一次触发卷宗回响，看见被压掉的钝器伤判断和临终遗言碎片，意识到这不是普通旧案。",
+    "2": "沈砚借旧状纸、验尸格目和程序细节在二堂前撬开口子，让何三娘重新说出何六顺死前关于票封与簿册的话。顾行舟因此下令丁酉年盐脚案暂缓销档，沈砚第一次被准许在二堂外记供理卷。",
+    "3": "沈砚顺着乙封旧封存线在南市盐行翻出残单，证明丁酉年盐脚案涉案物证流转与主簿房书办链条有关。顾行舟据此重开旧案，沈砚保住位置并获得堂前边缘资格，但也被郑主簿正式盯上。"
+  },
+  "character_states": {
+    "沈砚": {
+      "current_position": "二堂外记供理卷的杂吏",
+      "pressure": "被顾行舟拿来做趁手物件，也被郑主簿和鲁典吏盯上",
+      "latest_shift": "从档库替罪羊转为旧案重开线上的执行点"
+    }
+  },
+  "setting_versions": {},
+  "market_adjustments": {
+    "last_applied": "2026-03-24T05:46:49Z",
+    "source_scan": null,
+    "adjustments": [
+      {
+        "id": "historical-brainhole-opening",
+        "summary": "前三章优先验证制度压力、机制见效和小闭环。"
+      }
+    ]
+  },
+  "dungeons": {
+    "completed": [],
+    "current": null
+  },
+  "teammates": {
+    "active": [],
+    "inactive": []
+  },
+  "constraints_loaded": {
+    "core_constraints": "references/shared/core-constraints.md",
+    "version": "5.6",
+    "loaded_at": "2026-03-24T05:46:49Z",
+    "includes": [
+      "historical-brainhole",
+      "opening-and-plot-framework",
+      "anti-flattening-framework"
+    ]
+  }
+}

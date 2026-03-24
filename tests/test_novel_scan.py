@@ -657,6 +657,104 @@ class NovelScanTests(unittest.TestCase):
         self.assertIn("scan-frontload-conflict", adjustment_ids)
         self.assertIn("scan-kinship-truth-check", adjustment_ids)
 
+    def test_build_research_candidates_extracts_truth_gap_candidate(self) -> None:
+        module = load_module()
+        payload = {
+            "scan_time": "2026-03-23T00:00:00Z",
+            "mode": "project-annotate",
+            "report_kind": "real_report",
+            "targets": {"platforms": ["番茄"], "genre": "宫斗宅斗", "depth": "quick"},
+            "confidence": {"overall": "medium", "reason": "test"},
+            "sources": [
+                {
+                    "url": "https://fanqienovel.com/rank/0_2_246",
+                    "status": "success",
+                    "source_type": "fetch_mcp",
+                }
+            ],
+            "findings": {
+                "hot_tags": [
+                    {"tag": "高门婚配/权臣拉扯", "signal": "", "evidence_titles": ["番茄古风世情新书榜"]},
+                ],
+                "opening_patterns": [
+                    {"pattern": "婚配冲突先落地", "detail": "", "confidence": "medium"},
+                ],
+                "cool_point_patterns": [],
+            },
+            "apply_recommendations": [
+                {
+                    "type": "truth_consistency",
+                    "suggestion": "先补齐嫡庶、齿序、婚配与家权真值。",
+                    "confidence": "medium",
+                    "note": "test",
+                }
+            ],
+        }
+
+        candidates_doc = module.build_research_candidates(payload)
+
+        self.assertEqual(candidates_doc["source_scan"]["tool"], "novel-scan")
+        self.assertEqual(len(candidates_doc["candidates"]), 1)
+        self.assertEqual(candidates_doc["candidates"][0]["kind"], "rule")
+        self.assertEqual(candidates_doc["candidates"][0]["source"], "mcp")
+
+    def test_run_scan_can_emit_research_candidates_file(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir) / "project"
+            mighty = project_root / ".mighty"
+            mighty.mkdir(parents=True)
+            (mighty / "state.json").write_text(json.dumps({"meta": {"title": "Demo"}}))
+
+            def fake_acquire(url: str, **kwargs):
+                if url.endswith("0_2_246"):
+                    body = (
+                        "统计时间截止至 03-22 24:00 榜单说明 "
+                        "01 - 掌家 作者甲 嫡女 家权 反击陷害 "
+                        "02 - 后宅风云 作者乙 掌家 对手试探 嫡庶 "
+                    )
+                elif url.endswith("0_1_246"):
+                    body = (
+                        "统计时间截止至 03-22 24:00 榜单说明 "
+                        "01 - 重生归来 作者丁 重生复仇 当场反击 "
+                        "02 - 嫡女改命 作者戊 嫡女 继母陷害 打脸 "
+                    )
+                else:
+                    body = (
+                        "统计时间截止至 03-22 24:00 榜单说明 "
+                        "01 - 和嫡姐进错婚房 作者己 错婚房 权臣 先婚后爱 "
+                        "02 - 侯府和离 作者庚 和离 高门婚配 赐婚 "
+                    )
+                return {
+                    "status": "success",
+                    "source_type": "fetch_mcp",
+                    "title": "官方榜单页",
+                    "body": body + (" 样本" * 40),
+                    "source_url": url,
+                    "final_url": url,
+                    "failure_reason": None,
+                    "attempts": [],
+                    "notes": [],
+                    "fetched_at": "2026-03-23T00:00:00Z",
+                    "duration_ms": 10,
+                }
+
+            module.run_scan(
+                project_root=project_root,
+                platform="番茄",
+                genre="宫斗宅斗",
+                depth="quick",
+                mode="project-annotate",
+                acquire_fn=fake_acquire,
+                timestamp="2026-03-23T00:00:00Z",
+                emit_research_candidates=True,
+            )
+
+            candidates_doc = json.loads((mighty / "research-candidates.json").read_text(encoding="utf-8"))
+            self.assertEqual(candidates_doc["source_scan"]["tool"], "novel-scan")
+            self.assertEqual(len(candidates_doc["candidates"]), 1)
+            self.assertEqual(candidates_doc["candidates"][0]["name"], "嫡庶婚配真值补证")
+
     def test_reading_list_keeps_stricter_thresholds(self) -> None:
         module = load_module()
         sources = [

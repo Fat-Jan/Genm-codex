@@ -27,12 +27,23 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run local-first setting enrichment and gate evaluation.")
     parser.add_argument("project_root", help="Novel project root")
     parser.add_argument("--stage", choices=["init", "outline", "write", "write-post"], default="outline")
+    parser.add_argument("--candidates-file", default="", help="Optional research candidates JSON file")
     parser.add_argument("--report-only", action="store_true")
     return parser.parse_args()
 
 
 def _read_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_candidates_file(path: Path | str | None) -> list[dict]:
+    if not path:
+        return []
+    payload = _read_json(Path(path))
+    candidates = payload.get("candidates", [])
+    if not isinstance(candidates, list):
+        raise ValueError("candidates file must contain a top-level 'candidates' array")
+    return [item for item in candidates if isinstance(item, dict)]
 
 
 def load_state(project_root: Path) -> dict:
@@ -322,6 +333,53 @@ def _write_gate_state(project_root: Path, result: dict, report_only: bool) -> No
     path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def _build_minimal_next_action(project_root: Path, stage: str, blocking_gaps: list[dict], review_items: list[dict]) -> dict:
+    rerun_cmd = f"python3 scripts/setting_gate.py {project_root} --stage {stage}"
+    if any(item.get("source") == "mcp" and item.get("blocking") for item in review_items):
+        return {
+            "action": "review-sync-queue",
+            "reason": "high-risk research candidate requires confirmation before canon use",
+            "suggested_commands": [
+                f"python3 scripts/review-sync-queue.py {project_root} --list",
+                rerun_cmd,
+            ],
+        }
+
+    blocking_keys = {gap.get("key", "") for gap in blocking_gaps}
+    if blocking_keys & {"kinship_truth", "office_truth", "world_rule_support"}:
+        return {
+            "action": "novel-setting",
+            "reason": "project-local truth source is missing for the current outline route",
+            "suggested_commands": [
+                rerun_cmd,
+            ],
+        }
+
+    if blocking_gaps:
+        return {
+            "action": "novel-setting",
+            "reason": "gate is blocked and needs project-local setting completion",
+            "suggested_commands": [
+                rerun_cmd,
+            ],
+        }
+
+    if review_items:
+        return {
+            "action": "review-sync-queue",
+            "reason": "gate has queued review items that should be triaged before writing",
+            "suggested_commands": [
+                f"python3 scripts/review-sync-queue.py {project_root} --list",
+            ],
+        }
+
+    return {
+        "action": "none",
+        "reason": "gate passed",
+        "suggested_commands": [],
+    }
+
+
 def run_gate(
     *,
     project_root: Path,
@@ -374,6 +432,7 @@ def run_gate(
         "mcp_sources": sorted({item.get("source", "") for item in (mcp_candidates or []) if item.get("source")}),
         "review_items": graded["review_items"],
         "truth_sources_checked": truth_result["used"],
+        "minimal_next_action": _build_minimal_next_action(project_root, stage, blocking_gaps, graded["review_items"]),
     }
     _write_gate_state(project_root, result, report_only)
     _write_sync_review(project_root, stage, graded["review_items"], report_only)
@@ -382,7 +441,12 @@ def run_gate(
 
 def main() -> None:
     args = parse_args()
-    result = run_gate(project_root=Path(args.project_root), stage=args.stage, report_only=args.report_only)
+    result = run_gate(
+        project_root=Path(args.project_root),
+        stage=args.stage,
+        report_only=args.report_only,
+        mcp_candidates=load_candidates_file(args.candidates_file),
+    )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

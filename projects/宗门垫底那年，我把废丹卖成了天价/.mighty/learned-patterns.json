@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-24T05:15:37Z",
+  "data": {
+    "writing_style_preferences": {
+      "dialogue_style": "短句直给",
+      "description_density": "中等偏低",
+      "pacing_preference": "前三章快节奏"
+    },
+    "high_point_preferences": [
+      "现实账本立刻变化",
+      "资源差距先压后翻"
+    ],
+    "avoid_patterns": [
+      "说明文式玄幻",
+      "机制只是挂名"
+    ],
+    "user_feedback": [
+      "不许大段讲设定代替剧情"
+    ]
+  }
+}

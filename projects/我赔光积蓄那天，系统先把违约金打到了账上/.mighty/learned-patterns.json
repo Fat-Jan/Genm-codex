@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "现代口语、快节奏、带一点冷嘲感",
+    "description_density": "中低，优先现实困局、到账反馈和反击节奏",
+    "pacing_preference": "前三章必须完成系统到账、边界确认和第一轮反杀"
+  },
+  "high_point_preferences": [
+    "赔付不是送钱，而是逼主角拿着钱去打现实仗",
+    "到账必须立刻改变现实位置",
+    "小爽点要带下一轮更大钩子"
+  ],
+  "avoid_patterns": [
+    "系统只会发钱不会制造边界",
+    "只有网上震惊没有现实后果",
+    "设定说明盖过剧情"
+  ],
+  "user_feedback": []
+}

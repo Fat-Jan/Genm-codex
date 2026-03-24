@@ -26,6 +26,7 @@ Always read what exists:
 
 - `.mighty/workflow_state.json`
 - `.mighty/state.json`
+- `.mighty/setting-gate.json`
 
 Read conditionally:
 
@@ -70,6 +71,11 @@ If `.mighty/workflow_state.json` exists and contains an active task:
    - interruption point
    - recommended next action
    - prerequisite checks needed before continuing
+   - if `.mighty/setting-gate.json` exists and is not `passed`, surface:
+     - `blocking_gaps`
+     - `review_items`
+     - `minimal_next_action`
+     before recommending any prose-generation continuation
 
 ### 3. State-based fallback mode
 
@@ -83,11 +89,14 @@ If there is no usable workflow state:
    - active foreshadowing
    - current learned / market guidance when available in sidecars
    - whether the next chapter outline exists
+   - whether `.mighty/setting-gate.json` blocks writing
 3. If the user provided `chapter`, use it as the continuation target.
 4. Otherwise, recommend the next chapter after `progress.current_chapter`.
 5. Return a concise continuation brief:
    - current progress
    - immediate unresolved hooks
+   - gate status when present
+   - `minimal_next_action` when the gate is `blocked` or `review_required`
    - next recommended command
 
 ## Output conventions
@@ -108,6 +117,7 @@ Prefer one of these formats:
 - total words
 - protagonist state summary
 - active foreshadowing summary
+- gate status / minimal next action when relevant
 - next recommended chapter or task
 
 ## First-version safety rules
@@ -128,3 +138,4 @@ Prefer one of these formats:
 - Treat `workflow_state.json` as advisory state, not as proof that every underlying step artifact exists.
 - If the requested chapter outline is missing, recommend `novel-outline` instead of guessing the continuation path.
 - When sidecar guidance exists, prefer reading it over the summary pointer in `state`.
+- If `.mighty/setting-gate.json` is present and not `passed`, do not recommend `novel-write` as the next step ahead of the gate's `minimal_next_action`.

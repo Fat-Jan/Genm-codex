@@ -1,19 +1,22 @@
 {
   "version": "1.0",
-  "source": "novel-init-minimal-sample",
-  "writing_style_preferences": {
-    "dialogue_style": "校园口语，轻快有来回",
-    "description_density": "优先动作和现场细节",
-    "pacing_preference": "每章都要有场景换账"
-  },
-  "high_point_preferences": [
-    "误认身份",
-    "校园公开场合里的偏爱",
-    "从社死到绑定的小兑现"
-  ],
-  "avoid_patterns": [
-    "只有内心独白",
-    "把校园当背景板",
-    "第3章全赢"
-  ]
+  "last_updated": "2026-03-24T04:45:56Z",
+  "data": {
+    "writing_style_preferences": {
+      "dialogue_style": "校园口语化，轻快，不装成熟",
+      "description_density": "中低，优先动作和场景细节",
+      "pacing_preference": "黄金三章快推进，每章都要换账"
+    },
+    "high_point_preferences": [
+      "误认身份带来的社死与反差",
+      "校园日常里的偏爱瞬间",
+      "小兑现先落在公开关系和场景绑定上"
+    ],
+    "avoid_patterns": [
+      "背景大段先行",
+      "只有心动没有事件",
+      "男主无代价发糖"
+    ],
+    "user_feedback": []
+  }
 }

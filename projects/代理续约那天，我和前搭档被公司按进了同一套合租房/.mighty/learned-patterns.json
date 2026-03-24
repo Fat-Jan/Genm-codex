@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "利落、克制、带职场对冲感",
+    "description_density": "中低，优先代理、甲方、合租与试运行的现实账",
+    "pacing_preference": "前三章必须让关系与工作双线同场推进"
+  },
+  "high_point_preferences": [
+    "工作盘和关系盘一起掀桌",
+    "合租不是糖，是位置绑定",
+    "小兑现必须是项目位置而不是情绪表白"
+  ],
+  "avoid_patterns": [
+    "只有暧昧没有甲方压力",
+    "职场只剩名词堆砌",
+    "试运行只是背景板"
+  ],
+  "user_feedback": []
+}

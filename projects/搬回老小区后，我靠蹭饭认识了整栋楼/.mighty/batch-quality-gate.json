@@ -1,0 +1,46 @@
+{
+  "project": "/Users/arm/Desktop/vscode/Genm-codex/projects/搬回老小区后，我靠蹭饭认识了整栋楼",
+  "chapters": [
+    1,
+    2,
+    3
+  ],
+  "batch_count": 3,
+  "baseline_avg_chars": null,
+  "metrics": [
+    {
+      "chapter": 1,
+      "chars": 3702,
+      "lines": 226,
+      "dialogue_marks": 74,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 2,
+      "chars": 3379,
+      "lines": 202,
+      "dialogue_marks": 69,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 3,
+      "chars": 3530,
+      "lines": 250,
+      "dialogue_marks": 66,
+      "bullet_lines": 0
+    }
+  ],
+  "status": "pass",
+  "safe_max_batch": 3,
+  "length_policy": {
+    "hard_min_chars": 2000,
+    "soft_min_chars": 2400,
+    "preferred_min_chars": 2600,
+    "preferred_max_chars": 3400,
+    "track": "longform",
+    "bucket_name": "都市日常"
+  },
+  "issues": [],
+  "warnings": [],
+  "recommendation": "当前批次通过质量门，但后续仍建议一次性最多 3 章。"
+}

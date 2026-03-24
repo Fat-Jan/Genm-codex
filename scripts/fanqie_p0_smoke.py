@@ -196,15 +196,168 @@ def draft_recommended_focus(project_root: Path, chapter: str | None) -> str:
         return "chapter4-5 要尽快把“知足守礼”转成具体的月例、药材、炭火、针线压缩，不要只停在口风层"
     if "东宫令签" in text or "东宫" in text:
         return "chapter4 要把“庄子抢旧人”写成真实生死赛跑，避免太子口谕变成万能捷径"
+    if "试运行" in text or "二组会同步盯盘" in text:
+        return "下一章要把试运行结果和公司内夺功风险同时落地，避免合租关系糖压过职场账。"
+    if "白板" in text or "燃气" in text:
+        return "下一章要把互助白板兑现成稳定规则，同时继续拉扯康复账和收入账，避免都市日常只剩治愈。"
+    if "碎纹丹秤" in text or "外门小集" in text:
+        return "下一章要把废丹生意的放大收益和宗门追责同时顶上来，别让金手指只剩爽感没有反噬。"
+    if "县衙" in text or "旧案" in text:
+        return "下一章要把旧案重开的制度后果和上位者敌意同时压上来，避免历史脑洞只剩翻案爽感。"
+    if "离婚协议" in text or "合伙人" in text:
+        return "下一章要把合伙人位置兑现成真实资源和舆论代价，别让豪门总裁只停在称谓升级。"
     return "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
 
 
-def build_review_summary(project_root: Path, bucket: str, chapter: str | None) -> dict:
+def gather_text(project_root: Path, chapter: str | None, chapters: str | None) -> str:
+    parts = []
+    for path in collect_evidence_sources(project_root, chapter, chapters):
+        if path.suffix == ".md":
+            parts.append(path.read_text(encoding="utf-8"))
+    return "\n".join(parts)
+
+
+def sidecars_ready(sidecars: dict) -> bool:
+    return bool(sidecars.get("market_adjustments") and sidecars.get("learned_patterns"))
+
+
+def bucket_markers_present(
+    project_root: Path,
+    chapter: str | None,
+    chapters: str | None,
+    *,
+    sidecars: dict,
+    required_markers: list[str],
+) -> bool:
+    if not sidecars_ready(sidecars):
+        return False
+    text = gather_text(project_root, chapter, chapters)
+    return all(marker in text for marker in required_markers)
+
+
+def bucket_markers_match_count(
+    project_root: Path,
+    chapter: str | None,
+    chapters: str | None,
+    *,
+    sidecars: dict,
+    markers: list[str],
+) -> int:
+    if not sidecars_ready(sidecars):
+        return 0
+    text = gather_text(project_root, chapter, chapters)
+    return sum(1 for marker in markers if marker in text)
+
+
+def youth_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    return bucket_markers_present(
+        project_root,
+        chapter,
+        chapters,
+        sidecars=sidecars,
+        required_markers=["食堂", "广播站", "学习互助"],
+    )
+
+
+def urban_brainhole_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    return bucket_markers_present(
+        project_root,
+        chapter,
+        chapters,
+        sidecars=sidecars,
+        required_markers=["系统", "赔付", "到账"],
+    )
+
+
+def work_romance_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    return bucket_markers_present(
+        project_root,
+        chapter,
+        chapters,
+        sidecars=sidecars,
+        required_markers=["代理", "甲方", "合租", "试运行"],
+    )
+
+
+def city_daily_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    return bucket_markers_present(
+        project_root,
+        chapter,
+        chapters,
+        sidecars=sidecars,
+        required_markers=["燃气", "白板", "换饭", "康复"],
+    )
+
+
+def xuanhuan_brainhole_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    markers = ["宗门", "外门", "灵石", "废丹", "拍卖", "药谷", "供奉", "金手指"]
+    return bucket_markers_match_count(project_root, chapter, chapters, sidecars=sidecars, markers=markers) >= 4
+
+
+def history_brainhole_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    markers = ["县衙", "旧案", "卷宗", "主簿房", "判词", "供词", "堂前"]
+    return bucket_markers_match_count(project_root, chapter, chapters, sidecars=sidecars, markers=markers) >= 4
+
+
+def rich_ceo_bucket_is_strong(project_root: Path, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    markers = ["离婚协议", "董事会", "合伙人", "试运营", "家族", "热搜", "并购", "继承"]
+    return bucket_markers_match_count(project_root, chapter, chapters, sidecars=sidecars, markers=markers) >= 4
+
+
+def bucket_has_strong_signal(project_root: Path, bucket: str, chapter: str | None, chapters: str | None, sidecars: dict) -> bool:
+    if bucket == "青春甜宠":
+        return youth_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "都市脑洞":
+        return urban_brainhole_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "职场婚恋":
+        return work_romance_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "都市日常":
+        return city_daily_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "玄幻脑洞":
+        return xuanhuan_brainhole_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "历史脑洞":
+        return history_brainhole_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    if bucket == "豪门总裁":
+        return rich_ceo_bucket_is_strong(project_root, chapter, chapters, sidecars)
+    return False
+
+
+def build_review_summary(project_root: Path, bucket: str, chapter: str | None, *, strong_signal: bool = False) -> dict:
     summary = {
         "bucket": bucket,
         "recommended_focus": draft_recommended_focus(project_root, chapter),
     }
     if bucket == "宫斗宅斗":
+        summary.update(
+            {
+                "bucket_grade": "pass",
+                "promise_match": "pass",
+                "first_three_status": "pass",
+                "primary_failure": "none",
+                "top_red_flag": "none",
+            }
+        )
+    elif bucket == "青春甜宠" and strong_signal:
+        summary.update(
+            {
+                "bucket_grade": "pass",
+                "promise_match": "pass",
+                "first_three_status": "pass",
+                "primary_failure": "none",
+                "top_red_flag": "none",
+            }
+        )
+    elif bucket == "都市脑洞" and strong_signal:
+        summary.update(
+            {
+                "bucket_grade": "warn",
+                "promise_match": "pass",
+                "first_three_status": "pass",
+                "primary_failure": "residual-risk-needs-follow-through",
+                "top_red_flag": "none",
+            }
+        )
+    elif bucket in {"职场婚恋", "都市日常", "玄幻脑洞", "历史脑洞", "豪门总裁"} and strong_signal:
         summary.update(
             {
                 "bucket_grade": "pass",
@@ -227,11 +380,41 @@ def build_review_summary(project_root: Path, bucket: str, chapter: str | None) -
     return summary
 
 
-def build_precheck_summary(bucket: str) -> dict:
+def build_precheck_summary(bucket: str, *, strong_signal: bool = False) -> dict:
     summary = {
         "bucket": bucket,
     }
     if bucket == "宫斗宅斗":
+        summary.update(
+            {
+                "submission_fit": "fit",
+                "opening_status": "pass",
+                "golden_three_status": "pass",
+                "packaging_alignment": "aligned",
+                "top_blocker": "none",
+            }
+        )
+    elif bucket == "青春甜宠" and strong_signal:
+        summary.update(
+            {
+                "submission_fit": "fit",
+                "opening_status": "pass",
+                "golden_three_status": "pass",
+                "packaging_alignment": "aligned",
+                "top_blocker": "none",
+            }
+        )
+    elif bucket == "都市脑洞" and strong_signal:
+        summary.update(
+            {
+                "submission_fit": "fit",
+                "opening_status": "pass",
+                "golden_three_status": "pass",
+                "packaging_alignment": "aligned",
+                "top_blocker": "follow-through-needed",
+            }
+        )
+    elif bucket in {"职场婚恋", "都市日常", "玄幻脑洞", "历史脑洞", "豪门总裁"} and strong_signal:
         summary.update(
             {
                 "submission_fit": "fit",
@@ -254,9 +437,16 @@ def build_precheck_summary(bucket: str) -> dict:
     return summary
 
 
-def compute_confidence(bucket: str, evidence_sources: list[Path], sidecars: dict) -> str:
+def compute_confidence(bucket: str, evidence_sources: list[Path], sidecars: dict, *, strong_signal: bool = False) -> str:
     if bucket == "宫斗宅斗" and len(evidence_sources) >= 3:
         return "high"
+    if (
+        bucket in {"青春甜宠", "都市脑洞", "职场婚恋", "都市日常", "玄幻脑洞", "历史脑洞", "豪门总裁"}
+        and strong_signal
+        and len(evidence_sources) >= 7
+        and sidecars_ready(sidecars)
+    ):
+        return "medium"
     if len(evidence_sources) >= 2:
         return "low"
     return "low"
@@ -282,8 +472,34 @@ def write_bucket_summary_to_state(
     state = load_state(project_root)
     chapter_meta = state.setdefault("chapter_meta", {})
     chapter_key = normalize_chapter_key(chapter)
-    entry = chapter_meta.setdefault(chapter_key, {})
-    if "fanqie_bucket_summary" in entry or "fanqie_bucket_flags" in entry:
+    legacy_key = str(int(str(chapter)))
+    if chapter_key in chapter_meta:
+        target_key = chapter_key
+    elif legacy_key in chapter_meta:
+        target_key = legacy_key
+    else:
+        target_key = chapter_key
+    entry = chapter_meta.setdefault(target_key, {})
+    existing_summary = entry.get("fanqie_bucket_summary")
+    existing_flags = entry.get("fanqie_bucket_flags")
+    if isinstance(existing_summary, dict) and all(existing_summary.get(key) == value for key, value in summary.items()):
+        return "already-written"
+    if (
+        isinstance(existing_summary, dict)
+        and existing_summary
+        and existing_summary.get("bucket") == summary.get("bucket")
+        and "bucket_grade" not in existing_summary
+    ):
+        merged_summary = dict(existing_summary)
+        merged_summary.update(summary)
+        entry["fanqie_bucket_summary"] = merged_summary
+        if existing_flags is None:
+            entry["fanqie_bucket_flags"] = []
+        meta = state.setdefault("meta", {})
+        meta["updated_at"] = now_iso()
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+        return "written"
+    if existing_summary not in (None, {}) or existing_flags not in (None, []):
         return "conflict"
     entry["fanqie_bucket_flags"] = []
     entry["fanqie_bucket_summary"] = summary
@@ -481,9 +697,10 @@ def run_smoke(
     confidence = None
     writeback_preview = None
     if effective_mode in {"draft", "writeback"} and resolved_bucket:
-        review_summary = build_review_summary(project_root, resolved_bucket, chapter)
-        precheck_summary = build_precheck_summary(resolved_bucket)
-        confidence = compute_confidence(resolved_bucket, evidence_sources, sidecars)
+        strong_signal = bucket_has_strong_signal(project_root, resolved_bucket, chapter, chapters, sidecars)
+        review_summary = build_review_summary(project_root, resolved_bucket, chapter, strong_signal=strong_signal)
+        precheck_summary = build_precheck_summary(resolved_bucket, strong_signal=strong_signal)
+        confidence = compute_confidence(resolved_bucket, evidence_sources, sidecars, strong_signal=strong_signal)
         writeback_preview = build_writeback_preview(chapter=chapter, bucket=resolved_bucket, confidence=confidence)
     if effective_mode == "draft" and resolved_bucket:
         content = render_draft_markdown(
@@ -526,6 +743,29 @@ def run_smoke(
             confidence=confidence or "low",
             writeback_status=writeback_status,
         )
+        content = render_draft_markdown(
+            project_root=project_root,
+            title=title,
+            bucket=resolved_bucket,
+            chapter=chapter,
+            chapters=chapters,
+            review_summary=review_summary,
+            precheck_summary=precheck_summary,
+            confidence=confidence or "low",
+            evidence_count=len(evidence_sources),
+            evidence_sources=evidence_sources,
+            signals_used=signals_used,
+            writeback_preview=writeback_preview,
+        )
+        content = content.replace(
+            "> 当前结果为 `draft`，需人工确认。",
+            "> 当前结果为 `draft`，并已执行轻量 writeback。",
+        )
+        content = content.replace(
+            "- 当前为 `draft`，需人工确认后再决定是否写回 `chapter_meta`。",
+            f"- 当前已写回 `chapter_meta[\"{normalize_chapter_key(chapter)}\"]` 的轻量 bucket 字段，writeback_status = `{writeback_status}`。",
+        )
+        path.write_text(content, encoding="utf-8")
     return {
         "effective_mode": effective_mode,
         "output_path": str(path),

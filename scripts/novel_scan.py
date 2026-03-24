@@ -930,6 +930,66 @@ def build_adjustments(payload: dict) -> dict:
     }
 
 
+def infer_research_candidate_source(payload: dict) -> str:
+    successful_sources = [
+        source
+        for source in payload.get("sources", [])
+        if source.get("status") in {"success", "partial"}
+    ]
+    if any(source.get("source_type") == "fetch_mcp" for source in successful_sources):
+        return "mcp"
+    if successful_sources:
+        return "external"
+    return "local"
+
+
+def build_research_candidates(payload: dict) -> dict:
+    adjustments = build_adjustments(payload)
+    adjustment_ids = {item["id"] for item in adjustments.get("adjustments", [])}
+    candidates: list[dict] = []
+    if (
+        payload.get("report_kind") == "real_report"
+        and payload.get("confidence", {}).get("overall") in {"medium", "high"}
+        and "scan-kinship-truth-check" in adjustment_ids
+    ):
+        successful_urls = [
+            source["url"]
+            for source in payload.get("sources", [])
+            if source.get("status") in {"success", "partial"} and source.get("url")
+        ]
+        candidates.append(
+            {
+                "name": "嫡庶婚配真值补证",
+                "kind": "rule",
+                "source": infer_research_candidate_source(payload),
+                "confidence": payload["confidence"]["overall"],
+                "candidate_files": [
+                    "设定集/家族/宅门真值表.md",
+                    "设定集/家族/小型家谱.md",
+                ],
+                "evidence_urls": successful_urls,
+                "notes": [
+                    "candidate only, not canon",
+                    "由 novel-scan 的高门婚配/嫡庶关系信号提炼，供 setting gate review queue 使用。",
+                ],
+            }
+        )
+
+    return {
+        "version": "1.0",
+        "generated_at": payload["scan_time"],
+        "source_scan": {
+            "tool": "novel-scan",
+            "mode": payload.get("mode", ""),
+            "platform": payload.get("targets", {}).get("platforms", [""])[0] if payload.get("targets", {}).get("platforms") else "",
+            "genre": payload.get("targets", {}).get("genre", ""),
+            "depth": payload.get("targets", {}).get("depth", ""),
+            "report_kind": payload.get("report_kind", ""),
+        },
+        "candidates": candidates,
+    }
+
+
 def can_apply_adjustments(payload: dict) -> bool:
     return payload["mode"] == "project-annotate" and payload["report_kind"] == "real_report" and payload["confidence"]["overall"] in {"medium", "high"}
 
@@ -947,6 +1007,8 @@ def run_scan(
     fanqie_reference_font_path: Path | None = None,
     fanqie_reference_font_number: int | None = None,
     fanqie_decode_mode: str = "off",
+    emit_research_candidates: bool = False,
+    research_candidates_path: Path | None = None,
 ) -> dict:
     timestamp = timestamp or now_iso()
     mighty_dir = project_root / ".mighty"
@@ -991,6 +1053,7 @@ def run_scan(
     write_json(mighty_dir / "market-data.json", payload)
 
     adjustments_path = mighty_dir / "market-adjustments.json"
+    candidates_path = research_candidates_path or (mighty_dir / "research-candidates.json")
     if can_apply_adjustments(payload):
         adjustments = build_adjustments(payload)
         write_json(adjustments_path, adjustments)
@@ -1007,6 +1070,13 @@ def run_scan(
             del state["market_adjustments"]
             write_json(state_path, state)
 
+    if emit_research_candidates:
+        candidates_doc = build_research_candidates(payload)
+        if candidates_doc["candidates"]:
+            write_json(candidates_path, candidates_doc)
+        else:
+            remove_file_if_exists(candidates_path)
+
     return payload
 
 
@@ -1022,6 +1092,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--fanqie-reference-font", default=os.getenv("GENM_FANQIE_REFERENCE_FONT", ""))
     parser.add_argument("--fanqie-reference-font-number", type=int, default=int(os.getenv("GENM_FANQIE_REFERENCE_FONT_NUMBER", "0")) if os.getenv("GENM_FANQIE_REFERENCE_FONT_NUMBER") else None)
     parser.add_argument("--fanqie-decode-mode", choices=["off", "approx"], default=os.getenv("GENM_FANQIE_DECODE_MODE", "off"))
+    parser.add_argument("--emit-research-candidates", action="store_true")
+    parser.add_argument("--research-candidates-file", default="")
     return parser.parse_args()
 
 
@@ -1038,6 +1110,8 @@ def main() -> None:
         fanqie_reference_font_path=Path(args.fanqie_reference_font) if args.fanqie_reference_font else None,
         fanqie_reference_font_number=args.fanqie_reference_font_number,
         fanqie_decode_mode=args.fanqie_decode_mode,
+        emit_research_candidates=args.emit_research_candidates,
+        research_candidates_path=Path(args.research_candidates_file) if args.research_candidates_file else None,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

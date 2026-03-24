@@ -40,6 +40,7 @@ Read conditionally when needed:
 - `.mighty/state-archive.json`
 - `.mighty/learned-patterns.json`
 - `.mighty/market-adjustments.json`
+- `.mighty/setting-gate.json`
 - `设定集/角色/*.md`
 - `设定集/世界观/*.md`
 - `设定集/力量体系.md`
@@ -57,6 +58,8 @@ Examples:
 - 有哪些活跃伏笔
 - 第001章之后主角状态怎么变了
 - 项目现在进度怎么样
+- setting gate 现在卡在哪
+- 当前最小下一步动作是什么
 - 第003章发生了什么
 - 哪几章提到了后山东壁
 - 现在有哪些活跃伏笔
@@ -108,18 +111,26 @@ Map these requests onto state or index data rather than pretending to execute a 
 5. If the request asks about learned style preferences, current market guidance, or project-side writing constraints, read:
    - `.mighty/learned-patterns.json`
    - `.mighty/market-adjustments.json`
-6. Resolve the request source:
+6. If the request asks about write readiness, blockers, next actionable command, or `setting gate`, read:
+   - `.mighty/setting-gate.json`
+7. Resolve the request source:
    - state-first for current truth
    - state-archive for old chapter metadata / snapshot / summary history
    - sidecar-first for learned / market guidance
+   - gate-first for current write-readiness blockers / `minimal_next_action`
    - index-first for chapter lookup / summary / mention search
-7. If the answer is fully available from state, state-archive, sidecar, or index, stop there.
-8. Only read additional files if state, state-archive, sidecars, and index all lack the needed detail.
-9. Return the smallest useful result:
+8. If the answer is fully available from state, state-archive, sidecar, gate, or index, stop there.
+9. Only read additional files if state, state-archive, sidecars, gate, and index all lack the needed detail.
+10. Return the smallest useful result:
    - list for browsing
    - count for totals
    - short summary for direct questions
    - table only when multiple fields are explicitly helpful
+   - for gate queries, prefer:
+     - `status`
+     - `blocking_gaps`
+     - `review_items`
+     - `minimal_next_action`
 
 ## Template guidance
 
@@ -141,6 +152,7 @@ Suggested behaviors:
 - `active-foreshadowing`: list active foreshadowing items with status or expected range
 - `character-relations`: summarize protagonist + active character relations from state and character files
 - `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
+- `setting-gate`: summarize gate status, blocking gaps, queued confirmations, and `minimal_next_action`
 - `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
 - `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries
   - if state has been thinned, check `state-archive.summaries_index` before falling back to index
@@ -164,6 +176,7 @@ If the index is missing and the request clearly wants index-backed data, say so 
 - Include field names when the result may be ambiguous
 - If no result exists, say so directly and suggest the nearest alternative query
 - When using index-backed data, mention that briefly so the user knows where the answer came from
+- When using gate-backed data, mention that it came from `.mighty/setting-gate.json`
 
 ## Notes
 
@@ -176,3 +189,4 @@ If the index is missing and the request clearly wants index-backed data, say so 
   4. `index` for broad retrieval
 - If the user asks for broad statistics, summarize first and only expand on request.
 - Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.
+- If `.mighty/setting-gate.json` exists, treat it as the source of truth for current write-readiness and next-action blockers.

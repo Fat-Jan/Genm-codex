@@ -118,6 +118,13 @@
     - `python3 scripts/setting_gate.py <project_root> --stage outline`
 - `novel-write` 现在应先检查 `.mighty/setting-gate.json`
   - 若状态不是 `passed`，先回 gate，不要直接写
+  - 若状态是 `blocked` 或 `review_required`，优先看：
+    - `blocking_gaps`
+    - `review_items`
+    - `minimal_next_action`
+  - `minimal_next_action.suggested_commands` 现在就是最小处理入口
+  - 如果你想要集中入口，不想在多个说明之间跳，直接看：
+    - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gate-triage.md)
 - 当前默认强质量门已经接进主线：
   - 写前若缺真值表 / 世界规则 / 时代资料，`novel-write` 应直接阻断，而不是带着脑补开写
   - 收口前若仍存在短章 / 明显缩水 / malformed text / 可证伪设定违和等 hard blocker，`novel-close` 不应判定本章收口成功
@@ -426,6 +433,17 @@ python3 scripts/novel_scan.py <project_root> --platform 番茄 --genre 玄幻 --
   - `番茄 + 宫斗宅斗 + quick`
 - 其他组合建议额外传 `--source-url <url>`
 - `--mode project-annotate` 不会绕过可信度门槛
+- 如需把外部扫描结果作为 `setting gate` 的可选 research 候选输入，而不是直接改 canon，可额外传：
+  - `--emit-research-candidates`
+  - 可选 `--research-candidates-file <path>`
+- 默认候选 sidecar 为：
+  - `.mighty/research-candidates.json`
+- 这类候选只应用于：
+  - `python3 scripts/setting_gate.py <project_root> --stage outline --candidates-file <path>`
+- 候选会进入：
+  - `.mighty/setting-gate.json`
+  - `.mighty/sync-review.json`
+  不会直接写入 `设定集/` 或 canon
 
 如果当前问题先卡在“正文抓取不稳定”，而你需要一个不阻塞调研的获取层，可以先用：
 
@@ -449,10 +467,16 @@ python3 scripts/acquire_source_text.py <url> --pretty
 请使用 novel-query skill，基于当前 state 和 index，列出活跃伏笔，并告诉我哪些章节提到了后山东壁。
 ```
 
+如果你想直接查询 gate 状态，也可以这样问：
+
+```text
+请使用 novel-query skill，告诉我当前 setting gate 的状态、blocking_gaps 和 minimal_next_action。
+```
+
 ### status
 
 ```text
-请使用 novel-status skill，给我一个 full 模式的项目状态面板，重点包含质量状态、伏笔时间线和 index 统计。
+请使用 novel-status skill，给我一个 full 模式的项目状态面板，并额外带上 gate status、blocking_gaps 和 minimal_next_action。
 ```
 
 ### analyze
@@ -464,7 +488,7 @@ python3 scripts/acquire_source_text.py <url> --pretty
 ### resume
 
 ```text
-请使用 novel-resume skill，基于当前项目状态判断我现在最稳的继续写作入口，并告诉我下一步该用哪个 skill。
+请使用 novel-resume skill，如果当前项目被 setting gate 卡住，就优先告诉我 minimal_next_action 和最稳的下一步。
 ```
 
 ## 最小 E2E 路线

@@ -79,6 +79,7 @@ If no trustworthy source material is actually fetched or provided in the current
 ## Output file
 
 - `.mighty/market-data.json`
+- optional `.mighty/research-candidates.json`
 
 ## Executable helper
 
@@ -96,6 +97,27 @@ If no trustworthy source material is actually fetched or provided in the current
 
 - 已内置：`番茄 + 玄幻 + quick`
 - 其他组合建议显式传 `--source-url`
+
+## Optional setting-gate handoff
+
+When the scan produces a conservative truth-gap signal, it may also emit:
+
+- `.mighty/research-candidates.json`
+
+This file is optional and should only be used as:
+
+- candidate input for `setting gate`
+- review-queue material
+
+It must not be treated as:
+
+- confirmed canon
+- direct `设定集/` write authority
+
+Current minimal CLI shape:
+
+- `python3 scripts/novel_scan.py <project_root> --platform 番茄 --genre 宫斗宅斗 --depth quick --mode project-annotate --emit-research-candidates`
+- `python3 scripts/setting_gate.py <project_root> --stage outline --candidates-file .mighty/research-candidates.json`
 
 ## Project annotation target
 
@@ -160,7 +182,12 @@ and the runtime state should only keep a lightweight summary/pointer.
    - if confidence stays low or the result degrades to skeleton, keep only `market-data.json`
    - do not rewrite `shared/profiles/`
    - when the project is blocked by `setting gate`, treat scan results as candidate input for the gate and review queue, not as confirmed canon
-9. Return:
+9. If explicit candidate emission is requested:
+   - write `.mighty/research-candidates.json` only for conservative truth-gap candidates
+   - keep the file small and review-oriented
+   - do not emit broad speculative fact dumps
+   - do not bypass `setting gate`
+10. Return:
    - mode used
    - sources considered
    - confidence
@@ -211,6 +238,7 @@ and the runtime state should only keep a lightweight summary/pointer.
 - Treat “report-only” as the safe default.
 - `project-annotate` may update project-local market-adjustment sidecar data, but must not alter shared assets.
 - `novel-scan` is upstream of `setting gate` when external research is truly needed; it should feed candidate material, not direct canon writes.
+- optional research candidate output is a handoff seam, not a second truth system.
 - If the user explicitly asks for real external collection and the environment supports it, keep source attribution visible and do not overstate confidence.
 - When bucket recommendations are produced, keep them small and ranked; prefer 1-3 defensible candidates over a long speculative list.
 - When `config_key` is available, prefer the exact key from `fanqie-mvp-buckets.yaml` so downstream skills can consume the recommendation without fuzzy matching.

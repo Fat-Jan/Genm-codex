@@ -34,6 +34,7 @@ Read conditionally:
 - `.mighty/state-archive.json`
 - `.mighty/learned-patterns.json`
 - `.mighty/market-adjustments.json`
+- `.mighty/setting-gate.json`
 - `.mighty/index.json`
 - `chapters/` to count written chapters
 - `大纲/总纲.md`
@@ -44,14 +45,15 @@ Read conditionally:
 1. Read `.mighty/state.json`.
 2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
 3. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
-4. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
-4. Summarize:
+4. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
+5. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+6. Summarize:
    - title
    - genre
    - platform
    - current chapter
    - total words
-5. Inspect:
+7. Inspect:
    - `chapter_meta`
    - `chapter_snapshots`
    - `quality_metrics`
@@ -60,19 +62,22 @@ Read conditionally:
    - `main_quest`
    - `progress.milestones`
    - sidecar guidance summaries when present
+   - gate status, blocking gaps, review items, and `minimal_next_action` when present
    - and when present, archived `chapter_meta` / `chapter_snapshots` coverage
-6. Build the status sections that fit the request:
+8. Build the status sections that fit the request:
    - progress
    - quality
    - foreshadowing buckets / timeline
    - index stats when available
+   - gate blockers when relevant
    - active risks
-6. If `summary` mode:
+9. If `summary` mode:
    - return a concise dashboard
-7. If `full` mode:
+10. If `full` mode:
    - expand with quality trend, foreshadowing buckets, index-backed stats, and next risks
-8. If the user asks for one focus area, prioritize that section and compress the rest.
-9. End with the smallest useful next-step recommendation.
+11. If the user asks for one focus area, prioritize that section and compress the rest.
+12. End with the smallest useful next-step recommendation.
+   - if `.mighty/setting-gate.json` is not `passed`, prefer the gate's `minimal_next_action` over generic writing advice
 
 ## Focus guidance
 
@@ -118,6 +123,7 @@ For `full` or stats-heavy requests, prefer sections such as:
 - 伏笔状态 / 时间线
 - 索引统计
 - 风险与建议
+- setting gate
 
 ## Output conventions
 
@@ -134,3 +140,4 @@ For `full` or stats-heavy requests, prefer sections such as:
 - If there is insufficient data for a requested statistic, say so directly instead of inferring.
 - Treat `index` as an accelerator and secondary source, not a replacement for `state`.
 - Treat sidecar files as the preferred place for learned / market guidance once they have been externalized.
+- If `.mighty/setting-gate.json` exists, treat it as the current write-readiness control point rather than inferring readiness from chapter count alone.

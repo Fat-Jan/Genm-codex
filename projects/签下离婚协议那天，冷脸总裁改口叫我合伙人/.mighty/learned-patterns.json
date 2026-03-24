@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "writing_style_preferences": {
+    "dialogue_style": "高压短句，带现实账本",
+    "description_density": "中等偏低",
+    "pacing_preference": "关系错位先落地，再给利益交换和公开称谓升级"
+  },
+  "high_point_preferences": [
+    "资源压制",
+    "位置交换",
+    "公开站边",
+    "女主用专业能力换回筹码"
+  ],
+  "avoid_patterns": [
+    "空壳霸总感",
+    "只写脸和气氛",
+    "女主只被挑选不做决策"
+  ],
+  "user_feedback": []
+}

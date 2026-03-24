@@ -31,6 +31,13 @@ python3 scripts/setting_gate.py <project_root> --stage outline
 ```
 
 - 如果 `.mighty/setting-gate.json` 仍是 `blocked`，不要直接进入 `novel-write`
+- 现在优先看：
+  - `blocking_gaps`
+  - `review_items`
+  - `minimal_next_action`
+- `minimal_next_action.suggested_commands` 会给出最小可执行命令串；先按它处理，再重跑 gate
+- 如果你需要一个集中入口，不想在多个文档之间跳，直接看：
+  - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gate-triage.md)
 
 最小提示词：
 
@@ -50,8 +57,19 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 最小提示词：
 
 ```text
-请使用 novel-status skill，给我一个 full 模式的项目状态面板。
+请使用 novel-status skill，给我一个 full 模式的项目状态面板，并额外带上 gate status、blocking_gaps 和 minimal_next_action。
 ```
+
+补充：
+
+- 如果项目已经引入 `setting gate`，让 `novel-status` 一并汇报：
+  - `gate status`
+  - `blocking_gaps`
+  - `minimal_next_action`
+- 如果你只想快速问一句：
+  - “现在 gate 卡在哪”
+  - “下一步最小动作是什么”
+  也可以直接用 `novel-query`
 
 ### 3. 我正在写作，想快速引用设定
 
@@ -130,6 +148,19 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 - `novel-snapshot`
 - `novel-resume`
 - `novel-workflow`
+
+补充：
+
+- 如果你是被 gate 卡住后中断的，优先让 `novel-resume` 把：
+  - `.mighty/setting-gate.json`
+  - `minimal_next_action`
+  一起读出来，再决定是不是能继续写
+
+最小提示词：
+
+```text
+请使用 novel-resume skill，如果当前项目被 setting gate 卡住，就优先告诉我 minimal_next_action 和最稳的下一步。
+```
 
 ### 7. 我发现设定集和当前正文 / state 脱节了
 

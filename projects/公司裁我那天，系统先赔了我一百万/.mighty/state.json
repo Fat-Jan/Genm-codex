@@ -8,7 +8,7 @@
     "target_chapters": 10,
     "target_words": 40000,
     "created_at": "2026-03-24T10:00:00Z",
-    "updated_at": "2026-03-24T13:00:00Z"
+    "updated_at": "2026-03-24T14:30:00Z"
   },
   "progress": {
     "current_chapter": 3,
@@ -236,22 +236,15 @@
     }
   },
   "learned_patterns": {
-    "writing_style_preferences": {
-      "dialogue_style": "简洁直接，偏都市口语",
-      "description_density": "低到中",
-      "pacing_preference": "快节奏，先事件后解释"
-    },
-    "high_point_preferences": [
-      "现实困局立刻落地",
-      "机制快速见效",
-      "三章内完成小闭环"
-    ],
-    "avoid_patterns": [
-      "设定讲解过长",
-      "收益白拿",
-      "冲突只停在嘴上"
-    ],
-    "user_feedback": []
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-24T04:40:18Z",
+    "available_sections": [
+      "avoid_patterns",
+      "high_point_preferences",
+      "user_feedback",
+      "writing_style_preferences"
+    ]
   },
   "auto_learn_config": {
     "enabled": true,
@@ -308,10 +301,10 @@
       "fanqie_bucket_flags": [],
       "fanqie_bucket_summary": {
         "bucket": "都市脑洞",
-        "bucket_grade": "draft",
-        "promise_match": "draft",
-        "first_three_status": "draft",
-        "primary_failure": "needs-human-check",
+        "bucket_grade": "warn",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "residual-risk-needs-follow-through",
         "top_red_flag": "none",
         "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
       },
@@ -327,10 +320,10 @@
       "fanqie_bucket_flags": [],
       "fanqie_bucket_summary": {
         "bucket": "都市脑洞",
-        "bucket_grade": "draft",
-        "promise_match": "draft",
-        "first_three_status": "draft",
-        "primary_failure": "needs-human-check",
+        "bucket_grade": "warn",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "residual-risk-needs-follow-through",
         "top_red_flag": "none",
         "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
       },
@@ -346,10 +339,10 @@
       "fanqie_bucket_flags": [],
       "fanqie_bucket_summary": {
         "bucket": "都市脑洞",
-        "bucket_grade": "draft",
-        "promise_match": "draft",
-        "first_three_status": "draft",
-        "primary_failure": "needs-human-check",
+        "bucket_grade": "warn",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "residual-risk-needs-follow-through",
         "top_red_flag": "none",
         "recommended_focus": "下一章要尽快把当前残账兑现成具体阻力，避免收益过满。"
       },
@@ -390,18 +383,12 @@
   },
   "setting_versions": {},
   "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_updated": "2026-03-24T04:40:18Z",
     "last_applied": "2026-03-24T10:00:00Z",
     "source_scan": "manual-minimal-sample",
-    "adjustments": [
-      {
-        "id": "urban-brainhole-fast-open",
-        "summary": "前200字必须落出现实困局和脑洞触发，不做背景铺垫。"
-      },
-      {
-        "id": "urban-brainhole-first-loop",
-        "summary": "前三章完成一次现实处境改变和小爽点闭环，但保留更大风险。"
-      }
-    ]
+    "adjustment_count": 2
   },
   "dungeons": {
     "completed": [],

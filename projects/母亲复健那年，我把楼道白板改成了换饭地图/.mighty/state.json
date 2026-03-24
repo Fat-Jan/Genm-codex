@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "母亲复健那年，我把楼道白板改成了换饭地图",
+    "genre": "都市日常",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 36000,
+    "created_at": "2026-03-24T10:40:00Z",
+    "updated_at": "2026-03-24T08:19:09Z"
+  },
+  "genre_profile": {
+    "bucket": "都市日常"
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 9300,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T10:40:00Z"
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 3100
+    },
+    "002": {
+      "word_count": 3100
+    },
+    "003": {
+      "word_count": 3100,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "都市日常",
+        "recommended_focus": "下一章要把互助白板兑现成稳定规则，同时继续拉扯康复账和收入账，避免都市日常只剩治愈。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      }
+    }
+  }
+}

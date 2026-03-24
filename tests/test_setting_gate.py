@@ -146,6 +146,8 @@ class SettingGateCoreTests(unittest.TestCase):
         self.assertEqual(result["status"], "blocked")
         self.assertTrue(result["blocking_gaps"])
         self.assertIn("world_rule_support", {gap["key"] for gap in result["blocking_gaps"]})
+        self.assertEqual(result["minimal_next_action"]["action"], "novel-setting")
+        self.assertIn("python3 scripts/setting_gate.py", result["minimal_next_action"]["suggested_commands"][0])
 
     def test_run_gate_materializes_local_cards_from_outline_and_state(self):
         self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
@@ -174,6 +176,73 @@ class SettingGateCoreTests(unittest.TestCase):
         self.assertEqual(graded["status"], "blocked")
         self.assertEqual(len(graded["review_items"]), 1)
         self.assertTrue(graded["review_items"][0]["requires_user_confirmation"])
+
+    def test_load_candidates_file_reads_candidates_array(self):
+        self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
+        module = load_setting_gate_module()
+        root = self.make_project_root()
+        candidate_path = root / ".mighty" / "research-candidates.json"
+        write_json(
+            candidate_path,
+            {
+                "version": "1.0",
+                "candidates": [
+                    {
+                        "name": "嫡庶婚配真值补证",
+                        "kind": "rule",
+                        "source": "mcp",
+                        "confidence": "medium",
+                    }
+                ],
+            },
+        )
+
+        loaded = module.load_candidates_file(candidate_path)
+
+        self.assertEqual(len(loaded), 1)
+        self.assertEqual(loaded[0]["name"], "嫡庶婚配真值补证")
+
+    def test_cli_candidates_file_flows_into_gate_state(self):
+        root = self.make_project_root()
+        scaffold_project(root, outline_text="韩振和林乔会在曜石互联大厦继续围堵周既明。")
+        candidate_path = root / ".mighty" / "research-candidates.json"
+        write_json(
+            candidate_path,
+            {
+                "version": "1.0",
+                "candidates": [
+                    {
+                        "name": "嫡庶婚配真值补证",
+                        "kind": "rule",
+                        "source": "mcp",
+                        "confidence": "medium",
+                    }
+                ],
+            },
+        )
+
+        subprocess.run(
+            [
+                sys.executable,
+                str(REPO_ROOT / "scripts" / "setting_gate.py"),
+                str(root),
+                "--stage",
+                "outline",
+                "--candidates-file",
+                str(candidate_path),
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        gate_state = json.loads((root / ".mighty" / "setting-gate.json").read_text(encoding="utf-8"))
+        self.assertTrue(gate_state["mcp_used"])
+        self.assertEqual(gate_state["status"], "blocked")
+        self.assertEqual(gate_state["review_queue_count"], 1)
+        self.assertEqual(gate_state["review_items"][0]["name"], "嫡庶婚配真值补证")
+        self.assertEqual(gate_state["minimal_next_action"]["action"], "review-sync-queue")
+        self.assertIn("python3 scripts/review-sync-queue.py", gate_state["minimal_next_action"]["suggested_commands"][0])
 
     def test_project_maintenance_runs_setting_gate_before_sync(self):
         root = self.make_project_root()
@@ -210,19 +279,54 @@ class SettingGateCoreTests(unittest.TestCase):
         write_text = (REPO_ROOT / "skills" / "novel-write" / "SKILL.md").read_text(encoding="utf-8")
         sync_text = (REPO_ROOT / "skills" / "novel-sync" / "SKILL.md").read_text(encoding="utf-8")
         scan_text = (REPO_ROOT / "skills" / "novel-scan" / "SKILL.md").read_text(encoding="utf-8")
+        resume_text = (REPO_ROOT / "skills" / "novel-resume" / "SKILL.md").read_text(encoding="utf-8")
+        status_text = (REPO_ROOT / "skills" / "novel-status" / "SKILL.md").read_text(encoding="utf-8")
+        query_text = (REPO_ROOT / "skills" / "novel-query" / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("setting gate(init)", init_text)
         self.assertIn("setting gate(outline)", outline_text)
         self.assertIn(".mighty/setting-gate.json", write_text)
         self.assertIn("setting gate", sync_text)
         self.assertIn("setting gate", scan_text)
+        self.assertIn(".mighty/setting-gate.json", resume_text)
+        self.assertIn("minimal_next_action", resume_text)
+        self.assertIn(".mighty/setting-gate.json", status_text)
+        self.assertIn("minimal_next_action", status_text)
+        self.assertIn(".mighty/setting-gate.json", query_text)
+        self.assertIn("minimal_next_action", query_text)
 
     def test_workflow_docs_describe_outline_hard_gate_and_write_post_sync(self):
         start_here = (REPO_ROOT / "docs" / "start-here.md").read_text(encoding="utf-8")
         workflows = (REPO_ROOT / "docs" / "default-workflows.md").read_text(encoding="utf-8")
         usage = (REPO_ROOT / "docs" / "skill-usage.md").read_text(encoding="utf-8")
+        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        gate_triage = (REPO_ROOT / "docs" / "gate-triage.md").read_text(encoding="utf-8")
+        gate_rollout = (REPO_ROOT / "docs" / "gate-triage-rollout-2026-03-24.md").read_text(encoding="utf-8")
+        maintenance = (REPO_ROOT / "docs" / "v1-maintenance-mode.md").read_text(encoding="utf-8")
         self.assertIn("setting gate", start_here)
         self.assertIn("setting gate", workflows)
         self.assertIn("scripts/setting_gate.py", usage)
+        self.assertIn("请使用 novel-query skill，告诉我当前 setting gate 的状态、blocking_gaps 和 minimal_next_action。", usage)
+        self.assertIn("请使用 novel-status skill，给我一个 full 模式的项目状态面板，并额外带上 gate status、blocking_gaps 和 minimal_next_action。", usage)
+        self.assertIn("请使用 novel-resume skill，如果当前项目被 setting gate 卡住，就优先告诉我 minimal_next_action 和最稳的下一步。", usage)
+        self.assertIn("请使用 novel-status skill，给我一个 full 模式的项目状态面板，并额外带上 gate status、blocking_gaps 和 minimal_next_action。", start_here)
+        self.assertIn("请使用 novel-resume skill，如果当前项目被 setting gate 卡住，就优先告诉我 minimal_next_action 和最稳的下一步。", start_here)
+        self.assertIn("Gate Triage", readme)
+        self.assertIn("novel-scan -> setting gate -> review-sync-queue", readme)
+        self.assertIn("Gate Triage", workflows)
+        self.assertIn("novel-status", workflows)
+        self.assertIn("novel-resume", workflows)
+        self.assertIn("novel-query", workflows)
+        self.assertIn("gate-triage.md", readme)
+        self.assertIn("gate-triage.md", workflows)
+        self.assertIn("gate-triage.md", start_here)
+        self.assertIn("gate-triage.md", usage)
+        self.assertIn("novel-scan -> setting gate -> review-sync-queue", gate_triage)
+        self.assertIn("minimal_next_action", gate_triage)
+        self.assertIn("gate-triage-rollout-2026-03-24.md", readme)
+        self.assertIn("setting gate", gate_rollout)
+        self.assertIn("novel-resume", gate_rollout)
+        self.assertIn("gate triage", maintenance)
+        self.assertIn("默认工作流", maintenance)
 
 
 if __name__ == "__main__":

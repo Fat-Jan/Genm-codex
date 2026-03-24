@@ -219,6 +219,66 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-24
+
+### Historical Brainhole Minimal Sample
+- **Status:** complete
+- **Started:** 2026-03-24 13:46 CST
+- Actions taken:
+  - 在 `projects/我在县衙当杂吏，靠翻旧案升了堂` 新建最小真实项目目录
+  - 按 `novel-init` 约定落下 `.mighty/state.json`、sidecar 文件、主角卡、力量体系、世界观口径、官制真值表与权力层级图
+  - 读取 `historical-brainhole` profile，并按 `历史脑洞` bucket 约束生成总纲与第001-003章章纲
+  - 写出第001-003章正文，满足“第一章落身份困局和制度压力、第二章机制第一次见效、第三章形成小闭环但不打穿主线”
+  - 回写 `state` 的 `progress`、`plot_threads`、`knowledge_base`、`chapter_meta`、`summaries_index`
+  - 实际运行 `python3 scripts/setting_gate.py <project_root> --stage init`
+  - 实际运行 `python3 scripts/setting_gate.py <project_root> --stage outline`
+  - 运行 JSON 校验与 `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/superpowers/plans/2026-03-24-historical-brainhole-county-yamen-sample.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/.mighty/state.json` (created/updated)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/.mighty/learned-patterns.json` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/.mighty/market-adjustments.json` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/.mighty/setting-gate.json` (created/updated by script)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/大纲/总纲.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/大纲/章纲/第001章.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/大纲/章纲/第002章.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/大纲/章纲/第003章.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/chapters/第001章.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/chapters/第002章.md` (created)
+  - `projects/我在县衙当杂吏，靠翻旧案升了堂/chapters/第003章.md` (created)
+  - `progress.md` (updated)
+
+## Session: 2026-03-24
+
+### Real Project Sample: 豪门总裁最小真实样本
+- **Status:** complete
+- Actions taken:
+  - 新建项目 `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人`
+  - 按 `novel-init` 最小骨架创建 `.mighty/`、`大纲/`、`设定集/`、`chapters/`
+  - 基于番茄 `豪门总裁` bucket 生成总纲与第001-003章章纲
+  - 写出第001-003章正文，锁定“资源压制 + 关系错位 + 高压升级 + 小兑现”链条
+  - 首轮 `setting_gate(init|outline)` 因企业权力层级缺失被挡回，补齐 `设定集/官制/官职真值表.md` 与 `设定集/官制/权力层级图.md`
+  - 重跑 `python3 scripts/setting_gate.py <project_root> --stage init`
+  - 重跑 `python3 scripts/setting_gate.py <project_root> --stage outline`
+  - 运行 `wc -m` 确认前三章长度分别为 `2401 / 2484 / 2493`
+  - 运行 `python3 scripts/fanqie_p0_smoke.py --project-root <project_root> --chapter 003 --chapters 001-003`，生成该项目的 P0 smoke draft
+- Files created/modified:
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/.mighty/state.json` (created/updated)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/.mighty/learned-patterns.json` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/.mighty/market-adjustments.json` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/.mighty/setting-gate.json` (generated)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/大纲/总纲.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/大纲/章纲/第001章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/大纲/章纲/第002章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/大纲/章纲/第003章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/chapters/第001章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/chapters/第002章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/chapters/第003章.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/设定集/官制/官职真值表.md` (created)
+  - `projects/签下离婚协议那天，冷脸总裁改口叫我合伙人/设定集/官制/权力层级图.md` (created)
+  - `docs/opening-and-plot-framework/real-project-smoke-签下离婚协议那天-冷脸总裁改口叫我合伙人-fanqie-p0-2026-03-24.md` (generated)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-23 开篇方法与剧情层次规则层
 
 ### Phase 1: Discovery & Design Lock
@@ -237,6 +297,168 @@
   - `docs/superpowers/plans/2026-03-23-opening-and-plot-framework.md` (created)
   - `task_plan.md` (updated)
   - `findings.md` (updated)
+  - `progress.md` (updated)
+
+## Session: 2026-03-24 Research Candidate Handoff
+
+### Phase 1: Minimal Candidate Handoff
+- **Status:** complete
+- Actions taken:
+  - 新建 `docs/superpowers/plans/2026-03-24-research-candidate-handoff.md`，把最小改动范围固定为 `novel_scan -> research-candidates -> setting_gate`
+  - 为 `setting_gate` 增加 `--candidates-file` 和 `load_candidates_file()`，允许从 sidecar 读取 research candidates
+  - 为 `novel_scan` 增加 `--emit-research-candidates` / `--research-candidates-file`，并只在保守 truth-gap 条件下写出 `.mighty/research-candidates.json`
+  - 将宫斗宅斗下的 `scan-kinship-truth-check` 收成最小候选 `嫡庶婚配真值补证`
+  - 更新 `docs/skill-usage.md`、`docs/default-workflows.md`、`skills/novel-scan/SKILL.md`，明确 candidate-only 边界
+  - 运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `docs/superpowers/plans/2026-03-24-research-candidate-handoff.md` (created)
+  - `scripts/setting_gate.py` (updated)
+  - `scripts/novel_scan.py` (updated)
+  - `tests/test_setting_gate.py` (updated)
+  - `tests/test_novel_scan.py` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `skills/novel-scan/SKILL.md` (updated)
+
+### Phase 2: Gate Next-Action Closure
+- **Status:** complete
+- Actions taken:
+  - 为 `setting_gate` 增加 `minimal_next_action` 结构化输出，统一返回最小建议动作与命令串
+  - 对缺本地 truth source 的阻断结果，路由到 `novel-setting`
+  - 对高风险 research candidate 的阻断结果，路由到 `review-sync-queue`
+  - 更新 `docs/start-here.md`、`docs/skill-usage.md`、`skills/novel-write/SKILL.md`，让调用侧优先读取 `minimal_next_action`
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `scripts/setting_gate.py` (updated)
+  - `tests/test_setting_gate.py` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 3: Resume/Status Gate Awareness
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求 `novel-resume` / `novel-status` skill 契约显式读取 `.mighty/setting-gate.json` 与 `minimal_next_action`
+  - 更新 `skills/novel-resume/SKILL.md`，让恢复逻辑在 gate 未通过时优先暴露 `blocking_gaps / review_items / minimal_next_action`
+  - 更新 `skills/novel-status/SKILL.md`，让状态面板把 gate 视为写作 readiness 控制点，而不是只看 chapter/state 进度
+  - 更新 `docs/start-here.md` 中的状态/恢复入口说明，明确 gate 卡住时应优先读 `minimal_next_action`
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `skills/novel-resume/SKILL.md` (updated)
+  - `skills/novel-status/SKILL.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 4: Query Gate Awareness
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求 `novel-query` skill 契约显式读取 `.mighty/setting-gate.json` 与 `minimal_next_action`
+  - 更新 `skills/novel-query/SKILL.md`，支持查询 `setting gate` 状态、`blocking_gaps`、`review_items` 与 `minimal_next_action`
+  - 更新 `docs/start-here.md` 与 `docs/skill-usage.md`，明确 gate 状态也可以通过 `novel-query` 直接查询
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `skills/novel-query/SKILL.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 5: Gate Prompt UX Alignment
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求 `docs/start-here.md` 与 `docs/skill-usage.md` 提供统一的 gate-aware `novel-status` / `novel-resume` / `novel-query` 最小提示词
+  - 更新 `docs/start-here.md` 中的状态与恢复入口，把 `novel-status` / `novel-resume` 的示例提示词统一为 gate-aware 版本
+  - 更新 `docs/skill-usage.md` 中的 `status` / `resume` / `query` 示例提示词，统一收成 gate-aware 体验入口
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `docs/start-here.md` (updated)
+  - `docs/skill-usage.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 6: Gate Triage Main Entry
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求 `README.md` 与 `docs/default-workflows.md` 增加 `Gate Triage` 入口
+  - 更新 `README.md`，加入 `novel-scan -> setting gate -> review-sync-queue` 的最小 triage 链和命令示例
+  - 更新 `docs/default-workflows.md`，加入 `Gate Triage` 小节，明确 triage 不是 canon 写入链
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `README.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 7: Gate Triage Guide
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求存在独立的 `docs/gate-triage.md`，且能从 `README.md`、`docs/default-workflows.md`、`docs/start-here.md` 找到
+  - 新建 `docs/gate-triage.md`，集中说明 `novel-scan -> setting gate -> review-sync-queue` 的 triage 链、关键字段和最小命令
+  - 在 `README.md`、`docs/default-workflows.md`、`docs/start-here.md` 中补挂该指南入口
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `docs/gate-triage.md` (created)
+  - `README.md` (updated)
+  - `docs/default-workflows.md` (updated)
+  - `docs/start-here.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 8: Gate Triage Rollout Summary
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求存在独立的 `docs/gate-triage-rollout-2026-03-24.md`，并能从 `README.md` 找到
+  - 新建 `docs/gate-triage-rollout-2026-03-24.md`，把本轮改动沉成独立历史记录
+  - 更新 `README.md`，在 Gate Triage 区和参考文档区补挂 rollout 总结入口
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `docs/gate-triage-rollout-2026-03-24.md` (created)
+  - `README.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 9: Maintenance-Mode Alignment
+- **Status:** complete
+- Actions taken:
+  - 扩展 `tests/test_setting_gate.py`，要求 `docs/v1-maintenance-mode.md` 明确把 gate triage 归档为默认工作流维护的一部分
+  - 更新 `docs/v1-maintenance-mode.md`，把 `setting gate` 卡住后的 triage 体验问题列为默认主线修复示例，并补挂 `gate-triage.md`
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `tests/test_setting_gate.py` (updated)
+  - `docs/v1-maintenance-mode.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 10: Redundancy Cleanup
+- **Status:** complete
+- Actions taken:
+  - 审计 `gate triage` 相关入口，确认最大冗余点在 `README.md` 的摘要段与独立指南重复
+  - 将 `README.md` 的 Gate Triage 区收成摘要层，只保留最小链路、核心字段与文档入口
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `README.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 11: Roadmap Classification Cleanup
+- **Status:** complete
+- Actions taken:
+  - 审计 `v1.1-roadmap.md`，确认 `gate triage` 不应被误读成 `v1.1` 新主线候选
+  - 更新 `docs/v1.1-roadmap.md`，明确 `setting gate` 的 triage / recovery 收口属于 `v1.0.x` 默认主线稳定化，而不是 `v1.1` 新能力方向
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `docs/v1.1-roadmap.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 12: Current-Facing Doc Alignment
+- **Status:** complete
+- Actions taken:
+  - 对 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 做当前入口一致性抽查
+  - 修正 `docs/skill-usage.md` 中 `novel-status` gate-aware 提示词表述，使其与 `docs/start-here.md` 保持一致
+  - 在 `docs/skill-usage.md` 的 gate 使用说明段补挂 `gate-triage.md` 入口，减少“先看哪里”的歧义
+  - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
+- Files created/modified:
+  - `docs/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 2: Red Test
@@ -650,9 +872,12 @@
     - `evidence_count`
     - `signals_used`
     - `writeback_preview`
-  - 当前结论：
-    - `青春甜宠` 真实项目：`draft`, `confidence = low`
-    - `都市脑洞` 真实项目：`draft`, `confidence = low`
+  - 初始结论：
+    - `青春甜宠` 真实项目：可稳定进入 `draft`
+    - `都市脑洞` 真实项目：可稳定进入 `draft`
+  - 后续同日已继续收紧到：
+    - `青春甜宠`：`medium confidence`, `pass / fit`
+    - `都市脑洞`：`medium confidence`, `warn / fit`
 - Files created/modified:
   - `docs/opening-and-plot-framework/real-project-smoke-转学第一天-我把校草认成了新来的代课老师-fanqie-p0-2026-03-24.md` (created)
   - `docs/opening-and-plot-framework/real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md` (created)
@@ -667,16 +892,16 @@
   - 运行红灯，确认写回前测试失败
   - 将 `projects/公司裁我那天，系统先赔了我一百万/.mighty/state.json` 中：
     - `chapter_meta["003"].fanqie_bucket_summary.bucket = 都市脑洞`
-    - `bucket_grade = draft`
+    - `bucket_grade = warn`
     - 其余保持轻量
-  - 更新对应 smoke 文档，明确这是一条低置信写回样本
+  - 更新对应 smoke 文档，明确这是一条中置信轻量写回样本
   - 运行：
     - `python -m unittest tests.test_opening_plot_framework -v`
     - `python -m unittest tests.test_fanqie_p0_smoke -v`
     - `bash scripts/validate-migration.sh`
   - 额外确认：
     - `fanqie_bucket_summary.bucket = 都市脑洞`
-    - `fanqie_bucket_summary.bucket_grade = draft`
+    - `fanqie_bucket_summary.bucket_grade = warn`
 - Files created/modified:
   - `projects/公司裁我那天，系统先赔了我一百万/.mighty/state.json` (updated)
   - `docs/opening-and-plot-framework/real-project-smoke-公司裁我那天-系统先赔了我一百万-fanqie-p0-2026-03-24.md` (updated)
@@ -1387,15 +1612,155 @@
   - `projects/转学第一天，我把校草认成了新来的代课老师`
   - `projects/公司裁我那天，系统先赔了我一百万`
 - 两个项目都成功生成真实项目 smoke 文档：
-  - `青春甜宠`：`draft`, `confidence = low`
-  - `都市脑洞`：`draft`, `confidence = low`
+  - 初始都能稳定进入 `draft`
+  - 后续已在下一节继续收紧为 `medium confidence`
 - 已新增 `现言甜宠 -> 青春甜宠` alias，并验证 `smoke/e2e-tianchong*` 可输出 `low confidence draft`
 - 已把 `青春甜宠` 项目的 `第003章` 做成第二条真实写回样本：
   - `chapter_meta["003"].fanqie_bucket_flags = []`
   - `chapter_meta["003"].fanqie_bucket_summary.bucket = "青春甜宠"`
-  - `chapter_meta["003"].fanqie_bucket_summary.bucket_grade = "draft"`
+  - `chapter_meta["003"].fanqie_bucket_summary.bucket_grade = "pass"`
 - 已运行验证：
   - `python -m unittest tests.test_fanqie_p0_smoke -v`
   - `python -m unittest tests.test_opening_plot_framework -v`
   - `bash scripts/validate-migration.sh`
   - 结果全部通过
+
+## Session Update: 2026-03-24 青春甜宠与都市脑洞收紧并完成第三写回样本
+
+- 已继续收紧 `青春甜宠` 判断：
+  - 当前真实项目 smoke 从 `low confidence draft` 提升到 `medium confidence`
+  - `fanqie_bucket_review_summary.bucket_grade = pass`
+  - `fanqie_bucket_precheck_summary.submission_fit = fit`
+- 已继续收紧 `都市脑洞` 判断：
+  - 当前真实项目 smoke 从 `low confidence draft` 提升到 `medium confidence`
+  - `fanqie_bucket_review_summary.bucket_grade = warn`
+  - `fanqie_bucket_precheck_summary.submission_fit = fit`
+- 已把 `都市脑洞` 项目的 `第003章` 做成第三条真实写回样本：
+  - `chapter_meta["003"].fanqie_bucket_summary.bucket = "都市脑洞"`
+  - `chapter_meta["003"].fanqie_bucket_summary.bucket_grade = "warn"`
+- 已运行验证：
+  - `python -m unittest tests.test_fanqie_p0_smoke -v`
+  - `python -m unittest tests.test_opening_plot_framework -v`
+  - `bash scripts/validate-migration.sh`
+  - 结果全部通过
+
+## Session Update: 2026-03-24 Fanqie P0 记录层对齐与最终校验
+
+- 已将 `task_plan.md` / `findings.md` / `progress.md` / 压力测试文档 同步到当前真实状态：
+  - `宫斗宅斗`：高置信写回样本
+  - `青春甜宠`：中置信写回样本，`pass / fit`
+  - `都市脑洞`：中置信写回样本，`warn / fit`
+- 已把两个真实非宫斗 P0 项目的最终结论写回文档层，避免记录层继续保留旧的 `low confidence / draft-only` 说法
+- 当前 `fanqie_p0_smoke` 线的阶段性闭环已明确：
+  - 规则层已接入
+  - 工具层已验证
+  - 真实项目 smoke 已覆盖
+  - 真实项目轻量写回已覆盖三类样本
+
+## Session Update: 2026-03-24 Additional Non-Palace P0 Expansion
+
+- 已新增三条真实非宫斗 P0 项目的 smoke 与写回闭环：
+  - `职场婚恋`：`projects/她升职那天，前上司成了我合租室友`
+  - `都市日常`：`projects/搬回老小区后，我靠蹭饭认识了整栋楼`
+  - `玄幻脑洞`：`projects/宗门垫底那年，我把废丹卖成了天价`
+- 已为三条线补 bucket 抓手并通过真实文本校准：
+  - `职场婚恋`：`代理 / 甲方 / 合租 / 试运行`
+  - `都市日常`：`燃气 / 白板 / 换饭 / 康复`
+  - `玄幻脑洞`：`碎纹丹秤 / 废火丹 / 外门小集 / 灵石`
+- 当前三条线都已稳定收敛到：
+  - `confidence = medium`
+  - `fanqie_bucket_review_summary.bucket_grade = pass`
+  - `fanqie_bucket_precheck_summary.submission_fit = fit`
+- 已把三条项目的 `chapter_meta["003"]` 轻量写回：
+  - `fanqie_bucket_flags = []`
+  - `fanqie_bucket_summary.bucket = 职场婚恋 / 都市日常 / 玄幻脑洞`
+  - `fanqie_bucket_summary.bucket_grade = pass`
+- 已修复两个工具边界问题：
+  - `writeback` 模式不再把 smoke 文档回退成空模板
+  - 已存在但为空的 bucket 占位字段可正常写回；相同 summary 的重复写回返回 `already-written`
+- 已运行验证：
+  - `python -m unittest tests.test_fanqie_p0_smoke -v`
+  - `python -m unittest tests.test_opening_plot_framework -v`
+  - `bash scripts/validate-migration.sh`
+  - 结果全部通过
+
+## Session Update: 2026-03-24 Gap Tracker Handoff
+
+- 已新增 [fanqie-p0-gap-tracker-2026-03.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/fanqie-p0-gap-tracker-2026-03.md)
+  - 明确已覆盖的真实桶
+  - 明确下一步该补的是第二条真实样本，而不是空桶
+  - 给出下一批推荐顺序和可直接开工的项目提示词
+- 已把 gap tracker 入口挂回 [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- 已扩展 `tests/test_opening_plot_framework.py`
+  - 校验 gap tracker 文档存在
+  - 校验 README 暴露真实样本与 gap tracker 入口
+
+## Session Update: 2026-03-24 P0 Full Coverage
+
+- 已验证并写回最后两个 `P0` 缺口桶：
+  - `历史脑洞`：`projects/我在县衙当杂吏，靠翻旧案升了堂`
+  - `豪门总裁`：`projects/签下离婚协议那天，冷脸总裁改口叫我合伙人`
+- 已为两条线补 bucket 抓手并通过真实文本校准：
+  - `历史脑洞`：`县衙 / 旧案 / 卷宗 / 主簿房`
+  - `豪门总裁`：`离婚协议 / 董事会 / 合伙人 / 试运营`
+- 当前这两条线都已稳定收敛到：
+  - `confidence = medium`
+  - `fanqie_bucket_review_summary.bucket_grade = pass`
+  - `fanqie_bucket_precheck_summary.submission_fit = fit`
+- 已兼容 `chapter_meta` 的 `3 / 003` 双键风格，并把两条项目写回到各自现有键位
+- 当前 `P0 8 桶` 已全部具备：
+  - 真实项目 smoke
+  - 轻量 bucket 写回样本
+  - 回归测试约束
+
+## Session Update: 2026-03-24 Second Historical Brainhole Sample
+
+- 已新增第二条 `历史脑洞` 真实项目：
+  - `projects/我在县衙誊旧档，靠半页供词改了判词`
+- 已补齐：
+  - `.mighty/state.json`
+  - `.mighty/market-adjustments.json`
+  - `.mighty/learned-patterns.json`
+  - `总纲 / 第001-003章章纲 / 第001-003章正文`
+- 已跑通：
+  - `draft`
+  - `writeback`
+- 当前结果：
+  - `confidence = medium`
+  - `bucket_grade = pass`
+  - `submission_fit = fit`
+
+## Session Update: 2026-03-24 Second-Sample Expansion
+
+- 已新增第二条 `豪门总裁` 真实样本：
+  - `projects/离婚冷静期那天，前夫把董事会席位押给了我`
+- 已新增第二条 `都市脑洞` 真实样本：
+  - `projects/我赔光积蓄那天，系统先把违约金打到了账上`
+- 已新增第二条 `玄幻脑洞` 真实样本：
+  - `projects/外门药田被夺那天，我靠废丹拍卖赚回了灵石`
+- 三条样本均已补齐最小项目骨架、总纲、章纲、前三章和 sidecar
+- 三条样本均已跑通：
+  - `draft`
+  - `writeback`
+- 当前结果：
+  - `豪门总裁`：`medium / pass / fit`
+  - `都市脑洞`：`medium / warn / fit`
+  - `玄幻脑洞`：`medium / pass / fit`
+
+## Session Update: 2026-03-24 Final Double-Sample Coverage
+
+- 已新增第二条 `职场婚恋` 真实样本：
+  - `projects/代理续约那天，我和前搭档被公司按进了同一套合租房`
+- 已新增第二条 `青春甜宠` 真实样本：
+  - `projects/广播站误放表白信那天，我和学神被迫参加学习互助`
+- 已新增第二条 `都市日常` 真实样本：
+  - `projects/母亲复健那年，我把楼道白板改成了换饭地图`
+- 三条样本均已补齐最小项目骨架、总纲、章纲、前三章和 sidecar
+- 三条样本均已跑通：
+  - `draft`
+  - `writeback`
+- 当前结果：
+  - `职场婚恋`：`medium / pass / fit`
+  - `青春甜宠`：`medium / pass / fit`
+  - `都市日常`：`medium / pass / fit`
+- 到这里，`P0 8 桶` 已全部完成双样本覆盖

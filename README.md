@@ -142,6 +142,22 @@ bash scripts/validate-migration.sh
 - `docs/phase-7-summary.md`
 - `docs/phase-17-summary.md`
 
+## Gate Triage
+
+当项目被 `setting gate` 卡住时，优先按这条最小链路处理：
+
+- `novel-scan -> setting gate -> review-sync-queue`
+- 然后用 `novel-status` / `novel-resume` / `novel-query` 查看：
+  - `gate status`
+  - `blocking_gaps`
+  - `review_items`
+  - `minimal_next_action`
+
+进一步说明见：
+
+- `docs/gate-triage.md`
+- `docs/gate-triage-rollout-2026-03-24.md`
+
 ## 参考文档
 
 - `docs/migration-map.md`
@@ -194,6 +210,8 @@ bash scripts/validate-migration.sh
 - `docs/v1-rc-execution-log.md`
 - `docs/v1-final-decision.md`
 - `docs/writing-model-strategy.md`
+- `docs/gate-triage.md`
+- `docs/gate-triage-rollout-2026-03-24.md`
 - `docs/anti-flattening-framework/README.md`
 - `docs/opening-and-plot-framework/README.md`
 - `docs/start-here.md`

@@ -1,0 +1,18 @@
+{
+  "writing_style_preferences": {
+    "dialogue_style": "校园口语、轻快、带社死感",
+    "description_density": "中低，优先食堂、广播站和学习互助场景推进",
+    "pacing_preference": "前三章必须让社死、绑定和小兑现同场发生"
+  },
+  "high_point_preferences": [
+    "误会不是空转，要立刻换来同场绑定",
+    "学习互助要真的推关系位置",
+    "校园糖点必须带现实后果"
+  ],
+  "avoid_patterns": [
+    "只有误会没有推进",
+    "校园只剩气氛没有场景功能",
+    "第三章前一直原地暧昧"
+  ],
+  "user_feedback": []
+}

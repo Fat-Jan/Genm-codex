@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "title": "我在县衙誊旧档，靠半页供词改了判词",
+    "genre": "历史脑洞",
+    "platform": "番茄",
+    "target_chapters": 10,
+    "target_words": 40000,
+    "created_at": "2026-03-24T08:30:00Z",
+    "updated_at": "2026-03-24T07:34:55Z"
+  },
+  "genre_profile": {
+    "loaded": "historical-brainhole",
+    "bucket": "历史脑洞",
+    "节奏": {
+      "type": "创意历史型",
+      "tension_ratio": "4:6"
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 45,
+      "fire": 30,
+      "constellation": 25
+    },
+    "特殊约束": [
+      "架空设定要自洽",
+      "历史感要有，但不能用设定讲义代替剧情"
+    ]
+  },
+  "progress": {
+    "current_chapter": 3,
+    "total_words": 9300,
+    "last_write_chapter": 3,
+    "last_write_time": "2026-03-24T08:30:00Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": false,
+      "midpoint_reached": false
+    }
+  },
+  "chapter_meta": {
+    "001": {
+      "word_count": 3100
+    },
+    "002": {
+      "word_count": 3100
+    },
+    "003": {
+      "word_count": 3100,
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "recommended_focus": "下一章要把旧案重开的制度后果和上位者敌意同时压上来，避免历史脑洞只剩翻案爽感。",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none"
+      }
+    }
+  }
+}
