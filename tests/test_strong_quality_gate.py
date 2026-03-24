@@ -263,6 +263,17 @@ class StrongQualityGateHelperTests(unittest.TestCase):
         self.assertFalse(candidate["accepted"])
         self.assertIn("contains-rejected-token", candidate["reasons"])
 
+    def test_classify_sync_candidate_rejects_school_grade_token(self):
+        candidate = strong_quality_gate.classify_sync_candidate(
+            name="高二",
+            occurrences=3,
+            policy=self.policy,
+            phrase_fragment_hits=0,
+            repetitive_noise_hits=0,
+        )
+        self.assertFalse(candidate["accepted"])
+        self.assertIn("school-grade-token", candidate["reasons"])
+
     def test_classify_sync_candidate_accepts_clean_name(self):
         candidate = strong_quality_gate.classify_sync_candidate(
             name="周全",
@@ -413,6 +424,15 @@ class SyncSettingAssetsIntegrationTests(unittest.TestCase):
         queued_names = {item["name"] for item in queue["ambiguous_entities"]}
         self.assertIn("白褙子", queued_names)
         self.assertFalse((project_root / "设定集" / "角色" / "白褙子.md").exists())
+
+    def test_sync_rejects_school_grade_token_to_review_queue(self):
+        chapter = "高二（七）班门口。高二（七）班门口。高二（七）班门口。苏照棠站在高二（七）班门口深呼吸。"
+        project_root = self.create_project({1: chapter}, current_chapter=1)
+        result = self.run_sync(project_root, "--mode", "characters", "--recent-chapters", "1")
+        queue = json.loads(Path(result["review_queue"]).read_text(encoding="utf-8"))
+        queued_names = {item["name"] for item in queue["ambiguous_entities"]}
+        self.assertIn("高二", queued_names)
+        self.assertFalse((project_root / "设定集" / "角色" / "高二.md").exists())
 
     def test_sync_overrides_can_ignore_candidate(self):
         chapter = "花厅里花厅里花厅里。"

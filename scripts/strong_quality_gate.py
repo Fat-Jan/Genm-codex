@@ -250,6 +250,10 @@ def classify_sync_candidate(
     reasons: list[str] = []
     accepted = True
 
+    if re.fullmatch(r"(?:高|初)(?:一|二|三|\d{1,2})", name):
+        accepted = False
+        reasons.append("school-grade-token")
+
     min_mentions = int(characters.get("min_confidence_mentions", 0) or 0)
     if occurrences < min_mentions:
         accepted = False
