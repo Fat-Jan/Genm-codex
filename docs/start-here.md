@@ -13,16 +13,24 @@
 1. `novel-init`
 2. `novel-genre`
 3. `novel-outline`
-4. `novel-package`
-5. `novel-write`
-6. `novel-close`
-7. 必要时再 `novel-rewrite`
-8. `novel-export`
+4. `setting gate`
+5. `novel-package`
+6. `novel-write`
+7. `novel-close`
+8. 必要时再 `novel-rewrite`
+9. `novel-export`
 
 补充：
 
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - 如果你这次只想写，不想自动收口，显式加 `skip_close=true`
+- `novel-outline` 完成后，先跑一次 `setting gate` 再开始写：
+
+```text
+python3 scripts/setting_gate.py <project_root> --stage outline
+```
+
+- 如果 `.mighty/setting-gate.json` 仍是 `blocked`，不要直接进入 `novel-write`
 
 最小提示词：
 
@@ -155,6 +163,8 @@ python3 scripts/project-maintenance.py <project_root>
 ```text
 python3 scripts/post-task-maintenance.py <project_root> --trigger write
 ```
+
+这个维护链现在应包含 `setting gate(write-post)`，而不只是 `sync + thin-state`。
 
 ## 阶段能力地图
 

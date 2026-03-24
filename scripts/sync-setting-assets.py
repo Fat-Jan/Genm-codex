@@ -396,16 +396,43 @@ def write_item_files(project_root: Path, names: list[str], chapter_nums: list[in
 def write_review_queue(project_root: Path, chapter_nums: list[int], ambiguities: list[dict]) -> str:
     queue_path = project_root / ".mighty" / "sync-review.json"
     old_reviewed = []
+    old_ambiguous = []
     if queue_path.exists():
         try:
-            old_reviewed = json.loads(queue_path.read_text()).get("reviewed_entities", [])
+            existing = json.loads(queue_path.read_text())
+            old_reviewed = existing.get("reviewed_entities", [])
+            old_ambiguous = existing.get("ambiguous_entities", [])
         except Exception:
             old_reviewed = []
+            old_ambiguous = []
+
+    normalized = []
+    for item in ambiguities:
+        normalized.append({
+            "name": item.get("name", ""),
+            "kind": item.get("kind", ""),
+            "reason": item.get("reason", ""),
+            "source_stage": item.get("source_stage", "sync"),
+            "confidence": item.get("confidence", "low"),
+            "requires_user_confirmation": item.get("requires_user_confirmation", False),
+            "blocking": item.get("blocking", False),
+            "candidate_files": item.get("candidate_files", []),
+        })
+
+    merged = []
+    seen = set()
+    for item in old_ambiguous + normalized:
+        key = (item.get("name", ""), item.get("kind", ""), item.get("source_stage", ""))
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(item)
+
     doc = {
         "version": "1.0",
         "generated_at": now_iso(),
         "chapters_window": chapter_nums,
-        "ambiguous_entities": ambiguities,
+        "ambiguous_entities": merged,
         "reviewed_entities": old_reviewed,
     }
     queue_path.write_text(json.dumps(doc, ensure_ascii=False, indent=2))

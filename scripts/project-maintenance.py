@@ -39,6 +39,13 @@ def main() -> None:
     steps = []
     steps.append(run([
         sys.executable,
+        str(script_dir / "setting_gate.py"),
+        str(root),
+        "--stage",
+        "write-post",
+    ]))
+    steps.append(run([
+        sys.executable,
         str(script_dir / "sync-setting-assets.py"),
         str(root),
         "--mode",

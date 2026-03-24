@@ -31,6 +31,7 @@ Create:
 .mighty/state.json
 .mighty/learned-patterns.json
 .mighty/market-adjustments.json
+.mighty/setting-gate.json
 chapters/
 大纲/总纲.md
 大纲/卷纲/
@@ -117,7 +118,11 @@ Initialize `.mighty/state.json` with, at minimum:
      - birth-order map exists for any `二姑娘 / 三姑娘` style terms
      - core office titles and actual power chain are no longer empty when the story depends on官场/宫廷/地方权力
 10. Record the chosen profile in `state.genre_profile`.
-11. Report created files, chosen profile, whether the ancient-family-power route was detected, and any fallback decisions.
+11. After the starter files exist, run `setting gate(init)`:
+   - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage init`
+   - aggressively materialize starter skeleton cards for repeated roles / locations / factions / items when they are already inferable from local project truth
+   - write `.mighty/setting-gate.json` as the current gate snapshot
+12. Report created files, chosen profile, whether the ancient-family-power route was detected, whether `setting gate(init)` ran, and any fallback decisions.
 
 ## Failure handling
 
