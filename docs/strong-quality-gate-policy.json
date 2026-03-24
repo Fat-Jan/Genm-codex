@@ -115,6 +115,42 @@
         "上",
         "下"
       ],
+      "reject_fullmatch_patterns": [
+        {
+          "pattern": "(?:高|初)(?:一|二|三|\\d{1,2})",
+          "reason": "school-grade-token"
+        }
+      ],
+      "reject_role_suffixes": [
+        {
+          "suffix": "师兄",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "师姐",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "师弟",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "师妹",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "执事",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "长老",
+          "reason": "role-title-token"
+        },
+        {
+          "suffix": "掌柜",
+          "reason": "role-title-token"
+        }
+      ],
       "phrase_fragment_reject_min_occurrences": 2,
       "repetitive_noise_reject_min_occurrences": 2,
       "min_phrase_fragment_chars": 2,

@@ -250,13 +250,19 @@ def classify_sync_candidate(
     reasons: list[str] = []
     accepted = True
 
-    if re.fullmatch(r"(?:高|初)(?:一|二|三|\d{1,2})", name):
-        accepted = False
-        reasons.append("school-grade-token")
+    for rule in characters.get("reject_fullmatch_patterns", []):
+        pattern = rule.get("pattern", "")
+        reason = rule.get("reason", "reject-fullmatch-pattern")
+        if pattern and re.fullmatch(pattern, name):
+            accepted = False
+            reasons.append(reason)
 
-    if any(name.endswith(suffix) for suffix in ("师兄", "师姐", "师弟", "师妹", "执事", "长老", "掌柜")):
-        accepted = False
-        reasons.append("role-title-token")
+    for rule in characters.get("reject_role_suffixes", []):
+        suffix = rule.get("suffix", "")
+        reason = rule.get("reason", "reject-role-suffix")
+        if suffix and name.endswith(suffix):
+            accepted = False
+            reasons.append(reason)
 
     min_mentions = int(characters.get("min_confidence_mentions", 0) or 0)
     if occurrences < min_mentions:

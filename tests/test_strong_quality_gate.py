@@ -84,6 +84,8 @@ class StrongQualityGatePolicyTests(unittest.TestCase):
             "max_person_name_chars",
             "reject_if_contains",
             "reject_exact_names",
+            "reject_fullmatch_patterns",
+            "reject_role_suffixes",
             "garment_or_object_hints",
             "reject_suffixes",
             "phrase_fragment_reject_min_occurrences",
@@ -92,6 +94,8 @@ class StrongQualityGatePolicyTests(unittest.TestCase):
         ):
             self.assertIn(key, characters)
         self.assertTrue(characters.get("reject_suffixes"))
+        self.assertTrue(characters.get("reject_fullmatch_patterns"))
+        self.assertTrue(characters.get("reject_role_suffixes"))
 
     def test_post_write_gate_sections_present(self):
         policy = self.load_policy()
