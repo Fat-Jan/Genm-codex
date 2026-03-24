@@ -104,6 +104,7 @@ Read conditionally:
    while keeping `state` only as a lightweight summary/pointer
 9. Maintain a lightweight ambiguity queue:
    - `.mighty/sync-review.json`
+   - treat this as the shared review queue for both `novel-sync` and `setting gate`, not as a sync-only file
    - use it for low-confidence candidates that should not be materialized blindly
    - use `.mighty/sync-overrides.json` to record resolved aliases or ignored candidates
 10. Return a compact sync summary:
@@ -118,6 +119,7 @@ Read conditionally:
 - Use `novel-character` when the user wants to author or revise a specific role card in detail.
 - Use `novel-setting` when the user wants to author or revise a specific location / faction / item file in detail.
 - Use `novel-sync` when the user wants the project to stop depending purely on `state` for long-lived assets.
+- When `setting gate` has already written review items, `novel-sync` should append or preserve that queue state instead of overwriting it.
 - `thin-state` must not alter protagonist runtime state, progress, active foreshadowing, or current quest fields.
 - Treat `items` as evidence-chain / repeated-use assets; do not create cards for disposable props.
 - For post-write maintenance, prefer running `scripts/project-maintenance.py` so sync, guidance split, and state thinning stay in one path.

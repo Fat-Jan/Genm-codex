@@ -18,6 +18,7 @@ Use this skill after project initialization, or when the user wants to generate 
 ## Preconditions
 
 - `.mighty/state.json` exists
+- `设定集/` exists
 - `大纲/` exists
 - Shared assets exist:
   - `../../shared/profiles/`
@@ -198,7 +199,13 @@ Also read these when generating or materially revising outlines, especially for 
    - if the chapter depends on office hierarchy, keep官名、节制链、称呼 consistent with the office truth sheet even when the broader total outline is still provisional
 10. Keep chapter outlines specific enough for writing, but short enough to maintain.
 11. If the user asks for multiple options, present 2-3 outline variants before locking one in.
-12. Report which outline files were created or updated, and mention the bucket when one was used.
+12. After a real outline pass, run `setting gate(outline)`:
+   - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage outline`
+   - use it as a hard gate before writing
+   - let it do local-first setting enrichment and write `.mighty/setting-gate.json`
+   - if the gate result is `blocked`, stop before handing off to `novel-write`
+   - if the gate queues high-risk review items, report them explicitly instead of pretending the project is ready to draft
+13. Report which outline files were created or updated, whether `setting gate(outline)` passed, and mention the bucket when one was used.
    - if anti-flattening rules were active, also mention the main structural locks or warnings applied
 
 ## 宫斗宅斗路线的宫廷市场调整

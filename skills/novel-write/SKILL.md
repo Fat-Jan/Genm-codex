@@ -44,6 +44,7 @@ Read conditionally:
 - `大纲/总纲.md` for main-arc alignment
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
+- `.mighty/setting-gate.json`
 - previous chapter file or summary
 - `.mighty/workflow_state.json` when workflow safety must be checked before post-write auto-close
 - `.mighty/learned-patterns.json`
@@ -169,7 +170,12 @@ Read conditionally:
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - treat the chosen tagpack as a second-layer overlay on top of the bucket, not as a replacement for the bucket
 13. Load high-value shared references from `../../shared/references/` only as needed.
-14. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
+14. Before drafting, check `.mighty/setting-gate.json`.
+   - if it is missing, stale relative to the current outline pass, or not in `passed` status, stop before writing
+   - route back to `setting gate(outline)`:
+     - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage outline`
+   - do not bypass this gate just because the relevant facts seem obvious from recent context
+15. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
    - read `../../docs/strong-quality-gate-policy.json`
    - treat it as the single rule source for required truth files
    - if the required truth source is missing, stop before writing
@@ -178,8 +184,8 @@ Read conditionally:
      - `novel-character`
      - `novel-scan` only when external research is truly needed
    - do not hallucinate missing truth just to satisfy the chapter
-15. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
-16. Write `chapters/第N章.md` aligned to:
+16. If a previous chapter exists, read the prior chapter summary or chapter file for continuity.
+17. Write `chapters/第N章.md` aligned to:
    - current state
    - target chapter outline
    - genre/platform expectations
@@ -225,7 +231,7 @@ Read conditionally:
      - if `scan-kinship-truth-check` exists, keep kinship / title words consistent with the truth sheet even in dialogue shorthand
      - and, when Fanqie chapter-length policy exists:
        - if `word_count` is not explicitly provided, treat the current bucket's preferred chapter range as the default target
-17. Update `.mighty/state.json` with:
+18. Update `.mighty/state.json` with:
    - `progress.current_chapter`
    - `progress.total_words`
    - `progress.last_write_chapter`
@@ -233,8 +239,8 @@ Read conditionally:
    - `chapter_meta`
    - `chapter_snapshots`
    - `summaries_index`
-18. Do not write review scores here unless an actual review step was run.
-19. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
+19. Do not write review scores here unless an actual review step was run.
+20. After the base write succeeds, attempt a guarded automatic `novel-close` by default.
     - run this only for a normal single-chapter `novel-write`
     - do not inherit this behavior into `novel-batch`
     - if `skip_close=true`, do not attempt auto-close and report that it was intentionally skipped
@@ -246,9 +252,9 @@ Read conditionally:
       - the user did not explicitly request a write-only pass
     - if guards fail, do not fake execution; report the exact skip reason
     - if auto-close fails after the chapter was written, keep the write as successful and report the post-write close failure clearly
-20. After a real writing round, the preferred maintenance hook remains:
+21. After a real writing round, the preferred maintenance hook remains:
     - `scripts/post-task-maintenance.py <project_root> --trigger write`
-    which should call the maintenance chain for stable entities, runtime guidance, and state thinning.
+    which should call the maintenance chain for `setting gate(write-post)`, stable entities, runtime guidance, and state thinning.
     - maintenance is not the place where prose mutation or `novel-close` execution should live
 
 ## 宫斗宅斗路线的宫廷市场调整
