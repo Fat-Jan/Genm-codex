@@ -49,6 +49,9 @@ def main() -> None:
         "project": str(root),
         "trigger": args.trigger,
         "action": "ran-maintenance",
+        "transaction_contract": "chapter-transaction-v1",
+        "transaction_phase": "maintenance",
+        "next_transaction_step": "snapshot",
         "maintenance_stdout": proc.stdout.strip(),
     }
 

@@ -112,6 +112,8 @@
 
 补充规则：
 
+- 单章正文现在最好按一个固定的 `chapter transaction` 理解：
+  - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - `novel-batch` 不会继承这个默认行为
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
@@ -136,6 +138,15 @@
   - 单一规则源是：
     - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)
 
+已有稿接入：
+
+- 优先运行 `python3 scripts/import_existing_chapters.py <project_root> --from <source>`
+- 查看 `.mighty/import-report.json`
+- 再走：
+  - `novel-index build`
+  - `setting gate`
+  - `novel-resume`
+
 反脸谱化与群像打磨入口：
 
 - [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
@@ -145,6 +156,7 @@
 - `novel-review` 现在默认会把单章问题收成可一次执行的 issue clusters，并在两轮修订仍未收口时上推 `novel-rewrite`
 - `novel-close` 现在是默认推荐的单章收口轮入口，内部固定执行 `novel-review -> 单一路由 -> re-review`
 - `novel-write` 现在在单章模式下会默认守卫式自动尝试 `novel-close`，并在跳过时说明原因
+- `novel-workflow` / `novel-resume` 现在应把单章 chapter transaction 当成默认恢复单元，而不是只看模糊的当前任务状态
 - `novel-fix` 现在会在局部修补范围内读取快速修复动作，并尽量一次收口同章的局部问题，而不是把人物补丁偷渡成整章重写
 - `novel-polish` 现在默认偏向单次 `all` 向润色，不鼓励把 prose / dialogue / pacing 拆成多轮微修
 - `novel-precheck` 现在会在投稿前检查主角特权失衡、阵营单声道和推进过顺风险

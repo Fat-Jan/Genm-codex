@@ -60,6 +60,7 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/import-report.json`
 - recent `chapters/第NNN章.md`
 - recent `chapter_meta`
 - recent `summaries_index`
@@ -107,6 +108,7 @@ Read conditionally:
    - treat this as the shared review queue for both `novel-sync` and `setting gate`, not as a sync-only file
    - use it for low-confidence candidates that should not be materialized blindly
    - use `.mighty/sync-overrides.json` to record resolved aliases or ignored candidates
+   - when `.mighty/import-report.json` exists, treat imported chapters as a likely source of unresolved candidates that may need `sync-review`
 10. Return a compact sync summary:
    - files created
    - files refreshed

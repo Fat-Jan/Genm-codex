@@ -31,7 +31,9 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/active-context.json`
 - `.mighty/state-archive.json`
+- `.mighty/volume-summaries.json`
 - `.mighty/learned-patterns.json`
 - `.mighty/market-adjustments.json`
 - `.mighty/setting-gate.json`
@@ -44,10 +46,12 @@ Read conditionally:
 
 1. Read `.mighty/state.json`.
 2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
-3. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
-4. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
-5. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
-6. Summarize:
+3. If `.mighty/volume-summaries.json` exists and the user asks for history/full mode, read it as the compressed archive view for old chapter ranges.
+4. If `.mighty/active-context.json` exists and the user asks for full mode, risks, or next-step guidance, read it as the preferred current-writing sidecar.
+5. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
+6. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
+7. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+8. Summarize:
    - title
    - genre
    - platform
@@ -62,21 +66,23 @@ Read conditionally:
    - `main_quest`
    - `progress.milestones`
    - sidecar guidance summaries when present
+   - current `recent_guardrails` and their expiry when present
+   - active-context summary when present
    - gate status, blocking gaps, review items, and `minimal_next_action` when present
    - and when present, archived `chapter_meta` / `chapter_snapshots` coverage
-8. Build the status sections that fit the request:
+9. Build the status sections that fit the request:
    - progress
    - quality
    - foreshadowing buckets / timeline
    - index stats when available
    - gate blockers when relevant
    - active risks
-9. If `summary` mode:
+10. If `summary` mode:
    - return a concise dashboard
-10. If `full` mode:
-   - expand with quality trend, foreshadowing buckets, index-backed stats, and next risks
-11. If the user asks for one focus area, prioritize that section and compress the rest.
-12. End with the smallest useful next-step recommendation.
+11. If `full` mode:
+   - expand with quality trend, foreshadowing buckets, index-backed stats, active `recent_guardrails`, volume summaries coverage, and next risks
+12. If the user asks for one focus area, prioritize that section and compress the rest.
+13. End with the smallest useful next-step recommendation.
    - if `.mighty/setting-gate.json` is not `passed`, prefer the gate's `minimal_next_action` over generic writing advice
 
 ## Focus guidance
@@ -137,7 +143,10 @@ For `full` or stats-heavy requests, prefer sections such as:
 - Prefer state-derived truth over stale prose summaries.
 - If chapter count from files and state disagree, report the mismatch explicitly.
 - If `state` has been thinned, explain which chapters are still live in `state` and which are now only in `state-archive`.
+- If `.mighty/volume-summaries.json` exists, explain when old detail is now served from volume summaries instead of live chapter rows.
 - If there is insufficient data for a requested statistic, say so directly instead of inferring.
 - Treat `index` as an accelerator and secondary source, not a replacement for `state`.
+- Treat `.mighty/active-context.json` as the preferred current-writing sidecar when it exists.
 - Treat sidecar files as the preferred place for learned / market guidance once they have been externalized.
+- When `.mighty/learned-patterns.json` contains active `recent_guardrails`, surface them as short-lived next-chapter constraints instead of flattening them into generic style notes.
 - If `.mighty/setting-gate.json` exists, treat it as the current write-readiness control point rather than inferring readiness from chapter count alone.

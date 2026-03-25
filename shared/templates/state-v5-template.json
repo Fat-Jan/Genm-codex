@@ -171,6 +171,17 @@
   "active_primary_pivot": "",
   "launch_stack_phase": "",
   "launch_stack_drift_signal": "none",
+  "active_context": {
+    "sidecar_file": ".mighty/active-context.json",
+    "last_built": null,
+    "summary_window": {
+      "count": 0,
+      "recent_count": 0,
+      "latest_chapter": null
+    },
+    "hook_count": 0,
+    "guardrail_count": 0
+  },
   "chapter_meta": {
     "<chapter_number>": {
       "fanqie_bucket_flags": [],

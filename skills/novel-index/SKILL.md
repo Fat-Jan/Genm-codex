@@ -35,6 +35,7 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/import-report.json`
 - `大纲/章纲/*.md`
 - `设定集/角色/*.md`
 - `设定集/地点/*.md`
@@ -92,6 +93,7 @@ Keep `.mighty/index.json` compact and readable. Include at minimum:
 
 1. Read `.mighty/state.json`.
 2. Scan written chapter files under `chapters/`.
+   - if `.mighty/import-report.json` exists, treat it as a signal that imported chapters may need a fresh `novel-index build`
 3. For each chapter:
    - read file path and text
    - use `chapter_meta` and `summaries_index` when present

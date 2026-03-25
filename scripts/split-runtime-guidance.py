@@ -53,6 +53,12 @@ def main() -> None:
         "sidecar_file": ".mighty/learned-patterns.json",
         "last_updated": ts,
         "available_sections": sorted(list(learned.keys())) if isinstance(learned, dict) else [],
+        "has_recent_guardrails": isinstance(learned, dict) and isinstance(learned.get("recent_guardrails"), dict),
+        "recent_guardrails_expires_after_chapter": (
+            learned.get("recent_guardrails", {}).get("expires_after_chapter")
+            if isinstance(learned, dict) and isinstance(learned.get("recent_guardrails"), dict)
+            else None
+        ),
     }
     state["market_adjustments"] = {
         "externalized": True,

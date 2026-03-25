@@ -22,6 +22,12 @@
 
 验证它能从现有章节范围中提炼写作模式，并保守更新 `learned_patterns`。
 
+补充目标：
+
+- 能从本地文件学习
+- 在当前环境确实可抓取时，能从 retrievable URL 文本学习
+- 不引入第二个风格中心
+
 ### 推荐提示词
 
 ```text
@@ -51,5 +57,9 @@
 
 - 确认正确项目目录
 - 学习结果来自本地章节
+- 如提供本地文件，学习结果可明确说明来源是本地文件
+- 如提供 URL，只有在当前环境真实抓到正文时才算 URL 学习成功
 - 更新 `learned_patterns` 合理且不过度夸张
+- 仍然优先写入 `.mighty/learned-patterns.json`
+- 不新增 `style_profile.json` 这类平行 style center
 - 不假装完成外部抓取

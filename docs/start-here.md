@@ -23,6 +23,8 @@
 
 补充：
 
+- 单章主线现在最好按一个固定的 `chapter transaction` 理解：
+  - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - 如果你这次只想写，不想自动收口，显式加 `skip_close=true`
 - 如果当前项目是番茄平台，`novel-outline` 之后先运行：
@@ -218,6 +220,28 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 ```
 
 这个维护链现在应包含 `setting gate(write-post)`，而不只是 `sync + thin-state`。
+
+### 8. 已有稿接入
+
+优先用：
+
+- `python3 scripts/import_existing_chapters.py <project_root> --from <source>`
+
+然后看：
+
+- `.mighty/import-report.json`
+
+再继续：
+
+- `novel-index build`
+- `setting gate`
+- `novel-resume`
+
+如果你想知道一个单章事务现在停在哪，优先看：
+
+- `novel-workflow`
+- `novel-resume`
+- `novel-snapshot`
 
 ## 阶段能力地图
 

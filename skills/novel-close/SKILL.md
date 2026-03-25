@@ -9,6 +9,14 @@ Use this skill when the user wants one explicit chapter-convergence pass instead
 
 This skill may also be invoked as the guarded post-write close step after `novel-write`.
 
+Inside the default chapter transaction, this skill is the `close` phase:
+
+1. `gate-check`
+2. `draft`
+3. `close`
+4. `maintenance`
+5. `snapshot`
+
 Default intent for the current workflow:
 
 - always start from a fresh review
@@ -57,6 +65,7 @@ Read conditionally:
   - `issue_clusters`
 - `大纲/章纲/第N章.md` when route ambiguity needs chapter-purpose confirmation
 - `../../docs/strong-quality-gate-policy.json` when post-write hard blocking must be evaluated
+- `scripts/post_write_lint.py` when deterministic post-write lint findings must be checked before close success
 
 ## Workflow
 
@@ -87,12 +96,15 @@ Read conditionally:
    - stop and explicitly surface rewrite as the correct next move
    - do not downgrade rewrite-sized work into `novel-fix` or `novel-polish`
 9. Before reporting close success, run the strong post-write hard gate when the project uses `../../docs/strong-quality-gate-policy.json`.
+   - first run deterministic post-write lint through `scripts/post_write_lint.py`
+   - treat deterministic lint as structured evidence, not as hidden editing
    - treat the policy file as the single rule source for hard blockers
    - if the gate reports a blocker, `novel-close` must not report the chapter as closed for this pass
    - route the chapter back to:
      - `novel-fix` for bounded local repair
      - `novel-rewrite` for structural failure
    - do not let a cosmetic polish path override a hard blocker
+   - warnings from deterministic lint may inform `novel-fix` or later polish, but only policy-backed blockers stop close success
 10. If chapter text changed, run a second `novel-review`.
 11. Persist lightweight close metadata inside `chapter_meta[N]` when the project tracks those fields.
 
@@ -186,6 +198,7 @@ Do not create a new top-level workflow or quality state center for this feature.
 
 - This skill is an orchestrator, not a new editor.
 - `novel-close` remains the executor; `novel-write` may decide whether to attempt the post-write handoff.
+- `novel-close` participates in the larger chapter transaction contract, but it does not own `maintenance` or `snapshot`.
 - Do not preload child skill contracts here. Once `novel-review` / `novel-fix` / `novel-polish` / `novel-rewrite` is selected, let that skill load its own required reads and boundaries.
 - `novel-review` stays read-only.
 - `novel-polish` remains the only explicit anti-AI cleanup route.

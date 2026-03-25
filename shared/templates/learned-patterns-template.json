@@ -41,6 +41,12 @@
     "sentence_pattern": "长短错落",
     "ai_trace_score": 0.0
   },
+  "recent_guardrails": {
+    "must_avoid": [],
+    "must_preserve": [],
+    "next_chapter_watchpoints": [],
+    "expires_after_chapter": null
+  },
   "chapter_structure": {
     "dialogue_ratio": 0.35,
     "description_ratio": 0.40,

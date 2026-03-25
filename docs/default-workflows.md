@@ -83,6 +83,14 @@
 
 - 已有项目，正在稳定推进章节
 
+默认单章路径现在最好按一个固定的 `chapter transaction` 来理解：
+
+1. `gate-check`
+2. `draft`
+3. `close`
+4. `maintenance`
+5. `snapshot`
+
 硬约束：
 
 - **一次性批量生成最多 3 章**
@@ -100,6 +108,7 @@
 2. `novel-close`
    - 作为默认的单章收口轮入口
    - 内部执行：
+     - `post_write_lint`
      - `novel-review`
      - 单一路由：
        - `novel-fix`
@@ -110,6 +119,7 @@
    - 若强质量门仍有客观 blocker：
      - 不允许把本章标记为已收口
      - 必须回到 `novel-fix` 或 `novel-rewrite`
+   - 确定性 lint warning 可以进入修补，但只有 policy-backed blocker 才能阻断 close 成功
 3. 每 3-5 章或一个阶段后：
    - `novel-sync`
 4. 每轮正文维护后：
@@ -120,6 +130,9 @@
    - 维护链应先跑 `setting gate(write-post)`，再继续 sync / guidance split / thin-state
 5. 章节很多后：
    - `novel-sync (thin-state)`
+6. 单章事务收尾时：
+   - 优先补 `snapshot`
+   - 或用 `novel-resume` / `novel-workflow` 判断当前 chapter transaction 卡在哪一步
 
 目标：
 
@@ -264,6 +277,15 @@
 - `novel-snapshot`
 - `novel-resume`
 - `novel-workflow`
+
+### 已有稿接入
+
+- 先用 `scripts/import_existing_chapters.py <project_root> --from <source>`
+- 查看 `.mighty/import-report.json`
+- 再走：
+  - `novel-index build`
+  - `setting gate`
+  - `novel-resume`
 
 ---
 

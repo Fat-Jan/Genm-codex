@@ -27,6 +27,26 @@ def long_html(title: str, phrase: str = "正文") -> str:
 
 
 class AcquireSourceTextTests(unittest.TestCase):
+    def test_retrievable_url_result_is_usable_for_learning(self) -> None:
+        module = load_module()
+
+        result = module.acquire_article(
+            "https://example.com/post",
+            fetch_provider=lambda url, timeout_ms: module.StageResult.ok_result(
+                title="Example Source",
+                body="正文学习样本" * 120,
+                final_url=url,
+            ),
+            min_body_chars=300,
+        )
+
+        self.assertEqual(result.status, "success")
+        self.assertEqual(result.source_type, "fetch_mcp")
+        self.assertEqual(result.title, "Example Source")
+        self.assertGreater(len(result.body or ""), 300)
+        self.assertEqual(result.source_url, "https://example.com/post")
+        self.assertEqual(result.final_url, "https://example.com/post")
+
     def test_reader_proxy_provider_parses_markdown_response(self) -> None:
         module = load_module()
 
@@ -313,6 +333,26 @@ class AcquireSourceTextTests(unittest.TestCase):
             self.assertEqual(result.source_type, "html_extract")
             self.assertEqual([attempt.stage for attempt in result.attempts], ["direct_html"])
             self.assertTrue(any("skip" in note for note in result.notes))
+
+    def test_partial_search_result_still_returns_body_for_learning_fallback(self) -> None:
+        module = load_module()
+
+        result = module.acquire_article(
+            "https://unknown.example/article",
+            fetch_provider=lambda url, timeout_ms: module.StageResult.failed("tool_unavailable"),
+            html_fetcher=lambda url, timeout_ms: "<html><body><p>太短</p></body></html>",
+            search_provider=lambda url, timeout_ms: module.StageResult.ok_result(
+                title="Search Learning Fallback",
+                body="摘要学习样本" * 120,
+                final_url=url,
+            ),
+            min_body_chars=300,
+        )
+
+        self.assertEqual(result.status, "partial")
+        self.assertEqual(result.failure_reason, "search_only")
+        self.assertEqual(result.title, "Search Learning Fallback")
+        self.assertGreater(len(result.body or ""), 300)
 
 
 if __name__ == "__main__":

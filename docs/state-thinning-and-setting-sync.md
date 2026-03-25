@@ -81,6 +81,11 @@
 
 - **检索层**
 
+### C2. `.mighty/active-context.json`
+做成：
+
+- **当前写作上下文侧栏**
+
 ### D. `.mighty/market-data.json`
 做成：
 
@@ -96,6 +101,7 @@
 - **`state` 管当前**
 - **`设定集` 管长期**
 - **`index` 管检索**
+- **`active-context` 管当前 prompt 装配**
 - **`sync` 负责把当前沉淀成长期**
 
 ---
@@ -205,6 +211,18 @@
 - `content_standard_alerts`
 
 其中 `launch_stack` 这类起盘协议结果尤其不适合直接塞成长段分析，应该优先走 sidecar。
+
+同样，当前写作窗口的 prompt 装配信息也不应直接膨胀进 `state.json`，更适合放在：
+
+- `.mighty/active-context.json`
+
+而 `state.json` 只保留它的 sidecar 指针和轻量摘要。
+
+长篇项目中，被归档的旧章节摘要也不应永远只保留散的 `summaries_index` 行，更适合额外压成：
+
+- `.mighty/volume-summaries.json`
+
+它只服务 archive 级压缩检索，不是新的 truth source。
 
 ---
 

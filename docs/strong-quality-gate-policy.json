@@ -77,6 +77,33 @@
       "punctuation_corruption_min_occurrences": 3
     }
   },
+  "post_write_lint": {
+    "ai_turn_markers": {
+      "words": [
+        "仿佛",
+        "忽然",
+        "竟然",
+        "猛地",
+        "猛然",
+        "不禁"
+      ],
+      "warn_total_occurrences": 3
+    },
+    "explanation_first_patterns": [
+      "这一刻，他终于明白了",
+      "这一刻，她终于明白了",
+      "这一刻，他终于知道了",
+      "这一刻，她终于知道了"
+    ],
+    "collective_shock_patterns": [
+      "(?:全场|众人|所有人|在场的人)[，,]?(?:都|全|齐齐|纷纷)?(?:震惊|惊呆|倒吸凉气|目瞪口呆|哗然|惊呼)",
+      "(?:全场|一片)[，,]?(?:寂静|哗然|沸腾|震动)"
+    ],
+    "long_paragraphs": {
+      "warn_over_chars": 300,
+      "warn_min_paragraphs": 2
+    }
+  },
   "sync_gate": {
     "characters": {
       "min_confidence_mentions": 2,

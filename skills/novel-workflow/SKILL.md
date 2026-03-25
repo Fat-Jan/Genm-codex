@@ -24,6 +24,7 @@ Use this skill when the user wants to view or update lightweight workflow state 
 ## Workflow state location
 
 - `.mighty/workflow_state.json`
+- `shared/templates/workflow-state-v2.json` is the preferred template for the chapter transaction contract
 
 ## First-version scope
 
@@ -44,19 +45,21 @@ It should not:
 
 ## Expected state shape
 
-Use a conservative version of the legacy structure:
+Use a conservative version of the legacy structure, upgraded for the fixed chapter transaction:
 
 ```json
 {
-  "version": "1.0",
+  "version": "2.0",
+  "transaction_contract": "chapter-transaction-v1",
   "current_task": {
     "command": "novel-write",
     "args": {},
     "status": "running",
-    "current_step": "draft",
+    "current_step": "gate-check",
     "completed_steps": [],
     "failed_steps": [],
-    "pending_steps": [],
+    "pending_steps": ["gate-check", "draft", "close", "maintenance", "snapshot"],
+    "last_successful_checkpoint": null,
     "started_at": "...",
     "last_heartbeat": "...",
     "error_message": null
@@ -64,6 +67,14 @@ Use a conservative version of the legacy structure:
   "history": []
 }
 ```
+
+Recommended fixed step order for a single-chapter chapter transaction:
+
+1. `gate-check`
+2. `draft`
+3. `close`
+4. `maintenance`
+5. `snapshot`
 
 ## Required reads
 
@@ -83,6 +94,7 @@ Always read what exists:
    - summarize current task
    - summarize current step
    - summarize completed / pending / failed steps
+   - if the current task follows the chapter transaction, explain which of the five fixed steps it is currently in
    - mention `last_heartbeat`
 
 ### complete
@@ -90,7 +102,7 @@ Always read what exists:
 1. Read workflow state.
 2. Validate that the requested step is present in the active task.
 3. Move the step from `pending_steps` to `completed_steps` when needed.
-4. Advance `current_step` to the next pending step when possible.
+4. Advance `current_step` to the next pending step when possible, preserving the fixed transaction order when it exists.
 5. Refresh `last_heartbeat`.
 6. If no pending steps remain, mark task `completed`.
 7. If the completed task was `novel-write` or `novel-batch`, recommend post-write maintenance:
@@ -132,5 +144,6 @@ Always read what exists:
 
 - If the workflow file is malformed, say so directly and recommend reset or manual repair.
 - Treat this as coordination state only.
+- Prefer the fixed chapter transaction order when the task is a normal single-chapter prose run.
 - If the user actually wants to continue writing, route to `novel-resume` or `novel-write` rather than pretending workflow state alone performs the work.
 - For long-running projects, do not treat workflow completion as fully stable until maintenance has had a chance to sync settings and thin `state`.

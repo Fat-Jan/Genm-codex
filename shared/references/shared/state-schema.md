@@ -485,6 +485,18 @@ version: "1.0"
 - 详细 `launch_stack` 结果、候选与 compiler 输出，应保存在 `.mighty/launch-stack.json`
 - 不为起盘协议栈新增顶层长分析区块
 
+### active_context 侧栏约定
+
+- `active_context` 只作为 sidecar 指针与轻量摘要存在
+- 详细当前写作上下文应保存在 `.mighty/active-context.json`
+- `active_context` 可以保留：
+  - `sidecar_file`
+  - `last_built`
+  - `summary_window`
+  - `hook_count`
+  - `guardrail_count`
+- `active_context` 不是新的 truth source，不应与 `state.json`、`state-archive`、`index` 竞争事实归属
+
 ### `dimension_scores` 附加键约定
 
 除已有质量维度外，可追加：

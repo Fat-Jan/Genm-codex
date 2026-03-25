@@ -5,6 +5,8 @@ import argparse
 import json
 from pathlib import Path
 
+from build_volume_summaries import build_volume_summaries
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Thin state.json by archiving old chapter metadata.")
@@ -42,6 +44,7 @@ def main() -> None:
             "reason": "chapter count within retain window",
             "chapter_count": len(keys),
             "retain_recent_chapters": args.retain_recent_chapters,
+            "active_context_retained": bool(state.get("active_context")),
         }, ensure_ascii=False, indent=2))
         return
 
@@ -84,12 +87,17 @@ def main() -> None:
 
     archive_path.write_text(json.dumps(archive_doc, ensure_ascii=False, indent=2))
     state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    volume_payload = build_volume_summaries(root, timestamp=args.timestamp or "")
+    volume_path = root / ".mighty" / "volume-summaries.json"
+    volume_path.write_text(json.dumps(volume_payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(json.dumps({
         "action": "thinned",
         "retained_recent_chapters": keep,
         "archived_chapters": archive,
         "archive_file": str(archive_path),
+        "active_context_retained": bool(state.get("active_context")),
+        "volume_summaries_file": str(volume_path),
     }, ensure_ascii=False, indent=2))
 
 

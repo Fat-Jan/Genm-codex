@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -331,6 +332,64 @@ class WritingCoreSmokeWritebackTests(unittest.TestCase):
             packaging_content = packaging_path.read_text(encoding="utf-8")
             self.assertIn("推荐书名", packaging_content)
             self.assertIn("推荐简介", packaging_content)
+
+    def test_split_runtime_guidance_preserves_recent_guardrails_sidecar_first(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir) / "project"
+            mighty = project_root / ".mighty"
+            mighty.mkdir(parents=True)
+
+            state = {
+                "meta": {
+                    "title": "guardrail-test",
+                    "updated_at": "2026-03-25T00:00:00Z",
+                },
+                "learned_patterns": {
+                    "opening_strategy": "先见冲突",
+                    "multi_line_guardrails": ["主线先过户，副线轻触旧账。"],
+                    "content_standard_alerts": ["避免背景先行"],
+                    "recent_guardrails": {
+                        "must_avoid": ["不要回滑到解释腔"],
+                        "must_preserve": ["代价感"],
+                        "next_chapter_watchpoints": ["下一章必须留残账"],
+                        "expires_after_chapter": 4,
+                    },
+                },
+                "market_adjustments": {
+                    "adjustments": [],
+                },
+            }
+            (mighty / "state.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+            proc = subprocess.run(
+                [
+                    sys.executable,
+                    str(REPO_ROOT / "scripts" / "split-runtime-guidance.py"),
+                    str(project_root),
+                    "--timestamp",
+                    "2026-03-25T00:00:00Z",
+                ],
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+
+            self.assertTrue(proc.stdout)
+
+            learned_sidecar = json.loads((mighty / "learned-patterns.json").read_text(encoding="utf-8"))
+            self.assertIn("recent_guardrails", learned_sidecar["data"])
+            self.assertEqual(
+                learned_sidecar["data"]["recent_guardrails"]["expires_after_chapter"],
+                4,
+            )
+
+            updated_state = json.loads((mighty / "state.json").read_text(encoding="utf-8"))
+            learned_summary = updated_state["learned_patterns"]
+            self.assertTrue(learned_summary["externalized"])
+            self.assertIn("recent_guardrails", learned_summary["available_sections"])
+            self.assertTrue(learned_summary["has_recent_guardrails"])
+            self.assertEqual(learned_summary["recent_guardrails_expires_after_chapter"], 4)
+            self.assertNotIn("must_avoid", learned_summary)
 
     def test_writeback_mode_for_city_daily_project_writes_clean_packaging_file(self) -> None:
         module = load_module()

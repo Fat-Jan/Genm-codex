@@ -62,6 +62,13 @@ def main() -> None:
     ]))
     steps.append(run([
         sys.executable,
+        str(script_dir / "build_active_context.py"),
+        str(root),
+        "--timestamp",
+        ts,
+    ]))
+    steps.append(run([
+        sys.executable,
         str(script_dir / "thin-state.py"),
         str(root),
         "--retain-recent-chapters",
@@ -73,6 +80,9 @@ def main() -> None:
     report = {
         "project": str(root),
         "run_at": ts,
+        "transaction_contract": "chapter-transaction-v1",
+        "transaction_phase": "maintenance",
+        "next_transaction_step": "snapshot",
         "steps": steps,
     }
     report_path = root / ".mighty" / "maintenance-report.json"
@@ -80,6 +90,9 @@ def main() -> None:
     print(json.dumps({
         "project": str(root),
         "report_file": str(report_path),
+        "transaction_contract": "chapter-transaction-v1",
+        "transaction_phase": "maintenance",
+        "next_transaction_step": "snapshot",
         "steps": [Path(step["cmd"][1]).name for step in steps],
     }, ensure_ascii=False, indent=2))
 

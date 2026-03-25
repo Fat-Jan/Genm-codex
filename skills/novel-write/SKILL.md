@@ -7,6 +7,16 @@ description: Write a chapter in a Codex-managed novel project by reading the cur
 
 Use this skill when the user wants to write the next chapter from the current outline and project state.
 
+`novel-write` is the `draft` phase inside the default single-chapter `chapter transaction`:
+
+1. `gate-check`
+2. `draft`
+3. `close`
+4. `maintenance`
+5. `snapshot`
+
+This skill owns `draft`; it does not replace the full chapter transaction.
+
 ## Inputs
 
 - `chapter`
@@ -43,6 +53,7 @@ Always read:
 
 Read conditionally:
 
+- `.mighty/active-context.json`
 - `大纲/总纲.md` for main-arc alignment
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
@@ -86,6 +97,7 @@ Read conditionally:
 ## Workflow
 
 1. Read `.mighty/state.json`.
+   - if `.mighty/active-context.json` exists, read it first as the preferred prompt-assembly sidecar for current-writing inputs
    - determine `meta.platform`
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
@@ -105,6 +117,7 @@ Read conditionally:
    - prefer `.mighty/learned-patterns.json`
    - prefer `.mighty/market-adjustments.json`
    - if sidecar files are absent, fall back to `state.learned_patterns` / `state.market_adjustments`
+   - if `learned_patterns.recent_guardrails` exists and is still active for the target chapter, prefer those short-lived signals over stale long-term style generalizations
    - when the active bucket is `宫斗宅斗`, explicitly inspect palace-specific adjustment ids when present:
      - `scan-surface-hook`
      - `scan-frontload-conflict`
@@ -203,6 +216,7 @@ Read conditionally:
      - `minimal_next_action`
    - prefer the gate's `minimal_next_action.suggested_commands` over ad-hoc guessing
    - do not bypass this gate just because the relevant facts seem obvious from recent context
+   - treat this as the `gate-check` phase of the chapter transaction
 16. Before drafting, run a strong pre-write source gate when the chapter clearly depends on kinship truth, office truth, world rules, era-sensitive objects, decor, rites, or household rules.
    - read `../../docs/strong-quality-gate-policy.json`
    - treat it as the single rule source for required truth files
@@ -219,6 +233,9 @@ Read conditionally:
    - genre/platform expectations
    - learned style preferences when they are concrete
    - learned avoid-patterns when they are concrete
+   - active `recent_guardrails.must_avoid`
+   - active `recent_guardrails.must_preserve`
+   - active `recent_guardrails.next_chapter_watchpoints`
    - project-local market suggestions when they are relevant and low-risk
    - active Fanqie bucket constraints when they exist
    - active resistance/cost constraints when they exist:
@@ -284,6 +301,12 @@ Read conditionally:
     - `scripts/post-task-maintenance.py <project_root> --trigger write`
     which should call the maintenance chain for `setting gate(write-post)`, stable entities, runtime guidance, and state thinning.
     - maintenance is not the place where prose mutation or `novel-close` execution should live
+23. When reporting the result, treat the single-chapter path as one chapter transaction:
+    - `gate-check` already passed
+    - this skill completed `draft`
+    - `close` may have run or been skipped explicitly
+    - `maintenance` should be handed off next
+    - `snapshot` remains the preferred final evidence step
 
 ## 宫斗宅斗路线的宫廷市场调整
 

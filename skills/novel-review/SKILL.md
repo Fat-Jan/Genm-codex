@@ -44,6 +44,7 @@ Default intent for the current workflow:
 
 Read conditionally:
 
+- `.mighty/active-context.json`
 - previous chapter file or summary for continuity
 - shared reference docs for reader-pull, pacing, and anti-AI constraints
 - `../../docs/fanqie-content-buckets.md`
@@ -85,6 +86,7 @@ Read conditionally:
 ## Workflow
 
 1. Read `.mighty/state.json`.
+   - if `.mighty/active-context.json` exists, read it first as the preferred current-review sidecar before broad file expansion
    - determine `meta.platform`
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
@@ -213,6 +215,7 @@ Read conditionally:
    - when the project uses the strong quality gate:
      - surface policy-backed hard blockers before softer style notes
      - do not contradict a known write-preflight / close-gate blocker with a casual “looks fine”
+   - do not absorb deterministic post-write lint into vague editorial judgment; keep those findings separable so `novel-close` and `novel-fix` can consume them as explicit evidence
 9. Before routing, collapse findings into at most `3` actionable issue clusters.
    - each cluster should map to one repair action family, not a one-line tweak
    - if multiple small issues live in the same paragraph / beat / scene, group them together
@@ -230,6 +233,11 @@ Read conditionally:
    - warnings
    - suggested fixes
    - `issue_clusters`
+   - optional `recent_guardrails` for the next chapter:
+     - `must_avoid`
+     - `must_preserve`
+     - `next_chapter_watchpoints`
+     - `expires_after_chapter`
    - optional `repair_pass_plan` with:
      - primary_route
      - cluster_order
@@ -288,10 +296,12 @@ When the route is clear, also update:
   - `开篇抓力`
   - `层次清晰度`
   - `推进有效性`
+- when the chapter exposes a clear next-chapter correction signal, prefer writing a short-lived `recent_guardrails` block into `.mighty/learned-patterns.json` instead of bloating `state.json`
 
 ## Notes
 
 - Prefer deterministic, evidence-based findings over vague style criticism.
+- If you emit `recent_guardrails`, keep them short-lived and execution-facing; do not turn them into broad theory notes.
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - If the user wants one bounded convergence pass rather than a review-only report, recommend `novel-close`.
 - Do not claim a review passed unless the report actually shows the score and issues.

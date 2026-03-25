@@ -1,0 +1,25 @@
+{
+  "$schema": "workflow-state-v2.json",
+  "version": "2.0",
+  "transaction_contract": "chapter-transaction-v1",
+  "current_task": {
+    "command": "novel-write",
+    "args": {},
+    "status": "running",
+    "current_step": "gate-check",
+    "completed_steps": [],
+    "failed_steps": [],
+    "pending_steps": [
+      "gate-check",
+      "draft",
+      "close",
+      "maintenance",
+      "snapshot"
+    ],
+    "last_successful_checkpoint": null,
+    "started_at": "",
+    "last_heartbeat": "",
+    "error_message": null
+  },
+  "history": []
+}

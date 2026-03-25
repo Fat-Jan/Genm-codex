@@ -32,6 +32,7 @@ Read conditionally:
 - `chapter_meta[N].critical_issues`
 - `chapter_meta[N].warnings`
 - `chapter_meta[N].suggested_fixes`
+- deterministic post-write lint findings when `scripts/post_write_lint.py` surfaced bounded local issues
 - relevant `设定集/角色/*.md`
 - `设定集/力量体系.md`
 - `../../docs/fanqie-content-buckets.md`
@@ -101,6 +102,7 @@ Default intent for the current workflow:
    - critical issues
    - warnings
    - suggested fixes
+   - deterministic post-write lint findings when they point to bounded local repair instead of structural rewrite
    - explicit `issues` filter if the user provided one
    - default to covering all local issue clusters from the latest review, not just one tiny symptom
    - if multiple easy fixes land in the same scene or paragraph, batch them into the same edit pass

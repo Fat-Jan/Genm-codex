@@ -22,6 +22,19 @@
 - 未假装抓取外部链接
 - 除 `.mighty/state.json` 外未改动其他文件
 
+### 扩展边界说明
+
+- `novel-learn` 现在的推荐边界应升级为：
+  - 当前项目章节
+  - 本地文件
+  - 在当前环境真实可抓取的 URL 文本
+- 如果 URL 无法在当前环境取回正文，就必须明确降级为：
+  - 改要本地文件
+  - 或改要用户粘贴文本
+- 这条能力仍然保持 sidecar-first：
+  - 优先写 `.mighty/learned-patterns.json`
+  - 不引入 `style_profile.json` 一类平行 style center
+
 ### 提炼出的主要模式
 
 - 章内推进偏：
@@ -59,7 +72,11 @@
 ### 结论
 
 - 第一版 `novel-learn` 已能完成本地章节学习
+- 当前建议边界也已明确支持：
+  - 本地文件学习
+  - retrievable URL 学习
 - 它保守复用了现有 `learned_patterns` / `auto_learn_config` 结构，没有扩展新顶层 schema
+- 它不应演化成平行 style subsystem
 - 这符合第五阶段对“本地内容学习器”的定位
 
 ## 阶段性结论

@@ -107,6 +107,13 @@ class StrongQualityGatePolicyTests(unittest.TestCase):
         self.assertIsNotNone(malformed)
         self.assertIsInstance(malformed, dict)
 
+    def test_post_write_lint_sections_present(self):
+        policy = self.load_policy()
+        post_write_lint = policy.get("post_write_lint", {})
+        self.assertIsInstance(post_write_lint, dict)
+        for key in ("ai_turn_markers", "explanation_first_patterns", "collective_shock_patterns", "long_paragraphs"):
+            self.assertIn(key, post_write_lint)
+
     def test_defaults_and_shrinkage_values(self):
         policy = self.load_policy()
         defaults = policy.get("defaults", {})
