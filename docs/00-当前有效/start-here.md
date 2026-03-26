@@ -25,6 +25,10 @@
 
 - 单章主线现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
+- 如果立项信息还不稳，先补 `shared/templates/project/creative-brief.md`
+- 上游结构边界优先看：
+  - [upstream-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/upstream-structure-contract.md)
+  - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - 如果你这次只想写，不想自动收口，显式加 `skip_close=true`
 - 如果当前项目是番茄平台，仍可手动运行：

@@ -107,6 +107,81 @@ class IssueRegressionTests(unittest.TestCase):
             self.assertIn(token, usage + start_here + state_doc)
         self.assertIn("auto-compile `launch-stack`", workflows)
 
+    def test_p3_1_sidecar_freshness_registry_is_exposed(self):
+        registry = REPO_ROOT / "shared" / "templates" / "sidecar-freshness-registry-v1.json"
+        self.assertTrue(registry.exists())
+        state_doc = (REPO_ROOT / "docs/00-当前有效/state-thinning-and-setting-sync.md").read_text(encoding="utf-8")
+        self.assertIn("sidecar-freshness-registry-v1.json", state_doc)
+        self.assertIn("freshness", state_doc)
+
+    def test_p3_2_upstream_structure_contract_is_exposed(self):
+        contract = REPO_ROOT / "docs/00-当前有效/upstream-structure-contract.md"
+        self.assertTrue(contract.exists())
+        contract_text = contract.read_text(encoding="utf-8")
+        for token in ("creative-brief", "content-positioning", "launch-stack", "总纲"):
+            self.assertIn(token, contract_text)
+        docs = "".join(
+            (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            for relative_path in (
+                "docs/00-当前有效/default-workflows.md",
+                "docs/00-当前有效/start-here.md",
+                "docs/00-当前有效/skill-usage.md",
+            )
+        )
+        self.assertIn("upstream-structure-contract.md", docs)
+        self.assertIn("creative-brief", docs)
+
+    def test_p3_3_quality_route_contract_is_shared_by_review_precheck_package(self):
+        contract = REPO_ROOT / "docs/00-当前有效/quality-route-contract.md"
+        self.assertTrue(contract.exists())
+        contract_text = contract.read_text(encoding="utf-8")
+        for token in ("route_signal", "hard_blocker", "revise_before_submit", "packaging_hold"):
+            self.assertIn(token, contract_text)
+        for relative_path in (
+            "skills/novel-review/SKILL.md",
+            "skills/novel-precheck/SKILL.md",
+            "skills/novel-package/SKILL.md",
+        ):
+            content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            self.assertIn("../../docs/00-当前有效/quality-route-contract.md", content)
+
+    def test_p3_4_upstream_contract_reaches_init_outline_package(self):
+        for relative_path in (
+            "skills/novel-init/SKILL.md",
+            "skills/novel-outline/SKILL.md",
+            "skills/novel-package/SKILL.md",
+        ):
+            content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            self.assertIn("creative-brief", content)
+            self.assertIn("../../docs/00-当前有效/upstream-structure-contract.md", content)
+
+    def test_p3_5_fanqie_first_freeze_is_declared(self):
+        freeze_doc = REPO_ROOT / "docs/20-研究实验/fanqie-first-frozen-template-2026-03-26.md"
+        route_doc = REPO_ROOT / "docs/20-研究实验/quality-route-smoke-2026-03-26.md"
+        self.assertTrue(freeze_doc.exists())
+        self.assertTrue(route_doc.exists())
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        self.assertIn("她升职那天，前上司成了我合租室友", workflows)
+        self.assertIn("恶女 x 宫斗宅斗", workflows)
+        self.assertNotIn("暂无已冻结样本", workflows)
+        self.assertNotIn("首个可投样本：\n  - 暂无", workflows)
+
+    def test_p3_6_total_outline_contract_is_exposed(self):
+        contract = REPO_ROOT / "docs/00-当前有效/total-outline-structure-contract.md"
+        self.assertTrue(contract.exists())
+        contract_text = contract.read_text(encoding="utf-8")
+        for token in ("开端", "发展", "转折", "高潮", "卷末钩子", "主副线迁移", "关键兑现"):
+            self.assertIn(token, contract_text)
+        docs = "".join(
+            (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            for relative_path in (
+                "docs/00-当前有效/default-workflows.md",
+                "docs/00-当前有效/start-here.md",
+                "docs/00-当前有效/skill-usage.md",
+            )
+        )
+        self.assertIn("total-outline-structure-contract.md", docs)
+
     def test_p2_8_profile_calibration_doc_is_currently_exposed(self):
         calibration = (REPO_ROOT / "docs/00-当前有效/profile-calibration-and-bucket-mapping.md").read_text(encoding="utf-8")
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")

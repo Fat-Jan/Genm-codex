@@ -147,7 +147,7 @@ def mark_snapshot_complete(
     current_task["args"]["snapshot_file"] = snapshot_file
 
     completed_steps = set(current_task.get("completed_steps", []))
-    completed_steps.update(TRANSACTION_STEPS)
+    completed_steps.update({"maintenance", "snapshot"})
     current_task["completed_steps"] = [step for step in TRANSACTION_STEPS if step in completed_steps]
     current_task["failed_steps"] = [step for step in current_task.get("failed_steps", []) if step not in {"maintenance", "snapshot"}]
     current_task["pending_steps"] = []

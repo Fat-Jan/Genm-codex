@@ -209,129 +209,18 @@ entity_tags:
   setting: <entity type="场景" name="场景名" desc="特点" mood="氛围"/>
   item: <entity type="物品" name="物品名" desc="意义" owner="归属"/>
 
-# ==================== 对话模板库 ====================
-dialogue_templates:
-  style_definitions:
-    sweet_refined: 情感丰富，心思细腻
-    classical_elegant: 适合古言，含蓄婉约
-    modern_lively: 适合现言，轻松有趣
+platform_positioning:
+  fanqie:
+    primary_bucket: "青春甜宠"
+    strong_tags: ["高甜", "情感拉扯"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["甜感不能空转", "误会不能纯靠不沟通"]
+    package_cues:
+      - "首屏点心动或情感危机"
+      - "前三章要有一次关系推进"
 
-  typical_dialogues:
-    sweet_interaction: |
-      "傻瓜，我什么时候骗过你？"
-      "从今以后，你的世界里只能有我。"
-      "他有什么好？你要什么，我都可以给你。"
-
-    misunderstanding_conflict: |
-      "你听我解释..."
-      "我不要听你的解释，我只相信我看到的。"
-      "原来在你心里，我就是这样的人。"
-
-    identity_reveal: |
-      "你以为我只是个普通的..."
-      "我真正的身份，其实..."
-      "原来你就是传说中的..."
-
-    protective_guardian: |
-      "谁敢欺负她，先问问我。"
-      "天塌下来，有我顶着。"
-      "你的事，就是我的事。"
-
-    jealous_possessive: |
-      "刚才那个男的是谁？"
-      "你对他笑得很开心啊。"
-      "记住，你是我的。"
-
-  avoid_patterns:
-    - 男主无理由的渣男行为
-    - 女主无底线的原谅
-    - 过于直白缺乏情感张力
-
-# ==================== 场景描写库 ====================
-scene_descriptions:
-  romantic_scenes:
-    confession_moment: |
-      "月光如水，他的目光比月光更温柔。"
-      "他单膝跪下，从怀里取出一枚戒指：'嫁给我好吗？'"
-
-    first_heartbeat: |
-      "只是那一眼，心跳就不由自主地快了起来。"
-      "他靠得太近了，近到能闻到他身上的木质香。"
-
-    sweet_daily: |
-      "他自然地接过她手里的东西，顺手牵住了她的手。"
-      "早餐桌上，他把她喜欢的小菜都推到了她面前。"
-
-  conflict_scenes:
-    misunderstanding_explosion: |
-      "她看着眼前的一幕，手心冰凉。原来他一直在骗她。"
-      "解释的话到了嘴边，却被她冰冷的眼神堵了回去。"
-
-    emotional_hurt: |
-      "泪水在眼眶里打转，她却倔强地不让它落下来。"
-      "转身离开的那一刻，她的心碎了一地。"
-
-  identity_scenes:
-    identity_reveal: |
-      "当她出现在宴会厅时，所有人都安静了。"
-      "原来这个不起眼的女孩，居然是..."
-
-    status_contrast: |
-      "曾经高高在上的继妹，此刻却要向她低头行礼。"
-      "那些曾经瞧不起她的人，现在全都成了她的下属。"
-
-# ==================== 节奏模板 ====================
-pacing_templates:
-  chapter_emotion_curve:
-    sweet_type: "甜蜜铺垫(40%) → 小冲突(20%) → 解决+升温(30%) → 钩子(10%)"
-    angst_type: "平静(20%) → 误会/冲突(40%) → 情感爆发(30%) → 悬念(10%)"
-    counterattack_type: "困境(30%) → 转机(30%) → 反击(30%) → 新目标(10%)"
-
-  cool_point_distribution:
-    small_sweet: "500-800字"
-    emotional_climax: "1500-2500字"
-    identity_reversal: "章末或高潮段落"
-
-  typical_pacing_examples:
-    confession_chapter: "暧昧积累 → 嫉妒催化剂 → 真诚表白 → 接受回应 → 关系确定"
-    misunderstanding_chapter: "误解产生 → 冲突爆发 → 各自心痛 → 真相浮现 → 和好升温"
-    counterattack_chapter: "被瞧不起 → 暗中准备 → 身份揭露 → 众人震惊 → 地位逆转"
-
-# ==================== 开篇模板 ====================
-opening_templates:
-  hook_types:
-    crisis: 女主面临婚姻/事业危机，男主出现
-    rebirth: 重生回到关键节点，改变命运
-    transmigration: 穿越到小说世界，成为炮灰女配
-    identity: 身份隐藏或即将揭露，引发期待
-
-  required_elements:
-    - 女主基本设定（姓名、处境、目标）
-    - 核心困境展示
-    - 男主首次出现或强烈暗示
-    - 情感或命运的转折点
-    - 章末钩子
-
-  classic_opening_examples:
-    rebirth_revenge: |
-      "苏暖睁开眼，发现自己回到了五年前。"
-      前世的痛苦还历历在目：被继妹抢走一切，被未婚夫背叛，最后含恨而终。
-      这一次，她绝不会再重蹈覆辙。
-      "小姐，顾少爷的车已经到楼下了。"
-      苏暖嘴角勾起一抹冷笑。顾家，她也要重新规划了。
-
-    transmigration_counterattack: |
-      "我成了小说里的炮灰女配？"
-      林小棠看着镜子里的自己，欲哭无泪。按照剧情，她这个恶毒女配会在十章后被女主打脸，然后悲惨地退场。
-      不，既然穿越了，她就要改写剧本。
-      首先第一步——远离那个注定会爱上女主的男主。
-
-    identity_reversal: |
-      "从今天起，你就是霍家的少奶奶了。"
-      婚姻契约摆在面前，江念平静地签下了自己的名字。
-      所有人都以为她是个灰姑娘，嫁入豪门是高攀。
-      没人知道，她真正的身份，比霍家还要显赫百倍。
-      更没人知道，这场婚姻，是她精心设计的局。
+reference_files:
+  - reference-notes.md
 
 # ==================== 悬念规划 ====================
 suspense_planning:

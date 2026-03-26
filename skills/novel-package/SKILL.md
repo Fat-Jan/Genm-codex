@@ -26,6 +26,8 @@ It is not a replacement for:
 
 It consumes signals from those systems and turns them into packaging outputs.
 
+Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat `shared/templates/project/creative-brief.md` as the earliest lightweight packaging-input source before a project has a stable full `总纲`.
+
 ## Inputs
 
 - optional `mode`
@@ -50,6 +52,18 @@ It consumes signals from those systems and turns them into packaging outputs.
 - `大纲/总纲.md` exists for `title`, `synopsis`, `opening-hook`, and `full`
 
 ## Required reads
+
+Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-review` / `novel-precheck`.
+
+Shared bundles to apply here:
+
+- `baseline-core`
+- `launch-stack`
+- `content-positioning`
+- `market-adjustments`
+- `fanqie-bucket`
+- `fanqie-tagpack`
 
 Always read:
 

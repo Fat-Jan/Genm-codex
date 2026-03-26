@@ -149,6 +149,15 @@ class SettingGateCoreTests(unittest.TestCase):
         self.assertEqual(result["minimal_next_action"]["action"], "novel-setting")
         self.assertIn("python3 scripts/setting_gate.py", result["minimal_next_action"]["suggested_commands"][0])
 
+    def test_detect_gate_requirements_reports_truth_result(self):
+        self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
+        module = load_setting_gate_module()
+        root = self.make_project_root()
+        scaffold_project(root, outline_text="本书核心冲突依赖世界观真值表与世界规则约束。")
+        detection = module.detect_gate_requirements(project_root=root, stage="outline")
+        self.assertIn("truth_result", detection)
+        self.assertIn("world_rule_support", {gap["key"] for gap in detection["truth_result"]["missing"]})
+
     def test_run_gate_materializes_local_cards_from_outline_and_state(self):
         self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
         module = load_setting_gate_module()

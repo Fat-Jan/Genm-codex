@@ -63,6 +63,12 @@ class ContentPositioningTests(unittest.TestCase):
         self.assertEqual(payload["tagpacks"], ["穿越生存"])
         self.assertIn("多主题副本", payload["narrative_modes"])
         self.assertIn("tagpack:穿越生存", payload["compiler_output"]["package_cues"])
+        self.assertIn("opening_hook_cues", payload)
+        self.assertIn("payoff_cadence", payload)
+        self.assertIn("reader_motive", payload)
+        self.assertEqual(payload["freshness"]["artifact_key"], "content-positioning")
+        self.assertEqual(payload["freshness"]["contract"], "sidecar-freshness-v1")
+        self.assertIn("state.json", payload["freshness"]["inputs"])
 
     def test_build_content_positioning_falls_back_to_mapping_defaults(self) -> None:
         module = load_module()
@@ -146,6 +152,91 @@ class ContentPositioningTests(unittest.TestCase):
             self.assertEqual(payload["strong_tags"], [])
             self.assertEqual(payload["narrative_modes"], [])
             self.assertEqual(payload["tone_guardrails"], [])
+
+    def test_build_content_positioning_can_use_sibling_platform_overlay_without_map_defaults(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "玄幻测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "shared/profiles/xuanhuan/profile.yaml",
+                        "bucket": "",
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            original_loader = module.load_mapping_registry
+            module.load_mapping_registry = lambda _project_root: {"profiles": {}, "bucket_defaults": {}}
+            try:
+                payload = module.build_content_positioning(root, timestamp="2026-03-26T00:00:00Z")
+            finally:
+                module.load_mapping_registry = original_loader
+
+            self.assertEqual(payload["primary_bucket"], "玄幻脑洞")
+            self.assertIn("金手指", payload["strong_tags"])
+
+    def test_system_profile_has_second_round_positioning_defaults(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "系统测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "shared/profiles/system/profile.yaml",
+                        "bucket": "",
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            payload = module.build_content_positioning(root, timestamp="2026-03-26T00:00:00Z")
+
+            self.assertEqual(payload["primary_bucket"], "都市脑洞")
+            self.assertIn("系统", payload["strong_tags"])
+            self.assertIn("cue:前三章要有一次任务兑现", payload["compiler_output"]["package_cues"])
+            self.assertTrue(payload["opening_hook_cues"])
+            self.assertTrue(payload["payoff_cadence"])
+            self.assertTrue(payload["reader_motive"])
+
+    def test_romance_profile_has_second_round_positioning_defaults(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "言情测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "shared/profiles/romance/profile.yaml",
+                        "bucket": "",
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            payload = module.build_content_positioning(root, timestamp="2026-03-26T00:00:00Z")
+
+            self.assertEqual(payload["primary_bucket"], "青春甜宠")
+            self.assertIn("高甜", payload["strong_tags"])
+            self.assertTrue(payload["reader_motive"])
 
     def test_cli_writes_content_positioning_sidecar(self) -> None:
         module = load_module()

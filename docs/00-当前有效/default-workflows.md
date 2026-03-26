@@ -48,12 +48,16 @@
 - 在写正文前补齐或阻断高风险设定缺口
 - 形成第一版包装方案
 - 尽早锁定角色分层、叙事权边界、关系结构和阵营分歧
+- 上游结构边界见：
+  - [upstream-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/upstream-structure-contract.md)
+  - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
 
 最小原则：
 
 - 先有书的方向
 - 古代家族权力题材先有谱系真值
 - 官场古代题材先有官制真值
+- 如项目尚未形成稳定立项输入，先补 `shared/templates/project/creative-brief.md`
 - 如果当前项目是番茄平台，`novel-outline` 后跑 `setting gate(outline)` 时应先确保 `.mighty/launch-stack.json` 已进入可用状态
 - 总纲完成后先过 `setting gate`
 - 再写正文
@@ -332,9 +336,11 @@
 ## 当前 Fanqie-first 真实状态
 
 - 第一条内部生产模板：
-  - 暂无已冻结样本
+  - `职场婚恋 x 合租反绑定`
+  - 冻结样本：
+    - `她升职那天，前上司成了我合租室友`
 - 首个可投样本：
-  - 暂无
+  - `她升职那天，前上司成了我合租室友`
 - 第二条生产模板候选：
   - `恶女 x 现实情感`
 - 第三条实验线：
@@ -343,6 +349,9 @@
   - `恶毒女配 x 双女主替身白月光`
 - 待重验样本：
   - `恶女 x 宫斗宅斗`
+- 当前冻结与路由 smoke：
+  - `docs/20-研究实验/fanqie-first-frozen-template-2026-03-26.md`
+  - `docs/20-研究实验/quality-route-smoke-2026-03-26.md`
 
 ### `novel-config` / `novel-test`
 

@@ -120,6 +120,10 @@ class Phase2HelperTests(unittest.TestCase):
         self.assertIn("full_state_json", payload["memory_contract"]["forbidden_sync"])
         self.assertNotIn("chapter_meta", payload)
         self.assertNotIn("chapter_text", payload)
+        self.assertEqual(payload["freshness"]["artifact_key"], "memory-context")
+        self.assertEqual(payload["freshness"]["contract"], "sidecar-freshness-v1")
+        self.assertIn("state.json", payload["freshness"]["inputs"])
+        self.assertIn("workflow_state.json", payload["freshness"]["inputs"])
 
 
 if __name__ == "__main__":

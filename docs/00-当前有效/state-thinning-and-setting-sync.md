@@ -263,6 +263,25 @@
 - 多 profile merge runtime
 - 新的 canon 真值层
 
+当前这类 sidecar 的 freshness 真源统一记录在：
+
+- `shared/templates/sidecar-freshness-registry-v1.json`
+
+最小要求是：
+
+- `setting-gate`
+- `memory-context`
+- `content-positioning`
+
+都要在 sidecar 正文里写出：
+
+- `freshness.contract`
+- `freshness.artifact_key`
+- `freshness.depends_on`
+- `freshness.inputs`
+
+这样维护链和后续 consumer 才能判断“这份 sidecar 是怎么来的、该不该重建”。
+
 ---
 
 ## 五、设定集应该承担什么角色

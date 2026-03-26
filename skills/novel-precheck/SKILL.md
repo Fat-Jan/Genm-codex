@@ -7,6 +7,8 @@ description: Run a read-only pre-submission check for a Codex-managed novel proj
 
 Use this skill when the user wants a submission-readiness check before posting or submitting a chapter range to a platform.
 
+Also read `../../docs/00-当前有效/upstream-structure-contract.md` to keep launch-side, positioning-side, and total-outline expectations separated during precheck.
+
 ## Inputs
 
 - `platform`
@@ -42,6 +44,17 @@ It should not:
 - pretend to replace a human editorial review
 
 ## Required reads
+
+Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-review` / `novel-package`.
+
+Shared bundles to apply here:
+
+- `baseline-core`
+- `launch-stack`
+- `market-adjustments`
+- `fanqie-bucket`
+- `fanqie-tagpack`
 
 Always read:
 

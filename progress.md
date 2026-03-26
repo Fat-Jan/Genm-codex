@@ -219,6 +219,53 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-26
+
+### Roadmap Update: Outline Intake Layer
+- **Status:** complete
+- Actions taken:
+  - 对照图片提炼出的“大纲方法”与现有 `novel-init / novel-outline / novel-package / launch-stack / content-positioning` 能力边界
+  - 确认最值得补的是“整书大纲 intake 层”，而不是新增平行 skill
+  - 在根目录 `v1.3-roadmap.md` 增加主线 F，收录：
+    - `creative-brief` 默认入口化
+    - 总纲整书节奏账本
+    - 创作素材准备清单标准化
+    - `launch-stack / content-positioning / 总纲` 边界澄清
+    - 真实样本闭环验证
+- Files created/modified:
+  - `v1.3-roadmap.md` (updated)
+  - `progress.md` (updated)
+
+### Roadmap Update: Reframed Priorities and Optional Experiments
+- **Status:** complete
+- Actions taken:
+  - 重写 `v1.3-roadmap.md` 中原“整书大纲 intake 层”，改成“上游结构合同化”
+  - 将该主线拆成：
+    - 前置定义块：`F1-F3`
+    - 后续落地块：`F4-F5`
+  - 补充 roadmap 内可并行处理建议，明确哪些定义块不宜并行，哪些实现/验证可拆路推进
+  - 复评“暂不做”边界：
+    - 保持 `monolithic runtime / plugin system` 与 `MCP memory 真值层` 不进入主线
+    - 将 `novel-scan` 从“纯暂不做”调整为“可选并行实验，但不计入主线完成条件”
+    - 保持 `novel-log` 继续作为专家辅助能力，不重新拉回默认主线
+- Files created/modified:
+  - `v1.3-roadmap.md` (updated)
+  - `progress.md` (updated)
+
+### Roadmap Update: Deferred Directions Reference
+- **Status:** complete
+- Actions taken:
+  - 新建根目录 `v1.3-deferred-directions.md`，集中记录当前不进入 `v1.3` 主线的方向
+  - 对每一项补齐：
+    - 作用 / 效果
+    - 为什么当前不做
+    - 什么信号出现后值得重启
+  - 在 `v1.3-roadmap.md` 的“当前仍不建议拉进主线的方向”处增加回链
+- Files created/modified:
+  - `v1.3-deferred-directions.md` (created)
+  - `v1.3-roadmap.md` (updated)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-25
 
 ### Phase 1: Architecture Discovery
@@ -2779,3 +2826,118 @@
   - `C1/C2` smoke 与交叉样本验证
   - `D2` `novel-log` 去留判断
 - 当前保留 `D1 novel-scan` 为 `deferred`，不阻塞 `v1.2` 收口。
+## Session Update: 2026-03-26 `v1.3` 候选池预研
+
+- 已完成一轮只读 backlog/workflow/profile coverage 预研，用于筛选适合进入 `v1.3` 的优化项。
+- 结论：
+  - `v1.3` 不应继续做“大而全补线”
+  - 应优先收：
+    - `review / precheck / package` 判断一致性
+    - 默认工作流稳定性 / 恢复体验
+    - 高频技能规则栈 manifest 化
+    - 事务契约 + sidecar freshness registry
+    - `content-positioning` 第二轮扩面
+    - `Fanqie-first` 样本冻结
+- 已确认不建议进入 `v1.3` 主线的方向：
+  - `novel-scan` 偷渡默认主线
+  - monolithic runtime / plugin framework
+  - `novel-log` 回归默认主线
+- 预研中额外确认了一个应并入 `v1.3` 的 workflow 语义缺口：
+  - `scripts/workflow_state_utils.py` 的 `mark_snapshot_complete()` 仍会把 `TRANSACTION_STEPS` 全量并入 `completed_steps`
+  - 更适合在“事务契约 + 运行证据链统一”主题里系统处理
+- 本轮验证：
+  - `pytest -q`
+    - `289 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+## Session Update: 2026-03-26 `v1.3-roadmap` 起草
+
+- 已在根目录新增：
+  - `v1.3-roadmap.md`
+- 当前 `v1.3` 结构按 5 条主线 + 实验边界组织：
+  - 质量路由一致性
+  - 默认工作流稳定性与恢复体验
+  - 高频技能规则栈去复制
+  - `content-positioning` 第二轮扩面
+  - `Fanqie-first` 样本冻结
+- 已把本轮预研确认的关键缺口写入 roadmap：
+  - `workflow_state` 事务完成语义仍需统一
+  - `sidecar freshness registry` 仍缺
+  - 高频 consumer 规则装载协议仍分散
+  - `content-positioning` 仍处于第二轮扩面前状态
+- `README.md` 已更新入口：
+  - `v1.3-roadmap.md` 作为当前主 roadmap
+## Session Update: 2026-03-26 `v1.3` 执行首批落地
+
+- 已完成的 `v1.3` 首批落地：
+  - `A1` 质量路由一致性
+    - 新增 `docs/00-当前有效/quality-route-contract.md`
+    - `novel-review / novel-precheck / novel-package` 已共享 route contract
+  - `B1` 章节事务 tail 语义修正
+    - `scripts/workflow_state_utils.py` 不再把未真实观测到的前序 phase 自动标成 completed
+  - `B2` sidecar freshness registry
+    - 新增 `shared/templates/sidecar-freshness-registry-v1.json`
+    - `setting-gate / memory-context / content-positioning` 已开始写 freshness 元数据
+  - `C1` 高频 consumer 共享读档 manifest
+    - 新增 `shared/references/shared/consumer-read-manifest.md`
+    - `novel-outline / novel-write / novel-review / novel-package / novel-precheck` 已显式引用
+  - `F1/F2` 上游结构合同首批收口
+    - 新增 `docs/00-当前有效/upstream-structure-contract.md`
+    - `creative-brief` 与 `content-positioning / launch-stack / 总纲` 边界已挂回当前入口
+  - `D2` overlay 真接线
+    - `fanqie -> profile-tomato.yaml` 已成为正式 overlay alias
+    - `build_content_positioning.py` 已能消费 sibling platform overlay
+  - `D1` 第二轮扩面已启动
+    - 已补 `system / urban-superpower` 首批定位
+- 本轮验证：
+  - `pytest -q` → `296 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh` → passed
+## Session Update: 2026-03-26 `v1.3` 第二批 positioning / 上游合同补强
+
+- 已补：
+  - `system / urban-superpower` 的第二轮 `fanqie` positioning 默认值
+  - `fanqie -> profile-tomato.yaml` 正式 overlay alias
+  - `build_content_positioning.py` 现在可在无 map 默认值时消费 sibling platform overlay
+  - `content-positioning` sidecar 已开始输出：
+    - `opening_hook_cues`
+    - `payoff_cadence`
+- 已补当前有效文档：
+  - `docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
+- 已更新 `v1.3-roadmap.md` 状态：
+  - `D1` `in_progress`
+  - `D2` `done`
+  - `D3` `in_progress`
+  - `C2` `done`
+  - `F4` `in_progress`
+## Session Update: 2026-03-26 `v1.3` 全部主线收口
+
+- 已继续完成剩余项：
+  - `A2` 质量路由真实样本 smoke
+  - `B3` `setting-gate` detect / enrich / persist / trace 拆钩子
+  - `F3` `总纲` 结构合同
+  - `F5` 样本与入口文档收口
+  - `D1` 高价值 profile 第二轮扩面补齐到：
+    - `system`
+    - `urban-superpower`
+    - `apocalypse`
+    - `historical`
+    - `romance`
+  - `D3` 已补齐：
+    - `opening_hook_cues`
+    - `payoff_cadence`
+    - `reader_motive`
+  - `D4` 已完成第二轮 legacy cleanup：
+    - `apocalypse`
+    - `historical`
+    - `romance`
+  - `E1/E2` 已确定：
+    - 冻结模板：`职场婚恋 x 合租反绑定`
+    - 首个可投样本：`她升职那天，前上司成了我合租室友`
+    - `恶女 x 宫斗宅斗` 继续保留为待重验样本
+- 新增关键文档：
+  - `docs/00-当前有效/total-outline-structure-contract.md`
+  - `docs/20-研究实验/fanqie-first-frozen-template-2026-03-26.md`
+  - `docs/20-研究实验/quality-route-smoke-2026-03-26.md`
+- 本轮最终验证：
+  - `pytest -q` → `296 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh` → passed

@@ -114,6 +114,10 @@
 
 - 单章正文现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
+- 如果项目还没有稳定的立项输入，先补 `shared/templates/project/creative-brief.md`
+- 上游结构边界见：
+  - [upstream-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/upstream-structure-contract.md)
+  - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - `novel-batch` 不会继承这个默认行为
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`

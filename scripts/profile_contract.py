@@ -17,6 +17,7 @@ ALLOWED_TOP_LEVEL_KEYS = {
     "template",
     "progression_constraints",
     "sub_genres",
+    "golden_three",
     "pacing",
     "cool_points",
     "strand_weights",
@@ -43,7 +44,7 @@ def list_reference_files(profile_dir: Path) -> list[str]:
 def resolve_profile_layers(profile_dir: Path, *, platform: str | None = None, bucket: str | None = None) -> dict[str, Any]:
     platform_slug = (platform or "").strip().lower().replace(" ", "-")
     bucket_slug = (bucket or "").strip().lower().replace(" ", "-")
-    platform_overlay = profile_dir / f"profile-{platform_slug}.yaml" if platform_slug else None
+    platform_overlay = resolve_platform_overlay_path(profile_dir, platform_slug) if platform_slug else None
     bucket_overlay = profile_dir / f"bucket-{bucket_slug}.yaml" if bucket_slug else None
 
     return {
@@ -53,6 +54,24 @@ def resolve_profile_layers(profile_dir: Path, *, platform: str | None = None, bu
         "bucket_overlay": str(bucket_overlay) if bucket_overlay and bucket_overlay.exists() else None,
         "reference_files": list_reference_files(profile_dir),
     }
+
+
+def _platform_aliases(platform_slug: str) -> list[str]:
+    aliases: list[str] = []
+    normalized = platform_slug.strip().lower().replace(" ", "-")
+    if normalized:
+        aliases.append(normalized)
+    if normalized == "fanqie":
+        aliases.append("tomato")
+    return aliases
+
+
+def resolve_platform_overlay_path(profile_dir: Path, platform_slug: str) -> Path | None:
+    for candidate_slug in _platform_aliases(platform_slug):
+        candidate = profile_dir / f"profile-{candidate_slug}.yaml"
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def _filter_contract_sections(raw_text: str) -> str:
@@ -86,6 +105,39 @@ def load_profile(path: Path) -> dict[str, Any]:
         "sub_genres": "\nsub_genres:" in f"\n{raw_text}",
         "progression_constraints": "\nprogression_constraints:" in f"\n{raw_text}",
     }
+    return payload
+
+
+def merge_profile_layers(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(base)
+    for key, value in overlay.items():
+        if key == "__section_presence__":
+            base_presence = merged.get("__section_presence__", {})
+            if not isinstance(base_presence, dict):
+                base_presence = {}
+            if isinstance(value, dict):
+                merged["__section_presence__"] = {**base_presence, **value}
+            continue
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = {**merged[key], **value}
+        else:
+            merged[key] = value
+    return merged
+
+
+def load_profile_with_overlays(path: Path, *, platform: str | None = None, bucket: str | None = None) -> dict[str, Any]:
+    profile_dir = path.parent
+    payload = load_profile(path)
+    platform_slug = (platform or "").strip().lower().replace(" ", "-")
+    if platform_slug:
+        overlay_path = resolve_platform_overlay_path(profile_dir, platform_slug)
+        if overlay_path is not None:
+            payload = merge_profile_layers(payload, load_profile(overlay_path))
+    bucket_slug = (bucket or "").strip().lower().replace(" ", "-")
+    if bucket_slug:
+        bucket_overlay = profile_dir / f"bucket-{bucket_slug}.yaml"
+        if bucket_overlay.exists():
+            payload = merge_profile_layers(payload, load_profile(bucket_overlay))
     return payload
 
 

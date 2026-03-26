@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "contract": "sidecar-freshness-v1",
+  "artifacts": {
+    "setting-gate": {
+      "produced_by": "scripts/setting_gate.py",
+      "depends_on": [
+        ".mighty/state.json",
+        "大纲/总纲.md",
+        "大纲/章纲/*.md",
+        ".mighty/research-candidates.json"
+      ]
+    },
+    "content-positioning": {
+      "produced_by": "scripts/build_content_positioning.py",
+      "depends_on": [
+        ".mighty/state.json",
+        "shared/templates/content-positioning-map-v1.json",
+        "shared/profiles/*/profile*.yaml"
+      ]
+    },
+    "memory-context": {
+      "produced_by": "scripts/build_memory_context.py",
+      "depends_on": [
+        ".mighty/state.json",
+        ".mighty/workflow_state.json",
+        ".mighty/setting-gate.json",
+        ".mighty/active-context.json"
+      ]
+    },
+    "launch-stack": {
+      "produced_by": "scripts/fanqie_launch_stack.py",
+      "depends_on": [
+        ".mighty/state.json",
+        "大纲/总纲.md",
+        "chapters/第001章.md",
+        "chapters/第002章.md",
+        "chapters/第003章.md"
+      ]
+    },
+    "market-adjustments": {
+      "produced_by": "scripts/novel_scan.py",
+      "depends_on": [
+        ".mighty/market-data.json",
+        ".mighty/research-candidates.json",
+        ".mighty/state.json"
+      ]
+    }
+  }
+}

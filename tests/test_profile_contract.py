@@ -106,6 +106,17 @@ class ProfileContractTests(unittest.TestCase):
             self.assertIn("reference_files:", content)
             self.assertTrue((REPO_ROOT / notes_path).exists())
 
+    def test_second_round_profiles_move_legacy_reference_out_of_yaml(self) -> None:
+        expectations = {
+            "shared/profiles/apocalypse/profile.yaml": "shared/profiles/apocalypse/reference-notes.md",
+            "shared/profiles/historical/profile.yaml": "shared/profiles/historical/reference-notes.md",
+            "shared/profiles/romance/profile.yaml": "shared/profiles/romance/reference-notes.md",
+        }
+        for yaml_path, notes_path in expectations.items():
+            content = (REPO_ROOT / yaml_path).read_text(encoding="utf-8")
+            self.assertIn("reference_files:", content)
+            self.assertTrue((REPO_ROOT / notes_path).exists())
+
 
 if __name__ == "__main__":
     unittest.main()

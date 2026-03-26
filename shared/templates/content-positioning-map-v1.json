@@ -36,6 +36,12 @@
       "narrative_modes": ["多角色群像"],
       "tone_guardrails": ["慢热不等于没推进", "真实感优先于小作文感"],
       "package_cues": ["首屏点生活困局或生活亮点", "群像关系要可见"]
+    },
+    "科幻末世": {
+      "strong_tags": ["末世", "生存"],
+      "narrative_modes": ["多主题副本"],
+      "tone_guardrails": ["危险感不能消失", "资源不能白给"],
+      "package_cues": ["首屏点末日爆发或重生前置", "前三章要有一次生存换账"]
     }
   },
   "profiles": {
@@ -147,6 +153,56 @@
         "tone_guardrails": ["狗血要讲逻辑", "误会不能纯靠不长嘴"],
         "tagpacks": [],
         "package_cues": ["首屏点身份/误会冲突", "不要把全部狗血词都塞进标题"]
+      }
+    },
+    "system": {
+      "fanqie": {
+        "primary_bucket": "都市脑洞",
+        "strong_tags": ["系统", "逆袭"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["系统奖励不能替代成长", "任务推进要和主线冲突绑定"],
+        "tagpacks": [],
+        "package_cues": ["系统出现前置", "前三章要有一次任务兑现"]
+      }
+    },
+    "urban-superpower": {
+      "fanqie": {
+        "primary_bucket": "都市脑洞",
+        "strong_tags": ["异能", "逆袭"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["异能展示要伴随现实后果", "爽点不能脱离都市秩序"],
+        "tagpacks": [],
+        "package_cues": ["首屏点异能觉醒或压制", "前三章要有一次实力反打"]
+      }
+    },
+    "apocalypse": {
+      "fanqie": {
+        "primary_bucket": "科幻末世",
+        "strong_tags": ["末世", "生存"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["危险感不能消失", "资源不能白给"],
+        "tagpacks": [],
+        "package_cues": ["首屏点末日爆发或重生前置", "前三章要有一次生存换账"]
+      }
+    },
+    "historical": {
+      "fanqie": {
+        "primary_bucket": "历史脑洞",
+        "strong_tags": ["权谋", "家国"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["历史感不能散", "权力线必须讲层级"],
+        "tagpacks": [],
+        "package_cues": ["首屏点权力危机", "主设定一句话讲清"]
+      }
+    },
+    "romance": {
+      "fanqie": {
+        "primary_bucket": "青春甜宠",
+        "strong_tags": ["高甜", "情感拉扯"],
+        "narrative_modes": ["双线并进"],
+        "tone_guardrails": ["甜感不能空转", "误会不能纯靠不沟通"],
+        "tagpacks": [],
+        "package_cues": ["首屏点心动或情感危机", "前三章要有一次关系推进"]
       }
     }
   }

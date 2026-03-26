@@ -7,6 +7,8 @@ description: Generate or refine the total outline and chapter outline files for 
 
 Use this skill after project initialization, or when the user wants to generate or revise the story outline.
 
+Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat `shared/templates/project/creative-brief.md` as the preferred lightweight project-brief input when the project has not yet stabilized its core premise.
+
 ## Inputs
 
 - `mode`: `total` or `chapter`
@@ -26,6 +28,15 @@ Use this skill after project initialization, or when the user wants to generate 
   - `../../shared/templates/`
 
 ## Required shared reads
+
+Read `../../shared/references/shared/consumer-read-manifest.md` first.
+
+Shared bundles to apply here:
+
+- `baseline-core`
+- `launch-stack`
+- `content-positioning`
+- `fanqie-bucket`
 
 Always read:
 

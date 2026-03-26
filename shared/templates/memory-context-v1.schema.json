@@ -15,7 +15,8 @@
     "gate",
     "launch_stack",
     "active_context_summary",
-    "memory_contract"
+    "memory_contract",
+    "freshness"
   ],
   "properties": {
     "version": {"type": "string"},
@@ -72,6 +73,21 @@
         "truth_source": {"type": "string"},
         "allowed_sync": {"type": "array", "items": {"type": "string"}},
         "forbidden_sync": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["contract", "artifact_key", "generated_at", "generated_by", "registry_file", "depends_on", "inputs"],
+      "properties": {
+        "contract": {"type": "string"},
+        "artifact_key": {"type": "string"},
+        "generated_at": {"type": "string"},
+        "generated_by": {"type": "string"},
+        "registry_file": {"type": "string"},
+        "project_root": {"type": ["string", "null"]},
+        "depends_on": {"type": "array", "items": {"type": "string"}},
+        "inputs": {"type": "object"}
       },
       "additionalProperties": false
     }

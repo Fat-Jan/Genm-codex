@@ -83,6 +83,8 @@ Initialize `.mighty/state.json` with, at minimum:
 2. Resolve the closest matching profile slug from `../../shared/profiles/`.
    - treat `novel-genre` / `scripts/profile_contract.py` as the authoritative profile-contract entrance
    - do not invent a one-off profile parsing rule inside `novel-init`
+   - if the project idea is still fuzzy, first seed `shared/templates/project/creative-brief.md`
+   - follow `../../docs/00-当前有效/upstream-structure-contract.md` for the boundary between `creative-brief`, `总纲`, `launch-stack`, and `content-positioning`
 3. Detect whether this is an ancient-family-power route.
    - Use genre, resolved profile slug, and any obvious project framing.
    - Typical matches include `palace-intrigue`, `ancient-romance`, `historical`, and projects whose core conflict depends on 宅门 / 宗族 / 嫡庶 / 继室 / 婚配法统.

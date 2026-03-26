@@ -163,6 +163,9 @@
   - `tagpacks`
   - `narrative_modes`
   - `tone_guardrails`
+  - `opening_hook_cues`
+  - `payoff_cadence`
+  - `reader_motive`
   的实际系统接线
 
 ## 对 consumer 的校准口径
@@ -213,6 +216,9 @@
 - `strong_tags` 不能替代主桶
 - `narrative_modes` 不能吃掉主入口
 - `tone_guardrails` 不能把兑现感和代价感冲没
+- `opening_hook_cues` 负责把开篇 promise 压缩到 consumer 可读层
+- `payoff_cadence` 负责提醒阶段兑现节奏，不替代总纲节奏设计
+- `reader_motive` 负责把“读者为什么继续追”压成消费层提示，不替代真实剧情推进
 
 ## 当前映射优先级
 
@@ -242,6 +248,10 @@
 当前校准后，`Genm-codex` 对组合题材与平台定位的稳定理解应是：
 
 - `主 profile + 主 bucket + strong_tags + tagpacks + narrative_modes + tone_guardrails`
+- 在已接线 profile 上，也可继续外带：
+  - `opening_hook_cues`
+  - `payoff_cadence`
+  - `reader_motive`
 
 而不是：
 

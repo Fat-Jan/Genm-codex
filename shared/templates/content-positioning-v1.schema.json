@@ -12,7 +12,11 @@
     "strong_tags",
     "narrative_modes",
     "tone_guardrails",
-    "compiler_output"
+    "opening_hook_cues",
+    "payoff_cadence",
+    "reader_motive",
+    "compiler_output",
+    "freshness"
   ],
   "properties": {
     "version": {"type": "string"},
@@ -23,6 +27,9 @@
     "strong_tags": {"type": "array", "items": {"type": "string"}},
     "narrative_modes": {"type": "array", "items": {"type": "string"}},
     "tone_guardrails": {"type": "array", "items": {"type": "string"}},
+    "opening_hook_cues": {"type": "array", "items": {"type": "string"}},
+    "payoff_cadence": {"type": "string"},
+    "reader_motive": {"type": "array", "items": {"type": "string"}},
     "compiler_output": {
       "type": "object",
       "required": ["outline_overlays", "write_overlays", "review_lenses", "package_cues"],
@@ -31,6 +38,21 @@
         "write_overlays": {"type": "array", "items": {"type": "string"}},
         "review_lenses": {"type": "array", "items": {"type": "string"}},
         "package_cues": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "freshness": {
+      "type": "object",
+      "required": ["contract", "artifact_key", "generated_at", "generated_by", "registry_file", "depends_on", "inputs"],
+      "properties": {
+        "contract": {"type": "string"},
+        "artifact_key": {"type": "string"},
+        "generated_at": {"type": "string"},
+        "generated_by": {"type": "string"},
+        "registry_file": {"type": "string"},
+        "project_root": {"type": ["string", "null"]},
+        "depends_on": {"type": "array", "items": {"type": "string"}},
+        "inputs": {"type": "object"}
       },
       "additionalProperties": false
     }

@@ -12,6 +12,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+import sidecar_freshness
 from trace_log import append_trace
 
 
@@ -34,6 +35,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def build_memory_context(project_root: Path, *, timestamp: str) -> dict[str, Any]:
     mighty = project_root / ".mighty"
+    repo_root = SCRIPT_DIR.parent
     state = read_json(mighty / "state.json")
     gate = read_json(mighty / "setting-gate.json")
     workflow = read_json(mighty / "workflow_state.json")
@@ -86,6 +88,33 @@ def build_memory_context(project_root: Path, *, timestamp: str) -> dict[str, Any
                 "setting_markdown_fulltext",
             ],
         },
+        "freshness": sidecar_freshness.build_freshness(
+            repo_root=repo_root,
+            artifact_key="memory-context",
+            timestamp=timestamp,
+            project_root=project_root,
+            inputs={
+                "state.json": {
+                    "path": ".mighty/state.json",
+                    "updated_at": state.get("meta", {}).get("updated_at"),
+                    "current_chapter": state.get("progress", {}).get("current_chapter"),
+                },
+                "workflow_state.json": {
+                    "path": ".mighty/workflow_state.json",
+                    "status": workflow_task.get("status"),
+                    "current_step": workflow_task.get("current_step"),
+                    "last_successful_checkpoint": workflow_task.get("last_successful_checkpoint"),
+                },
+                "setting-gate.json": {
+                    "path": ".mighty/setting-gate.json",
+                    "status": gate.get("status"),
+                },
+                "active-context.json": {
+                    "path": ".mighty/active-context.json",
+                    "latest_summary_chapter": active_summary.get("latest_chapter"),
+                },
+            },
+        ),
     }
 
 

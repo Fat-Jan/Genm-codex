@@ -7,6 +7,8 @@ description: Review a chapter in a Codex-managed novel project for quality, cont
 
 Use this skill after a chapter draft exists and the user wants a structured quality assessment.
 
+Also read `../../docs/00-当前有效/upstream-structure-contract.md` so review does not confuse `总纲`, `launch-stack`, and `content-positioning` responsibilities.
+
 Default intent for the current workflow:
 
 - collect the chapter’s actionable problems in one review pass
@@ -30,6 +32,18 @@ Default intent for the current workflow:
   - relevant shared profile under `../../shared/profiles/`
 
 ## Required reads
+
+Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-precheck` / `novel-package`.
+
+Shared bundles to apply here:
+
+- `baseline-core`
+- `launch-stack`
+- `active-context`
+- `content-positioning`
+- `fanqie-bucket`
+- `fanqie-tagpack`
 
 - `.mighty/state.json`
 - `chapters/第N章.md`

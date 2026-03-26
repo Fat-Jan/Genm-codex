@@ -107,3 +107,13 @@ recommended_elements:
 # 版本历史
 changelog:
   "v3.1-tomato": "初始版本，专注番茄平台系统文优化"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["系统", "逆袭"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["系统奖励不能替代成长", "任务推进要和主线冲突绑定"]
+    package_cues:
+      - "系统出现前置"
+      - "前三章要有一次任务兑现"

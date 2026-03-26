@@ -7,6 +7,8 @@ description: Write a chapter in a Codex-managed novel project by reading the cur
 
 Use this skill when the user wants to write the next chapter from the current outline and project state.
 
+Also read `../../docs/00-当前有效/upstream-structure-contract.md` to keep `总纲 / launch-stack / content-positioning` responsibilities separated during drafting.
+
 `novel-write` is the `draft` phase inside the default single-chapter `chapter transaction`:
 
 1. `gate-check`
@@ -37,6 +39,18 @@ This skill owns `draft`; it does not replace the full chapter transaction.
 - If this is not chapter 1, either the previous chapter file or a valid prior summary exists
 
 ## Required reads
+
+Read `../../shared/references/shared/consumer-read-manifest.md` first.
+
+Shared bundles to apply here:
+
+- `baseline-core`
+- `launch-stack`
+- `active-context`
+- `content-positioning`
+- `market-adjustments`
+- `fanqie-bucket`
+- `fanqie-tagpack`
 
 Always read:
 

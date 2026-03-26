@@ -1196,3 +1196,70 @@
 - `pytest -q tests/test_active_context.py tests/test_inkos_growth_plan.py` 通过：`25 passed`
 - `bash scripts/sync-shared-from-genm.sh --report-json --domain references` 通过
 - `bash scripts/validate-migration.sh` 通过
+
+---
+
+# Findings & Decisions: `v1.3` 候选池预研
+
+## Requirements
+- 不把 `v1.3` 继续做成“大而全补线”
+- 优先列入对默认工作流、质量链和 profile/positioning 可用面最有价值的项
+- 不把已明确 `deferred` 或已明确排除的实验/架构方向偷渡进主线
+
+## Research Findings
+- `v1.2` 已把 `content-positioning` 做到“主 profile 稳定 + bucket-only fallback 可用”，但 coverage 仍处于首批状态：
+  - `content-positioning-map-v1.json` 仅覆盖 11 个 profile
+  - `bucket_defaults` 仅覆盖 6 个 bucket
+  - `shared/profiles/` 中仍有 38 个 profile 缺 `platform_positioning`
+  - 仍有 25 个 profile 保留 `opening_templates`
+  - 仍有 25 个 profile 保留 `dialogue_templates`
+  - 仍有 11 个 profile 保留 `scene_description`
+- `review / precheck / package` 的质量路由一致性，和“真实小说项目上的默认工作流稳定性”，已经被 `docs/00-当前有效/v1-maintenance-mode.md` 明确列为当前 `v1.x` 的首要维护重点。
+- `Fanqie-first` 路线目前仍缺：
+  - 已冻结内部生产模板
+  - 首个可投样本
+  - 宫斗宅斗重验结果
+- `workflow_state` 当前仍只有 maintenance/snapshot 尾段 owner 真正落盘，`draft / close / gate-check` 的 phase owner 语义还主要分散在 skill prose 和脚本约定里。
+- 本地复核还发现一个具体缺口：`scripts/workflow_state_utils.py` 的 `mark_snapshot_complete()` 目前仍会把 `TRANSACTION_STEPS` 全量并入 `completed_steps`，这会把“未真实记录过的前序 phase”一并表现成完成态；这更适合收进 `v1.3` 的“事务契约 + 运行证据链统一”主题里处理，而不是零碎热修。
+- 高频 consumer skill 的规则装载协议已经明显复制：
+  - `novel-outline`
+  - `novel-write`
+  - `novel-review`
+  - `novel-package`
+  都在手写大段读档清单；问题已经不是“文案长”，而是“规则装载协议分散”。
+- `setting_gate.py` 当前同时承担：
+  - truth-gap 检测
+  - local card materialization
+  - launch-stack auto compile
+  - gate state 写回
+  - sync-review 写回
+  - trace 写回
+  职责已经跨 analyzer / mutator / orchestrator 三层。
+
+## Recommended `v1.3` Themes
+1. **质量路由一致性**
+   - 聚焦 `review / precheck / package` 对同一项目给出更一致的判断口径。
+2. **默认工作流稳定性与恢复体验**
+   - 聚焦 `gate triage`、维护链、恢复建议、事务证据链。
+3. **高频技能规则栈 manifest 化**
+   - 把 `outline/write/review/package` 的规则装载清单收成共享 manifest/bundle。
+4. **事务契约 + sidecar freshness registry**
+   - 统一 `workflow/resume/log/maintenance` 的状态语义与 sidecar 过期/重建判断。
+5. **content-positioning 第二轮扩面**
+   - 继续补高价值 profile / bucket，并扩到 `hook/payoff/motive` 级字段。
+6. **Fanqie-first 样本冻结**
+   - 推出首条冻结内部模板和首个可投样本。
+
+## Do Not Promote Into `v1.3`
+- 不把 `novel-scan` 偷渡进默认主线；继续保持实验能力边界。
+- 不重开 monolithic runtime / plugin framework 方向。
+- 不把 `skills manifest / sidecar registry / pipeline manifest` 作为脱离用户价值的纯治理项目来做；只有服务上述主线时才进入范围。
+- 不重新讨论 `novel-log` 是否回到默认主线；`v1.2` 已给出“专家辅助能力”结论。
+
+## Recommended Order
+1. `质量路由一致性`
+2. `默认工作流稳定性与恢复体验`
+3. `高频技能规则栈 manifest 化`
+4. `事务契约 + sidecar freshness registry`
+5. `content-positioning` 第二轮扩面
+6. `Fanqie-first` 样本冻结

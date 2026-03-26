@@ -14,6 +14,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import strong_quality_gate
 import fanqie_launch_stack
+import sidecar_freshness
 from trace_log import append_trace
 
 
@@ -174,6 +175,32 @@ def _extract_items(state: dict) -> list[str]:
         seen.add(name)
         out.append(name)
     return out
+
+
+def detect_gate_requirements(project_root: Path, stage: str) -> dict:
+    project_root = Path(project_root)
+    state = load_state(project_root)
+    policy = load_policy()
+    outline_text = read_outline_text(project_root)
+    available_paths = available_setting_paths(project_root)
+    strong_policy = strong_quality_gate.load_policy()
+    truth_result = strong_quality_gate.detect_missing_truth_sources(
+        outline_text=outline_text,
+        route_signal={},
+        available_paths=available_paths,
+        policy=strong_policy,
+    )
+    chapter_outline_dir = project_root / "大纲" / "章纲"
+    chapter_outline_count = len(list(chapter_outline_dir.glob("*.md"))) if chapter_outline_dir.exists() else 0
+    return {
+        "project_root": project_root,
+        "stage": stage,
+        "state": state,
+        "policy": policy,
+        "outline_text": outline_text,
+        "truth_result": truth_result,
+        "chapter_outline_count": chapter_outline_count,
+    }
 
 
 def materialize_local_cards(project_root: Path, state: dict, policy: dict, stage: str, report_only: bool) -> list[str]:
@@ -441,48 +468,51 @@ def maybe_auto_compile_launch_stack(project_root: Path, state: dict, *, stage: s
     }
 
 
-def run_gate(
+def enrich_gate_result(
+    detection: dict,
     *,
-    project_root: Path,
-    stage: str = "outline",
-    report_only: bool = False,
+    report_only: bool,
     mcp_candidates: list[dict] | None = None,
 ) -> dict:
-    project_root = Path(project_root)
-    state = load_state(project_root)
-    policy = load_policy()
-    outline_text = read_outline_text(project_root)
-    available_paths = available_setting_paths(project_root)
-    strong_policy = strong_quality_gate.load_policy()
-    truth_result = strong_quality_gate.detect_missing_truth_sources(
-        outline_text=outline_text,
-        route_signal={},
-        available_paths=available_paths,
-        policy=strong_policy,
-    )
-    launch_stack_action = maybe_auto_compile_launch_stack(project_root, state, stage=stage, report_only=report_only)
+    project_root = detection["project_root"]
+    stage = detection["stage"]
+    state = detection["state"]
+    policy = detection["policy"]
+    outline_text = detection["outline_text"]
+    truth_result = detection["truth_result"]
+    chapter_outline_count = detection["chapter_outline_count"]
 
+    launch_stack_action = maybe_auto_compile_launch_stack(
+        project_root,
+        state,
+        stage=stage,
+        report_only=report_only,
+    )
     auto_created_files = materialize_local_cards(project_root, state, policy, stage, report_only)
     graded = grade_candidates(mcp_candidates or [], policy)
 
-    blocking_gaps = truth_result["missing"]
+    blocking_gaps = list(truth_result.get("missing", []))
     if graded["status"] == "blocked":
-        blocking_gaps = blocking_gaps + [
-            {
-                "key": item["kind"],
-                "source": item["source"],
-                "name": item["name"],
-            }
-            for item in graded["review_items"]
-            if item.get("blocking")
-        ]
+        blocking_gaps.extend(
+            [
+                {
+                    "key": item["kind"],
+                    "source": item["source"],
+                    "name": item["name"],
+                }
+                for item in graded["review_items"]
+                if item.get("blocking")
+            ]
+        )
 
-    status = "passed"
     if blocking_gaps:
         status = "blocked"
     elif graded["status"] == "review_required":
         status = "review_required"
+    else:
+        status = "passed"
 
+    mcp_candidates_list = mcp_candidates or []
     result = {
         "version": "1.0",
         "status": status,
@@ -491,27 +521,85 @@ def run_gate(
         "blocking_gaps": blocking_gaps,
         "auto_created_files": auto_created_files,
         "review_queue_count": len(graded["review_items"]),
-        "mcp_used": bool(mcp_candidates),
-        "mcp_sources": sorted({item.get("source", "") for item in (mcp_candidates or []) if item.get("source")}),
+        "mcp_used": bool(mcp_candidates_list),
+        "mcp_sources": sorted(
+            {
+                item.get("source", "")
+                for item in mcp_candidates_list
+                if item.get("source")
+            }
+        ),
         "review_items": graded["review_items"],
         "truth_sources_checked": truth_result["used"],
-        "minimal_next_action": _build_minimal_next_action(project_root, stage, blocking_gaps, graded["review_items"]),
-    }
-    _write_gate_state(project_root, result, report_only)
-    _write_sync_review(project_root, stage, graded["review_items"], report_only)
-    if not report_only:
-        append_trace(
+        "minimal_next_action": _build_minimal_next_action(
             project_root,
-            event=f"setting_gate.{status}",
-            skill="setting-gate",
-            result=status,
-            details={
-                "stage": stage,
-                "blocking_gap_count": len(blocking_gaps),
-                "review_queue_count": len(graded["review_items"]),
-                "launch_stack_action": launch_stack_action.get("status"),
+            stage,
+            blocking_gaps,
+            graded["review_items"],
+        ),
+        "freshness": sidecar_freshness.build_freshness(
+            repo_root=SCRIPT_DIR.parent,
+            artifact_key="setting-gate",
+            timestamp=now_iso(),
+            project_root=project_root,
+            inputs={
+                "state.json": {
+                    "path": ".mighty/state.json",
+                    "updated_at": state.get("meta", {}).get("updated_at"),
+                    "current_chapter": state.get("progress", {}).get("current_chapter"),
+                },
+                "outline": {
+                    "path": "大纲/总纲.md + 大纲/章纲/*.md",
+                    "has_text": bool(outline_text.strip()),
+                    "chapter_outline_count": chapter_outline_count,
+                },
+                "research-candidates.json": {
+                    "path": ".mighty/research-candidates.json",
+                    "count": len(mcp_candidates_list),
+                },
             },
-        )
+        ),
+    }
+    return result
+
+
+def persist_gate_result(project_root: Path, stage: str, result: dict, report_only: bool) -> None:
+    _write_gate_state(project_root, result, report_only)
+    _write_sync_review(project_root, stage, result.get("review_items", []), report_only)
+
+
+def trace_gate_result(project_root: Path, stage: str, result: dict, report_only: bool) -> None:
+    if report_only:
+        return
+    append_trace(
+        project_root,
+        event=f"setting_gate.{result['status']}",
+        skill="setting-gate",
+        result=result["status"],
+        details={
+            "stage": stage,
+            "blocking_gap_count": len(result["blocking_gaps"]),
+            "review_queue_count": result["review_queue_count"],
+            "launch_stack_action": result["launch_stack_action"].get("status"),
+        },
+    )
+
+
+def run_gate(
+    *,
+    project_root: Path,
+    stage: str = "outline",
+    report_only: bool = False,
+    mcp_candidates: list[dict] | None = None,
+) -> dict:
+    detection = detect_gate_requirements(project_root, stage)
+    result = enrich_gate_result(
+        detection,
+        report_only=report_only,
+        mcp_candidates=mcp_candidates,
+    )
+    persist_gate_result(detection["project_root"], stage, result, report_only)
+    trace_gate_result(detection["project_root"], stage, result, report_only)
     return result
 
 

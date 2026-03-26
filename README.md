@@ -94,7 +94,8 @@ bash scripts/validate-migration.sh
 - 当前边界：`docs/00-当前有效/v1-boundary.md`
 - 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
 - 已完成阶段 roadmap：`v1.1-roadmap.md`
-- 下一阶段主 roadmap：`v1.2-roadmap.md`
+- 上一阶段 roadmap：`v1.2-roadmap.md`
+- 当前主 roadmap：`v1.3-roadmap.md`
 
 ## Gate Triage
 
