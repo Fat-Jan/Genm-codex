@@ -24,6 +24,7 @@ ALLOWED_TOP_LEVEL_KEYS = {
     "reader_expectations",
     "taboos",
     "checker_weights",
+    "platform_positioning",
 }
 
 
@@ -218,6 +219,7 @@ def summarize_for_state(normalized_profile: dict[str, Any]) -> dict[str, Any]:
     return {
         "loaded": normalized_profile["source_path"],
         "bucket": "",
+        "positioning_initialized": False,
         "tagpacks": [],
         "strong_tags": [],
         "narrative_modes": [],
@@ -228,6 +230,14 @@ def summarize_for_state(normalized_profile: dict[str, Any]) -> dict[str, Any]:
         "strand权重": normalized_profile["strand_weights"],
         "特殊约束": normalized_profile["constraints"],
     }
+
+
+def resolve_platform_positioning(raw_profile: dict[str, Any], *, platform: str) -> dict[str, Any]:
+    positioning = raw_profile.get("platform_positioning", {})
+    if not isinstance(positioning, dict):
+        return {}
+    candidate = positioning.get(platform, {})
+    return candidate if isinstance(candidate, dict) else {}
 
 
 def main(argv: list[str] | None = None) -> dict[str, Any]:

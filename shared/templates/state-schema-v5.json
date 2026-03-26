@@ -235,6 +235,7 @@
       "properties": {
         "loaded": {"type": "string"},
         "bucket": {"type": "string"},
+        "positioning_initialized": {"type": "boolean"},
         "tagpacks": {"type": "array", "items": {"type": "string"}},
         "strong_tags": {"type": "array", "items": {"type": "string"}},
         "narrative_modes": {"type": "array", "items": {"type": "string"}},

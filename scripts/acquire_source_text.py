@@ -759,6 +759,7 @@ def resolve_provider_settings(
     builtin_defaults = registry.get("defaults", {})
     project_config = read_project_config(project_root)
     codex_config = read_codex_config()
+    warnings: list[str] = []
 
     if cli_command:
         provider = command_provider(cli_command)
@@ -770,6 +771,7 @@ def resolve_provider_settings(
                 "name": "external_command",
                 "command": cli_command,
             }
+        warnings.append("invalid_cli_command")
 
     if env_command:
         provider = command_provider(env_command)
@@ -781,6 +783,7 @@ def resolve_provider_settings(
                 "name": "external_command",
                 "command": env_command,
             }
+        warnings.append("invalid_env_command")
 
     project_spec = nested_get(project_config, ["acquire_source_text", f"{role}_provider"])
     if isinstance(project_spec, dict):
@@ -796,6 +799,7 @@ def resolve_provider_settings(
                     "name": preset or "external_command",
                     "command": command,
                 }
+            warnings.append("invalid_project_command")
         if preset:
             provider = builtin_provider(role, preset)
             if provider is not None:
@@ -806,6 +810,7 @@ def resolve_provider_settings(
                     "name": preset,
                     "command": None,
                 }
+            warnings.append(f"invalid_project_preset:{preset}")
 
     codex_spec = nested_get(codex_config, ["genm", "acquire_source_text", f"{role}_provider"])
     if isinstance(codex_spec, dict):
@@ -821,6 +826,7 @@ def resolve_provider_settings(
                     "name": preset or "external_command",
                     "command": command,
                 }
+            warnings.append("invalid_codex_command")
         if preset:
             provider = builtin_provider(role, preset)
             if provider is not None:
@@ -831,6 +837,7 @@ def resolve_provider_settings(
                     "name": preset,
                     "command": None,
                 }
+            warnings.append(f"invalid_codex_preset:{preset}")
 
     default_name = str(builtin_defaults.get(role) or ("reader_proxy" if role == "fetch" else "bing_rss"))
     provider = builtin_provider(role, default_name)
@@ -838,10 +845,11 @@ def resolve_provider_settings(
         raise RuntimeError(f"Unsupported default provider preset: {default_name}")
     return provider, {
         "role": role,
-        "source": "registry_default",
+        "source": "registry_default" if not warnings else "registry_default_after_invalid_config",
         "kind": "builtin",
         "name": default_name,
         "command": None,
+        "warnings": warnings,
     }
 
 

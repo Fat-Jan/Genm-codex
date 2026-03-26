@@ -404,19 +404,33 @@ def maybe_auto_compile_launch_stack(project_root: Path, state: dict, *, stage: s
     if report_only:
         return {"status": "report_only_skipped", "reason": "report_only", "sidecar_file": str(sidecar_path)}
 
-    result = fanqie_launch_stack.run_launch_stack(
-        project_root=project_root,
-        chapter="003",
-        chapters="001-003",
-        mode="writeback",
-        writeback=True,
+    outline_text = fanqie_launch_stack.load_total_outline(project_root)
+    chapter_texts = fanqie_launch_stack.load_chapter_texts(project_root, "001-003")
+    chapter_keys = sorted(chapter_texts.keys())
+    result = fanqie_launch_stack.compile_launch_stack(
+        state,
+        outline_text,
+        chapter_texts,
+        chapter=chapter_keys[-1] if chapter_keys else None,
+        chapters=f"{chapter_keys[0]}-{chapter_keys[-1]}" if chapter_keys else None,
     )
+    if len(chapter_keys) < 3:
+        result["phase"] = "draft"
+        result["drift_signal"] = "watch"
+        result["reselect_note"] = "auto-compiled from outline-only or partial early chapters"
+    fanqie_launch_stack.write_launch_stack_sidecars(project_root, result, force=True)
+    fanqie_launch_stack.mirror_launch_stack_to_state(project_root, result)
     append_trace(
         project_root,
         event="launch_stack.auto_compiled",
         skill="setting-gate",
         result="success",
-        details={"stage": stage, "sidecar_file": str(sidecar_path)},
+        details={
+            "stage": stage,
+            "sidecar_file": str(sidecar_path),
+            "compiled_phase": result["phase"],
+            "chapter_count": len(chapter_keys),
+        },
     )
     return {
         "status": "compiled",

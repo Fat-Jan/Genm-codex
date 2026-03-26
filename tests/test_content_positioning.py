@@ -91,6 +91,34 @@ class ContentPositioningTests(unittest.TestCase):
             self.assertIn("多角色群像", payload["narrative_modes"])
             self.assertIn("cue:婚配错位前置", payload["compiler_output"]["package_cues"])
 
+    def test_empty_lists_can_override_defaults_when_positioning_initialized(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "宫斗测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "shared/profiles/palace-intrigue/profile.yaml",
+                        "bucket": "宫斗宅斗",
+                        "positioning_initialized": True,
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            payload = module.build_content_positioning(root, timestamp="2026-03-26T00:00:00Z")
+
+            self.assertEqual(payload["primary_bucket"], "宫斗宅斗")
+            self.assertEqual(payload["strong_tags"], [])
+            self.assertEqual(payload["narrative_modes"], [])
+            self.assertEqual(payload["tone_guardrails"], [])
+
     def test_cli_writes_content_positioning_sidecar(self) -> None:
         module = load_module()
         root = self.make_project_root()

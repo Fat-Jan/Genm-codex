@@ -166,6 +166,7 @@
   "genre_profile": {
     "loaded": "",
     "bucket": "",
+    "positioning_initialized": false,
     "tagpacks": [],
     "strong_tags": [],
     "narrative_modes": [],

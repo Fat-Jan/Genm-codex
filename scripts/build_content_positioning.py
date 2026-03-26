@@ -13,6 +13,7 @@ if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
 from trace_log import append_trace
+import profile_contract
 
 
 def now_iso() -> str:
@@ -56,6 +57,15 @@ def build_content_positioning(project_root: Path, *, timestamp: str) -> dict[str
     genre_profile = state.get("genre_profile", {}) if isinstance(state.get("genre_profile"), dict) else {}
     primary_profile = infer_primary_profile(str(genre_profile.get("loaded", "")))
     platform_key = normalize_platform(str(state.get("meta", {}).get("platform", "")))
+    profile_positioning = {}
+    loaded_path = str(genre_profile.get("loaded", "")).strip()
+    if loaded_path:
+        profile_path = project_root / loaded_path
+        if not profile_path.exists():
+            profile_path = Path(__file__).resolve().parents[1] / loaded_path
+        if profile_path.exists():
+            raw_profile = profile_contract.load_profile(profile_path)
+            profile_positioning = profile_contract.resolve_platform_positioning(raw_profile, platform=platform_key)
     profile_mapping = (
         mapping_registry.get("profiles", {})
         .get(primary_profile, {})
@@ -63,20 +73,31 @@ def build_content_positioning(project_root: Path, *, timestamp: str) -> dict[str
         if primary_profile
         else {}
     )
+    positioning_initialized = bool(genre_profile.get("positioning_initialized"))
+
+    def choose_mapping_value(key: str):
+        if key in profile_positioning:
+            return profile_positioning.get(key)
+        return profile_mapping.get(key)
 
     def prefer_list(key: str) -> list[str]:
         live = genre_profile.get(key, [])
+        if positioning_initialized and isinstance(live, list):
+            return live
         if isinstance(live, list) and live:
             return live
-        mapped = profile_mapping.get(key, [])
+        mapped = choose_mapping_value(key)
         return mapped if isinstance(mapped, list) else []
 
-    primary_bucket = str(genre_profile.get("bucket") or profile_mapping.get("primary_bucket") or "")
+    if positioning_initialized and "bucket" in genre_profile:
+        primary_bucket = str(genre_profile.get("bucket") or "")
+    else:
+        primary_bucket = str(genre_profile.get("bucket") or choose_mapping_value("primary_bucket") or "")
     tagpacks = prefer_list("tagpacks")
     strong_tags = prefer_list("strong_tags")
     narrative_modes = prefer_list("narrative_modes")
     tone_guardrails = prefer_list("tone_guardrails")
-    package_cues = profile_mapping.get("package_cues", [])
+    package_cues = choose_mapping_value("package_cues")
     if not isinstance(package_cues, list):
         package_cues = []
 

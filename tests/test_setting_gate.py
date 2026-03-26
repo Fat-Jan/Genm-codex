@@ -170,7 +170,8 @@ class SettingGateCoreTests(unittest.TestCase):
         sidecar_path = root / ".mighty" / "launch-stack.json"
         self.assertTrue(sidecar_path.exists())
         state = json.loads((root / ".mighty" / "state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["launch_stack_phase"], "locked")
+        self.assertEqual(state["launch_stack_phase"], "draft")
+        self.assertEqual(state["launch_stack_drift_signal"], "watch")
         self.assertTrue(state["active_launch_grammar"])
         trace_log = root / ".mighty" / "logs" / "trace.jsonl"
         self.assertTrue(trace_log.exists())

@@ -450,6 +450,36 @@ class AcquireSourceTextTests(unittest.TestCase):
             self.assertEqual(trace["source"], "cli")
             self.assertEqual(trace["kind"], "external_command")
 
+    def test_invalid_project_preset_is_reported_before_default_fallback(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir)
+            config_path = project_root / ".mighty" / "config.json"
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            config_path.write_text(
+                json.dumps(
+                    {
+                        "acquire_source_text": {
+                            "fetch_provider": {"preset": "not_real"},
+                        }
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            registry = module.load_provider_registry(module.default_provider_registry_path())
+            _, trace = module.resolve_provider_settings(
+                role="fetch",
+                cli_command="",
+                env_command="",
+                project_root=str(project_root),
+                registry=registry,
+            )
+
+            self.assertEqual(trace["source"], "registry_default_after_invalid_config")
+            self.assertIn("invalid_project_preset:not_real", trace["warnings"])
+
 
 if __name__ == "__main__":
     unittest.main()

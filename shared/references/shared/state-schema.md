@@ -86,6 +86,7 @@ version: "1.0"
 | strand权重 | object | 从 profile `strand_weights` 投影 |
 | 特殊约束 | object[] | 从 profile `constraints` 投影 |
 | bucket | string | 可选，当前内容桶 |
+| positioning_initialized | boolean | 是否已显式初始化组合定位字段；为 `true` 时，空数组也视为有效 override |
 | tagpacks | string[] | 可选，主桶上的玩法 overlay |
 | strong_tags | string[] | 可选，平台表层强标签 |
 | narrative_modes | string[] | 可选，结构模式 |
