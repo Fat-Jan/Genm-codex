@@ -175,6 +175,18 @@ class SharedSyncGovernanceTests(unittest.TestCase):
 
 
 class SharedSyncGovernanceDocsTests(unittest.TestCase):
+    def test_profiles_governance_lists_local_reference_notes(self) -> None:
+        payload = json.loads((REPO_ROOT / "shared" / "sync-governance.json").read_text(encoding="utf-8"))
+        protected = payload["domains"]["profiles"]["protected_local_paths"]
+        for expected in (
+            "apocalypse/reference-notes.md",
+            "historical/reference-notes.md",
+            "romance/reference-notes.md",
+            "urban-brainhole/reference-notes.md",
+            "workplace-romance/reference-notes.md",
+        ):
+            self.assertIn(expected, protected)
+
     def test_user_entry_docs_describe_governance_aware_sync(self) -> None:
         expectations = {
             "README.md": [

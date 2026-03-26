@@ -2941,3 +2941,18 @@
 - 本轮最终验证：
   - `pytest -q` → `296 passed, 192 subtests passed`
   - `bash scripts/validate-migration.sh` → passed
+## Session Update: 2026-03-26 审阅补跑与残留问题修正
+
+- 审阅与真实数据 smoke 发现两处仍在冒头的问题：
+  1. `project-maintenance.py` 在 `mark_snapshot_complete()` 之前就生成 `memory-context`，导致 `memory-context.workflow` 比最终 `workflow_state` 落后一步
+  2. `shared/profiles/*/reference-notes.md` 已经是 repo-local truth，但 `shared/sync-governance.json` 的 `profiles.protected_local_paths` 仍为空，`--report --domain profiles` 会把它们报成 `unexpected local-only`
+- 已完成修正：
+  - `scripts/project-maintenance.py`
+    - 调整为先完成 `workflow_state` 的 `snapshot` 收口，再生成 `memory-context`
+  - `shared/sync-governance.json`
+    - 已把现有 `reference-notes.md` 纳入 `profiles` 域保护清单
+- 复验：
+  - `pytest -q tests/test_inkos_growth_plan.py::InkosGrowthScriptOutputTests::test_project_maintenance_reports_transaction_phase tests/test_shared_sync_governance.py::SharedSyncGovernanceDocsTests::test_profiles_governance_lists_local_reference_notes -q` → passed
+  - `bash scripts/sync-shared-from-genm.sh --report --domain profiles`
+    - `protected local paths: 9`
+    - 不再出现 `unexpected local-only paths`

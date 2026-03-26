@@ -92,6 +92,17 @@ def main() -> None:
         ts,
     ])
     steps.append(snapshot_step)
+    report_path = root / ".mighty" / "maintenance-report.json"
+    snapshot_payload = json.loads(snapshot_step["stdout"])
+    workflow_state = workflow_state_utils.mark_snapshot_complete(
+        project_root=root,
+        repo_root=script_dir.parent,
+        timestamp=ts,
+        command="project-maintenance",
+        trigger=args.workflow_trigger,
+        report_file=str(report_path),
+        snapshot_file=snapshot_payload["filesystem_snapshot_file"],
+    )
     memory_context_step = run([
         sys.executable,
         str(script_dir / "build_memory_context.py"),
@@ -119,16 +130,6 @@ def main() -> None:
     }
     report_path = root / ".mighty" / "maintenance-report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2))
-    snapshot_payload = json.loads(snapshot_step["stdout"])
-    workflow_state = workflow_state_utils.mark_snapshot_complete(
-        project_root=root,
-        repo_root=script_dir.parent,
-        timestamp=ts,
-        command="project-maintenance",
-        trigger=args.workflow_trigger,
-        report_file=str(report_path),
-        snapshot_file=snapshot_payload["filesystem_snapshot_file"],
-    )
     trace_log_path = append_trace(
         root,
         event="maintenance.completed",

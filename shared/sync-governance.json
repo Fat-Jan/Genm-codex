@@ -6,7 +6,17 @@
   },
   "domains": {
     "profiles": {
-      "protected_local_paths": []
+      "protected_local_paths": [
+        "apocalypse/reference-notes.md",
+        "historical-brainhole/reference-notes.md",
+        "historical/reference-notes.md",
+        "palace-intrigue/reference-notes.md",
+        "realistic/reference-notes.md",
+        "romance/reference-notes.md",
+        "urban-brainhole/reference-notes.md",
+        "workplace-romance/reference-notes.md",
+        "xiuxian/reference-notes.md"
+      ]
     },
     "references": {
       "protected_local_paths": [

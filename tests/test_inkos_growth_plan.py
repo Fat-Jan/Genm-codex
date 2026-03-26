@@ -341,6 +341,9 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         self.assertIn("maintenance", workflow_state["current_task"]["completed_steps"])
         self.assertIn("snapshot", workflow_state["current_task"]["completed_steps"])
         self.assertFalse(workflow_state["current_task"]["pending_steps"])
+        memory_context = json.loads((root / ".mighty" / "memory-context.json").read_text(encoding="utf-8"))
+        self.assertEqual(memory_context["workflow"]["last_successful_checkpoint"], "snapshot")
+        self.assertEqual(memory_context["workflow"]["status"], "completed")
         snapshots = json.loads((root / ".mighty" / "state.json").read_text(encoding="utf-8"))["chapter_snapshots"]
         self.assertIn("001", snapshots)
 
