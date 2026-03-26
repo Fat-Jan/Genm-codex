@@ -91,6 +91,34 @@ class ContentPositioningTests(unittest.TestCase):
             self.assertIn("多角色群像", payload["narrative_modes"])
             self.assertIn("cue:婚配错位前置", payload["compiler_output"]["package_cues"])
 
+    def test_bucket_only_project_can_use_bucket_defaults(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "合租房测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "",
+                        "bucket": "职场婚恋",
+                        "positioning_initialized": False,
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            payload = module.build_content_positioning(root, timestamp="2026-03-26T00:00:00Z")
+
+            self.assertEqual(payload["primary_bucket"], "职场婚恋")
+            self.assertIn("先婚后爱", payload["strong_tags"])
+            self.assertIn("双线并进", payload["narrative_modes"])
+            self.assertIn("cue:首屏点关系绑定", payload["compiler_output"]["package_cues"])
+
     def test_empty_lists_can_override_defaults_when_positioning_initialized(self) -> None:
         module = load_module()
         with tempfile.TemporaryDirectory() as tmpdir:

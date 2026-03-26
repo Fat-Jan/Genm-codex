@@ -43,8 +43,8 @@ class ProfileContractTests(unittest.TestCase):
         self.assertEqual(urban["cool_points"]["density"], "1.3/千字")
         self.assertEqual(urban["taboos"][0]["id"], "TABOO-001")
         self.assertEqual(urban["taboos"][0]["checkpoint"], "设定设计")
-        self.assertTrue(urban["notes"]["has_dialogue_templates"])
-        self.assertTrue(urban["notes"]["has_scene_description"])
+        self.assertFalse(urban["notes"]["has_dialogue_templates"])
+        self.assertFalse(urban["notes"]["has_scene_description"])
 
     def test_state_summary_projection_matches_current_state_shape(self) -> None:
         module = load_module()
@@ -94,6 +94,17 @@ class ProfileContractTests(unittest.TestCase):
             self.assertIn(token, readme)
         for token in ("genre_profile", "投影层", "raw profile dump", "content-positioning"):
             self.assertIn(token, schema_doc)
+
+    def test_first_batch_profiles_moved_legacy_reference_out_of_yaml(self) -> None:
+        expectations = {
+            "shared/profiles/urban-brainhole/profile.yaml": "shared/profiles/urban-brainhole/reference-notes.md",
+            "shared/profiles/workplace-romance/profile.yaml": "shared/profiles/workplace-romance/reference-notes.md",
+            "shared/profiles/palace-intrigue/profile.yaml": "shared/profiles/palace-intrigue/reference-notes.md",
+        }
+        for yaml_path, notes_path in expectations.items():
+            content = (REPO_ROOT / yaml_path).read_text(encoding="utf-8")
+            self.assertIn("reference_files:", content)
+            self.assertTrue((REPO_ROOT / notes_path).exists())
 
 
 if __name__ == "__main__":

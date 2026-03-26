@@ -312,6 +312,21 @@
 - 如果明确需要外部 research 来辅助 `setting gate`，也只应通过可选候选 sidecar 进入 review queue
 - 不允许因为 `novel-scan` 结果存在，就直接改写 `设定集/` 或跳过本地 truth gate
 
+### `novel-log`
+
+原因：
+
+- 当前更适合作为**已接线的专家辅助能力**
+- 虽然 trace log 现在已有真实写入方
+- 但默认恢复 / 诊断主链仍优先：
+  - `novel-workflow`
+  - `novel-resume`
+  - `novel-snapshot`
+- 它更适合：
+  - 排障
+  - 只读检查关键事件
+  - 事后诊断
+
 ---
 
 ## 当前 Fanqie-first 真实状态

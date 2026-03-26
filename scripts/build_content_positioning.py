@@ -39,9 +39,14 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 
 def infer_primary_profile(loaded_path: str) -> str:
-    parts = loaded_path.replace("\\", "/").split("/")
+    normalized = loaded_path.replace("\\", "/").strip()
+    if not normalized:
+        return ""
+    parts = normalized.split("/")
     if len(parts) >= 3 and parts[-1].startswith("profile"):
         return parts[-2]
+    if "/" not in normalized and "." not in normalized:
+        return normalized
     return ""
 
 
@@ -73,12 +78,22 @@ def build_content_positioning(project_root: Path, *, timestamp: str) -> dict[str
         if primary_profile
         else {}
     )
+    bucket_defaults = mapping_registry.get("bucket_defaults", {})
+    bucket_mapping = (
+        bucket_defaults.get(str(genre_profile.get("bucket", "")), {})
+        if isinstance(bucket_defaults, dict)
+        else {}
+    )
     positioning_initialized = bool(genre_profile.get("positioning_initialized"))
 
     def choose_mapping_value(key: str):
         if key in profile_positioning:
             return profile_positioning.get(key)
-        return profile_mapping.get(key)
+        if key in profile_mapping:
+            return profile_mapping.get(key)
+        if key in bucket_mapping:
+            return bucket_mapping.get(key)
+        return None
 
     def prefer_list(key: str) -> list[str]:
         live = genre_profile.get(key, [])

@@ -173,6 +173,17 @@ reader_expectations:
     - 女主太软弱，只会哭
     - 误会太狗血
 
+# ==================== 平台定位 ====================
+platform_positioning:
+  fanqie:
+    primary_bucket: "豪门总裁"
+    strong_tags: ["先婚后爱", "追妻"]
+    narrative_modes: []
+    tone_guardrails: ["总裁设定不能悬浮", "关系冲突必须有现实后果"]
+    package_cues:
+      - "先点身份压制"
+      - "再点关系错位"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

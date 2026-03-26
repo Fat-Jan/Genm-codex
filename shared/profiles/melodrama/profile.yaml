@@ -115,6 +115,16 @@ reader_expectations:
     - "一直误会到底不解释"
     - "反派逍遥法外"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "豪门总裁"
+    strong_tags: ["误会", "追妻"]
+    narrative_modes: []
+    tone_guardrails: ["狗血要讲逻辑", "误会不能纯靠不长嘴"]
+    package_cues:
+      - "首屏点身份/误会冲突"
+      - "不要把全部狗血词都塞进标题"
+
 golden_three:
   opening_hook: "开篇必须强狗血开局，如被设计、意外相遇、身份错位、仇恨纠葛，立即抓住读者眼球"
   protagonist_intro: "主角出场要带有强烈的戏剧色彩，背负秘密或仇恨，有明确的情绪张力"

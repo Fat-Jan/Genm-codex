@@ -1,5 +1,43 @@
 {
   "version": "1.0",
+  "bucket_defaults": {
+    "职场婚恋": {
+      "strong_tags": ["先婚后爱", "办公室暧昧"],
+      "narrative_modes": ["双线并进"],
+      "tone_guardrails": ["职场不能悬浮", "感情线与事业线不能割裂"],
+      "package_cues": ["首屏点关系绑定", "工作困局与情感冲突同场出现"]
+    },
+    "都市脑洞": {
+      "strong_tags": ["系统", "逆袭"],
+      "narrative_modes": ["多主题副本"],
+      "tone_guardrails": ["节奏不能拖沓", "金手指不能替代逻辑"],
+      "package_cues": ["首屏点金手指或反差", "前三章要有一次硬兑现"]
+    },
+    "青春甜宠": {
+      "strong_tags": ["高甜", "心动日常"],
+      "narrative_modes": [],
+      "tone_guardrails": ["不能转虐", "男主必须专一"],
+      "package_cues": ["首屏点心动事件", "甜感要早出现"]
+    },
+    "历史脑洞": {
+      "strong_tags": ["穿越", "权谋"],
+      "narrative_modes": ["多主题副本"],
+      "tone_guardrails": ["历史感不能被现代腔冲掉", "创意设定必须自洽"],
+      "package_cues": ["历史反差点前置", "主设定一句话讲清"]
+    },
+    "豪门总裁": {
+      "strong_tags": ["先婚后爱", "追妻"],
+      "narrative_modes": [],
+      "tone_guardrails": ["总裁设定不能悬浮", "关系冲突必须有现实后果"],
+      "package_cues": ["先点身份压制", "再点关系错位"]
+    },
+    "都市日常": {
+      "strong_tags": ["日常治愈", "群像"],
+      "narrative_modes": ["多角色群像"],
+      "tone_guardrails": ["慢热不等于没推进", "真实感优先于小作文感"],
+      "package_cues": ["首屏点生活困局或生活亮点", "群像关系要可见"]
+    }
+  },
   "profiles": {
     "palace-intrigue": {
       "fanqie": {
@@ -29,6 +67,86 @@
         "tone_guardrails": ["升级必须有代价", "爽点不能替代世界规则"],
         "tagpacks": [],
         "package_cues": ["金手指出现前置", "前三章要有硬兑现"]
+      }
+    },
+    "urban-brainhole": {
+      "fanqie": {
+        "primary_bucket": "都市脑洞",
+        "strong_tags": ["系统", "逆袭"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["节奏不能拖沓", "金手指不能替代逻辑"],
+        "tagpacks": [],
+        "package_cues": ["首屏点金手指或反差", "前三章要有一次硬兑现"]
+      }
+    },
+    "xiuxian": {
+      "fanqie": {
+        "primary_bucket": "传统玄幻",
+        "strong_tags": ["宗门", "成长"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["升级必须有代价", "机缘不能白拿"],
+        "tagpacks": [],
+        "package_cues": ["首屏点宗门/机缘/压制关系", "前三章至少一次突破或硬换账"]
+      }
+    },
+    "workplace-romance": {
+      "fanqie": {
+        "primary_bucket": "职场婚恋",
+        "strong_tags": ["先婚后爱", "办公室暧昧"],
+        "narrative_modes": ["双线并进"],
+        "tone_guardrails": ["职场不能悬浮", "感情线与事业线不能割裂"],
+        "tagpacks": [],
+        "package_cues": ["首屏点关系绑定", "工作困局与情感冲突同场出现"]
+      }
+    },
+    "sweet-romance": {
+      "fanqie": {
+        "primary_bucket": "青春甜宠",
+        "strong_tags": ["高甜", "心动日常"],
+        "narrative_modes": [],
+        "tone_guardrails": ["不能转虐", "男主必须专一"],
+        "tagpacks": [],
+        "package_cues": ["首屏点心动事件", "甜感要早出现"]
+      }
+    },
+    "historical-brainhole": {
+      "fanqie": {
+        "primary_bucket": "历史脑洞",
+        "strong_tags": ["穿越", "权谋"],
+        "narrative_modes": ["多主题副本"],
+        "tone_guardrails": ["历史感不能被现代腔冲掉", "创意设定必须自洽"],
+        "tagpacks": [],
+        "package_cues": ["历史反差点前置", "主设定一句话讲清"]
+      }
+    },
+    "ceo-romance": {
+      "fanqie": {
+        "primary_bucket": "豪门总裁",
+        "strong_tags": ["先婚后爱", "追妻"],
+        "narrative_modes": [],
+        "tone_guardrails": ["总裁设定不能悬浮", "关系冲突必须有现实后果"],
+        "tagpacks": [],
+        "package_cues": ["先点身份压制", "再点关系错位"]
+      }
+    },
+    "urban-daily": {
+      "fanqie": {
+        "primary_bucket": "都市日常",
+        "strong_tags": ["日常治愈", "群像"],
+        "narrative_modes": ["多角色群像"],
+        "tone_guardrails": ["慢热不等于没推进", "真实感优先于小作文感"],
+        "tagpacks": [],
+        "package_cues": ["首屏点生活困局或生活亮点", "群像关系要可见"]
+      }
+    },
+    "melodrama": {
+      "fanqie": {
+        "primary_bucket": "豪门总裁",
+        "strong_tags": ["误会", "追妻"],
+        "narrative_modes": [],
+        "tone_guardrails": ["狗血要讲逻辑", "误会不能纯靠不长嘴"],
+        "tagpacks": [],
+        "package_cues": ["首屏点身份/误会冲突", "不要把全部狗血词都塞进标题"]
       }
     }
   }

@@ -102,6 +102,16 @@ reader_expectations:
     - "人物脸谱化"
     - "结局烂尾"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市日常"
+    strong_tags: ["日常治愈", "群像"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["慢热不等于没推进", "真实感优先于小作文感"]
+    package_cues:
+      - "首屏点生活困局或生活亮点"
+      - "群像关系要可见"
+
 golden_three:
   opening_hook: "开篇展现主角的生活状态和性格，让读者产生代入感"
   protagonist_intro: "主角出场要有真实感，有优点也有缺点"

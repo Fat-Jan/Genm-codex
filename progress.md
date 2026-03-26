@@ -2737,3 +2737,45 @@
   - `tone_guardrails`
   - `package_cues`
 - 当前按“首批优先范围”口径，`Phase 4` 已可收口为 `done`。
+## Session Update: 2026-03-26 `v1.2-roadmap` 联网标注
+
+- 已先验证联网能力再给 `v1.2-roadmap` 打标签。
+- 已确认：
+  - 当前会话可联网
+  - `scripts/acquire_source_text.py` 可真实抓取番茄官方页面
+- 已为 `v1.2-roadmap` 中各项补：
+  - `[local]`
+  - `[hybrid]`
+  - `[online]`
+- 用于区分：
+  - 本地结构工作
+  - 本地+外部校准混合工作
+  - 明显依赖外部资料的工作
+## Session Update: 2026-03-26 v1.2 断点恢复与继续推进
+
+- 已恢复当前进度并确认：
+  - `A1 / A2 / B2 / C1` 现处于 `in_progress`
+- 已完成的本地推进：
+  - 扩了第一批 5 个 profile 的 `content-positioning` 映射
+  - 为这 5 个 profile 下沉了 `platform_positioning`
+  - `B2` 第一批已完成：
+    - `urban-brainhole`
+    - `workplace-romance`
+    - `palace-intrigue`
+    - `xiuxian`
+    已将主要 legacy embedded reference 收回到 `reference-notes.md`
+- 已新增 smoke 文档：
+  - `docs/20-研究实验/content-positioning-smoke-2026-03-26.md`
+- 当前 smoke 结论：
+  - `主 profile` 稳定的项目，`content-positioning` 已可用
+  - 只有 `bucket`、没有稳定 `loaded profile` 的项目，当前仍偏保守
+## Session Update: 2026-03-27 v1.2 收口
+
+- 已完成 `v1.2` 的主线项：
+  - `A1` 扩大 `content-positioning` 映射覆盖
+  - `A2` 扩大 `platform_positioning` 下沉范围
+  - `B1` 首批 profile 内容字段校准
+  - `B2` 主线 profile 的 legacy embedded reference 清理
+  - `C1/C2` smoke 与交叉样本验证
+  - `D2` `novel-log` 去留判断
+- 当前保留 `D1 novel-scan` 为 `deferred`，不阻塞 `v1.2` 收口。

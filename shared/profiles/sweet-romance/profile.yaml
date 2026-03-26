@@ -146,6 +146,17 @@ reader_expectations:
     - 女主太作或不讨喜
     - 出现沉重话题
 
+# ==================== 平台定位 ====================
+platform_positioning:
+  fanqie:
+    primary_bucket: "青春甜宠"
+    strong_tags: ["高甜", "心动日常"]
+    narrative_modes: []
+    tone_guardrails: ["不能转虐", "男主必须专一"]
+    package_cues:
+      - "首屏点心动事件"
+      - "甜感要早出现"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
