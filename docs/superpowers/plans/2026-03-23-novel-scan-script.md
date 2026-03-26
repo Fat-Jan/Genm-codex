@@ -35,7 +35,7 @@
 
 **Files:**
 - Modify: `skills/novel-scan/SKILL.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 
 - [ ] **Step 1: Document the script as the executable report-only helper**
 - [ ] **Step 2: Run targeted verification on CLI help and tests**

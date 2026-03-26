@@ -7,8 +7,8 @@
 - **Started:** 2026-03-22 17:50
 - Actions taken:
   - 读取 `planning-with-files` 技能说明，确认需要先创建计划文件
-  - 读取 `README.md` 与 `docs/start-here.md`，确认项目结构、默认工作流与技能边界
-  - 读取 `docs/skill-usage.md`、`docs/default-workflows.md`、`docs/phase-9-summary.md`、`docs/phase-9b-quality-loop-design.md`
+  - 读取 `README.md` 与 `docs/00-当前有效/start-here.md`，确认项目结构、默认工作流与技能边界
+  - 读取 `docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`、`docs/90-归档/阶段/phase-9-summary.md`、`docs/90-归档/阶段/phase-9b-quality-loop-design.md`
   - 读取 `skills/novel-outline/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-fix/SKILL.md`
   - 建立本次任务的 `task_plan.md`、`findings.md`、`progress.md`
 - Files created/modified:
@@ -31,7 +31,7 @@
 - Actions taken:
   - 新建 `docs/anti-flattening-framework/README.md`
   - 新建 12 个主模块文档，覆盖总纲、叙事权、角色分层、动力系统、关系/阵营、冲突后果、场景推进、流派故障、快速修复、工具流、检查规约、案例校准
-  - 更新 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 暴露新事实
+  - 更新 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md` 暴露新事实
 - Files created/modified:
   - `docs/anti-flattening-framework/README.md` (created)
   - `docs/anti-flattening-framework/01-总纲.md` (created)
@@ -47,9 +47,9 @@
   - `docs/anti-flattening-framework/11-检查清单与评分规约.md` (created)
   - `docs/anti-flattening-framework/12-案例对照与校准.md` (created)
   - `README.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
 
 ### Phase 4: Skill Wiring
 - **Status:** complete
@@ -93,9 +93,9 @@
   - `docs/anti-flattening-framework/12-案例对照与校准.md` (updated)
   - `docs/anti-flattening-framework/smoke-results-2026-03-22.md` (created)
   - `README.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
 
 ### Phase 7: Real Chain Smoke
 - **Status:** complete
@@ -153,11 +153,11 @@
 - Actions taken:
   - 新建 `workflow-usage-guide-2026-03-22.md`
   - 将宫斗样本与双女主替身样本收束成三类工作流路线
-  - 在 `docs/anti-flattening-framework/README.md` 和 `docs/default-workflows.md` 增加入口
+  - 在 `docs/anti-flattening-framework/README.md` 和 `docs/00-当前有效/default-workflows.md` 增加入口
 - Files created/modified:
   - `docs/anti-flattening-framework/workflow-usage-guide-2026-03-22.md` (created)
   - `docs/anti-flattening-framework/README.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
   - `task_plan.md` (updated)
   - `findings.md` (updated)
   - `progress.md` (updated)
@@ -209,13 +209,97 @@
 ### Phase 13: Historical Closure
 - **Status:** complete
 - Actions taken:
-  - 新建 `docs/phase-17-summary.md`
+  - 新建 `docs/90-归档/阶段/phase-17-summary.md`
   - 在 `README.md` 中补挂阶段总结与参考文档入口
   - 将本轮任务正式沉淀为项目历史结论
 - Files created/modified:
-  - `docs/phase-17-summary.md` (created)
+  - `docs/90-归档/阶段/phase-17-summary.md` (created)
   - `README.md` (updated)
   - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+## Session: 2026-03-25
+
+### Phase 1: Architecture Discovery
+- **Status:** complete
+- Actions taken:
+  - 读取 `task_plan.md` / `findings.md` / `progress.md` 当前状态
+  - 读取 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/shared-asset-dependency-map.md`
+  - 抽样关键 `SKILL.md`、`scripts/`、`shared/`、`tests/`
+  - 统计仓库规模与高频路径引用
+- Files created/modified:
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 2: Parallel Review
+- **Status:** complete
+- Actions taken:
+  - 并行委派 3 个 explorer agent 审查：
+    - `skill/workflow` 层
+    - `docs/shared/tests/governance` 层
+    - `state/schema/sidecar/path` 扩展层
+  - 汇总 agent 结论与主会话交叉验证
+- Files created/modified:
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 3: Verification & Synthesis
+- **Status:** complete
+- Actions taken:
+  - 运行 `bash scripts/validate-migration.sh`
+  - 运行 `pytest -q`
+  - 确认结果：
+    - `Migration validation passed`
+    - `204 passed, 192 subtests passed`
+  - 形成总体判断：
+    - 架构方向合理
+    - 但 `state/schema/template/script`、`shared` 治理、skill 路径复制、入口文档职责已经出现扩展期漂移信号
+- Files created/modified:
+  - `task_plan_archive.md` (updated)
+  - `task_plan.md` (updated)
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 4: Post-Upgrade Recheck
+- **Status:** complete
+- Actions taken:
+  - 基于最新提交 `a953957` 重新审查 transactional / sidecar 升级
+  - 阅读新增 contract/script/doc/test：
+    - `chapter-transaction-schema`
+    - `workflow-state-v2`
+    - `build_active_context.py`
+    - `build_volume_summaries.py`
+    - `import_existing_chapters.py`
+    - `post_write_lint.py`
+  - 并行委派子代理复核：
+    - workflow/transaction
+    - state/sidecar/schema
+    - docs/shared/governance
+  - 重新运行：
+    - `bash scripts/validate-migration.sh`
+    - `pytest -q`
+  - 新结论：
+    - transactional / sidecar 方向整体增强了默认工作流
+    - 但 `state/schema/template/script` 与 `shared` 治理风险仍是当前最优先收口点
+- Files created/modified:
+  - `findings.md` (updated)
+  - `progress.md` (updated)
+
+### Phase 5: Open-Issue Ledger
+- **Status:** complete
+- Actions taken:
+  - 新建长期治理台账 `docs/10-进行中/architecture-open-issues.md`
+  - 将当前确认但尚未收口的问题按 `open / planned / monitoring / deferred` 分类
+  - 在 `docs/INDEX.md` 中补挂入口
+  - 明确该台账作为 repo-local 长期真源，MCP memory 仅做协作摘要，不替代此文档
+  - 新建根目录提醒入口 `架构问题跟踪.md`，用于日常高可见提醒
+- Files created/modified:
+  - `docs/10-进行中/architecture-open-issues.md` (created)
+  - `docs/INDEX.md` (updated)
+  - `架构问题跟踪.md` (created)
   - `findings.md` (updated)
   - `progress.md` (updated)
 
@@ -224,7 +308,7 @@
 ### Phase 1: Discovery & Spec Lock
 - **Status:** complete
 - Actions taken:
-  - 读取 `README.md`、`docs/start-here.md`、`docs/default-workflows.md` 与现有 `opening-and-plot-framework`
+  - 读取 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/default-workflows.md` 与现有 `opening-and-plot-framework`
   - 反复调研番茄官方写作区与通用结构资料，比较“成熟剧情架构库 / 单主架构卡 / 协议栈”三种路径
   - 最终确定采用“番茄起盘协议栈 + compiler + 两本账”，并将通用框架降为映射参考
   - 新建正式 spec：`docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
@@ -272,8 +356,8 @@
 - Actions taken:
   - 新建 `docs/writing-core-framework/` 全套文档
   - 更新 `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn`
-  - 更新 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md`
-  - 更新 `shared/references/shared/state-schema.md`、`shared/templates/state-v5-template.json`、`docs/state-thinning-and-setting-sync.md`
+  - 更新 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`
+  - 更新 `shared/references/shared/state-schema.md`、`shared/templates/state-v5-template.json`、`docs/00-当前有效/state-thinning-and-setting-sync.md`
 - Files created/modified:
   - `docs/writing-core-framework/README.md` (created)
   - `docs/writing-core-framework/01-写作基本功总纲.md` (created)
@@ -291,12 +375,12 @@
   - `skills/novel-package/SKILL.md` (updated)
   - `skills/novel-learn/SKILL.md` (updated)
   - `README.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
   - `shared/references/shared/state-schema.md` (updated)
   - `shared/templates/state-v5-template.json` (updated)
-  - `docs/state-thinning-and-setting-sync.md` (updated)
+  - `docs/00-当前有效/state-thinning-and-setting-sync.md` (updated)
 
 ### Phase 4: Verification
 - **Status:** complete
@@ -696,8 +780,8 @@
 - **Status:** complete
 - Actions taken:
   - 读取当前 `task_plan.md`、`findings.md`、`progress.md`
-  - 读取 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md`
-  - 读取 `docs/phase-9-summary.md`、`docs/phase-17-summary.md`、`docs/fanqie-writing-techniques.md`
+  - 读取 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`
+  - 读取 `docs/90-归档/阶段/phase-9-summary.md`、`docs/90-归档/阶段/phase-17-summary.md`、`docs/fanqie-writing-techniques.md`
   - 读取 `skills/novel-outline/SKILL.md`、`skills/novel-write/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-query/SKILL.md`、`skills/novel-package/SKILL.md`
   - 确认新框架承载层、模块体量与接线范围
   - 写入设计说明与实施计划：
@@ -719,7 +803,7 @@
   - 为 `setting_gate` 增加 `--candidates-file` 和 `load_candidates_file()`，允许从 sidecar 读取 research candidates
   - 为 `novel_scan` 增加 `--emit-research-candidates` / `--research-candidates-file`，并只在保守 truth-gap 条件下写出 `.mighty/research-candidates.json`
   - 将宫斗宅斗下的 `scan-kinship-truth-check` 收成最小候选 `嫡庶婚配真值补证`
-  - 更新 `docs/skill-usage.md`、`docs/default-workflows.md`、`skills/novel-scan/SKILL.md`，明确 candidate-only 边界
+  - 更新 `docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`、`skills/novel-scan/SKILL.md`，明确 candidate-only 边界
   - 运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `docs/superpowers/plans/2026-03-24-research-candidate-handoff.md` (created)
@@ -727,8 +811,8 @@
   - `scripts/novel_scan.py` (updated)
   - `tests/test_setting_gate.py` (updated)
   - `tests/test_novel_scan.py` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
   - `skills/novel-scan/SKILL.md` (updated)
 
 ### Phase 2: Gate Next-Action Closure
@@ -737,13 +821,13 @@
   - 为 `setting_gate` 增加 `minimal_next_action` 结构化输出，统一返回最小建议动作与命令串
   - 对缺本地 truth source 的阻断结果，路由到 `novel-setting`
   - 对高风险 research candidate 的阻断结果，路由到 `review-sync-queue`
-  - 更新 `docs/start-here.md`、`docs/skill-usage.md`、`skills/novel-write/SKILL.md`，让调用侧优先读取 `minimal_next_action`
+  - 更新 `docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`skills/novel-write/SKILL.md`，让调用侧优先读取 `minimal_next_action`
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `scripts/setting_gate.py` (updated)
   - `tests/test_setting_gate.py` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `skills/novel-write/SKILL.md` (updated)
   - `progress.md` (updated)
 
@@ -753,13 +837,13 @@
   - 扩展 `tests/test_setting_gate.py`，要求 `novel-resume` / `novel-status` skill 契约显式读取 `.mighty/setting-gate.json` 与 `minimal_next_action`
   - 更新 `skills/novel-resume/SKILL.md`，让恢复逻辑在 gate 未通过时优先暴露 `blocking_gaps / review_items / minimal_next_action`
   - 更新 `skills/novel-status/SKILL.md`，让状态面板把 gate 视为写作 readiness 控制点，而不是只看 chapter/state 进度
-  - 更新 `docs/start-here.md` 中的状态/恢复入口说明，明确 gate 卡住时应优先读 `minimal_next_action`
+  - 更新 `docs/00-当前有效/start-here.md` 中的状态/恢复入口说明，明确 gate 卡住时应优先读 `minimal_next_action`
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
   - `skills/novel-resume/SKILL.md` (updated)
   - `skills/novel-status/SKILL.md` (updated)
-  - `docs/start-here.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 4: Query Gate Awareness
@@ -767,54 +851,54 @@
 - Actions taken:
   - 扩展 `tests/test_setting_gate.py`，要求 `novel-query` skill 契约显式读取 `.mighty/setting-gate.json` 与 `minimal_next_action`
   - 更新 `skills/novel-query/SKILL.md`，支持查询 `setting gate` 状态、`blocking_gaps`、`review_items` 与 `minimal_next_action`
-  - 更新 `docs/start-here.md` 与 `docs/skill-usage.md`，明确 gate 状态也可以通过 `novel-query` 直接查询
+  - 更新 `docs/00-当前有效/start-here.md` 与 `docs/00-当前有效/skill-usage.md`，明确 gate 状态也可以通过 `novel-query` 直接查询
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
   - `skills/novel-query/SKILL.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 5: Gate Prompt UX Alignment
 - **Status:** complete
 - Actions taken:
-  - 扩展 `tests/test_setting_gate.py`，要求 `docs/start-here.md` 与 `docs/skill-usage.md` 提供统一的 gate-aware `novel-status` / `novel-resume` / `novel-query` 最小提示词
-  - 更新 `docs/start-here.md` 中的状态与恢复入口，把 `novel-status` / `novel-resume` 的示例提示词统一为 gate-aware 版本
-  - 更新 `docs/skill-usage.md` 中的 `status` / `resume` / `query` 示例提示词，统一收成 gate-aware 体验入口
+  - 扩展 `tests/test_setting_gate.py`，要求 `docs/00-当前有效/start-here.md` 与 `docs/00-当前有效/skill-usage.md` 提供统一的 gate-aware `novel-status` / `novel-resume` / `novel-query` 最小提示词
+  - 更新 `docs/00-当前有效/start-here.md` 中的状态与恢复入口，把 `novel-status` / `novel-resume` 的示例提示词统一为 gate-aware 版本
+  - 更新 `docs/00-当前有效/skill-usage.md` 中的 `status` / `resume` / `query` 示例提示词，统一收成 gate-aware 体验入口
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 6: Gate Triage Main Entry
 - **Status:** complete
 - Actions taken:
-  - 扩展 `tests/test_setting_gate.py`，要求 `README.md` 与 `docs/default-workflows.md` 增加 `Gate Triage` 入口
+  - 扩展 `tests/test_setting_gate.py`，要求 `README.md` 与 `docs/00-当前有效/default-workflows.md` 增加 `Gate Triage` 入口
   - 更新 `README.md`，加入 `novel-scan -> setting gate -> review-sync-queue` 的最小 triage 链和命令示例
-  - 更新 `docs/default-workflows.md`，加入 `Gate Triage` 小节，明确 triage 不是 canon 写入链
+  - 更新 `docs/00-当前有效/default-workflows.md`，加入 `Gate Triage` 小节，明确 triage 不是 canon 写入链
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
   - `README.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 7: Gate Triage Guide
 - **Status:** complete
 - Actions taken:
-  - 扩展 `tests/test_setting_gate.py`，要求存在独立的 `docs/gate-triage.md`，且能从 `README.md`、`docs/default-workflows.md`、`docs/start-here.md` 找到
-  - 新建 `docs/gate-triage.md`，集中说明 `novel-scan -> setting gate -> review-sync-queue` 的 triage 链、关键字段和最小命令
-  - 在 `README.md`、`docs/default-workflows.md`、`docs/start-here.md` 中补挂该指南入口
+  - 扩展 `tests/test_setting_gate.py`，要求存在独立的 `docs/00-当前有效/gate-triage.md`，且能从 `README.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/start-here.md` 找到
+  - 新建 `docs/00-当前有效/gate-triage.md`，集中说明 `novel-scan -> setting gate -> review-sync-queue` 的 triage 链、关键字段和最小命令
+  - 在 `README.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/start-here.md` 中补挂该指南入口
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
-  - `docs/gate-triage.md` (created)
+  - `docs/00-当前有效/gate-triage.md` (created)
   - `README.md` (updated)
-  - `docs/default-workflows.md` (updated)
-  - `docs/start-here.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 8: Gate Triage Rollout Summary
@@ -833,12 +917,12 @@
 ### Phase 9: Maintenance-Mode Alignment
 - **Status:** complete
 - Actions taken:
-  - 扩展 `tests/test_setting_gate.py`，要求 `docs/v1-maintenance-mode.md` 明确把 gate triage 归档为默认工作流维护的一部分
-  - 更新 `docs/v1-maintenance-mode.md`，把 `setting gate` 卡住后的 triage 体验问题列为默认主线修复示例，并补挂 `gate-triage.md`
+  - 扩展 `tests/test_setting_gate.py`，要求 `docs/00-当前有效/v1-maintenance-mode.md` 明确把 gate triage 归档为默认工作流维护的一部分
+  - 更新 `docs/00-当前有效/v1-maintenance-mode.md`，把 `setting gate` 卡住后的 triage 体验问题列为默认主线修复示例，并补挂 `gate-triage.md`
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
   - `tests/test_setting_gate.py` (updated)
-  - `docs/v1-maintenance-mode.md` (updated)
+  - `docs/00-当前有效/v1-maintenance-mode.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 10: Redundancy Cleanup
@@ -855,21 +939,21 @@
 - **Status:** complete
 - Actions taken:
   - 审计 `v1.1-roadmap.md`，确认 `gate triage` 不应被误读成 `v1.1` 新主线候选
-  - 更新 `docs/v1.1-roadmap.md`，明确 `setting gate` 的 triage / recovery 收口属于 `v1.0.x` 默认主线稳定化，而不是 `v1.1` 新能力方向
+  - 更新 `docs/00-当前有效/v1.1-roadmap.md`，明确 `setting gate` 的 triage / recovery 收口属于 `v1.0.x` 默认主线稳定化，而不是 `v1.1` 新能力方向
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
-  - `docs/v1.1-roadmap.md` (updated)
+  - `docs/00-当前有效/v1.1-roadmap.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 12: Current-Facing Doc Alignment
 - **Status:** complete
 - Actions taken:
-  - 对 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 做当前入口一致性抽查
-  - 修正 `docs/skill-usage.md` 中 `novel-status` gate-aware 提示词表述，使其与 `docs/start-here.md` 保持一致
-  - 在 `docs/skill-usage.md` 的 gate 使用说明段补挂 `gate-triage.md` 入口，减少“先看哪里”的歧义
+  - 对 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md` 做当前入口一致性抽查
+  - 修正 `docs/00-当前有效/skill-usage.md` 中 `novel-status` gate-aware 提示词表述，使其与 `docs/00-当前有效/start-here.md` 保持一致
+  - 在 `docs/00-当前有效/skill-usage.md` 的 gate 使用说明段补挂 `gate-triage.md` 入口，减少“先看哪里”的歧义
   - 再次运行 `python3 -m unittest tests.test_acquire_source_text tests.test_setting_gate tests.test_novel_scan -v`，确认通过
 - Files created/modified:
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ### Phase 2: Red Test
@@ -917,13 +1001,13 @@
 ### Phase 5: Entry Docs & State Contract
 - **Status:** complete
 - Actions taken:
-  - 在 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 暴露新框架入口
+  - 在 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md` 暴露新框架入口
   - 在 `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json` 中补充 `开篇抓力 / 层次清晰度 / 推进有效性`
 - Files created/modified:
   - `README.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
   - `shared/references/shared/state-schema.md` (updated)
   - `shared/templates/state-v5-template.json` (updated)
 
@@ -1330,7 +1414,7 @@
   - 收紧 `project-annotate` 写回门槛，仅在当前结果达到中高可信时写 `.mighty/market-adjustments.json` 与 `state.json` 轻量摘要
   - 修复 `report-only` 模式下遗留 `market_adjustments` sidecar/state 的陈旧数据问题
   - 修复番茄总榜 URL 带 query string 时未被排除、进而污染 tag 推断的问题
-  - 对齐 `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/phase-7a-scan-contract.md`、`docs/fanqie-content-data-layer.md` 与 `skills/novel-scan/SKILL.md` 的实验态与写回边界说明
+  - 对齐 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/90-归档/阶段/phase-7a-scan-contract.md`、`docs/fanqie-content-data-layer.md` 与 `skills/novel-scan/SKILL.md` 的实验态与写回边界说明
 - Verification:
   - `python3 -m pytest -q tests/test_novel_scan.py`
   - `bash scripts/validate-migration.sh`
@@ -1338,11 +1422,11 @@
   - `scripts/novel_scan.py` (updated)
   - `tests/test_novel_scan.py` (updated)
   - `skills/novel-scan/SKILL.md` (updated)
-  - `docs/phase-7a-scan-contract.md` (updated)
-  - `docs/start-here.md` (updated)
+  - `docs/90-归档/阶段/phase-7a-scan-contract.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
   - `docs/fanqie-content-data-layer.md` (updated)
   - `README.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ### Out-of-band Prototype: 番茄私有码位字体映射
@@ -1366,15 +1450,15 @@
 ### Workflow Tuning: 章节修订单章收敛模式
 - **Status:** complete
 - Actions taken:
-  - 将 `docs/default-workflows.md` 的正文生产主线调整为“review -> 单章收敛修订轮 -> 单次复审”
+  - 将 `docs/00-当前有效/default-workflows.md` 的正文生产主线调整为“review -> 单章收敛修订轮 -> 单次复审”
   - 更新 `skills/novel-review/SKILL.md`，要求默认把问题收成 1-3 个 issue clusters，并在两轮修订未收口时升级 `novel-rewrite`
   - 更新 `skills/novel-fix/SKILL.md`，要求一次修订轮尽量收口同章局部问题，并吸收顺手可做的轻量措辞修补
   - 更新 `skills/novel-polish/SKILL.md`，要求默认使用单次 `all` 向润色，不再鼓励多轮微修
-  - 更新 `docs/skill-usage.md` 的推荐顺序与示例提示词，使新工作流可直接照抄执行
+  - 更新 `docs/00-当前有效/skill-usage.md` 的推荐顺序与示例提示词，使新工作流可直接照抄执行
   - 运行 `bash scripts/validate-migration.sh`，确认结构校验通过
 - Files created/modified:
-  - `docs/default-workflows.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `skills/novel-review/SKILL.md` (updated)
   - `skills/novel-fix/SKILL.md` (updated)
   - `skills/novel-polish/SKILL.md` (updated)
@@ -1388,7 +1472,7 @@
   - 更新 `scripts/install-skills.sh`，为 `novel-close` 创建 plain / genm 双别名
   - 更新 `scripts/validate-migration.sh`，把 `novel-close` 纳入迁移结构校验
   - 更新 `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json`，补充 `last_close_*` 轻量字段
-  - 更新 `README.md`、`docs/default-workflows.md`、`docs/skill-usage.md`、`docs/start-here.md`，把 `novel-close` 挂进默认正文生产入口
+  - 更新 `README.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/start-here.md`，把 `novel-close` 挂进默认正文生产入口
   - 更新 `skills/novel-write/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-polish/SKILL.md`、`skills/novel-fix/SKILL.md`，对齐新收口轮的相邻提示
   - 运行迁移结构校验和技能安装校验，确认新 skill 可发现、可安装
 - Files created/modified:
@@ -1399,9 +1483,9 @@
   - `shared/references/shared/state-schema.md` (updated)
   - `shared/templates/state-v5-template.json` (updated)
   - `README.md` (updated)
-  - `docs/default-workflows.md` (updated)
-  - `docs/skill-usage.md` (updated)
-  - `docs/start-here.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
   - `skills/novel-write/SKILL.md` (updated)
   - `skills/novel-review/SKILL.md` (updated)
   - `skills/novel-polish/SKILL.md` (updated)
@@ -1413,7 +1497,7 @@
 - Actions taken:
   - 更新 `skills/novel-write/SKILL.md`，新增 `skip_close` 输入与单章写作后的 guarded auto-close 契约
   - 更新 `skills/novel-close/SKILL.md`，明确其是 `novel-write` 的 post-write handoff 执行器
-  - 更新 `README.md`、`docs/default-workflows.md`、`docs/start-here.md`、`docs/skill-usage.md`
+  - 更新 `README.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`
     - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
     - `novel-batch` 不继承该默认行为
     - 显式传 `skip_close=true` 可跳过
@@ -1425,9 +1509,9 @@
   - `skills/novel-write/SKILL.md` (updated)
   - `skills/novel-close/SKILL.md` (updated)
   - `README.md` (updated)
-  - `docs/default-workflows.md` (updated)
-  - `docs/start-here.md` (updated)
-  - `docs/skill-usage.md` (updated)
+  - `docs/00-当前有效/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
   - `progress.md` (updated)
 
 ## Test Results
@@ -1507,7 +1591,7 @@
   - `novel-review` 在 active bucket 为 `宫斗宅斗` 时强制先跑故障漏斗
   - `novel-write` 在 active bucket 为 `宫斗宅斗` 时先做轻量漏斗预检
 - 已更新使用文档：
-  - `docs/skill-usage.md`
+  - `docs/00-当前有效/skill-usage.md`
 
 - 当前判断：
   - 这条线的正文后续更适合 `rewrite`
@@ -1713,11 +1797,11 @@
 - 已将 shared 同步的主入口改为只读预检：
   - `bash scripts/sync-shared-from-genm.sh --report`
 - 已为以下历史阶段文档补充“当前以正式版决策文档为准”的提示：
-  - `docs/v1-boundary.md`
-  - `docs/v1-readiness-assessment.md`
-  - `docs/v1-rc-plan.md`
-  - `docs/v1-rc-exit-criteria.md`
-  - `docs/v1-rc-blockers.md`
+  - `docs/00-当前有效/v1-boundary.md`
+  - `docs/90-归档/迁移与RC/v1-readiness-assessment.md`
+  - `docs/90-归档/迁移与RC/v1-rc-plan.md`
+  - `docs/90-归档/迁移与RC/v1-rc-exit-criteria.md`
+  - `docs/90-归档/迁移与RC/v1-rc-blockers.md`
 
 ## Session Update: 2026-03-23 13:30
 
@@ -1730,9 +1814,9 @@
   - `novel-close` 负责 `review -> route -> re-review`
 - 已更新用户入口文档：
   - `README.md`
-  - `docs/default-workflows.md`
-  - `docs/start-here.md`
-  - `docs/skill-usage.md`
+  - `docs/00-当前有效/default-workflows.md`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
 - 已完成边界核查：
   - `skills/novel-batch/SKILL.md` 未引入 auto-close
   - `scripts/post-task-maintenance.py` 未引入 prose mutation
@@ -2199,10 +2283,10 @@
   - `state-schema`
   - `state-v5-template`
   - `README.md`
-  - `docs/start-here.md`
-  - `docs/skill-usage.md`
-  - `docs/default-workflows.md`
-  - `docs/state-thinning-and-setting-sync.md`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/default-workflows.md`
+  - `docs/00-当前有效/state-thinning-and-setting-sync.md`
 - 已生成两条真实 smoke：
   - `离婚冷静期那天，前夫把董事会席位押给了我`
   - `宗门垫底那年，我把废丹卖成了天价`
@@ -2271,3 +2355,385 @@
   - `bash scripts/validate-migration.sh`
   - `python3 -m unittest`
   - 当前结果：`204 tests` 全绿，Markdown 本地链接审计结果为 `NO_BROKEN_LOCAL_MARKDOWN_LINKS`
+
+## Session Update: 2026-03-25 信息架构状态化重构
+
+- 不再停留在“加一个提醒文档”，而是直接按状态重排 `docs/` 根层信息架构
+- 已新增状态目录：
+  - `docs/00-当前有效/`
+  - `docs/10-进行中/`
+  - `docs/20-研究实验/`
+  - `docs/90-归档/`
+- 已迁移根层状态型文档：
+  - 当前有效入口与治理文档迁入 `docs/00-当前有效/`
+  - 架构未决问题台账迁入 `docs/10-进行中/`
+  - 评审简报迁入 `docs/20-研究实验/`
+  - `phase-*`、`releases/*`、`v1-rc*`、`v1-readiness*`、迁移计划文档迁入 `docs/90-归档/`
+- 保留 `docs/INDEX.md` 在根层，改成状态目录导航页
+- 为 4 个状态目录补充 `README.md`
+- 保留根目录 `架构问题跟踪.md` 作为高可见提醒入口，不再让“是否仍未收口”只能靠点开文档判断
+- 已做全仓引用清理：
+  - 旧路径 `docs/start-here.md` / `docs/default-workflows.md` / `docs/skill-usage.md` / `docs/gate-triage.md` 等已清空残留引用
+  - `README.md`、`AGENTS.md`、`ISSUES.md`、`tests/*`、`skills/*`、`docs/*` 已同步更新
+- 迁移后发现并顺手修复了同类导入脆弱性：
+  - `scripts/post_write_lint.py`
+  - `scripts/setting_gate.py`
+  - `scripts/check-batch-quality-gate.py`
+  - `scripts/sync-setting-assets.py`
+  - 现在即使在仓库根以 `python -m unittest` 路径加载，也能找到 `strong_quality_gate`
+- 本轮验证：
+  - `pytest -q tests/test_issue_regressions.py tests/test_markdown_link_audit.py tests/test_opening_plot_framework.py tests/test_writing_core_framework.py tests/test_fanqie_launch_stack.py tests.test_inkos_growth_plan.py tests/test_active_context.py tests/test_volume_summaries.py`
+    - `90 passed, 189 subtests passed`
+  - `python -m unittest tests.test_post_write_lint -v`
+    - `7 tests OK`
+  - `pytest -q`
+    - `248 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+
+## Session Update: 2026-03-25 AOI-001 收口
+
+- 已直接处理 `AOI-001 state/schema/template/script 契约漂移`
+- 已新增机器真值层文件：
+  - `shared/templates/state-schema-v5.json`
+  - `shared/templates/learned-patterns.schema.json`
+  - `shared/templates/workflow-state-v2.schema.json`
+  - `shared/templates/state-archive-v1.json`
+- 已同步修正：
+  - `shared/templates/state-v5-template.json`
+    - `$schema` 指向真实 schema
+    - 补齐 `entities.factions`
+  - `shared/references/shared/state-schema.md`
+    - 更新到当前 runtime shape
+    - 明确 externalized pointer 兼容约定
+  - `scripts/build_active_context.py`
+    - 支持 `items` / `factions` 的字符串/对象双形态
+  - `scripts/post_write_lint.py`
+  - `scripts/setting_gate.py`
+  - `scripts/check-batch-quality-gate.py`
+  - `scripts/sync-setting-assets.py`
+    - 补 sibling-import 自举路径，保证 `python -m unittest` 路径稳定
+- 已新增测试：
+  - `tests/test_state_contracts.py`
+- 最新验证：
+  - `pytest -q tests/test_state_contracts.py tests/test_active_context.py tests/test_inkos_growth_plan.py tests/test_setting_gate.py`
+    - `40 passed`
+  - `python -m unittest tests.test_post_write_lint -v`
+    - `7 tests OK`
+  - `pytest -q`
+    - `254 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+
+## Session Pause: 2026-03-25 AOI Follow-up Execution
+
+- 用户要求按未收口架构项的优先级从高到低继续处理，并在全部完成后再统一汇报。
+- 本轮已确认执行顺序：
+  - `AOI-002` `shared` 治理
+  - `AOI-003` `chapter transaction` 机械闭环
+  - `AOI-006` 治理验证门
+  - `AOI-004` `active-context` 边界
+  - `AOI-005` 入口文档职责收口
+  - `AOI-007` MCP memory / 调度边界
+  - `AOI-008` runtime / plugin 边界固化
+- 已完成的调研与归并：
+  - 对比 `../Genm/build/{profiles,references,templates}` 与本仓 `shared/{profiles,references,templates}`，确认 `shared` 不只是“本地有额外文件”，还存在大量“同路径内容漂移”的文件。
+  - 明确 `AOI-002` 需要的最低治理语义：
+    - 机器可读的 ownership / preserve manifest
+    - report-only 差异输出
+    - 默认阻断 same-path drift overwrite
+    - 真实 sync 时只恢复 allowlist 中的 repo-local 文件
+- 已落盘的中间工件：
+  - 新增 `shared/sync-governance.json`
+    - 记录当前 `references` / `templates` 域中需要保护的 repo-local 文件路径
+- 当前暂停点：
+  - `scripts/sync-shared-from-genm.sh` 已开始重写，但仍处于**未验证的中间态**；目标逻辑已确定为：
+    - 支持 governance file
+    - 支持 env override 便于测试
+    - `--report-json` 输出 local-only / drift / source-only
+    - 默认阻断 same-path drift 覆盖
+    - sync 后恢复 allowlist 中的 protected local paths
+  - 由于用户中途要求暂停，本轮尚未完成：
+    - 脚本自检
+    - 定向测试
+    - `progress/findings/task ledger` 的收口更新
+- 恢复后第一步建议：
+  1. 先修完 `scripts/sync-shared-from-genm.sh` 的中间态问题（数组声明/循环位置/语法自检）
+  2. 新增 `tests/test_shared_sync_governance.py`
+  3. 运行该测试和 `bash scripts/validate-migration.sh`
+  4. 再进入 `AOI-003 workflow_state` 真正闭环
+
+## Session Update: 2026-03-25 AOI-002 / AOI-003 / AOI-004 / AOI-006 收口推进
+
+- 已完成 `AOI-002 shared` 治理脚本收口：
+  - 新增 `shared/sync-governance.json`
+  - `scripts/sync-shared-from-genm.sh` 改为 governance-aware sync
+  - `--report-json` 现在输出：
+    - `protected_local_paths`
+    - `local_only_paths`
+    - `unexpected_local_only_paths`
+    - `drift_paths`
+    - `source_only_paths`
+  - 默认阻断 `same-path drift overwrite`
+  - 真实 sync 后会恢复 governance allowlist 中的 protected local paths
+- 已完成 `AOI-003` 的第一段机械闭环：
+  - 新增 `scripts/workflow_state_utils.py`
+  - `scripts/project-maintenance.py` / `scripts/post-task-maintenance.py` 现在会真实写回 `.mighty/workflow_state.json`
+  - maintenance 完成后会把：
+    - `current_step` 推进到 `snapshot`
+    - `last_successful_checkpoint` 写成 `maintenance`
+- 已完成 `AOI-004 active-context` 风险收口：
+  - `scripts/build_active_context.py` 不再复制 `recent_guardrails` 正文
+  - 改为只写 `guardrail_summary`
+- 已完成 `AOI-006` 的当前验证门补齐：
+  - 新增 `tests/test_shared_sync_governance.py`
+  - 扩展 `tests/test_inkos_growth_plan.py`
+  - `scripts/validate-migration.sh` 现在要求 `shared/sync-governance.json`
+- 已同步更新：
+  - `README.md`
+  - `docs/00-当前有效/v1-boundary.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/state-thinning-and-setting-sync.md`
+  - `docs/10-进行中/architecture-open-issues.md`
+- 本轮验证：
+  - `python3 -m unittest tests.test_shared_sync_governance -v`
+    - `4 tests OK`
+  - `pytest -q tests/test_inkos_growth_plan.py tests/test_setting_gate.py`
+    - `25 passed`
+  - `pytest -q tests/test_active_context.py tests/test_inkos_growth_plan.py`
+    - `25 passed`
+  - `bash scripts/sync-shared-from-genm.sh --report-json --domain references`
+    - 成功输出本仓真实 `protected/local-only/drift/source-only` 统计
+  - `bash scripts/validate-migration.sh`
+    - passed
+- 最终总回归：
+  - `pytest -q`
+    - `262 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+  - `bash scripts/sync-shared-from-genm.sh --report --domain references`
+    - 成功输出 governance-aware report
+## Session Update: 2026-03-25 半联动能力排查
+
+- 继续排查仓库里是否还有类似 `fetch MCP / MCP memory` 这种“能力存在但未真正联动”的项。
+- 结论：
+  - `fetch MCP`：半联动
+    - `scripts/acquire_source_text.py` 已支持外部 provider 注入，但仓库还没有 workspace 级 provider 声明与统一 registry。
+  - `MCP memory`：边界已定义，但尚未形成真实 project-local mapping。
+  - `launch-stack`：仍依赖 `novel-outline` 之后的手动编译触发。
+  - `snapshot`：transaction 状态已推进到 `snapshot`，但 artifact 仍未自动生成。
+  - `novel-log`：读链已存在，但缺默认 trace writer / init path。
+- 同时确认以下项不应误判为“未联动缺口”：
+  - `novel-config`
+  - `novel-test`
+  - `novel-scan`
+  这些当前是有意边界或实验边界，不属于默认主线漏接。
+- 已将上述结果补进：
+  - `docs/00-当前有效/v1.1-roadmap.md`
+## Session Update: 2026-03-25 `v1.1-roadmap` 根目录化与状态化
+
+- 按用户要求，将 `v1.1-roadmap` 提升为仓库根目录主文件：
+  - `v1.1-roadmap.md`
+- 新 roadmap 现在明确记录任务状态：
+  - `[done]`
+  - `[in_progress]`
+  - `[planned]`
+  - `[blocked]`
+  - `[deferred]`
+- `docs/00-当前有效/v1.1-roadmap.md` 已改成入口指针，不再双维护完整内容。
+- `README.md` 已补根目录 roadmap 入口。
+- `scripts/validate-migration.sh` 与 `tests/test_issue_regressions.py` 已新增对根目录 roadmap 的护栏。
+- 已将 `v1.1-roadmap.md` 补成执行编排版：
+  - Phase 1：Profile Contract 串行收口
+  - Phase 2：默认工作流补线 与 MCP/fetch 接线并行
+  - Phase 3：consumer 串行收口
+  - Phase 4：外部资料校准
+  - 并补充了推荐 worker 拆分与串行依赖
+## Session Update: 2026-03-25 `Profile Contract` Phase 1 开工
+
+- 已直接开始 `v1.1-roadmap` 的 Phase 1，而不是继续拆计划。
+- 已新增：
+  - `scripts/profile_contract.py`
+    - 对现有异构 profile 做兼容标准化
+    - 只解析 contract 所需顶层区块，绕开后段伪 YAML 风格块
+    - 提供 `profile -> state.genre_profile` 的轻量投影
+  - `shared/templates/profile-contract-v1.schema.json`
+  - `tests/test_profile_contract.py`
+- 当前结果：
+  - 全仓 `shared/profiles/*/profile.yaml` 已能收进同一套 contract shape
+  - 已验证 `word_count / word_count_range`
+  - 已验证 `density / density_required`
+  - 已验证 `must_not / never_violate`
+  - 已验证 `checkpoint / check_point / id / ID` 等异构字段的兼容归一
+- 已同步：
+  - `scripts/validate-migration.sh`
+  - `v1.1-roadmap.md` 中 `A1 / A2` 状态改为 `in_progress`
+- 本轮验证：
+  - `python3 -m unittest tests.test_profile_contract -v`
+    - `4 tests OK`
+- `Profile Contract` Phase 1 已完成：
+  - `A1` 统一 profile schema
+  - `A2` 明确 profile -> state.genre_profile 投影契约
+  - `A3` 建立 core/platform/bucket/reference 分层 contract
+- 额外完成：
+  - `shared/profiles/README.md` 已补分层 contract
+  - `shared/references/shared/state-schema.md` 已补 `genre_profile` 投影说明
+  - `v1.1-roadmap.md` 中 `A1/A2/A3` 已改为 `done`
+- 最终验证：
+  - `pytest -q tests/test_profile_contract.py tests/test_issue_regressions.py`
+    - `18 passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+## Session Update: 2026-03-26 A4 consumer 入口统一完成
+
+- 已完成 `A4`：统一 `profile` consumer 入口。
+- 已更新：
+  - `skills/novel-init/SKILL.md`
+  - `skills/novel-genre/SKILL.md`
+  - `skills/novel-outline/SKILL.md`
+  - `skills/novel-write/SKILL.md`
+  - `skills/novel-review/SKILL.md`
+  - `skills/novel-package/SKILL.md`
+- 当前统一口径：
+  - `novel-genre` / `state.genre_profile` 是 profile 主入口
+  - raw profile 只在缺少额外细节时通过 `scripts/profile_contract.py` 解读
+  - raw profile 按 `core profile -> platform overlay -> bucket overlay -> reference files` 顺序消费
+  - legacy embedded 长文本不再视为 authoritative core config
+- 已新增测试：
+  - `tests/test_profile_consumers.py`
+- 本轮验证：
+  - `pytest -q tests/test_profile_contract.py tests/test_profile_consumers.py tests/test_issue_regressions.py`
+    - `19 passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+## Session Update: 2026-03-26 Phase 2 完成
+
+- 已完成 `v1.1-roadmap` 的 Phase 2：
+  - `B1` fetch provider registry / workspace config
+  - `B2` MCP memory project-local mapping
+  - `B3` launch-stack auto-compile trigger
+  - `B4` snapshot owner 收口
+  - `B5` trace logging 接线
+- 主要落地：
+  - 新增 `shared/templates/acquire-provider-registry-v1.json`
+  - 新增 `shared/templates/memory-context-v1.schema.json`
+  - 新增 `scripts/trace_log.py`
+  - 新增 `scripts/generate_snapshot.py`
+  - 新增 `scripts/build_memory_context.py`
+  - `scripts/acquire_source_text.py` 现在支持 provider registry / project config / codex config / provider diagnostics
+  - `scripts/setting_gate.py` 现在会在番茄项目 `stage=outline` 时守卫式 auto-compile `launch-stack`
+  - `scripts/project-maintenance.py` / `scripts/post-task-maintenance.py` 现在会生成 snapshot artifact、memory-context，并把 workflow_state 收口到 completed
+- 已同步更新：
+  - `docs/00-当前有效/default-workflows.md`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/state-thinning-and-setting-sync.md`
+  - `v1.1-roadmap.md`
+- 已新增/扩展测试：
+  - `tests/test_acquire_source_text.py`
+  - `tests/test_phase2_helpers.py`
+  - `tests/test_setting_gate.py`
+  - `tests/test_inkos_growth_plan.py`
+  - `tests/test_issue_regressions.py`
+- 最终验证：
+  - `pytest -q`
+    - `280 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+## Session Update: 2026-03-26 组合题材结论延后接入约束
+
+- 用户要求：
+  - `A4` 已收口的当前写集，暂不回写这次新增的组合题材结论。
+  - 后续统一按 `docs/superpowers/specs/2026-03-26-composite-genre-phase3-integration-design.md` 在 Phase 3 consumer 整合时接入。
+  - 并在 `C2` 中补充映射校准范围。
+- 已同步到：
+  - `v1.1-roadmap.md`
+    - `Phase 3` 增加“组合题材结论延后接入”约束
+    - `C2` 增加“组合题材 / 多主题卖点 / 群像结构模式”映射校准范围
+## Session Update: 2026-03-26 Phase 3 完成
+
+- 已完成 `Phase 3 consumer 收口`：
+  - 新增 `genre_profile` 组合题材轻字段：
+    - `tagpacks`
+    - `strong_tags`
+    - `narrative_modes`
+    - `tone_guardrails`
+    - `positioning_sidecar`
+  - 新增 `scripts/build_content_positioning.py`
+  - 新增 `shared/templates/content-positioning-v1.schema.json`
+  - 默认维护链现在会刷新 `.mighty/content-positioning.json`
+- 已接入的 consumer：
+  - `novel-genre`
+  - `novel-package`
+  - `novel-outline`
+  - `novel-write`
+  - `novel-review`
+- 当前 Phase 3 约束已遵守：
+  - 组合题材结论只在 Phase 3 接入
+  - 未提前回写到 A4 当时已收口的写集历史阶段
+- 已同步更新：
+  - `shared/templates/state-v5-template.json`
+  - `shared/templates/state-schema-v5.json`
+  - `shared/references/shared/state-schema.md`
+  - `docs/00-当前有效/default-workflows.md`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/state-thinning-and-setting-sync.md`
+  - `v1.1-roadmap.md`
+- 已新增/扩展测试：
+  - `tests/test_content_positioning.py`
+  - `tests/test_profile_contract.py`
+  - `tests/test_profile_consumers.py`
+  - `tests/test_issue_regressions.py`
+  - `tests/test_state_contracts.py`
+- 本轮验证：
+  - `pytest -q tests/test_profile_contract.py tests/test_profile_consumers.py tests/test_content_positioning.py tests/test_issue_regressions.py tests/test_state_contracts.py tests/test_phase2_helpers.py`
+    - `31 passed`
+## Session Update: 2026-03-26 Phase 4 完成
+
+- 已完成 `Phase 4`：外部资料校准 / C1 / C2。
+- 主要落地：
+  - 新增当前有效校准文档：
+    - `docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
+  - 已将该文档挂到：
+    - `README.md`
+    - `docs/INDEX.md`
+  - `v1.1-roadmap.md` 中：
+    - `C1` 已改为 `done`
+    - `C2` 已改为 `done`
+    - `Phase 4` 已改为 `done`
+- 当前校准结论：
+  - `profile` core 继续承载题材基础约束，不继续膨胀成长篇素材包
+  - 继续坚持单主桶
+  - `strong_tags / tagpacks / narrative_modes / tone_guardrails` 的职责边界已正式化
+  - 组合题材 / 多主题卖点 / 群像结构模式 已纳入映射校准范围
+- 最终验证：
+  - `pytest -q`
+    - `284 passed, 192 subtests passed`
+  - `bash scripts/validate-migration.sh`
+    - passed
+## Session Update: 2026-03-26 Phase 4 口径修正
+
+- 按严谨口径修正 `v1.1-roadmap.md`：
+  - `C1` 改为 `in_progress`
+  - `C2` 改为 `in_progress`
+  - `Phase 4` 改为 `in_progress`
+- 当前已完成的是：
+  - `Phase 4A`：官方资料校准口径收口
+- 当前尚未完成的是：
+  - `Phase 4B`：逐 profile 内容升级 / 映射实改 / smoke 验证
+- 这样避免把“文档结论收口”误读成“内容层实改已经全部完成”。
+## Session Update: 2026-03-26 Phase 4B 首批实改完成
+
+- 已完成首批优先 profile 的内容层实改与映射实改：
+  - `shared/templates/content-positioning-map-v1.json`
+  - `shared/profiles/palace-intrigue/profile.yaml`
+  - `shared/profiles/realistic/profile.yaml`
+  - `shared/profiles/xuanhuan/profile-tomato.yaml`
+- `content-positioning` builder 现在会优先消费映射默认值，用于：
+  - `primary_bucket`
+  - `strong_tags`
+  - `narrative_modes`
+  - `tone_guardrails`
+  - `package_cues`
+- 当前按“首批优先范围”口径，`Phase 4` 已可收口为 `done`。

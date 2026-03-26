@@ -54,6 +54,7 @@ Always read:
 Read conditionally:
 
 - `.mighty/active-context.json`
+- `.mighty/content-positioning.json`
 - `大纲/总纲.md` for main-arc alignment
 - relevant `设定集/世界观/*.md`
 - relevant supporting character files in `设定集/角色/`
@@ -102,6 +103,8 @@ Read conditionally:
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
    - determine explicit `tagpack` if provided
+   - treat `state.genre_profile` as the primary runtime projection for profile-derived rhythm and constraints
+   - if `.mighty/content-positioning.json` exists, treat it as the preferred project-facing composite-positioning sidecar
 2. Read `../../shared/references/shared/core-constraints.md`.
 3. Read the target chapter outline from `大纲/章纲/第N章.md`.
 4. Read required setting files from `设定集/`.
@@ -113,6 +116,14 @@ Read conditionally:
      - `retention_protocol`
      - `compiler_output.chapter_1_3_targets`
 6. Load the shared profile matching the project genre from `../../shared/profiles/`.
+   - prefer the existing `state.genre_profile` projection first
+   - only when additional detail is still needed, inspect raw profile data through `../../scripts/profile_contract.py`
+   - when reading raw profile layers, use this order:
+     - core profile
+     - platform overlay when it exists
+     - bucket overlay when it exists
+     - reference files for long-form guidance
+   - do not treat arbitrary embedded long-form sections in raw profile YAML as authoritative core config
 7. Read any useful local guidance already present in the project:
    - prefer `.mighty/learned-patterns.json`
    - prefer `.mighty/market-adjustments.json`
@@ -122,6 +133,10 @@ Read conditionally:
      - `scan-surface-hook`
      - `scan-frontload-conflict`
      - `scan-kinship-truth-check`
+   - when content-positioning exists, also respect:
+     - `narrative_modes`
+     - `tone_guardrails`
+     - `strong_tags`
 8. When the chapter route is multi-character, multi-faction, relationship-heavy, politics-heavy, transmigration, system-driven, or the user explicitly asks for人物活人感/反脸谱化:
    - read:
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -258,6 +273,10 @@ Read conditionally:
      - ending_hook_rule
    - active anti-flattening rules when they exist:
      - supporting characters should not only appear as buttons or mouthpieces
+   - active content-positioning overlays when they exist:
+     - `narrative_modes` should shape scene structure without replacing chapter purpose
+     - `tone_guardrails` should constrain flavor drift
+     - `strong_tags` may influence emphasis, but should not replace the primary bucket
      - at least one meaningful non-protagonist intention should stay visible in a key scene when the route needs群像
      - important gains should leave relation, risk, or cost residue
      - relation or faction support should not read as frictionless auto-alignment

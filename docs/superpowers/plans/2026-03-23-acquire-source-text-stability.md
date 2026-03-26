@@ -35,8 +35,8 @@
 ### Task 3: Expose the helper and document the new fact
 
 **Files:**
-- Modify: `docs/phase-7a-scan-contract.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/90-归档/阶段/phase-7a-scan-contract.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 
 - [ ] **Step 1: Add a short usage note for the helper and its purpose**
 - [ ] **Step 2: Re-run targeted verification for docs and CLI help**

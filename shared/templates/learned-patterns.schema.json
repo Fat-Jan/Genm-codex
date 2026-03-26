@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "learned-patterns.schema.json",
+  "title": "Genm Codex Learned Patterns",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": ["string", "number"]},
+    "last_analysis_chapter": {"type": ["integer", "null"]},
+    "last_analysis_date": {"type": ["string", "null"]},
+    "total_chapters_learned": {"type": ["integer", "null"]},
+    "auto_trigger_enabled": {"type": ["boolean", "null"]},
+    "high_point_preferences": {},
+    "dialogue_style": {},
+    "writing_patterns": {},
+    "vocabulary_preferences": {},
+    "recent_guardrails": {
+      "type": "object",
+      "properties": {
+        "must_avoid": {"type": "array"},
+        "must_preserve": {"type": "array"},
+        "next_chapter_watchpoints": {"type": "array"},
+        "expires_after_chapter": {"type": ["integer", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "chapter_structure": {},
+    "strand_preferences": {},
+    "learning_history": {"type": "array"},
+    "user_feedback": {"type": "array"},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": true
+}

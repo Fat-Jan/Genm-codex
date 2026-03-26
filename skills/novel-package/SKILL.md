@@ -73,6 +73,7 @@ Read conditionally:
 - `设定集/官制/权力层级图.md`
 - `.mighty/market-data.json`
 - `.mighty/market-adjustments.json`
+- `.mighty/content-positioning.json`
 - `chapter_meta` for recent review / fix context
 - `包装/*.md` when existing packaging already exists
 - `../../shared/references/writing/character-naming-guide.md`
@@ -105,10 +106,16 @@ Read conditionally:
    - platform
    - optional `content_bucket`
    - current `genre_profile.bucket`
+   - current `genre_profile.tagpacks`
+   - current `genre_profile.strong_tags`
+   - current `genre_profile.narrative_modes`
+   - current `genre_profile.tone_guardrails`
    - current progress
    - current `market_adjustments` summary
    - treat `genre_profile.bucket` as the active `content_bucket` when no explicit `content_bucket` input is provided
    - determine explicit `tagpack` if provided
+   - treat `state.genre_profile` as the primary runtime projection for profile-derived packaging constraints
+   - if `.mighty/content-positioning.json` exists, prefer it as the project-facing composite-positioning sidecar
 3. Read `大纲/总纲.md` and extract:
    - premise
    - main conflict
@@ -118,6 +125,13 @@ Read conditionally:
    - also read `../../docs/writing-core-framework/README.md`
    - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
    - when `.mighty/launch-stack.json` exists, consume `compiler_output.package_guardrails`
+   - when additional raw profile detail is still needed, inspect it through `../../scripts/profile_contract.py`
+   - when reading raw profile layers, use this order:
+     - core profile
+     - platform overlay when it exists
+     - bucket overlay when it exists
+     - reference files for long-form guidance
+   - do not treat arbitrary embedded long-form sections in raw profile YAML as authoritative core config
 5. If the request is `opening-hook`, `full`, or clearly depends on stronger first-screen packaging, also read:
    - `../../docs/opening-and-plot-framework/02-开篇构件与组合公式.md`
    - `../../docs/opening-and-plot-framework/03-开篇故障与修正.md`
@@ -178,6 +192,19 @@ Read conditionally:
    - prefer a tagpack whose `base_bucket` matches the active `content_bucket`
    - if a matching tagpack exists, treat it as an overlay on top of the bucket rather than a replacement for the bucket
 16. Resolve packaging mode:
+
+When `.mighty/content-positioning.json` exists, also treat:
+
+- `strong_tags` as candidate outward-facing packaging cues
+- `tagpacks` as second-layer packaging overlays
+- `narrative_modes` as packaging-safe structure hints
+- `tone_guardrails` as package-risk filters
+
+Do not turn every strong tag into a title token. Prefer:
+
+- one primary bucket-facing cue
+- one strong tag when it actually improves click-through clarity
+- keep `tone_guardrails` mostly as internal packaging filters
 
 Before finalizing title / synopsis / naming for submission-facing or replacement packaging:
 

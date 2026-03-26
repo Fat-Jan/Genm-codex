@@ -10,6 +10,6 @@
 
 它们不直接替代：
 
-- [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
-- [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/start-here.md)
+- [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md)
+- [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
 - [opening-and-plot-framework/fanqie-launch-stack/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/fanqie-launch-stack/README.md)

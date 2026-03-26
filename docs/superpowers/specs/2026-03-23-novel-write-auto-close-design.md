@@ -211,9 +211,9 @@ Supporting contract updates:
 
 User-facing workflow docs:
 
-- `docs/default-workflows.md`
-- `docs/skill-usage.md`
-- `docs/start-here.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/00-当前有效/skill-usage.md`
+- `docs/00-当前有效/start-here.md`
 
 Possibly also:
 

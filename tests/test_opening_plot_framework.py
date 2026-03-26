@@ -106,9 +106,9 @@ SKILL_EXPECTATIONS = {
 
 ENTRY_DOCS = {
     "README.md": "opening-and-plot-framework",
-    "docs/start-here.md": "opening-and-plot-framework",
-    "docs/skill-usage.md": "opening-and-plot-framework",
-    "docs/default-workflows.md": "opening-and-plot-framework",
+    "docs/00-当前有效/start-here.md": "opening-and-plot-framework",
+    "docs/00-当前有效/skill-usage.md": "opening-and-plot-framework",
+    "docs/00-当前有效/default-workflows.md": "opening-and-plot-framework",
     "docs/opening-and-plot-framework/README.md": "fanqie-p0-smoke-template.md",
 }
 

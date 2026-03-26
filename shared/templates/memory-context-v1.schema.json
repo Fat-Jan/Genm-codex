@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "memory-context-v1.schema.json",
+  "title": "Genm Codex Memory Context v1",
+  "type": "object",
+  "required": [
+    "version",
+    "generated_at",
+    "safe_for_mcp_memory",
+    "project_root",
+    "title",
+    "current_chapter",
+    "total_words",
+    "workflow",
+    "gate",
+    "launch_stack",
+    "active_context_summary",
+    "memory_contract"
+  ],
+  "properties": {
+    "version": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "safe_for_mcp_memory": {"type": "boolean"},
+    "project_root": {"type": "string"},
+    "title": {"type": "string"},
+    "current_chapter": {"type": ["number", "string"]},
+    "total_words": {"type": ["number", "string"]},
+    "workflow": {
+      "type": "object",
+      "required": ["status", "current_step", "last_successful_checkpoint"],
+      "properties": {
+        "status": {"type": ["string", "null"]},
+        "current_step": {"type": ["string", "null"]},
+        "last_successful_checkpoint": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": "object",
+      "required": ["status", "blocking_gap_keys", "minimal_next_action", "minimal_next_reason"],
+      "properties": {
+        "status": {"type": ["string", "null"]},
+        "blocking_gap_keys": {"type": "array", "items": {"type": ["string", "null"]}},
+        "minimal_next_action": {"type": ["string", "null"]},
+        "minimal_next_reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "launch_stack": {
+      "type": "object",
+      "required": ["phase", "drift_signal"],
+      "properties": {
+        "phase": {"type": ["string", "null"]},
+        "drift_signal": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "active_context_summary": {
+      "type": "object",
+      "required": ["hook_count", "guardrail_count", "latest_summary_chapter"],
+      "properties": {
+        "hook_count": {"type": ["number", "string"]},
+        "guardrail_count": {"type": ["number", "string"]},
+        "latest_summary_chapter": {"type": ["string", "number", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "memory_contract": {
+      "type": "object",
+      "required": ["truth_source", "allowed_sync", "forbidden_sync"],
+      "properties": {
+        "truth_source": {"type": "string"},
+        "allowed_sync": {"type": "array", "items": {"type": "string"}},
+        "forbidden_sync": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

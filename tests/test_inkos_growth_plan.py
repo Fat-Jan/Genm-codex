@@ -50,13 +50,13 @@ REFERENCE_LEARN_EXPECTATIONS = {
         "../../scripts/acquire_source_text.py",
         ".mighty/learned-patterns.json",
     ],
-    "docs/phase-5b-p0-learn-smoke-plan.md": [
+    "docs/90-归档/阶段/phase-5b-p0-learn-smoke-plan.md": [
         "本地文件",
         "retrievable URL",
         ".mighty/learned-patterns.json",
         "style_profile.json",
     ],
-    "docs/phase-5b-p0-learn-smoke-results.md": [
+    "docs/90-归档/阶段/phase-5b-p0-learn-smoke-results.md": [
         "本地文件",
         "retrievable URL",
         ".mighty/learned-patterns.json",
@@ -78,15 +78,15 @@ IMPORT_BRIDGE_EXPECTATIONS = {
     "skills/novel-query/SKILL.md": [
         ".mighty/import-report.json",
     ],
-    "docs/default-workflows.md": [
+    "docs/00-当前有效/default-workflows.md": [
         "已有稿接入",
         "import-report",
     ],
-    "docs/start-here.md": [
+    "docs/00-当前有效/start-here.md": [
         "已有稿接入",
         "import-report",
     ],
-    "docs/skill-usage.md": [
+    "docs/00-当前有效/skill-usage.md": [
         "已有稿接入",
         "import-report",
     ],
@@ -100,7 +100,7 @@ VOLUME_SUMMARY_EXPECTATIONS = {
         ".mighty/volume-summaries.json",
         "volume summaries",
     ],
-    "docs/state-thinning-and-setting-sync.md": [
+    "docs/00-当前有效/state-thinning-and-setting-sync.md": [
         ".mighty/volume-summaries.json",
     ],
 }
@@ -146,9 +146,9 @@ SKILL_EXPECTATIONS = {
 }
 
 ENTRY_DOC_EXPECTATIONS = {
-    "docs/default-workflows.md": "chapter transaction",
-    "docs/start-here.md": "chapter transaction",
-    "docs/skill-usage.md": "chapter transaction",
+    "docs/00-当前有效/default-workflows.md": "chapter transaction",
+    "docs/00-当前有效/start-here.md": "chapter transaction",
+    "docs/00-当前有效/skill-usage.md": "chapter transaction",
 }
 
 
@@ -323,9 +323,23 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
             check=True,
         )
         payload = json.loads(proc.stdout)
-        self.assertEqual(payload["transaction_phase"], "maintenance")
-        self.assertEqual(payload["next_transaction_step"], "snapshot")
+        self.assertEqual(payload["transaction_phase"], "snapshot")
+        self.assertIsNone(payload["next_transaction_step"])
+        self.assertIsNone(payload["workflow_current_step"])
+        self.assertEqual(payload["last_successful_checkpoint"], "snapshot")
+        self.assertEqual(payload["workflow_status"], "completed")
         self.assertTrue((root / ".mighty" / "active-context.json").exists())
+        self.assertTrue((root / ".mighty" / "memory-context.json").exists())
+        self.assertTrue((root / ".mighty" / "logs" / "trace.jsonl").exists())
+        workflow_state = json.loads((root / ".mighty" / "workflow_state.json").read_text(encoding="utf-8"))
+        self.assertIsNone(workflow_state["current_task"]["current_step"])
+        self.assertEqual(workflow_state["current_task"]["last_successful_checkpoint"], "snapshot")
+        self.assertEqual(workflow_state["current_task"]["status"], "completed")
+        self.assertIn("maintenance", workflow_state["current_task"]["completed_steps"])
+        self.assertIn("snapshot", workflow_state["current_task"]["completed_steps"])
+        self.assertFalse(workflow_state["current_task"]["pending_steps"])
+        snapshots = json.loads((root / ".mighty" / "state.json").read_text(encoding="utf-8"))["chapter_snapshots"]
+        self.assertIn("001", snapshots)
 
     def test_post_task_maintenance_reports_transaction_tail(self):
         root = self.make_project_root()
@@ -342,8 +356,47 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
             check=True,
         )
         payload = json.loads(proc.stdout)
-        self.assertEqual(payload["transaction_phase"], "maintenance")
-        self.assertEqual(payload["next_transaction_step"], "snapshot")
+        self.assertEqual(payload["transaction_phase"], "snapshot")
+        self.assertIsNone(payload["next_transaction_step"])
+
+    def test_project_maintenance_updates_existing_workflow_state(self):
+        root = self.make_project_root()
+        write_json(
+            root / ".mighty" / "workflow_state.json",
+            {
+                "version": "2.0",
+                "transaction_contract": "chapter-transaction-v1",
+                "current_task": {
+                    "command": "novel-write",
+                    "args": {"chapter": 2},
+                    "status": "running",
+                    "current_step": "maintenance",
+                    "completed_steps": ["gate-check", "draft", "close"],
+                    "failed_steps": [],
+                    "pending_steps": ["maintenance", "snapshot"],
+                    "last_successful_checkpoint": "close",
+                    "started_at": "2026-03-25T00:00:00Z",
+                    "last_heartbeat": "2026-03-25T00:00:00Z",
+                    "error_message": None,
+                },
+                "history": [],
+            },
+        )
+        subprocess.run(
+            [sys.executable, str(REPO_ROOT / "scripts" / "project-maintenance.py"), str(root)],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        workflow_state = json.loads((root / ".mighty" / "workflow_state.json").read_text(encoding="utf-8"))
+        current_task = workflow_state["current_task"]
+        self.assertEqual(current_task["command"], "novel-write")
+        self.assertIsNone(current_task["current_step"])
+        self.assertEqual(current_task["last_successful_checkpoint"], "snapshot")
+        self.assertEqual(current_task["args"]["trigger"], "maintenance")
+        self.assertIn("maintenance", current_task["completed_steps"])
+        self.assertIn("snapshot", current_task["completed_steps"])
+        self.assertFalse(current_task["pending_steps"])
 
 
 if __name__ == "__main__":

@@ -30,7 +30,7 @@
 
 **状态：** 已处理并归档（2026-03-25）
 
-**相关文件：** `docs/default-workflows.md`、`docs/start-here.md`、`scripts/fanqie_launch_stack.py`
+**相关文件：** `docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/start-here.md`、`scripts/fanqie_launch_stack.py`
 
 默认工作流 1（新书起盘）的步骤链为：
 ```
@@ -50,7 +50,7 @@ novel-init → novel-genre → 家谱/官制 → novel-outline → setting gate 
 - `start-here.md` 第 1 步流程同步更新
 
 **归档说明：**
-- 已在 `docs/default-workflows.md`、`docs/start-here.md`、`docs/skill-usage.md` 增加显式起盘步骤。
+- 已在 `docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md` 增加显式起盘步骤。
 - 实际落地命令采用 writeback 形式：
   ```
   python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback
@@ -132,7 +132,7 @@ novel-init → novel-genre → 家谱/官制 → novel-outline → setting gate 
 
 这意味着 `novel-close` 的执行模式依赖完整读取 4 个子技能的全文合同（4 × ~300 行）。当任意子技能 SKILL.md 更新时，`novel-close` 的行为可能意外变化；而且 AI 需要在执行前消耗大量上下文来加载子技能定义。
 
-建议 `novel-close` 改为只读 `docs/default-workflows.md`（已有路由规则）和 `state.json` 中的 routing 字段，子技能执行时再由子技能自行读取自身合同。
+建议 `novel-close` 改为只读 `docs/00-当前有效/default-workflows.md`（已有路由规则）和 `state.json` 中的 routing 字段，子技能执行时再由子技能自行读取自身合同。
 
 **归档说明：**
 - 已从 `skills/novel-close/SKILL.md` 的 Required reads 中移除：
@@ -140,7 +140,7 @@ novel-init → novel-genre → 家谱/官制 → novel-outline → setting gate 
   - `../novel-fix/SKILL.md`
   - `../novel-polish/SKILL.md`
   - `../novel-rewrite/SKILL.md`
-- 保留 `docs/default-workflows.md` 和状态路由说明，子技能边界改为在被选中时自行加载。
+- 保留 `docs/00-当前有效/default-workflows.md` 和状态路由说明，子技能边界改为在被选中时自行加载。
 
 ---
 

@@ -158,6 +158,24 @@ class SettingGateCoreTests(unittest.TestCase):
         self.assertIn("设定集/角色/韩振.md", result["auto_created_files"])
         self.assertTrue((root / "设定集" / "角色" / "韩振.md").exists())
 
+    def test_run_gate_outline_auto_compiles_launch_stack_for_fanqie_project(self):
+        self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
+        module = load_setting_gate_module()
+        root = self.make_project_root()
+        scaffold_project(root, outline_text="韩振和林乔会在曜石互联大厦继续围堵周既明。")
+
+        result = module.run_gate(project_root=root, stage="outline")
+
+        self.assertEqual(result["launch_stack_action"]["status"], "compiled")
+        sidecar_path = root / ".mighty" / "launch-stack.json"
+        self.assertTrue(sidecar_path.exists())
+        state = json.loads((root / ".mighty" / "state.json").read_text(encoding="utf-8"))
+        self.assertEqual(state["launch_stack_phase"], "locked")
+        self.assertTrue(state["active_launch_grammar"])
+        trace_log = root / ".mighty" / "logs" / "trace.jsonl"
+        self.assertTrue(trace_log.exists())
+        self.assertIn("setting_gate.", trace_log.read_text(encoding="utf-8"))
+
     def test_mcp_candidate_requires_confirmation_and_blocks(self):
         self.assertTrue(SETTING_GATE_MODULE_PATH.exists(), "scripts/setting_gate.py is missing")
         module = load_setting_gate_module()
@@ -295,13 +313,13 @@ class SettingGateCoreTests(unittest.TestCase):
         self.assertIn("minimal_next_action", query_text)
 
     def test_workflow_docs_describe_outline_hard_gate_and_write_post_sync(self):
-        start_here = (REPO_ROOT / "docs" / "start-here.md").read_text(encoding="utf-8")
-        workflows = (REPO_ROOT / "docs" / "default-workflows.md").read_text(encoding="utf-8")
-        usage = (REPO_ROOT / "docs" / "skill-usage.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs" / "00-当前有效" / "start-here.md").read_text(encoding="utf-8")
+        workflows = (REPO_ROOT / "docs" / "00-当前有效" / "default-workflows.md").read_text(encoding="utf-8")
+        usage = (REPO_ROOT / "docs" / "00-当前有效" / "skill-usage.md").read_text(encoding="utf-8")
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
-        gate_triage = (REPO_ROOT / "docs" / "gate-triage.md").read_text(encoding="utf-8")
+        gate_triage = (REPO_ROOT / "docs" / "00-当前有效" / "gate-triage.md").read_text(encoding="utf-8")
         gate_rollout = (REPO_ROOT / "docs" / "gate-triage-rollout-2026-03-24.md").read_text(encoding="utf-8")
-        maintenance = (REPO_ROOT / "docs" / "v1-maintenance-mode.md").read_text(encoding="utf-8")
+        maintenance = (REPO_ROOT / "docs" / "00-当前有效" / "v1-maintenance-mode.md").read_text(encoding="utf-8")
         self.assertIn("setting gate", start_here)
         self.assertIn("setting gate", workflows)
         self.assertIn("scripts/setting_gate.py", usage)

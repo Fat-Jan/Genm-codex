@@ -45,6 +45,7 @@ Default intent for the current workflow:
 Read conditionally:
 
 - `.mighty/active-context.json`
+- `.mighty/content-positioning.json`
 - previous chapter file or summary for continuity
 - shared reference docs for reader-pull, pacing, and anti-AI constraints
 - `../../docs/fanqie-content-buckets.md`
@@ -91,9 +92,19 @@ Read conditionally:
    - determine explicit `content_bucket` if provided
    - otherwise treat current `genre_profile.bucket` as the active Fanqie content bucket when present
    - determine explicit `tagpack` if provided
+   - treat `state.genre_profile` as the primary runtime projection for profile-derived review context
+   - if `.mighty/content-positioning.json` exists, treat it as the preferred project-facing composite-positioning sidecar
 2. Read `../../shared/references/shared/core-constraints.md`.
 3. Read `chapters/第N章.md`.
 4. Read the genre/profile context.
+   - first prefer the lightweight projection already present in `state.genre_profile`
+   - only if additional detail is still needed, inspect raw profile data through `../../scripts/profile_contract.py`
+   - when reading raw profile layers, use this order:
+     - core profile
+     - platform overlay when it exists
+     - bucket overlay when it exists
+     - reference files for long-form guidance
+   - do not treat arbitrary embedded long-form sections in raw profile YAML as authoritative core config
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
    - also read `../../docs/writing-core-framework/README.md`
@@ -203,6 +214,11 @@ Read conditionally:
      - reader_motive
      - opening_rule
      - ending_hook_rule
+   - content-positioning fit when it exists:
+     - 标签成立但主桶跑偏
+     - 群像存在但主入口消失
+     - 副本切换过快导致 promise 漂移
+     - 轻松风味把代价链冲没了
    - resistance/cost fit:
      - evidence too automatic
      - alliance too easy

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "state-archive-v1.json",
+  "title": "Genm Codex State Archive v1",
+  "type": "object",
+  "required": ["version", "chapter_meta", "chapter_snapshots", "summaries_index"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": ["string", "number"]},
+    "archived_at": {"type": ["string", "null"]},
+    "retained_recent_chapters": {"type": "array"},
+    "chapter_meta": {"type": "object"},
+    "chapter_snapshots": {"type": "object"},
+    "summaries_index": {"type": "object"}
+  },
+  "additionalProperties": true
+}

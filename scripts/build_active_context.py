@@ -111,6 +111,19 @@ def select_active_hooks(state: dict) -> list[dict]:
 
 
 def select_relevant_entities(state: dict) -> dict:
+    def normalize_named_entries(values: object) -> list[str]:
+        if not isinstance(values, list):
+            return []
+        out: list[str] = []
+        for item in values:
+            if isinstance(item, str) and item:
+                out.append(item)
+            elif isinstance(item, dict):
+                name = item.get("name")
+                if isinstance(name, str) and name:
+                    out.append(name)
+        return out
+
     entities = state.get("entities", {})
     characters = entities.get("characters", {})
     protagonist = characters.get("protagonist", {})
@@ -128,14 +141,12 @@ def select_relevant_entities(state: dict) -> dict:
         active_locations.extend([x for x in important if isinstance(x, str) and x])
 
     factions = entities.get("factions", {}).get("active", [])
-    active_factions = [x for x in factions if isinstance(x, str)] if isinstance(factions, list) else []
+    active_factions = normalize_named_entries(factions)
 
     items = entities.get("items", {})
     tracked_items = []
     for key in ("tracked", "protagonist_inventory"):
-        values = items.get(key, [])
-        if isinstance(values, list):
-            tracked_items.extend([x for x in values if isinstance(x, str) and x])
+        tracked_items.extend(normalize_named_entries(items.get(key, [])))
 
     # preserve order while deduplicating
     active_locations = list(dict.fromkeys(active_locations))
@@ -148,6 +159,28 @@ def select_relevant_entities(state: dict) -> dict:
         "active_locations": active_locations[:5],
         "active_factions": active_factions[:5],
         "tracked_items": tracked_items[:5],
+    }
+
+
+def summarize_recent_guardrails(learned: dict | None) -> dict:
+    payload = (learned or {}).get("recent_guardrails", {})
+    if not isinstance(payload, dict):
+        payload = {}
+
+    must_avoid = payload.get("must_avoid", [])
+    must_preserve = payload.get("must_preserve", [])
+    watchpoints = payload.get("next_chapter_watchpoints", [])
+
+    def count_list(value: object) -> int:
+        return len(value) if isinstance(value, list) else 0
+
+    return {
+        "has_recent_guardrails": bool(payload),
+        "must_avoid_count": count_list(must_avoid),
+        "must_preserve_count": count_list(must_preserve),
+        "watchpoint_count": count_list(watchpoints),
+        "expires_after_chapter": payload.get("expires_after_chapter"),
+        "source_sidecar": ".mighty/learned-patterns.json" if payload else None,
     }
 
 
@@ -171,6 +204,7 @@ def build_active_context(
     learned = learned or {}
     gate = gate or {}
     launch_stack = launch_stack or {}
+    guardrail_summary = summarize_recent_guardrails(learned)
 
     return {
         "version": "1.0",
@@ -197,7 +231,7 @@ def build_active_context(
             "launch_stack_drift_signal": state.get("launch_stack_drift_signal", "none"),
             "has_sidecar": bool(launch_stack),
         },
-        "recent_guardrails": learned.get("recent_guardrails", {}),
+        "guardrail_summary": guardrail_summary,
         "market_signal_ids": [
             item.get("id")
             for item in (market.get("adjustments", []) if isinstance(market.get("adjustments", []), list) else [])
@@ -232,7 +266,11 @@ def main(argv: list[str] | None = None) -> dict:
             "last_built": ts,
             "summary_window": payload["summary_window"],
             "hook_count": len(payload["active_hooks"]),
-            "guardrail_count": len(payload.get("recent_guardrails", {})),
+            "guardrail_count": (
+                payload["guardrail_summary"]["must_avoid_count"]
+                + payload["guardrail_summary"]["must_preserve_count"]
+                + payload["guardrail_summary"]["watchpoint_count"]
+            ),
         }
         (mighty / "state.json").write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
     result = {
@@ -240,7 +278,11 @@ def main(argv: list[str] | None = None) -> dict:
         "active_context_file": str(sidecar_path),
         "summary_window": payload["summary_window"],
         "hook_count": len(payload["active_hooks"]),
-        "guardrail_count": len(payload.get("recent_guardrails", {})),
+        "guardrail_count": (
+            payload["guardrail_summary"]["must_avoid_count"]
+            + payload["guardrail_summary"]["must_preserve_count"]
+            + payload["guardrail_summary"]["watchpoint_count"]
+        ),
         "state_updated": str(mighty / "state.json"),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))

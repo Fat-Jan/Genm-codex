@@ -34,7 +34,7 @@ class VolumeSummariesContractTests(unittest.TestCase):
         expectations = {
             "skills/novel-status/SKILL.md": ".mighty/volume-summaries.json",
             "skills/novel-query/SKILL.md": ".mighty/volume-summaries.json",
-            "docs/state-thinning-and-setting-sync.md": ".mighty/volume-summaries.json",
+            "docs/00-当前有效/state-thinning-and-setting-sync.md": ".mighty/volume-summaries.json",
         }
         for relative_path, token in expectations.items():
             content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")

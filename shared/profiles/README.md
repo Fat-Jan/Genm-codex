@@ -25,6 +25,43 @@ profiles/
 
 ## Profile 文件说明
 
+## 当前 contract 分层
+
+从 `v1.1` 的 `Profile Contract` 开始，profile 应按下面四层理解：
+
+1. **core profile**
+   - 路径：`profiles/<slug>/profile.yaml`
+   - 只放题材基础配置：
+     - `name`
+     - `display_name`
+     - `description`
+     - `version`
+     - `template`
+     - `pacing`
+     - `cool_points`
+     - `strand_weights`
+     - `constraints`
+     - `reader_expectations`
+     - `taboos`
+2. **platform overlay**
+   - 路径：`profiles/<slug>/profile-<platform>.yaml`
+   - 只放平台差异
+3. **bucket overlay**
+   - 路径：`profiles/<slug>/bucket-<bucket>.yaml`
+   - 只放内容桶差异
+4. **reference files**
+   - 路径：`profiles/<slug>/*.md`
+   - 放长文本方法论、样例、扩展说明
+
+补充约定：
+
+- `scripts/profile_contract.py --describe-layers` 现在会按这套规则返回 layer descriptor
+- `state.genre_profile` 只保留轻量投影，不保留整份 raw profile
+- 历史 profile 中混入的长文本区块（如 `dialogue_templates`、`scene_description`）目前视为**legacy embedded reference**
+  - 可以继续存在
+  - 但不再视为 core contract 的 authoritative 部分
+  - 后续应逐步迁到 reference files
+
 ### profile.yaml - 核心配置
 
 每个题材的核心配置文件，包含以下部分：

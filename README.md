@@ -2,91 +2,25 @@
 
 Codex 原生网文创作技能工作区。
 
-本目录最初从 `Genm` 仓库拆出，用于承载 Codex 原生网文工作流。当前默认工作流、边界与样本闭环已通过 RC 检查，并已进入正式 `v1.0.0` 阶段。
+这个仓库的当前主线不是“继续堆更多 skill”，而是把已有 `skills + docs + scripts + sidecars` 工作流做稳、做可恢复、做可治理。
 
-当前新增的番茄优先方向：
+当前默认范围里仍然包含：
 
-- 番茄起盘协议栈
+- `opening-and-plot-framework`
+- `writing-core-framework`
+- `番茄起盘协议栈`
+- `Gate Triage`
 
-## 当前范围
+## 先看哪里
 
-第一阶段已完成的核心 Skill：
+如果你是第一次回到这个仓库，优先看：
 
-- `genm-novel-init`
-- `genm-novel-outline`
-- `genm-novel-write`
-- `genm-novel-review`
-- `genm-novel-rewrite`
-- `genm-novel-export`
+- `docs/INDEX.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/00-当前有效/skill-usage.md`
 
-第二阶段已完成的扩展 Skill：
-
-- `genm-novel-query`
-- `genm-novel-status`
-- `genm-novel-character`
-- `genm-novel-setting`
-- `genm-novel-foreshadowing`
-- `genm-novel-batch`
-
-第三阶段已完成的增强 Skill：
-
-- `genm-novel-polish`
-- `genm-novel-genre`
-- `genm-novel-analyze`
-- `genm-novel-resume`
-- `genm-novel-index`
-- `genm-novel-log`
-
-第四阶段已完成的控制与辅助 Skill：
-
-- `genm-novel-close`
-- `genm-novel-fix`
-- `genm-novel-snapshot`
-- `genm-novel-precheck`
-- `genm-novel-workflow`
-- `genm-novel-retrieve`
-- `genm-novel-spinoff`
-
-第五阶段已完成的环境与学习 Skill：
-
-- `genm-novel-config`
-- `genm-novel-test`
-- `genm-novel-learn`
-
-第九阶段已启动的包装层 Skill：
-
-- `genm-novel-package`
-
-实验态但已安装的 Skill：
-
-- `genm-novel-scan`
-  - 当前可用，但不属于默认工作流
-  - 更适合在明确需要外部市场信号时单独运行
-
-第九阶段已完成的整合方向：
-
-- 包装生成层
-- 质量闭环第一轮整合
-
-第十阶段已完成的整合方向：
-
-- 包装与市场信号收敛检查点
-- 质量路由稳定化检查点
-
-第十七阶段已完成的整合方向：
-
-- 反脸谱化质量门进入默认质量链
-- 跨流派结构样本闭环
-
-## 目录说明
-
-```text
-Genm-codex/
-├── skills/      # Codex 原生 Skills
-├── shared/      # 从 Genm 同步来的 profiles / references / templates
-├── scripts/     # 安装、同步、校验脚本
-└── docs/        # 迁移说明、使用说明、阶段总结
-```
+README 现在只保留最短启动说明和关键治理边界。
 
 ## 快速开始
 
@@ -96,15 +30,42 @@ Genm-codex/
 bash scripts/install-skills.sh
 ```
 
-### 2. 同步共享资产
+### 2. 查看 shared 同步差异
+
+先跑文本报告：
 
 ```bash
 bash scripts/sync-shared-from-genm.sh --report
 ```
 
-确认报告结果符合预期后，再执行真正的同步。
+需要机器可读差异时，再看：
 
-### 3. 校验迁移状态
+```bash
+bash scripts/sync-shared-from-genm.sh --report-json
+```
+
+当前 `--report-json` 会输出：
+
+- `protected_local_paths`
+- `local_only_paths`
+- `unexpected_local_only_paths`
+- `drift_paths`
+- `source_only_paths`
+
+### 3. 真正同步 shared
+
+默认策略：
+
+- 会恢复 `shared/sync-governance.json` 中声明的 repo-local protected files
+- 会阻断同路径内容漂移覆盖（`same-path drift overwrite`）
+
+只有在你确认确实要覆盖漂移文件时，才显式传：
+
+```bash
+bash scripts/sync-shared-from-genm.sh --allow-drift-overwrite --domain references
+```
+
+### 4. 校验迁移状态
 
 ```bash
 bash scripts/validate-migration.sh
@@ -112,46 +73,35 @@ bash scripts/validate-migration.sh
 
 ## 调用名说明
 
-- `scripts/install-skills.sh` 现在会同时创建两套本地链接：
+- 本地安装链接会同时保留：
   - `novel-*`
   - `genm-novel-*`
-- 但在 Codex 会话里，通常真正被发现和触发的是各个 `SKILL.md` frontmatter 里的 `name`
-- 因此实际提示词里，优先使用：
+- 实际在 Codex 会话里，优先使用各个 `SKILL.md` frontmatter 中的 `name`
+- 因此通常优先写：
   - `novel-init`
   - `novel-close`
   - `novel-query`
   - `novel-status`
   - `novel-polish`
   - `novel-genre`
-  - `novel-scan`（实验态，非默认工作流）
-- 不要把 `genm-` 前缀默认当成必须的调用名
+  - `novel-scan`（实验态，非默认主线）
 
-### 4. 查看使用说明
+## 默认工作流入口
 
-阅读：
-
-- `使用流程总览.md`
-- `docs/skill-usage.md`
-- `docs/start-here.md`
-
-### 5. 查看阶段总结
-
-阅读：
-
-- `docs/phase-1-summary.md`
-- `docs/phase-2-summary.md`
-- `docs/phase-3-summary.md`
-- `docs/phase-4-summary.md`
-- `docs/phase-5-summary.md`
-- `docs/phase-7-summary.md`
-- `docs/phase-17-summary.md`
+- 默认创作主线：`docs/00-当前有效/default-workflows.md`
+- 首次上手入口：`docs/00-当前有效/start-here.md`
+- Skill 触发与调用说明：`docs/00-当前有效/skill-usage.md`
+- 当前边界：`docs/00-当前有效/v1-boundary.md`
+- 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
+- 已完成阶段 roadmap：`v1.1-roadmap.md`
+- 下一阶段主 roadmap：`v1.2-roadmap.md`
 
 ## Gate Triage
 
 当项目被 `setting gate` 卡住时，优先按这条最小链路处理：
 
 - `novel-scan -> setting gate -> review-sync-queue`
-- 然后用 `novel-status` / `novel-resume` / `novel-query` 查看：
+- 然后用 `novel-status` / `novel-resume` / `novel-query` 看：
   - `gate status`
   - `blocking_gaps`
   - `review_items`
@@ -159,79 +109,13 @@ bash scripts/validate-migration.sh
 
 进一步说明见：
 
-- `docs/gate-triage.md`
+- `docs/00-当前有效/gate-triage.md`
 - `docs/gate-triage-rollout-2026-03-24.md`
 
-## 参考文档
+## 边界提醒
 
-- `docs/migration-map.md`
-- `docs/codex-migration-plan.md`
-- `docs/v1-maintenance-mode.md`
-- `docs/v1.1-roadmap.md`
-- `docs/fanqie-short-story-adaptation.md`
-- `docs/fanqie-content-buckets.md`
-- `docs/fanqie-bucket-constraints.md`
-- `docs/fanqie-paid-signal-matrix.md`
-- `docs/fanqie-first-execution-plan.md`
-- `docs/fanqie-mvp-bucket-templates.md`
-- `docs/fanqie-mvp-tagpacks.yaml`
-- `docs/phase-2-priorities.md`
-- `docs/phase-2-smoke-plan.md`
-- `docs/phase-2-smoke-results.md`
-- `docs/phase-3-scope.md`
-- `docs/phase-4-scope.md`
-- `docs/phase-5-scope.md`
-- `docs/phase-6-scope.md`
-- `docs/phase-7-scope.md`
-- `docs/phase-7a-scan-contract.md`
-- `docs/phase-7b-selective-sync-governance.md`
-- `docs/phase-8-scope.md`
-- `docs/phase-9-scope.md`
-- `docs/phase-9-writing-value-gap-analysis.md`
-- `docs/phase-9a-p0-package-smoke-results.md`
-- `docs/phase-9b-quality-loop-design.md`
-- `docs/phase-9-summary.md`
-- `docs/phase-10-scope.md`
-- `docs/phase-10-summary.md`
-- `docs/phase-11-scope.md`
-- `docs/phase-12-scope.md`
-- `docs/phase-13-scope.md`
-- `docs/phase-14-scope.md`
-- `docs/phase-15-scope.md`
-- `docs/phase-16-scope.md`
-- `docs/phase-11-summary.md`
-- `docs/phase-12-summary.md`
-- `docs/phase-14-summary.md`
-- `docs/phase-15-summary.md`
-- `docs/phase-16-summary.md`
-- `docs/phase-17-summary.md`
-- `docs/v1-boundary.md`
-- `docs/default-workflows.md`
-- `docs/v1-readiness-checklist.md`
-- `docs/v1-readiness-assessment.md`
-- `docs/v1-rc-plan.md`
-- `docs/v1-rc-exit-criteria.md`
-- `docs/v1-rc-execution-log.md`
-- `docs/v1-final-decision.md`
-- `docs/writing-model-strategy.md`
-- `docs/gate-triage.md`
-- `docs/gate-triage-rollout-2026-03-24.md`
-- `docs/anti-flattening-framework/README.md`
-- `docs/opening-and-plot-framework/README.md`
-- `docs/writing-core-framework/README.md`
-- `docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
-- `docs/start-here.md`
-- `docs/phase-5-scope.md`
-
-## 说明
-
-- `Genm` 仍然是源仓库
-- `Genm-codex` 负责 Codex 原生 Skill 层
-- `shared/` 资产应通过脚本同步，不建议手工维护两份
-- `novel-close` 现在提供单章收口轮入口，内部执行 `review -> route -> re-review`，但不改变 `review / fix / polish / rewrite` 的边界
-- 单章 `novel-write` 现在默认会守卫式自动尝试一次 `novel-close`；`novel-batch` 不继承该默认行为，显式传 `skip_close=true` 可跳过
-- `novel-outline` / `novel-review` / `novel-fix` 现在会按需读取 `docs/anti-flattening-framework/`，把反脸谱化与群像约束纳入默认质量闭环
-- `novel-write` / `novel-precheck` 现在也会按需读取这组规则，把人物立体度、关系结构、阵营分歧和代价链纳入写作与投稿前检查
-- `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 现在也可按需读取 `docs/opening-and-plot-framework/`，把开篇承诺、剧情层次和推进残账纳入默认工作流规则层
-- `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn` 现在也可按需读取 `docs/writing-core-framework/`，把写作基本功、内容标准、memory 压缩信号和开篇包装输入纳入默认质量链
-- 番茄优先项目现在还可以先读取“番茄起盘协议栈”，把 `pivot / launch grammar / retention protocol` 编译成早期规则输入
+- `Genm` 仍是 shared 源仓库
+- `Genm-codex` 负责 Codex 原生 skill/workflow 承载层
+- `shared/` 不再被视为“可无脑整包覆盖”的纯镜像目录
+- `active-context` 现在只应作为当前 prompt 装配侧栏，不应复制长期 guidance 全文
+- `workflow_state` 已开始由维护链真实写回，但当前默认骨架仍然是 `docs + skills + scripts + sidecars`，不引入 monolithic runtime / plugin system

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import importlib.util
+import json
+import os
 import sys
 import tempfile
 import unittest
@@ -353,6 +355,100 @@ class AcquireSourceTextTests(unittest.TestCase):
         self.assertEqual(result.failure_reason, "search_only")
         self.assertEqual(result.title, "Search Learning Fallback")
         self.assertGreater(len(result.body or ""), 300)
+
+    def test_provider_registry_defaults_are_reported_in_result(self) -> None:
+        module = load_module()
+
+        result = module.acquire_article(
+            "https://example.com/post",
+            fetch_provider=lambda url, timeout_ms: module.StageResult.ok_result(
+                title="Example Source",
+                body="正文学习样本" * 120,
+                final_url=url,
+            ),
+            min_body_chars=300,
+        )
+        result.provider_trace = {
+            "fetch": {"name": "reader_proxy", "source": "registry_default"},
+            "search": {"name": "bing_rss", "source": "registry_default"},
+        }
+
+        payload = result.to_dict()
+        self.assertEqual(payload["provider_trace"]["fetch"]["name"], "reader_proxy")
+        self.assertEqual(payload["provider_trace"]["search"]["name"], "bing_rss")
+
+    def test_project_config_can_resolve_provider_presets(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir)
+            config_path = project_root / ".mighty" / "config.json"
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            config_path.write_text(
+                json.dumps(
+                    {
+                        "acquire_source_text": {
+                            "fetch_provider": {"preset": "reader_proxy"},
+                            "search_provider": {"preset": "bing_rss"},
+                        }
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            registry = module.load_provider_registry(module.default_provider_registry_path())
+            fetch_provider, fetch_trace = module.resolve_provider_settings(
+                role="fetch",
+                cli_command="",
+                env_command="",
+                project_root=str(project_root),
+                registry=registry,
+            )
+            search_provider, search_trace = module.resolve_provider_settings(
+                role="search",
+                cli_command="",
+                env_command="",
+                project_root=str(project_root),
+                registry=registry,
+            )
+
+            self.assertIsNotNone(fetch_provider)
+            self.assertIsNotNone(search_provider)
+            self.assertEqual(fetch_trace["source"], "project_config")
+            self.assertEqual(fetch_trace["name"], "reader_proxy")
+            self.assertEqual(search_trace["source"], "project_config")
+            self.assertEqual(search_trace["name"], "bing_rss")
+
+    def test_cli_fetch_command_overrides_project_config(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            project_root = Path(tmpdir)
+            config_path = project_root / ".mighty" / "config.json"
+            config_path.parent.mkdir(parents=True, exist_ok=True)
+            config_path.write_text(
+                json.dumps(
+                    {
+                        "acquire_source_text": {
+                            "fetch_provider": {"preset": "reader_proxy"},
+                        }
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+            registry = module.load_provider_registry(module.default_provider_registry_path())
+            provider, trace = module.resolve_provider_settings(
+                role="fetch",
+                cli_command="python3 -c \"import json; print(json.dumps({'status':'success','title':'T','body':'B'*400}))\"",
+                env_command="",
+                project_root=str(project_root),
+                registry=registry,
+            )
+
+            self.assertIsNotNone(provider)
+            self.assertEqual(trace["source"], "cli")
+            self.assertEqual(trace["kind"], "external_command")
 
 
 if __name__ == "__main__":

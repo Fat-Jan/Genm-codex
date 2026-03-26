@@ -74,10 +74,10 @@
 这条链已经被挂到：
 
 - `README.md`
-- `docs/default-workflows.md`
-- `docs/start-here.md`
-- `docs/skill-usage.md`
-- `docs/gate-triage.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/skill-usage.md`
+- `docs/00-当前有效/gate-triage.md`
 
 ## 实际意义
 
@@ -106,7 +106,7 @@
 
 ## 相关文档
 
-- [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gate-triage.md)
-- [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/default-workflows.md)
-- [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/start-here.md)
-- [skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/skill-usage.md)
+- [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/gate-triage.md)
+- [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md)
+- [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
+- [skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)

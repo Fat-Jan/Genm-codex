@@ -46,6 +46,7 @@ Read these when they exist, and prioritize them for ancient-family-power routes:
 - `设定集/家族/小型家谱.md`
 - `设定集/官制/官职真值表.md`
 - `设定集/官制/权力层级图.md`
+- `.mighty/content-positioning.json`
 
 Also read these when generating or materially revising outlines, especially for multi-character, multi-faction, romance, politics, transmigration, or “活人感/反脸谱化” requests:
 
@@ -71,6 +72,8 @@ Also read these when generating or materially revising outlines, especially for 
 
 1. Read `.mighty/state.json` for `meta.title`, `meta.genre`, `meta.platform`, and current `genre_profile.bucket` when present.
    - if no explicit `content_bucket` input is provided, treat `genre_profile.bucket` as the active Fanqie content bucket
+   - if `.mighty/content-positioning.json` exists, treat it as the preferred project-facing composite-positioning sidecar
+   - treat `state.genre_profile` as the primary runtime projection for profile-derived rhythm/constraint hints
 2. Read `../../shared/references/shared/core-constraints.md`.
    - also read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`
    - also read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`
@@ -78,6 +81,14 @@ Also read these when generating or materially revising outlines, especially for 
    - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md` and `../../docs/opening-and-plot-framework/fanqie-launch-stack/05-compiler-contract.md`
    - if `.mighty/launch-stack.json` exists, prefer its current launch-side compiler hints over recomputing a separate launch guess inside this skill
 3. Load the relevant shared profile for rhythm and reader expectations.
+   - first prefer the lightweight projection already present in `state.genre_profile`
+   - only if additional detail is still needed, inspect the raw profile via `../../scripts/profile_contract.py`
+   - when using raw profile detail, follow the contract layers:
+     - core profile
+     - platform overlay when it exists
+     - bucket overlay when it exists
+     - reference files for long-form guidance
+   - do not treat arbitrary embedded long-form sections in raw profile YAML as authoritative core config
    - when doing total-outline generation or any outline refinement that clearly depends on人物立体度、群像关系、阵营冲突、穿书/穿越/系统/权谋等高风险题材，also read:
      - `../../docs/anti-flattening-framework/02-叙事权与主角特权.md`
      - `../../docs/anti-flattening-framework/03-角色分层与投入配额.md`
@@ -109,6 +120,10 @@ Also read these when generating or materially revising outlines, especially for 
      - scene-level residual consequence design
      - chapter-level line ownership and touched-subline reminders
      - opening promise shaping that should survive into writing and packaging without overpromising
+   - when content-positioning exists, also apply:
+     - `narrative_modes` as outline-side structure overlays
+     - `tone_guardrails` as route filters
+     - `strong_tags` only as emphasis cues, not as equal-priority bucket replacements
 4. If the platform is 番茄 and a `content_bucket` is explicitly given, or a current `genre_profile.bucket` exists, or the user clearly asks for Fanqie-first outline refinement:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
@@ -162,6 +177,10 @@ Also read these when generating or materially revising outlines, especially for 
      - at least one relation-structure tension per core relation cluster
      - at least one intra-faction route split where the story uses factions or alliances
      - conflict cost and residual-risk shape for major arc wins
+   - when `narrative_modes` contains values such as `多主题副本` or `多角色群像`, also explicitly lock:
+     - 副本切换的主入口
+     - 当前章群像里的 active mover / defender / 独立议程
+     - 多主题推进不应吃掉主桶 promise
    - when bucket constraints are active, also align:
      - opening speed
      - payoff cycle

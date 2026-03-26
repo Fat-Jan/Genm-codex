@@ -81,7 +81,7 @@ Phase 5
 - **Status:** complete
 
 ### Phase 13: Historical Closure
-- [x] 新增 `docs/phase-17-summary.md`
+- [x] 新增 `docs/90-归档/阶段/phase-17-summary.md`
 - [x] 将阶段总结入口挂回 `README.md`
 - [x] 作为项目历史结论正式结案
 - **Status:** complete
@@ -110,6 +110,42 @@ Phase 5
 - 优先把新事实放在单一来源，避免在多个 skill 中平行重复定义整套规则
 - `shared/` 默认不手改，除非调研确认这里才是正确承载层
 - 每完成一轮有意义的修改后同步更新 `progress.md`
+
+---
+
+# Task Plan: ISSUES 2026-03-24 状态归档
+
+## Goal
+确认 [ISSUES.md](/Users/arm/Desktop/vscode/Genm-codex/ISSUES.md) 中列出的 P0 / P1 / P2 问题是否已在仓库中真实落地修复；补齐遗漏项后，将每个问题在原文中标记状态并归档。
+
+## Current Phase
+Complete
+
+## Phases
+
+### Phase 1: Re-check
+- [x] 重读 `ISSUES.md`
+- [x] 核对相关 skill / 脚本 / 工作流文档
+- [x] 确认哪些问题已修、哪些未稳定落地
+- **Status:** complete
+
+### Phase 2: Close Remaining Gaps
+- [x] 修复 `novel-write` 重复编号
+- [x] 补齐 `launch-stack` 触发时机与 placeholder 合同
+- [x] 补齐 `novel-learn` / `novel-close` 合同缺口
+- [x] 补齐 `docs/INDEX.md` / `smoke/README.md`
+- [x] 将 `task_plan.md` 收为单一活跃计划
+- **Status:** complete
+
+### Phase 3: Verify & Archive
+- [x] 运行问题回归测试
+- [x] 运行迁移/全量测试
+- [x] 更新 `ISSUES.md` 状态与归档说明
+- **Status:** complete
+
+## Notes
+- 历史多计划内容已转存到 `task_plan_archive.md`
+- 与本轮无关的 `projects/*/.mighty/state.json` 脏改动不触碰
 
 ---
 
@@ -148,7 +184,7 @@ Phase 26
 - **Status:** complete
 
 ### Phase 5: Entry Docs & State Contract
-- [x] 更新 `README.md` / `docs/start-here.md` / `docs/skill-usage.md` / `docs/default-workflows.md`
+- [x] 更新 `README.md` / `docs/00-当前有效/start-here.md` / `docs/00-当前有效/skill-usage.md` / `docs/00-当前有效/default-workflows.md`
 - [x] 在 `state-schema` / `state-v5-template` 中补充轻量评分键说明
 - **Status:** complete
 
@@ -572,9 +608,9 @@ Phase 8
 
 ### Phase 7: Entry Docs
 - [x] 更新 `README.md`
-- [x] 更新 `docs/start-here.md`
-- [x] 更新 `docs/skill-usage.md`
-- [x] 更新 `docs/default-workflows.md`
+- [x] 更新 `docs/00-当前有效/start-here.md`
+- [x] 更新 `docs/00-当前有效/skill-usage.md`
+- [x] 更新 `docs/00-当前有效/default-workflows.md`
 - [x] 更新 `docs/opening-and-plot-framework/README.md`
 - **Status:** complete
 

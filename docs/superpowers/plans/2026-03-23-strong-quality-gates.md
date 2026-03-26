@@ -117,13 +117,13 @@ Verification:
 - Modify: `skills/novel-close/SKILL.md`
 - Modify: `skills/novel-review/SKILL.md`
 - Modify: `skills/novel-precheck/SKILL.md`
-- Modify: `docs/default-workflows.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 
 - [ ] Step 1: Update `skills/novel-write/SKILL.md` so the workflow explicitly loads the strong-gate policy and blocks drafting when required truth sources are missing.
 - [ ] Step 2: Update `skills/novel-close/SKILL.md` so close success is impossible when post-write hard blockers remain; route to `novel-fix` or `novel-rewrite` instead.
 - [ ] Step 3: Tighten `skills/novel-review/SKILL.md` and `skills/novel-precheck/SKILL.md` wording so they stay consistent with the new hard-block semantics without duplicating rule tables.
-- [ ] Step 4: Update `docs/default-workflows.md` and `docs/skill-usage.md` to expose the new write-before-truth and close-before-pass expectations as project facts.
+- [ ] Step 4: Update `docs/00-当前有效/default-workflows.md` and `docs/00-当前有效/skill-usage.md` to expose the new write-before-truth and close-before-pass expectations as project facts.
 - [ ] Step 5: Re-read the modified docs together and remove any duplicated thresholds or contradictory wording.
 
 Verification:
@@ -134,7 +134,7 @@ Verification:
 
 **Files:**
 - Modify: `tests/test_strong_quality_gate.py`
-- Create or Modify: `docs/phase-*.md` only if new project facts require phase-history entry
+- Create or Modify: `docs/90-归档/阶段/phase-*.md` only if new project facts require phase-history entry
 - Optional smoke workspace: temporary test project under `tmp` / test fixtures only if needed
 
 - [ ] Step 1: Add one end-to-end style unittest flow or fixture-backed smoke that covers:

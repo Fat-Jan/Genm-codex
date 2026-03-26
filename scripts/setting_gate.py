@@ -3,11 +3,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
 import strong_quality_gate
+import fanqie_launch_stack
+from trace_log import append_trace
 
 
 GATE_BEGIN = "<!-- SETTING-GATE:BEGIN -->"
@@ -380,6 +387,46 @@ def _build_minimal_next_action(project_root: Path, stage: str, blocking_gaps: li
     }
 
 
+def _is_fanqie_project(state: dict) -> bool:
+    platform = str(state.get("meta", {}).get("platform", "")).strip().lower()
+    return platform == "番茄"
+
+
+def maybe_auto_compile_launch_stack(project_root: Path, state: dict, *, stage: str, report_only: bool) -> dict:
+    if stage != "outline":
+        return {"status": "not_applicable", "reason": "stage_not_outline"}
+    if not _is_fanqie_project(state):
+        return {"status": "not_applicable", "reason": "not_fanqie"}
+
+    sidecar_path = project_root / ".mighty" / "launch-stack.json"
+    if sidecar_path.exists() and not fanqie_launch_stack._is_preselect_placeholder(sidecar_path):
+        return {"status": "already_ready", "reason": "locked_sidecar_present", "sidecar_file": str(sidecar_path)}
+    if report_only:
+        return {"status": "report_only_skipped", "reason": "report_only", "sidecar_file": str(sidecar_path)}
+
+    result = fanqie_launch_stack.run_launch_stack(
+        project_root=project_root,
+        chapter="003",
+        chapters="001-003",
+        mode="writeback",
+        writeback=True,
+    )
+    append_trace(
+        project_root,
+        event="launch_stack.auto_compiled",
+        skill="setting-gate",
+        result="success",
+        details={"stage": stage, "sidecar_file": str(sidecar_path)},
+    )
+    return {
+        "status": "compiled",
+        "reason": "fanqie_outline_gate_autocompile",
+        "sidecar_file": str(sidecar_path),
+        "launch_grammar": result["launch_grammar"]["primary"],
+        "primary_pivot": result["primary_pivot"],
+    }
+
+
 def run_gate(
     *,
     project_root: Path,
@@ -399,6 +446,7 @@ def run_gate(
         available_paths=available_paths,
         policy=strong_policy,
     )
+    launch_stack_action = maybe_auto_compile_launch_stack(project_root, state, stage=stage, report_only=report_only)
 
     auto_created_files = materialize_local_cards(project_root, state, policy, stage, report_only)
     graded = grade_candidates(mcp_candidates or [], policy)
@@ -425,6 +473,7 @@ def run_gate(
         "version": "1.0",
         "status": status,
         "checked_after": stage,
+        "launch_stack_action": launch_stack_action,
         "blocking_gaps": blocking_gaps,
         "auto_created_files": auto_created_files,
         "review_queue_count": len(graded["review_items"]),
@@ -436,6 +485,19 @@ def run_gate(
     }
     _write_gate_state(project_root, result, report_only)
     _write_sync_review(project_root, stage, graded["review_items"], report_only)
+    if not report_only:
+        append_trace(
+            project_root,
+            event=f"setting_gate.{status}",
+            skill="setting-gate",
+            result=status,
+            details={
+                "stage": stage,
+                "blocking_gap_count": len(blocking_gaps),
+                "review_queue_count": len(graded["review_items"]),
+                "launch_stack_action": launch_stack_action.get("status"),
+            },
+        )
     return result
 
 

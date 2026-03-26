@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "content-positioning-v1.schema.json",
+  "title": "Genm Codex Content Positioning v1",
+  "type": "object",
+  "required": [
+    "version",
+    "generated_at",
+    "primary_profile",
+    "primary_bucket",
+    "tagpacks",
+    "strong_tags",
+    "narrative_modes",
+    "tone_guardrails",
+    "compiler_output"
+  ],
+  "properties": {
+    "version": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "primary_profile": {"type": "string"},
+    "primary_bucket": {"type": "string"},
+    "tagpacks": {"type": "array", "items": {"type": "string"}},
+    "strong_tags": {"type": "array", "items": {"type": "string"}},
+    "narrative_modes": {"type": "array", "items": {"type": "string"}},
+    "tone_guardrails": {"type": "array", "items": {"type": "string"}},
+    "compiler_output": {
+      "type": "object",
+      "required": ["outline_overlays", "write_overlays", "review_lenses", "package_cues"],
+      "properties": {
+        "outline_overlays": {"type": "array", "items": {"type": "string"}},
+        "write_overlays": {"type": "array", "items": {"type": "string"}},
+        "review_lenses": {"type": "array", "items": {"type": "string"}},
+        "package_cues": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

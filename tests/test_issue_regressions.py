@@ -15,7 +15,7 @@ class IssueRegressionTests(unittest.TestCase):
 
     def test_p0_2_launch_stack_has_default_workflow_trigger(self):
         expected = "python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback"
-        for relative_path in ("docs/default-workflows.md", "docs/start-here.md", "docs/skill-usage.md"):
+        for relative_path in ("docs/00-当前有效/default-workflows.md", "docs/00-当前有效/start-here.md", "docs/00-当前有效/skill-usage.md"):
             content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
             self.assertIn(expected, content, relative_path)
 
@@ -44,7 +44,7 @@ class IssueRegressionTests(unittest.TestCase):
 
     def test_p1_3_novel_close_no_longer_reads_child_skill_contracts(self):
         content = (REPO_ROOT / "skills/novel-close/SKILL.md").read_text(encoding="utf-8")
-        self.assertIn("../../docs/default-workflows.md", content)
+        self.assertIn("../../docs/00-当前有效/default-workflows.md", content)
         for token in (
             "../novel-review/SKILL.md",
             "../novel-fix/SKILL.md",
@@ -61,6 +61,11 @@ class IssueRegressionTests(unittest.TestCase):
     def test_p2_2_docs_index_exists(self):
         content = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
         for token in ("文档索引", "start-here.md", "default-workflows.md", "research/fanqie"):
+            self.assertIn(token, content)
+
+    def test_p2_2b_root_roadmap_exists_and_tracks_status(self):
+        content = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        for token in ("Status:", "[planned]", "[deferred]", "主线 A", "主线 B"):
             self.assertIn(token, content)
 
     def test_p2_3_experiment_docs_moved_under_research(self):
@@ -82,6 +87,36 @@ class IssueRegressionTests(unittest.TestCase):
         content = (REPO_ROOT / "smoke/README.md").read_text(encoding="utf-8")
         for token in ("保留策略", "基线样本", "派生副本", "清理"):
             self.assertIn(token, content)
+
+    def test_p2_5_boundary_doc_locks_memory_and_runtime_limits(self):
+        content = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        for token in ("MCP memory", "协调记忆", "plugin framework", "orchestration runtime"):
+            self.assertIn(token, content)
+
+    def test_p2_6_docs_roadmap_path_is_only_a_pointer(self):
+        content = (REPO_ROOT / "docs/00-当前有效/v1.1-roadmap.md").read_text(encoding="utf-8")
+        self.assertIn("主 roadmap", content)
+        self.assertIn("/Users/arm/Desktop/vscode/Genm-codex/v1.1-roadmap.md", content)
+
+    def test_p2_7_docs_reflect_phase2_fetch_snapshot_log_updates(self):
+        usage = (REPO_ROOT / "docs/00-当前有效/skill-usage.md").read_text(encoding="utf-8")
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        state_doc = (REPO_ROOT / "docs/00-当前有效/state-thinning-and-setting-sync.md").read_text(encoding="utf-8")
+        for token in ("--show-provider-config", "memory-context", "trace log", "snapshot artifact", "content-positioning"):
+            self.assertIn(token, usage + start_here + state_doc)
+        self.assertIn("auto-compile `launch-stack`", workflows)
+
+    def test_p2_8_profile_calibration_doc_is_currently_exposed(self):
+        calibration = (REPO_ROOT / "docs/00-当前有效/profile-calibration-and-bucket-mapping.md").read_text(encoding="utf-8")
+        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        index_doc = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
+        roadmap = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        for token in ("主 profile", "主 bucket", "strong_tags", "narrative_modes", "tone_guardrails"):
+            self.assertIn(token, calibration)
+        self.assertIn("profile-calibration-and-bucket-mapping.md", readme)
+        self.assertIn("profile-calibration-and-bucket-mapping.md", index_doc)
+        self.assertIn("Status: `[done]`", roadmap)
 
 
 if __name__ == "__main__":

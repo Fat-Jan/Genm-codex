@@ -5,8 +5,8 @@
 如果你在当前仓库里需要“真值文件怎么用”的入口，优先看：
 
 - [Truth Files Spec](./truth-files-spec.md)
-- [gate-triage.md](../../docs/gate-triage.md)
-- [state-thinning-and-setting-sync.md](../../docs/state-thinning-and-setting-sync.md)
+- [gate-triage.md](../../docs/00-当前有效/gate-triage.md)
+- [state-thinning-and-setting-sync.md](../../docs/00-当前有效/state-thinning-and-setting-sync.md)
 
 项目内最常见的 truth files 是：
 

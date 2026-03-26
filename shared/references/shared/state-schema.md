@@ -15,37 +15,51 @@ version: "1.0"
 
 ```json
 {
+  "version": "5.0",
   "entities": {
     "characters": {
       "protagonist": {
         "name": "",
         "power": { "realm": "", "level": "", "layer": 0 },
-        "location": "",
+        "location": { "current": "", "origin": "" },
         "inventory": [],
         "abilities": [],
         "status": [],
         "current_goals": [],
+        "known_secrets": [],
         "recent_events": []
       },
       "active": []
     },
-    "items": { "tracked": [] },
-    "locations": { "current": "", "previous": "", "visited": [] },
+    "items": { "tracked": [], "protagonist_inventory": [] },
+    "locations": { "current": "", "visited": [], "important": [] },
     "factions": { "active": [] }
   },
   "plot_threads": {
-    "foreshadowing": { "active": [], "resolved": [] }
+    "foreshadowing": { "active": [], "pending": [], "warning": [], "overdue": [], "resolved": [] },
+    "suspense": { "active": [], "resolved": [] },
+    "main_quest": { "target": "", "location": "", "secret": "", "progress": 0 },
+    "side_quests": []
   },
   "knowledge_base": {
     "reader_knows": [],
     "protagonist_knows": [],
-    "protagonist_unknown": []
+    "protagonist_doesnt_know": [],
+    "key_revelations": []
   },
   "reading_power_state": {
     "active_hooks": [],
     "hook_history": [],
     "micro_fulfillment_log": [],
     "cool_point_log": []
+  },
+  "learned_patterns": {},
+  "market_adjustments": {},
+  "genre_profile": {
+    "loaded": "shared/profiles/xuanhuan/profile.yaml"
+  },
+  "active_context": {
+    "sidecar_file": ".mighty/active-context.json"
   },
   "chapter_snapshots": {},
   "summaries_index": {},
@@ -57,6 +71,49 @@ version: "1.0"
 
 ## 一、实体结构 (entities)
 
+## 0.6 题材配置轻量投影 (`genre_profile`)
+
+`genre_profile` 只保留从 shared profile contract 投影出来的最小运行态字段，不保留整份 raw profile。
+
+推荐字段：
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| loaded | string | 当前生效 profile 路径 |
+| positioning_sidecar | string | 组合题材定位 sidecar 路径，默认 `.mighty/content-positioning.json` |
+| 节奏 | object | 从 profile `pacing` 投影的轻量摘要 |
+| 爽点密度 | number/string | 从 profile `cool_points.density` 或兼容字段投影 |
+| strand权重 | object | 从 profile `strand_weights` 投影 |
+| 特殊约束 | object[] | 从 profile `constraints` 投影 |
+| bucket | string | 可选，当前内容桶 |
+| tagpacks | string[] | 可选，主桶上的玩法 overlay |
+| strong_tags | string[] | 可选，平台表层强标签 |
+| narrative_modes | string[] | 可选，结构模式 |
+| tone_guardrails | string[] | 可选，风味与质量护栏 |
+
+约束：
+
+- `genre_profile` 是投影层，不是 raw profile dump
+- 长文本方法论、对白模板、场景模板等不应直接复制进 `state.json`
+- 真正的题材源仍在 `shared/profiles/*`
+
+### 0.7 组合题材定位 sidecar (`content-positioning`)
+
+当项目需要承载组合题材 / 多主题卖点 / 群像结构模式时：
+
+- `state.genre_profile` 只保留轻量镜像
+- 更完整的组合定位解释应写入 `.mighty/content-positioning.json`
+
+建议 sidecar 至少保留：
+
+- `primary_profile`
+- `primary_bucket`
+- `tagpacks`
+- `strong_tags`
+- `narrative_modes`
+- `tone_guardrails`
+- `compiler_output`
+
 ### 1.1 主角结构 (entities.characters.protagonist)
 
 ```json
@@ -67,11 +124,15 @@ version: "1.0"
     "level": "三层",
     "layer": 3
   },
-  "location": "青云宗内门",
+  "location": {
+    "current": "青云宗内门",
+    "origin": "青云宗外门"
+  },
   "inventory": ["青云剑", "入门令牌"],
   "abilities": ["基础剑法", "青云诀一层"],
   "status": ["健康"],
   "current_goals": ["突破炼气四层", "参加宗门大比"],
+  "known_secrets": [],
   "recent_events": ["突破炼气期", "结识李青云"]
 }
 ```
@@ -85,7 +146,7 @@ version: "1.0"
 | power.realm | string | 境界名称（如：炼气、筑基、金丹） |
 | power.level | string | 境界等级（如：一层、三层） |
 | power.layer | number | 层数（用于数值比较） |
-| location | string | 当前位置 |
+| location | object/string | 当前推荐对象形态：`{current, origin}`；兼容旧字符串形态 |
 | inventory | string[] | 持有物品列表 |
 | abilities | string[] | 已掌握能力/功法 |
 | status | string[] | 状态标签（健康、受伤等） |
@@ -100,7 +161,7 @@ version: "1.0"
     "name": "李青云",
     "role": "supporting",
     "identity": "青云宗内门弟子",
-    "relation_to_protagonist": "师兄",
+    "relationship": "师兄",
     "power": {
       "realm": "筑基",
       "level": "三层",
@@ -120,7 +181,8 @@ version: "1.0"
 | name | string | 角色姓名 |
 | role | string | 角色类型：protagonist/supporting/antagonist/minor |
 | identity | string | 身份描述 |
-| relation_to_protagonist | string | 与主角关系 |
+| relationship | string | 当前推荐的与主角关系字段 |
+| relation_to_protagonist | string | 历史兼容字段，旧项目可继续读 |
 | power | object | 境界信息（结构化，同主角） |
 | first_appearance | number | 首次出场章节 |
 | last_mention | number | 最近提及章节 |
@@ -131,25 +193,30 @@ version: "1.0"
 ```json
 {
   "tracked": [
+    "青云剑",
     {
-      "name": "青云剑",
-      "type": "武器",
-      "rank": "玄品下阶",
-      "owner": "林轩",
-      "status": "持有",
-      "first_appearance": 12
+      "name": "入门令牌",
+      "type": "凭证"
     }
-  ]
+  ],
+  "protagonist_inventory": ["青云剑", "入门令牌"]
 }
 ```
+
+说明：
+
+- `tracked` 当前兼容两种形态：
+  - 字符串列表
+  - 带 `name` 的对象列表
+- 新 consumer 应优先按“可从对象取 `name`，否则回落字符串”的方式读取
 
 ### 1.4 地点结构 (entities.locations)
 
 ```json
 {
   "current": "青云宗内门",
-  "previous": "青云宗外门",
-  "visited": ["青云宗外门", "后山", "青云宗内门", "藏经阁"]
+  "visited": ["青云宗外门", "后山", "青云宗内门", "藏经阁"],
+  "important": ["藏经阁"]
 }
 ```
 
@@ -158,11 +225,12 @@ version: "1.0"
 ```json
 {
   "active": [
+    "剑阁",
     {
-      "name": "剑阁",
+      "name": "青云宗",
       "type": "宗门势力",
       "stance": "neutral",
-      "relation_to_protagonist": "中立",
+      "relationship": "中立",
       "first_appearance": 3,
       "key_members": ["李青云", "王长老"]
     }
@@ -177,7 +245,8 @@ version: "1.0"
 | name | string | 势力名称 |
 | type | string | 势力类型：宗门势力/家族/联盟/组织 |
 | stance | string | 立场：friendly/neutral/hostile |
-| relation_to_protagonist | string | 与主角关系描述 |
+| relationship | string | 当前推荐的与主角关系描述字段 |
+| relation_to_protagonist | string | 历史兼容字段，旧项目可继续读 |
 | first_appearance | number | 首次出现章节 |
 | key_members | string[] | 关键成员列表 |
 
@@ -236,7 +305,7 @@ version: "1.0"
   "protagonist_knows": [
     "自己有神秘身世"
   ],
-  "protagonist_unknown": [
+  "protagonist_doesnt_know": [
     "身世真相",
     "玉佩完整功能"
   ]
@@ -249,7 +318,8 @@ version: "1.0"
 |------|------|
 | reader_knows | 读者已知但主角可能不知道的信息 |
 | protagonist_knows | 主角已知的信息 |
-| protagonist_unknown | 主角尚不知道的重要信息（用于信息差管理） |
+| protagonist_doesnt_know | 主角尚不知道的重要信息（当前推荐字段） |
+| protagonist_unknown | 历史兼容字段 |
 
 ---
 
@@ -477,6 +547,21 @@ version: "1.0"
 - `chapter_meta[N].content_standard_flags` 只在单章失格明确时写
 - `chapter_meta[N].packaging_alignment_note` 只保留一句包装承诺对齐判断
 - 这些字段都应保持轻量，不存课程长文
+
+### `learned_patterns` / `market_adjustments` externalize 兼容约定
+
+- 这两块当前允许两种合法形态：
+  - inline 完整对象
+  - externalized pointer summary
+- 当项目已经旁路到 sidecar 后，`state.json` 中推荐只保留：
+  - `externalized`
+  - `sidecar_file`
+  - `last_updated`
+  - 少量可直接判断的摘要字段
+- consumer 应遵循：
+  - 优先 sidecar
+  - sidecar 缺失时回落到 `state` inline 数据
+  - 不要假定只存在单一形态
 
 ### 起盘协议栈轻量约定
 

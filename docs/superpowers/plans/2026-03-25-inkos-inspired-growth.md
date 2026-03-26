@@ -47,9 +47,9 @@ Verification:
 - Modify: `skills/novel-resume/SKILL.md`
 - Modify: `scripts/post-task-maintenance.py`
 - Modify: `scripts/project-maintenance.py`
-- Modify: `docs/default-workflows.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 - Modify: `tests/test_inkos_growth_plan.py`
 - Modify: `tests/test_setting_gate.py`
 
@@ -80,7 +80,7 @@ Verification:
 - Modify: `skills/novel-query/SKILL.md`
 - Modify: `scripts/project-maintenance.py`
 - Modify: `scripts/thin-state.py`
-- Modify: `docs/state-thinning-and-setting-sync.md`
+- Modify: `docs/00-当前有效/state-thinning-and-setting-sync.md`
 - Modify: `shared/references/shared/state-schema.md`
 - Modify: `shared/templates/state-v5-template.json`
 - Modify: `tests/test_inkos_growth_plan.py`
@@ -102,7 +102,7 @@ Verification:
 - [ ] **Step 5: Update `skills/novel-write/SKILL.md` and `skills/novel-review/SKILL.md` so they explicitly prefer `.mighty/active-context.json` before broad chapter/state reads when it exists.**
 - [ ] **Step 6: Update `skills/novel-status/SKILL.md` and `skills/novel-query/SKILL.md` so they can explain whether the project has a fresh active context sidecar and what it summarizes.**
 - [ ] **Step 7: Update `scripts/project-maintenance.py` so active-context rebuild happens after maintenance-safe state changes and before thinning/archiving.**
-- [ ] **Step 8: Update `docs/state-thinning-and-setting-sync.md`, `shared/references/shared/state-schema.md`, and `shared/templates/state-v5-template.json` so `active-context` is documented as a sidecar/pointer layer rather than a new truth source.**
+- [ ] **Step 8: Update `docs/00-当前有效/state-thinning-and-setting-sync.md`, `shared/references/shared/state-schema.md`, and `shared/templates/state-v5-template.json` so `active-context` is documented as a sidecar/pointer layer rather than a new truth source.**
 - [ ] **Step 9: Re-run `python -m unittest tests.test_active_context -v tests.test_inkos_growth_plan -v` and verify the sidecar contract passes.**
 
 Verification:
@@ -120,7 +120,7 @@ Verification:
 - Modify: `skills/novel-close/SKILL.md`
 - Modify: `skills/novel-fix/SKILL.md`
 - Modify: `skills/novel-review/SKILL.md`
-- Modify: `docs/default-workflows.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
 - Modify: `tests/test_strong_quality_gate.py`
 - Modify: `tests/test_inkos_growth_plan.py`
 
@@ -180,8 +180,8 @@ Verification:
 - Modify: `scripts/acquire_source_text.py`
 - Modify: `tests/test_acquire_source_text.py`
 - Modify: `tests/test_writing_core_smoke.py`
-- Modify: `docs/phase-5b-p0-learn-smoke-plan.md`
-- Modify: `docs/phase-5b-p0-learn-smoke-results.md`
+- Modify: `docs/90-归档/阶段/phase-5b-p0-learn-smoke-plan.md`
+- Modify: `docs/90-归档/阶段/phase-5b-p0-learn-smoke-results.md`
 - Modify: `tests/test_inkos_growth_plan.py`
 
 - [ ] **Step 1: Add failing tests that `novel-learn` explicitly supports three source classes: current-project chapters, local files, and retrievable URLs.**
@@ -206,9 +206,9 @@ Verification:
 - Modify: `skills/novel-index/SKILL.md`
 - Modify: `skills/novel-sync/SKILL.md`
 - Modify: `skills/novel-query/SKILL.md`
-- Modify: `docs/default-workflows.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 - Modify: `tests/test_inkos_growth_plan.py`
 
 - [ ] **Step 1: Add failing tests for a conservative import bridge that accepts either a single text file or a chapter directory and produces an import report.**
@@ -240,7 +240,7 @@ Verification:
 - Modify: `scripts/thin-state.py`
 - Modify: `skills/novel-status/SKILL.md`
 - Modify: `skills/novel-query/SKILL.md`
-- Modify: `docs/state-thinning-and-setting-sync.md`
+- Modify: `docs/00-当前有效/state-thinning-and-setting-sync.md`
 - Modify: `tests/test_inkos_growth_plan.py`
 
 - [ ] **Step 1: Add failing tests for a new longform summary artifact such as `.mighty/volume-summaries.json` or a similarly narrow sidecar.**
@@ -258,7 +258,7 @@ Verification:
 
 **Files:**
 - Modify: `progress.md` only if a local planning workflow is active
-- Modify: `docs/phase-*.md` only if the repo needs a durable project-history note for landed growth facts
+- Modify: `docs/90-归档/阶段/phase-*.md` only if the repo needs a durable project-history note for landed growth facts
 
 - [ ] **Step 1: Run the full targeted verification set once the lane is implemented:**
   - `python -m unittest tests.test_inkos_growth_plan -v`

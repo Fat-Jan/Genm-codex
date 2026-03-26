@@ -210,9 +210,9 @@ git commit -m "feat: add novel-close state trace fields"
 
 **Files:**
 - Modify: `README.md`
-- Modify: `docs/default-workflows.md`
-- Modify: `docs/skill-usage.md`
-- Modify: `docs/start-here.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
+- Modify: `docs/00-当前有效/start-here.md`
 
 - [ ] **Step 1: Update the installed-skill / workflow entry points**
 
@@ -250,7 +250,7 @@ git commit -m "feat: add novel-close state trace fields"
 Run:
 
 ```bash
-rg -n "novel-close" README.md docs/default-workflows.md docs/skill-usage.md docs/start-here.md
+rg -n "novel-close" README.md docs/00-当前有效/default-workflows.md docs/00-当前有效/skill-usage.md docs/00-当前有效/start-here.md
 ```
 
 Expected: each entry point contains at least one accurate `novel-close` mention
@@ -258,7 +258,7 @@ Expected: each entry point contains at least one accurate `novel-close` mention
 - [ ] **Step 6: Commit**
 
 ```bash
-git add README.md docs/default-workflows.md docs/skill-usage.md docs/start-here.md
+git add README.md docs/00-当前有效/default-workflows.md docs/00-当前有效/skill-usage.md docs/00-当前有效/start-here.md
 git commit -m "docs: surface novel-close in user workflows"
 ```
 

@@ -73,8 +73,8 @@ Expected: PASS
 ### Task 3: Document the New Optional Handoff
 
 **Files:**
-- Modify: `docs/skill-usage.md`
-- Modify: `docs/default-workflows.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
 - Modify: `skills/novel-scan/SKILL.md`
 
 - [ ] **Step 1: Update docs**

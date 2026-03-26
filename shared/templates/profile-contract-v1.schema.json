@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "profile-contract-v1.schema.json",
+  "title": "Genm Codex Profile Contract v1",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "source_path",
+    "name",
+    "display_name",
+    "description",
+    "version",
+    "template",
+    "pacing",
+    "cool_points",
+    "strand_weights",
+    "constraints",
+    "reader_expectations",
+    "taboos",
+    "notes"
+  ],
+  "properties": {
+    "contract_version": {"type": "string"},
+    "source_path": {"type": "string"},
+    "name": {"type": "string"},
+    "display_name": {"type": "string"},
+    "description": {"type": "string"},
+    "version": {"type": ["string", "number"]},
+    "template": {"type": "string"},
+    "pacing": {
+      "type": "object",
+      "required": ["type", "tension_ratio", "typical_chapter_length", "word_count"],
+      "properties": {
+        "type": {"type": ["string", "null"]},
+        "tension_ratio": {"type": ["string", "null"]},
+        "typical_chapter_length": {"type": ["number", "string", "null"]},
+        "word_count": {
+          "type": "object",
+          "properties": {
+            "minimum": {"type": ["number", "string"]},
+            "standard": {"type": ["number", "string"]},
+            "long": {"type": ["number", "string"]}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "cool_points": {
+      "type": "object",
+      "required": ["density", "max_interval"],
+      "properties": {
+        "density": {"type": ["number", "string", "null"]},
+        "max_interval": {"type": ["number", "string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "strand_weights": {
+      "type": "object",
+      "properties": {
+        "quest": {"type": ["number", "string"]},
+        "fire": {"type": ["number", "string"]},
+        "constellation": {"type": ["number", "string"]}
+      },
+      "additionalProperties": false
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "mandatory", "checkpoint"],
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string"},
+          "mandatory": {"type": "boolean"},
+          "checkpoint": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "reader_expectations": {
+      "type": "object",
+      "required": ["must_satisfy", "optional_satisfy", "must_not"],
+      "properties": {
+        "must_satisfy": {"type": "array", "items": {"type": "string"}},
+        "optional_satisfy": {"type": "array", "items": {"type": "string"}},
+        "must_not": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "taboos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "mandatory", "checkpoint", "severity"],
+        "properties": {
+          "id": {"type": "string"},
+          "description": {"type": "string"},
+          "mandatory": {"type": "boolean"},
+          "checkpoint": {"type": ["string", "null"]},
+          "severity": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "object",
+      "required": [
+        "has_dialogue_templates",
+        "has_scene_description",
+        "has_sub_genres",
+        "has_progression_constraints"
+      ],
+      "properties": {
+        "has_dialogue_templates": {"type": "boolean"},
+        "has_scene_description": {"type": "boolean"},
+        "has_sub_genres": {"type": "boolean"},
+        "has_progression_constraints": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

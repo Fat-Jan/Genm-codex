@@ -277,8 +277,8 @@ This keeps the user-facing workflow simpler without hiding the underlying qualit
 1. Add `skills/novel-close/SKILL.md`
 2. Wire its workflow rules against existing route semantics
 3. Extend lightweight chapter state with close-trace fields if needed
-4. Update `docs/default-workflows.md`
-5. Update `docs/skill-usage.md`
+4. Update `docs/00-当前有效/default-workflows.md`
+5. Update `docs/00-当前有效/skill-usage.md`
 6. Smoke-test at least:
    - polish route
    - fix route

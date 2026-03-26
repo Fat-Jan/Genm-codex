@@ -428,9 +428,9 @@ This is necessary for:
 - `scripts/sync-setting-assets.py`
 - `scripts/project-maintenance.py`
 - `scripts/post-task-maintenance.py`
-- `docs/start-here.md`
-- `docs/default-workflows.md`
-- `docs/skill-usage.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/00-当前有效/skill-usage.md`
 
 ## Rollout Order
 

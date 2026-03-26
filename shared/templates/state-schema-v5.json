@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "state-schema-v5.json",
+  "title": "Genm Codex State v5",
+  "type": "object",
+  "required": ["version", "meta", "progress", "entities", "plot_threads", "knowledge_base"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "type": ["string", "number"]
+    },
+    "meta": {
+      "type": "object"
+    },
+    "progress": {
+      "type": "object"
+    },
+    "entities": {
+      "type": "object",
+      "required": ["characters", "items", "locations"],
+      "properties": {
+        "characters": {
+          "type": "object",
+          "required": ["protagonist"],
+          "properties": {
+            "protagonist": {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "location": {
+                  "oneOf": [
+                    {"type": "string"},
+                    {
+                      "type": "object",
+                      "properties": {
+                        "current": {"type": "string"},
+                        "origin": {"type": "string"},
+                        "previous": {"type": "string"}
+                      },
+                      "additionalProperties": true
+                    }
+                  ]
+                },
+                "inventory": {
+                  "type": "array"
+                }
+              },
+              "additionalProperties": true
+            },
+            "active": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {"type": "string"},
+                  "role": {"type": "string"},
+                  "relationship": {"type": "string"},
+                  "relation_to_protagonist": {"type": "string"}
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "tracked": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {"type": "string"},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {"type": "string"}
+                    },
+                    "required": ["name"],
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            },
+            "protagonist_inventory": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {"type": "string"},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {"type": "string"}
+                    },
+                    "required": ["name"],
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "locations": {
+          "type": "object",
+          "properties": {
+            "current": {"type": "string"},
+            "visited": {"type": "array"},
+            "important": {"type": "array"}
+          },
+          "additionalProperties": true
+        },
+        "factions": {
+          "type": "object",
+          "properties": {
+            "active": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {"type": "string"},
+                  {
+                    "type": "object",
+                    "properties": {
+                      "name": {"type": "string"}
+                    },
+                    "required": ["name"],
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "plot_threads": {
+      "type": "object"
+    },
+    "knowledge_base": {
+      "type": "object",
+      "properties": {
+        "reader_knows": {"type": "array"},
+        "protagonist_knows": {"type": "array"},
+        "protagonist_unknown": {"type": "array"},
+        "protagonist_doesnt_know": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "quality_metrics": {
+      "type": "object"
+    },
+    "learned_patterns": {
+      "oneOf": [
+        {
+          "type": "object",
+          "not": {
+            "required": ["externalized"]
+          },
+          "required": ["writing_style_preferences"],
+          "properties": {
+            "writing_style_preferences": {"type": "object"},
+            "high_point_preferences": {},
+            "avoid_patterns": {},
+            "opening_strategy": {},
+            "multi_line_guardrails": {},
+            "content_standard_alerts": {},
+            "recent_guardrails": {
+              "type": "object",
+              "properties": {
+                "must_avoid": {"type": "array"},
+                "must_preserve": {"type": "array"},
+                "next_chapter_watchpoints": {"type": "array"},
+                "expires_after_chapter": {
+                  "type": ["integer", "null"]
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        {
+          "type": "object",
+          "required": ["externalized", "sidecar_file"],
+          "properties": {
+            "externalized": {"const": true},
+            "sidecar_file": {"type": "string"},
+            "last_updated": {"type": ["string", "null"]},
+            "available_sections": {"type": "array"},
+            "has_recent_guardrails": {"type": "boolean"},
+            "recent_guardrails_expires_after_chapter": {
+              "type": ["integer", "null"]
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "market_adjustments": {
+      "oneOf": [
+        {
+          "type": "object",
+          "not": {
+            "required": ["externalized"]
+          },
+          "required": ["adjustments"],
+          "properties": {
+            "last_applied": {"type": ["string", "null"]},
+            "source_scan": {},
+            "adjustments": {"type": "array"}
+          },
+          "additionalProperties": true
+        },
+        {
+          "type": "object",
+          "required": ["externalized", "sidecar_file"],
+          "properties": {
+            "externalized": {"const": true},
+            "sidecar_file": {"type": "string"},
+            "last_updated": {"type": ["string", "null"]},
+            "last_applied": {"type": ["string", "null"]},
+            "source_scan": {},
+            "adjustment_count": {"type": "integer"}
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "genre_profile": {
+      "type": "object",
+      "properties": {
+        "loaded": {"type": "string"},
+        "bucket": {"type": "string"},
+        "tagpacks": {"type": "array", "items": {"type": "string"}},
+        "strong_tags": {"type": "array", "items": {"type": "string"}},
+        "narrative_modes": {"type": "array", "items": {"type": "string"}},
+        "tone_guardrails": {"type": "array", "items": {"type": "string"}},
+        "positioning_sidecar": {"type": "string"},
+        "节奏": {"type": "object"},
+        "爽点密度": {"type": ["number", "string"]},
+        "strand权重": {"type": "object"},
+        "特殊约束": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "active_context": {
+      "type": "object",
+      "required": ["sidecar_file"],
+      "properties": {
+        "sidecar_file": {"type": "string"},
+        "last_built": {"type": ["string", "null"]},
+        "summary_window": {
+          "type": "object",
+          "properties": {
+            "count": {"type": "integer"},
+            "recent_count": {"type": "integer"},
+            "latest_chapter": {"type": ["string", "integer", "null"]}
+          },
+          "additionalProperties": true
+        },
+        "hook_count": {"type": "integer"},
+        "guardrail_count": {"type": "integer"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

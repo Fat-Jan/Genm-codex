@@ -55,7 +55,7 @@ Always read what exists:
 Read conditionally:
 
 - `README.md`
-- `docs/skill-usage.md`
+- `docs/00-当前有效/skill-usage.md`
 
 ## Workflow
 

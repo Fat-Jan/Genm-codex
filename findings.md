@@ -8,12 +8,12 @@
 
 ## Research Findings
 - 项目级约定要求：复杂任务先调研代码、数据流和现有约定，再实施
-- 项目对首次进入仓库的快速入口强调 `README.md`、`docs/start-here.md`、`docs/skill-usage.md` 与阶段文档
+- 项目对首次进入仓库的快速入口强调 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md` 与阶段文档
 - `planning-with-files` 适用于超过 5 次工具调用的复杂任务，并要求在项目根创建 `task_plan.md`、`findings.md`、`progress.md`
 - `novel-outline` 当前负责上游结构约束，显式读取 `shared` 资产和若干 `docs/` 规则文件，但没有“反脸谱化/群像校准”层
 - `novel-review` 当前负责下游质量路由与 state 回写，已有 bucket / technique / tagpack 检查，但没有角色立场、叙事权、群像失衡的统一审计层
-- `docs/phase-9-summary.md` 与 `docs/phase-9b-quality-loop-design.md` 已把项目方向收束为“包装生成层 + 质量闭环整合”，新增体系应更像质量闭环扩层，而不是平行新 skill
-- `docs/default-workflows.md` 已把 `novel-outline -> novel-write -> novel-review -> fix/polish/rewrite` 固化为默认主线，因此接线优先级应放在 `outline` 和 `review`
+- `docs/90-归档/阶段/phase-9-summary.md` 与 `docs/90-归档/阶段/phase-9b-quality-loop-design.md` 已把项目方向收束为“包装生成层 + 质量闭环整合”，新增体系应更像质量闭环扩层，而不是平行新 skill
+- `docs/00-当前有效/default-workflows.md` 已把 `novel-outline -> novel-write -> novel-review -> fix/polish/rewrite` 固化为默认主线，因此接线优先级应放在 `outline` 和 `review`
 - 仓库现有规则型文档主要落在 `docs/`，skill 通过相对路径显式读取；`shared/` 更偏源仓库同步资产，不适合作为本次手工维护主承载层
 - `validate-migration.sh` 在本轮改动后仍通过，说明新增文档与 skill 接线没有破坏迁移结构校验
 - 仓库当前为脏工作树，存在大量本任务无关改动；本次仅局部修改目标文档与 skill，避免误动其他变更
@@ -51,7 +51,7 @@
     - 直接通过型
     - 局部修补型
     - 上推重构型
-  - 并同步挂回 `docs/anti-flattening-framework/README.md` 与 `docs/default-workflows.md`
+  - 并同步挂回 `docs/anti-flattening-framework/README.md` 与 `docs/00-当前有效/default-workflows.md`
 - 第三条现实情感样本也已完成：
   - 副本：`smoke/e2e-qinggan-evil-antiflattening-20260322`
   - 新建第004章章纲与正文
@@ -64,7 +64,7 @@
   - `chapter_meta["4"].review_score = 87`
   - `recommended_next_action = novel-write`
   - 这条线验证了“系统是否把人压成任务对象 / 主角是否吞掉他人人生主权”
-- 已新增 `docs/phase-17-summary.md`
+- 已新增 `docs/90-归档/阶段/phase-17-summary.md`
   - 正式把本轮工作写入项目阶段历史
   - 结论是：反脸谱化体系已具备作为默认质量链子层长期保留的条件
 
@@ -84,11 +84,11 @@
 
 ## Resources
 - `README.md`
-- `docs/start-here.md`
-- `docs/skill-usage.md`
-- `docs/default-workflows.md`
-- `docs/phase-9-summary.md`
-- `docs/phase-9b-quality-loop-design.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/skill-usage.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/90-归档/阶段/phase-9-summary.md`
+- `docs/90-归档/阶段/phase-9b-quality-loop-design.md`
 - `docs/anti-flattening-framework/README.md`
 - `docs/anti-flattening-framework/01-总纲.md`
 - `docs/anti-flattening-framework/11-检查清单与评分规约.md`
@@ -99,7 +99,7 @@
 - `docs/anti-flattening-framework/workflow-usage-guide-2026-03-22.md`
 - `docs/anti-flattening-framework/cross-genre-smoke-realistic-divorce-2026-03-22.md`
 - `docs/anti-flattening-framework/cross-genre-smoke-system-taskline-2026-03-22.md`
-- `docs/phase-17-summary.md`
+- `docs/90-归档/阶段/phase-17-summary.md`
 - `skills/novel-outline/SKILL.md`
 - `skills/novel-review/SKILL.md`
 - `skills/novel-fix/SKILL.md`
@@ -195,6 +195,182 @@
 
 ---
 
+# Findings & Decisions: 2026-03-25 架构审查与扩展路径
+
+## Requirements
+- 用户要求检查项目整体架构是否合理
+- 用户明确允许使用 agent teams 并行调研
+- 需要同时回答“当前是否合理”和“后续继续扩展时应如何处理路径优化、功能新增和治理收口”
+
+## Research Findings
+- 当前整体分层方向是合理的：
+  - `skills/` 承载行为合同
+  - `docs/` 承载方法论与工作流说明
+  - `shared/` 承载上游同步资产
+  - `scripts/` 承载执行型自动化
+  - `projects/` / `smoke/` / `e2e-novel/` 承载样本和验证
+- 仓库规模已经进入“架构仍清楚，但承载方式开始变重”的阶段：
+  - `skills/` 目录数：31
+  - `docs/*.md` 数：271
+  - `scripts/` 文件数：20
+  - `tests/test_*.py` 数：14
+- 高频 skill 已出现规则装载平铺复制：
+  - `skills/novel-write/SKILL.md`
+  - `skills/novel-review/SKILL.md`
+  - `skills/novel-outline/SKILL.md`
+  - `skills/novel-precheck/SKILL.md`
+  - `skills/novel-package/SKILL.md`
+  这些文件都显式列出大量 `../../docs/*` 与 `../../shared/*` 路径，且重复维护规则叠加顺序
+- 关键 skill 文档体量已经偏大：
+  - `novel-package`: 371 行
+  - `novel-precheck`: 350 行
+  - `novel-write`: 348 行
+  - `novel-review`: 338 行
+  - `novel-outline`: 270 行
+  - `novel-close`: 197 行
+- 全仓 `SKILL.md` 中出现的路径引用已明显偏多：
+  - `../../docs/` 383 次
+  - `.mighty/` 260 次
+  - `设定集/` 117 次
+  - `../../shared/` 49 次
+- `state` 契约已出现明显漂移：
+  - `shared/references/shared/state-schema.md` 声称自己是唯一结构真值
+  - 但 `shared/templates/state-v5-template.json` 与其并不同构
+  - 明显差异包括：
+    - schema 把 `entities.characters.protagonist.location` 写成字符串，模板是对象
+    - schema 有 `entities.factions`，模板无该顶层
+    - 模板有 `market_adjustments` / `character_states` / `setting_versions` / `dungeons` / `teammates`，schema未完整覆盖
+    - `launch_stack_*` 在 schema 的 `chapter_meta` 扩展表中出现，但模板与脚本实际放在 state 顶层
+- `shared/` 也已不再是纯镜像：
+  - README 仍把它定义为从 `Genm` 同步而来
+  - 但仓库里已经存在本仓自增的 `shared/references/*` 与 `shared/templates/*`
+  - `sync-shared-from-genm.sh` 仍采用 `rm -rf + cp -R` 的整包覆盖模式，后续有真实覆盖风险
+- 入口文档存在职责重叠：
+  - `README.md`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/default-workflows.md`
+  - `docs/00-当前有效/skill-usage.md`
+  这四者都在重复主流程、命令示例和 sidecar 说明
+- 测试护栏是存在的，而且总体运行健康：
+  - `bash scripts/validate-migration.sh` 通过
+  - `pytest -q` 通过：`204 passed, 192 subtests passed`
+- 但测试结构仍偏“存在性 / token / 链接审计”，对运行时契约一致性的保护不足：
+  - `tests/test_repo_path_integrity.py` 只抽查极少数 skill/doc
+  - `tests/test_fanqie_launch_stack.py` 与 `tests/test_writing_core_framework.py` 主要校验 token 和产物存在
+  - 尚缺针对 `state schema <-> template <-> scripts` 的一致性测试
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 判断当前架构“总体合理，但已接近需要收敛治理的拐点” | 分层方向清楚、验证链存在，但单一事实源与路径治理已开始漂移 |
+| 将 `state/schema/template/script` 不一致认定为最高优先级问题 | 这是所有后续扩展最容易放大为系统性漂移的根因 |
+| 将 `shared` 镜像假设失效认定为第二优先级问题 | 现有同步脚本具备覆盖本仓活依赖的现实风险 |
+| 将 skill 规则装载复制认定为第三优先级问题 | 后续每新增一个规则层，维护成本会以乘法方式增长 |
+| 将入口文档收敛和 sidecar 注册表视为扩展期必要治理 | 后续新增平台/功能时，否则先失控的是路径和入口，而不是功能本身 |
+
+## Recommended Roadmap
+1. P0：统一 `state` 真值
+   - 新增机器可校验的 JSON Schema
+   - 让 `state-v5-template.json` 与脚本消费字段对齐
+   - 为 `setting_gate` / `fanqie_launch_stack` / `thin-state` / `sync` 补一致性测试
+2. P1：补三份静态索引
+   - `skills manifest`：目录名 / frontmatter 名 / aliases / 是否安装
+   - `reference bundle index`：高频规则包与能力包入口
+   - `sidecar registry`：文件名 / owner / 镜像字段 / 消费者 / version
+3. P1：收敛入口文档职责
+   - `docs/00-当前有效/default-workflows.md` 成为唯一工作流真源
+   - `docs/00-当前有效/start-here.md` 只保留首次上手入口
+   - `docs/00-当前有效/skill-usage.md` 只保留安装名 / 触发名 / 示例
+   - `README.md` 只保留最短启动说明和跳转
+4. P2：收窄 skill 边界
+   - `novel-outline` 不再继续吸纳 bootstrap / truth-sheet 维护职责
+   - `novel-write` 不再继续吸纳 maintenance 叙述
+   - `novel-sync` 聚焦同步，不再承担 thin-state / guidance split 叙述
+5. P2：shared 治理改造
+   - 明确区分“源仓同步资产”和“本仓扩展资产”
+   - `sync-shared-from-genm.sh --report-json` 输出差异文件、orphan、影响域
+   - 给本仓额外 shared 资产建立白名单或独立扩展目录
+6. P3：维护链轻量编排
+   - 把 `project-maintenance.py` 的硬编码步骤抽成轻量 pipeline manifest
+   - 不做插件系统，只做顺序、条件和阻断关系声明
+
+## Risks
+- `state` 统一会波及样本项目、smoke 项目和多个脚本，迁移时必须配回归
+- skill 路径清单收缩后，模型短期可能少读某些关键文档，需要 smoke 校准
+- 安装 manifest 上线后要兼容保留 `novel-*` 与 `genm-novel-*`
+- sidecar registry 若继续手工维护，会变成新的第二事实源，因此应优先生成或强测试约束
+
+## Resources
+- `README.md`
+- `docs/INDEX.md`
+- `docs/10-进行中/architecture-open-issues.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/00-当前有效/skill-usage.md`
+- `docs/90-归档/阶段/phase-9-summary.md`
+- `docs/90-归档/阶段/phase-7b-selective-sync-governance.md`
+- `docs/00-当前有效/shared-asset-dependency-map.md`
+- `docs/00-当前有效/state-thinning-and-setting-sync.md`
+- `skills/novel-init/SKILL.md`
+- `skills/novel-outline/SKILL.md`
+- `skills/novel-write/SKILL.md`
+- `skills/novel-review/SKILL.md`
+- `skills/novel-precheck/SKILL.md`
+- `skills/novel-package/SKILL.md`
+- `skills/novel-sync/SKILL.md`
+- `shared/references/shared/state-schema.md`
+- `shared/templates/state-v5-template.json`
+- `scripts/install-skills.sh`
+- `scripts/validate-migration.sh`
+- `scripts/sync-shared-from-genm.sh`
+- `scripts/setting_gate.py`
+- `scripts/project-maintenance.py`
+- `scripts/fanqie_launch_stack.py`
+- `tests/test_repo_path_integrity.py`
+- `tests/test_markdown_link_audit.py`
+- `tests/test_issue_regressions.py`
+- `tests/test_setting_gate.py`
+- `tests/test_fanqie_launch_stack.py`
+- `tests/test_writing_core_framework.py`
+
+## Recheck After Commit `a953957`
+- 最新提交 `a953957 Turn Genm-codex into a more transactional and sidecar-driven writing system` 明显扩大了架构审查范围：
+  - 新增 `chapter transaction`
+  - 新增 `.mighty/active-context.json`
+  - 新增 `.mighty/volume-summaries.json`
+  - 新增 `.mighty/import-report.json`
+  - 新增 `post_write_lint`
+- 这次升级的方向整体是加分项：
+  - 它没有引入独立 CLI/runtime
+  - 仍然围绕现有 `docs + skills + scripts + sidecars` 骨架增强默认工作流
+  - `import-report` / `volume-summaries` / `active_context` 的边界总体克制
+- 但它也把原本已经存在的两类问题进一步放大：
+  1. `state/schema/template/script` 契约未统一
+  2. `shared` 仍是可被整域覆盖的同步目录，但现在又继续承载 repo-local contract/template
+- 本轮最新确认的问题：
+  - `shared/references/shared/state-schema.md` 顶部示例仍是旧 shape，且与 `shared/templates/state-v5-template.json`、`scripts/split-runtime-guidance.py` 的 externalized shape 不一致
+  - `scripts/build_active_context.py` 对 `factions.active` / `items.tracked` 的消费 shape 与 `state-schema.md` 不一致，会静默丢失 schema 合法数据
+  - `recent_guardrails` 现在既存在 `.mighty/learned-patterns.json`，又被复制进 `.mighty/active-context.json`，有 sidecar freshness drift 风险
+  - `shared/references/shared/chapter-transaction-schema.md` 与 `shared/templates/workflow-state-v2.json` 已形成良好契约，但 `project-maintenance.py` / `post-task-maintenance.py` 还没有真正把 workflow-state 写回成机械闭环
+  - `scripts/post_write_lint.py` 直接 `import strong_quality_gate`，在根目录执行相关 unittest 时会触发 `ModuleNotFoundError`
+  - `scripts/sync-shared-from-genm.sh` 仍保留 `rm -rf + cp -R` 语义，而 `shared/` 已含 repo-only 文件与同名漂移文件，真实覆盖风险仍在
+- 本轮重新确认的结论：
+  - 当前架构“方向合理，复杂度也有一部分是必要复杂度”
+  - 真正值得优先治理的是：
+    - `state/schema/template/script` 机械真值层
+    - `shared` 同步目录与 repo-local contract 的分离
+    - 顶层入口文档职责收口
+    - maintenance 最终态与 sidecar 生命周期的一致性验证
+- 本轮验证结果：
+  - `pytest -q` 通过：`248 passed, 192 subtests passed`
+- `bash scripts/validate-migration.sh` 通过
+  - 但针对 `post_write_lint` 的定向 unittest 在仓库根实跑会因导入路径报错
+- 已新增长期治理台账：
+  - `docs/10-进行中/architecture-open-issues.md`
+  - 用于记录当前确认但尚未完全收口的问题，而不是继续只停留在会话或 memory 中
+
+---
+
 # Findings & Decisions: 写作基本功与内容标准规则层
 
 ## Requirements
@@ -209,7 +385,7 @@
   - review / precheck 可消费的 `内容标准`
   - `learned_patterns` / `chapter_meta` 可落地的压缩信号约定
   - `novel-package` 可直接读取的开篇包装输入接口
-- `shared/references/shared/state-schema.md` 与 `docs/state-thinning-and-setting-sync.md` 已明确 state 应保持轻量，适合继续把新增信号压在 `learned_patterns` 和 `chapter_meta`
+- `shared/references/shared/state-schema.md` 与 `docs/00-当前有效/state-thinning-and-setting-sync.md` 已明确 state 应保持轻量，适合继续把新增信号压在 `learned_patterns` 和 `chapter_meta`
 - `docs/fanqie-writing-techniques.md` 与 `docs/research/fanqie/fanqie-writer-zone-lessons.md` 提供了足够的源材料，但此前仍以提炼文档形态存在，没有被重组为新的方法论框架
 - 本轮已新增 `docs/writing-core-framework/`，包含：
   - `README.md`
@@ -222,7 +398,7 @@
   - `07-memory-压缩信号约定.md`
   - `08-开篇包装输入接口.md`
 - `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` / `novel-learn` 已完成显式读取接线
-- `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 已增加新框架入口
+- `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md` 已增加新框架入口
 - `shared/templates/state-v5-template.json` 已增加：
   - `learned_patterns.opening_strategy`
   - `learned_patterns.multi_line_guardrails`
@@ -443,14 +619,14 @@
 - 当前仓库最稳的承载方式仍是：`docs/` 方法论文档作为单一事实源，skill 通过显式相对路径读取
 - `docs/anti-flattening-framework/README.md` 已提供成熟模板：
   - `README + 模块文档 + skill 读取包 + 规则优先级`
-- `docs/phase-9-summary.md` 说明项目主方向仍是“包装生成层 + 质量闭环整合”，因此新框架应作为默认工作流规则层接入，而不是独立实验能力
+- `docs/90-归档/阶段/phase-9-summary.md` 说明项目主方向仍是“包装生成层 + 质量闭环整合”，因此新框架应作为默认工作流规则层接入，而不是独立实验能力
 - `skills/novel-write/SKILL.md`、`skills/novel-outline/SKILL.md`、`skills/novel-review/SKILL.md` 已支持按需读取多组项目内文档，说明新增框架不需要新建命令
 - `skills/novel-review/SKILL.md` 已有 `chapter_meta[chapter].dimension_scores` 写回位点，适合承载轻量增强评分键
 - `shared/references/shared/state-schema.md` 已明确：
   - 不要为局部规则新造顶层 state 中心
   - 可通过 `chapter_meta` 和可选评分键做轻量持久化
 - `docs/fanqie-writing-techniques.md` 已有对“开头与黄金三章”“剧情稳定与悬念交替”的项目级提炼，可作为这次通用框架的重要参考，而不必从零起草
-- 仓库当前是脏工作树，且 `README.md`、`docs/default-workflows.md`、`docs/skill-usage.md`、若干 skill 已有未提交改动；本次必须局部增量修改，不能回滚既有内容
+- 仓库当前是脏工作树，且 `README.md`、`docs/00-当前有效/default-workflows.md`、`docs/00-当前有效/skill-usage.md`、若干 skill 已有未提交改动；本次必须局部增量修改，不能回滚既有内容
 - 已新增 `docs/opening-and-plot-framework/`：
   - `README.md`
   - `01-开篇目标与成功标准.md`
@@ -460,7 +636,7 @@
   - `05-推进链与残账设计.md`
   - `06-题材特化接口.md`
 - `novel-outline` / `novel-write` / `novel-review` / `novel-precheck` / `novel-package` 已完成显式路径接线
-- `README.md`、`docs/start-here.md`、`docs/skill-usage.md`、`docs/default-workflows.md` 已补新框架入口
+- `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md` 已补新框架入口
 - `shared/references/shared/state-schema.md` 与 `shared/templates/state-v5-template.json` 已补轻量评分键：
   - `开篇抓力`
   - `层次清晰度`
@@ -741,13 +917,13 @@
 
 ## Resources
 - `README.md`
-- `docs/start-here.md`
-- `docs/skill-usage.md`
-- `docs/default-workflows.md`
-- `docs/phase-9-summary.md`
-- `docs/phase-17-summary.md`
+- `docs/00-当前有效/start-here.md`
+- `docs/00-当前有效/skill-usage.md`
+- `docs/00-当前有效/default-workflows.md`
+- `docs/90-归档/阶段/phase-9-summary.md`
+- `docs/90-归档/阶段/phase-17-summary.md`
 - `docs/fanqie-writing-techniques.md`
-- `docs/state-thinning-and-setting-sync.md`
+- `docs/00-当前有效/state-thinning-and-setting-sync.md`
 - `docs/anti-flattening-framework/README.md`
 - `docs/anti-flattening-framework/11-检查清单与评分规约.md`
 - `docs/opening-and-plot-framework/README.md`
@@ -874,3 +1050,149 @@
 - `docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 - `scripts/fanqie_launch_stack.py`
 - `tests/test_fanqie_launch_stack.py`
+
+---
+
+# Findings & Decisions: 信息架构状态化重构
+
+## Requirements
+- 用户明确要求不要继续只靠文档内容解释状态，而要让文件夹本身表达状态
+- 用户指出这不是单个文档的问题，而是整个项目的通病
+- 用户要求直接按最优方案执行，而不是继续停留在方案层
+
+## Research Findings
+- 当前仓库的核心问题不是“缺少索引”，而是“文件系统不表达状态”
+- 根层 `docs/` 之前把以下几类文档混放：
+  - 当前有效入口
+  - 未决问题
+  - 评审简报
+  - phase / release / RC / migration 历史
+- 这种混放导致：
+  - 不打开文件就无法判断当前状态
+  - “已完成 / 进行中 / 归档”无法靠目录感知
+  - 日常使用成本高，且容易误把历史文档当成当前真源
+- 仅增加 `架构问题跟踪.md` 这种入口文件不够，必须把状态分类写进目录结构
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 采用状态目录，而不是继续补更多索引页 | 用户的核心诉求是“看文件夹就知道状态” |
+| 保留 `docs/INDEX.md` 在根层 | 根层仍需要一个总导航，但它应导航状态目录，而不是掩盖状态目录 |
+| 保留根目录 `架构问题跟踪.md` | 解决日常高可见提醒问题，但不让它成为第二真相 |
+| 第一轮只重排根层状态型文档，不动主题框架目录 | `anti-flattening` / `opening-and-plot` / `writing-core` 是主题真源，不是状态混乱主因 |
+| 顺手修复同类脚本导入脆弱性 | 这属于这轮全仓结构调整暴露出来的真实同类问题，值得一起收口 |
+
+## Result
+- 已形成可见状态目录：
+  - `docs/00-当前有效/`
+  - `docs/10-进行中/`
+  - `docs/20-研究实验/`
+  - `docs/90-归档/`
+- 根层 `docs/INDEX.md` 已变成状态目录导航页
+- 根目录 `架构问题跟踪.md` 继续保留为高可见提醒入口
+- 这轮之后，用户无需先点开文件，光看目录即可区分：
+  - 当前仍有效
+  - 还在跟踪
+  - 研究/实验
+  - 历史归档
+
+## Verification
+- `pytest -q` 通过：`248 passed, 192 subtests passed`
+- `bash scripts/validate-migration.sh` 通过
+- `python -m unittest tests.test_post_write_lint -v` 通过
+
+---
+
+# Findings & Decisions: AOI-001 `state/schema/template/script` 收口
+
+## Requirements
+- 不再让 `state-schema.md` 只做口头权威
+- 不再让 `state-v5-template.json` 的 `$schema` 指向不存在文件
+- 不再让 `build_active_context.py` 靠自造简化 shape 消费 `items` / `factions`
+- 让这层问题从“台账问题”变成“真正关闭的问题”
+
+## Research Findings
+- 对当前仓库，最合适的收口方式不是继续扩写 Markdown，而是补真实 machine schema
+- `learned_patterns` / `market_adjustments` 的核心问题不是应不应该旁路，而是：
+  - 旁路后的 pointer summary 形态没有被正式纳入 contract
+- `items.tracked` / `factions.active` 当前最现实的 canonical 处理不是强推单形态，而是：
+  - schema 支持字符串 / 对象双形态
+  - consumer 统一做 name-normalization
+- `python -m unittest` 路径下的导入稳定性不该只修一个脚本，同类 sibling-import 脚本应一起收口
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 新增真实 JSON Schema 文件，而不是继续只依赖 Markdown | 让测试和脚本可以验证机器真值 |
+| 保留 `state-schema.md` 作为语义说明层 | docs-first 仍有价值，不需要打掉 |
+| `learned_patterns` / `market_adjustments` 在 schema 中允许 inline + externalized 双形态 | 兼容现有数据与旁路路径 |
+| `items` / `factions` 在 schema 与 consumer 中都接受字符串/对象双形态 | 解决当前 consumer/fixture/template 差异而不破坏旧项目 |
+| 同类 sibling-import 脚本一起修导入路径 | 避免“今天修一个，明天炸另一个” |
+
+## Result
+- `AOI-001` 已可从 open issues 中关闭
+- 机器真值层已落地，consumer、模板与验证门被同一层约束
+- 后续再新增 `state` 字段或旁路字段时，不再只能靠人工同步记忆
+
+## Verification
+- `pytest -q tests/test_state_contracts.py tests/test_active_context.py tests/test_inkos_growth_plan.py tests/test_setting_gate.py` 通过：`40 passed`
+- `python -m unittest tests.test_post_write_lint -v` 通过：`7 tests OK`
+- `pytest -q` 通过：`254 passed, 192 subtests passed`
+- `bash scripts/validate-migration.sh` 通过
+
+---
+
+# Findings & Decisions: AOI-002 / AOI-003 / AOI-004 / AOI-006 治理收口推进
+
+## Requirements
+- 不再让 `shared` 真同步仍然是“整包覆盖 + 口头提醒”
+- 不再让 `maintenance` 只在 stdout 里声称自己属于 chapter transaction
+- 不再让 `active-context` 复制 `recent_guardrails` 正文
+- 不再让治理问题只停在 open issue 文案里，没有测试和入口文档配套
+
+## Research Findings
+- 真实仓库里 `shared/references` 同时存在：
+  - repo-local local-only files
+  - same-path drift files
+  因此仅靠“先 `--report` 再人工小心”不够，必须让脚本默认阻断危险覆盖。
+- `project-maintenance.py` / `post-task-maintenance.py` 之前只输出：
+  - `transaction_phase = maintenance`
+  - `next_transaction_step = snapshot`
+  但没有真实更新 `.mighty/workflow_state.json`，导致 `novel-resume` 只能读到理想契约，看不到真实 checkpoint。
+- `active-context` 复制 `recent_guardrails` 会制造 sidecar freshness drift：
+  - 细节真值已在 `.mighty/learned-patterns.json`
+  - `active-context` 更适合只保留 prompt-assembly 需要的 guardrail summary
+
+## Technical Decisions
+| Decision | Rationale |
+|----------|-----------|
+| 引入 `shared/sync-governance.json` | 给 repo-local shared 文件一个机器可读的保护清单，而不是继续靠文档提醒 |
+| `sync-shared-from-genm.sh` 默认阻断 drift overwrite | 让危险覆盖从“容易发生”变成“需要显式确认才会发生” |
+| sync 后恢复 protected local paths | 保留 full-copy 主路径，同时保护 repo-local contract/template |
+| 将 maintenance -> snapshot 写回 `workflow_state.json` | 先把最稳定、最可验证的事务尾段变成真实 checkpoint |
+| `active-context` 只保留 `guardrail_summary` | 保持 projection / pointer 角色，不制造第二提示真值中心 |
+| 用 targeted tests 锁治理语义 | 这些问题不该只靠 README 和记忆维持 |
+
+## Result
+- `AOI-002` 已具备脚本级收口条件：
+  - governance manifest
+  - drift block
+  - allowlist restore
+  - report-json 差异输出
+- `AOI-003` 已完成 maintenance 段机械闭环，剩余问题缩窄到：
+  - `draft`
+  - `close`
+  - `snapshot`
+  的 phase owner 写回
+- `AOI-004` 当前复制风险已收口，`active-context` 回到摘要/指针角色
+- `AOI-006` 当前最关键的治理护栏已补齐：
+  - shared drift / allowlist
+  - maintenance 最终态
+  - 入口文档同步
+
+## Verification
+- `python3 -m unittest tests.test_shared_sync_governance -v` 通过
+- `pytest -q tests/test_inkos_growth_plan.py tests/test_setting_gate.py` 通过：`25 passed`
+- `pytest -q tests/test_active_context.py tests/test_inkos_growth_plan.py` 通过：`25 passed`
+- `bash scripts/sync-shared-from-genm.sh --report-json --domain references` 通过
+- `bash scripts/validate-migration.sh` 通过

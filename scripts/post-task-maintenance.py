@@ -39,6 +39,8 @@ def main() -> None:
         sys.executable,
         str(script_dir / "project-maintenance.py"),
         str(root),
+        "--workflow-trigger",
+        args.trigger,
         "--recent-chapters",
         str(args.recent_chapters),
         "--retain-recent-chapters",
@@ -50,8 +52,8 @@ def main() -> None:
         "trigger": args.trigger,
         "action": "ran-maintenance",
         "transaction_contract": "chapter-transaction-v1",
-        "transaction_phase": "maintenance",
-        "next_transaction_step": "snapshot",
+        "transaction_phase": "snapshot",
+        "next_transaction_step": None,
         "maintenance_stdout": proc.stdout.strip(),
     }
 

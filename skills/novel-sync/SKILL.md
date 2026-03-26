@@ -65,7 +65,7 @@ Read conditionally:
 - recent `chapter_meta`
 - recent `summaries_index`
 - existing files under `设定集/`
-- [state-thinning-and-setting-sync.md](/Users/arm/Desktop/vscode/Genm-codex/docs/state-thinning-and-setting-sync.md)
+- [state-thinning-and-setting-sync.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/state-thinning-and-setting-sync.md)
 
 ## Sync principles
 

@@ -46,7 +46,7 @@ class ActiveContextContractTests(unittest.TestCase):
             "skills/novel-review/SKILL.md": ".mighty/active-context.json",
             "skills/novel-status/SKILL.md": ".mighty/active-context.json",
             "skills/novel-query/SKILL.md": ".mighty/active-context.json",
-            "docs/state-thinning-and-setting-sync.md": ".mighty/active-context.json",
+            "docs/00-当前有效/state-thinning-and-setting-sync.md": ".mighty/active-context.json",
         }
         for relative_path, token in expectations.items():
             content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
@@ -89,7 +89,11 @@ class ActiveContextHelperTests(unittest.TestCase):
                         "important": ["曜石互联大厦", "会议室"],
                     },
                     "factions": {
-                        "active": ["曜石互联"],
+                        "active": [{"name": "曜石互联"}],
+                    },
+                    "items": {
+                        "tracked": [{"name": "劳动合同电子版"}],
+                        "protagonist_inventory": ["劳动合同电子版"],
                     },
                 },
                 "plot_threads": {
@@ -219,6 +223,7 @@ class ActiveContextHelperTests(unittest.TestCase):
         self.assertEqual(entities["protagonist"]["name"], "周既明")
         self.assertEqual(len(entities["active_characters"]), 2)
         self.assertIn("曜石互联", entities["active_factions"])
+        self.assertIn("劳动合同电子版", entities["tracked_items"])
 
     def test_build_active_context_returns_narrow_sidecar_shape(self) -> None:
         module = load_module()
@@ -243,7 +248,14 @@ class ActiveContextHelperTests(unittest.TestCase):
         self.assertIn("relevant_entities", context)
         self.assertEqual(context["write_readiness"]["gate_status"], "review_required")
         self.assertEqual(context["launch_stack"]["active_launch_grammar"], "resource-climb")
-        self.assertIn("recent_guardrails", context)
+        self.assertIn("guardrail_summary", context)
+        self.assertTrue(context["guardrail_summary"]["has_recent_guardrails"])
+        self.assertEqual(context["guardrail_summary"]["must_avoid_count"], 1)
+        self.assertEqual(context["guardrail_summary"]["must_preserve_count"], 1)
+        self.assertEqual(context["guardrail_summary"]["watchpoint_count"], 1)
+        self.assertEqual(context["guardrail_summary"]["expires_after_chapter"], 5)
+        self.assertEqual(context["guardrail_summary"]["source_sidecar"], ".mighty/learned-patterns.json")
+        self.assertNotIn("recent_guardrails", context)
         self.assertNotIn("chapter_meta", context)
         self.assertNotIn("knowledge_base", context)
 

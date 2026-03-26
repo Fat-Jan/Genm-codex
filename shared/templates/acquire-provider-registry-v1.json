@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "defaults": {
+    "fetch": "reader_proxy",
+    "search": "bing_rss"
+  },
+  "providers": {
+    "fetch": {
+      "reader_proxy": {
+        "kind": "builtin",
+        "description": "Use the built-in reader proxy fetch provider."
+      },
+      "external_command": {
+        "kind": "external_command",
+        "description": "Use a command that returns the acquire_source_text JSON contract."
+      }
+    },
+    "search": {
+      "bing_rss": {
+        "kind": "builtin",
+        "description": "Use the built-in Bing RSS fallback provider."
+      },
+      "external_command": {
+        "kind": "external_command",
+        "description": "Use a command that returns the acquire_source_text JSON contract."
+      }
+    }
+  }
+}

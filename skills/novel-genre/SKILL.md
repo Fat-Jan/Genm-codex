@@ -36,8 +36,10 @@ Always read as needed:
 Read conditionally:
 
 - resolved profile root `<genre>/profile-<platform>.yaml`
+- resolved profile root `<genre>/bucket-<content_bucket>.yaml`
 - `大纲/总纲.md`
 - `设定集/力量体系.md`
+- `.mighty/content-positioning.json`
 - `chapters/第001章.md` or nearby project files only when genre detection is truly unclear
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
@@ -50,6 +52,18 @@ Before listing or applying any profile, resolve the first existing profile root 
 2. `../../shared/profiles/`
 
 Use that resolved root consistently for all reads during the task.
+
+## Profile contract rules
+
+- `novel-genre` is the primary project-facing entrance for profile selection and application.
+- `state.genre_profile` is the runtime projection layer; it should stay lightweight.
+- If raw profile detail is needed, interpret it through `../../scripts/profile_contract.py` rather than treating arbitrary raw YAML fields as the consumer contract.
+- Use the following layer order:
+  1. core profile: `<genre>/profile.yaml`
+  2. platform overlay: `<genre>/profile-<platform>.yaml` when it exists
+  3. bucket overlay: `<genre>/bucket-<bucket>.yaml` when it exists
+  4. reference files: remaining `*.md` files under the profile directory
+- Legacy embedded long-form sections inside raw profile YAML should be treated as reference-like material, not as authoritative core contract.
 
 ## Workflow
 
@@ -66,8 +80,10 @@ Use that resolved root consistently for all reads during the task.
    - current `meta.genre`
    - current `meta.platform`
    - current `genre_profile.bucket` when present
+   - current `genre_profile.tagpacks / strong_tags / narrative_modes / tone_guardrails` when present
    - loaded profile path if present
    - resolved profile root if one exists
+   - content-positioning sidecar path if present
    - a short summary of the active genre constraints
 
 ### detect
@@ -112,7 +128,14 @@ Use that resolved root consistently for all reads during the task.
    - treat the bucket as an upstream targeting choice, not as a replacement for genre
 6. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
 7. Read the chosen profile and extract only the fields needed downstream.
+   - prefer writing the normalized projection that `../../scripts/profile_contract.py` with `--state-summary` would emit
 8. Update `.mighty/state.json` so the project reflects the chosen profile.
+   - if the user explicitly provides composite positioning inputs, also update:
+     - `genre_profile.tagpacks`
+     - `genre_profile.strong_tags`
+     - `genre_profile.narrative_modes`
+     - `genre_profile.tone_guardrails`
+     - `genre_profile.positioning_sidecar`
 9. Return a concise application summary and next-step guidance.
 
 ## State update requirements
@@ -131,6 +154,14 @@ When applying a profile, update at minimum:
 When a Fanqie content bucket is explicitly chosen, also update:
 
 - `genre_profile.bucket`
+
+When composite positioning is explicitly chosen, also update:
+
+- `genre_profile.tagpacks`
+- `genre_profile.strong_tags`
+- `genre_profile.narrative_modes`
+- `genre_profile.tone_guardrails`
+- `genre_profile.positioning_sidecar`
 
 When the selected profile clearly defines platform pacing/word-count guidance, also refresh `platform_config` to keep it aligned with the chosen profile.
 

@@ -116,9 +116,9 @@ git commit -m "docs: clarify novel-close as post-write handoff"
 ### Task 3: Update default workflow docs
 
 **Files:**
-- Modify: `docs/default-workflows.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
 - Optional modify: `README.md`
 
 - [ ] **Step 1: Update the main正文 workflow**
@@ -144,7 +144,7 @@ Use `skip_close=true` when the user wants write-only behavior.
 Run:
 
 ```bash
-rg -n "skip_close|auto-close|自动收口|novel-close" docs/default-workflows.md docs/start-here.md docs/skill-usage.md README.md
+rg -n "skip_close|auto-close|自动收口|novel-close" docs/00-当前有效/default-workflows.md docs/00-当前有效/start-here.md docs/00-当前有效/skill-usage.md README.md
 ```
 
 Expected: user-facing docs consistently describe the new default-on guarded behavior
@@ -152,7 +152,7 @@ Expected: user-facing docs consistently describe the new default-on guarded beha
 - [ ] **Step 5: Commit**
 
 ```bash
-git add docs/default-workflows.md docs/start-here.md docs/skill-usage.md README.md
+git add docs/00-当前有效/default-workflows.md docs/00-当前有效/start-here.md docs/00-当前有效/skill-usage.md README.md
 git commit -m "docs: describe novel-write auto-close workflow"
 ```
 

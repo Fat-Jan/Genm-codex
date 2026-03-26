@@ -1,33 +1,37 @@
-# Task Plan: ISSUES 2026-03-24 状态归档
+# Task Plan: 2026-03-25 架构审查与扩展路径方案
 
 ## Goal
-确认 [ISSUES.md](/Users/arm/Desktop/vscode/Genm-codex/ISSUES.md) 中列出的 P0 / P1 / P2 问题是否已在仓库中真实落地修复；补齐遗漏项后，将每个问题在原文中标记状态并归档。
+审查 `Genm-codex` 当前整体架构是否合理，识别技能层、文档/共享资产层、状态/sidecar 层和路径治理层的主要风险，并给出后续功能扩展时的结构优化与路径治理方案。
 
 ## Current Phase
 Complete
 
 ## Phases
 
-### Phase 1: Re-check
-- [x] 重读 `ISSUES.md`
-- [x] 核对相关 skill / 脚本 / 工作流文档
-- [x] 确认哪些问题已修、哪些未稳定落地
+### Phase 1: Discovery
+- [x] 读取 `README.md`、`docs/00-当前有效/start-here.md`、`docs/00-当前有效/skill-usage.md`、`docs/00-当前有效/default-workflows.md`
+- [x] 检查 `task_plan.md` / `findings.md` / `progress.md` 当前状态
+- [x] 抽样关键 `SKILL.md`、核心脚本、状态模板与测试
 - **Status:** complete
 
-### Phase 2: Close Remaining Gaps
-- [x] 修复 `novel-write` 重复编号
-- [x] 补齐 `launch-stack` 触发时机与 placeholder 合同
-- [x] 补齐 `novel-learn` / `novel-close` 合同缺口
-- [x] 补齐 `docs/INDEX.md` / `smoke/README.md`
-- [x] 将 `task_plan.md` 收为单一活跃计划
+### Phase 2: Parallel Review
+- [x] 并行审查 `skill/workflow` 层
+- [x] 并行审查 `docs/shared/tests/governance` 层
+- [x] 并行审查 `state/schema/sidecar/path` 扩展风险
 - **Status:** complete
 
-### Phase 3: Verify & Archive
-- [x] 运行问题回归测试
-- [x] 运行迁移/全量测试
-- [x] 更新 `ISSUES.md` 状态与归档说明
+### Phase 3: Verification & Synthesis
+- [x] 运行 `bash scripts/validate-migration.sh`
+- [x] 运行 `pytest -q`
+- [x] 汇总主会话与子代理发现，形成优化方案
 - **Status:** complete
+
+## Key Questions
+1. 当前“`skills + docs + scripts + shared + sidecars`”分层是否仍保持单一事实源，还是已经开始多点漂移？
+2. 后续再新增规则层、平台能力或维护链时，最先失控的会是路径、契约还是文档入口？
+3. 哪些地方应当收敛成 manifest / index / registry，哪些地方继续保持 docs-first 即可？
 
 ## Notes
-- 历史多计划内容已转存到 `task_plan_archive.md`
-- 与本轮无关的 `projects/*/.mighty/state.json` 脏改动不触碰
+- 本轮为只读架构审查；除 planning files 外不修改业务文件
+- 已使用并行 agent teams 做分层调研
+- 仓库仍存在与本轮无关的 `projects/*/.mighty/state.json` 脏改动，不触碰

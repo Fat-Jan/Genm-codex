@@ -257,7 +257,7 @@ Use it to keep learning outputs compressed and stable instead of turning learned
 **Files:**
 - Modify: `shared/references/shared/state-schema.md`
 - Modify: `shared/templates/state-v5-template.json`
-- Modify: `docs/state-thinning-and-setting-sync.md`
+- Modify: `docs/00-当前有效/state-thinning-and-setting-sync.md`
 
 - [ ] **Step 1: Document allowed compressed signals**
 
@@ -290,9 +290,9 @@ Only land them if they can stay short, stable, and downstream-consumable.
 
 **Files:**
 - Modify: `README.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
-- Modify: `docs/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
 
 - [ ] **Step 1: Add the new framework entry**
 

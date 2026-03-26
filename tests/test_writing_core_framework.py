@@ -72,9 +72,9 @@ SKILL_EXPECTATIONS = {
 
 ENTRY_DOCS = {
     "README.md": "writing-core-framework",
-    "docs/start-here.md": "writing-core-framework",
-    "docs/skill-usage.md": "writing-core-framework",
-    "docs/default-workflows.md": "writing-core-framework",
+    "docs/00-当前有效/start-here.md": "writing-core-framework",
+    "docs/00-当前有效/skill-usage.md": "writing-core-framework",
+    "docs/00-当前有效/default-workflows.md": "writing-core-framework",
 }
 
 FRAMEWORK_README_EXPECTED_TOKENS = [
@@ -226,7 +226,7 @@ class WritingCoreFrameworkContractTests(unittest.TestCase):
             self.assertIn(token, content)
 
     def test_state_thinning_doc_mentions_pointer_style_storage(self):
-        content = (REPO_ROOT / "docs/state-thinning-and-setting-sync.md").read_text(encoding="utf-8")
+        content = (REPO_ROOT / "docs/00-当前有效/state-thinning-and-setting-sync.md").read_text(encoding="utf-8")
         for token in STATE_THINNING_EXPECTED_TOKENS:
             self.assertIn(token, content)
 

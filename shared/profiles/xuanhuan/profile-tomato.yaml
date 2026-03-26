@@ -113,6 +113,17 @@ recommended_elements:
   - "装备获取场景"
   - "打脸情节设计"
 
+# ==================== 平台定位 ====================
+platform_positioning:
+  fanqie:
+    primary_bucket: "玄幻脑洞"
+    strong_tags: ["金手指", "成长"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["升级必须有代价", "爽点不能替代世界规则"]
+    package_cues:
+      - "金手指出现前置"
+      - "前三章要有硬兑现"
+
 # 版本历史
 changelog:
   "v3.1-tomato": "初始版本，专注番茄平台快节奏玄幻"

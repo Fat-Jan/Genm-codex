@@ -50,7 +50,7 @@ Default intent for the current workflow:
 
 - `.mighty/state.json`
 - `chapters/第N章.md`
-- `../../docs/default-workflows.md`
+- `../../docs/00-当前有效/default-workflows.md`
 
 Read conditionally:
 

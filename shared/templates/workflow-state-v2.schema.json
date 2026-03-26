@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "workflow-state-v2.schema.json",
+  "title": "Genm Codex Workflow State v2",
+  "type": "object",
+  "required": ["version", "transaction_contract", "current_task", "history"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "version": {"type": ["string", "number"]},
+    "transaction_contract": {"type": "string"},
+    "current_task": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "command": {"type": "string"},
+            "args": {"type": "object"},
+            "status": {"type": "string"},
+            "current_step": {"type": ["string", "null"]},
+            "completed_steps": {"type": "array", "items": {"type": "string"}},
+            "failed_steps": {"type": "array", "items": {"type": "string"}},
+            "pending_steps": {"type": "array", "items": {"type": "string"}},
+            "last_successful_checkpoint": {"type": ["string", "null"]},
+            "started_at": {"type": ["string", "null"]},
+            "last_heartbeat": {"type": ["string", "null"]},
+            "error_message": {"type": ["string", "null"]}
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "history": {"type": "array"}
+  },
+  "additionalProperties": true
+}

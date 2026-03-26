@@ -190,6 +190,17 @@ reader_expectations:
     - "男主无脑宠女主"
     - "主角金手指太多"
 
+# ==================== 平台定位 ====================
+platform_positioning:
+  fanqie:
+    primary_bucket: "宫斗宅斗"
+    strong_tags: ["高门关系", "婚配错位"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["强压后必须换账", "非无脑爽"]
+    package_cues:
+      - "婚配错位前置"
+      - "首屏冲突明确"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

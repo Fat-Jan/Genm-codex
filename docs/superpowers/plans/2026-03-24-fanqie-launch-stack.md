@@ -121,12 +121,12 @@ Verification:
 - Modify: `shared/references/shared/state-schema.md`
 - Modify: `shared/templates/state-v5-template.json`
 - Modify: `skills/novel-init/SKILL.md`
-- Modify: `docs/state-thinning-and-setting-sync.md`
+- Modify: `docs/00-当前有效/state-thinning-and-setting-sync.md`
 - Modify: `tests/test_fanqie_launch_stack.py`
 
 - [ ] **Step 1: Add failing token tests that `state-schema.md` documents the four light launch-stack mirror fields and points detailed storage to `.mighty/launch-stack.json`.**
 - [ ] **Step 2: Add failing tests that `state-v5-template.json` contains the four launch-stack mirror keys in the correct place.**
-- [ ] **Step 3: Add failing token tests that `novel-init` and `docs/state-thinning-and-setting-sync.md` mention the launch-stack sidecar as a sidecar/pointer-style contract, not a large state payload.**
+- [ ] **Step 3: Add failing token tests that `novel-init` and `docs/00-当前有效/state-thinning-and-setting-sync.md` mention the launch-stack sidecar as a sidecar/pointer-style contract, not a large state payload.**
 - [ ] **Step 4: Update the schema, template, and docs to match the spec.**
 - [ ] **Step 5: Re-run `python -m unittest tests.test_fanqie_launch_stack -v` and confirm the state-contract assertions pass.**
 
@@ -139,14 +139,14 @@ Verification:
 **Files:**
 - Modify: `docs/opening-and-plot-framework/README.md`
 - Modify: `README.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
-- Modify: `docs/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
 - Modify: `tests/test_fanqie_launch_stack.py`
 
 - [ ] **Step 1: Add failing token tests that the framework README and project entry docs mention `fanqie-launch-stack`.**
 - [ ] **Step 2: Update `docs/opening-and-plot-framework/README.md` to point readers to the new launch-stack docs and explain that this layer precedes bucket-specific overlays.**
-- [ ] **Step 3: Update `README.md`, `docs/start-here.md`, `docs/skill-usage.md`, and `docs/default-workflows.md` so the new layer is discoverable from normal project entry points.**
+- [ ] **Step 3: Update `README.md`, `docs/00-当前有效/start-here.md`, `docs/00-当前有效/skill-usage.md`, and `docs/00-当前有效/default-workflows.md` so the new layer is discoverable from normal project entry points.**
 - [ ] **Step 4: Re-run `python -m unittest tests.test_fanqie_launch_stack -v` and confirm the entry-doc assertions pass.**
 
 Verification:

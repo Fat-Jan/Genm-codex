@@ -78,7 +78,7 @@ INIT_AND_THINNING_DOCS = {
         "active_launch_grammar",
         "active_primary_pivot",
     ],
-    "docs/state-thinning-and-setting-sync.md": [
+    "docs/00-当前有效/state-thinning-and-setting-sync.md": [
         ".mighty/launch-stack.json",
         "launch_stack",
     ],
@@ -86,9 +86,9 @@ INIT_AND_THINNING_DOCS = {
 
 ENTRY_DOCS = {
     "README.md": "番茄起盘协议栈",
-    "docs/start-here.md": "番茄起盘协议栈",
-    "docs/skill-usage.md": "番茄起盘协议栈",
-    "docs/default-workflows.md": "番茄起盘协议栈",
+    "docs/00-当前有效/start-here.md": "番茄起盘协议栈",
+    "docs/00-当前有效/skill-usage.md": "番茄起盘协议栈",
+    "docs/00-当前有效/default-workflows.md": "番茄起盘协议栈",
     "docs/opening-and-plot-framework/README.md": "fanqie-launch-stack",
 }
 

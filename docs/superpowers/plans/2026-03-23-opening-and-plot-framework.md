@@ -69,9 +69,9 @@ Add checks for:
 
 **Files:**
 - Modify: `README.md`
-- Modify: `docs/start-here.md`
-- Modify: `docs/skill-usage.md`
-- Modify: `docs/default-workflows.md`
+- Modify: `docs/00-当前有效/start-here.md`
+- Modify: `docs/00-当前有效/skill-usage.md`
+- Modify: `docs/00-当前有效/default-workflows.md`
 - Modify: `shared/references/shared/state-schema.md`
 - Modify: `shared/templates/state-v5-template.json`
 

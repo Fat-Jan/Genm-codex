@@ -1,5 +1,5 @@
 {
-  "$schema": "workflow-state-v2.json",
+  "$schema": "./workflow-state-v2.schema.json",
   "version": "2.0",
   "transaction_contract": "chapter-transaction-v1",
   "current_task": {

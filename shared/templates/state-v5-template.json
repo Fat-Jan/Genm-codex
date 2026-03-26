@@ -1,5 +1,5 @@
 {
-  "$schema": "state-schema-v5.json",
+  "$schema": "./state-schema-v5.json",
   "version": "5.0",
   "meta": {
     "title": "<小说名>",
@@ -53,6 +53,9 @@
       "current": "",
       "visited": [],
       "important": []
+    },
+    "factions": {
+      "active": []
     }
   },
   "plot_threads": {
@@ -162,6 +165,12 @@
   },
   "genre_profile": {
     "loaded": "",
+    "bucket": "",
+    "tagpacks": [],
+    "strong_tags": [],
+    "narrative_modes": [],
+    "tone_guardrails": [],
+    "positioning_sidecar": ".mighty/content-positioning.json",
     "节奏": {},
     "爽点密度": 0,
     "strand权重": {},

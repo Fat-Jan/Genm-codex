@@ -8,6 +8,7 @@ import re
 import shlex
 import subprocess
 import time
+import tomllib
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
@@ -137,6 +138,7 @@ class AcquireArticleResult:
     notes: list[str]
     fetched_at: str
     duration_ms: int
+    provider_trace: dict | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -697,23 +699,207 @@ def default_policy_path() -> Path:
     return repo_root / ".tmp" / "acquire-source-policy.json"
 
 
+def default_provider_registry_path() -> Path:
+    repo_root = Path(__file__).resolve().parents[1]
+    return repo_root / "shared" / "templates" / "acquire-provider-registry-v1.json"
+
+
+def load_json_if_exists(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def load_toml_if_exists(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    try:
+        return tomllib.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def read_project_config(project_root: str | None) -> dict:
+    if not project_root:
+        return {}
+    return load_json_if_exists(Path(project_root) / ".mighty" / "config.json")
+
+
+def read_codex_config() -> dict:
+    config_path = Path.home() / ".codex" / "config.toml"
+    return load_toml_if_exists(config_path)
+
+
+def load_provider_registry(path: str | Path | None) -> dict:
+    registry_path = Path(path) if path else default_provider_registry_path()
+    payload = load_json_if_exists(registry_path)
+    return payload if isinstance(payload, dict) else {}
+
+
+def nested_get(payload: dict, path: list[str]) -> dict | str | None:
+    current: object = payload
+    for key in path:
+        if not isinstance(current, dict):
+            return None
+        current = current.get(key)
+    return current if isinstance(current, (dict, str)) else None
+
+
+def resolve_provider_settings(
+    *,
+    role: str,
+    cli_command: str,
+    env_command: str,
+    project_root: str | None,
+    registry: dict,
+) -> tuple[FetchProvider, dict]:
+    builtin_defaults = registry.get("defaults", {})
+    project_config = read_project_config(project_root)
+    codex_config = read_codex_config()
+
+    if cli_command:
+        provider = command_provider(cli_command)
+        if provider is not None:
+            return provider, {
+                "role": role,
+                "source": "cli",
+                "kind": "external_command",
+                "name": "external_command",
+                "command": cli_command,
+            }
+
+    if env_command:
+        provider = command_provider(env_command)
+        if provider is not None:
+            return provider, {
+                "role": role,
+                "source": "env",
+                "kind": "external_command",
+                "name": "external_command",
+                "command": env_command,
+            }
+
+    project_spec = nested_get(project_config, ["acquire_source_text", f"{role}_provider"])
+    if isinstance(project_spec, dict):
+        preset = str(project_spec.get("preset") or "")
+        command = str(project_spec.get("command") or "")
+        if command:
+            provider = command_provider(command)
+            if provider is not None:
+                return provider, {
+                    "role": role,
+                    "source": "project_config",
+                    "kind": "external_command",
+                    "name": preset or "external_command",
+                    "command": command,
+                }
+        if preset:
+            provider = builtin_provider(role, preset)
+            if provider is not None:
+                return provider, {
+                    "role": role,
+                    "source": "project_config",
+                    "kind": "builtin",
+                    "name": preset,
+                    "command": None,
+                }
+
+    codex_spec = nested_get(codex_config, ["genm", "acquire_source_text", f"{role}_provider"])
+    if isinstance(codex_spec, dict):
+        preset = str(codex_spec.get("preset") or "")
+        command = str(codex_spec.get("command") or "")
+        if command:
+            provider = command_provider(command)
+            if provider is not None:
+                return provider, {
+                    "role": role,
+                    "source": "codex_config",
+                    "kind": "external_command",
+                    "name": preset or "external_command",
+                    "command": command,
+                }
+        if preset:
+            provider = builtin_provider(role, preset)
+            if provider is not None:
+                return provider, {
+                    "role": role,
+                    "source": "codex_config",
+                    "kind": "builtin",
+                    "name": preset,
+                    "command": None,
+                }
+
+    default_name = str(builtin_defaults.get(role) or ("reader_proxy" if role == "fetch" else "bing_rss"))
+    provider = builtin_provider(role, default_name)
+    if provider is None:
+        raise RuntimeError(f"Unsupported default provider preset: {default_name}")
+    return provider, {
+        "role": role,
+        "source": "registry_default",
+        "kind": "builtin",
+        "name": default_name,
+        "command": None,
+    }
+
+
+def builtin_provider(role: str, preset: str) -> FetchProvider | None:
+    if role == "fetch" and preset == "reader_proxy":
+        return reader_proxy_provider()
+    if role == "search" and preset == "bing_rss":
+        return bing_rss_search_provider()
+    return None
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Acquire article text with fetch MCP -> direct HTML -> search fallback stages.")
     parser.add_argument("url", help="Article URL to acquire")
+    parser.add_argument("--project-root", default="")
     parser.add_argument("--prefer-source", choices=["auto", "fetch_mcp", "direct_html", "search_fallback"], default="auto")
     parser.add_argument("--timeout-ms", type=int, default=30000)
     parser.add_argument("--min-body-chars", type=int, default=300)
-    parser.add_argument("--fetch-cmd", default=os.getenv("GENM_FETCH_MCP_CMD", ""))
-    parser.add_argument("--search-cmd", default=os.getenv("GENM_SEARCH_FALLBACK_CMD", ""))
+    parser.add_argument("--fetch-cmd", default="")
+    parser.add_argument("--search-cmd", default="")
     parser.add_argument("--policy-file", default=os.getenv("GENM_ACQUIRE_POLICY_FILE", str(default_policy_path())))
+    parser.add_argument("--provider-registry", default=str(default_provider_registry_path()))
+    parser.add_argument("--show-provider-config", action="store_true")
     parser.add_argument("--pretty", action="store_true")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    fetch_provider = command_provider(args.fetch_cmd) or reader_proxy_provider()
-    search_provider = command_provider(args.search_cmd) or bing_rss_search_provider()
+    registry = load_provider_registry(args.provider_registry)
+    fetch_provider, fetch_trace = resolve_provider_settings(
+        role="fetch",
+        cli_command=args.fetch_cmd,
+        env_command=os.getenv("GENM_FETCH_MCP_CMD", ""),
+        project_root=args.project_root or None,
+        registry=registry,
+    )
+    search_provider, search_trace = resolve_provider_settings(
+        role="search",
+        cli_command=args.search_cmd,
+        env_command=os.getenv("GENM_SEARCH_FALLBACK_CMD", ""),
+        project_root=args.project_root or None,
+        registry=registry,
+    )
+    if args.show_provider_config:
+        print(
+            json.dumps(
+                {
+                    "fetch_provider": fetch_trace,
+                    "search_provider": search_trace,
+                    "project_root": args.project_root or None,
+                    "provider_registry": args.provider_registry,
+                },
+                ensure_ascii=False,
+                indent=2 if args.pretty else None,
+            )
+        )
+        return
     policy_store = DomainPolicyStore(Path(args.policy_file)) if args.policy_file else None
     result = acquire_article(
         args.url,
@@ -724,6 +910,7 @@ def main() -> None:
         search_provider=search_provider,
         policy_store=policy_store,
     )
+    result.provider_trace = {"fetch": fetch_trace, "search": search_trace}
     payload = result.to_dict()
     if args.pretty:
         print(json.dumps(payload, ensure_ascii=False, indent=2))

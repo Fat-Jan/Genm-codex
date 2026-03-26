@@ -29,12 +29,12 @@
 第一次进入仓库，按这个顺序理解：
 
 1. [README.md](/Users/arm/Desktop/vscode/Genm-codex/README.md)
-2. [docs/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/start-here.md)
-3. [docs/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/skill-usage.md)
-4. [docs/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/shared-asset-dependency-map.md)
+2. [docs/00-当前有效/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
+3. [docs/00-当前有效/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)
+4. [docs/00-当前有效/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)
 5. 当前目标相关的阶段文档：
-   - 包装与质量闭环优先看 [docs/phase-9-summary.md](/Users/arm/Desktop/vscode/Genm-codex/docs/phase-9-summary.md)
-   - 共享资产治理优先看 [docs/phase-7b-selective-sync-governance.md](/Users/arm/Desktop/vscode/Genm-codex/docs/phase-7b-selective-sync-governance.md)
+   - 包装与质量闭环优先看 [docs/90-归档/阶段/phase-9-summary.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/phase-9-summary.md)
+   - 共享资产治理优先看 [docs/90-归档/阶段/phase-7b-selective-sync-governance.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/phase-7b-selective-sync-governance.md)
 
 如果要看真实样本，不要先翻所有 skill，先看：
 
@@ -74,15 +74,15 @@ bash scripts/sync-shared-from-genm.sh
 - 新增或修改某个 skill：
   先读目标 `skills/<skill>/SKILL.md`，再读该 skill 相关阶段文档和 smoke 结果。
 - 调整 skill 调用名、安装方式或本地发现问题：
-  先看 [scripts/install-skills.sh](/Users/arm/Desktop/vscode/Genm-codex/scripts/install-skills.sh) 和 [docs/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/skill-usage.md)。
+  先看 [scripts/install-skills.sh](/Users/arm/Desktop/vscode/Genm-codex/scripts/install-skills.sh) 和 [docs/00-当前有效/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)。
 - 调整 `shared/` 下任何内容：
   先进入调研模式，确认它是否应该从 `Genm` 同步；默认不要直接手改 `shared/`。
 - 调整 profiles / references / templates 的依赖关系：
-  先看 [docs/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/shared-asset-dependency-map.md)。
+  先看 [docs/00-当前有效/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)。
 - 处理包装层或质量闭环相关任务：
-  先看 [docs/phase-9-summary.md](/Users/arm/Desktop/vscode/Genm-codex/docs/phase-9-summary.md)。
+  先看 [docs/90-归档/阶段/phase-9-summary.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/phase-9-summary.md)。
 - 不知道从哪个 skill 开始：
-  先看 [docs/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/start-here.md)，不要凭记忆猜。
+  先看 [docs/00-当前有效/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)，不要凭记忆猜。
 
 ## 6. 复用优先级
 

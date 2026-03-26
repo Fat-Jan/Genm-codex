@@ -81,6 +81,8 @@ Initialize `.mighty/state.json` with, at minimum:
 
 1. Validate required inputs.
 2. Resolve the closest matching profile slug from `../../shared/profiles/`.
+   - treat `novel-genre` / `scripts/profile_contract.py` as the authoritative profile-contract entrance
+   - do not invent a one-off profile parsing rule inside `novel-init`
 3. Detect whether this is an ancient-family-power route.
    - Use genre, resolved profile slug, and any obvious project framing.
    - Typical matches include `palace-intrigue`, `ancient-romance`, `historical`, and projects whose core conflict depends on 宅门 / 宗族 / 嫡庶 / 继室 / 婚配法统.
@@ -155,6 +157,14 @@ Initialize `.mighty/state.json` with, at minimum:
      - birth-order map exists for any `二姑娘 / 三姑娘` style terms
      - core office titles and actual power chain are no longer empty when the story depends on官场/宫廷/地方权力
 10. Record the chosen profile in `state.genre_profile`.
+   - keep this as a lightweight projection, not a raw profile dump
+   - preferred projection fields:
+     - `loaded`
+     - `节奏`
+     - `爽点密度`
+     - `strand权重`
+     - `特殊约束`
+   - when profile layer details are needed, derive them from `../../scripts/profile_contract.py` rather than ad-hoc field picking
 11. After the starter files exist, run `setting gate(init)`:
    - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage init`
    - aggressively materialize starter skeleton cards for repeated roles / locations / factions / items when they are already inferable from local project truth

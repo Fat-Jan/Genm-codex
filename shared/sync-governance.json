@@ -1,0 +1,35 @@
+{
+  "version": "1.0",
+  "policy": {
+    "protected_local_paths_are_restored": true,
+    "same_path_drift_requires_explicit_override": true
+  },
+  "domains": {
+    "profiles": {
+      "protected_local_paths": []
+    },
+    "references": {
+      "protected_local_paths": [
+        "commands/novel-review.md",
+        "shared/chapter-transaction-schema.md",
+        "truth-files-guide.md",
+        "truth-files-spec.md",
+        "writing/ancient-household-kinship-guide.md",
+        "writing/ancient-office-hierarchy-guide.md"
+      ]
+    },
+    "templates": {
+      "protected_local_paths": [
+        "learned-patterns.schema.json",
+        "project/ancient-household-truth-sheet.md",
+        "project/ancient-mini-genealogy.md",
+        "project/ancient-office-truth-sheet.md",
+        "project/ancient-power-ladder.md",
+        "state-archive-v1.json",
+        "state-schema-v5.json",
+        "workflow-state-v2.json",
+        "workflow-state-v2.schema.json"
+      ]
+    }
+  }
+}
