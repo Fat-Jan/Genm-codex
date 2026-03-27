@@ -3158,3 +3158,17 @@
   - `bash scripts/sync-shared-from-genm.sh --report --domain profiles`
     - `protected local paths: 9`
     - 不再出现 `unexpected local-only paths`
+
+## Session Update: 2026-03-27 `main` 升级到 `v1.3`
+
+- 已确认版本基线：
+  - 当前 `v1.3` 完成态分支：`backup/v1.3-complete-20260327`
+  - 历史 `v1.0.0` 基线 tag 仍保留
+  - 切换前 `main` 额外备份为：`backup/main-pre-v1.3-20260327`
+- 已更新 `README.md`：
+  - 明确当前主线版本为 `v1.3`
+  - 标明 `v1.0.0` 为历史基线
+  - 标明主线切换前备份分支
+- 切主线前验证：
+  - `bash scripts/validate-migration.sh` → passed
+  - `pytest -q` → `302 passed, 192 subtests passed`
