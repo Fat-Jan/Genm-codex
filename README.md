@@ -4,6 +4,13 @@ Codex 原生网文创作技能工作区。
 
 这个仓库的当前主线不是“继续堆更多 skill”，而是把已有 `skills + docs + scripts + sidecars` 工作流做稳、做可恢复、做可治理。
 
+当前主线版本：`v1.3`
+
+历史基线与备份：
+
+- `v1.0.0`：首个 `v1` 正式发布基线
+- `backup/main-pre-v1.3-20260327`：主线切换到 `v1.3` 前的 `main` 备份分支
+
 当前默认范围里仍然包含：
 
 - `opening-and-plot-framework`
@@ -93,9 +100,9 @@ bash scripts/validate-migration.sh
 - Skill 触发与调用说明：`docs/00-当前有效/skill-usage.md`
 - 当前边界：`docs/00-当前有效/v1-boundary.md`
 - 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
-- 已完成阶段 roadmap：`v1.1-roadmap.md`
+- 已归档阶段 roadmap：`v1.1-roadmap.md`
 - 上一阶段 roadmap：`v1.2-roadmap.md`
-- 当前主 roadmap：`v1.3-roadmap.md`
+- 当前主线 roadmap：`v1.3-roadmap.md`
 
 ## Gate Triage
 
