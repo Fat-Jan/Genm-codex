@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "status": "passed",
+  "checked_after": "outline",
+  "launch_stack_action": {
+    "status": "already_ready",
+    "reason": "locked_sidecar_present",
+    "sidecar_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/launch-stack.json"
+  },
+  "blocking_gaps": [],
+  "auto_created_files": [],
+  "review_queue_count": 0,
+  "mcp_used": false,
+  "mcp_sources": [],
+  "review_items": [],
+  "truth_sources_checked": [
+    "kinship_truth",
+    "office_truth",
+    "world_rule_support"
+  ],
+  "minimal_next_action": {
+    "action": "none",
+    "reason": "gate passed",
+    "suggested_commands": []
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "setting-gate",
+    "generated_at": "2026-03-27T14:39:44Z",
+    "generated_by": "scripts/setting_gate.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
+    "depends_on": [
+      ".mighty/state.json",
+      "大纲/总纲.md",
+      "大纲/章纲/*.md",
+      ".mighty/research-candidates.json"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-27T14:27:07Z",
+        "current_chapter": 12
+      },
+      "outline": {
+        "path": "大纲/总纲.md + 大纲/章纲/*.md",
+        "has_text": true,
+        "chapter_outline_count": 18
+      },
+      "research-candidates.json": {
+        "path": ".mighty/research-candidates.json",
+        "count": 0
+      }
+    }
+  }
+}

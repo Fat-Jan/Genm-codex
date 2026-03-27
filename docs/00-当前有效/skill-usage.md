@@ -102,19 +102,24 @@
 2. 古代家族权力题材先补 `宅门真值表 + 小型家谱`
 3. 涉及朝堂/东宫/地方官场时再补 `官职真值表 + 权力层级图`
 4. `novel-outline`
-5. 如果当前项目是番茄平台，补一轮起盘协议栈编译：
+   - 先做 `mode=total`
+5. 总纲初稿后，补当前卷刚需设定，再进入 `novel-outline(mode=chapter)`
+6. 如果当前项目是番茄平台，补一轮起盘协议栈编译：
    - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
-6. `python3 scripts/setting_gate.py <project_root> --stage outline`
-7. `novel-write`
-8. `novel-close`
-9. 仍未收口时再按结果进入 `novel-rewrite`
-10. `novel-export`
+7. `python3 scripts/setting_gate.py <project_root> --stage outline`
+8. `novel-write`
+9. `novel-close`
+10. 仍未收口时再按结果进入 `novel-rewrite`
+11. `novel-export`
 
 补充规则：
 
 - 单章正文现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果项目还没有稳定的立项输入，先补 `shared/templates/project/creative-brief.md`
+- 先有 `总纲`，再有 `章纲`
+- 总纲初稿后，先补会影响当前卷和前三章的设定真值，再冻结章纲
+- 设定集默认按“当前卷刚需 + gate 阻断项 + 稳定 canon 回灌”更新，不按“想到什么补什么”更新
 - 上游结构边界见：
   - [upstream-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/upstream-structure-contract.md)
   - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
@@ -122,6 +127,11 @@
 - `novel-batch` 不会继承这个默认行为
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
 - `novel-outline` 完成后，默认应先过一次 `setting gate`
+- `novel-outline(mode=total)` 之后，如果卷一已经明确依赖：
+  - 继承 / 婚配 / 掌家 / 账册规则
+  - 当前卷关键人物、地点、势力、物品
+  - 命妇位阶 / 官名 / 权力链
+  先补 `设定集/` 再进入 `novel-outline(mode=chapter)`，不要直接硬写章纲
 - 如果当前项目是番茄平台，`novel-outline` 后先运行一次 `fanqie_launch_stack.py`，把 `.mighty/launch-stack.json` 从 `preselect` placeholder 写成正式 sidecar
   - 命令入口：
     - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
@@ -138,6 +148,7 @@
     - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/gate-triage.md)
 - 当前默认强质量门已经接进主线：
   - 写前若缺真值表 / 世界规则 / 时代资料，`novel-write` 应直接阻断，而不是带着脑补开写
+  - 若 `setting gate` 或 `minimal_next_action` 已指出需要补本地 truth source，优先更新 `设定集/`，再重跑 gate
   - 收口前若仍存在短章 / 明显缩水 / malformed text / 可证伪设定违和等 hard blocker，`novel-close` 不应判定本章收口成功
   - 单一规则源是：
     - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)
@@ -164,6 +175,7 @@
 - `novel-fix` 现在会在局部修补范围内读取快速修复动作，并尽量一次收口同章的局部问题，而不是把人物补丁偷渡成整章重写
 - `novel-polish` 现在默认偏向单次 `all` 向润色，不鼓励把 prose / dialogue / pacing 拆成多轮微修
 - `novel-precheck` 现在会在投稿前检查主角特权失衡、阵营单声道和推进过顺风险
+- 正文推进后，当角色 / 地点 / 势力 / 物品 / 规则已经稳定成为 canon 时，再用 `novel-sync` / `novel-setting` 回灌到 `设定集/`
 - 当当前 bucket 为 `宫斗宅斗` 时，`novel-write` 会自动加一层轻量“故障漏斗”预检，`novel-review` 会自动读取专项判定卡并补充 `gongdou_funnel_summary`
 - 专项判定卡入口： [gongdou-zhaidou-fault-funnel-review-card.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gongdou-zhaidou-fault-funnel-review-card.md)
 

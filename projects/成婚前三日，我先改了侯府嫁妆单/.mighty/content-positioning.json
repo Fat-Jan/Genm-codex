@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-27T14:27:07Z",
+  "primary_profile": "palace-intrigue",
+  "primary_bucket": "宫斗宅斗",
+  "tagpacks": [],
+  "strong_tags": [
+    "主母重生",
+    "吃绝户",
+    "夺子",
+    "嫁妆账本",
+    "名节压杀",
+    "旧案外溢"
+  ],
+  "narrative_modes": [
+    "账本清算"
+  ],
+  "tone_guardrails": [
+    "狠但不白拿",
+    "快压迫快反手",
+    "每次翻盘都掉代价",
+    "感情线后置"
+  ],
+  "opening_hook_cues": [],
+  "payoff_cadence": "",
+  "reader_motive": [
+    "想看高门压制下的反咬翻盘"
+  ],
+  "compiler_output": {
+    "outline_overlays": [
+      "narrative_mode:账本清算"
+    ],
+    "write_overlays": [
+      "tone_guardrail:狠但不白拿",
+      "tone_guardrail:快压迫快反手",
+      "tone_guardrail:每次翻盘都掉代价",
+      "tone_guardrail:感情线后置"
+    ],
+    "review_lenses": [
+      "strong_tag:主母重生",
+      "strong_tag:吃绝户",
+      "strong_tag:夺子",
+      "strong_tag:嫁妆账本",
+      "strong_tag:名节压杀",
+      "strong_tag:旧案外溢"
+    ],
+    "package_cues": [
+      "cue:婚配错位前置",
+      "cue:首屏冲突明确"
+    ]
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "content-positioning",
+    "generated_at": "2026-03-27T14:27:07Z",
+    "generated_by": "scripts/build_content_positioning.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
+    "depends_on": [
+      ".mighty/state.json",
+      "shared/templates/content-positioning-map-v1.json",
+      "shared/profiles/*/profile*.yaml"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-27T14:27:07Z",
+        "loaded_profile": "palace-intrigue",
+        "bucket": "宫斗宅斗"
+      },
+      "content-positioning-map-v1.json": {
+        "path": "shared/templates/content-positioning-map-v1.json",
+        "mapped_profile_count": 16,
+        "bucket_default_count": 7
+      }
+    }
+  }
+}

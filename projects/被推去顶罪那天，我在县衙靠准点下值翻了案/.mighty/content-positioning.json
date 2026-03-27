@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-27T14:28:34Z",
+  "primary_profile": "historical-brainhole",
+  "primary_bucket": "历史脑洞",
+  "tagpacks": [],
+  "strong_tags": [
+    "系统",
+    "反内卷",
+    "低位逆袭"
+  ],
+  "narrative_modes": [
+    "小人物翻案",
+    "规则反杀"
+  ],
+  "tone_guardrails": [
+    "不写成纯探案",
+    "不写成纯升官",
+    "系统不直接给答案"
+  ],
+  "opening_hook_cues": [],
+  "payoff_cadence": "阶段胜利以局部收益为主，不宜一次打穿主线矛盾。",
+  "reader_motive": [
+    "想看权谋与反差设定持续升级"
+  ],
+  "compiler_output": {
+    "outline_overlays": [
+      "narrative_mode:小人物翻案",
+      "narrative_mode:规则反杀"
+    ],
+    "write_overlays": [
+      "tone_guardrail:不写成纯探案",
+      "tone_guardrail:不写成纯升官",
+      "tone_guardrail:系统不直接给答案"
+    ],
+    "review_lenses": [
+      "strong_tag:系统",
+      "strong_tag:反内卷",
+      "strong_tag:低位逆袭"
+    ],
+    "package_cues": [
+      "cue:历史反差点前置",
+      "cue:主设定一句话讲清"
+    ]
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "content-positioning",
+    "generated_at": "2026-03-27T14:28:34Z",
+    "generated_by": "scripts/build_content_positioning.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "projects/被推去顶罪那天，我在县衙靠准点下值翻了案",
+    "depends_on": [
+      ".mighty/state.json",
+      "shared/templates/content-positioning-map-v1.json",
+      "shared/profiles/*/profile*.yaml"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-27T14:28:34Z",
+        "loaded_profile": "shared/profiles/historical-brainhole/profile.yaml",
+        "bucket": "历史脑洞"
+      },
+      "content-positioning-map-v1.json": {
+        "path": "shared/templates/content-positioning-map-v1.json",
+        "mapped_profile_count": 16,
+        "bucket_default_count": 7
+      }
+    }
+  }
+}

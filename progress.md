@@ -219,6 +219,208 @@
   - `findings.md` (updated)
   - `progress.md` (updated)
 
+## Session: 2026-03-27
+
+### Phase: Workflow Clarification And New Project Bootstrap
+- **Status:** complete
+- Actions taken:
+  - 更新默认工作流与相关 skill 文档，显式写入“总纲后先补当前卷刚需设定，再进章纲”的顺序，以及 `setting gate` / 正文稳定后回灌 `设定集/` 的时机
+  - 新建项目 `projects/成婚前三日，我先改了侯府嫁妆单`
+  - 写入项目骨架：
+    - `.mighty/state.json`
+    - `.mighty/learned-patterns.json`
+    - `.mighty/launch-stack.json`
+    - `.mighty/market-adjustments.json`
+    - `.mighty/setting-gate.json`
+    - `参考资料/创作简报.md`
+    - `大纲/总纲.md`
+  - 写入卷一最小真值设定：
+    - `设定集/家族/宅门真值表.md`
+    - `设定集/家族/小型家谱.md`
+    - `设定集/家族/婚配与继承规则.md`
+    - `设定集/家族/嫁妆与掌家账本规则.md`
+    - `设定集/角色/主角.md`
+    - `设定集/角色/顾行舟.md`
+    - `设定集/角色/秦氏.md`
+    - `设定集/角色/周成.md`
+    - `设定集/角色/许妈妈.md`
+    - `设定集/地点/侯府宅院结构与动线.md`
+    - `设定集/世界观/井案最小事实集.md`
+  - 运行 `python3 scripts/setting_gate.py "projects/成婚前三日，我先改了侯府嫁妆单" --stage outline`
+    - 结果：`passed`
+    - 自动补齐了若干地点 / 势力 / 物品骨架文件
+  - 运行 JSON 解析校验与 `bash scripts/validate-migration.sh`
+- Files created/modified:
+  - `docs/00-当前有效/default-workflows.md` (updated)
+  - `docs/00-当前有效/start-here.md` (updated)
+  - `docs/00-当前有效/skill-usage.md` (updated)
+  - `skills/novel-outline/SKILL.md` (updated)
+  - `skills/novel-write/SKILL.md` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/learned-patterns.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/launch-stack.json` (created/updated by gate)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/market-adjustments.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/setting-gate.json` (created/updated by gate)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/参考资料/README.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/参考资料/创作简报.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/总纲.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/力量体系.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/家族/宅门真值表.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/家族/小型家谱.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/家族/婚配与继承规则.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/家族/嫁妆与掌家账本规则.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/主角.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/顾行舟.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/秦氏.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/周成.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/许妈妈.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/地点/侯府宅院结构与动线.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/世界观/井案最小事实集.md` (created)
+  - `progress.md` (updated)
+
+### Phase: Chapter Outline And Office Truth Closure
+- **Status:** complete
+- Actions taken:
+  - 为新项目生成前三章章纲：
+    - `第001章`：婚前重列嫁妆单压力与春绫名字第一次露头
+    - `第002章`：婚事不能退、保住陪房名单与外家对账口
+    - `第003章`：新妇请安场完成第一次局部换账，拿到账权入口
+  - 运行 `setting_gate(outline)` 后发现 `office_truth` 缺口
+  - 追加最小官制真值：
+    - `设定集/官制/官职真值表.md`
+    - `设定集/官制/权力层级图.md`
+  - 重跑 `python3 scripts/setting_gate.py "projects/成婚前三日，我先改了侯府嫁妆单" --stage outline`
+    - 结果：`passed`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第001章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第002章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第003章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/官制/官职真值表.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/官制/权力层级图.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/setting-gate.json` (updated)
+  - `progress.md` (updated)
+
+### Phase: Chapter 001 Draft
+- **Status:** complete
+- Actions taken:
+  - 写出 `第001章` 正文，落地“婚前重列嫁妆单 -> 保住原单底账 -> 春绫名字第一次露头”
+  - 将第001章摘要、字数和进度写回项目 `.mighty/state.json`
+  - 维持当前为 `draft` 状态，未在本轮自动执行 `novel-close`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第001章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (updated)
+  - `progress.md` (updated)
+
+### Phase: Golden Three Batch Transaction
+- **Status:** complete
+- Actions taken:
+  - 新建并推进 `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/workflow_state.json`
+  - 按 `gate-check -> draft -> close -> maintenance -> snapshot` 推进一次 `novel-batch` 事务
+  - 写出 `第002章` 与 `第003章` 正文，和既有 `第001章` 组成黄金三章批次
+  - 批后运行：
+    - `scripts/check-batch-quality-gate.py ... --start 1 --end 3 --batch-count 3 --write-report`
+    - `scripts/post_write_lint.py` for `第001章`~`第003章`
+  - 根据 lint 结果对第001章和第002章做局部语言修整，消除 AI turn marker 警告
+  - 为第001-003章写回 review 结果与 `recommended_next_action = novel-write`
+  - 运行 `python3 scripts/post-task-maintenance.py "projects/成婚前三日，我先改了侯府嫁妆单" --trigger batch --batch-count 3`
+  - 确认：
+    - `batch-quality-gate.json -> status = pass`
+    - `workflow_state.json -> status = completed`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/workflow_state.json` (created/updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第001章.md` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第002章.md` (created/updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第003章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/batch-quality-gate.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/active-context.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/content-positioning.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/memory-context.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/snapshots/.../snapshot.json` (created)
+  - `progress.md` (updated)
+
+### Phase: Batch Transaction 004-006
+- **Status:** complete
+- Actions taken:
+  - 新增 `青禾`、`孙妈妈` 角色卡
+  - 新建并通过 `第004-006章` 章纲的 `setting_gate(outline)`
+  - 将 `workflow_state` 切换到新一轮 `novel-batch(start=4,count=3)` 事务
+  - 写出 `第004章`、`第005章`、`第006章`
+  - 运行批次质量门与逐章 lint
+  - 清理语言层 warning 后，将第004-006章回写为 `reviewed`
+  - 跑完整维护链，确认 `workflow_state = completed`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/青禾.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/孙妈妈.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第004章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第005章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第006章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第004章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第005章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第006章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/workflow_state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/batch-quality-gate.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json` (updated)
+  - `progress.md` (updated)
+
+### Phase: Batch Transaction 007-009
+- **Status:** complete
+- Actions taken:
+  - 新建并通过 `第007-009章` 章纲的 `setting_gate(outline)`
+  - 将 `workflow_state` 切换到新一轮 `novel-batch(start=7,count=3)` 事务
+  - 写出 `第007章`、`第008章`、`第009章`
+  - 运行批次质量门与逐章 lint
+  - 清理第007章和第009章的语言层 warning 后，将第007-009章回写为 `reviewed`
+  - 跑完整维护链，确认 `workflow_state = completed`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第007章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第008章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第009章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第007章.md` (created/updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第008章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第009章.md` (created/updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/workflow_state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/batch-quality-gate.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json` (updated)
+  - `progress.md` (updated)
+
+### Phase: Batch Transaction 010-012
+- **Status:** complete
+- Actions taken:
+  - 新增 `韩大夫`、`赵妈妈` 角色卡与 `海棠纹旧绣套`、`半只银锁片` 物件卡
+  - 新建并通过 `第010-012章` 章纲的 `setting_gate(outline)`
+  - 将 `workflow_state` 切换到新一轮 `novel-batch(start=10,count=3)` 事务
+  - 写出 `第010章`、`第011章`、`第012章`
+  - 运行批次质量门与逐章 lint
+  - 将第012章从软下限告警边缘补到安全区，并清理语言层 warning
+  - 将第010-012章回写为 `reviewed`
+  - 修正 `.mighty/state.json -> progress.current_chapter` 漏停在 `9` 的一致性问题，并重跑维护链
+  - 最终确认：
+    - `batch-quality-gate.json -> status = pass`
+    - `workflow_state.json -> status = completed`
+    - `state.progress.current_chapter = 12`
+- Files created/modified:
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/韩大夫.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/赵妈妈.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/物品/海棠纹旧绣套.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/物品/半只银锁片.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第010章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第011章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/大纲/章纲/第012章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第010章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第011章.md` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/chapters/第012章.md` (created/updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/workflow_state.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/batch-quality-gate.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json` (updated)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/.mighty/sync-overrides.json` (created)
+  - `projects/成婚前三日，我先改了侯府嫁妆单/设定集/角色/周总管.md` (deleted)
+  - `progress.md` (updated)
+
 ## Session: 2026-03-26
 
 ### Roadmap Update: Outline Intake Layer

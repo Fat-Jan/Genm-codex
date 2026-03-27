@@ -1,0 +1,46 @@
+{
+  "project": "projects/被推去顶罪那天，我在县衙靠准点下值翻了案",
+  "chapters": [
+    10,
+    11,
+    12
+  ],
+  "batch_count": 3,
+  "baseline_avg_chars": 2697.3333333333335,
+  "metrics": [
+    {
+      "chapter": 10,
+      "chars": 2492,
+      "lines": 206,
+      "dialogue_marks": 44,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 11,
+      "chars": 2405,
+      "lines": 192,
+      "dialogue_marks": 37,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 12,
+      "chars": 2415,
+      "lines": 186,
+      "dialogue_marks": 46,
+      "bullet_lines": 0
+    }
+  ],
+  "status": "pass",
+  "safe_max_batch": 3,
+  "length_policy": {
+    "hard_min_chars": 2000,
+    "soft_min_chars": 2400,
+    "preferred_min_chars": 2600,
+    "preferred_max_chars": 3400,
+    "track": "longform",
+    "bucket_name": "历史脑洞"
+  },
+  "issues": [],
+  "warnings": [],
+  "recommendation": "当前批次通过质量门，但后续仍建议一次性最多 3 章。"
+}

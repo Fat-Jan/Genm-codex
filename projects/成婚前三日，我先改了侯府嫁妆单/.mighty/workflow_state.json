@@ -1,0 +1,153 @@
+{
+  "$schema": "./workflow-state-v2.schema.json",
+  "version": "2.0",
+  "transaction_contract": "chapter-transaction-v1",
+  "current_task": {
+    "command": "novel-batch",
+    "args": {
+      "start": 13,
+      "count": 3,
+      "word_count_target": "2800-3600"
+    },
+    "status": "running",
+    "current_step": "draft",
+    "completed_steps": [
+      "gate-check"
+    ],
+    "failed_steps": [],
+    "pending_steps": [
+      "draft",
+      "close",
+      "maintenance",
+      "snapshot"
+    ],
+    "last_successful_checkpoint": "gate-check",
+    "started_at": "2026-03-27T14:39:43Z",
+    "last_heartbeat": "2026-03-27T14:39:43Z",
+    "error_message": null,
+    "transaction_phase": "draft",
+    "next_transaction_step": "draft"
+  },
+  "history": [
+    {
+      "command": "novel-batch",
+      "args": {
+        "start": 1,
+        "count": 3,
+        "word_count_target": "2800-3600",
+        "batch_quality_gate_file": ".mighty/batch-quality-gate.json",
+        "trigger": "batch",
+        "maintenance_report_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json",
+        "snapshot_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/snapshots/chapter-003/2026-03-27T13-08-58Z/snapshot.json"
+      },
+      "status": "completed",
+      "current_step": null,
+      "completed_steps": [
+        "gate-check",
+        "draft",
+        "close",
+        "maintenance",
+        "snapshot"
+      ],
+      "failed_steps": [],
+      "pending_steps": [],
+      "last_successful_checkpoint": "snapshot",
+      "started_at": "2026-03-27T00:00:00Z",
+      "last_heartbeat": "2026-03-27T13:08:58Z",
+      "error_message": null,
+      "transaction_phase": "completed",
+      "next_transaction_step": null,
+      "snapshot_completed_at": "2026-03-27T13:08:58Z"
+    },
+    {
+      "command": "novel-batch",
+      "args": {
+        "start": 4,
+        "count": 3,
+        "word_count_target": "2800-3600",
+        "batch_quality_gate_file": ".mighty/batch-quality-gate.json",
+        "trigger": "batch",
+        "maintenance_report_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json",
+        "snapshot_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/snapshots/chapter-006/2026-03-27T13-30-57Z/snapshot.json"
+      },
+      "status": "completed",
+      "current_step": null,
+      "completed_steps": [
+        "gate-check",
+        "draft",
+        "close",
+        "maintenance",
+        "snapshot"
+      ],
+      "failed_steps": [],
+      "pending_steps": [],
+      "last_successful_checkpoint": "snapshot",
+      "started_at": "2026-03-27T13:14:12Z",
+      "last_heartbeat": "2026-03-27T13:30:57Z",
+      "error_message": null,
+      "transaction_phase": "completed",
+      "next_transaction_step": null,
+      "snapshot_completed_at": "2026-03-27T13:30:57Z"
+    },
+    {
+      "command": "novel-batch",
+      "args": {
+        "start": 7,
+        "count": 3,
+        "word_count_target": "2800-3600",
+        "batch_quality_gate_file": ".mighty/batch-quality-gate.json",
+        "trigger": "batch",
+        "maintenance_report_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json",
+        "snapshot_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/snapshots/chapter-009/2026-03-27T13-53-56Z/snapshot.json"
+      },
+      "status": "completed",
+      "current_step": null,
+      "completed_steps": [
+        "gate-check",
+        "draft",
+        "close",
+        "maintenance",
+        "snapshot"
+      ],
+      "failed_steps": [],
+      "pending_steps": [],
+      "last_successful_checkpoint": "snapshot",
+      "started_at": "2026-03-27T13:35:53Z",
+      "last_heartbeat": "2026-03-27T13:53:56Z",
+      "error_message": null,
+      "transaction_phase": "completed",
+      "next_transaction_step": null,
+      "snapshot_completed_at": "2026-03-27T13:53:56Z"
+    },
+    {
+      "command": "novel-batch",
+      "args": {
+        "start": 10,
+        "count": 3,
+        "word_count_target": "2800-3600",
+        "batch_quality_gate_file": ".mighty/batch-quality-gate.json",
+        "trigger": "batch",
+        "maintenance_report_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/maintenance-report.json",
+        "snapshot_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/snapshots/chapter-012/2026-03-27T14-27-07Z/snapshot.json"
+      },
+      "status": "completed",
+      "current_step": null,
+      "completed_steps": [
+        "gate-check",
+        "draft",
+        "close",
+        "maintenance",
+        "snapshot"
+      ],
+      "failed_steps": [],
+      "pending_steps": [],
+      "last_successful_checkpoint": "snapshot",
+      "started_at": "2026-03-27T14:08:23Z",
+      "last_heartbeat": "2026-03-27T14:27:07Z",
+      "error_message": null,
+      "transaction_phase": "completed",
+      "next_transaction_step": null,
+      "snapshot_completed_at": "2026-03-27T14:27:07Z"
+    }
+  ]
+}

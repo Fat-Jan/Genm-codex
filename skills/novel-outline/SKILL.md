@@ -207,7 +207,14 @@ Also read these when generating or materially revising outlines, especially for 
         - core office-title schema when title / synopsis / conflict depends on官场 or宫廷权力
    - if the kinship files are still mostly empty, write a provisional total outline and clearly mark which relation words are not yet safe to freeze into packaging
    - if the office truth files are still mostly empty, do not freeze官场权力型承诺 as final wording
+   - after the total outline pass, if the current volume now clearly depends on stable household / inheritance / marriage / accounting / office / world-rule facts that are still missing from `设定集/`, update only the current-volume truth files before moving to chapter outlines
+   - prefer minimal current-volume setting enrichment:
+     - truth sheets and genealogy first
+     - then current-volume key character / location / faction / item / rule files
+   - do not bulk-materialize later-volume or endgame canon here
 9. For `mode=chapter`:
+   - before generating chapter outlines, verify that the current-volume setting files required by the total outline are present and minimally usable
+   - if the total outline introduced new stable truth that chapter outlines would depend on, stop and update `设定集/` first instead of guessing through the gap
    - create `大纲/章纲/第N章.md`
    - include chapter goal, conflict, reveal, hook, and continuity notes
    - when opening-and-plot rules are active, also include:
@@ -277,6 +284,11 @@ Also read these when generating or materially revising outlines, especially for 
 ## Notes
 
 - Treat `大纲/总纲.md` as the law for later writing steps.
+- Preferred setting-update checkpoints:
+  1. seed minimal truth at init time
+  2. after `mode=total`, materialize current-volume truth that the outline now depends on
+  3. after `setting gate(outline)` or `minimal_next_action`, patch only the blocking local truth sources
+  4. after stable writing rounds, materialize new stable canon via maintenance / sync rather than inside broad outline generation
 - If the user asks for broad ideation, provide multiple outline options before locking one in.
 - Do not generate chapter writing content here; this skill ends at outline artifacts.
 - If Fanqie bucket rules are active, they should guide outline shape before packaging and before prose generation.
@@ -289,7 +301,9 @@ Also read these when generating or materially revising outlines, especially for 
   3. office truth sheet
   4. power ladder
   5. total outline
-  6. packaging
+  6. current-volume setting补齐
+  7. chapter outline
+  8. packaging
 - When both Fanqie bucket constraints and writing-technique rules are active, apply them in this order:
   1. canon / state / total outline
   2. active bucket

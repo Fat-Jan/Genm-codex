@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-27T14:27:07Z",
+  "safe_for_mcp_memory": true,
+  "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
+  "title": "成婚前三日，我先改了侯府嫁妆单",
+  "current_chapter": 12,
+  "total_words": 36343,
+  "workflow": {
+    "status": "completed",
+    "current_step": null,
+    "last_successful_checkpoint": "snapshot"
+  },
+  "gate": {
+    "status": "passed",
+    "blocking_gap_keys": [],
+    "minimal_next_action": "none",
+    "minimal_next_reason": "gate passed"
+  },
+  "launch_stack": {
+    "phase": "draft",
+    "drift_signal": "watch"
+  },
+  "active_context_summary": {
+    "hook_count": 2,
+    "guardrail_count": 0,
+    "latest_summary_chapter": "12"
+  },
+  "memory_contract": {
+    "truth_source": "local_files",
+    "allowed_sync": [
+      "workflow_summary",
+      "gate_summary",
+      "launch_stack_drift",
+      "active_context_summary",
+      "next_action_hint"
+    ],
+    "forbidden_sync": [
+      "full_state_json",
+      "chapter_prose",
+      "sidecar_full_bodies",
+      "setting_markdown_fulltext"
+    ]
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "memory-context",
+    "generated_at": "2026-03-27T14:27:07Z",
+    "generated_by": "scripts/build_memory_context.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
+    "depends_on": [
+      ".mighty/state.json",
+      ".mighty/workflow_state.json",
+      ".mighty/setting-gate.json",
+      ".mighty/active-context.json"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-27T14:27:07Z",
+        "current_chapter": 12
+      },
+      "workflow_state.json": {
+        "path": ".mighty/workflow_state.json",
+        "status": "completed",
+        "current_step": null,
+        "last_successful_checkpoint": "snapshot"
+      },
+      "setting-gate.json": {
+        "path": ".mighty/setting-gate.json",
+        "status": "passed"
+      },
+      "active-context.json": {
+        "path": ".mighty/active-context.json",
+        "latest_summary_chapter": "12"
+      }
+    }
+  }
+}

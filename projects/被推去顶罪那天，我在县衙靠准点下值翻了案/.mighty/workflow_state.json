@@ -1,0 +1,74 @@
+{
+  "$schema": "./workflow-state-v2.schema.json",
+  "version": "2.0",
+  "transaction_contract": "chapter-transaction-v1",
+  "current_task": {
+    "command": "novel-batch",
+    "args": {
+      "start": 13,
+      "count": 3,
+      "mode": "three-chapter-batch",
+      "precondition": "chapter_outlines_013_015_required",
+      "post_batch_rule": "batch_must_review_before_next_batch",
+      "auto_pause_only_on": [
+        "setting-gate-blocked",
+        "batch-quality-gate-failed",
+        "missing-truth-source",
+        "direction-drift"
+      ]
+    },
+    "status": "running",
+    "current_step": "gate-check",
+    "completed_steps": [],
+    "failed_steps": [],
+    "pending_steps": [
+      "gate-check",
+      "draft",
+      "close",
+      "maintenance",
+      "snapshot"
+    ],
+    "last_successful_checkpoint": "batch-010-012-reviewed",
+    "started_at": "2026-03-27T14:30:28Z",
+    "last_heartbeat": "2026-03-27T14:30:28Z",
+    "error_message": null,
+    "transaction_phase": "queued"
+  },
+  "history": [
+    {
+      "command": "novel-write",
+      "chapter_range": "001-003",
+      "status": "completed_with_review",
+      "completed_at": "2026-03-27T12:27:54Z",
+      "notes": "黄金三章已完成并通过正式审查；recommended_next_action = novel-write。"
+    },
+    {
+      "command": "workflow-rule-update",
+      "chapter_range": "004-006+",
+      "status": "locked",
+      "completed_at": "2026-03-27T12:31:54Z",
+      "notes": "试行固定节奏：3章一批 -> 批后必审 -> 再进入下一批。"
+    },
+    {
+      "command": "novel-batch",
+      "chapter_range": "004-006",
+      "status": "completed_with_review",
+      "completed_at": "2026-03-27T12:48:19Z",
+      "notes": "第004-006章已完成、batch质量门通过、维护链完成；第006章审查通过，可进入下一批。"
+    },
+    {
+      "command": "novel-batch",
+      "chapter_range": "007-009",
+      "status": "completed_with_review",
+      "completed_at": "2026-03-27T13:09:55Z",
+      "notes": "第007-009章已完成、batch质量门通过、维护链完成；第009章审查通过，下一批应把冲突推进到县衙外部与更高层。"
+    },
+    {
+      "command": "novel-batch",
+      "chapter_range": "010-012",
+      "status": "completed_with_review",
+      "completed_at": "2026-03-27T14:28:34Z",
+      "notes": "第010-012章已完成、batch质量门通过、维护链完成；第012章审查通过，下一批应把州府回压和更高层反扑落到实处。"
+    }
+  ]
+}

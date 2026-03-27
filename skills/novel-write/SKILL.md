@@ -334,6 +334,8 @@ Read conditionally:
     - `scripts/post-task-maintenance.py <project_root> --trigger write`
     which should call the maintenance chain for `setting gate(write-post)`, stable entities, runtime guidance, and state thinning.
     - maintenance is not the place where prose mutation or `novel-close` execution should live
+    - when the chapter has made a role / location / faction / item / rule stable enough that later chapters will rely on it, prefer materializing that canon through maintenance / `novel-sync` / `novel-setting` before the next dependent chapter
+    - when the draft reveals a missing truth source that the next chapter cannot safely guess through, route back upstream and update `设定集/` before continuing the writing chain
 23. When reporting the result, treat the single-chapter path as one chapter transaction:
     - `gate-check` already passed
     - this skill completed `draft`

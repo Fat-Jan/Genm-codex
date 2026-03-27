@@ -1,0 +1,52 @@
+{
+  "project": "projects/成婚前三日，我先改了侯府嫁妆单",
+  "chapters": [
+    13,
+    14,
+    15
+  ],
+  "batch_count": 3,
+  "baseline_avg_chars": 2598.3333333333335,
+  "metrics": [
+    {
+      "chapter": 13,
+      "chars": 2660,
+      "lines": 150,
+      "dialogue_marks": 55,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 14,
+      "chars": 2513,
+      "lines": 152,
+      "dialogue_marks": 45,
+      "bullet_lines": 0
+    },
+    {
+      "chapter": 15,
+      "chars": 2394,
+      "lines": 166,
+      "dialogue_marks": 32,
+      "bullet_lines": 0
+    }
+  ],
+  "status": "warn",
+  "safe_max_batch": 3,
+  "length_policy": {
+    "track": "longform",
+    "hard_min_chars": 2000,
+    "soft_min_chars": 2500,
+    "preferred_min_chars": 2800,
+    "preferred_max_chars": 3600,
+    "bucket_name": "宫斗宅斗"
+  },
+  "issues": [],
+  "warnings": [
+    {
+      "code": "chapter-below-soft-floor",
+      "message": "章节长度 2394 低于软下限 2500",
+      "chapter": 15
+    }
+  ],
+  "recommendation": "当前批次未直接失败，但建议后续仍保持每批最多 3 章。"
+}

@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "phase": "draft",
+  "premise_line": "成婚前三日，我先改了侯府嫁妆单",
+  "primary_pivot": "mystery-gap",
+  "secondary_pivot": "inciting-event",
+  "launch_grammar": {
+    "primary": "investigation-reveal",
+    "candidates": [
+      {
+        "id": "investigation-reveal",
+        "score": 10.0
+      },
+      {
+        "id": "rule-trial",
+        "score": 3.0
+      }
+    ],
+    "confidence": "high"
+  },
+  "retention_protocol": {
+    "enabled_rules": [
+      "first-page-hook",
+      "chapter-end-hook",
+      "hook-handover",
+      "first-hard-payoff",
+      "half-win-with-residual",
+      "no-foolish-humiliation",
+      "early-stability"
+    ],
+    "priority_rules": [
+      "first-page-hook",
+      "chapter-end-hook",
+      "first-hard-payoff"
+    ],
+    "violations": []
+  },
+  "compiler_output": {
+    "outline_focus": [
+      "锁定 `mystery-gap` 支点",
+      "前 1-3 章按 `investigation-reveal` 推进"
+    ],
+    "chapter_1_3_targets": [
+      "第001章给首屏钩子",
+      "第002章给交换、误判或加压",
+      "第003章给第一次硬兑现或半胜带残账"
+    ],
+    "review_watchpoints": [
+      "前三章是否至少翻一次信息页",
+      "追查是否只靠巧合"
+    ],
+    "precheck_risks": [
+      "前三章只有 promise 没有换账",
+      "章末钩子没有接力"
+    ],
+    "package_guardrails": [
+      "不要把未兑现的大卖点包装成已兑现事实"
+    ]
+  },
+  "hook_ledger_summary": {
+    "count": 0
+  },
+  "payoff_ledger_summary": {
+    "count": 0
+  },
+  "confidence": "high",
+  "drift_signal": "watch",
+  "reselect_note": "auto-compiled from outline-only or partial early chapters",
+  "target_chapter": "",
+  "chapter_range": ""
+}

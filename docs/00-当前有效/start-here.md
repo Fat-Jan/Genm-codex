@@ -12,20 +12,29 @@
 
 1. `novel-init`
 2. `novel-genre`
-3. `novel-outline`
-4. 如果当前项目是番茄平台，`setting gate(outline)` 现在会守卫式自动编译 `launch-stack`
-5. `setting gate`
-6. `novel-package`
-7. `novel-write`
-8. `novel-close`
-9. 必要时再 `novel-rewrite`
-10. `novel-export`
+3. 古代家族权力题材先补 `宅门真值表 + 小型家谱`
+4. `novel-outline`
+   - 先做 `mode=total`
+5. 总纲初稿后，先补当前卷刚需设定，再进入 `mode=chapter`
+6. 如果当前项目是番茄平台，`setting gate(outline)` 现在会守卫式自动编译 `launch-stack`
+7. `setting gate`
+8. `novel-package`
+9. `novel-write`
+10. `novel-close`
+11. 必要时再 `novel-rewrite`
+12. `novel-export`
 
 补充：
 
 - 单章主线现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果立项信息还不稳，先补 `shared/templates/project/creative-brief.md`
+- 先有 `总纲`，再有 `章纲`
+- 总纲初稿后，先补当前卷刚需设定：
+  - 家族/继承/婚配/掌家真值
+  - 当前卷关键人物卡
+  - 当前卷关键地点 / 势力 / 旧案地点
+- 不要在起盘阶段一口气把整本书设定写满
 - 上游结构边界优先看：
   - [upstream-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/upstream-structure-contract.md)
   - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
@@ -51,6 +60,7 @@ python3 scripts/setting_gate.py <project_root> --stage outline
   - `review_items`
   - `minimal_next_action`
 - `minimal_next_action.suggested_commands` 会给出最小可执行命令串；先按它处理，再重跑 gate
+- 如果 gate 卡住的是本地 truth source，先补 `设定集/`，不是先去外部搜一大圈
 - 如果你需要一个集中入口，不想在多个文档之间跳，直接看：
   - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/gate-triage.md)
 

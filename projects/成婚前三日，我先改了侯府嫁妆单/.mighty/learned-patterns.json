@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-27T14:27:07Z",
+  "data": {
+    "writing_style_preferences": {
+      "dialogue_style": "克制、带针、带账本意识",
+      "description_density": "中，优先细节物件和场景权限",
+      "pacing_preference": "卷一先保账、再换账、再触旧案"
+    },
+    "high_point_preferences": [
+      "快压迫快反手",
+      "规矩压人后立刻出现账本或钥匙层面的反制",
+      "局部赢面必须带残留风险"
+    ],
+    "avoid_patterns": [
+      "纯后宅吵架不换账",
+      "角色突然知道不该知道的真相",
+      "用权威角色一句话解决所有难题"
+    ],
+    "opening_strategy": "第一屏先落婚前重列嫁妆单压力，再露出女主重生后的先手。",
+    "multi_line_guardrails": [
+      "明线先保嫁妆和账权，暗线只轻揭井案，不要卷一就破完。"
+    ],
+    "content_standard_alerts": [
+      "不要把规矩当背景说明，要写成具体压迫动作。"
+    ],
+    "user_feedback": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-27T14:28:34Z",
+  "project_root": "projects/被推去顶罪那天，我在县衙靠准点下值翻了案",
+  "archive_file": "projects/被推去顶罪那天，我在县衙靠准点下值翻了案/.mighty/state-archive.json",
+  "live_summary_count": 5,
+  "archived_summary_count": 4,
+  "ranges": [
+    {
+      "id": "001-004",
+      "start_chapter": "001",
+      "end_chapter": "004",
+      "chapter_count": 4,
+      "chapters": [
+        "001",
+        "002",
+        "003",
+        "004"
+      ],
+      "summary": "第001章：州府复核旧案 -> 程既明被推去顶锅 -> 残缺供词页出现 -> 旧命案被确认做脏\n第002章：签押时辰矛盾 -> 柳三娘再开口 -> 裴知衡暂缓销档\n第003章：旧物册现封泥残签 -> 原卷结论作废 -> 命案背后露出更大账目\n第004章：杜主簿断卷调岗 -> 罗县尉压人证 -> 南平码口线浮出",
+      "chapter_summaries": [
+        {
+          "chapter": "001",
+          "summary": "州府复核旧案 -> 程既明被推去顶锅 -> 残缺供词页出现 -> 旧命案被确认做脏"
+        },
+        {
+          "chapter": "002",
+          "summary": "签押时辰矛盾 -> 柳三娘再开口 -> 裴知衡暂缓销档"
+        },
+        {
+          "chapter": "003",
+          "summary": "旧物册现封泥残签 -> 原卷结论作废 -> 命案背后露出更大账目"
+        },
+        {
+          "chapter": "004",
+          "summary": "杜主簿断卷调岗 -> 罗县尉压人证 -> 南平码口线浮出"
+        }
+      ]
+    }
+  ]
+}

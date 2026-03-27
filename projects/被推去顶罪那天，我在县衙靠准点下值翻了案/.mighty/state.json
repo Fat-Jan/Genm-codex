@@ -1,0 +1,1313 @@
+{
+  "$schema": "state-schema-v5.json",
+  "version": "5.0",
+  "meta": {
+    "title": "被推去顶罪那天，我在县衙靠准点下值翻了案",
+    "genre": "历史脑洞",
+    "platform": "番茄",
+    "target_chapters": 15,
+    "target_words": 40000,
+    "created_at": "2026-03-27T00:00:00Z",
+    "updated_at": "2026-03-27T14:28:34Z"
+  },
+  "genre_profile": {
+    "loaded": "shared/profiles/historical-brainhole/profile.yaml",
+    "bucket": "历史脑洞",
+    "positioning_initialized": false,
+    "tagpacks": [],
+    "strong_tags": [
+      "系统",
+      "反内卷",
+      "低位逆袭"
+    ],
+    "narrative_modes": [
+      "小人物翻案",
+      "规则反杀"
+    ],
+    "tone_guardrails": [
+      "不写成纯探案",
+      "不写成纯升官",
+      "系统不直接给答案"
+    ],
+    "positioning_sidecar": ".mighty/content-positioning.json",
+    "节奏": {
+      "type": "创意历史型",
+      "tension_ratio": "4:6",
+      "typical_chapter_length": 4500,
+      "word_count": {
+        "minimum": 4000,
+        "standard": "4000-5500",
+        "long": "5500-7000"
+      }
+    },
+    "爽点密度": 0.8,
+    "strand权重": {
+      "quest": 45,
+      "fire": 30,
+      "constellation": 25
+    },
+    "特殊约束": [
+      {
+        "id": "HISTB-001",
+        "description": "架空设定要自洽",
+        "mandatory": true,
+        "checkpoint": "世界观"
+      }
+    ]
+  },
+  "progress": {
+    "current_chapter": 12,
+    "total_words": 33621,
+    "last_write_chapter": 12,
+    "last_write_time": "2026-03-27T14:17:57Z",
+    "milestones": {
+      "golden_three_completed": true,
+      "first_arc_completed": true,
+      "midpoint_reached": true
+    }
+  },
+  "entities": {
+    "characters": {
+      "protagonist": {
+        "name": "程既明",
+        "aliases": [
+          "县衙小吏",
+          "刑房书吏"
+        ],
+        "location": {
+          "current": "清河县县衙刑房",
+          "origin": "清河县城南旧巷"
+        },
+        "inventory": [
+          "旧案残页抄本"
+        ],
+        "abilities": [
+          "识别卷宗流程漏洞",
+          "记忆旧档细节",
+          "判断谁在做无效劳动"
+        ],
+        "status": [
+          "旧命案替罪锅暂时洗掉",
+          "已把命案翻成账链案",
+          "逼得裴知衡停南平码、封东西仓",
+          "被正式摆上必须处理名单"
+        ],
+        "current_goals": [
+          "守住赵有福一家和现有账线",
+          "在封仓三日内抢到更上层证据",
+          "查清谁在灾年分走了粮"
+        ],
+        "known_secrets": [
+          "旧命案卷宗被做脏过",
+          "残页提到'票封不在何六顺手里'",
+          "旧物册曾记过带'平码'字样的封泥残签",
+          "同一笔缺口先后在南平码口、东仓和西仓被吃过",
+          "何六顺碰过的是平口补欠封，不是普通盐票"
+        ],
+        "recent_events": [
+          "赵有福入衙后家里被点了火，账链开始直接咬活人",
+          "程既明在东仓摸到一笔缺口被重复吃过的过账纸",
+          "裴知衡拒绝把案子压成基层乱账",
+          "南平码口已停三日，东西仓已封门",
+          "何六顺案正式被全县承认为账链案入口"
+        ]
+      },
+      "active": [
+        {
+          "name": "杜主簿",
+          "role": "县衙主簿",
+          "relationship": "第一卷主敌"
+        },
+        {
+          "name": "罗县尉",
+          "role": "县衙县尉",
+          "relationship": "明面压迫者"
+        },
+        {
+          "name": "裴知衡",
+          "role": "清河县知县",
+          "relationship": "摇摆秩序方"
+        },
+        {
+          "name": "彭老验",
+          "role": "老仵作",
+          "relationship": "证据线关键人"
+        },
+        {
+          "name": "柳三娘",
+          "role": "旧命案残存活口",
+          "relationship": "关键证人"
+        },
+        {
+          "name": "赵有福",
+          "role": "南平码口旧年经手人",
+          "relationship": "脆弱证人"
+        },
+        {
+          "name": "窦会首",
+          "role": "清河县盐行会首",
+          "relationship": "外部施压者"
+        },
+        {
+          "name": "祁通判",
+          "role": "州府通判",
+          "relationship": "上层口风来源"
+        }
+      ],
+      "archived": []
+    },
+    "items": {
+      "tracked": [
+        "旧命案卷宗",
+        "残缺供词页",
+        "封泥残签"
+      ],
+      "protagonist_inventory": [
+        "旧案残页抄本"
+      ]
+    },
+    "locations": {
+      "current": "清河县县衙二堂",
+      "visited": [
+        "清河县县衙",
+        "清河县县衙刑房",
+        "刑房档库",
+        "南平码口"
+      ],
+      "important": [
+        "清河县县衙",
+        "清河县县衙刑房",
+        "刑房档库",
+        "二堂",
+        "南平码口"
+      ]
+    },
+    "factions": {
+      "active": [
+        {
+          "name": "清河县衙门"
+        },
+        {
+          "name": "清河县豪强盐行"
+        }
+      ]
+    }
+  },
+  "plot_threads": {
+    "foreshadowing": {
+      "active": [
+        {
+          "id": "f1",
+          "name": "旧命案背后不是单案",
+          "description": "旧命案和灾年粮账缺口相连，命案只是替罪链的一角。",
+          "planted_chapter": 1,
+          "expected_range": "6-20",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "南平码口背后还有更高层",
+          "description": "南平码口只是平码补欠链的末端，真正能决定补缺口和做脏旧卷的人还没露出全貌。",
+          "planted_chapter": 6,
+          "expected_range": "9-18",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "裴知衡",
+            "赵有福"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "封仓三日后的反扑",
+          "description": "裴知衡停南平码、封东西仓后，真正吃粮的人不会坐着挨封，接下来一定会有人先动证人、旧账或知县本人。",
+          "planted_chapter": 9,
+          "expected_range": "10-15",
+          "status": "planted",
+          "related_entities": [
+            "裴知衡",
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f4",
+          "name": "州府会先切责还是先灭证",
+          "description": "裴知衡递出'请明口径'后，州府若不想正面认下旧口径，就必须先切责、回压，甚至抢先灭掉能说话的证据链。",
+          "planted_chapter": 12,
+          "expected_range": "13-18",
+          "status": "planted",
+          "related_entities": [
+            "裴知衡",
+            "祁通判",
+            "程既明"
+          ],
+          "importance": "high"
+        }
+      ],
+      "pending": [],
+      "warning": [],
+      "overdue": [],
+      "resolved": []
+    },
+    "suspense": {
+      "active": [
+        {
+          "question": "州府收到咨文后，会先切责裴知衡，还是先灭掉现有证据链？",
+          "since_chapter": 12
+        },
+        {
+          "question": "南平码口背后真正分粮的人，到底是谁？",
+          "since_chapter": 12
+        }
+      ],
+      "resolved": [
+        {
+          "question": "州府复核旧案后，县衙会先拿谁填坑？",
+          "resolved_chapter": 1,
+          "answer": "杜主簿和罗县尉先把最底层的程既明推到了旧命案问责链最前面。"
+        },
+        {
+          "question": "何六顺旧命案还能不能按原卷直接销档？",
+          "resolved_chapter": 2,
+          "answer": "不能。裴知衡因签押时辰和家属补述异常，暂缓了此案销档。"
+        },
+        {
+          "question": "这桩旧命案只是卷宗写乱了，还是被人做脏过？",
+          "resolved_chapter": 3,
+          "answer": "旧物册里的'平码'封泥残签和残页互相印证，说明这不是单纯卷乱，而是有人故意抹掉关键物证与说法。"
+        },
+        {
+          "question": "何六顺死前碰过的票封，到底指向哪条线？",
+          "resolved_chapter": 5,
+          "answer": "那不是普通盐票，而是南平码口的平口补欠封，表面挂盐平码，底下补的是粮账缺口。"
+        },
+        {
+          "question": "这案子还是一桩旧命案，还是已经变成了一条账链案？",
+          "resolved_chapter": 6,
+          "answer": "裴知衡已承认何六顺案不再只按旧命案重核，而是并案追查南平码口补欠账。"
+        },
+        {
+          "question": "赵有福进衙之后，县衙就真能护住他吗？",
+          "resolved_chapter": 7,
+          "answer": "不能。人虽暂时留在衙门，赵家棚屋还是被点了火，说明对方要压的不是一张嘴，而是一家人的命。"
+        },
+        {
+          "question": "票封和南平码口之间，到底有没有硬账能对上？",
+          "resolved_chapter": 8,
+          "answer": "有。东仓留底显示同一笔补欠先挂南平码口，再经东仓封，最后还在西仓做回填。"
+        },
+        {
+          "question": "裴知衡会不会做出足够重的动作，把旧案真正抬到账线上？",
+          "resolved_chapter": 9,
+          "answer": "会。裴知衡已下令停南平码三日，并封东仓、西仓，让账链问题第一次公开化。"
+        },
+        {
+          "question": "封仓之后，谁会最先对裴知衡施压？",
+          "resolved_chapter": 10,
+          "answer": "窦会首先带盐行上门，祁通判也递来安稳口风，外部压力直接压到了裴知衡本人头上。"
+        },
+        {
+          "question": "州府那边到底有没有碰过这条补欠口径？",
+          "resolved_chapter": 11,
+          "answer": "有。旧赈底档上带着州府勘验印，说明州府至少见过、认过这套'先挂平码、后做核销、不另起缺'的平账法。"
+        },
+        {
+          "question": "裴知衡会不会把州府也拖进来？",
+          "resolved_chapter": 12,
+          "answer": "会。裴知衡已经盖印送出'请明口径'的咨文，正式把州府拖上了桌。"
+        }
+      ]
+    },
+    "main_quest": {
+      "target": "从替罪书吏活成能改规则的人",
+      "location": "清河县",
+      "secret": "县衙靠把底层推出去填坑来维持表面秩序",
+      "progress": 68
+    },
+    "side_quests": []
+  },
+  "knowledge_base": {
+    "reader_knows": [
+      "程既明是县衙最底层的刑房书吏",
+      "州府正在追查旧案质量",
+      "主簿想把锅压给最不值钱的人",
+      "程既明在旧档里摸到一页残缺供词",
+      "这桩旧命案不是判得粗，而是被人做脏过",
+      "裴知衡已经暂缓此案销档",
+      "旧物册里还藏着一枚带'平码'字样的封泥残签",
+      "那枚票封指向南平码口的平口补欠账",
+      "赵有福还活着，并且认下何六顺替他送过那张封",
+      "裴知衡已经把何六顺案并到南平码口补欠账一起查",
+      "赵有福家已被点火，账链开始直接咬到活人",
+      "同一笔缺口在南平码口、东仓和西仓都留下了痕迹",
+      "裴知衡已停南平码三日，并封东西仓",
+      "窦会首已经代表盐行上门施压",
+      "祁通判也递来了以安稳为名的压案口风",
+      "州府旧赈底档上盖过这套补欠口径的勘验印",
+      "裴知衡已连夜送出请明口径的咨文"
+    ],
+    "protagonist_knows": [
+      {
+        "info": "旧命案卷宗不干净",
+        "since_chapter": 1
+      },
+      {
+        "info": "残页提到'票封不在何六顺手里'，旧命案背后另有账目牵连。",
+        "since_chapter": 1
+      },
+      {
+        "info": "只要先证明原卷不能成立，自己就能暂时脱离替罪死局。",
+        "since_chapter": 2
+      },
+      {
+        "info": "旧物册曾记录过一枚带'平码'字样的封泥残签，原卷却把它抹掉了。",
+        "since_chapter": 3
+      },
+      {
+        "info": "南平码口的平口补欠账，表面挂盐平码，底下补的是灾年粮账缺口。",
+        "since_chapter": 5
+      },
+      {
+        "info": "只要把命案、旧物和补欠账并到一起，这案子就不可能再被压回普通斗殴失足案。",
+        "since_chapter": 6
+      },
+      {
+        "info": "杜主簿和罗县尉已经从断卷、拿人、烧家三层同时开始止损。",
+        "since_chapter": 7
+      },
+      {
+        "info": "真正能打穿'基层乱账'说法的，是同一笔缺口被重复吃过的双重过账。",
+        "since_chapter": 8
+      },
+      {
+        "info": "只要裴知衡下了封仓停平码的令，这条账线就不再是他一个小吏嘴里的怀疑。",
+        "since_chapter": 9
+      },
+      {
+        "info": "外部最快下场的不是幕后大鱼，而是替他们说话的盐行会首和州府口风。",
+        "since_chapter": 10
+      },
+      {
+        "info": "旧赈底档上带着州府勘验印，说明这条补欠法不是县里自己发明的。",
+        "since_chapter": 11
+      },
+      {
+        "info": "裴知衡已经用请明口径的方式把州府拖上桌，这案子不再只是县内能压回去的事。",
+        "since_chapter": 12
+      }
+    ],
+    "protagonist_doesnt_know": [
+      "是谁最早做脏了旧案",
+      "南平码口背后更高层的主使是谁",
+      "裴知衡会查到哪一步就停",
+      "封仓之后真正的第一波州府回压会怎么落下来"
+    ],
+    "key_revelations": [
+      "省力生存系统第一次亮相，并指出签押时辰与残页顺序是最短突破口。",
+      "旧命案卷宗存在拆卷重穿和残页被压底的痕迹。",
+      "柳三娘证明自己三年前说过'票封不在何六顺手里'，只是卷里没写。",
+      "旧物册里曾记过一枚带'平码'字样的封泥残签，原卷却没有这件物证。",
+      "裴知衡已作废何六顺案原卷结论，命刑房重立卷宗。",
+      "杜主簿和罗县尉在程既明继续往下查后，已经开始从查卷、拿人、改口三层同时止损。",
+      "赵有福承认何六顺替他送过一张不该由脚夫碰的平口补欠封。",
+      "何六顺案已经从旧命案升级成南平码口补欠账链案。",
+      "赵家棚屋被点火，说明对方已开始直接打证人家口。",
+      "东仓和西仓都留下了同一笔缺口被重复吃过的痕迹。",
+      "裴知衡已正式停南平码、封东西仓。",
+      "窦会首和祁通判的口风说明外部力量已经正式入局。",
+      "州府旧赈底档上存在勘验印，坐实州府曾见过这套平账口径。",
+      "裴知衡已盖印送出请明口径的咨文。"
+    ]
+  },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {
+      "爽点": 0,
+      "节奏": 0,
+      "人设": 0,
+      "设定": 0,
+      "文笔": 0
+    }
+  },
+  "learned_patterns": {
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-27T14:28:34Z",
+    "available_sections": [
+      "sidecar"
+    ],
+    "has_recent_guardrails": false,
+    "recent_guardrails_expires_after_chapter": null
+  },
+  "platform_config": {
+    "platform": "番茄"
+  },
+  "chapter_meta": {
+    "005": {
+      "word_count": 2687,
+      "summary": "程既明顺着南平码口找到了还活着的旧年经手人赵有福，并在差役之前把人从河埠带走，确认何六顺替他送过一张平口补欠封，命案也第一次和具体钱账连上。"
+    },
+    "006": {
+      "word_count": 2505,
+      "summary": "程既明把旧卷、旧物册、杂簿和赵有福的供述并到一起，逼得裴知衡承认何六顺案已不是普通旧命案，而是要和南平码口补欠账并案追查的账链案。",
+      "review_score": 87,
+      "review_grade": "B+",
+      "review_time": "2026-03-27T12:45:26Z",
+      "dimension_scores": {
+        "爽点": 86,
+        "一致性": 88,
+        "节奏": 86,
+        "OOC": 89,
+        "连续性": 88,
+        "追读力": 88,
+        "层次清晰度": 87,
+        "推进有效性": 89,
+        "人物立体度": 87,
+        "关系张力": 86,
+        "阵营分歧": 86,
+        "代价感": 87
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "第二批三章已经把命案抬到账链，但接下来不能继续主要靠堂前对质和账册拼图推进；第007章开始必须出现更直接的现实反扑、资源后果或人身代价。",
+        "赵有福当前作为脆弱证人是成立的，后续不能把他写成稳定站队的送证工具，他首先仍然会保自己和家人。"
+      ],
+      "suggested_fixes": [],
+      "issue_clusters": [
+        {
+          "name": "next-batch-escalation-must-leave-paper-space",
+          "severity": "warning",
+          "scope": "next batch",
+          "summary": "下一批要把查账结果落到真实执行、利益反扑和人身风险上，避免连续多章停在纸面拼图。"
+        }
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none",
+        "recommended_focus": "第007章开始把南平码口账链的现实反扑压上来，让'账'真正咬到人和位子。"
+      },
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "赵有福不是自动配合的证人，而是因为怕死才被程既明硬拖到堂前。",
+          "杜主簿、罗县尉、裴知衡在同一案上各保不同利益，没有塌成单一声道。"
+        ],
+        "faction_or_relation_failure": [
+          "当前没有明显配角按钮化，但若下一批缺少更高层或更外层的主动反制，现有三方关系会开始重复。"
+        ],
+        "minimum_viable_repair_direction": "本批可直接继续下一批，不需要先做局部修补；重点是把后果链外扩。"
+      }
+    },
+    "007": {
+      "word_count": 2849,
+      "summary": "赵有福刚被留在衙门，韩家棚屋就被点了火。程既明挡下罗县尉半夜提人，也看清了这条账链已经不是只咬卷宗和证词，而是开始咬活人的家口。"
+    },
+    "008": {
+      "word_count": 2610,
+      "summary": "程既明在东仓摸到南平码口补欠转东仓封、再由西仓回填的双重过账纸，第一次拿到能打穿“基层乱账”说法的硬账。"
+    },
+    "009": {
+      "word_count": 2572,
+      "summary": "程既明把命案、票封、赵有福和双重过账并到一起，逼得裴知衡停南平码三日、封东仓西仓，何六顺案也正式从旧命案抬成了灾年粮账入口。",
+      "review_score": 89,
+      "review_grade": "B+",
+      "review_time": "2026-03-27T13:02:04Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 90,
+        "节奏": 87,
+        "OOC": 90,
+        "连续性": 89,
+        "追读力": 90,
+        "层次清晰度": 88,
+        "推进有效性": 90,
+        "人物立体度": 88,
+        "关系张力": 87,
+        "阵营分歧": 88,
+        "代价感": 89
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "第三批已经把账链抬到全县层面，下一批不能再只靠县衙内部对质推进；必须尽快引入更高层、外部力量或更直接的报复后果。",
+        "裴知衡当前连续三批都承担了最后拍板功能，后续需要把他的犹疑、代价和官路压力写得更具体，否则容易变成稳定托底装置。"
+      ],
+      "suggested_fixes": [],
+      "issue_clusters": [
+        {
+          "name": "next-batch-must-escalate-beyond-county-hall",
+          "severity": "warning",
+          "scope": "next batch",
+          "summary": "下一批必须把冲突推进到封仓后的外部反扑、上层施压或更高利益方出手，不能继续主要停在县衙堂前。"
+        }
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none",
+        "recommended_focus": "第010章开始让封仓停平码的后果真正炸开，把更高层利益方逼上台。"
+      },
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "赵有福没有因为被护住就自动忠心，他始终先看家口和自己能不能活。",
+          "裴知衡的动作始终带着官场自保逻辑，不是单纯为主角站边。"
+        ],
+        "faction_or_relation_failure": [
+          "当前三方关系仍成立，但下一批若缺更高层或外部力量进场，杜主簿/罗县尉/裴知衡三角关系会开始重复。"
+        ],
+        "minimum_viable_repair_direction": "第三批可直接继续下一批，不需要先做局部修补；下一批要扩大冲突地图和代价面。"
+      }
+    },
+    "010": {
+      "word_count": 2492,
+      "summary": "南平码口一停，盐价和商路压力立刻压到县衙门前。窦会首和祁通判的口风一起逼裴知衡收手，程既明也第一次看清这案子已经从县衙账脏变成了知县的官路问题。"
+    },
+    "011": {
+      "word_count": 2405,
+      "summary": "程既明在县学后旧库翻到盖着州府勘验印的旧赈底档，坐实州府也见过、认过这套‘先挂平码、后做核销、不另起缺’的平账法；州府的人也立刻下场抢档。"
+    },
+    "012": {
+      "word_count": 2415,
+      "summary": "程既明拿州府勘验印和旧赈底档逼裴知衡选边，裴知衡最终没有把账压回县里，而是盖印送出‘请明口径’的咨文，正式把州府拖上了桌。",
+      "review_score": 88,
+      "review_grade": "B+",
+      "review_time": "2026-03-27T14:17:57Z",
+      "dimension_scores": {
+        "爽点": 87,
+        "一致性": 90,
+        "节奏": 86,
+        "OOC": 90,
+        "连续性": 89,
+        "追读力": 89,
+        "层次清晰度": 88,
+        "推进有效性": 89,
+        "人物立体度": 88,
+        "关系张力": 87,
+        "阵营分歧": 89,
+        "代价感": 88
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "第四批已经把州府口径拖上桌，下一批不能再主要靠‘翻到新档’推进；必须尽快让州府回压、切责或灭证动作真正落地。",
+        "裴知衡此时仍是必要的上层壳，但后续不能继续只让他替程既明做关键决策；要让程既明准备没有知县托底的推进路径。"
+      ],
+      "suggested_fixes": [],
+      "issue_clusters": [
+        {
+          "name": "next-batch-must-survive-prefecture-pushback",
+          "severity": "warning",
+          "scope": "next batch",
+          "summary": "下一批要把州府回压和更高层报复具体写下来，不能停在咨文送出的悬置状态。"
+        }
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none",
+        "recommended_focus": "第013章开始让州府回压、切责或灭证动作真正落地，把战场从县里推到更高层。"
+      },
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "窦会首和祁通判都不是直接替幕后背锅的脸谱，而是带着各自立场和口风下场施压。",
+          "裴知衡没有被写成万能保护伞，他每一步动作都在算官场代价。"
+        ],
+        "faction_or_relation_failure": [
+          "当前层级已经抬高，下一批若缺州府实质反扑，窦会首/祁通判会停留在功能性露头层。"
+        ],
+        "minimum_viable_repair_direction": "本批可直接继续下一批，不需要先做局部修补；下一批重点是把更高层反扑兑现出来。"
+      }
+    }
+  },
+  "chapter_snapshots": {
+    "006": {
+      "chapter": 6,
+      "path": "chapters/第006章.md",
+      "created_at": "2026-03-27T12:48:19Z",
+      "updated_at": "2026-03-27T12:48:19Z",
+      "word_count": 2505,
+      "protagonist_state": {
+        "name": "程既明",
+        "aliases": [
+          "县衙小吏",
+          "刑房书吏"
+        ],
+        "location": {
+          "current": "清河县县衙刑房",
+          "origin": "清河县城南旧巷"
+        },
+        "inventory": [
+          "旧案残页抄本"
+        ],
+        "abilities": [
+          "识别卷宗流程漏洞",
+          "记忆旧档细节",
+          "判断谁在做无效劳动"
+        ],
+        "status": [
+          "仍在县衙最底层",
+          "旧命案替罪锅暂时洗掉",
+          "获准继续经手何六顺案",
+          "被杜主簿正式盯上"
+        ],
+        "current_goals": [
+          "顺着票封和旧物册往下查",
+          "弄清何六顺案和灾年粮账的关系",
+          "保住差事和性命"
+        ],
+        "known_secrets": [
+          "旧命案卷宗被做脏过",
+          "残页提到'票封不在何六顺手里'",
+          "旧物册曾记过带'平码'字样的封泥残签"
+        ],
+        "recent_events": [
+          "州府开始复核旧案",
+          "程既明被杜主簿和罗县尉推去接下何六顺旧命案",
+          "省力生存系统第一次亮相，并帮他锁到签押时辰和残页顺序",
+          "裴知衡暂缓销档，命刑房重核此案",
+          "程既明拿旧物册和残页逼得裴知衡作废原卷结论"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "杜主簿",
+          "role": "县衙主簿",
+          "relationship": "第一卷主敌"
+        },
+        {
+          "name": "罗县尉",
+          "role": "县衙县尉",
+          "relationship": "明面压迫者"
+        },
+        {
+          "name": "裴知衡",
+          "role": "清河县知县",
+          "relationship": "摇摆秩序方"
+        },
+        {
+          "name": "彭老验",
+          "role": "老仵作",
+          "relationship": "证据线关键人"
+        },
+        {
+          "name": "柳三娘",
+          "role": "旧命案残存活口",
+          "relationship": "关键证人"
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "旧命案背后不是单案",
+          "description": "旧命案和灾年粮账缺口相连，命案只是替罪链的一角。",
+          "planted_chapter": 1,
+          "expected_range": "6-20",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "南平码口背后还有更高层",
+          "description": "南平码口只是平码补欠链的末端，真正能决定补缺口和做脏旧卷的人还没露出全貌。",
+          "planted_chapter": 6,
+          "expected_range": "7-18",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "裴知衡",
+            "赵有福"
+          ],
+          "importance": "high"
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "程既明是县衙最底层的刑房书吏",
+          "州府正在追查旧案质量",
+          "主簿想把锅压给最不值钱的人",
+          "程既明在旧档里摸到一页残缺供词",
+          "这桩旧命案不是判得粗，而是被人做脏过",
+          "裴知衡已经暂缓此案销档",
+          "旧物册里还藏着一枚带'平码'字样的封泥残签",
+          "那枚票封指向南平码口的平口补欠账",
+          "赵有福还活着，并且认下何六顺替他送过那张封",
+          "裴知衡已经把何六顺案并到南平码口补欠账一起查"
+        ],
+        "protagonist_knows": [
+          {
+            "info": "旧命案卷宗不干净",
+            "since_chapter": 1
+          },
+          {
+            "info": "残页提到'票封不在何六顺手里'，旧命案背后另有账目牵连。",
+            "since_chapter": 1
+          },
+          {
+            "info": "只要先证明原卷不能成立，自己就能暂时脱离替罪死局。",
+            "since_chapter": 2
+          },
+          {
+            "info": "旧物册曾记录过一枚带'平码'字样的封泥残签，原卷却把它抹掉了。",
+            "since_chapter": 3
+          },
+          {
+            "info": "南平码口的平口补欠账，表面挂盐平码，底下补的是灾年粮账缺口。",
+            "since_chapter": 5
+          },
+          {
+            "info": "只要把命案、旧物和补欠账并到一起，这案子就不可能再被压回普通斗殴失足案。",
+            "since_chapter": 6
+          }
+        ],
+        "protagonist_doesnt_know": [
+          "是谁最早做脏了旧案",
+          "南平码口背后更高层的主使是谁",
+          "裴知衡会查到哪一步就停"
+        ],
+        "key_revelations": [
+          "省力生存系统第一次亮相，并指出签押时辰与残页顺序是最短突破口。",
+          "旧命案卷宗存在拆卷重穿和残页被压底的痕迹。",
+          "柳三娘证明自己三年前说过'票封不在何六顺手里'，只是卷里没写。",
+          "旧物册里曾记过一枚带'平码'字样的封泥残签，原卷却没有这件物证。",
+          "裴知衡已作废何六顺案原卷结论，命刑房重立卷宗。",
+          "杜主簿和罗县尉在程既明继续往下查后，已经开始从查卷、拿人、改口三层同时止损。",
+          "赵有福承认何六顺替他送过一张不该由脚夫碰的平口补欠封。",
+          "何六顺案已经从旧命案升级成南平码口补欠账链案。"
+        ]
+      },
+      "key_events": [],
+      "summary": "程既明把旧卷、旧物册、杂簿和赵有福的供述并到一起，逼得裴知衡承认何六顺案已不是普通旧命案，而是要和南平码口补欠账并案追查的账链案。"
+    },
+    "009": {
+      "chapter": 9,
+      "path": "chapters/第009章.md",
+      "created_at": "2026-03-27T13:09:55Z",
+      "updated_at": "2026-03-27T13:09:55Z",
+      "word_count": 2572,
+      "protagonist_state": {
+        "name": "程既明",
+        "aliases": [
+          "县衙小吏",
+          "刑房书吏"
+        ],
+        "location": {
+          "current": "清河县县衙刑房",
+          "origin": "清河县城南旧巷"
+        },
+        "inventory": [
+          "旧案残页抄本"
+        ],
+        "abilities": [
+          "识别卷宗流程漏洞",
+          "记忆旧档细节",
+          "判断谁在做无效劳动"
+        ],
+        "status": [
+          "已把命案翻成账链案",
+          "逼得裴知衡停南平码、封东西仓",
+          "已让州府和盐行同时下场",
+          "被更高层正式注意到"
+        ],
+        "current_goals": [
+          "守住赵有福一家和现有账线",
+          "顶住州府和盐行的回压",
+          "查清谁在灾年分走了粮"
+        ],
+        "known_secrets": [
+          "旧命案卷宗被做脏过",
+          "残页提到'票封不在何六顺手里'",
+          "旧物册曾记过带'平码'字样的封泥残签",
+          "同一笔缺口先后在南平码口、东仓和西仓被吃过",
+          "何六顺碰过的是平口补欠封，不是普通盐票",
+          "州府旧赈底档也盖过'先挂平码、后做核销、不另起缺'的口径"
+        ],
+        "recent_events": [
+          "窦会首带着盐行压力上门逼裴知衡松仓",
+          "祁通判递话，以安稳为名压裴知衡收手",
+          "程既明在旧库摸到州府也盖过印的旧赈底档",
+          "裴知衡已连夜往州府递去'请明口径'的咨文",
+          "县内争案已升级成州县之间的口径对撞"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "杜主簿",
+          "role": "县衙主簿",
+          "relationship": "第一卷主敌"
+        },
+        {
+          "name": "罗县尉",
+          "role": "县衙县尉",
+          "relationship": "明面压迫者"
+        },
+        {
+          "name": "裴知衡",
+          "role": "清河县知县",
+          "relationship": "摇摆秩序方"
+        },
+        {
+          "name": "彭老验",
+          "role": "老仵作",
+          "relationship": "证据线关键人"
+        },
+        {
+          "name": "柳三娘",
+          "role": "旧命案残存活口",
+          "relationship": "关键证人"
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "旧命案背后不是单案",
+          "description": "旧命案和灾年粮账缺口相连，命案只是替罪链的一角。",
+          "planted_chapter": 1,
+          "expected_range": "6-20",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "南平码口背后还有更高层",
+          "description": "南平码口只是平码补欠链的末端，真正能决定补缺口和做脏旧卷的人还没露出全貌。",
+          "planted_chapter": 6,
+          "expected_range": "9-18",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "裴知衡",
+            "赵有福"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "封仓三日后的反扑",
+          "description": "裴知衡停南平码、封东西仓后，真正吃粮的人不会坐着挨封，接下来一定会有人先动证人、旧账或知县本人。",
+          "planted_chapter": 9,
+          "expected_range": "10-16",
+          "status": "planted",
+          "related_entities": [
+            "裴知衡",
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "程既明是县衙最底层的刑房书吏",
+          "州府正在追查旧案质量",
+          "主簿想把锅压给最不值钱的人",
+          "程既明在旧档里摸到一页残缺供词",
+          "这桩旧命案不是判得粗，而是被人做脏过",
+          "裴知衡已经暂缓此案销档",
+          "旧物册里还藏着一枚带'平码'字样的封泥残签",
+          "那枚票封指向南平码口的平口补欠账",
+          "赵有福还活着，并且认下何六顺替他送过那张封",
+          "裴知衡已经把何六顺案并到南平码口补欠账一起查",
+          "赵有福家已被点火，账链开始直接咬到活人",
+          "同一笔缺口在南平码口、东仓和西仓都留下了痕迹",
+          "裴知衡已停南平码三日，并封东西仓"
+        ],
+        "protagonist_knows": [
+          {
+            "info": "旧命案卷宗不干净",
+            "since_chapter": 1
+          },
+          {
+            "info": "残页提到'票封不在何六顺手里'，旧命案背后另有账目牵连。",
+            "since_chapter": 1
+          },
+          {
+            "info": "只要先证明原卷不能成立，自己就能暂时脱离替罪死局。",
+            "since_chapter": 2
+          },
+          {
+            "info": "旧物册曾记录过一枚带'平码'字样的封泥残签，原卷却把它抹掉了。",
+            "since_chapter": 3
+          },
+          {
+            "info": "南平码口的平口补欠账，表面挂盐平码，底下补的是灾年粮账缺口。",
+            "since_chapter": 5
+          },
+          {
+            "info": "只要把命案、旧物和补欠账并到一起，这案子就不可能再被压回普通斗殴失足案。",
+            "since_chapter": 6
+          },
+          {
+            "info": "杜主簿和罗县尉已经从断卷、拿人、烧家三层同时开始止损。",
+            "since_chapter": 7
+          },
+          {
+            "info": "真正能打穿'基层乱账'说法的，是同一笔缺口被重复吃过的双重过账。",
+            "since_chapter": 8
+          },
+          {
+            "info": "只要裴知衡下了封仓停平码的令，这条账线就不再是他一个小吏嘴里的怀疑。",
+            "since_chapter": 9
+          }
+        ],
+        "protagonist_doesnt_know": [
+          "是谁最早做脏了旧案",
+          "南平码口背后更高层的主使是谁",
+          "裴知衡会查到哪一步就停",
+          "封仓之后真正的第一波反扑会落在哪里"
+        ],
+        "key_revelations": [
+          "省力生存系统第一次亮相，并指出签押时辰与残页顺序是最短突破口。",
+          "旧命案卷宗存在拆卷重穿和残页被压底的痕迹。",
+          "柳三娘证明自己三年前说过'票封不在何六顺手里'，只是卷里没写。",
+          "旧物册里曾记过一枚带'平码'字样的封泥残签，原卷却没有这件物证。",
+          "裴知衡已作废何六顺案原卷结论，命刑房重立卷宗。",
+          "杜主簿和罗县尉在程既明继续往下查后，已经开始从查卷、拿人、改口三层同时止损。",
+          "赵有福承认何六顺替他送过一张不该由脚夫碰的平口补欠封。",
+          "何六顺案已经从旧命案升级成南平码口补欠账链案。",
+          "韩家棚屋被点火，说明对方已开始直接打证人家口。",
+          "东仓和西仓都留下了同一笔缺口被重复吃过的痕迹。",
+          "裴知衡已正式停南平码、封东西仓。"
+        ]
+      },
+      "key_events": [],
+      "summary": "程既明把命案、票封、赵有福和双重过账并到一起，逼得裴知衡停南平码三日、封东仓西仓，何六顺案也正式从旧命案抬成了灾年粮账入口。"
+    },
+    "012": {
+      "chapter": 12,
+      "path": "chapters/第012章.md",
+      "created_at": "2026-03-27T14:28:34Z",
+      "updated_at": "2026-03-27T14:28:34Z",
+      "word_count": 2415,
+      "protagonist_state": {
+        "name": "程既明",
+        "aliases": [
+          "县衙小吏",
+          "刑房书吏"
+        ],
+        "location": {
+          "current": "清河县县衙刑房",
+          "origin": "清河县城南旧巷"
+        },
+        "inventory": [
+          "旧案残页抄本"
+        ],
+        "abilities": [
+          "识别卷宗流程漏洞",
+          "记忆旧档细节",
+          "判断谁在做无效劳动"
+        ],
+        "status": [
+          "旧命案替罪锅暂时洗掉",
+          "已把命案翻成账链案",
+          "逼得裴知衡停南平码、封东西仓",
+          "被正式摆上必须处理名单"
+        ],
+        "current_goals": [
+          "守住赵有福一家和现有账线",
+          "在封仓三日内抢到更上层证据",
+          "查清谁在灾年分走了粮"
+        ],
+        "known_secrets": [
+          "旧命案卷宗被做脏过",
+          "残页提到'票封不在何六顺手里'",
+          "旧物册曾记过带'平码'字样的封泥残签",
+          "同一笔缺口先后在南平码口、东仓和西仓被吃过",
+          "何六顺碰过的是平口补欠封，不是普通盐票"
+        ],
+        "recent_events": [
+          "赵有福入衙后家里被点了火，账链开始直接咬活人",
+          "程既明在东仓摸到一笔缺口被重复吃过的过账纸",
+          "裴知衡拒绝把案子压成基层乱账",
+          "南平码口已停三日，东西仓已封门",
+          "何六顺案正式被全县承认为账链案入口"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "杜主簿",
+          "role": "县衙主簿",
+          "relationship": "第一卷主敌"
+        },
+        {
+          "name": "罗县尉",
+          "role": "县衙县尉",
+          "relationship": "明面压迫者"
+        },
+        {
+          "name": "裴知衡",
+          "role": "清河县知县",
+          "relationship": "摇摆秩序方"
+        },
+        {
+          "name": "彭老验",
+          "role": "老仵作",
+          "relationship": "证据线关键人"
+        },
+        {
+          "name": "柳三娘",
+          "role": "旧命案残存活口",
+          "relationship": "关键证人"
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "旧命案背后不是单案",
+          "description": "旧命案和灾年粮账缺口相连，命案只是替罪链的一角。",
+          "planted_chapter": 1,
+          "expected_range": "6-20",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "南平码口背后还有更高层",
+          "description": "南平码口只是平码补欠链的末端，真正能决定补缺口和做脏旧卷的人还没露出全貌。",
+          "planted_chapter": 6,
+          "expected_range": "9-18",
+          "status": "planted",
+          "related_entities": [
+            "程既明",
+            "杜主簿",
+            "裴知衡",
+            "赵有福"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f3",
+          "name": "封仓三日后的反扑",
+          "description": "裴知衡停南平码、封东西仓后，真正吃粮的人不会坐着挨封，接下来一定会有人先动证人、旧账或知县本人。",
+          "planted_chapter": 9,
+          "expected_range": "10-15",
+          "status": "planted",
+          "related_entities": [
+            "裴知衡",
+            "程既明",
+            "杜主簿",
+            "罗县尉"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f4",
+          "name": "州府会先切责还是先灭证",
+          "description": "裴知衡递出'请明口径'后，州府若不想正面认下旧口径，就必须先切责、回压，甚至抢先灭掉能说话的证据链。",
+          "planted_chapter": 12,
+          "expected_range": "13-18",
+          "status": "planted",
+          "related_entities": [
+            "裴知衡",
+            "祁通判",
+            "程既明"
+          ],
+          "importance": "high"
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "程既明是县衙最底层的刑房书吏",
+          "州府正在追查旧案质量",
+          "主簿想把锅压给最不值钱的人",
+          "程既明在旧档里摸到一页残缺供词",
+          "这桩旧命案不是判得粗，而是被人做脏过",
+          "裴知衡已经暂缓此案销档",
+          "旧物册里还藏着一枚带'平码'字样的封泥残签",
+          "那枚票封指向南平码口的平口补欠账",
+          "赵有福还活着，并且认下何六顺替他送过那张封",
+          "裴知衡已经把何六顺案并到南平码口补欠账一起查",
+          "赵有福家已被点火，账链开始直接咬到活人",
+          "同一笔缺口在南平码口、东仓和西仓都留下了痕迹",
+          "裴知衡已停南平码三日，并封东西仓",
+          "窦会首已经代表盐行上门施压",
+          "祁通判也递来了以安稳为名的压案口风",
+          "州府旧赈底档上盖过这套补欠口径的勘验印",
+          "裴知衡已连夜送出请明口径的咨文"
+        ],
+        "protagonist_knows": [
+          {
+            "info": "旧命案卷宗不干净",
+            "since_chapter": 1
+          },
+          {
+            "info": "残页提到'票封不在何六顺手里'，旧命案背后另有账目牵连。",
+            "since_chapter": 1
+          },
+          {
+            "info": "只要先证明原卷不能成立，自己就能暂时脱离替罪死局。",
+            "since_chapter": 2
+          },
+          {
+            "info": "旧物册曾记录过一枚带'平码'字样的封泥残签，原卷却把它抹掉了。",
+            "since_chapter": 3
+          },
+          {
+            "info": "南平码口的平口补欠账，表面挂盐平码，底下补的是灾年粮账缺口。",
+            "since_chapter": 5
+          },
+          {
+            "info": "只要把命案、旧物和补欠账并到一起，这案子就不可能再被压回普通斗殴失足案。",
+            "since_chapter": 6
+          },
+          {
+            "info": "杜主簿和罗县尉已经从断卷、拿人、烧家三层同时开始止损。",
+            "since_chapter": 7
+          },
+          {
+            "info": "真正能打穿'基层乱账'说法的，是同一笔缺口被重复吃过的双重过账。",
+            "since_chapter": 8
+          },
+          {
+            "info": "只要裴知衡下了封仓停平码的令，这条账线就不再是他一个小吏嘴里的怀疑。",
+            "since_chapter": 9
+          },
+          {
+            "info": "外部最快下场的不是幕后大鱼，而是替他们说话的盐行会首和州府口风。",
+            "since_chapter": 10
+          },
+          {
+            "info": "旧赈底档上带着州府勘验印，说明这条补欠法不是县里自己发明的。",
+            "since_chapter": 11
+          },
+          {
+            "info": "裴知衡已经用请明口径的方式把州府拖上桌，这案子不再只是县内能压回去的事。",
+            "since_chapter": 12
+          }
+        ],
+        "protagonist_doesnt_know": [
+          "是谁最早做脏了旧案",
+          "南平码口背后更高层的主使是谁",
+          "裴知衡会查到哪一步就停",
+          "封仓之后真正的第一波州府回压会怎么落下来"
+        ],
+        "key_revelations": [
+          "省力生存系统第一次亮相，并指出签押时辰与残页顺序是最短突破口。",
+          "旧命案卷宗存在拆卷重穿和残页被压底的痕迹。",
+          "柳三娘证明自己三年前说过'票封不在何六顺手里'，只是卷里没写。",
+          "旧物册里曾记过一枚带'平码'字样的封泥残签，原卷却没有这件物证。",
+          "裴知衡已作废何六顺案原卷结论，命刑房重立卷宗。",
+          "杜主簿和罗县尉在程既明继续往下查后，已经开始从查卷、拿人、改口三层同时止损。",
+          "赵有福承认何六顺替他送过一张不该由脚夫碰的平口补欠封。",
+          "何六顺案已经从旧命案升级成南平码口补欠账链案。",
+          "赵家棚屋被点火，说明对方已开始直接打证人家口。",
+          "东仓和西仓都留下了同一笔缺口被重复吃过的痕迹。",
+          "裴知衡已正式停南平码、封东西仓。",
+          "窦会首和祁通判的口风说明外部力量已经正式入局。",
+          "州府旧赈底档上存在勘验印，坐实州府曾见过这套平账口径。",
+          "裴知衡已盖印送出请明口径的咨文。"
+        ]
+      },
+      "key_events": [],
+      "summary": "程既明拿州府勘验印和旧赈底档逼裴知衡选边，裴知衡最终没有把账压回县里，而是盖印送出‘请明口径’的咨文，正式把州府拖上了桌。"
+    }
+  },
+  "summaries_index": {
+    "005": "南平码口找活人 -> 赵有福现身 -> 平口补欠封坐实",
+    "006": "旧卷并杂簿 -> 裴知衡承认账链案 -> 程既明成必须压住的人",
+    "007": "韩家起火 -> 半夜提人失败 -> 账链正式咬活人",
+    "008": "东仓摸到双重过账 -> 乱账说法被打穿",
+    "009": "停南平码封东西仓 -> 账链案公开化"
+  },
+  "character_states": {
+    "程既明": {
+      "stance": "掀账转逼局",
+      "chapter": 9
+    },
+    "杜主簿": {
+      "stance": "止损压仓",
+      "chapter": 9
+    },
+    "罗县尉": {
+      "stance": "执行施压升级",
+      "chapter": 9
+    },
+    "裴知衡": {
+      "stance": "立威与自保两难",
+      "chapter": 9
+    },
+    "赵有福": {
+      "stance": "脆弱求生",
+      "chapter": 9
+    }
+  },
+  "constraints_loaded": [
+    "creative-brief",
+    "total-outline",
+    "office-truth",
+    "world-rule"
+  ],
+  "active_launch_grammar": "investigation-reveal",
+  "active_primary_pivot": "mystery-gap",
+  "launch_stack_phase": "draft",
+  "launch_stack_drift_signal": "watch",
+  "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_updated": "2026-03-27T14:28:34Z",
+    "last_applied": null,
+    "source_scan": null,
+    "adjustment_count": 0
+  },
+  "active_context": {
+    "sidecar_file": ".mighty/active-context.json",
+    "last_built": "2026-03-27T14:28:34Z",
+    "summary_window": {
+      "count": 9,
+      "recent_count": 5,
+      "latest_chapter": "009"
+    },
+    "hook_count": 4,
+    "guardrail_count": 0
+  }
+}

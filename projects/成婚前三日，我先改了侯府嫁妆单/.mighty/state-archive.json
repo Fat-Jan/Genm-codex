@@ -1,0 +1,116 @@
+{
+  "$schema": "state-archive-v1.json",
+  "version": "1.0",
+  "archived_at": "2026-03-27T14:24:13Z",
+  "retained_recent_chapters": [
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "chapter_meta": {
+    "1": {
+      "title": "我醒来时，他们正要我重签嫁妆单",
+      "word_count": 4235,
+      "updated_at": "2026-03-27T00:00:00Z",
+      "status": "reviewed",
+      "summary": "沈见秋重生回成婚前三日，在侯府婚前重列嫁妆单的压力下保住了原嫁妆单底本和私账底册，并在母亲旧账匣里第一次看到“春绫”与后园杂用的线索。",
+      "review_time": "2026-03-27T00:00:00Z",
+      "review_score": 87,
+      "review_grade": "pass",
+      "recommended_next_action": "novel-write",
+      "issue_clusters": [],
+      "critical_issues": [],
+      "warnings": [],
+      "packaging_alignment_note": "首屏已落婚前重列嫁妆单压力，符合卷一起盘承诺。",
+      "last_close_time": "2026-03-27T00:00:00Z",
+      "last_close_route": "none",
+      "last_close_review_score_before": 87,
+      "last_close_review_score_after": 87
+    },
+    "2": {
+      "title": "婚事退不了，她先保住陪房名单",
+      "word_count": 3510,
+      "updated_at": "2026-03-27T00:00:00Z",
+      "status": "reviewed",
+      "summary": "沈见秋在婚事退不了的现实里，逼侯府承认陪房名单不全换，并在沈家账房再封一份底账。顾行舟的帖子则坐实了婚后“先过账”的安排。",
+      "review_time": "2026-03-27T00:00:00Z",
+      "review_score": 88,
+      "review_grade": "pass",
+      "recommended_next_action": "novel-write",
+      "issue_clusters": [],
+      "critical_issues": [],
+      "warnings": [],
+      "packaging_alignment_note": "本章已把“婚事退不了，只能保执行层”落成现实卡点。",
+      "last_close_time": "2026-03-27T00:00:00Z",
+      "last_close_route": "none",
+      "last_close_review_score_before": 88,
+      "last_close_review_score_after": 88
+    },
+    "3": {
+      "title": "进门第一天，她先要了一把钥匙",
+      "word_count": 3204,
+      "updated_at": "2026-03-27T00:00:00Z",
+      "status": "reviewed",
+      "summary": "进门第一天，沈见秋在正院请安的规矩场中借一处账目错位逼出让步，拿到核对世子房首轮婚后账与嫁妆入库清单的权利，并正式把春绫井案接到侯府现实账册上。",
+      "review_time": "2026-03-27T00:00:00Z",
+      "review_score": 90,
+      "review_grade": "pass",
+      "recommended_next_action": "novel-write",
+      "issue_clusters": [],
+      "critical_issues": [],
+      "warnings": [],
+      "packaging_alignment_note": "本章完成第一次硬兑现，收益落在局部账权入口而非全面掌家。",
+      "last_close_time": "2026-03-27T00:00:00Z",
+      "last_close_route": "none",
+      "last_close_review_score_before": 90,
+      "last_close_review_score_after": 90
+    },
+    "4": {
+      "title": "她先查的，不是总账，是那只旧木盒",
+      "word_count": 3670,
+      "updated_at": "2026-03-27T13:14:12Z",
+      "status": "reviewed",
+      "summary": "沈见秋没有直扑总账，而是先盯住旧木盒与婚宴后补支的错位，逼周成拿出临时交接签，第一次把许妈妈从旧案阴影里拽到了账面上。",
+      "review_time": "2026-03-27T13:14:12Z",
+      "review_score": 88,
+      "review_grade": "pass",
+      "recommended_next_action": "novel-write",
+      "issue_clusters": [],
+      "critical_issues": [],
+      "warnings": [],
+      "packaging_alignment_note": "本章把账权入口继续换成实物核验，没有空转在概念层。",
+      "last_close_time": "2026-03-27T13:14:12Z",
+      "last_close_route": "none",
+      "last_close_review_score_before": 88,
+      "last_close_review_score_after": 88
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "1": {
+      "chapter": 1,
+      "summary": "沈见秋重生回成婚前三日，在侯府婚前重列嫁妆单的压力下保住了原嫁妆单底本和私账底册，并在母亲旧账匣里第一次看到“春绫”与后园杂用的线索。",
+      "status": "reviewed"
+    },
+    "2": {
+      "chapter": 2,
+      "summary": "沈见秋在婚事退不了的现实里，逼侯府承认陪房名单不全换，并在沈家账房再封一份底账。顾行舟的帖子则坐实了婚后“先过账”的安排。",
+      "status": "reviewed"
+    },
+    "3": {
+      "chapter": 3,
+      "summary": "进门第一天，沈见秋在正院请安的规矩场中借一处账目错位逼出让步，拿到核对世子房首轮婚后账与嫁妆入库清单的权利，并正式把春绫井案接到侯府现实账册上。",
+      "status": "reviewed"
+    },
+    "4": {
+      "chapter": 4,
+      "summary": "沈见秋从旧木盒和婚宴后补支切入，不碰大账先抓小错，最终拿到一张写着许妈妈名字的临时交接签，确认她碰过旧案相关旧物。",
+      "status": "reviewed"
+    }
+  }
+}

@@ -28,17 +28,26 @@
      - `设定集/官制/官职真值表.md`
      - `设定集/官制/权力层级图.md`
 4. `novel-outline`
-5. 如果当前项目是番茄平台，起盘协议栈现在默认应在 `setting gate(outline)` 时守卫式自动编译：
+   - 先做 `mode=total`
+5. 总纲初稿出来后，补当前卷刚需设定：
+   - 家族权力题材至少补齐会影响卷一总纲、包装和前三章章纲的规则文件
+   - 优先补：
+     - 家族/继承/婚配/掌家真值
+     - 当前卷要用到的关键人物卡
+     - 当前卷要用到的地点 / 势力 / 旧案地点
+   - 不默认膨胀到整本书全量设定
+6. 需要进入前三章或具体章节规划时，再做 `novel-outline(mode=chapter)`
+7. 如果当前项目是番茄平台，起盘协议栈现在默认应在 `setting gate(outline)` 时守卫式自动编译：
    - 触发条件：
      - `.mighty/launch-stack.json` 缺失
      - 或仍是 `preselect` placeholder
    - 手动重编译仍可用：
    - `python3 scripts/fanqie_launch_stack.py --project-root <project_root> --chapter 003 --chapters 001-003 --mode writeback --writeback`
    - 番茄平台项目默认主线应有这层；非番茄项目可跳过
-6. `setting gate`
+8. `setting gate`
    - `python3 scripts/setting_gate.py <project_root> --stage outline`
    - 对番茄项目，这一步现在也负责守卫式 auto-compile `launch-stack`
-7. `novel-package`
+9. `novel-package`
 
 目标：
 
@@ -58,9 +67,26 @@
 - 古代家族权力题材先有谱系真值
 - 官场古代题材先有官制真值
 - 如项目尚未形成稳定立项输入，先补 `shared/templates/project/creative-brief.md`
+- 先有 `总纲`，再有 `章纲`
+- 总纲初稿后先补当前卷刚需设定，再冻结前三章章纲
+- 设定集默认按“当前卷刚需”更新，不按“整本书全量”更新
 - 如果当前项目是番茄平台，`novel-outline` 后跑 `setting gate(outline)` 时应先确保 `.mighty/launch-stack.json` 已进入可用状态
 - 总纲完成后先过 `setting gate`
 - 再写正文
+
+### 设定集更新时机
+
+在默认主线里，`设定集/` 不应只在项目初始化时创建一次，也不应等写崩后再回填。当前推荐在 3 个时点更新：
+
+1. `总纲初稿后`
+   - 把会影响卷一主冲突、包装和前三章章纲的真值先补齐
+   - 目标是支持 `novel-outline(mode=chapter)`，不是把整本书设定写满
+2. `setting gate(outline)` 被卡住时
+   - 先按 `blocking_gaps` 和 `minimal_next_action` 定向补本地设定
+   - 只有本地 truth source 仍不足时，才进入外部 research 候选链
+3. 正文稳定推进后
+   - 当某个角色、地点、势力、物品或规则已经成为稳定 canon，再通过 `novel-sync` / `novel-setting` 回灌到 `设定集/`
+   - 不要在写作中途把临时猜测直接冻结成长期真值
 
 ### Gate Triage
 
@@ -131,6 +157,7 @@
    - 确定性 lint warning 可以进入修补，但只有 policy-backed blocker 才能阻断 close 成功
 3. 每 3-5 章或一个阶段后：
    - `novel-sync`
+   - 若最近章节已稳定引入新的角色、地点、势力、物品或规则，再同步回 `设定集/`
 4. 每轮正文维护后：
    - 默认自动挂：
      - `scripts/post-task-maintenance.py <project_root> --trigger write|batch|workflow`
@@ -186,6 +213,7 @@
   - 关系 / 阵营是否写成单声道
   - 推进是否留下真实代价与残账
 - `novel-write` 应尽量在正文阶段就避免把配角写成按钮
+- 当前章若暴露出“下一章依赖的新真值尚未落盘”，先补 `设定集/` 再继续写，不要靠上下文记忆硬撑
 - `novel-precheck` 应把人物/关系/阵营失衡视为投稿前风险，而不只看平台节奏
 - 强拦截规则只认：
   - [strong-quality-gate-policy.json](/Users/arm/Desktop/vscode/Genm-codex/docs/strong-quality-gate-policy.json)

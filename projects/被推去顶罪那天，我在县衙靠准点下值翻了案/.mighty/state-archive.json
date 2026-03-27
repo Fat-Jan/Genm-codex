@@ -1,0 +1,95 @@
+{
+  "$schema": "state-archive-v1.json",
+  "version": "1.0",
+  "archived_at": "2026-03-27T14:28:34Z",
+  "retained_recent_chapters": [
+    "005",
+    "006",
+    "007",
+    "008",
+    "009",
+    "010",
+    "011",
+    "012"
+  ],
+  "chapter_meta": {
+    "001": {
+      "word_count": 3596,
+      "summary": "州府复核旧案后，程既明被杜主簿和罗县尉推去接下旧命案，在刑房档库里靠系统抓到残缺供词，确认这案子不是判得粗，而是被人做脏过。"
+    },
+    "002": {
+      "word_count": 3670,
+      "summary": "程既明借签押时辰和残页内容，先证明何六顺案的现卷不能成立，逼得裴知衡暂缓此案销档，也把自己从第一顺位替罪羊变成了暂时不能动的人。"
+    },
+    "003": {
+      "word_count": 3319,
+      "summary": "程既明顺着旧物册找到带'平码'字样的封泥残签，进一步坐实何六顺案被人做脏，裴知衡据此作废原卷结论，旧命案也正式牵出了更大的账。",
+      "review_score": 88,
+      "review_grade": "B+",
+      "review_time": "2026-03-27T12:27:54Z",
+      "dimension_scores": {
+        "爽点": 88,
+        "一致性": 89,
+        "节奏": 86,
+        "OOC": 90,
+        "连续性": 88,
+        "追读力": 89,
+        "开篇抓力": 88,
+        "层次清晰度": 87,
+        "推进有效性": 89,
+        "人物立体度": 87,
+        "关系张力": 86,
+        "阵营分歧": 85,
+        "代价感": 86
+      },
+      "needs_fix": false,
+      "recommended_next_action": "novel-write",
+      "critical_issues": [],
+      "warnings": [
+        "黄金三章已经完成第一次硬兑现，但第二章和第三章的突破主要仍落在卷宗、簿册、残页这类纸面证据上；第004章必须尽快把后果落到人、钱、执行压力上，避免连续三章都靠文书异常推进。",
+        "裴知衡当前作为'秩序摇摆方'是成立的，但后续不能持续只靠他拍板托住局势；下一章至少要让杜主簿或罗县尉先打出一轮实质反制。"
+      ],
+      "suggested_fixes": [],
+      "issue_clusters": [
+        {
+          "name": "next-chapter-consequence-materialization",
+          "severity": "warning",
+          "scope": "next chapter",
+          "summary": "下一章优先把纸面证据转成真实后果链，让反制、执行、人命或钱账压力落地。"
+        }
+      ],
+      "fanqie_bucket_flags": [],
+      "fanqie_bucket_summary": {
+        "bucket": "历史脑洞",
+        "bucket_grade": "pass",
+        "promise_match": "pass",
+        "first_three_status": "pass",
+        "primary_failure": "none",
+        "top_red_flag": "none",
+        "recommended_focus": "第004章尽快把'票封/平码'背后的现实代价和上位者敌意一起压上来，别让后续推进继续停留在纸面异动层。"
+      },
+      "anti_flattening_summary": {
+        "protagonist_privilege_risk": "low",
+        "cast_flattening_signals": [
+          "柳三娘不是等待主角救援的按钮，而是带着自己的人命账和旧怨重新开口。",
+          "杜主簿、罗县尉、裴知衡三方目标不同，暂时没有塌成单声道反派或单一权威。"
+        ],
+        "faction_or_relation_failure": [
+          "当前没有明显阵营失真，但主角连续两章主要通过纸面突破推进，若下一章缺少他人主动反制，配角很容易回落成障碍物。"
+        ],
+        "minimum_viable_repair_direction": "当前章可直接继续下一章，不需要先做局部修补；重点是把下一章的冲突从卷宗推进到现实执行和利益后果。"
+      }
+    },
+    "004": {
+      "word_count": 2501,
+      "summary": "杜主簿借调岗和断卷节奏开始正式反制程既明，罗县尉也把手伸向柳三娘那边。程既明在杂簿里摸到“南平码口”这条线，第一次意识到何六顺案后头真正值钱的不是死人，而是账。"
+    }
+  },
+  "chapter_snapshots": {},
+  "summaries_index": {
+    "001": "州府复核旧案 -> 程既明被推去顶锅 -> 残缺供词页出现 -> 旧命案被确认做脏",
+    "002": "签押时辰矛盾 -> 柳三娘再开口 -> 裴知衡暂缓销档",
+    "003": "旧物册现封泥残签 -> 原卷结论作废 -> 命案背后露出更大账目",
+    "004": "杜主簿断卷调岗 -> 罗县尉压人证 -> 南平码口线浮出"
+  }
+}

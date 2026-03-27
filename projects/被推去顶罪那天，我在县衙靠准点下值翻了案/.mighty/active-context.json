@@ -1,0 +1,208 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-27T14:28:34Z",
+  "title": "被推去顶罪那天，我在县衙靠准点下值翻了案",
+  "current_chapter": 12,
+  "summary_window": {
+    "count": 9,
+    "recent_count": 5,
+    "latest_chapter": "009"
+  },
+  "recent_summaries": [
+    {
+      "chapter": "005",
+      "summary": "南平码口找活人 -> 赵有福现身 -> 平口补欠封坐实"
+    },
+    {
+      "chapter": "006",
+      "summary": "旧卷并杂簿 -> 裴知衡承认账链案 -> 程既明成必须压住的人"
+    },
+    {
+      "chapter": "007",
+      "summary": "韩家起火 -> 半夜提人失败 -> 账链正式咬活人"
+    },
+    {
+      "chapter": "008",
+      "summary": "东仓摸到双重过账 -> 乱账说法被打穿"
+    },
+    {
+      "chapter": "009",
+      "summary": "停南平码封东西仓 -> 账链案公开化"
+    }
+  ],
+  "active_hooks": [
+    {
+      "id": "f1",
+      "name": "旧命案背后不是单案",
+      "description": "旧命案和灾年粮账缺口相连，命案只是替罪链的一角。",
+      "planted_chapter": 1,
+      "expected_range": "6-20",
+      "status": "planted",
+      "related_entities": [
+        "程既明",
+        "杜主簿",
+        "罗县尉"
+      ],
+      "importance": "high"
+    },
+    {
+      "id": "f2",
+      "name": "南平码口背后还有更高层",
+      "description": "南平码口只是平码补欠链的末端，真正能决定补缺口和做脏旧卷的人还没露出全貌。",
+      "planted_chapter": 6,
+      "expected_range": "9-18",
+      "status": "planted",
+      "related_entities": [
+        "程既明",
+        "杜主簿",
+        "裴知衡",
+        "赵有福"
+      ],
+      "importance": "high"
+    },
+    {
+      "id": "f3",
+      "name": "封仓三日后的反扑",
+      "description": "裴知衡停南平码、封东西仓后，真正吃粮的人不会坐着挨封，接下来一定会有人先动证人、旧账或知县本人。",
+      "planted_chapter": 9,
+      "expected_range": "10-15",
+      "status": "planted",
+      "related_entities": [
+        "裴知衡",
+        "程既明",
+        "杜主簿",
+        "罗县尉"
+      ],
+      "importance": "high"
+    },
+    {
+      "id": "f4",
+      "name": "州府会先切责还是先灭证",
+      "description": "裴知衡递出'请明口径'后，州府若不想正面认下旧口径，就必须先切责、回压，甚至抢先灭掉能说话的证据链。",
+      "planted_chapter": 12,
+      "expected_range": "13-18",
+      "status": "planted",
+      "related_entities": [
+        "裴知衡",
+        "祁通判",
+        "程既明"
+      ],
+      "importance": "high"
+    }
+  ],
+  "relevant_entities": {
+    "protagonist": {
+      "name": "程既明",
+      "aliases": [
+        "县衙小吏",
+        "刑房书吏"
+      ],
+      "location": {
+        "current": "清河县县衙刑房",
+        "origin": "清河县城南旧巷"
+      },
+      "inventory": [
+        "旧案残页抄本"
+      ],
+      "abilities": [
+        "识别卷宗流程漏洞",
+        "记忆旧档细节",
+        "判断谁在做无效劳动"
+      ],
+      "status": [
+        "旧命案替罪锅暂时洗掉",
+        "已把命案翻成账链案",
+        "逼得裴知衡停南平码、封东西仓",
+        "被正式摆上必须处理名单"
+      ],
+      "current_goals": [
+        "守住赵有福一家和现有账线",
+        "在封仓三日内抢到更上层证据",
+        "查清谁在灾年分走了粮"
+      ],
+      "known_secrets": [
+        "旧命案卷宗被做脏过",
+        "残页提到'票封不在何六顺手里'",
+        "旧物册曾记过带'平码'字样的封泥残签",
+        "同一笔缺口先后在南平码口、东仓和西仓被吃过",
+        "何六顺碰过的是平口补欠封，不是普通盐票"
+      ],
+      "recent_events": [
+        "赵有福入衙后家里被点了火，账链开始直接咬活人",
+        "程既明在东仓摸到一笔缺口被重复吃过的过账纸",
+        "裴知衡拒绝把案子压成基层乱账",
+        "南平码口已停三日，东西仓已封门",
+        "何六顺案正式被全县承认为账链案入口"
+      ]
+    },
+    "active_characters": [
+      {
+        "name": "杜主簿",
+        "role": "县衙主簿",
+        "relationship": "第一卷主敌"
+      },
+      {
+        "name": "罗县尉",
+        "role": "县衙县尉",
+        "relationship": "明面压迫者"
+      },
+      {
+        "name": "裴知衡",
+        "role": "清河县知县",
+        "relationship": "摇摆秩序方"
+      },
+      {
+        "name": "彭老验",
+        "role": "老仵作",
+        "relationship": "证据线关键人"
+      },
+      {
+        "name": "柳三娘",
+        "role": "旧命案残存活口",
+        "relationship": "关键证人"
+      }
+    ],
+    "active_locations": [
+      "清河县县衙二堂",
+      "清河县县衙",
+      "清河县县衙刑房",
+      "刑房档库",
+      "二堂"
+    ],
+    "active_factions": [
+      "清河县衙门",
+      "清河县豪强盐行"
+    ],
+    "tracked_items": [
+      "旧命案卷宗",
+      "残缺供词页",
+      "封泥残签",
+      "旧案残页抄本"
+    ]
+  },
+  "write_readiness": {
+    "gate_status": "passed",
+    "blocking_gaps": [],
+    "minimal_next_action": {
+      "action": "none",
+      "reason": "gate passed",
+      "suggested_commands": []
+    }
+  },
+  "launch_stack": {
+    "active_launch_grammar": "investigation-reveal",
+    "active_primary_pivot": "mystery-gap",
+    "launch_stack_phase": "draft",
+    "launch_stack_drift_signal": "watch",
+    "has_sidecar": true
+  },
+  "guardrail_summary": {
+    "has_recent_guardrails": false,
+    "must_avoid_count": 0,
+    "must_preserve_count": 0,
+    "watchpoint_count": 0,
+    "expires_after_chapter": null,
+    "source_sidecar": null
+  },
+  "market_signal_ids": []
+}
