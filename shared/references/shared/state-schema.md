@@ -511,6 +511,7 @@ version: "1.0"
 | review_score | number | 当前章节总评 |
 | review_grade | string | 当前章节评级 |
 | review_time | string | 最近 review 时间 |
+| needs_fix | boolean | 当前章节是否仍需要局部修补 |
 | dimension_scores | object | 评审维度分数 |
 | issue_clusters | object[] | review 收敛出的可执行问题簇，供 close/fix/rewrite 消费 |
 | recommended_next_action | string | `none/fix/polish/rewrite/write` 等路由建议 |
@@ -532,6 +533,7 @@ version: "1.0"
 ### 反脸谱化轻量约定
 
 - `issue_clusters` 不应长期表现为“高分 + 空数组 + 继续写”；若反复出现，应视为 review artifact 假阳性信号
+- `recommended_next_action` 与 `needs_fix` 应同时存在；不要只给分数，不给路由结论
 - `anti_flattening_flags` 只记录明显结构风险，不做大段分析存储
 - `anti_flattening_summary` 只有在 review 明确识别到关键问题时才写
 - 不为反脸谱化单独创建新的顶层 state 区块

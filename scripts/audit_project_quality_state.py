@@ -46,6 +46,21 @@ def audit_project_quality_state(project_root: Path) -> dict:
                 "severity": "warn",
             })
 
+        route = meta.get("recommended_next_action")
+        if not isinstance(route, str) or not route:
+            findings.append({
+                "code": "missing-route-decision",
+                "chapter": chapter,
+                "severity": "warn",
+            })
+
+        if "needs_fix" not in meta:
+            findings.append({
+                "code": "missing-needs-fix-flag",
+                "chapter": chapter,
+                "severity": "warn",
+            })
+
         if not has_nonzero_dimension_scores(meta.get("dimension_scores")):
             findings.append({
                 "code": "missing-dimension-scores",

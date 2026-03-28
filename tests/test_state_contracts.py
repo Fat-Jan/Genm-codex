@@ -70,6 +70,7 @@ class StateContractSchemaTests(unittest.TestCase):
     def test_state_template_chapter_meta_mentions_review_artifact_fields(self) -> None:
         payload = read_json("shared/templates/state-v5-template.json")
         chapter_meta = payload["chapter_meta"]["<chapter_number>"]
+        self.assertIn("needs_fix", chapter_meta)
         self.assertIn("issue_clusters", chapter_meta)
         self.assertIn("dimension_scores", chapter_meta)
         self.assertIn("anti_flattening_flags", chapter_meta)

@@ -46,7 +46,7 @@ class ProjectQualityAuditTests(unittest.TestCase):
                         "review_score": 88,
                         "issue_clusters": [],
                         "dimension_scores": {},
-                        "recommended_next_action": "novel-write",
+                        "recommended_next_action": "",
                     },
                     "002": {
                         "review_score": 87,
@@ -59,6 +59,8 @@ class ProjectQualityAuditTests(unittest.TestCase):
                         "dimension_scores": {
                             "节奏": 86,
                         },
+                        "recommended_next_action": "novel-fix",
+                        "needs_fix": True,
                     },
                 },
             },
@@ -78,6 +80,8 @@ class ProjectQualityAuditTests(unittest.TestCase):
         self.assertIn("empty-issue-clusters-with-score", finding_codes)
         self.assertIn("missing-dimension-scores", finding_codes)
         self.assertIn("missing-anti-flattening-artifacts", finding_codes)
+        self.assertIn("missing-route-decision", finding_codes)
+        self.assertIn("missing-needs-fix-flag", finding_codes)
         self.assertIn("empty-project-dimension-scores", finding_codes)
         self.assertEqual(payload["status"], "fail")
 

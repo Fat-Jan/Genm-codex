@@ -316,10 +316,10 @@ Update at minimum:
 - `chapter_meta[chapter].dimension_scores`
 - `chapter_meta[chapter].issue_clusters`
 - `chapter_meta[chapter].needs_fix`
+- `chapter_meta[chapter].recommended_next_action`
 
 When the route is clear, also update:
 
-- `chapter_meta[chapter].recommended_next_action`
 - `chapter_meta[chapter].anti_flattening_flags` when the chapter shows clear cast / relation / faction imbalance
 - `chapter_meta[chapter].fanqie_bucket_flags` when the bucket-specific red flags are clear and stable
 - `chapter_meta[chapter].fanqie_bucket_summary` when a short bucket-level summary would help downstream routing

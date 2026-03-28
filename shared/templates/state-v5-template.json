@@ -197,6 +197,7 @@
       "review_score": 0,
       "review_grade": "",
       "review_time": null,
+      "needs_fix": false,
       "recommended_next_action": "",
       "issue_clusters": [],
       "dimension_scores": {},
