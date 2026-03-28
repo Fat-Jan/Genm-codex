@@ -64,6 +64,16 @@ class WorkflowHealthBundleTests(unittest.TestCase):
                 },
             },
         )
+        write_json(
+            mighty / "maintenance-report.json",
+            {
+                "result": "partial",
+                "steps": [
+                    {"cmd": ["/usr/bin/python3", "build_active_context.py"], "status": "success"},
+                    {"cmd": ["/usr/bin/python3", "build_content_positioning.py"], "status": "failed", "error": "simulated failure"},
+                ],
+            },
+        )
         return root
 
     def test_script_exists(self) -> None:
@@ -82,7 +92,22 @@ class WorkflowHealthBundleTests(unittest.TestCase):
         self.assertEqual(payload["workflow_truth_missing_artifacts"], ["snapshot_file_exists"])
         self.assertEqual(payload["repo_owned_tail_steps"], ["maintenance", "snapshot"])
         self.assertEqual(payload["setting_gate_status"], "passed")
+        self.assertEqual(payload["maintenance_result"], "partial")
+        self.assertEqual(payload["failed_maintenance_steps"], ["build_content_positioning.py"])
         self.assertEqual(payload["recommended_next_action"], "reconcile-workflow-artifacts")
+
+    def test_partial_maintenance_without_truth_failure_recommends_tail_repair(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        mighty = root / ".mighty"
+        projection = json.loads((mighty / "knowledge-projection.json").read_text(encoding="utf-8"))
+        projection["workflow_truth"]["status"] = "pass"
+        projection["workflow_truth"]["missing_artifacts"] = []
+        (mighty / "knowledge-projection.json").write_text(json.dumps(projection, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        payload = module.build_workflow_health_bundle(root, timestamp="2026-03-28T00:00:00Z")
+
+        self.assertEqual(payload["recommended_next_action"], "repair-maintenance-tail")
 
 
 if __name__ == "__main__":

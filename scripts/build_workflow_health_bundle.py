@@ -44,11 +44,30 @@ def top_finding_codes(audit: dict, limit: int = 3) -> list[str]:
     return out
 
 
-def recommend_next_action(*, workflow_truth_status: str, quality_audit_status: str) -> tuple[str, str]:
+def summarize_maintenance(report: dict) -> tuple[str, list[str]]:
+    result = report.get("result", "unknown")
+    steps = report.get("steps", [])
+    failed: list[str] = []
+    if isinstance(steps, list):
+        for item in steps:
+            if not isinstance(item, dict) or item.get("status") != "failed":
+                continue
+            cmd = item.get("cmd", [])
+            if isinstance(cmd, list) and len(cmd) >= 2:
+                failed.append(Path(cmd[1]).name)
+    return result, failed
+
+
+def recommend_next_action(*, workflow_truth_status: str, maintenance_result: str, quality_audit_status: str) -> tuple[str, str]:
     if workflow_truth_status != "pass":
         return (
             "reconcile-workflow-artifacts",
             "workflow truth 未通过，先对齐 workflow_state 与实际 artifact。",
+        )
+    if maintenance_result == "partial":
+        return (
+            "repair-maintenance-tail",
+            "snapshot 之后的维护尾段存在失败步骤，应先修复尾段 sidecar 构建。",
         )
     if quality_audit_status != "pass":
         return (
@@ -63,6 +82,7 @@ def build_workflow_health_bundle(project_root: Path, *, timestamp: str) -> dict:
     mighty = project_root / ".mighty"
     projection_path = mighty / "knowledge-projection.json"
     audit_path = mighty / "quality-audit.json"
+    maintenance_report_path = mighty / "maintenance-report.json"
     if projection_path.exists():
         projection = json.loads(projection_path.read_text(encoding="utf-8"))
     else:
@@ -71,10 +91,13 @@ def build_workflow_health_bundle(project_root: Path, *, timestamp: str) -> dict:
         audit = json.loads(audit_path.read_text(encoding="utf-8"))
     else:
         audit = audit_project_quality_state.audit_project_quality_state(project_root)
+    maintenance_report = json.loads(maintenance_report_path.read_text(encoding="utf-8")) if maintenance_report_path.exists() else {}
     workflow_truth_status = projection.get("workflow_truth", {}).get("status", "unknown")
     quality_audit_status = audit.get("status", "unknown")
+    maintenance_result, failed_maintenance_steps = summarize_maintenance(maintenance_report)
     next_action, next_reason = recommend_next_action(
         workflow_truth_status=workflow_truth_status,
+        maintenance_result=maintenance_result,
         quality_audit_status=quality_audit_status,
     )
     return {
@@ -86,6 +109,8 @@ def build_workflow_health_bundle(project_root: Path, *, timestamp: str) -> dict:
         "top_finding_codes": top_finding_codes(audit),
         "workflow_truth_status": workflow_truth_status,
         "workflow_truth_missing_artifacts": projection.get("workflow_truth", {}).get("missing_artifacts", []),
+        "maintenance_result": maintenance_result,
+        "failed_maintenance_steps": failed_maintenance_steps,
         "repo_owned_tail_steps": projection.get("workflow_contract", {}).get("repo_owned_tail_steps", []),
         "setting_gate_status": projection.get("sidecar_health", {}).get("setting_gate_status", "unknown"),
         "has_recent_guardrails": projection.get("sidecar_health", {}).get("has_recent_guardrails", False),
@@ -100,6 +125,10 @@ def build_workflow_health_bundle(project_root: Path, *, timestamp: str) -> dict:
                 "quality-audit.json": {
                     "path": ".mighty/quality-audit.json",
                     "status": audit.get("status"),
+                },
+                "maintenance-report.json": {
+                    "path": ".mighty/maintenance-report.json",
+                    "result": maintenance_result,
                 },
                 "knowledge-projection.json": {
                     "path": ".mighty/knowledge-projection.json",

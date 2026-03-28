@@ -105,6 +105,15 @@ class ProjectMaintenanceToleranceTests(unittest.TestCase):
                     }
                 if script_name == "build_content_positioning.py":
                     raise RuntimeError("simulated content-positioning failure")
+                if script_name == "build_workflow_health_bundle.py":
+                    write_json(
+                        root / ".mighty" / "workflow-health.json",
+                        {
+                            "maintenance_result": "partial",
+                            "failed_maintenance_steps": ["build_content_positioning.py"],
+                            "recommended_next_action": "repair-maintenance-tail",
+                        },
+                    )
                 return {"cmd": cmd, "stdout": json.dumps({"ok": True}, ensure_ascii=False)}
 
             with mock.patch.object(module, "run", side_effect=fake_run), \
@@ -121,6 +130,11 @@ class ProjectMaintenanceToleranceTests(unittest.TestCase):
             report = json.loads((root / ".mighty" / "maintenance-report.json").read_text(encoding="utf-8"))
             self.assertEqual(report["result"], "partial")
             self.assertTrue(any(step.get("status") == "failed" for step in report["steps"]))
+
+            workflow_health = json.loads((root / ".mighty" / "workflow-health.json").read_text(encoding="utf-8"))
+            self.assertEqual(workflow_health["maintenance_result"], "partial")
+            self.assertEqual(workflow_health["failed_maintenance_steps"], ["build_content_positioning.py"])
+            self.assertEqual(workflow_health["recommended_next_action"], "repair-maintenance-tail")
 
             printed = json.loads(mocked_print.call_args[0][0])
             self.assertEqual(printed["workflow_status"], "completed")
