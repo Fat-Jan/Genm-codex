@@ -1,0 +1,14 @@
+name: "都市脑洞 bucket overlay"
+display_name: "都市脑洞"
+description: "番茄都市异能系都市脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["异能", "逆袭"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["异能展示要伴随现实后果", "爽点不能脱离都市秩序"]
+    package_cues:
+      - "首屏点异能觉醒或压制"
+      - "前三章要有一次实力反打"

@@ -1,0 +1,14 @@
+name: "豪门总裁 bucket overlay"
+display_name: "豪门总裁"
+description: "番茄豪门总裁狗血向 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "豪门总裁"
+    strong_tags: ["误会", "追妻"]
+    narrative_modes: []
+    tone_guardrails: ["狗血要讲逻辑", "误会不能纯靠不长嘴"]
+    package_cues:
+      - "首屏点身份/误会冲突"
+      - "不要把全部狗血词都塞进标题"

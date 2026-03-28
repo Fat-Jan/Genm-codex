@@ -183,6 +183,24 @@ class ProfileContractTests(unittest.TestCase):
         for relative_path in expected:
             self.assertTrue((REPO_ROOT / relative_path).exists(), relative_path)
 
+    def test_all_profiles_with_fanqie_primary_bucket_resolve_bucket_overlay(self) -> None:
+        module = load_module()
+        profile_paths = sorted(PROFILE_ROOT.glob("*/profile.yaml"))
+        for path in profile_paths:
+            profile_dir = path.parent
+            raw = module.load_profile(path)
+            platform_overlay = module.resolve_platform_overlay_path(profile_dir, "fanqie")
+            if platform_overlay is not None:
+                raw = module.merge_profile_layers(raw, module.load_profile(platform_overlay))
+            positioning = module.resolve_platform_positioning(raw, platform="fanqie")
+            if not isinstance(positioning, dict):
+                continue
+            bucket_name = positioning.get("primary_bucket")
+            if not isinstance(bucket_name, str) or not bucket_name:
+                continue
+            bucket_overlay = module.resolve_bucket_overlay_path(profile_dir, bucket_name, raw_profile=raw)
+            self.assertIsNotNone(bucket_overlay, f"{profile_dir.name} missing bucket overlay for {bucket_name}")
+
 
 if __name__ == "__main__":
     unittest.main()

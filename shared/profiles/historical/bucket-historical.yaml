@@ -1,0 +1,14 @@
+name: "历史脑洞 bucket overlay"
+display_name: "历史脑洞"
+description: "番茄历史脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "历史脑洞"
+    strong_tags: ["权谋", "家国"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["历史感不能散", "权力线必须讲层级"]
+    package_cues:
+      - "首屏点权力危机"
+      - "主设定一句话讲清"

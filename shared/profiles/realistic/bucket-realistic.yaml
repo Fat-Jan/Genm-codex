@@ -1,0 +1,14 @@
+name: "现实情感 bucket overlay"
+display_name: "现实情感"
+description: "番茄现实情感 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "现实情感"
+    strong_tags: ["现实困局", "成长"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["现实代价不能消失", "治愈不等于无后果"]
+    package_cues:
+      - "首行点困局"
+      - "300字内点主线"

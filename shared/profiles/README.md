@@ -88,8 +88,8 @@ shared/profiles/
 
 根据架构审查，当前 profile 系统存在以下缺口：
 
-1. **bucket 分配系统只完成了第一批接线**: `build_content_positioning.py` 与 `profile_contract.py` 已能消费 bucket overlay，但下游 consumer 仍未全面使用 bucket 级差异
-2. **bucket overlay 目前只补齐了 P0 首批**: 其余 bucket 仍未覆盖
+1. **bucket 分配系统已进入主链**: `build_content_positioning.py` 与 `profile_contract.py` 已能消费 bucket overlay，但下游 consumer 仍未全面使用 bucket 级差异
+2. **bucket overlay 已补齐当前所有声明了 `fanqie primary_bucket` 的 profile**: 后续新增 profile 时仍需保持同步
 3. **桶名 slug 映射虽已成文，但尚未做成统一 registry**: 宫斗宅斗 vs palace-intrigue vs gongdou_zhai
 4. **大部分 profile 没有 platform_positioning**: 54 个 profile 中仍有大量 profile 未补平台定位
 

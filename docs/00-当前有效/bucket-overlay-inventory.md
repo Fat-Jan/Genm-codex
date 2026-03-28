@@ -21,13 +21,22 @@
 
 | profile | bucket | 文件 | 状态 |
 |---------|--------|------|------|
+| apocalypse | 科幻末世 | `bucket-apocalypse.yaml` | ✅ 已实现 |
+| historical | 历史脑洞 | `bucket-historical.yaml` | ✅ 已实现 |
+| melodrama | 豪门总裁 | `bucket-melodrama.yaml` | ✅ 已实现 |
 | palace-intrigue | 宫斗宅斗 | `bucket-palace-intrigue.yaml` | ✅ 已实现 |
+| realistic | 现实情感 | `bucket-realistic.yaml` | ✅ 已实现 |
+| romance | 青春甜宠 | `bucket-romance.yaml` | ✅ 已实现 |
+| sweet-romance | 青春甜宠 | `bucket-sweet-romance.yaml` | ✅ 已实现 |
+| system | 都市脑洞 | `bucket-system.yaml` | ✅ 已实现 |
 | urban-brainhole | 都市脑洞 | `bucket-urban-brainhole.yaml` | ✅ 已实现 |
 | urban-daily | 都市日常 | `bucket-urban-daily.yaml` | ✅ 已实现 |
+| urban-superpower | 都市脑洞 | `bucket-urban-superpower.yaml` | ✅ 已实现 |
 | sweet-youth | 青春甜宠 | `bucket-sweet-youth.yaml` | ✅ 已实现 |
 | ceo-romance | 豪门总裁 | `bucket-ceo-romance.yaml` | ✅ 已实现 |
 | workplace-romance | 职场婚恋 | `bucket-workplace-romance.yaml` | ✅ 已实现 |
 | historical-brainhole | 历史脑洞 | `bucket-historical-brainhole.yaml` | ✅ 已实现 |
+| xiuxian | 传统玄幻 | `bucket-xiuxian.yaml` | ✅ 已实现 |
 | xuanhuan | 玄幻脑洞 | `bucket-xuanhuan.yaml` | ✅ 已实现 |
 
 ---
@@ -36,7 +45,7 @@
 
 ### 1. Bucket Overlay 文件缺失
 
-当前已补齐第一批 P0 `bucket-*.yaml` 文件，但其余 bucket 仍未覆盖。根据 contract 分层，bucket overlay 应该：
+当前已补齐当前所有声明了 `fanqie primary_bucket` 的 `bucket-*.yaml` 文件。后续新增 profile 若继续声明 `fanqie primary_bucket`，也必须同步补 overlay。根据 contract 分层，bucket overlay 应该：
 
 - **路径**: `profiles/<slug>/bucket-<bucket>.yaml`
 - **内容**: 只放内容桶差异
@@ -185,7 +194,7 @@ version: "1.0"
 ### 中期（v1.5）
 
 1. **补齐 P1 bucket overlay**:
-   - 根据实际使用情况，逐步补齐其他 bucket overlay
+   - 当新 profile 新增 `fanqie primary_bucket` 时，同步补齐对应 bucket overlay
 
 2. **建立 bucket overlay 模板**:
    - 创建 `shared/templates/bucket-overlay-template.yaml`

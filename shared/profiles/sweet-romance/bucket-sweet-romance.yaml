@@ -1,0 +1,14 @@
+name: "青春甜宠 bucket overlay"
+display_name: "青春甜宠"
+description: "番茄甜宠系青春甜宠 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "青春甜宠"
+    strong_tags: ["高甜", "心动日常"]
+    narrative_modes: []
+    tone_guardrails: ["不能转虐", "男主必须专一"]
+    package_cues:
+      - "首屏点心动事件"
+      - "甜感要早出现"

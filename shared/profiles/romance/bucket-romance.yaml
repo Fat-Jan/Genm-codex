@@ -1,0 +1,14 @@
+name: "青春甜宠 bucket overlay"
+display_name: "青春甜宠"
+description: "番茄言情系青春甜宠 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "青春甜宠"
+    strong_tags: ["高甜", "情感拉扯"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["甜感不能空转", "误会不能纯靠不沟通"]
+    package_cues:
+      - "首屏点心动或情感危机"
+      - "前三章要有一次关系推进"

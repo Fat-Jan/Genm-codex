@@ -3648,6 +3648,25 @@
   - `bash scripts/validate-migration.sh` passed
   - `python3 scripts/project_regression_smoke.py e2e-novel --batch-count 3` passed
 
+## Session Update: 2026-03-28 非 P0 bucket overlay 补齐
+
+- 在第一批 P0 之外，继续补齐了剩余已声明 `fanqie primary_bucket` 的 profile overlay：
+  - `shared/profiles/apocalypse/bucket-apocalypse.yaml`
+  - `shared/profiles/historical/bucket-historical.yaml`
+  - `shared/profiles/melodrama/bucket-melodrama.yaml`
+  - `shared/profiles/realistic/bucket-realistic.yaml`
+  - `shared/profiles/romance/bucket-romance.yaml`
+  - `shared/profiles/sweet-romance/bucket-sweet-romance.yaml`
+  - `shared/profiles/system/bucket-system.yaml`
+  - `shared/profiles/urban-superpower/bucket-urban-superpower.yaml`
+  - `shared/profiles/xiuxian/bucket-xiuxian.yaml`
+- 新增回归约束：
+  - `tests/test_profile_contract.py` 现在要求：凡是声明了 `fanqie primary_bucket` 的 profile，都必须能 resolve 到 bucket overlay
+- 同步更新：
+  - `docs/00-当前有效/bucket-overlay-inventory.md`
+  - `shared/profiles/README.md`
+  - `scripts/validate-migration.sh`
+
 ## Session Update: 2026-03-28 《嫁妆单》固定 regression sample
 
 - 新增真实项目回归测试：

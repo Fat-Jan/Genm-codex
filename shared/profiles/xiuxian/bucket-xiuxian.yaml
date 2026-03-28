@@ -1,0 +1,14 @@
+name: "传统玄幻 bucket overlay"
+display_name: "传统玄幻"
+description: "番茄传统玄幻 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "传统玄幻"
+    strong_tags: ["宗门", "成长"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["升级必须有代价", "机缘不能白拿"]
+    package_cues:
+      - "首屏点宗门/机缘/压制关系"
+      - "前三章至少一次突破或硬换账"

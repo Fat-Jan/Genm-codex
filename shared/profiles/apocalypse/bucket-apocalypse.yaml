@@ -1,0 +1,14 @@
+name: "科幻末世 bucket overlay"
+display_name: "科幻末世"
+description: "番茄科幻末世 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "科幻末世"
+    strong_tags: ["末世", "生存"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["危险感不能消失", "资源不能白给"]
+    package_cues:
+      - "首屏点末日爆发或重生前置"
+      - "前三章要有一次生存换账"
