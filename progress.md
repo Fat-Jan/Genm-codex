@@ -3487,7 +3487,14 @@
     - `snapshot` 之前仍为硬失败
     - `snapshot` 之后的尾段步骤允许失败并写入 `partial`
     - 已完成 `snapshot` 不会因后续 sidecar 构建失败而回滚
+- `A2` 当前已完成的第一步：
+  - 新增 `tests/test_thin_state_atomic.py`
+  - `scripts/thin-state.py` 已补：
+    - `SCRIPT_DIR` 导入稳定化
+    - `atomic_write_json()`
+    - 对 `state.json / state-archive.json / volume-summaries.json` 统一使用 `tmp -> replace`
 - 当前验证：
   - `pytest -q tests/test_state_contracts.py` → passed
   - `pytest -q tests/test_project_maintenance_tolerance.py tests/test_inkos_growth_plan.py -k 'project_maintenance or post_task_maintenance'` → passed
+  - `pytest -q tests/test_thin_state_atomic.py tests/test_volume_summaries.py` → passed
   - `bash scripts/validate-migration.sh` → passed
