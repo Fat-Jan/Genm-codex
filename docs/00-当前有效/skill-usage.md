@@ -125,6 +125,7 @@
   - [total-outline-structure-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/total-outline-structure-contract.md)
 - 单章 `novel-write` 默认会守卫式自动尝试一次 `novel-close`
 - `novel-batch` 不会继承这个默认行为
+- `scripts/post-task-maintenance.py --trigger batch` 只负责 repo-owned 的 `maintenance + snapshot` 尾段，不等于 batch 已默认自动完成 `close`
 - 如果你只想写本章、不想自动收口，显式传 `skip_close=true`
 - `novel-outline` 完成后，默认应先过一次 `setting gate`
 - `novel-outline(mode=total)` 之后，如果卷一已经明确依赖：
@@ -270,6 +271,12 @@
 - 用 `scripts/project-maintenance.py` 跑一次完整维护链
 - 用 `scripts/post-task-maintenance.py` 把维护链挂在 `write / batch / workflow` 后
 - 维护链现在应先跑 `scripts/setting_gate.py <project_root> --stage write-post`
+- 维护链现在还会产出：
+  - `.mighty/quality-audit.json`
+  - `.mighty/knowledge-projection.json`
+  供 `novel-status` / `novel-query` 和后续 MCP 只读调用
+- 如果你要把这两份 sidecar 挂成 MCP 只读工具，直接看：
+  - [project-knowledge-mcp.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/project-knowledge-mcp.md)
 - 用 `scripts/review-sync-queue.py` 处理 `sync-review` 队列
 - `sync-setting-assets.py` 现在默认会把低置信候选压进 `sync-review`，而不是直接沉淀成角色卡
 - `novel-scan` 现在只应该给 `setting gate` 提供 research candidates，不直接改 canon
@@ -554,11 +561,22 @@ python3 scripts/acquire_source_text.py <url> --show-provider-config --pretty
 请使用 novel-query skill，告诉我当前 setting gate 的状态、blocking_gaps 和 minimal_next_action。
 ```
 
+如果你想直接看 workflow 产物是否失真，也可以这样问：
+
+```text
+请使用 novel-query skill，告诉我当前项目的 quality-audit 和 knowledge-projection 里有哪些风险。
+```
+
 ### status
 
 ```text
 请使用 novel-status skill，给我一个 full 模式的项目状态面板，并额外带上 gate status、blocking_gaps 和 minimal_next_action。
 ```
+
+如果项目已经跑过维护链，还可以要求它额外带上：
+
+- `quality-audit`
+- `knowledge-projection`
 
 ### analyze
 

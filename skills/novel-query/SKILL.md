@@ -38,6 +38,8 @@ Use `.mighty/index.json` when it exists and the request benefits from indexed lo
 Read conditionally when needed:
 
 - `.mighty/active-context.json`
+- `.mighty/quality-audit.json`
+- `.mighty/knowledge-projection.json`
 - `.mighty/import-report.json`
 - `.mighty/state-archive.json`
 - `.mighty/volume-summaries.json`
@@ -110,17 +112,22 @@ Map these requests onto state or index data rather than pretending to execute a 
    - optional filters
 2. Read `.mighty/state.json`.
 3. If `.mighty/active-context.json` exists and the request asks about current writing context, near-term blockers, recent hooks, or next-step guidance, read it next.
-4. If `.mighty/import-report.json` exists and the request asks about imported chapters, current import status, or next import handoff steps, read it next.
-5. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
-6. If `.mighty/state-archive.json` exists and the request targets older chapters or full-history chapter metadata, read it next.
-7. If `.mighty/volume-summaries.json` exists and the request targets old chapter ranges or compressed archive summaries, read it next.
-8. If the request asks about learned style preferences, current market guidance, or project-side writing constraints, read:
+4. If `.mighty/quality-audit.json` exists and the request asks about quality artifact health, review drift, or workflow false positives, read it next.
+5. If `.mighty/knowledge-projection.json` exists and the request asks about workflow contract, sidecar health, or compact project status, read it next.
+6. If `.mighty/import-report.json` exists and the request asks about imported chapters, current import status, or next import handoff steps, read it next.
+7. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
+8. If `.mighty/state-archive.json` exists and the request targets older chapters or full-history chapter metadata, read it next.
+9. If `.mighty/volume-summaries.json` exists and the request targets old chapter ranges or compressed archive summaries, read it next.
+10. If the request asks about learned style preferences, current market guidance, or project-side writing constraints, read:
    - `.mighty/learned-patterns.json`
    - `.mighty/market-adjustments.json`
-9. If the request asks about write readiness, blockers, next actionable command, or `setting gate`, read:
+11. If the request asks about write readiness, blockers, next actionable command, or `setting gate`, read:
    - `.mighty/setting-gate.json`
-10. Resolve the request source:
+12. Resolve the request source:
    - active-context first for current writing slice / recent hooks / near-term watchpoints
+   - do not treat active-context as a full protagonist-state truth source; if the answer needs live canon, fall back to `state`
+   - quality-audit first for review artifact health / false-positive quality questions
+   - knowledge-projection first for workflow contract / sidecar health / compact project summary questions
    - import-report first for imported chapter handoff state
    - state-first for current truth
    - state-archive for old chapter metadata / snapshot / summary history
@@ -128,9 +135,9 @@ Map these requests onto state or index data rather than pretending to execute a 
    - sidecar-first for learned / market guidance
    - gate-first for current write-readiness blockers / `minimal_next_action`
    - index-first for chapter lookup / summary / mention search
-11. If the answer is fully available from state, state-archive, sidecar, gate, or index, stop there.
-12. Only read additional files if state, state-archive, sidecars, gate, and index all lack the needed detail.
-13. Return the smallest useful result:
+13. If the answer is fully available from state, state-archive, sidecar, gate, or index, stop there.
+14. Only read additional files if state, state-archive, sidecars, gate, and index all lack the needed detail.
+15. Return the smallest useful result:
    - list for browsing
    - count for totals
    - short summary for direct questions
@@ -153,6 +160,7 @@ Support these first:
 - `item-inventory`
 - `suspense-check`
 - `project-stats`
+- `workflow-health`
 - `index-stats`
 - `chapter-summaries`
 
@@ -161,6 +169,7 @@ Suggested behaviors:
 - `active-foreshadowing`: list active foreshadowing items with status or expected range
 - `character-relations`: summarize protagonist + active character relations from state and character files
 - `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
+- `workflow-health`: summarize `quality-audit.status`, top finding codes, `workflow_truth.status`, `workflow_truth.missing_artifacts`, and `repo_owned_tail_steps`
 - `setting-gate`: summarize gate status, blocking gaps, queued confirmations, and `minimal_next_action`
 - `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
 - `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries
@@ -189,6 +198,8 @@ If the index is missing and the request clearly wants index-backed data, say so 
 - When using index-backed data, mention that briefly so the user knows where the answer came from
 - When using gate-backed data, mention that it came from `.mighty/setting-gate.json`
 - When using active-context-backed data, mention that it came from `.mighty/active-context.json`
+- When using quality-audit-backed data, mention that it came from `.mighty/quality-audit.json`
+- When using knowledge-projection-backed data, mention that it came from `.mighty/knowledge-projection.json`
 - When using compressed archive data, mention that it came from `.mighty/volume-summaries.json`
 
 ## Notes
@@ -200,8 +211,10 @@ If the index is missing and the request clearly wants index-backed data, say so 
   2. current `state` for live truth
   3. `state-archive` for old chapter metadata
   4. `.mighty/volume-summaries.json` for compressed old ranges
-  5. sidecar files for learned / market guidance
-  6. `index` for broad retrieval
+  5. `.mighty/quality-audit.json` for review artifact health
+  6. `.mighty/knowledge-projection.json` for workflow contract / sidecar health summaries
+  7. sidecar files for learned / market guidance
+  8. `index` for broad retrieval
 - If the user asks for broad statistics, summarize first and only expand on request.
 - Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.
 - If `.mighty/setting-gate.json` exists, treat it as the source of truth for current write-readiness and next-action blockers.

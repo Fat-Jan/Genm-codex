@@ -91,6 +91,12 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - `gate status`
   - `blocking_gaps`
   - `minimal_next_action`
+- 如果项目已经跑过维护链，也让 `novel-status` / `novel-query` 一并看：
+  - `.mighty/quality-audit.json`
+  - `.mighty/knowledge-projection.json`
+  这样你能更快看见 review artifact 是否失真，以及当前 workflow / sidecar 健康概览
+- 如果你想把这套能力挂成 MCP 只读入口，直接看：
+  - [project-knowledge-mcp.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/project-knowledge-mcp.md)
 - 如果你只想快速问一句：
   - “现在 gate 卡在哪”
   - “下一步最小动作是什么”
@@ -241,6 +247,8 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - `snapshot`
 - `memory-context`
 - `content-positioning`
+- `quality-audit`
+- `knowledge-projection`
 - 轻量 trace log
 
 也就是说：
@@ -249,6 +257,9 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - 默认维护尾段会真实写出 snapshot artifact
 - 并同时产出安全的 `memory-context` 摘要
 - 如果项目声明了组合题材定位，也会刷新 `content-positioning` sidecar
+- 如果你要判断当前 workflow 有没有“高分空问题簇”这类假阳性，也可以直接读取：
+  - `.mighty/quality-audit.json`
+  - `.mighty/knowledge-projection.json`
 
 ### 8. 已有稿接入
 

@@ -171,6 +171,9 @@ Prefer:
 - If the source is too short or too noisy, say so directly instead of pretending a strong learning result exists.
 - Learned signals are most useful when they stay small, actionable, and easy for downstream writing skills to consume.
 - Do not let reference-learning overwrite still-active `recent_guardrails` with broad style claims.
+- Keep `recent_guardrails` short-lived and execution-facing:
+  - cap list-like fields to a small operational set
+  - prefer chapter-bound watchpoints over abstract craft slogans
 - When Fanqie rules stack, group findings in this order:
   1. actual text evidence
   2. active bucket lens

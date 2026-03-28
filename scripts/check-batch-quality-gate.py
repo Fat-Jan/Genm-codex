@@ -91,17 +91,38 @@ def evaluate(state: dict, metrics: list[dict], batch_count: int, baseline: float
     length_policy = current_length_policy(state, policy)
     hard_min = int(length_policy["hard_min_chars"])
     soft_min = int(length_policy["soft_min_chars"])
+    preferred_min = int(length_policy["preferred_min_chars"])
     preferred_max = int(length_policy["preferred_max_chars"])
     shrinkage_policy = policy.get("post_write_gate", {}).get("shrinkage", {})
     compressed_threshold = max(
         int(shrinkage_policy.get("compressed_floor_chars", 900) or 900),
         int(hard_min * float(shrinkage_policy.get("compressed_ratio_of_hard_min", 0.85) or 0.85)),
     )
+    current_avg = (sum(item["chars"] for item in metrics) / len(metrics)) if metrics else 0
 
     if batch_count > SAFE_MAX_BATCH:
         issues.append({
             "code": "batch-too-large",
             "message": f"一次性批量生成 {batch_count} 章，超过安全上限 {SAFE_MAX_BATCH} 章。",
+        })
+
+    if baseline and metrics and current_avg < baseline * 0.85:
+        warnings.append({
+            "code": "late-batch-shrinkage",
+            "message": (
+                f"当前批次平均字数 {current_avg:.1f}，明显低于前窗基线 {baseline:.1f}，"
+                "需警惕中后段压缩、提纲化或摘要腔退化。"
+            ),
+        })
+
+    near_floor_count = sum(1 for item in metrics if item["chars"] < length_policy["preferred_min_chars"])
+    if near_floor_count >= 2:
+        warnings.append({
+            "code": "near-floor-cluster",
+            "message": (
+                f"当前批次有 {near_floor_count} 章低于推荐下限 {preferred_min}，"
+                "需警惕连续贴地飞行式缩水与批量模板化。"
+            ),
         })
 
     short_run = 0

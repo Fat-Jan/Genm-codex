@@ -40,6 +40,8 @@ GUARDRAIL_EXPECTATIONS = {
     ],
     "skills/novel-status/SKILL.md": [
         "recent_guardrails",
+        ".mighty/quality-audit.json",
+        ".mighty/knowledge-projection.json",
     ],
 }
 REFERENCE_LEARN_EXPECTATIONS = {
@@ -77,6 +79,8 @@ IMPORT_BRIDGE_EXPECTATIONS = {
     ],
     "skills/novel-query/SKILL.md": [
         ".mighty/import-report.json",
+        ".mighty/quality-audit.json",
+        ".mighty/knowledge-projection.json",
     ],
     "docs/00-当前有效/default-workflows.md": [
         "已有稿接入",
@@ -102,6 +106,56 @@ VOLUME_SUMMARY_EXPECTATIONS = {
     ],
     "docs/00-当前有效/state-thinning-and-setting-sync.md": [
         ".mighty/volume-summaries.json",
+    ],
+}
+
+WORKFLOW_HEALTH_DOC_EXPECTATIONS = {
+    "docs/00-当前有效/start-here.md": [
+        "quality-audit",
+        "knowledge-projection",
+    ],
+    "docs/00-当前有效/skill-usage.md": [
+        "quality-audit",
+        "knowledge-projection",
+    ],
+    "docs/00-当前有效/default-workflows.md": [
+        "quality-audit",
+        "knowledge-projection",
+    ],
+}
+
+MCP_SERVER_DOC_EXPECTATIONS = {
+    "docs/00-当前有效/project-knowledge-mcp.md": [
+        "project_knowledge_mcp_server.py",
+        "get_project_knowledge_projection",
+        "get_project_quality_audit",
+        "get_project_workflow_bundle",
+        "mcpServers",
+        "python3",
+        "read-only",
+    ],
+    "docs/00-当前有效/start-here.md": [
+        "project-knowledge-mcp.md",
+    ],
+    "docs/00-当前有效/skill-usage.md": [
+        "project-knowledge-mcp.md",
+    ],
+}
+
+WORKFLOW_HEALTH_SKILL_EXPECTATIONS = {
+    "skills/novel-status/SKILL.md": [
+        "workflow",
+        "quality-audit",
+        "knowledge-projection",
+        "workflow_truth",
+        "repo_owned_tail_steps",
+    ],
+    "skills/novel-query/SKILL.md": [
+        "workflow-health",
+        "quality-audit",
+        "knowledge-projection",
+        "workflow_truth",
+        "repo_owned_tail_steps",
     ],
 }
 
@@ -294,6 +348,24 @@ class InkosGrowthContractTests(unittest.TestCase):
             for token in expected_tokens:
                 self.assertIn(token, content, f"{relative_path} missing token: {token}")
 
+    def test_workflow_health_doc_tokens_exist(self):
+        for relative_path, expected_tokens in WORKFLOW_HEALTH_DOC_EXPECTATIONS.items():
+            content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            for token in expected_tokens:
+                self.assertIn(token, content, f"{relative_path} missing token: {token}")
+
+    def test_mcp_server_doc_tokens_exist(self):
+        for relative_path, expected_tokens in MCP_SERVER_DOC_EXPECTATIONS.items():
+            content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            for token in expected_tokens:
+                self.assertIn(token, content, f"{relative_path} missing token: {token}")
+
+    def test_workflow_health_skill_tokens_exist(self):
+        for relative_path, expected_tokens in WORKFLOW_HEALTH_SKILL_EXPECTATIONS.items():
+            content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
+            for token in expected_tokens:
+                self.assertIn(token, content, f"{relative_path} missing token: {token}")
+
     def test_skills_reference_transaction_contract(self):
         for relative_path, expected_tokens in SKILL_EXPECTATIONS.items():
             content = (REPO_ROOT / relative_path).read_text(encoding="utf-8")
@@ -330,6 +402,8 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         self.assertEqual(payload["workflow_status"], "completed")
         self.assertTrue((root / ".mighty" / "active-context.json").exists())
         self.assertTrue((root / ".mighty" / "memory-context.json").exists())
+        self.assertTrue((root / ".mighty" / "knowledge-projection.json").exists())
+        self.assertTrue((root / ".mighty" / "quality-audit.json").exists())
         self.assertTrue((root / ".mighty" / "logs" / "trace.jsonl").exists())
         workflow_state = json.loads((root / ".mighty" / "workflow_state.json").read_text(encoding="utf-8"))
         self.assertIsNone(workflow_state["current_task"]["current_step"])
@@ -364,6 +438,8 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         payload = json.loads(proc.stdout)
         self.assertEqual(payload["transaction_phase"], "snapshot")
         self.assertIsNone(payload["next_transaction_step"])
+        self.assertIn("quality_audit", payload)
+        self.assertIn("quality_audit_file", payload["quality_audit"])
 
     def test_project_maintenance_updates_existing_workflow_state(self):
         root = self.make_project_root()
@@ -403,6 +479,8 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         self.assertIn("maintenance", current_task["completed_steps"])
         self.assertIn("snapshot", current_task["completed_steps"])
         self.assertFalse(current_task["pending_steps"])
+        self.assertTrue((root / ".mighty" / "knowledge-projection.json").exists())
+        self.assertTrue((root / ".mighty" / "quality-audit.json").exists())
 
 
 if __name__ == "__main__":

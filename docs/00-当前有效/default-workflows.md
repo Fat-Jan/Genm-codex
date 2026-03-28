@@ -192,6 +192,7 @@
 
 - `novel-close` 是默认的单章收口轮入口，用来显式执行 `review -> route -> re-review`
 - 单章 `novel-write` 默认会尝试守卫式自动收口；`novel-batch` 不继承这个默认行为
+- `scripts/post-task-maintenance.py --trigger batch` 只拥有 repo-owned `maintenance + snapshot` 尾段，不应被解释成 batch 默认已自动完成 `close`
 - `novel-review` 应一次性把问题收成 1-3 个可执行 issue clusters，而不是散成很多微修提示
 - 单章默认目标是“一次修订轮收口”：
   - 一次 `novel-fix` 尽量解决全部局部问题
@@ -304,6 +305,13 @@
 - `novel-status`
 - `novel-query`
 - `novel-index`
+
+补充：
+
+- 如果项目已经跑过维护链，`novel-status` / `novel-query` 现在也应优先读取：
+  - `.mighty/quality-audit.json`
+  - `.mighty/knowledge-projection.json`
+  用来快速判断 workflow artifact 是否失真，以及当前 sidecar / transaction 健康概览。
 
 ### 快速引用
 

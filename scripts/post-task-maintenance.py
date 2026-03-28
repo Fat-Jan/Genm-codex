@@ -54,8 +54,18 @@ def main() -> None:
         "transaction_contract": "chapter-transaction-v1",
         "transaction_phase": "snapshot",
         "next_transaction_step": None,
+        "repo_owned_tail_steps": ["maintenance", "snapshot"],
         "maintenance_stdout": proc.stdout.strip(),
     }
+
+    audit_cmd = [
+        sys.executable,
+        str(script_dir / "audit_project_quality_state.py"),
+        str(root),
+        "--write",
+    ]
+    audit_proc = subprocess.run(audit_cmd, capture_output=True, text=True, check=True)
+    result["quality_audit"] = json.loads(audit_proc.stdout)
 
     if args.trigger == "batch":
         gate_cmd = [

@@ -66,3 +66,11 @@ class StateContractSchemaTests(unittest.TestCase):
             "summaries_index": {"001": {"summary": "第一章摘要"}},
         }
         jsonschema.validate(payload, schema)
+
+    def test_state_template_chapter_meta_mentions_review_artifact_fields(self) -> None:
+        payload = read_json("shared/templates/state-v5-template.json")
+        chapter_meta = payload["chapter_meta"]["<chapter_number>"]
+        self.assertIn("issue_clusters", chapter_meta)
+        self.assertIn("dimension_scores", chapter_meta)
+        self.assertIn("anti_flattening_flags", chapter_meta)
+        self.assertIn("anti_flattening_summary", chapter_meta)

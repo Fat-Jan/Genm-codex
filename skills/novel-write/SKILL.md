@@ -143,6 +143,7 @@ Read conditionally:
    - prefer `.mighty/market-adjustments.json`
    - if sidecar files are absent, fall back to `state.learned_patterns` / `state.market_adjustments`
    - if `learned_patterns.recent_guardrails` exists and is still active for the target chapter, prefer those short-lived signals over stale long-term style generalizations
+   - treat `.mighty/active-context.json` as prompt-assembly context only; if a needed fact is not present there, recover canon from `state` rather than inferring from a stale sidecar projection
    - when the active bucket is `宫斗宅斗`, explicitly inspect palace-specific adjustment ids when present:
      - `scan-surface-hook`
      - `scan-frontload-conflict`

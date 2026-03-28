@@ -18,6 +18,27 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _trim_string_list(value: object, limit: int = 5) -> list[str]:
+    if not isinstance(value, list):
+        return []
+    return [item for item in value if isinstance(item, str) and item][:limit]
+
+
+def normalize_recent_guardrails(learned: dict) -> dict:
+    payload = learned.get("recent_guardrails", {})
+    if not isinstance(payload, dict):
+        return learned
+
+    normalized = dict(learned)
+    normalized["recent_guardrails"] = {
+        "must_avoid": _trim_string_list(payload.get("must_avoid")),
+        "must_preserve": _trim_string_list(payload.get("must_preserve")),
+        "next_chapter_watchpoints": _trim_string_list(payload.get("next_chapter_watchpoints")),
+        "expires_after_chapter": payload.get("expires_after_chapter"),
+    }
+    return normalized
+
+
 def main() -> None:
     args = parse_args()
     root = Path(args.project_root)
@@ -32,6 +53,8 @@ def main() -> None:
     learned = state.get("learned_patterns", {})
     if isinstance(learned, dict) and learned.get("externalized") and learned_path.exists():
         learned = json.loads(learned_path.read_text()).get("data", {})
+    if isinstance(learned, dict):
+        learned = normalize_recent_guardrails(learned)
 
     market = state.get("market_adjustments", {})
     if isinstance(market, dict) and market.get("externalized") and market_path.exists():

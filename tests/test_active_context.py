@@ -75,9 +75,12 @@ class ActiveContextHelperTests(unittest.TestCase):
                     "characters": {
                         "protagonist": {
                             "name": "周既明",
+                            "aliases": ["既明"],
                             "location": {
                                 "current": "曜石互联大厦",
                             },
+                            "status": ["刚完成反击"],
+                            "current_goals": ["下一章继续追账"],
                         },
                         "active": [
                             {"name": "韩振", "role": "对手"},
@@ -258,6 +261,10 @@ class ActiveContextHelperTests(unittest.TestCase):
         self.assertNotIn("recent_guardrails", context)
         self.assertNotIn("chapter_meta", context)
         self.assertNotIn("knowledge_base", context)
+        self.assertEqual(context["relevant_entities"]["protagonist"]["name"], "周既明")
+        self.assertEqual(context["relevant_entities"]["protagonist"]["aliases"], ["既明"])
+        self.assertNotIn("status", context["relevant_entities"]["protagonist"])
+        self.assertNotIn("current_goals", context["relevant_entities"]["protagonist"])
 
     def test_cli_writes_active_context_sidecar(self) -> None:
         module = load_module()

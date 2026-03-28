@@ -28,6 +28,17 @@
         ".mighty/active-context.json"
       ]
     },
+    "knowledge-projection": {
+      "produced_by": "scripts/build_project_knowledge_projection.py",
+      "depends_on": [
+        ".mighty/state.json",
+        ".mighty/state-archive.json",
+        ".mighty/workflow_state.json",
+        ".mighty/setting-gate.json",
+        ".mighty/content-positioning.json",
+        ".mighty/learned-patterns.json"
+      ]
+    },
     "launch-stack": {
       "produced_by": "scripts/fanqie_launch_stack.py",
       "depends_on": [

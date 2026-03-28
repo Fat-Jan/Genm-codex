@@ -111,6 +111,13 @@ def main() -> None:
         ts,
     ])
     steps.append(memory_context_step)
+    quality_audit_step = run([
+        sys.executable,
+        str(script_dir / "audit_project_quality_state.py"),
+        str(root),
+        "--write",
+    ])
+    steps.append(quality_audit_step)
     content_positioning_step = run([
         sys.executable,
         str(script_dir / "build_content_positioning.py"),
@@ -119,6 +126,15 @@ def main() -> None:
         ts,
     ])
     steps.append(content_positioning_step)
+    knowledge_projection_step = run([
+        sys.executable,
+        str(script_dir / "build_project_knowledge_projection.py"),
+        str(root),
+        "--timestamp",
+        ts,
+        "--write",
+    ])
+    steps.append(knowledge_projection_step)
 
     report = {
         "project": str(root),

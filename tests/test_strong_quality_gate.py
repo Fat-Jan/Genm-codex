@@ -230,6 +230,80 @@ class StrongQualityGateHelperTests(unittest.TestCase):
         self.assertEqual(result["status"], "block")
         self.assertIn("malformed-repeated-exact-token", result["matched_checks"])
 
+    def test_batch_gate_warns_on_late_batch_shrinkage(self):
+        module = load_batch_gate_module()
+        state = {
+            "meta": {"target_chapters": 12},
+            "genre_profile": {"bucket": "宫斗宅斗"},
+        }
+        metrics = [
+            {
+                "chapter": 16,
+                "chars": 2508,
+                "lines": 156,
+                "dialogue_marks": 30,
+                "bullet_lines": 0,
+                "text": "a" * 2508,
+            },
+            {
+                "chapter": 17,
+                "chars": 2510,
+                "lines": 158,
+                "dialogue_marks": 36,
+                "bullet_lines": 0,
+                "text": "a" * 2510,
+            },
+            {
+                "chapter": 18,
+                "chars": 2525,
+                "lines": 164,
+                "dialogue_marks": 46,
+                "bullet_lines": 0,
+                "text": "a" * 2525,
+            },
+        ]
+
+        result = module.evaluate(state, metrics, batch_count=3, baseline=3158.4, policy=self.policy)
+
+        self.assertTrue(any(item["code"] == "late-batch-shrinkage" for item in result["warnings"]))
+
+    def test_batch_gate_warns_when_batch_clusters_below_preferred_floor(self):
+        module = load_batch_gate_module()
+        state = {
+            "meta": {"target_chapters": 12},
+            "genre_profile": {"bucket": "宫斗宅斗"},
+        }
+        metrics = [
+            {
+                "chapter": 16,
+                "chars": 2508,
+                "lines": 156,
+                "dialogue_marks": 30,
+                "bullet_lines": 0,
+                "text": "a" * 2508,
+            },
+            {
+                "chapter": 17,
+                "chars": 2510,
+                "lines": 158,
+                "dialogue_marks": 36,
+                "bullet_lines": 0,
+                "text": "a" * 2510,
+            },
+            {
+                "chapter": 18,
+                "chars": 2525,
+                "lines": 164,
+                "dialogue_marks": 46,
+                "bullet_lines": 0,
+                "text": "a" * 2525,
+            },
+        ]
+
+        result = module.evaluate(state, metrics, batch_count=3, baseline=2555.6, policy=self.policy)
+
+        self.assertTrue(any(item["code"] == "near-floor-cluster" for item in result["warnings"]))
+
     def test_classify_sync_candidate_rejects_phrase_fragment(self):
         candidate = strong_quality_gate.classify_sync_candidate(
             name="花厅",

@@ -107,6 +107,11 @@ Read conditionally:
    - warnings from deterministic lint may inform `novel-fix` or later polish, but only policy-backed blockers stop close success
 10. If chapter text changed, run a second `novel-review`.
 11. Persist lightweight close metadata inside `chapter_meta[N]` when the project tracks those fields.
+12. Do not declare the chapter closed for this pass when the review artifact itself is obviously incomplete.
+   - examples:
+     - review score exists but `issue_clusters` is empty while real risks were surfaced
+     - `dimension_scores` is missing or empty
+     - structural risk was discussed but neither `anti_flattening_flags` nor `anti_flattening_summary` was written
 
 ### `mode=review-only`
 
@@ -172,6 +177,7 @@ Typical qualifying language-layer issues:
 
 - `novel-close` cannot declare convergence success when the strong post-write gate still reports objective blockers
 - block only on policy-backed hard failures, not on vague style discomfort
+- incomplete review artifacts are also blockers for close convergence because downstream workflow cannot safely consume them
 
 ## Output conventions
 

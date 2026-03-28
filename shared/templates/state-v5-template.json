@@ -194,6 +194,14 @@
   },
   "chapter_meta": {
     "<chapter_number>": {
+      "review_score": 0,
+      "review_grade": "",
+      "review_time": null,
+      "recommended_next_action": "",
+      "issue_clusters": [],
+      "dimension_scores": {},
+      "anti_flattening_flags": [],
+      "anti_flattening_summary": {},
       "fanqie_bucket_flags": [],
       "fanqie_bucket_summary": {},
       "content_standard_flags": [],

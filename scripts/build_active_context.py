@@ -205,6 +205,13 @@ def build_active_context(
     gate = gate or {}
     launch_stack = launch_stack or {}
     guardrail_summary = summarize_recent_guardrails(learned)
+    relevant_entities = select_relevant_entities(state)
+    protagonist = relevant_entities.get("protagonist", {})
+    if isinstance(protagonist, dict):
+        relevant_entities["protagonist"] = {
+            "name": protagonist.get("name", ""),
+            "aliases": protagonist.get("aliases", [])[:3] if isinstance(protagonist.get("aliases", []), list) else [],
+        }
 
     return {
         "version": "1.0",
@@ -218,7 +225,7 @@ def build_active_context(
         },
         "recent_summaries": recent_summaries,
         "active_hooks": select_active_hooks(state),
-        "relevant_entities": select_relevant_entities(state),
+        "relevant_entities": relevant_entities,
         "write_readiness": {
             "gate_status": gate.get("status", "unknown"),
             "blocking_gaps": gate.get("blocking_gaps", [])[:3] if isinstance(gate.get("blocking_gaps", []), list) else [],

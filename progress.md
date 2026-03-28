@@ -3172,3 +3172,227 @@
 - 切主线前验证：
   - `bash scripts/validate-migration.sh` → passed
   - `pytest -q` → `302 passed, 192 subtests passed`
+
+## Session Update: 2026-03-28 workflow regression P0 hardening（partial）
+
+- 已在隔离 worktree `workflow-regression-p0` 开始执行 P0 实施计划：
+  - `docs/superpowers/plans/2026-03-28-workflow-regression-p0-hardening.md`
+- 本轮已落地的 repo-owned 改动：
+  1. 新增 `tests/test_batch_transaction_contract.py`
+     - 把 batch maintenance hook 必须显式声明 `repo_owned_tail_steps = ["maintenance", "snapshot"]` 固化成测试
+  2. 更新 `scripts/post-task-maintenance.py`
+     - 现在会显式输出 `repo_owned_tail_steps`
+  3. 对齐 batch 相关文档口径：
+     - `skills/novel-batch/SKILL.md`
+     - `docs/00-当前有效/default-workflows.md`
+     - `docs/00-当前有效/skill-usage.md`
+     - 明确 `post-task-maintenance --trigger batch` 只拥有 repo-owned `maintenance + snapshot` 尾段，不等于 batch 默认已自动完成 `close`
+  4. 新增 `scripts/audit_project_quality_state.py` 与 `tests/test_project_quality_audit.py`
+     - 可审计：
+       - `review_score` 存在但 `issue_clusters = []`
+       - `dimension_scores` 缺失/空
+       - `anti_flattening` artifact 缺失
+       - 项目级 `quality_metrics.dimension_scores` 空壳
+  5. 强化 `scripts/split-runtime-guidance.py`
+     - `recent_guardrails` 现在会标准化并裁剪到短列表
+  6. 收窄 `scripts/build_active_context.py`
+     - `relevant_entities.protagonist` 不再透传长运行态字段，只保留最小身份块
+  7. 强化 `scripts/check-batch-quality-gate.py`
+     - 新增 `late-batch-shrinkage`
+     - 新增 `near-floor-cluster`
+  8. 更新 review artifact 合同承载：
+     - `shared/templates/state-v5-template.json`
+     - `shared/references/shared/state-schema.md`
+     - `skills/novel-review/SKILL.md`
+     - `skills/novel-close/SKILL.md`
+- 用《嫁妆单》样本做的只读验证：
+  - `python3 scripts/audit_project_quality_state.py .../projects/成婚前三日，我先改了侯府嫁妆单`
+    - 成功抓出 11-18 章的：
+      - `empty-issue-clusters-with-score`
+      - `missing-dimension-scores`
+      - `missing-anti-flattening-artifacts`
+      - `empty-project-dimension-scores`
+  - `python3 scripts/check-batch-quality-gate.py .../projects/成婚前三日，我先改了侯府嫁妆单 --batch-count 3`
+    - 不再是毫无警告的 `pass`
+    - 当前会返回 `near-floor-cluster` warning
+- 当前回归验证：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`89 passed`
+
+## Session Update: 2026-03-28 workflow regression P0 hardening（continued）
+
+- 已继续推进两类工作：
+  1. 把 `quality_audit` 接进 `post-task-maintenance.py` 的 repo-owned 输出
+  2. 起一个最小的 project-local knowledge projection 骨架，为后续 MCP 暴露做准备
+- 本轮新增/更新：
+  - `scripts/post-task-maintenance.py`
+    - 新增 `quality_audit` 输出
+  - `skills/novel-status/SKILL.md`
+  - `skills/novel-query/SKILL.md`
+  - `skills/novel-write/SKILL.md`
+  - `skills/novel-learn/SKILL.md`
+    - 继续对齐 `active-context` 的“当前写作侧栏而非第二真值中心”定位
+    - 明确 `recent_guardrails` 必须保持短期、可执行、可过期
+  - `scripts/build_project_knowledge_projection.py`
+    - 最小输出：
+      - `truth_boundary`
+      - `workflow_contract`
+      - `sidecar_health`
+      - `story_index`
+  - `tests/test_project_knowledge_projection.py`
+- 对真实样本《嫁妆单》的只读验证：
+  - `build_project_knowledge_projection.py` 已能稳定输出：
+    - 当前事务合同
+    - repo-owned tail steps
+    - sidecar health 概览
+    - reviewed chapter live/archive 计数
+- 当前回归验证已扩展为：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`91 passed`
+  - `bash scripts/validate-migration.sh` → passed
+
+## Session Update: 2026-03-28 project-local knowledge projection entered maintenance tail
+
+- 已把 `build_project_knowledge_projection.py` 从单独脚本升级为维护链 sidecar：
+  - `scripts/project-maintenance.py` 现在会在 `content-positioning` 之后构建并写出 `.mighty/knowledge-projection.json`
+  - `shared/templates/sidecar-freshness-registry-v1.json` 已新增 `knowledge-projection` artifact
+  - `scripts/validate-migration.sh` 现在会校验 `build_project_knowledge_projection.py` 存在
+- 已补齐 freshness 元数据：
+  - `knowledge-projection` 现在会记录：
+    - `state.json`
+    - `state-archive.json`
+    - `workflow_state.json`
+    - `setting-gate.json`
+    - `content-positioning.json`
+    - `learned-patterns.json`
+  - 输出同时声明：
+    - `truth_boundary`
+    - `workflow_contract`
+    - `sidecar_health`
+    - `story_index`
+- 已新增/更新测试：
+  - `tests/test_project_knowledge_projection.py`
+  - `tests/test_inkos_growth_plan.py`
+  - 验证 maintenance 结束后会真实写出 `.mighty/knowledge-projection.json`
+- 对《嫁妆单》样本做了只读 projection 验证：
+  - 当前可稳定取到：
+    - `transaction_contract = chapter-transaction-v1`
+    - `repo_owned_tail_steps = ["maintenance", "snapshot"]`
+    - `setting_gate_status = passed`
+    - `live_reviewed_chapters = 8`
+    - `archived_reviewed_chapters = 10`
+    - projection freshness 元数据完整
+
+## Session Update: 2026-03-28 minimal read-only MCP exposure for project knowledge
+
+- 已新增最小只读 MCP server：
+  - `scripts/project_knowledge_mcp_server.py`
+- 当前支持的只读 tools：
+  - `get_project_knowledge_projection`
+  - `get_project_quality_audit`
+- 设计边界：
+  - 只暴露 repo-owned projection / audit 结果
+  - 不直接读写 canon
+  - 不引入新的 runtime / scheduler / plugin framework
+  - 协议层仅实现最小 MCP 必需路径：
+    - `initialize`
+    - `tools/list`
+    - `tools/call`
+- 已新增测试：
+  - `tests/test_project_knowledge_mcp_server.py`
+  - 覆盖：
+    - tools 列表
+    - projection tool 调用
+    - server 脚本存在性
+- 已继续把内部 consumer 合同补到：
+  - `skills/novel-status/SKILL.md`
+  - `skills/novel-query/SKILL.md`
+  - 它们现在显式承认：
+    - `.mighty/quality-audit.json`
+    - `.mighty/knowledge-projection.json`
+    作为优先 sidecar 输入
+- 当前回归验证已扩展为：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`95 passed`
+  - `bash scripts/validate-migration.sh` → passed
+
+## Session Update: 2026-03-28 workflow bundle + consumer docs alignment
+
+- 已继续完成两条后续补线：
+  1. 为最小 MCP server 增加聚合工具：
+     - `get_project_workflow_bundle`
+     - 一次返回：
+       - `knowledge_projection`
+       - `quality_audit`
+       - `bundle_contract`
+  2. 把入口文档与 consumer skill 对齐到新 sidecar：
+     - `skills/novel-status/SKILL.md`
+     - `skills/novel-query/SKILL.md`
+     - `docs/00-当前有效/start-here.md`
+     - `docs/00-当前有效/skill-usage.md`
+     - `docs/00-当前有效/default-workflows.md`
+- 当前用户 / agent 入口都已明确承认：
+  - `.mighty/quality-audit.json`
+  - `.mighty/knowledge-projection.json`
+  作为优先 sidecar 输入
+- `project_knowledge_mcp_server.py` 当前只读 tools 已扩展为：
+  - `get_project_knowledge_projection`
+  - `get_project_quality_audit`
+  - `get_project_workflow_bundle`
+- 当前相关回归验证：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`97 passed`
+
+## Session Update: 2026-03-28 MCP startup docs + workflow truth checks
+
+- 已继续补完三层能力：
+  1. `knowledge-projection` 新增 `workflow_truth`
+     - 对照：
+       - `workflow_state.current_task`
+       - `snapshot_file`
+       - `maintenance_report_file`
+       - `active-context`
+       - `memory-context`
+       - `quality-audit`
+       - `content-positioning`
+     - 输出：
+       - `workflow_truth.status`
+       - `workflow_truth.missing_artifacts`
+  2. `project_knowledge_mcp_server.py` 新增 bundle tool：
+     - `get_project_workflow_bundle`
+  3. 新增启动/挂接说明文档：
+     - `docs/00-当前有效/project-knowledge-mcp.md`
+     - 包含：
+       - stdio 启动方式
+       - `mcpServers` 配置示例
+       - 当前只读 tools 说明
+       - 真值边界与只读边界
+- 已把入口与输出模板继续对齐：
+  - `skills/novel-status/SKILL.md`
+    - 新增 `workflow` focus
+    - full/stats 输出会显式汇报：
+      - `quality-audit.status`
+      - `workflow_truth.status`
+      - `workflow_truth.missing_artifacts`
+      - `repo_owned_tail_steps`
+  - `skills/novel-query/SKILL.md`
+    - 新增 `workflow-health` template
+    - 明确返回：
+      - `quality-audit.status`
+      - top finding codes
+      - `workflow_truth.status`
+      - `workflow_truth.missing_artifacts`
+      - `repo_owned_tail_steps`
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/default-workflows.md`
+    - 都已补 `quality-audit` / `knowledge-projection` / `project-knowledge-mcp.md` 入口
+- 结构校验已补：
+  - `scripts/validate-migration.sh`
+    - 现在要求：
+      - `scripts/project_knowledge_mcp_server.py`
+      - `docs/00-当前有效/project-knowledge-mcp.md`
+- 当前最终相关回归验证：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`99 passed`
+  - `bash scripts/validate-migration.sh` → passed

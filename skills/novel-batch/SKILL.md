@@ -40,6 +40,8 @@ Use this skill when the user wants to generate multiple chapters in one ordered 
 7. After the batch, the preferred automatic hook is:
    - `scripts/post-task-maintenance.py <project_root> --trigger batch --batch-count <count>`
    so the project does not keep accumulating all runtime facts only inside `state.json`
+   - this repo-owned hook only owns the `maintenance + snapshot` tail
+   - it does not, by itself, imply that batch generation inherited the single-chapter `close` default
 8. Treat the batch as valid only if the batch quality gate passes:
    - `scripts/check-batch-quality-gate.py`
    - if the quality gate fails, stop the long batch pattern and return to `review / fix / rewrite`
@@ -54,6 +56,7 @@ Use this skill when the user wants to generate multiple chapters in one ordered 
 
 - Do not treat batch generation as parallel writing; continuity is more important than speed.
 - **一次性最多 3 章。**
+- `novel-batch` 不默认继承单章 `close`；若上游调用方已完成收口，维护链只继续完成 `maintenance + snapshot` 尾段。
 - More than 3 chapters in one run is treated as unsafe because it increases the risk of:
   - 提纲化短章
   - 后半段字数断崖

@@ -349,9 +349,23 @@ class WritingCoreSmokeWritebackTests(unittest.TestCase):
                     "multi_line_guardrails": ["主线先过户，副线轻触旧账。"],
                     "content_standard_alerts": ["避免背景先行"],
                     "recent_guardrails": {
-                        "must_avoid": ["不要回滑到解释腔"],
-                        "must_preserve": ["代价感"],
-                        "next_chapter_watchpoints": ["下一章必须留残账"],
+                        "must_avoid": [
+                            "不要回滑到解释腔",
+                            "不要用总结句收尾",
+                            "不要连续空镜头",
+                            "不要过顺",
+                            "不要同构",
+                            "第六条应被裁掉",
+                        ],
+                        "must_preserve": ["代价感", "阻力", "活人感", "关系账", "残账", "第六条应被裁掉"],
+                        "next_chapter_watchpoints": [
+                            "下一章必须留残账",
+                            "对手必须主动动作",
+                            "不许再靠一句真话推进",
+                            "要有错误判断",
+                            "要有局部失败",
+                            "第六条应被裁掉",
+                        ],
                         "expires_after_chapter": 4,
                     },
                 },
@@ -382,6 +396,10 @@ class WritingCoreSmokeWritebackTests(unittest.TestCase):
                 learned_sidecar["data"]["recent_guardrails"]["expires_after_chapter"],
                 4,
             )
+            self.assertEqual(len(learned_sidecar["data"]["recent_guardrails"]["must_avoid"]), 5)
+            self.assertEqual(len(learned_sidecar["data"]["recent_guardrails"]["must_preserve"]), 5)
+            self.assertEqual(len(learned_sidecar["data"]["recent_guardrails"]["next_chapter_watchpoints"]), 5)
+            self.assertNotIn("第六条应被裁掉", learned_sidecar["data"]["recent_guardrails"]["must_avoid"])
 
             updated_state = json.loads((mighty / "state.json").read_text(encoding="utf-8"))
             learned_summary = updated_state["learned_patterns"]

@@ -314,6 +314,7 @@ Update at minimum:
 - `chapter_meta[chapter].review_grade`
 - `chapter_meta[chapter].review_time`
 - `chapter_meta[chapter].dimension_scores`
+- `chapter_meta[chapter].issue_clusters`
 - `chapter_meta[chapter].needs_fix`
 
 When the route is clear, also update:
@@ -332,6 +333,7 @@ When the route is clear, also update:
 
 - Prefer deterministic, evidence-based findings over vague style criticism.
 - If you emit `recent_guardrails`, keep them short-lived and execution-facing; do not turn them into broad theory notes.
+- Do not let a chapter settle into the state “high review score + empty `issue_clusters` + continue writing” when structural or language risks are still being described in prose; downstream consumers must be able to read the artifact, not infer hidden judgment.
 - If the user asks for auto-fix, route the main rewrite request through `novel-rewrite`.
 - If the user wants one bounded convergence pass rather than a review-only report, recommend `novel-close`.
 - Do not claim a review passed unless the report actually shows the score and issues.
