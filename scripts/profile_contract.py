@@ -267,15 +267,25 @@ def normalize_profile(raw_profile: dict[str, Any], *, source_path: str) -> dict[
     }
 
 
-def summarize_for_state(normalized_profile: dict[str, Any]) -> dict[str, Any]:
+def summarize_for_state(
+    normalized_profile: dict[str, Any],
+    *,
+    raw_profile: dict[str, Any] | None = None,
+    platform: str = "",
+) -> dict[str, Any]:
+    positioning = resolve_platform_positioning(raw_profile or {}, platform=platform) if platform else {}
+    bucket = str(positioning.get("primary_bucket") or "")
+    strong_tags = positioning.get("strong_tags", []) if isinstance(positioning.get("strong_tags", []), list) else []
+    narrative_modes = positioning.get("narrative_modes", []) if isinstance(positioning.get("narrative_modes", []), list) else []
+    tone_guardrails = positioning.get("tone_guardrails", []) if isinstance(positioning.get("tone_guardrails", []), list) else []
     return {
         "loaded": normalized_profile["source_path"],
-        "bucket": "",
-        "positioning_initialized": False,
+        "bucket": bucket,
+        "positioning_initialized": bool(positioning),
         "tagpacks": [],
-        "strong_tags": [],
-        "narrative_modes": [],
-        "tone_guardrails": [],
+        "strong_tags": strong_tags,
+        "narrative_modes": narrative_modes,
+        "tone_guardrails": tone_guardrails,
         "positioning_sidecar": ".mighty/content-positioning.json",
         "节奏": normalized_profile["pacing"],
         "爽点密度": normalized_profile["cool_points"]["density"] or 0,
@@ -308,8 +318,9 @@ def main(argv: list[str] | None = None) -> dict[str, Any]:
         payload = resolve_profile_layers(path.parent, platform=args.platform or None, bucket=args.bucket or None)
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return payload
-    normalized = normalize_profile(load_profile(path), source_path=str(path))
-    payload = summarize_for_state(normalized) if args.state_summary else normalized
+    raw_profile = load_profile_with_overlays(path, platform=args.platform or None)
+    normalized = normalize_profile(raw_profile, source_path=str(path))
+    payload = summarize_for_state(normalized, raw_profile=raw_profile, platform=args.platform or "") if args.state_summary else normalized
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     return payload
 

@@ -62,6 +62,24 @@ class ProfileContractTests(unittest.TestCase):
         self.assertIn("quest", summary["strand权重"])
         self.assertIsInstance(summary["特殊约束"], list)
 
+    def test_state_summary_can_project_platform_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "xuanhuan" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/xuanhuan/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "玄幻脑洞")
+        self.assertTrue(summary["positioning_initialized"])
+        self.assertIn("金手指", summary["strong_tags"])
+        self.assertIn("多主题副本", summary["narrative_modes"])
+        self.assertIn("升级必须有代价", summary["tone_guardrails"])
+
     def test_layer_descriptor_uses_core_overlay_reference_split(self) -> None:
         module = load_module()
         descriptor = module.resolve_profile_layers(PROFILE_ROOT / "xuanhuan", platform="tomato")
