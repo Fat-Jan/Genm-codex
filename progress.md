@@ -3807,6 +3807,24 @@
   - `pytest -q tests/test_scan_result_contract.py tests/test_novel_scan.py` passed
   - `bash scripts/validate-migration.sh` passed
 
+## Session Update: 2026-03-28 `v1.5` P0-D / P0-E 完成
+
+- `P0-D Skill Rationalization Policy`
+  - 新增：
+    - `docs/00-当前有效/skill-rationalization-policy.md`
+    - `shared/templates/skill-merge-map-v1.schema.json`
+- `P0-E Runtime Boundary ADR`
+  - 新增：
+    - `docs/00-当前有效/runtime-boundary-adr.md`
+- 同步更新：
+  - `scripts/validate-migration.sh`
+  - `v1.5-roadmap.md`
+- 当前解锁：
+  - `P2-D Skill Merge Map 文档化`
+  - `P2-E Runtime Boundary 文档化`
+- 验证：
+  - `pytest -q tests/test_skill_rationalization_policy.py tests/test_runtime_boundary_adr.py` passed
+
 ## Session Update: 2026-03-28 跨平台支持规划
 
 - 创建跨平台支持规划文档：`cross-platform-support-plan.md`
