@@ -131,6 +131,7 @@ Read conditionally:
   - `workflow_truth_missing_artifacts`
   - `repo_owned_tail_steps`
 - when you need a compact human-facing block, mirror the section shape in `../../scripts/render_workflow_health_summary.py`
+- when you need a full dashboard that also includes gate and current-writing slice, mirror `../../scripts/render_project_status_dashboard.py`
 - when `.mighty/knowledge-projection.json` exists, prefer surfacing:
   - `workflow_contract.transaction_contract`
   - `workflow_contract.repo_owned_tail_steps`

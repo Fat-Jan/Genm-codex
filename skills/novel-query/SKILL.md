@@ -174,6 +174,7 @@ Suggested behaviors:
 - `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
 - `workflow-health`: summarize `quality_audit_status`, `top_finding_codes`, `workflow_truth_status`, `workflow_truth_missing_artifacts`, and `repo_owned_tail_steps`
   - keep the terse answer shape aligned with `../../scripts/render_workflow_health_summary.py`
+- when the user asks for a more complete status dashboard or one-line operational summary, align with `../../scripts/render_project_status_dashboard.py`
 - `setting-gate`: summarize gate status, blocking gaps, queued confirmations, and `minimal_next_action`
 - `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
 - `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries

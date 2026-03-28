@@ -30,6 +30,7 @@
 - `get_project_quality_audit`
 - `get_project_workflow_bundle`
 - `get_project_workflow_health_summary`
+- `get_project_status_dashboard`
 
 其中：
 
@@ -42,6 +43,9 @@
 - `get_project_workflow_health_summary`
   - 直接返回 Markdown 摘要
   - 当前由 `render_workflow_health_summary.py` 负责统一渲染
+- `get_project_status_dashboard`
+  - 直接返回项目状态 dashboard
+  - 当前由 `render_project_status_dashboard.py` 负责统一渲染
 
 ## 启动方式
 

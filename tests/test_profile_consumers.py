@@ -57,6 +57,18 @@ CONSUMER_EXPECTATIONS = {
         "chapter_structure",
         "chapter-structure-fields-design.md",
     ],
+    "skills/novel-status/SKILL.md": [
+        ".mighty/workflow-health.json",
+        ".mighty/quality-audit.json",
+        ".mighty/knowledge-projection.json",
+        "render_project_status_dashboard.py",
+    ],
+    "skills/novel-query/SKILL.md": [
+        ".mighty/workflow-health.json",
+        ".mighty/quality-audit.json",
+        ".mighty/knowledge-projection.json",
+        "render_project_status_dashboard.py",
+    ],
 }
 
 

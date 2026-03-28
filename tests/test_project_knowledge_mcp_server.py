@@ -70,6 +70,7 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         self.assertIn("get_project_quality_audit", tool_names)
         self.assertIn("get_project_workflow_bundle", tool_names)
         self.assertIn("get_project_workflow_health_summary", tool_names)
+        self.assertIn("get_project_status_dashboard", tool_names)
 
     def test_tools_call_returns_projection_payload(self) -> None:
         module = load_module()
@@ -142,6 +143,49 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         text = response["result"]["content"][0]["text"]
         self.assertIn("## Workflow Health", text)
         self.assertIn("quality-audit: `warn`", text)
+
+    def test_tools_call_returns_project_status_dashboard(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        write_json(
+            root / ".mighty" / "workflow-health.json",
+            {
+                "project_title": "MCP 测试书",
+                "quality_audit_status": "warn",
+                "top_finding_codes": ["empty-issue-clusters-with-score"],
+                "workflow_truth_status": "pass",
+                "workflow_truth_missing_artifacts": [],
+                "repo_owned_tail_steps": ["maintenance", "snapshot"],
+                "setting_gate_status": "passed",
+                "has_recent_guardrails": False,
+                "recommended_next_action": "repair-review-artifacts",
+                "recommended_reason": "先修 review artifact。",
+            },
+        )
+        write_json(
+            root / ".mighty" / "setting-gate.json",
+            {
+                "status": "passed",
+                "blocking_gaps": [],
+                "review_items": [],
+                "minimal_next_action": {"summary": "继续写下一章", "suggested_commands": []},
+            },
+        )
+        response = module.handle_request(
+            {
+                "jsonrpc": "2.0",
+                "id": 5,
+                "method": "tools/call",
+                "params": {
+                    "name": "get_project_status_dashboard",
+                    "arguments": {"project_root": str(root)},
+                },
+            }
+        )
+        self.assertFalse(response["result"]["isError"])
+        text = response["result"]["content"][0]["text"]
+        self.assertIn("## Project Status Dashboard", text)
+        self.assertIn("MCP 测试书", text)
 
 
 if __name__ == "__main__":

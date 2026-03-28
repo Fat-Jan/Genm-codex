@@ -3681,3 +3681,44 @@
   - `malformed-repeated-token`
 - 验证结果：
   - `pytest -q tests/test_real_e2e_novel_smoke.py` passed
+
+## Session Update: 2026-03-28 `workflow-health` 高层 dashboard 消费
+
+- 新增更高层消费端渲染器：
+  - `scripts/render_project_status_dashboard.py`
+- 当前把下面几层收成一个 dashboard：
+  - `.mighty/workflow-health.json`
+  - `.mighty/setting-gate.json`
+  - `.mighty/active-context.json`
+  - `.mighty/state.json`
+- MCP server 新增：
+  - `get_project_status_dashboard`
+- 更新 consumer 合同：
+  - `skills/novel-status/SKILL.md`
+  - `skills/novel-query/SKILL.md`
+- 扩展测试：
+  - `tests/test_project_status_dashboard.py`
+  - `tests/test_project_knowledge_mcp_server.py`
+  - `tests/test_profile_consumers.py`
+
+## Session Update: 2026-03-28 roadmap review 收口
+
+- 根据 `v1.4-roadmap-review-2026-03-28.md` 修正了 roadmap 中的：
+  - 任务状态
+  - `A5` 脚本名称
+  - `A1-A5` 的 Verify 命令
+  - `E1-E3` 对“自动 smoke”的完成定义
+
+## Session Update: 2026-03-28 v1.4-roadmap review（mimo 审查 gpt 任务）
+
+- 完成对 `v1.4-roadmap.md` 中 owner 为 `[me]`（gpt）所有任务的 review
+- 产出 review 文档：`v1.4-roadmap-review-2026-03-28.md`
+- 发现的主要问题：
+  - 7 个任务状态过时（A4/A5/C2/C3/C4/D3/E1-E3）
+  - A5 脚本名称不一致（roadmap 写 `quality-audit.py`，实际是 `audit_project_quality_state.py`）
+  - A1 文档缺口被低估（state-schema.md 缺少 17 个顶层字段的说明）
+  - A1-A5 缺少验证命令
+  - A4 完成标记模糊（"复用 helper"定义不清）
+  - E1-E3 自动化定义不清（"自动 smoke"指什么）
+  - A1 完成标准不一致（docs 不一致但未阻塞任务）
+- 待 gpt 解释/解决
