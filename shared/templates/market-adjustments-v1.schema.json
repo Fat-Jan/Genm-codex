@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "market-adjustments-v1.schema.json",
+  "title": "Genm Codex Market Adjustments v1",
+  "type": "object",
+  "required": ["last_applied", "source_scan", "adjustments"],
+  "properties": {
+    "last_applied": {"type": "string"},
+    "source_scan": {
+      "type": "object",
+      "required": ["mode", "confidence"],
+      "properties": {
+        "scan_time": {"type": "string"},
+        "mode": {"type": "string"},
+        "platform": {"type": "string"},
+        "genre": {"type": "string"},
+        "depth": {"type": "string"},
+        "report_kind": {"type": "string"},
+        "confidence": {
+          "type": "object",
+          "required": ["overall", "reason"],
+          "properties": {
+            "overall": {"type": "string"},
+            "reason": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "sources": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "adjustments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "suggestion"],
+        "properties": {
+          "id": {"type": "string"},
+          "type": {"type": "string"},
+          "priority": {"type": "string"},
+          "scope": {"type": "string"},
+          "applies_to": {"type": "array", "items": {"type": "string"}},
+          "summary": {"type": "string"},
+          "suggestion": {"type": "string"},
+          "reason": {"type": "string"},
+          "confidence": {"type": "string"},
+          "note": {"type": "string"}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

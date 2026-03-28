@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import jsonschema
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODULE_PATH = REPO_ROOT / "scripts" / "novel_scan.py"
@@ -130,6 +132,9 @@ class NovelScanTests(unittest.TestCase):
             self.assertEqual(result["confidence"]["overall"], "low")
             self.assertTrue((mighty / "market-data.json").exists())
             self.assertFalse((mighty / "market-adjustments.json").exists())
+
+            schema = json.loads((REPO_ROOT / "shared/templates/market-data-v1.schema.json").read_text(encoding="utf-8"))
+            jsonschema.validate(result, schema)
 
     def test_project_annotate_writes_sidecar_and_state_summary(self) -> None:
         module = load_module()
@@ -754,6 +759,20 @@ class NovelScanTests(unittest.TestCase):
             self.assertEqual(candidates_doc["source_scan"]["tool"], "novel-scan")
             self.assertEqual(len(candidates_doc["candidates"]), 1)
             self.assertEqual(candidates_doc["candidates"][0]["name"], "嫡庶婚配真值补证")
+
+            market_data_schema = json.loads((REPO_ROOT / "shared/templates/market-data-v1.schema.json").read_text(encoding="utf-8"))
+            market_adjustments_schema = json.loads((REPO_ROOT / "shared/templates/market-adjustments-v1.schema.json").read_text(encoding="utf-8"))
+            research_candidates_schema = json.loads((REPO_ROOT / "shared/templates/research-candidates-v1.schema.json").read_text(encoding="utf-8"))
+
+            jsonschema.validate(
+                json.loads((mighty / "market-data.json").read_text(encoding="utf-8")),
+                market_data_schema,
+            )
+            jsonschema.validate(
+                json.loads((mighty / "market-adjustments.json").read_text(encoding="utf-8")),
+                market_adjustments_schema,
+            )
+            jsonschema.validate(candidates_doc, research_candidates_schema)
 
     def test_reading_list_keeps_stricter_thresholds(self) -> None:
         module = load_module()

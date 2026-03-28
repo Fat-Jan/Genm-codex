@@ -3787,6 +3787,26 @@
 - 验证：
   - `pytest -q tests/test_sample_manifest_contract.py tests/test_profile_expansion_contract.py` passed
 
+## Session Update: 2026-03-28 `v1.5` P0-C 完成
+
+- `P0-C Scan Result Contract`
+  - 新增：
+    - `shared/templates/market-data-v1.schema.json`
+    - `shared/templates/market-adjustments-v1.schema.json`
+    - `shared/templates/research-candidates-v1.schema.json`
+    - `docs/00-当前有效/scan-result-contract.md`
+  - 更新：
+    - `skills/novel-scan/SKILL.md`
+    - `scripts/validate-migration.sh`
+    - `tests/test_novel_scan.py`
+  - 新增测试：
+    - `tests/test_scan_result_contract.py`
+- 当前解锁：
+  - `P2-C Scan 规则卡与样例资产`
+- 验证：
+  - `pytest -q tests/test_scan_result_contract.py tests/test_novel_scan.py` passed
+  - `bash scripts/validate-migration.sh` passed
+
 ## Session Update: 2026-03-28 跨平台支持规划
 
 - 创建跨平台支持规划文档：`cross-platform-support-plan.md`
