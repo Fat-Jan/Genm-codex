@@ -3647,3 +3647,23 @@
   - `pytest -q tests/test_profile_contract.py tests/test_content_positioning.py tests/test_profile_consumers.py tests/test_state_contracts.py tests/test_v14_doc_assets.py` 共 `40 passed`
   - `bash scripts/validate-migration.sh` passed
   - `python3 scripts/project_regression_smoke.py e2e-novel --batch-count 3` passed
+
+## Session Update: 2026-03-28 《嫁妆单》固定 regression sample
+
+- 新增真实项目回归测试：
+  - `tests/test_real_regression_samples.py`
+- 当前把 `projects/成婚前三日，我先改了侯府嫁妆单` 正式钉为自动 regression sample
+- 当前锁住的风险指纹包括：
+  - `quality_audit.status = fail`
+  - `empty-issue-clusters-with-score`
+  - `missing-needs-fix-flag`
+  - `missing-dimension-scores`
+  - `missing-anti-flattening-artifacts`
+  - `empty-project-dimension-scores`
+  - `chapter_structure_audit.status = warn`
+  - `repeated-conflict-opponent`
+  - `repeated-gain-ending`
+  - `batch_quality_gate.status = warn`
+  - `near-floor-cluster`
+- 验证结果：
+  - `pytest -q tests/test_real_regression_samples.py` passed
