@@ -13,42 +13,9 @@ link_skill() {
   ln -sfn "${ROOT_DIR}/skills/${source_name}" "${TARGET_DIR}/${target_name}"
 }
 
-install_skill_aliases() {
-  local source_name="$1"
-  link_skill "${source_name}" "${source_name}"
-  link_skill "${source_name}" "genm-${source_name}"
-}
-
-install_skill_aliases "novel-init"
-install_skill_aliases "novel-analyze"
-install_skill_aliases "novel-batch"
-install_skill_aliases "novel-character"
-install_skill_aliases "novel-foreshadowing"
-install_skill_aliases "novel-fix"
-install_skill_aliases "novel-genre"
-install_skill_aliases "novel-index"
-install_skill_aliases "novel-log"
-install_skill_aliases "novel-learn"
-install_skill_aliases "novel-polish"
-install_skill_aliases "novel-precheck"
-install_skill_aliases "novel-query"
-install_skill_aliases "novel-setting"
-install_skill_aliases "novel-scan"
-install_skill_aliases "novel-snapshot"
-install_skill_aliases "novel-spinoff"
-install_skill_aliases "novel-status"
-install_skill_aliases "novel-config"
-install_skill_aliases "novel-close"
-install_skill_aliases "novel-test"
-install_skill_aliases "novel-outline"
-install_skill_aliases "novel-package"
-install_skill_aliases "novel-workflow"
-install_skill_aliases "novel-write"
-install_skill_aliases "novel-review"
-install_skill_aliases "novel-resume"
-install_skill_aliases "novel-retrieve"
-install_skill_aliases "novel-rewrite"
-install_skill_aliases "novel-export"
-install_skill_aliases "novel-sync"
+while IFS=$'\t' read -r source_name target_name; do
+  [[ -n "${source_name}" ]] || continue
+  link_skill "${source_name}" "${target_name}"
+done < <(python3 "${ROOT_DIR}/scripts/render_skill_alias_plan.py" --format tsv)
 
 echo "Installed Genm-codex skills into ${TARGET_DIR}"

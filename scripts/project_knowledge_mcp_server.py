@@ -16,6 +16,7 @@ import build_project_knowledge_projection
 import build_workflow_health_bundle
 import render_project_status_dashboard
 import render_project_scan_summary
+import render_sample_manifest_summary
 import render_workflow_health_summary
 
 
@@ -93,6 +94,17 @@ def tool_definitions() -> list[dict[str, Any]]:
                 "required": ["project_root"],
             },
         },
+        {
+            "name": "get_sample_manifest_summary",
+            "description": "Render a compact summary of the current sample manifest.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_root": {"type": "string"}
+                },
+                "required": ["project_root"]
+            }
+        },
     ]
 
 
@@ -154,6 +166,10 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         payload = render_project_status_dashboard.render_project_status_dashboard_markdown(root)
     elif name == "get_project_scan_summary":
         payload = render_project_scan_summary.render_project_scan_summary_markdown(root)
+    elif name == "get_sample_manifest_summary":
+        payload = render_sample_manifest_summary.render_sample_manifest_summary_markdown(
+            render_sample_manifest_summary.DEFAULT_MANIFEST_PATH
+        )
     else:
         raise ValueError(f"unknown tool: {name}")
 

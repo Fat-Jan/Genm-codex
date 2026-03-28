@@ -3825,6 +3825,17 @@
 - 验证：
   - `pytest -q tests/test_skill_rationalization_policy.py tests/test_runtime_boundary_adr.py` passed
 
+## Session Update: 2026-03-28 `v1.5` P3-D 完成
+
+- 新增机器可消费 alias 计划层：
+  - `shared/templates/skill-merge-map-v1.json`
+  - `scripts/render_skill_alias_plan.py`
+- `install-skills.sh` 已改为通过 helper 生成安装 alias 对，而不是硬编码整串 skill 列表
+- 扩展测试：
+  - `tests/test_skill_alias_plan.py`
+- 验证：
+  - `pytest -q tests/test_skill_alias_plan.py` passed
+
 ## Session Update: 2026-03-28 `v1.5` P3-C 完成
 
 - 新增 scan 消费层 helper：
@@ -3841,6 +3852,40 @@
   - `tests/test_profile_consumers.py`
 - 验证：
   - `pytest -q tests/test_project_scan_summary.py tests/test_project_knowledge_mcp_server.py tests/test_profile_consumers.py` passed
+
+## Session Update: 2026-03-28 `v1.5` P3-A / P3-B 进入实现
+
+- `P3-A Sample Manifest Consumer`
+  - 新增：
+    - `shared/templates/sample-manifest-v1.json`
+    - `scripts/render_sample_manifest_summary.py`
+  - MCP 已新增 `get_sample_manifest_summary`
+  - 新增测试：
+    - `tests/test_sample_manifest_runtime.py`
+- `P3-B Profile / Bucket Registry Consumer`
+  - 新增：
+    - `shared/templates/profile-bucket-registry-v1.json`
+  - `scripts/profile_contract.py` 已优先消费 registry 做 Fanqie bucket key 解析
+  - 新增测试：
+    - `tests/test_profile_bucket_registry.py`
+- 同步更新：
+  - `scripts/validate-migration.sh`
+  - `docs/00-当前有效/sample-library-index.md`
+  - `shared/profiles/README.md`
+
+## Session Update: 2026-03-28 `v1.5` P3-A / P3-B 完成
+
+- `P3-A Sample Manifest Consumer`
+  - 当前已具备：
+    - manifest 实体文件：`shared/templates/sample-manifest-v1.json`
+    - summary helper：`scripts/render_sample_manifest_summary.py`
+    - MCP tool：`get_sample_manifest_summary`
+- `P3-B Profile / Bucket Registry Consumer`
+  - 当前已具备：
+    - registry 实体文件：`shared/templates/profile-bucket-registry-v1.json`
+    - `profile_contract.py` 已消费 registry 做 fanqie bucket key 解析
+- 验证：
+  - `pytest -q tests/test_sample_manifest_runtime.py tests/test_project_scan_summary.py tests/test_skill_alias_plan.py tests/test_profile_bucket_registry.py tests/test_project_knowledge_mcp_server.py tests/test_profile_consumers.py tests/test_scan_result_contract.py tests/test_novel_scan.py tests/test_profile_contract.py tests/test_content_positioning.py` passed
 
 ## Session Update: 2026-03-28 跨平台支持规划
 

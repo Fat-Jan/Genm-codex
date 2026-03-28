@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-28T00:00:00Z",
+  "samples": [
+    {
+      "sample_id": "e2e-novel",
+      "path": "e2e-novel",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "传统玄幻",
+      "status": "active",
+      "notes": "核心 smoke 样本",
+      "verification_targets": ["workflow", "regression", "quality-audit"]
+    },
+    {
+      "sample_id": "e2e-gongdou-evil",
+      "path": "smoke/e2e-gongdou-evil",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "宫斗宅斗 baseline smoke"
+    },
+    {
+      "sample_id": "e2e-dual-substitute-evil",
+      "path": "smoke/e2e-dual-substitute-evil",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "青春甜宠",
+      "status": "active",
+      "notes": "双女主替身 baseline smoke"
+    },
+    {
+      "sample_id": "gongdou-antiflattening-derived",
+      "path": "smoke/e2e-gongdou-evil-antiflattening-20260322",
+      "sample_type": "smoke",
+      "trust_tier": "derived",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "反脸谱化派生样本"
+    },
+    {
+      "sample_id": "system-antiflattening-derived",
+      "path": "smoke/e2e-system-antiflattening-20260322",
+      "sample_type": "smoke",
+      "trust_tier": "derived",
+      "platform": "番茄",
+      "bucket": "都市脑洞",
+      "status": "active",
+      "notes": "系统流反脸谱化派生样本"
+    },
+    {
+      "sample_id": "shunvmoulue-high-confidence",
+      "path": "projects/庶女谋略",
+      "sample_type": "project",
+      "trust_tier": "high_confidence",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "高置信宫斗宅斗样本"
+    },
+    {
+      "sample_id": "hunshu-high-confidence",
+      "path": "projects/庶妹换我婚书那夜，太子先开了口",
+      "sample_type": "project",
+      "trust_tier": "high_confidence",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "高置信古风婚配样本"
+    },
+    {
+      "sample_id": "jiazhuangdan-regression",
+      "path": "projects/成婚前三日，我先改了侯府嫁妆单",
+      "sample_type": "project",
+      "trust_tier": "regression",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "结构重复 regression 样本",
+      "verification_targets": ["chapter-structure", "quality-audit", "batch-quality-gate"]
+    },
+    {
+      "sample_id": "xuanhuan-bucket-sample",
+      "path": "projects/宗门垫底那年，我把废丹卖成了天价",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "修仙",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "ceo-bucket-sample",
+      "path": "projects/离婚冷静期那天，前夫把董事会席位押给了我",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "豪门总裁",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "youth-bucket-sample",
+      "path": "projects/转学第一天，我把校草认成了新来的代课老师",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "青春甜宠",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "urban-brainhole-bucket-sample",
+      "path": "projects/公司裁我那天，系统先赔了我一百万",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "都市脑洞",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "urban-daily-bucket-sample",
+      "path": "projects/她升职那天，前上司成了我合租室友",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "都市日常",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "historical-brainhole-bucket-sample",
+      "path": "projects/我在县衙当杂吏，靠翻旧案升了堂",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "历史脑洞",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "workplace-romance-bucket-sample",
+      "path": "projects/代理续约那天，我和前搭档被公司按进了同一套合租房",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "职场婚恋",
+      "status": "active",
+      "notes": "P0 bucket 样本"
+    }
+  ]
+}

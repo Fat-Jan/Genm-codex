@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "fanqie_bucket_keys": {
+    "gongdou_zhai": {
+      "bucket_name": "宫斗宅斗",
+      "profile_slug": "palace-intrigue"
+    },
+    "dushi_naodong": {
+      "bucket_name": "都市脑洞",
+      "profile_slug": "urban-brainhole"
+    },
+    "dushi_changri": {
+      "bucket_name": "都市日常",
+      "profile_slug": "urban-daily"
+    },
+    "qingchun_tianchong": {
+      "bucket_name": "青春甜宠",
+      "profile_slug": "sweet-youth"
+    },
+    "haomen_zongcai": {
+      "bucket_name": "豪门总裁",
+      "profile_slug": "ceo-romance"
+    },
+    "zhichang_hunlian": {
+      "bucket_name": "职场婚恋",
+      "profile_slug": "workplace-romance"
+    },
+    "lishi_naodong": {
+      "bucket_name": "历史脑洞",
+      "profile_slug": "historical-brainhole"
+    },
+    "xuanhuan_naodong": {
+      "bucket_name": "玄幻脑洞",
+      "profile_slug": "xuanhuan"
+    },
+    "xianshi": {
+      "bucket_name": "现实情感",
+      "profile_slug": "realistic"
+    },
+    "xitong": {
+      "bucket_name": "都市脑洞",
+      "profile_slug": "system"
+    },
+    "xiuxian": {
+      "bucket_name": "传统玄幻",
+      "profile_slug": "xiuxian"
+    }
+  }
+}

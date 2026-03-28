@@ -47,11 +47,11 @@ def _normalize_slug_token(value: str) -> str:
 
 def _load_fanqie_bucket_name_map() -> dict[str, str]:
     repo_root = Path(__file__).resolve().parents[1]
-    source = repo_root / "docs" / "fanqie-mvp-buckets.yaml"
-    if not source.exists():
+    registry = repo_root / "shared" / "templates" / "profile-bucket-registry-v1.json"
+    if not registry.exists():
         return {}
-    payload = yaml.safe_load(source.read_text(encoding="utf-8")) or {}
-    buckets = payload.get("buckets", {})
+    payload = json.loads(registry.read_text(encoding="utf-8")) or {}
+    buckets = payload.get("fanqie_bucket_keys", {})
     if not isinstance(buckets, dict):
         return {}
     mapping: dict[str, str] = {}

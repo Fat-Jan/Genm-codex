@@ -4,6 +4,12 @@
 
 汇总 Genm-codex 项目中的所有样本，包括端到端测试样本（smoke）和真实项目样本（projects），便于查找和复用。
 
+当前 machine-readable 真值入口：
+
+- `shared/templates/sample-manifest-v1.json`
+
+本页继续保留给人读，但后续 consumer 应优先读 manifest。
+
 ---
 
 ## Smoke 样本

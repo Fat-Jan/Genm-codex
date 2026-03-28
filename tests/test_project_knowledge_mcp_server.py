@@ -72,6 +72,7 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         self.assertIn("get_project_workflow_health_summary", tool_names)
         self.assertIn("get_project_status_dashboard", tool_names)
         self.assertIn("get_project_scan_summary", tool_names)
+        self.assertIn("get_sample_manifest_summary", tool_names)
 
     def test_tools_call_returns_projection_payload(self) -> None:
         module = load_module()
@@ -229,6 +230,24 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         text = response["result"]["content"][0]["text"]
         self.assertIn("## Project Scan Summary", text)
         self.assertIn("玄幻脑洞", text)
+
+    def test_tools_call_returns_sample_manifest_summary(self) -> None:
+        module = load_module()
+        response = module.handle_request(
+            {
+                "jsonrpc": "2.0",
+                "id": 7,
+                "method": "tools/call",
+                "params": {
+                    "name": "get_sample_manifest_summary",
+                    "arguments": {"project_root": "."},
+                },
+            }
+        )
+        self.assertFalse(response["result"]["isError"])
+        text = response["result"]["content"][0]["text"]
+        self.assertIn("## Sample Manifest Summary", text)
+        self.assertIn("e2e-novel", text)
 
 
 if __name__ == "__main__":
