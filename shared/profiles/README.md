@@ -88,10 +88,10 @@ shared/profiles/
 
 根据架构审查，当前 profile 系统存在以下缺口：
 
-1. **bucket 分配系统未打通**: `resolve_platform_positioning()` 存在但从未被调用
-2. **bucket overlay 文件数量为零**: 没有实际的 bucket overlay 文件
-3. **桶名无规范 slug 映射**: 宫斗宅斗 vs palace-intrigue vs gongdou_zhai
-4. **大部分 profile 没有 platform_positioning**: 54 个 profile 中 38 个没有 platform_positioning
+1. **bucket 分配系统只完成了第一批接线**: `build_content_positioning.py` 与 `profile_contract.py` 已能消费 bucket overlay，但下游 consumer 仍未全面使用 bucket 级差异
+2. **bucket overlay 目前只补齐了 P0 首批**: 其余 bucket 仍未覆盖
+3. **桶名 slug 映射虽已成文，但尚未做成统一 registry**: 宫斗宅斗 vs palace-intrigue vs gongdou_zhai
+4. **大部分 profile 没有 platform_positioning**: 54 个 profile 中仍有大量 profile 未补平台定位
 
 相关文档：
 

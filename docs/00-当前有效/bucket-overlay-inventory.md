@@ -21,7 +21,14 @@
 
 | profile | bucket | 文件 | 状态 |
 |---------|--------|------|------|
-| - | - | - | ❌ 未实现 |
+| palace-intrigue | 宫斗宅斗 | `bucket-palace-intrigue.yaml` | ✅ 已实现 |
+| urban-brainhole | 都市脑洞 | `bucket-urban-brainhole.yaml` | ✅ 已实现 |
+| urban-daily | 都市日常 | `bucket-urban-daily.yaml` | ✅ 已实现 |
+| sweet-youth | 青春甜宠 | `bucket-sweet-youth.yaml` | ✅ 已实现 |
+| ceo-romance | 豪门总裁 | `bucket-ceo-romance.yaml` | ✅ 已实现 |
+| workplace-romance | 职场婚恋 | `bucket-workplace-romance.yaml` | ✅ 已实现 |
+| historical-brainhole | 历史脑洞 | `bucket-historical-brainhole.yaml` | ✅ 已实现 |
+| xuanhuan | 玄幻脑洞 | `bucket-xuanhuan.yaml` | ✅ 已实现 |
 
 ---
 
@@ -29,7 +36,7 @@
 
 ### 1. Bucket Overlay 文件缺失
 
-当前没有实现任何 `bucket-*.yaml` 文件。根据 contract 分层，bucket overlay 应该：
+当前已补齐第一批 P0 `bucket-*.yaml` 文件，但其余 bucket 仍未覆盖。根据 contract 分层，bucket overlay 应该：
 
 - **路径**: `profiles/<slug>/bucket-<bucket>.yaml`
 - **内容**: 只放内容桶差异
@@ -200,6 +207,6 @@ version: "1.0"
 
 - [ ] 有独立设计稿（本文件）
 - [ ] 明确缺口清单和优先级（本文件）
-- [ ] P0 bucket overlay 文件已创建（待实现）
-- [ ] profile_contract.py 已更新（待实现）
-- [ ] build_content_positioning.py 已更新（待实现）
+- [x] P0 bucket overlay 文件已创建
+- [x] profile_contract.py 已更新
+- [x] build_content_positioning.py 已更新

@@ -1,0 +1,15 @@
+name: "玄幻脑洞 bucket overlay"
+display_name: "玄幻脑洞"
+description: "番茄玄幻脑洞 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "玄幻脑洞"
+    strong_tags: ["金手指", "成长"]
+    narrative_modes: ["多主题副本", "升级账本"]
+    tone_guardrails: ["升级必须有代价", "爽点不能替代世界规则", "升级兑现前必须有阻力"]
+    package_cues:
+      - "金手指出现前置"
+      - "前三章要有硬兑现"
+      - "升级机制一句话讲清"

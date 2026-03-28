@@ -1,0 +1,15 @@
+name: "都市脑洞 bucket overlay"
+display_name: "都市脑洞"
+description: "番茄都市脑洞 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["系统", "逆袭"]
+    narrative_modes: ["多主题副本", "反差连锁"]
+    tone_guardrails: ["节奏不能拖沓", "金手指不能替代逻辑", "反差设定必须尽快兑现"]
+    package_cues:
+      - "首屏点金手指或反差"
+      - "前三章要有一次硬兑现"
+      - "反差设定一句话讲清"

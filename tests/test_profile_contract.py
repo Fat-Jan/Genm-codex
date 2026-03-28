@@ -80,6 +80,22 @@ class ProfileContractTests(unittest.TestCase):
         self.assertIn("多主题副本", summary["narrative_modes"])
         self.assertIn("升级必须有代价", summary["tone_guardrails"])
 
+    def test_state_summary_can_apply_bucket_overlay(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "palace-intrigue" / "profile.yaml",
+            platform="fanqie",
+            bucket="宫斗宅斗",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/palace-intrigue/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertIn("宅门账本", summary["narrative_modes"])
+        self.assertIn("高门称谓必须闭环", summary["tone_guardrails"])
+
     def test_layer_descriptor_uses_core_overlay_reference_split(self) -> None:
         module = load_module()
         descriptor = module.resolve_profile_layers(PROFILE_ROOT / "xuanhuan", platform="tomato")
@@ -88,6 +104,24 @@ class ProfileContractTests(unittest.TestCase):
         self.assertTrue(descriptor["platform_overlay"].endswith("shared/profiles/xuanhuan/profile-tomato.yaml"))
         self.assertIsNone(descriptor["bucket_overlay"])
         self.assertIn("cool-points.md", descriptor["reference_files"])
+
+    def test_layer_descriptor_can_resolve_bucket_overlay_from_bucket_name(self) -> None:
+        module = load_module()
+        descriptor = module.resolve_profile_layers(PROFILE_ROOT / "palace-intrigue", platform="fanqie", bucket="宫斗宅斗")
+
+        self.assertTrue(descriptor["bucket_overlay"].endswith("shared/profiles/palace-intrigue/bucket-palace-intrigue.yaml"))
+
+    def test_layer_descriptor_can_resolve_bucket_overlay_from_fanqie_bucket_key(self) -> None:
+        module = load_module()
+        descriptor = module.resolve_profile_layers(PROFILE_ROOT / "palace-intrigue", platform="fanqie", bucket="gongdou_zhai")
+
+        self.assertTrue(descriptor["bucket_overlay"].endswith("shared/profiles/palace-intrigue/bucket-palace-intrigue.yaml"))
+
+    def test_layer_descriptor_can_resolve_bucket_overlay_from_platform_overlay_bucket_name(self) -> None:
+        module = load_module()
+        descriptor = module.resolve_profile_layers(PROFILE_ROOT / "xuanhuan", platform="fanqie", bucket="玄幻脑洞")
+
+        self.assertTrue(descriptor["bucket_overlay"].endswith("shared/profiles/xuanhuan/bucket-xuanhuan.yaml"))
 
     def test_all_profiles_normalize_to_contract_shape(self) -> None:
         module = load_module()
@@ -134,6 +168,20 @@ class ProfileContractTests(unittest.TestCase):
             content = (REPO_ROOT / yaml_path).read_text(encoding="utf-8")
             self.assertIn("reference_files:", content)
             self.assertTrue((REPO_ROOT / notes_path).exists())
+
+    def test_first_batch_bucket_overlay_files_exist(self) -> None:
+        expected = [
+            "shared/profiles/palace-intrigue/bucket-palace-intrigue.yaml",
+            "shared/profiles/urban-brainhole/bucket-urban-brainhole.yaml",
+            "shared/profiles/urban-daily/bucket-urban-daily.yaml",
+            "shared/profiles/sweet-youth/bucket-sweet-youth.yaml",
+            "shared/profiles/ceo-romance/bucket-ceo-romance.yaml",
+            "shared/profiles/workplace-romance/bucket-workplace-romance.yaml",
+            "shared/profiles/historical-brainhole/bucket-historical-brainhole.yaml",
+            "shared/profiles/xuanhuan/bucket-xuanhuan.yaml",
+        ]
+        for relative_path in expected:
+            self.assertTrue((REPO_ROOT / relative_path).exists(), relative_path)
 
 
 if __name__ == "__main__":

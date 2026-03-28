@@ -1,0 +1,15 @@
+name: "历史脑洞 bucket overlay"
+display_name: "历史脑洞"
+description: "番茄历史脑洞 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "历史脑洞"
+    strong_tags: ["穿越", "权谋"]
+    narrative_modes: ["多主题副本", "制度换账"]
+    tone_guardrails: ["历史感不能被现代腔冲掉", "创意设定必须自洽", "制度变化必须落到人和权力"]
+    package_cues:
+      - "历史反差点前置"
+      - "主设定一句话讲清"
+      - "第一轮权力换账要看得见"

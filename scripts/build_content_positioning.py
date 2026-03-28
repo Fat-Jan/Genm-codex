@@ -89,7 +89,11 @@ def build_content_positioning(project_root: Path, *, timestamp: str) -> dict[str
         if not profile_path.exists():
             profile_path = Path(__file__).resolve().parents[1] / loaded_path
         if profile_path.exists():
-            raw_profile = profile_contract.load_profile_with_overlays(profile_path, platform=platform_key)
+            raw_profile = profile_contract.load_profile_with_overlays(
+                profile_path,
+                platform=platform_key,
+                bucket=str(genre_profile.get("bucket", "")),
+            )
             profile_positioning = profile_contract.resolve_platform_positioning(raw_profile, platform=platform_key)
     profile_mapping = (
         mapping_registry.get("profiles", {})

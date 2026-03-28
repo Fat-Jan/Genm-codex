@@ -3620,3 +3620,30 @@
   - `pytest -q ... tests/test_v14_doc_assets.py` 相关套件共 `149 passed`
   - `bash scripts/validate-migration.sh` passed
   - `python3 scripts/project_regression_smoke.py e2e-novel --batch-count 3` passed
+
+## Session Update: 2026-03-28 `bucket overlay` 真接线
+
+- 完成 `D3 platform_positioning 真接线` 的下一轮收口：
+  - `scripts/profile_contract.py` 新增 bucket overlay 路径解析
+  - `scripts/build_content_positioning.py` 现在会把 `state.genre_profile.bucket` 传入 profile overlay 选择
+  - `resolve_profile_layers()` 现在会在计算 bucket overlay 前先并入 platform overlay，避免像 `xuanhuan -> 玄幻脑洞` 这种 bucket 名丢失
+- 新增并接入第一批 P0 bucket overlay 文件：
+  - `shared/profiles/palace-intrigue/bucket-palace-intrigue.yaml`
+  - `shared/profiles/urban-brainhole/bucket-urban-brainhole.yaml`
+  - `shared/profiles/urban-daily/bucket-urban-daily.yaml`
+  - `shared/profiles/sweet-youth/bucket-sweet-youth.yaml`
+  - `shared/profiles/ceo-romance/bucket-ceo-romance.yaml`
+  - `shared/profiles/workplace-romance/bucket-workplace-romance.yaml`
+  - `shared/profiles/historical-brainhole/bucket-historical-brainhole.yaml`
+  - `shared/profiles/xuanhuan/bucket-xuanhuan.yaml`
+- 同步修正文档与仓库基线：
+  - `docs/00-当前有效/bucket-overlay-inventory.md`
+  - `shared/profiles/README.md`
+  - `scripts/validate-migration.sh`
+- 扩展测试：
+  - `tests/test_profile_contract.py`
+  - `tests/test_content_positioning.py`
+- 验证结果：
+  - `pytest -q tests/test_profile_contract.py tests/test_content_positioning.py tests/test_profile_consumers.py tests/test_state_contracts.py tests/test_v14_doc_assets.py` 共 `40 passed`
+  - `bash scripts/validate-migration.sh` passed
+  - `python3 scripts/project_regression_smoke.py e2e-novel --batch-count 3` passed

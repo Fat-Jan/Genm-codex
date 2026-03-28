@@ -1,0 +1,15 @@
+name: "豪门总裁 bucket overlay"
+display_name: "豪门总裁"
+description: "番茄豪门总裁 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "豪门总裁"
+    strong_tags: ["先婚后爱", "追妻"]
+    narrative_modes: ["关系强绑定"]
+    tone_guardrails: ["总裁设定不能悬浮", "关系冲突必须有现实后果", "身份压制必须具体"]
+    package_cues:
+      - "先点身份压制"
+      - "再点关系错位"
+      - "首屏要见关系强绑定"

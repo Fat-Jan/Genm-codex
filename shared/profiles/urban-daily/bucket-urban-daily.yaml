@@ -1,0 +1,15 @@
+name: "都市日常 bucket overlay"
+display_name: "都市日常"
+description: "番茄都市日常 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市日常"
+    strong_tags: ["日常治愈", "群像"]
+    narrative_modes: ["多角色群像", "日常账本"]
+    tone_guardrails: ["慢热不等于没推进", "真实感优先于小作文感", "关系升温必须伴随现实牵连"]
+    package_cues:
+      - "首屏点生活困局或生活亮点"
+      - "群像关系要可见"
+      - "第一轮换账要尽快出现"

@@ -41,11 +41,88 @@ def list_reference_files(profile_dir: Path) -> list[str]:
     return files
 
 
+def _normalize_slug_token(value: str) -> str:
+    return value.strip().lower().replace(" ", "-").replace("_", "-")
+
+
+def _load_fanqie_bucket_name_map() -> dict[str, str]:
+    repo_root = Path(__file__).resolve().parents[1]
+    source = repo_root / "docs" / "fanqie-mvp-buckets.yaml"
+    if not source.exists():
+        return {}
+    payload = yaml.safe_load(source.read_text(encoding="utf-8")) or {}
+    buckets = payload.get("buckets", {})
+    if not isinstance(buckets, dict):
+        return {}
+    mapping: dict[str, str] = {}
+    for bucket_key, details in buckets.items():
+        if not isinstance(bucket_key, str) or not isinstance(details, dict):
+            continue
+        bucket_name = details.get("bucket_name")
+        if isinstance(bucket_name, str) and bucket_name.strip():
+            mapping[_normalize_slug_token(bucket_key)] = bucket_name.strip()
+    return mapping
+
+
+def _collect_declared_bucket_names(raw_profile: dict[str, Any]) -> set[str]:
+    names: set[str] = set()
+    for key in ("name", "display_name"):
+        value = raw_profile.get(key)
+        if isinstance(value, str) and value.strip():
+            names.add(value.strip())
+    positioning = raw_profile.get("platform_positioning", {})
+    if isinstance(positioning, dict):
+        for candidate in positioning.values():
+            if not isinstance(candidate, dict):
+                continue
+            bucket_name = candidate.get("primary_bucket")
+            if isinstance(bucket_name, str) and bucket_name.strip():
+                names.add(bucket_name.strip())
+    return names
+
+
+def resolve_bucket_overlay_path(profile_dir: Path, bucket: str, *, raw_profile: dict[str, Any] | None = None) -> Path | None:
+    if not bucket:
+        return None
+
+    raw_profile = raw_profile or {}
+    declared_bucket_names = _collect_declared_bucket_names(raw_profile)
+    normalized_input = _normalize_slug_token(bucket)
+    fanqie_bucket_name_map = _load_fanqie_bucket_name_map()
+    bucket_display_name = fanqie_bucket_name_map.get(normalized_input, "")
+
+    candidate_names: list[str] = [normalized_input]
+    comparison_values = {bucket.strip(), normalized_input}
+    if bucket_display_name:
+        comparison_values.add(bucket_display_name)
+        comparison_values.add(_normalize_slug_token(bucket_display_name))
+
+    normalized_declared = {
+        bucket_name for bucket_name in declared_bucket_names if bucket_name
+    } | {_normalize_slug_token(bucket_name) for bucket_name in declared_bucket_names if bucket_name}
+
+    if comparison_values & normalized_declared:
+        candidate_names.append(profile_dir.name)
+
+    seen: set[str] = set()
+    for candidate_name in candidate_names:
+        normalized_name = _normalize_slug_token(candidate_name)
+        if not normalized_name or normalized_name in seen:
+            continue
+        seen.add(normalized_name)
+        candidate = profile_dir / f"bucket-{normalized_name}.yaml"
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def resolve_profile_layers(profile_dir: Path, *, platform: str | None = None, bucket: str | None = None) -> dict[str, Any]:
     platform_slug = (platform or "").strip().lower().replace(" ", "-")
-    bucket_slug = (bucket or "").strip().lower().replace(" ", "-")
+    raw_profile = load_profile(profile_dir / "profile.yaml")
     platform_overlay = resolve_platform_overlay_path(profile_dir, platform_slug) if platform_slug else None
-    bucket_overlay = profile_dir / f"bucket-{bucket_slug}.yaml" if bucket_slug else None
+    if platform_overlay is not None:
+        raw_profile = merge_profile_layers(raw_profile, load_profile(platform_overlay))
+    bucket_overlay = resolve_bucket_overlay_path(profile_dir, bucket or "", raw_profile=raw_profile) if bucket else None
 
     return {
         "profile_dir": str(profile_dir),
@@ -133,10 +210,9 @@ def load_profile_with_overlays(path: Path, *, platform: str | None = None, bucke
         overlay_path = resolve_platform_overlay_path(profile_dir, platform_slug)
         if overlay_path is not None:
             payload = merge_profile_layers(payload, load_profile(overlay_path))
-    bucket_slug = (bucket or "").strip().lower().replace(" ", "-")
-    if bucket_slug:
-        bucket_overlay = profile_dir / f"bucket-{bucket_slug}.yaml"
-        if bucket_overlay.exists():
+    if bucket:
+        bucket_overlay = resolve_bucket_overlay_path(profile_dir, bucket, raw_profile=payload)
+        if bucket_overlay is not None:
             payload = merge_profile_layers(payload, load_profile(bucket_overlay))
     return payload
 
@@ -318,7 +394,7 @@ def main(argv: list[str] | None = None) -> dict[str, Any]:
         payload = resolve_profile_layers(path.parent, platform=args.platform or None, bucket=args.bucket or None)
         print(json.dumps(payload, ensure_ascii=False, indent=2))
         return payload
-    raw_profile = load_profile_with_overlays(path, platform=args.platform or None)
+    raw_profile = load_profile_with_overlays(path, platform=args.platform or None, bucket=args.bucket or None)
     normalized = normalize_profile(raw_profile, source_path=str(path))
     payload = summarize_for_state(normalized, raw_profile=raw_profile, platform=args.platform or "") if args.state_summary else normalized
     print(json.dumps(payload, ensure_ascii=False, indent=2))

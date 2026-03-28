@@ -1,0 +1,15 @@
+name: "职场婚恋 bucket overlay"
+display_name: "职场婚恋"
+description: "番茄职场婚恋 P0 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "职场婚恋"
+    strong_tags: ["先婚后爱", "办公室暧昧"]
+    narrative_modes: ["双线并进", "关系工作同场换账"]
+    tone_guardrails: ["职场不能悬浮", "感情线与事业线不能割裂", "办公室权力关系要具体"]
+    package_cues:
+      - "首屏点关系绑定"
+      - "工作困局与情感冲突同场出现"
+      - "第一轮职场代价要可见"

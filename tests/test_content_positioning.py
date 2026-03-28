@@ -97,6 +97,32 @@ class ContentPositioningTests(unittest.TestCase):
             self.assertIn("多角色群像", payload["narrative_modes"])
             self.assertIn("cue:婚配错位前置", payload["compiler_output"]["package_cues"])
 
+    def test_build_content_positioning_can_consume_bucket_overlay_from_state_bucket(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            write_json(
+                root / ".mighty" / "state.json",
+                {
+                    "meta": {"title": "宅门测试", "platform": "番茄"},
+                    "genre_profile": {
+                        "loaded": "shared/profiles/palace-intrigue/profile.yaml",
+                        "bucket": "宫斗宅斗",
+                        "tagpacks": [],
+                        "strong_tags": [],
+                        "narrative_modes": [],
+                        "tone_guardrails": [],
+                        "positioning_sidecar": ".mighty/content-positioning.json",
+                    },
+                },
+            )
+
+            payload = module.build_content_positioning(root, timestamp="2026-03-28T00:00:00Z")
+
+            self.assertIn("宅门账本", payload["narrative_modes"])
+            self.assertIn("高门称谓必须闭环", payload["tone_guardrails"])
+            self.assertIn("cue:宅门账本前置", payload["compiler_output"]["package_cues"])
+
     def test_bucket_only_project_can_use_bucket_defaults(self) -> None:
         module = load_module()
         with tempfile.TemporaryDirectory() as tmpdir:
