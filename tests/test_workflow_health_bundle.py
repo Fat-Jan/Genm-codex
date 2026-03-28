@@ -82,6 +82,7 @@ class WorkflowHealthBundleTests(unittest.TestCase):
         self.assertEqual(payload["workflow_truth_missing_artifacts"], ["snapshot_file_exists"])
         self.assertEqual(payload["repo_owned_tail_steps"], ["maintenance", "snapshot"])
         self.assertEqual(payload["setting_gate_status"], "passed")
+        self.assertEqual(payload["recommended_next_action"], "reconcile-workflow-artifacts")
 
 
 if __name__ == "__main__":
