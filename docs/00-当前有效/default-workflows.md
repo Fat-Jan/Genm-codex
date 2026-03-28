@@ -309,6 +309,7 @@
 补充：
 
 - 如果项目已经跑过维护链，`novel-status` / `novel-query` 现在也应优先读取：
+  - `.mighty/workflow-health.json`
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
   用来快速判断 workflow artifact 是否失真，以及当前 sidecar / transaction 健康概览。

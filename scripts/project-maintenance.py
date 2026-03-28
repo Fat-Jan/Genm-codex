@@ -135,6 +135,15 @@ def main() -> None:
         "--write",
     ])
     steps.append(knowledge_projection_step)
+    workflow_health_step = run([
+        sys.executable,
+        str(script_dir / "build_workflow_health_bundle.py"),
+        str(root),
+        "--timestamp",
+        ts,
+        "--write",
+    ])
+    steps.append(workflow_health_step)
 
     report = {
         "project": str(root),

@@ -92,6 +92,7 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - `blocking_gaps`
   - `minimal_next_action`
 - 如果项目已经跑过维护链，也让 `novel-status` / `novel-query` 一并看：
+  - `.mighty/workflow-health.json`
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
   这样你能更快看见 review artifact 是否失真，以及当前 workflow / sidecar 健康概览
@@ -249,6 +250,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - `content-positioning`
 - `quality-audit`
 - `knowledge-projection`
+- `workflow-health`
 - 轻量 trace log
 
 也就是说：
@@ -258,6 +260,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - 并同时产出安全的 `memory-context` 摘要
 - 如果项目声明了组合题材定位，也会刷新 `content-positioning` sidecar
 - 如果你要判断当前 workflow 有没有“高分空问题簇”这类假阳性，也可以直接读取：
+  - `.mighty/workflow-health.json`
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
 

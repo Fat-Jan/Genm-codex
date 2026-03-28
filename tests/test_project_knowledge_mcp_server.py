@@ -107,6 +107,7 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         content = json.loads(response["result"]["content"][0]["text"])
         self.assertIn("knowledge_projection", content)
         self.assertIn("quality_audit", content)
+        self.assertIn("workflow_health", content)
         self.assertEqual(content["knowledge_projection"]["project_title"], "MCP 测试书")
 
 

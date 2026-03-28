@@ -13,6 +13,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import audit_project_quality_state
 import build_project_knowledge_projection
+import build_workflow_health_bundle
 
 
 SERVER_INFO = {
@@ -97,10 +98,15 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
             timestamp=build_project_knowledge_projection.now_iso(),
         )
         audit = audit_project_quality_state.audit_project_quality_state(root)
+        workflow_health = build_workflow_health_bundle.build_workflow_health_bundle(
+            root,
+            timestamp=build_workflow_health_bundle.now_iso(),
+        )
         payload = {
             "project_root": str(root),
             "knowledge_projection": projection,
             "quality_audit": audit,
+            "workflow_health": workflow_health,
             "bundle_contract": {
                 "read_only": True,
                 "truth_source": "local_files",

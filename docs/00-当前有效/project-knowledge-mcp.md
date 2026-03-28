@@ -7,6 +7,7 @@
 它解决的问题不是“把 repo 再复制一份到外部知识库”，而是：
 
 - 让 agent 有统一入口读取：
+  - `.mighty/workflow-health.json`
   - `.mighty/knowledge-projection.json`
   - `.mighty/quality-audit.json`
 - 让 workflow contract / sidecar health / quality artifact health 变成可调工具
@@ -36,7 +37,7 @@
 - `get_project_quality_audit`
   - 返回 review/close artifact 的假阳性审计结果
 - `get_project_workflow_bundle`
-  - 一次返回 projection + audit，适合 agent 少调一次
+  - 一次返回 workflow-health + projection + audit，适合 agent 少调一次
 
 ## 启动方式
 
@@ -95,6 +96,7 @@ python3 scripts/project_knowledge_mcp_server.py
 
 维护链已经会生成：
 
+- `.mighty/workflow-health.json`
 - `.mighty/quality-audit.json`
 - `.mighty/knowledge-projection.json`
 

@@ -39,6 +39,13 @@
         ".mighty/learned-patterns.json"
       ]
     },
+    "workflow-health": {
+      "produced_by": "scripts/build_workflow_health_bundle.py",
+      "depends_on": [
+        ".mighty/quality-audit.json",
+        ".mighty/knowledge-projection.json"
+      ]
+    },
     "launch-stack": {
       "produced_by": "scripts/fanqie_launch_stack.py",
       "depends_on": [

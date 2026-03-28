@@ -272,6 +272,7 @@
 - 用 `scripts/post-task-maintenance.py` 把维护链挂在 `write / batch / workflow` 后
 - 维护链现在应先跑 `scripts/setting_gate.py <project_root> --stage write-post`
 - 维护链现在还会产出：
+  - `.mighty/workflow-health.json`
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
   供 `novel-status` / `novel-query` 和后续 MCP 只读调用
@@ -564,7 +565,7 @@ python3 scripts/acquire_source_text.py <url> --show-provider-config --pretty
 如果你想直接看 workflow 产物是否失真，也可以这样问：
 
 ```text
-请使用 novel-query skill，告诉我当前项目的 quality-audit 和 knowledge-projection 里有哪些风险。
+请使用 novel-query skill，告诉我当前项目的 workflow-health、quality-audit 和 knowledge-projection 里有哪些风险。
 ```
 
 ### status
@@ -575,6 +576,7 @@ python3 scripts/acquire_source_text.py <url> --show-provider-config --pretty
 
 如果项目已经跑过维护链，还可以要求它额外带上：
 
+- `workflow-health`
 - `quality-audit`
 - `knowledge-projection`
 

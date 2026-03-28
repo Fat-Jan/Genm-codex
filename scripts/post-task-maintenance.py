@@ -66,6 +66,9 @@ def main() -> None:
     ]
     audit_proc = subprocess.run(audit_cmd, capture_output=True, text=True, check=True)
     result["quality_audit"] = json.loads(audit_proc.stdout)
+    workflow_health_path = root / ".mighty" / "workflow-health.json"
+    if workflow_health_path.exists():
+        result["workflow_health"] = json.loads(workflow_health_path.read_text(encoding="utf-8"))
 
     if args.trigger == "batch":
         gate_cmd = [

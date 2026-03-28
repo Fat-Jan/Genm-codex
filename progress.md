@@ -3396,3 +3396,43 @@
   - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
   - 结果：`99 passed`
   - `bash scripts/validate-migration.sh` → passed
+
+## Session Update: 2026-03-28 workflow-health sidecar and bundle consumption
+
+- 已新增 `scripts/build_workflow_health_bundle.py`
+  - 角色：
+    - 优先读取 `.mighty/quality-audit.json`
+    - 优先读取 `.mighty/knowledge-projection.json`
+    - 缺失时才回退重建
+  - 输出关键字段：
+    - `quality_audit_status`
+    - `top_finding_codes`
+    - `workflow_truth_status`
+    - `workflow_truth_missing_artifacts`
+    - `repo_owned_tail_steps`
+    - `setting_gate_status`
+- 已把 `workflow-health` 接进维护链：
+  - `scripts/project-maintenance.py` 现在会写出 `.mighty/workflow-health.json`
+  - `scripts/post-task-maintenance.py` 现在会把 `workflow_health` 摘要带进输出
+- 已把 `workflow-health` 接到 consumer / docs / MCP：
+  - `skills/novel-status/SKILL.md`
+    - 新增 `workflow` focus 的实现口径，优先汇报 `workflow-health` 关键字段
+  - `skills/novel-query/SKILL.md`
+    - 新增 `workflow-health` 模板，直接返回 bundle 关键字段
+  - `docs/00-当前有效/start-here.md`
+  - `docs/00-当前有效/skill-usage.md`
+  - `docs/00-当前有效/default-workflows.md`
+    - 均已承认 `.mighty/workflow-health.json`
+  - `docs/00-当前有效/project-knowledge-mcp.md`
+    - 已更新为 `workflow-health + knowledge-projection + quality-audit` 三件套
+  - `scripts/project_knowledge_mcp_server.py`
+    - `get_project_workflow_bundle` 现在会返回 `workflow_health`
+- 已新增/更新测试：
+  - `tests/test_workflow_health_bundle.py`
+  - `tests/test_project_knowledge_mcp_server.py`
+  - `tests/test_inkos_growth_plan.py`
+  - `tests/test_project_knowledge_projection.py`
+- 当前最终相关回归验证已扩展为：
+  - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_workflow_health_bundle.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
+  - 结果：`101 passed`
+  - `bash scripts/validate-migration.sh` → passed

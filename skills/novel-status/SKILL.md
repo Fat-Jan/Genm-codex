@@ -35,6 +35,7 @@ Read conditionally:
 - `.mighty/active-context.json`
 - `.mighty/quality-audit.json`
 - `.mighty/knowledge-projection.json`
+- `.mighty/workflow-health.json`
 - `.mighty/state-archive.json`
 - `.mighty/volume-summaries.json`
 - `.mighty/learned-patterns.json`
@@ -51,11 +52,12 @@ Read conditionally:
 2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
 3. If `.mighty/volume-summaries.json` exists and the user asks for history/full mode, read it as the compressed archive view for old chapter ranges.
 4. If `.mighty/active-context.json` exists and the user asks for full mode, risks, or next-step guidance, read it as the preferred current-writing sidecar.
-5. If `.mighty/quality-audit.json` exists and the user asks for full mode, risks, or quality health, read it as the preferred audit summary for review/close artifact health.
-6. If `.mighty/knowledge-projection.json` exists and the user asks for full mode, workflow health, or machine-readable project status, read it as the preferred compact projection.
-7. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
-8. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
-9. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+5. If `.mighty/workflow-health.json` exists and the user asks for full mode, workflow-health, risks, or next-step guidance, read it as the preferred compact workflow health bundle.
+6. If `.mighty/quality-audit.json` exists and the user asks for full mode, risks, or quality health, read it as the preferred audit summary for review/close artifact health.
+7. If `.mighty/knowledge-projection.json` exists and the user asks for full mode, workflow health, or machine-readable project status, read it as the preferred compact projection.
+8. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
+9. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
+10. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
 8. Summarize:
    - title
    - genre
@@ -73,6 +75,7 @@ Read conditionally:
    - sidecar guidance summaries when present
    - quality-audit findings when present
    - knowledge-projection workflow / sidecar health summaries when present
+   - workflow-health bundle summary when present
    - current `recent_guardrails` and their expiry when present
    - active-context summary when present
    - gate status, blocking gaps, review items, and `minimal_next_action` when present
@@ -121,6 +124,12 @@ Read conditionally:
 
 ### workflow
 
+- when `.mighty/workflow-health.json` exists, prefer surfacing:
+  - `quality_audit_status`
+  - `top_finding_codes`
+  - `workflow_truth_status`
+  - `workflow_truth_missing_artifacts`
+  - `repo_owned_tail_steps`
 - when `.mighty/knowledge-projection.json` exists, prefer surfacing:
   - `workflow_contract.transaction_contract`
   - `workflow_contract.repo_owned_tail_steps`
@@ -168,6 +177,7 @@ For `full` or stats-heavy requests, prefer sections such as:
 - Treat `index` as an accelerator and secondary source, not a replacement for `state`.
 - Treat `.mighty/active-context.json` as the preferred current-writing sidecar when it exists.
 - Do not treat `active-context` as a second canon center for protagonist runtime state; it is only a narrow current-writing slice.
+- Treat `.mighty/workflow-health.json` as the preferred compact workflow-health bundle when it exists.
 - Treat `.mighty/quality-audit.json` as the preferred summary of review/close artifact health when it exists.
 - Treat `.mighty/knowledge-projection.json` as the preferred compact machine-readable projection of workflow contract, sidecar health, and reviewed-chapter coverage when it exists.
 - Treat sidecar files as the preferred place for learned / market guidance once they have been externalized.
