@@ -16,6 +16,22 @@ version: "1.0"
 ```json
 {
   "version": "5.0",
+  "meta": {
+    "title": "",
+    "genre": "",
+    "platform": "",
+    "target_chapters": 0,
+    "target_words": 0,
+    "created_at": "",
+    "updated_at": ""
+  },
+  "progress": {
+    "current_chapter": 0,
+    "total_words": 0,
+    "last_write_chapter": 0,
+    "last_write_time": null,
+    "milestones": {}
+  },
   "entities": {
     "characters": {
       "protagonist": {
@@ -47,6 +63,14 @@ version: "1.0"
     "protagonist_doesnt_know": [],
     "key_revelations": []
   },
+  "quality_metrics": {
+    "recent_scores": [],
+    "average_score": 0,
+    "trend": "stable",
+    "last_review_chapter": 0,
+    "dimension_scores": {}
+  },
+  "auto_learn_config": {},
   "reading_power_state": {
     "active_hooks": [],
     "hook_history": [],
@@ -55,23 +79,114 @@ version: "1.0"
   },
   "learned_patterns": {},
   "market_adjustments": {},
+  "platform_config": {},
   "genre_profile": {
     "loaded": "shared/profiles/xuanhuan/profile.yaml"
   },
+  "active_launch_grammar": "",
+  "active_primary_pivot": "",
+  "launch_stack_phase": "",
+  "launch_stack_drift_signal": "none",
   "active_context": {
     "sidecar_file": ".mighty/active-context.json"
   },
+  "chapter_meta": {},
   "chapter_snapshots": {},
   "summaries_index": {},
+  "character_states": {},
+  "setting_versions": {},
+  "dungeons": {},
+  "teammates": {},
+  "constraints_loaded": {},
   "updated_at": ""
 }
 ```
 
 ---
 
+## 0.1 顶层运行时区块
+
+除 `version` 外，当前运行态顶层区块至少包括：
+
+- `meta`
+- `progress`
+- `entities`
+- `plot_threads`
+- `knowledge_base`
+- `quality_metrics`
+- `auto_learn_config`
+- `learned_patterns`
+- `market_adjustments`
+- `platform_config`
+- `genre_profile`
+- `active_launch_grammar`
+- `active_primary_pivot`
+- `launch_stack_phase`
+- `launch_stack_drift_signal`
+- `active_context`
+- `chapter_meta`
+- `chapter_snapshots`
+- `summaries_index`
+- `character_states`
+- `setting_versions`
+- `dungeons`
+- `teammates`
+- `constraints_loaded`
+
+约束：
+
+- 这些顶层字段都应在 template / schema / docs 三处保持一致
+- 如果某字段已经进入模板和运行态，不得继续只写在 template 而不更新说明文档
+
+## 0.2 顶层元信息 (`meta`)
+
+`meta` 负责项目级静态元信息，例如标题、题材、平台、目标规模和更新时间。
+
+推荐字段：
+
+- `title`
+- `genre`
+- `platform`
+- `target_chapters`
+- `target_words`
+- `created_at`
+- `updated_at`
+
+## 0.3 进度区块 (`progress`)
+
+`progress` 负责当前创作进度与里程碑。
+
+推荐字段：
+
+- `current_chapter`
+- `total_words`
+- `last_write_chapter`
+- `last_write_time`
+- `milestones`
+
+## 0.4 质量统计 (`quality_metrics`)
+
+`quality_metrics` 负责项目级 review 汇总，而不是单章长评。
+
+推荐字段：
+
+- `recent_scores`
+- `average_score`
+- `trend`
+- `last_review_chapter`
+- `dimension_scores`
+
+## 0.5 自动学习配置 (`auto_learn_config`)
+
+`auto_learn_config` 负责自动学习与自动分析阈值，不应混入 chapter 级写回。
+
+## 0.6 平台配置 (`platform_config`)
+
+`platform_config` 负责平台级硬边界，例如章长、黄金三章、节奏阈值。
+
 ## 一、实体结构 (entities)
 
-## 0.6 题材配置轻量投影 (`genre_profile`)
+## 0.7 题材配置轻量投影 (`genre_profile`)
 
 `genre_profile` 只保留从 shared profile contract 投影出来的最小运行态字段，不保留整份 raw profile。
 
@@ -98,7 +213,7 @@ version: "1.0"
 - 长文本方法论、对白模板、场景模板等不应直接复制进 `state.json`
 - 真正的题材源仍在 `shared/profiles/*`
 
-### 0.7 组合题材定位 sidecar (`content-positioning`)
+### 0.8 组合题材定位 sidecar (`content-positioning`)
 
 当项目需要承载组合题材 / 多主题卖点 / 群像结构模式时：
 

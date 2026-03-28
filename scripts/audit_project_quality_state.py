@@ -23,6 +23,35 @@ def has_nonzero_dimension_scores(payload: dict | None) -> bool:
     return any(value not in (0, 0.0, None, "") for value in payload.values())
 
 
+def has_malformed_issue_cluster(issue_clusters: object) -> bool:
+    if not isinstance(issue_clusters, list):
+        return False
+    for item in issue_clusters:
+        if not isinstance(item, dict):
+            return True
+        cluster_type = item.get("type")
+        summary = item.get("summary")
+        if not isinstance(cluster_type, str) or not cluster_type:
+            return True
+        if not isinstance(summary, str) or not summary:
+            return True
+    return False
+
+
+def route_needs_fix_mismatch(route: object, needs_fix: object) -> bool:
+    if not isinstance(route, str) or not route:
+        return False
+    if not isinstance(needs_fix, bool):
+        return False
+    needs_repair = route in {"novel-fix", "novel-polish", "novel-rewrite"}
+    no_repair = route in {"novel-write", "none"}
+    if needs_repair and not needs_fix:
+        return True
+    if no_repair and needs_fix:
+        return True
+    return False
+
+
 def audit_project_quality_state(project_root: Path) -> dict:
     state_path = project_root / ".mighty" / "state.json"
     state = read_json(state_path)
@@ -45,11 +74,23 @@ def audit_project_quality_state(project_root: Path) -> dict:
                 "chapter": chapter,
                 "severity": "warn",
             })
+        elif has_malformed_issue_cluster(issue_clusters):
+            findings.append({
+                "code": "malformed-issue-cluster",
+                "chapter": chapter,
+                "severity": "warn",
+            })
 
         route = meta.get("recommended_next_action")
         if not isinstance(route, str) or not route:
             findings.append({
                 "code": "missing-route-decision",
+                "chapter": chapter,
+                "severity": "warn",
+            })
+        elif route_needs_fix_mismatch(route, meta.get("needs_fix")):
+            findings.append({
+                "code": "route-needs-fix-mismatch",
                 "chapter": chapter,
                 "severity": "warn",
             })

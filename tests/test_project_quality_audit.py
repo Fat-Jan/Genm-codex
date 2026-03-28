@@ -85,6 +85,35 @@ class ProjectQualityAuditTests(unittest.TestCase):
         self.assertIn("empty-project-dimension-scores", finding_codes)
         self.assertEqual(payload["status"], "fail")
 
+    def test_audit_flags_route_needs_fix_mismatch_and_malformed_clusters(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        state_path = root / ".mighty" / "state.json"
+        payload = json.loads(state_path.read_text(encoding="utf-8"))
+        payload["chapter_meta"]["003"] = {
+            "review_score": 82,
+            "issue_clusters": [{"type": "structure"}],
+            "dimension_scores": {"节奏": 80},
+            "recommended_next_action": "novel-fix",
+            "needs_fix": False,
+            "anti_flattening_flags": ["cast-flat"],
+        }
+        payload["chapter_meta"]["004"] = {
+            "review_score": 90,
+            "issue_clusters": [{"summary": "需要修"}],
+            "dimension_scores": {"节奏": 90},
+            "recommended_next_action": "novel-write",
+            "needs_fix": True,
+            "anti_flattening_summary": {"funnel_grade": "yellow"},
+        }
+        state_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        result = module.audit_project_quality_state(root)
+
+        finding_codes = {item["code"] for item in result["findings"]}
+        self.assertIn("route-needs-fix-mismatch", finding_codes)
+        self.assertIn("malformed-issue-cluster", finding_codes)
+
     def test_cli_can_write_quality_audit_sidecar(self) -> None:
         root = self.make_project_root()
         proc = subprocess.run(

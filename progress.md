@@ -3728,6 +3728,23 @@
   - `A1-A5` 的 Verify 命令
   - `E1-E3` 对“自动 smoke”的完成定义
 
+## Session Update: 2026-03-28 `A1 / A2 / A5` 收口
+
+- `A1 state schema / template 一致性`
+  - `shared/references/shared/state-schema.md` 已补齐：
+    - 顶层运行时区块说明
+    - 更完整的示例 JSON
+    - `meta / progress / quality_metrics / auto_learn_config / platform_config` 等关键区块说明
+- `A2 thin-state.py 原子写入`
+  - 本轮未再扩功能，确认现有实现与测试已满足完成标准
+- `A5 质量 artifact 写回约束强化`
+  - `scripts/audit_project_quality_state.py` 新增：
+    - `route-needs-fix-mismatch`
+    - `malformed-issue-cluster`
+  - `tests/test_project_quality_audit.py` 已补对应回归
+- 验证：
+  - `pytest -q tests/test_state_contracts.py tests/test_project_quality_audit.py` passed
+
 ## Session Update: 2026-03-28 v1.4-roadmap review（mimo 审查 gpt 任务）
 
 - 完成对 `v1.4-roadmap.md` 中 owner 为 `[me]`（gpt）所有任务的 review

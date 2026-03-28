@@ -132,3 +132,26 @@ class StateContractSchemaTests(unittest.TestCase):
             }
         }
         jsonschema.validate(payload, schema)
+
+    def test_state_schema_doc_mentions_current_top_level_runtime_blocks(self) -> None:
+        content = (REPO_ROOT / "shared/references/shared/state-schema.md").read_text(encoding="utf-8")
+        for token in (
+            "`meta`",
+            "`progress`",
+            "`quality_metrics`",
+            "`auto_learn_config`",
+            "`platform_config`",
+            "`genre_profile`",
+            "`active_launch_grammar`",
+            "`active_primary_pivot`",
+            "`launch_stack_phase`",
+            "`launch_stack_drift_signal`",
+            "`active_context`",
+            "`chapter_meta`",
+            "`character_states`",
+            "`setting_versions`",
+            "`dungeons`",
+            "`teammates`",
+            "`constraints_loaded`",
+        ):
+            self.assertIn(token, content)
