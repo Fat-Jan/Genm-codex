@@ -119,7 +119,7 @@ platform_positioning:
   fanqie:
     primary_bucket: "豪门总裁"
     strong_tags: ["误会", "追妻"]
-    narrative_modes: []
+    narrative_modes: ["误会追妻双线"]
     tone_guardrails: ["狗血要讲逻辑", "误会不能纯靠不长嘴"]
     package_cues:
       - "首屏点身份/误会冲突"

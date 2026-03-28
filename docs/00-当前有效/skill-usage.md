@@ -30,8 +30,8 @@
 - `genm-novel-scan`
 - `genm-novel-polish`
 - `genm-novel-precheck`
- - `genm-novel-snapshot`
- - `genm-novel-workflow`
+- `genm-novel-snapshot`
+- `genm-novel-workflow`
 - `genm-novel-query`
 - `genm-novel-setting`
 - `genm-novel-status`
@@ -94,6 +94,22 @@
   - `novel-genre`
 - `genm-novel-*` 更适合表示“这个 skill 已安装到本地”，不适合作为唯一调用名假设
 
+## `v1.5` 期的 skill 定位提醒
+
+- `novel-scan` 仍是实验态。
+  - 它现在已有 contract 与 consumer 接线。
+  - 但它仍不是默认创作主链的必经步骤。
+- 当前仍保留两套安装名：
+  - `novel-*`
+  - `genm-novel-*`
+  这两套入口当前继续作为兼容 alias 层存在，不应提前假设 `31 -> 25` 真合并已经发生。
+- `novel-retrieve`、`novel-batch`、`novel-workflow`
+  这些 skill 在 `v1.5` 里可以进入 rationalization / alias 讨论，但当前调用面仍保持兼容。
+- 如果你关心的是 skill 治理边界，而不是“现在怎么用”，优先看：
+  - [skill-rationalization-policy.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-rationalization-policy.md)
+  - [skill-merge-map-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-merge-map-v1.5.md)
+  - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+
 ## 推荐使用顺序
 
 最小创作闭环：
@@ -117,6 +133,11 @@
 - 单章正文现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果项目还没有稳定的立项输入，先补 `shared/templates/project/creative-brief.md`
+- 如果现在连一句话 premise 都写不顺，先参考 `shared/references/writing/worldview-motif-catalog.md`，选：
+  - `1` 个世界观母题
+  - `0-1` 个机制母题
+  - `0-1` 个包装 / 关系母题
+  再回填 `creative-brief`
 - 先有 `总纲`，再有 `章纲`
 - 总纲初稿后，先补会影响当前卷和前三章的设定真值，再冻结章纲
 - 设定集默认按“当前卷刚需 + gate 阻断项 + 稳定 canon 回灌”更新，不按“想到什么补什么”更新

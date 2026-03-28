@@ -94,6 +94,16 @@ reader_expectations:
     - "不尊重历史人物"
     - "BE结局"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "历史脑洞"
+    strong_tags: ["历史改写", "现代知识入局"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["历史改写必须保留时代逻辑", "现代知识使用不能无代价碾压"]
+    package_cues:
+      - "首屏点穿越/重生与历史困局"
+      - "前三章要出现一次知识换账或历史偏移信号"
+
 golden_three:
   opening_hook: "开篇立即穿越或重生，展现历史背景和主角处境"
   protagonist_intro: "主角出场要有现代知识优势"

@@ -151,7 +151,7 @@ platform_positioning:
   fanqie:
     primary_bucket: "青春甜宠"
     strong_tags: ["高甜", "心动日常"]
-    narrative_modes: []
+    narrative_modes: ["高甜日常推进"]
     tone_guardrails: ["不能转虐", "男主必须专一"]
     package_cues:
       - "首屏点心动事件"

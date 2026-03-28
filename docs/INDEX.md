@@ -21,6 +21,20 @@
 - [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
 - [skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)
 - [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md)
+- [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+- [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
+- [sample-library-governance-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-governance-v1.5.md)
+- [sample-library-index.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-index.md)
+- [sample-library-matrix-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-matrix-v1.5.md)
+- [profile-expansion-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md)
+- [profile-expansion-candidate-priority-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-candidate-priority-v1.5.md)
+- [profile-expansion-first-batch-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-first-batch-v1.5.md)
+- [scan-result-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-result-contract.md)
+- [novel-scan-usage-and-source-matrix-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/novel-scan-usage-and-source-matrix-v1.5.md)
+- [scan-rule-cards-and-examples-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-rule-cards-and-examples-v1.5.md)
+- [skill-rationalization-policy.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-rationalization-policy.md)
+- [skill-merge-map-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-merge-map-v1.5.md)
+- [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
 - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/gate-triage.md)
 - [state-thinning-and-setting-sync.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/state-thinning-and-setting-sync.md)
 - [shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)
@@ -46,6 +60,7 @@
 ## 研究与实验
 
 - [review-brief-2026-03-25-inkos-growth.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/review-brief-2026-03-25-inkos-growth.md)
+- [runtime-plugin-research-note-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/runtime-plugin-research-note-v1.5.md)
 - [research/fanqie/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/README.md)
 
 ## 归档入口

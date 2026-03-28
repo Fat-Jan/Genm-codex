@@ -99,6 +99,17 @@ reader_expectations:
     - "违反基础科学原理"
     - "科技无代价无限制"
     - "硬科幻设定随意"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "科幻"
+    strong_tags: ["科技突破", "文明碰撞"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["科技设定必须自洽", "术语解释不能压垮阅读节奏"]
+    package_cues:
+      - "首屏点未来设定或文明冲突"
+      - "前三章要出现一次技术兑现或世界观冲击"
+
 golden_three:
   opening_hook: "开篇展现科幻世界的独特设定或主角的特殊处境，如获得系统、穿越未来、遭遇外星文明"
   protagonist_intro: "主角应在第一章出场，展现性格特点和当前困境，建立读者代入感"

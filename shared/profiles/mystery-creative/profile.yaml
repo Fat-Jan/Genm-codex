@@ -103,6 +103,16 @@ reader_expectations:
     - "让读者觉得主角在故意作死推进剧情"
     - "前期铺垫过多，后期草草收场"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "悬疑脑洞"
+    strong_tags: ["脑洞解谜", "规则反转"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["反转必须有伏笔", "设定解释不能糊弄过关"]
+    package_cues:
+      - "首屏点核心脑洞或诡异事件"
+      - "前三章要出现一次规则反打或真相逼近"
+
 golden_three:
   opening_hook: "开篇必须在500字内抛出核心脑洞设定或诡异事件，如主角发现自己不断重复同一天、醒来变成另一个人、或接到来自未来的电话，瞬间抓住读者注意力"
   protagonist_intro: "主角应在第一个脑洞事件中展现独特的应对方式（冷静分析、大胆尝试、或巧妙利用规则），体现出高智商特质"

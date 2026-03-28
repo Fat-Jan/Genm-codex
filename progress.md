@@ -3887,6 +3887,14 @@
 - 验证：
   - `pytest -q tests/test_sample_manifest_runtime.py tests/test_project_scan_summary.py tests/test_skill_alias_plan.py tests/test_profile_bucket_registry.py tests/test_project_knowledge_mcp_server.py tests/test_profile_consumers.py tests/test_scan_result_contract.py tests/test_novel_scan.py tests/test_profile_contract.py tests/test_content_positioning.py` passed
 
+## Session Update: 2026-03-28 `P1-A` 状态口径修正
+
+- 根据 `mimo` 的实际 todo 定义，`P1-A` 的完成标准是：
+  - 形成 `v1.5` 文档草案
+  - 给出入口调整清单
+- 因此 `P1-A` 在 `v1.5-roadmap.md` 中已改回 `done`
+- 正式入口文档回写仍是后续独立落地动作，不再误记到 `P1-A` 本身
+
 ## Session Update: 2026-03-28 跨平台支持规划
 
 - 创建跨平台支持规划文档：`cross-platform-support-plan.md`

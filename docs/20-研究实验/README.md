@@ -6,3 +6,8 @@
 - 研究候选
 - 实验记录
 - 尚未进入默认真源的辅助材料
+
+当前入口：
+
+- [runtime-plugin-research-note-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/runtime-plugin-research-note-v1.5.md)
+- [review-brief-2026-03-25-inkos-growth.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/review-brief-2026-03-25-inkos-growth.md)

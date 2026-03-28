@@ -6,6 +6,16 @@
 
 按用途走：
 
+如果你现在关心的是 `v1.5` 的治理、contract、registry 或 consumer 接线，而不是普通创作主线，先看：
+
+- [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+- [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
+- [profile-expansion-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md)
+- [scan-result-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-result-contract.md)
+- [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
+
+当前普通创作用户的最小操作顺序没有因为 `v1.5` 改写，下面仍按默认创作主线展开。
+
 ### 1. 我想从零开始写一本书
 
 顺序：
@@ -29,6 +39,7 @@
 - 单章主线现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果立项信息还不稳，先补 `shared/templates/project/creative-brief.md`
+- 如果还卡在“写什么世界观 / 这个脑洞怎么组合”，先参考 `shared/references/writing/worldview-motif-catalog.md`，先选 `1` 个世界观母题 + `0-1` 个机制母题 + 可选 `1` 个包装母题，再回填 brief
 - 先有 `总纲`，再有 `章纲`
 - 总纲初稿后，先补当前卷刚需设定：
   - 家族/继承/婚配/掌家真值
@@ -78,6 +89,8 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 - `novel-status`
 - `novel-query`
 - `novel-index`
+- 如果你想分析最近几章的节奏 / 爽点 / 连续性，而不是看全局状态，再加：
+  - `novel-analyze`
 
 最小提示词：
 
@@ -102,6 +115,18 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - “现在 gate 卡在哪”
   - “下一步最小动作是什么”
   也可以直接用 `novel-query`
+- 如果你想看的是：
+  - 最近几章有没有拖节奏
+  - 爽点密度稳不稳
+  - 连续性有没有松
+  优先再用：
+  - `novel-analyze`
+
+最小提示词：
+
+```text
+请使用 novel-analyze skill，对第001章到第003章做区间分析，重点看节奏、爽点密度和连续性问题。
+```
 
 ### 3. 我正在写作，想快速引用设定
 
@@ -264,7 +289,29 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
 
-### 8. 已有稿接入
+### 8. 我想写番外 / 角色篇 / IF线
+
+优先用：
+
+- `novel-spinoff`
+
+补充：
+
+- 这不是默认主线的一部分
+- 只有你明确要写：
+  - 番外
+  - 角色篇
+  - IF线
+  时才建议进入
+- 默认不应把它混进主线章节推进
+
+最小提示词：
+
+```text
+请使用 novel-spinoff skill，基于当前项目写一个“林晚照角色篇”的轻量番外，并明确它不是主线正文章节。
+```
+
+### 9. 已有稿接入
 
 优先用：
 
@@ -310,7 +357,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 
 - polish
 - genre
-- analyze
+- novel-analyze
 - resume
 - index
 - log
@@ -322,7 +369,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - precheck
 - workflow
 - retrieve
-- spinoff
+- novel-spinoff
 
 ### 环境与学习能力
 
@@ -336,6 +383,11 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
   - 目前已是可用的实验能力
   - 适合在明确需要外部市场信号时单独运行
   - 但仍不属于默认主工作流的一部分
+
+- `novel-spinoff`
+  - 目前已是可用能力
+  - 但它服务的是番外 / 角色篇 / IF线
+  - 不属于默认正文主线的一部分
 
 - `novel-help` / `novel-tutorial`
   - 当前由这份文档、README 和 `skill-usage.md` 承担职责

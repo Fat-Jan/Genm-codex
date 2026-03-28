@@ -4,7 +4,21 @@ Codex 原生网文创作技能工作区。
 
 这个仓库的当前主线不是“继续堆更多 skill”，而是把已有 `skills + docs + scripts + sidecars` 工作流做稳、做可恢复、做可治理。
 
-当前主线版本：`v1.4`
+当前主线版本：`v1.5`
+
+说明：
+
+- `v1.4` 已完成，并作为当前稳定基线保留
+- `v1.5` 当前重点是：
+  - sample manifest / sample governance
+  - profile / bucket / tagpack 的 contract 与 registry consumer
+  - `novel-scan` 的 contract 与 consumer 接线
+  - skill rationalization / alias 边界收口
+- `v1.5` 当前明确不做：
+  - `31 -> 25` 破坏性真合并
+  - 新 plugin / runtime / daemon 实装
+  - `novel-scan` 默认主链化
+- 普通创作用户的最小默认工作流没有因为 `v1.5` 改写，仍优先按 `start-here.md` 和 `default-workflows.md` 使用
 
 历史基线与备份：
 
@@ -99,13 +113,23 @@ bash scripts/validate-migration.sh
 - 默认创作主线：`docs/00-当前有效/default-workflows.md`
 - 首次上手入口：`docs/00-当前有效/start-here.md`
 - Skill 触发与调用说明：`docs/00-当前有效/skill-usage.md`
+- `v1.5` 样本 contract：`docs/00-当前有效/sample-manifest-contract.md`
+- `v1.5` 样本治理：`docs/00-当前有效/sample-library-governance-v1.5.md`
+- `v1.5` profile contract：`docs/00-当前有效/profile-expansion-contract.md`
+- `v1.5` profile 后续优先级：`docs/00-当前有效/profile-expansion-candidate-priority-v1.5.md`
+- `v1.5` scan contract：`docs/00-当前有效/scan-result-contract.md`
+- `v1.5` scan 使用说明：`docs/00-当前有效/novel-scan-usage-and-source-matrix-v1.5.md`
 - 当前边界：`docs/00-当前有效/v1-boundary.md`
+- `v1.5` 运行时边界：`docs/00-当前有效/runtime-boundary-adr.md`
 - 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
+- `v1.5` 样本矩阵：`docs/00-当前有效/sample-library-matrix-v1.5.md`
+- `v1.5` merge map：`docs/00-当前有效/skill-merge-map-v1.5.md`
 - 当前主线 roadmap：`v1.4-roadmap.md`
+- `v1.5` 分工 roadmap：`v1.5-roadmap.md`
 - 上一阶段 roadmap：`v1.3-roadmap.md`
 - 已归档阶段 roadmap：`v1.1-roadmap.md`
 
-### v1.4 新增文档
+### 当前关键文档
 
 - 三大框架 QUICK 速查卡：
   - `docs/anti-flattening-framework/QUICK.md`

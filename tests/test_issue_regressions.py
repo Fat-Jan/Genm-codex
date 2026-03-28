@@ -193,6 +193,23 @@ class IssueRegressionTests(unittest.TestCase):
         self.assertIn("profile-calibration-and-bucket-mapping.md", index_doc)
         self.assertIn("Status: `[done]`", roadmap)
 
+    def test_v15_novel_analyze_has_current_workflow_entry(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-analyze", workflows)
+        self.assertIn("novel-analyze", start_here)
+        self.assertIn("novel-analyze", boundary)
+
+    def test_v15_novel_spinoff_is_explicitly_non_default_but_accessible(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-spinoff", workflows)
+        self.assertIn("novel-spinoff", start_here)
+        self.assertIn("novel-spinoff", boundary)
+        self.assertIn("不属于默认工作流", workflows)
+
 
 if __name__ == "__main__":
     unittest.main()

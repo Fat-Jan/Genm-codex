@@ -201,6 +201,642 @@ class ProfileContractTests(unittest.TestCase):
             bucket_overlay = module.resolve_bucket_overlay_path(profile_dir, bucket_name, raw_profile=raw)
             self.assertIsNotNone(bucket_overlay, f"{profile_dir.name} missing bucket overlay for {bucket_name}")
 
+    def test_batch_one_profiles_expose_platform_positioning_with_package_cues(self) -> None:
+        module = load_module()
+        expectations = {
+            "palace-intrigue": "宫斗宅斗",
+            "urban-brainhole": "都市脑洞",
+            "urban-daily": "都市日常",
+            "ceo-romance": "豪门总裁",
+            "sweet-youth": "青春甜宠",
+            "workplace-romance": "职场婚恋",
+            "historical-brainhole": "历史脑洞",
+            "xuanhuan": "玄幻脑洞",
+            "xiuxian": "传统玄幻",
+            "realistic": "现实情感",
+            "system": "都市脑洞",
+        }
+
+        for slug, expected_bucket in expectations.items():
+            raw = module.load_profile_with_overlays(
+                PROFILE_ROOT / slug / "profile.yaml",
+                platform="fanqie",
+            )
+            normalized = module.normalize_profile(
+                raw,
+                source_path=f"shared/profiles/{slug}/profile.yaml",
+            )
+            summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+            self.assertEqual(summary["bucket"], expected_bucket)
+            self.assertTrue(summary["strong_tags"], slug)
+            self.assertTrue(summary["narrative_modes"], slug)
+            self.assertTrue(summary["tone_guardrails"], slug)
+
+    def test_next_batch_profiles_can_surface_overlay_strengthened_positioning(self) -> None:
+        module = load_module()
+        expectations = {
+            "urban-brainhole": {
+                "bucket": "都市脑洞",
+                "mode": "反差连锁",
+                "guardrail": "反差设定必须尽快兑现",
+            },
+            "workplace-romance": {
+                "bucket": "职场婚恋",
+                "mode": "关系工作同场换账",
+                "guardrail": "办公室权力关系要具体",
+            },
+            "urban-daily": {
+                "bucket": "都市日常",
+                "mode": "日常账本",
+                "guardrail": "关系升温必须伴随现实牵连",
+            },
+        }
+
+        for slug, expected in expectations.items():
+            raw = module.load_profile_with_overlays(
+                PROFILE_ROOT / slug / "profile.yaml",
+                platform="fanqie",
+                bucket=expected["bucket"],
+            )
+            normalized = module.normalize_profile(
+                raw,
+                source_path=f"shared/profiles/{slug}/profile.yaml",
+            )
+            summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+            self.assertIn(expected["mode"], summary["narrative_modes"], slug)
+            self.assertIn(expected["guardrail"], summary["tone_guardrails"], slug)
+
+    def test_batch_two_profiles_fill_basic_narrative_modes(self) -> None:
+        module = load_module()
+        expectations = {
+            "melodrama": {
+                "bucket": "豪门总裁",
+                "mode": "误会追妻双线",
+            },
+            "sweet-romance": {
+                "bucket": "青春甜宠",
+                "mode": "高甜日常推进",
+            },
+        }
+
+        for slug, expected in expectations.items():
+            raw = module.load_profile_with_overlays(
+                PROFILE_ROOT / slug / "profile.yaml",
+                platform="fanqie",
+            )
+            normalized = module.normalize_profile(
+                raw,
+                source_path=f"shared/profiles/{slug}/profile.yaml",
+            )
+            summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+            self.assertEqual(summary["bucket"], expected["bucket"])
+            self.assertIn(expected["mode"], summary["narrative_modes"], slug)
+
+    def test_urban_superpower_can_expose_fanqie_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "urban-superpower" / "profile.yaml",
+            platform="fanqie",
+            bucket="都市脑洞",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/urban-superpower/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "都市脑洞")
+        self.assertIn("异能", summary["strong_tags"])
+        self.assertIn("多主题副本", summary["narrative_modes"])
+        self.assertIn("异能展示要伴随现实后果", summary["tone_guardrails"])
+
+    def test_realistic_profile_already_matches_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "realistic" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/realistic/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "现实情感")
+        self.assertIn("现实困局", summary["strong_tags"])
+        self.assertIn("成长", summary["strong_tags"])
+        self.assertIn("现实代价不能消失", summary["tone_guardrails"])
+        self.assertIn("治愈不等于无后果", summary["tone_guardrails"])
+
+    def test_historical_brainhole_profile_matches_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "historical-brainhole" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/historical-brainhole/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "历史脑洞")
+        self.assertIn("穿越", summary["strong_tags"])
+        self.assertIn("权谋", summary["strong_tags"])
+        self.assertIn("历史感不能被现代腔冲掉", summary["tone_guardrails"])
+        self.assertIn("创意设定必须自洽", summary["tone_guardrails"])
+
+    def test_palace_intrigue_profile_can_surface_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "palace-intrigue" / "profile.yaml",
+            platform="fanqie",
+            bucket="宫斗宅斗",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/palace-intrigue/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "宫斗宅斗")
+        self.assertIn("高门关系", summary["strong_tags"])
+        self.assertIn("婚配错位", summary["strong_tags"])
+        self.assertIn("强压后必须换账", summary["tone_guardrails"])
+        self.assertIn("高门称谓必须闭环", summary["tone_guardrails"])
+
+    def test_system_profile_can_surface_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "system" / "profile.yaml",
+            platform="fanqie",
+            bucket="都市脑洞",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/system/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "都市脑洞")
+        self.assertIn("系统", summary["strong_tags"])
+        self.assertIn("逆袭", summary["strong_tags"])
+        self.assertIn("系统奖励不能替代成长", summary["tone_guardrails"])
+        self.assertIn("任务推进要和主线冲突绑定", summary["tone_guardrails"])
+
+    def test_xuanhuan_profile_can_surface_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "xuanhuan" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/xuanhuan/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "玄幻脑洞")
+        self.assertIn("金手指", summary["strong_tags"])
+        self.assertIn("成长", summary["strong_tags"])
+        self.assertIn("升级必须有代价", summary["tone_guardrails"])
+        self.assertIn("爽点不能替代世界规则", summary["tone_guardrails"])
+
+    def test_xiuxian_profile_matches_cross_platform_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "xiuxian" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/xiuxian/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "传统玄幻")
+        self.assertIn("宗门", summary["strong_tags"])
+        self.assertIn("成长", summary["strong_tags"])
+        self.assertIn("升级必须有代价", summary["tone_guardrails"])
+        self.assertIn("机缘不能白拿", summary["tone_guardrails"])
+
+    def test_romance_profile_matches_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "romance" / "profile.yaml",
+            platform="fanqie",
+            bucket="青春甜宠",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/romance/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "青春甜宠")
+        self.assertIn("高甜", summary["strong_tags"])
+        self.assertIn("情感拉扯", summary["strong_tags"])
+        self.assertIn("甜感不能空转", summary["tone_guardrails"])
+        self.assertIn("误会不能纯靠不沟通", summary["tone_guardrails"])
+
+    def test_historical_profile_matches_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "historical" / "profile.yaml",
+            platform="fanqie",
+            bucket="历史脑洞",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/historical/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "历史脑洞")
+        self.assertIn("权谋", summary["strong_tags"])
+        self.assertIn("家国", summary["strong_tags"])
+        self.assertIn("历史感不能散", summary["tone_guardrails"])
+        self.assertIn("权力线必须讲层级", summary["tone_guardrails"])
+
+    def test_apocalypse_profile_matches_candidate_fields(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "apocalypse" / "profile.yaml",
+            platform="fanqie",
+            bucket="科幻末世",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/apocalypse/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "科幻末世")
+        self.assertIn("末世", summary["strong_tags"])
+        self.assertIn("生存", summary["strong_tags"])
+        self.assertIn("危险感不能消失", summary["tone_guardrails"])
+        self.assertIn("资源不能白给", summary["tone_guardrails"])
+
+    def test_era_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "era" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/era/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "年代")
+        self.assertIn("时代变迁", summary["strong_tags"])
+        self.assertIn("奋斗成长", summary["strong_tags"])
+        self.assertIn("时代细节不能失真", summary["tone_guardrails"])
+
+    def test_farming_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "farming" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/farming/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "种田")
+        self.assertIn("丰收致富", summary["strong_tags"])
+        self.assertIn("温馨治愈", summary["strong_tags"])
+        self.assertIn("发展速度要合理", summary["tone_guardrails"])
+
+    def test_republic_romance_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "republic-romance" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/republic-romance/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "民国言情")
+        self.assertIn("乱世情缘", summary["strong_tags"])
+        self.assertIn("时代悲歌", summary["strong_tags"])
+        self.assertIn("时代感不能悬浮", summary["tone_guardrails"])
+
+    def test_ancient_romance_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "ancient-romance" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/ancient-romance/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "古言")
+        self.assertIn("高门婚配", summary["strong_tags"])
+        self.assertIn("权谋情感", summary["strong_tags"])
+        self.assertIn("礼法关系不能悬浮", summary["tone_guardrails"])
+
+    def test_fantasy_romance_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "fantasy-romance" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/fantasy-romance/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "幻想言情")
+        self.assertIn("奇幻恋爱", summary["strong_tags"])
+        self.assertIn("跨种族情缘", summary["strong_tags"])
+        self.assertIn("奇幻设定必须服务情感主线", summary["tone_guardrails"])
+
+    def test_war_spy_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "war-spy" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/war-spy/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "抗战谍战")
+        self.assertIn("潜伏智斗", summary["strong_tags"])
+        self.assertIn("家国信仰", summary["strong_tags"])
+        self.assertIn("历史背景不能失真", summary["tone_guardrails"])
+
+    def test_urban_life_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "urban-life" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/urban-life/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "都市日常")
+        self.assertIn("温馨日常", summary["strong_tags"])
+        self.assertIn("生活改善", summary["strong_tags"])
+        self.assertIn("生活细节必须真实可感", summary["tone_guardrails"])
+
+    def test_livestream_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "livestream" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/livestream/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "直播文")
+        self.assertIn("粉丝增长", summary["strong_tags"])
+        self.assertIn("打赏互动", summary["strong_tags"])
+        self.assertIn("直播反馈必须及时可见", summary["tone_guardrails"])
+
+    def test_game_sports_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "game-sports" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/game-sports/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "游戏体育")
+        self.assertIn("竞技成长", summary["strong_tags"])
+        self.assertIn("逆境翻盘", summary["strong_tags"])
+        self.assertIn("比赛规则不能出硬伤", summary["tone_guardrails"])
+
+    def test_mystery_brainhole_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "mystery-brainhole" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/mystery-brainhole/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "悬疑脑洞")
+        self.assertIn("脑洞解谜", summary["strong_tags"])
+        self.assertIn("惊喜反转", summary["strong_tags"])
+        self.assertIn("创意设定要自洽", summary["tone_guardrails"])
+
+    def test_mystery_creative_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "mystery-creative" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/mystery-creative/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "悬疑脑洞")
+        self.assertIn("脑洞解谜", summary["strong_tags"])
+        self.assertIn("规则反转", summary["strong_tags"])
+        self.assertIn("反转必须有伏笔", summary["tone_guardrails"])
+
+    def test_female_mystery_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "female-mystery" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/female-mystery/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "女频悬疑")
+        self.assertIn("悬疑言情", summary["strong_tags"])
+        self.assertIn("女性主体", summary["strong_tags"])
+        self.assertIn("悬疑线与感情线要平衡", summary["tone_guardrails"])
+
+    def test_supernatural_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "supernatural" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/supernatural/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "悬疑灵异")
+        self.assertIn("诡异求生", summary["strong_tags"])
+        self.assertIn("规则驱鬼", summary["strong_tags"])
+        self.assertIn("鬼怪规则必须自洽", summary["tone_guardrails"])
+
+    def test_rule_mystery_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "rule-mystery" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/rule-mystery/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "规则怪谈")
+        self.assertIn("规则压迫", summary["strong_tags"])
+        self.assertIn("漏洞求生", summary["strong_tags"])
+        self.assertIn("规则设计必须有内在逻辑", summary["tone_guardrails"])
+
+    def test_infinite_flow_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "infinite-flow" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/infinite-flow/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "无限流")
+        self.assertIn("副本通关", summary["strong_tags"])
+        self.assertIn("绝境翻盘", summary["strong_tags"])
+        self.assertIn("副本规则必须自洽", summary["tone_guardrails"])
+
+    def test_scifi_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "sci-fi" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/sci-fi/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "科幻")
+        self.assertIn("科技突破", summary["strong_tags"])
+        self.assertIn("文明碰撞", summary["strong_tags"])
+        self.assertIn("科技设定必须自洽", summary["tone_guardrails"])
+
+    def test_gaowu_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "gaowu" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/gaowu/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "高武")
+        self.assertIn("越级挑战", summary["strong_tags"])
+        self.assertIn("武道成长", summary["strong_tags"])
+        self.assertIn("突破必须有积累", summary["tone_guardrails"])
+
+    def test_western_fantasy_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "western-fantasy" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/western-fantasy/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "西幻")
+        self.assertIn("魔法冒险", summary["strong_tags"])
+        self.assertIn("领地成长", summary["strong_tags"])
+        self.assertIn("魔法规则必须有代价", summary["tone_guardrails"])
+
+    def test_urban_creative_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "urban-creative" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/urban-creative/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "都市脑洞")
+        self.assertIn("设定反转", summary["strong_tags"])
+        self.assertIn("能力展开", summary["strong_tags"])
+        self.assertIn("设定不能只靠解释成立", summary["tone_guardrails"])
+
+    def test_modern_brainhole_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "modern-brainhole" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/modern-brainhole/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "现言脑洞")
+        self.assertIn("创意恋爱", summary["strong_tags"])
+        self.assertIn("命运改写", summary["strong_tags"])
+        self.assertIn("创意设定必须服务情感推进", summary["tone_guardrails"])
+
+    def test_historical_creative_profile_exposes_minimum_positioning(self) -> None:
+        module = load_module()
+        raw = module.load_profile_with_overlays(
+            PROFILE_ROOT / "historical-creative" / "profile.yaml",
+            platform="fanqie",
+        )
+        normalized = module.normalize_profile(
+            raw,
+            source_path="shared/profiles/historical-creative/profile.yaml",
+        )
+        summary = module.summarize_for_state(normalized, raw_profile=raw, platform="fanqie")
+
+        self.assertEqual(summary["bucket"], "历史脑洞")
+        self.assertIn("历史改写", summary["strong_tags"])
+        self.assertIn("现代知识入局", summary["strong_tags"])
+        self.assertIn("历史改写必须保留时代逻辑", summary["tone_guardrails"])
+
 
 if __name__ == "__main__":
     unittest.main()

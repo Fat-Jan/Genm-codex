@@ -126,6 +126,16 @@ reader_expectations:
     - "过于复杂的设定解释"
     - "悬念没有解答"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "悬疑脑洞"
+    strong_tags: ["脑洞解谜", "惊喜反转"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["创意设定要自洽", "反转要有伏笔"]
+    package_cues:
+      - "首屏点诡异设定或核心谜面"
+      - "前三章要出现一次规则兑现或反转钩子"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

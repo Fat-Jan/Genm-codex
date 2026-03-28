@@ -105,6 +105,16 @@ special_constraints:
     enforced: false
     check_point: 政治描写
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "西幻"
+    strong_tags: ["魔法冒险", "领地成长"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["魔法规则必须有代价", "世界观体系不能自相矛盾"]
+    package_cues:
+      - "首屏点异界设定或魔法危机"
+      - "前三章要出现一次魔法/领地兑现"
+
 # ==================== 黄金三章 ====================
 黄金三章:
   第一章:
