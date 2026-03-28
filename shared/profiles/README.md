@@ -97,6 +97,7 @@ shared/profiles/
 
 - [Bucket / Profile 命名映射规范](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-profile-slug-mapping.md) - 解决命名漂移
 - [Bucket Overlay 缺口清单](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-overlay-inventory.md) - P0-P2 优先级
+- [Profile Expansion Contract](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md) - 约束后续扩面工作
 
 ---
 

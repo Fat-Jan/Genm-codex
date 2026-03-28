@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sample-manifest-v1.schema.json",
+  "title": "Genm Codex Sample Manifest v1",
+  "type": "object",
+  "required": ["version", "generated_at", "samples"],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "samples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sample_id",
+          "path",
+          "sample_type",
+          "trust_tier",
+          "platform",
+          "bucket",
+          "status",
+          "notes"
+        ],
+        "properties": {
+          "sample_id": {"type": "string"},
+          "path": {"type": "string"},
+          "sample_type": {
+            "type": "string",
+            "enum": ["smoke", "project"]
+          },
+          "trust_tier": {
+            "type": "string",
+            "enum": ["baseline", "derived", "regression", "high_confidence", "bucket_sample"]
+          },
+          "platform": {"type": "string"},
+          "bucket": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["active", "archived", "draft"]
+          },
+          "notes": {"type": "string"},
+          "verification_targets": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

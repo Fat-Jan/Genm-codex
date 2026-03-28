@@ -3758,3 +3758,43 @@
   - E1-E3 自动化定义不清（"自动 smoke"指什么）
   - A1 完成标准不一致（docs 不一致但未阻塞任务）
 - 待 gpt 解释/解决
+
+## Session Update: 2026-03-28 `v1.5` roadmap 充分性补强
+
+- 新建 `v1.5-roadmap.md`
+- 进一步补强为可执行分工版本：
+  - 为每个 `codex-first` 前置任务补了输出物
+  - 为每个前置任务补了 Verify
+  - 为每个前置任务补了“解锁给 mimo 的任务”
+  - 新增 `mimo` 移交门槛表，明确哪些任务必须等 codex 先做完
+
+## Session Update: 2026-03-28 `v1.5` P0-A / P0-B 完成
+
+- `P0-A Sample Manifest Contract`
+  - 新增 `shared/templates/sample-manifest-v1.schema.json`
+  - 新增 `docs/00-当前有效/sample-manifest-contract.md`
+  - 新增测试：`tests/test_sample_manifest_contract.py`
+- `P0-B Profile Expansion Contract`
+  - 新增 `docs/00-当前有效/profile-expansion-contract.md`
+  - 更新 `shared/profiles/README.md` 引用扩面 contract
+  - 新增测试：`tests/test_profile_expansion_contract.py`
+- 同步更新：
+  - `scripts/validate-migration.sh`
+  - `v1.5-roadmap.md`
+- 当前解锁：
+  - `P2-A 规则化 Profile 扩面`
+  - `P2-B Sample Manifest 实体化`
+- 验证：
+  - `pytest -q tests/test_sample_manifest_contract.py tests/test_profile_expansion_contract.py` passed
+
+## Session Update: 2026-03-28 跨平台支持规划
+
+- 创建跨平台支持规划文档：`cross-platform-support-plan.md`
+- 核心发现：Genm-codex 的 skill 格式（AgentSkills）已兼容 Claude Code、OpenCode、OpenCLAW
+- 主要工作：
+  1. 修改 `install-skills.sh` 支持多平台参数（高优先级）
+  2. 创建 `install-skills-all.sh` 一键安装脚本（中优先级）
+  3. 适配配置系统（可选）
+  4. 更新文档
+- 预计工作量：1-2 天
+- 状态：`[planned]`
