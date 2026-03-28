@@ -20,7 +20,9 @@ def _sorted_chapter_items(chapter_meta: dict) -> list[tuple[str, dict]]:
     items = []
     for chapter, payload in chapter_meta.items():
         if isinstance(payload, dict):
-            items.append((str(chapter), payload))
+            chapter_key = str(chapter)
+            if chapter_key.isdigit():
+                items.append((chapter_key, payload))
     return sorted(items, key=lambda item: int(item[0]))
 
 

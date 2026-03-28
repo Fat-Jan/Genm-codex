@@ -21,9 +21,12 @@ def _sorted_structures(chapter_meta: dict) -> list[tuple[str, dict]]:
     for chapter, payload in chapter_meta.items():
         if not isinstance(payload, dict):
             continue
+        chapter_key = str(chapter)
+        if not chapter_key.isdigit():
+            continue
         structure = payload.get("chapter_structure", {})
         if isinstance(structure, dict) and structure:
-            rows.append((str(chapter), structure))
+            rows.append((chapter_key, structure))
     return sorted(rows, key=lambda item: int(item[0]))
 
 
