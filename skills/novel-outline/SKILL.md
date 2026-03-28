@@ -78,6 +78,7 @@ Also read these when generating or materially revising outlines, especially for 
 - `../../docs/writing-core-framework/08-开篇包装输入接口.md`
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
+- `../../docs/00-当前有效/chapter-structure-fields-design.md`
 
 ## Workflow
 
@@ -227,6 +228,14 @@ Also read these when generating or materially revising outlines, especially for 
      - which supporting role or opposing role has an independent agenda in the chapter
      - the likely misread / information gap driving the scene
      - the relationship, risk, or cost residue left for the next chapter
+   - when `../../docs/00-当前有效/chapter-structure-fields-design.md` is active, also lock a lightweight `chapter_structure` block for the chapter with:
+     - `conflict_type`
+     - `protagonist_arc`
+     - `opponent_mode`
+     - `gain_type`
+     - `cost_visibility`
+     - `chapter_end_style`
+   - prefer writing those six fields in the chapter outline and mirroring them into `chapter_meta[chapter].chapter_structure` when the structure is already stable
    - when bucket constraints are active, also align:
      - current bucket’s opening rule
      - current bucket’s payoff timing

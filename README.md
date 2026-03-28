@@ -4,12 +4,13 @@ Codex 原生网文创作技能工作区。
 
 这个仓库的当前主线不是“继续堆更多 skill”，而是把已有 `skills + docs + scripts + sidecars` 工作流做稳、做可恢复、做可治理。
 
-当前主线版本：`v1.3`
+当前主线版本：`v1.4`
 
 历史基线与备份：
 
 - `v1.0.0`：首个 `v1` 正式发布基线
 - `backup/main-pre-v1.3-20260327`：主线切换到 `v1.3` 前的 `main` 备份分支
+- `v1.3-roadmap.md`：上一阶段主线
 
 当前默认范围里仍然包含：
 
@@ -100,9 +101,24 @@ bash scripts/validate-migration.sh
 - Skill 触发与调用说明：`docs/00-当前有效/skill-usage.md`
 - 当前边界：`docs/00-当前有效/v1-boundary.md`
 - 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
+- 当前主线 roadmap：`v1.4-roadmap.md`
+- 上一阶段 roadmap：`v1.3-roadmap.md`
 - 已归档阶段 roadmap：`v1.1-roadmap.md`
-- 上一阶段 roadmap：`v1.2-roadmap.md`
-- 当前主线 roadmap：`v1.3-roadmap.md`
+
+### v1.4 新增文档
+
+- 三大框架 QUICK 速查卡：
+  - `docs/anti-flattening-framework/QUICK.md`
+  - `docs/opening-and-plot-framework/QUICK.md`
+  - `docs/writing-core-framework/QUICK.md`
+- 运行时执行卡压缩稿：
+  - `docs/anti-flattening-framework/rule-cache.json`
+  - `docs/opening-and-plot-framework/rule-cache.json`
+  - `docs/writing-core-framework/rule-cache.json`
+- 章纲结构字段设计：`docs/00-当前有效/chapter-structure-fields-design.md`
+- Bucket / Profile 映射规范：`docs/00-当前有效/bucket-profile-slug-mapping.md`
+- Bucket Overlay 缺口清单：`docs/00-当前有效/bucket-overlay-inventory.md`
+- 样本库索引：`docs/00-当前有效/sample-library-index.md`
 
 ## Gate Triage
 
@@ -120,10 +136,31 @@ bash scripts/validate-migration.sh
 - `docs/00-当前有效/gate-triage.md`
 - `docs/gate-triage-rollout-2026-03-24.md`
 
+## 已落地能力
+
+主仓 `main` 已经落地：
+
+- `quality-audit`：质量审计，产出 `quality_audit.json`
+- `knowledge-projection`：知识投影，产出 `knowledge_projection.json`
+- `workflow-truth`：工作流真相
+- `workflow-health`：工作流健康度，包含 bundle 和 renderer
+- 最小只读 MCP server：`project_knowledge_mcp_server.py`
+- `novel-status` / `novel-query` sidecar 消费合同
+
+维护链入口：
+
+```bash
+# 完整维护链
+python3 scripts/project-maintenance.py <project_root>
+
+# 任务后维护
+python3 scripts/post-task-maintenance.py <project_root> --trigger write
+```
+
 ## 边界提醒
 
 - `Genm` 仍是 shared 源仓库
 - `Genm-codex` 负责 Codex 原生 skill/workflow 承载层
-- `shared/` 不再被视为“可无脑整包覆盖”的纯镜像目录
+- `shared/` 不再被视为"可无脑整包覆盖"的纯镜像目录
 - `active-context` 现在只应作为当前 prompt 装配侧栏，不应复制长期 guidance 全文
 - `workflow_state` 已开始由维护链真实写回，但当前默认骨架仍然是 `docs + skills + scripts + sidecars`，不引入 monolithic runtime / plugin system

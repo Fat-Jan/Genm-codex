@@ -222,15 +222,21 @@
 
 反脸谱化工作流参考：
 
-- [workflow-usage-guide-2026-03-22.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/workflow-usage-guide-2026-03-22.md)
+- 完整文档：[anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+- QUICK 速查卡：[anti-flattening-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/QUICK.md)
+- rule-cache：[anti-flattening-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/rule-cache.json)
 
 开篇与剧情层次工作流参考：
 
-- [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- 完整文档：[opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- QUICK 速查卡：[opening-and-plot-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/QUICK.md)
+- rule-cache：[opening-and-plot-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/rule-cache.json)
 
 写作基本功与内容标准工作流参考：
 
-- [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+- 完整文档：[writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+- QUICK 速查卡：[writing-core-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/QUICK.md)
+- rule-cache：[writing-core-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/rule-cache.json)
 
 番茄起盘协议栈参考：
 

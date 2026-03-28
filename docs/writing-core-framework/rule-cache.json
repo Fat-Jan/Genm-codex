@@ -1,0 +1,113 @@
+{
+  "version": "1.0",
+  "framework": "writing-core",
+  "core_guardrails": [
+    "场景落点必须明确：读者能快速看懂此刻发生了什么",
+    "叙述视角必须稳定：单个段落里不要随意切换'谁知道/谁在判断/谁在解释'",
+    "信息投放必须服务当前冲突：当前误判/选择/交换/后果",
+    "对白必须带来变化：改变信息差/关系温度/站位/后续动作",
+    "动作必须承接关系与冲突：关键对白前后要有动作锚点（压力/犹豫/试探/控制）",
+    "情绪必须通过后果和反应落地：声调变化/动作变形/决策转向/关系后果",
+    "段落节奏必须利于追读：避免长段解释压住动作、对白堆叠但没有动作切面"
+  ],
+  "conditional_guardrails": {
+    "novel-write": [
+      "开场先锁场景锚点",
+      "避免'解释先于事件'",
+      "对白必须带来变化",
+      "关键对白前后要有动作锚点"
+    ],
+    "novel-review": [
+      "检查是否存在背景先行、镜头漂移、信息拥堵",
+      "检查对白是否只是解释设定、复述上一章、代替作者总结",
+      "检查动作是否能承接关系与冲突",
+      "检查情绪是否只停在标签"
+    ],
+    "novel-precheck": [
+      "检查内容标准：看得懂、看得下去、看得到变化、承诺接得住",
+      "检查常见失格：背景先行、悬浮对白、提纲代替演出、白拿推进、假紧张、过度承诺"
+    ]
+  },
+  "diagnostic_signals": {
+    "unreadable": [
+      "场景关系不明确，谁在对谁做什么不明确",
+      "章内主要推进不明确",
+      "开头被背景说明吞掉",
+      "中段滑入总结腔",
+      "章末没有真实后续驱动"
+    ],
+    "no_change": [
+      "信息差没有变化",
+      "关系没有变化",
+      "代价或残账没有变化"
+    ],
+    "unsubmittable": [
+      "包装 promise 明显大于正文近期承载",
+      "开头抓力主要靠标题，不是靠正文",
+      "前三章仍以解释、铺垫、概述为主",
+      "review 已指出结构级失败仍未修"
+    ]
+  },
+  "minimal_fixes": {
+    "scene_unclear": "先让读者知道：人在哪、正在做什么、谁在对谁施压或交换",
+    "perspective_unstable": "单个段落里锁定'谁知道/谁在判断/谁在解释'",
+    "info_overload": "信息投放必须服务当前冲突（误判/选择/交换/后果）",
+    "dialogue_only_explaining": "对白必须带来变化（信息差/关系温度/站位/后续动作）",
+    "action_not承接": "关键对白前后要有动作锚点（压力/犹豫/试探/控制）",
+    "emotion_only_label": "通过后果和反应落地（声调变化/动作变形/决策转向/关系后果）",
+    "pacing_outline_like": "避免长段解释压住动作、对白堆叠但没有动作切面",
+    "background_first": "把解释压后，先让角色被一件事逼着动",
+    "floating_dialogue": "补上动作、压迫、试探和后果",
+    "outline_instead_of_performance": "用场景演出，不要用概述交代",
+    "free_progress": "关键证据、同盟、资源、认可必须有代价",
+    "false_tension": "制造紧张感必须有对应的风险或代价",
+    "over_promise": "包装 promise 不能明显大于正文近期承载"
+  },
+  "content_standards": {
+    "readable": "场景关系明确、谁在对谁做什么明确、章内主要推进明确",
+    "readable_on": "开头不被背景说明吞掉、中段不滑入总结腔、章末有真实后续驱动",
+    "see_change": "信息差有变化、关系有变化、代价或残账有变化",
+    "promise_holds": "当前正文能支撑包装 promise、前三章能支撑开篇 promise"
+  },
+  "common_failures": {
+    "background_first": "读者先收到设定说明，后收到故事入口",
+    "floating_dialogue": "角色一直在说，但没有动作、压迫、试探和后果",
+    "outline_instead_of_performance": "用概述交代本该在场上完成的冲突或交换",
+    "free_progress": "关键证据、同盟、资源、认可来得太省",
+    "false_tension": "制造了紧张感，但没有对应的风险或代价",
+    "over_promise": "包装 promise 明显大于正文近期承载"
+  },
+  "submission_judgment": {
+    "continue_reading": "开头 promise 清楚、当前章有真实变化、章末有后续驱动",
+    "submittable": "除了可追读，还应满足开篇与黄金三章没有明显失格、当前包装没有明显过度承诺、review 结果没有留下结构级红灯",
+    "should_fix_first": "包装 promise 明显大于正文近期承载、开头抓力主要靠标题不是靠正文、前三章仍以解释铺垫概述为主、review 已指出结构级失败仍未修"
+  },
+  "root_cause_categories": {
+    "A": "执行不可读",
+    "B": "内容不达标",
+    "C": "不可投稿",
+    "D": "承诺不接得住",
+    "E": "多项并发"
+  },
+  "framework_specific": {
+    "content_standards": {
+      "readable": "场景关系明确、谁在对谁做什么明确、章内主要推进明确",
+      "readable_on": "开头不被背景说明吞掉、中段不滑入总结腔、章末有真实后续驱动",
+      "see_change": "信息差有变化、关系有变化、代价或残账有变化",
+      "promise_holds": "当前正文能支撑包装 promise、前三章能支撑开篇 promise"
+    },
+    "common_failures": {
+      "background_first": "读者先收到设定说明，后收到故事入口",
+      "floating_dialogue": "角色一直在说，但没有动作、压迫、试探和后果",
+      "outline_instead_of_performance": "用概述交代本该在场上完成的冲突或交换",
+      "free_progress": "关键证据、同盟、资源、认可来得太省",
+      "false_tension": "制造了紧张感，但没有对应的风险或代价",
+      "over_promise": "包装 promise 明显大于正文近期承载"
+    },
+    "submission_judgment": {
+      "continue_reading": "开头 promise 清楚、当前章有真实变化、章末有后续驱动",
+      "submittable": "除了可追读，还应满足开篇与黄金三章没有明显失格、当前包装没有明显过度承诺、review 结果没有留下结构级红灯",
+      "should_fix_first": "包装 promise 明显大于正文近期承载、开头抓力主要靠标题不是靠正文、前三章仍以解释铺垫概述为主、review 已指出结构级失败仍未修"
+    }
+  }
+}

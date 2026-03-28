@@ -340,6 +340,31 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - `novel-help` / `novel-tutorial`
   - 当前由这份文档、README 和 `skill-usage.md` 承担职责
 
+## v1.4 新增文档
+
+### 框架 QUICK 速查卡
+
+快速查阅框架核心规则，降低 83% 教程型长文档的重复读取成本：
+
+- [anti-flattening-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/QUICK.md) - 反脸谱化速查卡
+- [opening-and-plot-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/QUICK.md) - 开篇方法速查卡
+- [writing-core-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/QUICK.md) - 写作基本功速查卡
+
+### 运行时执行卡压缩稿
+
+为后续 rule-cache / registry 打基础的短 guardrail 草稿：
+
+- [anti-flattening-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/rule-cache.json)
+- [opening-and-plot-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/rule-cache.json)
+- [writing-core-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/rule-cache.json)
+
+### 结构设计与映射规范
+
+- [章纲结构字段设计](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/chapter-structure-fields-design.md) - conflict_type / protagonist_arc / opponent_mode / gain_type / cost_visibility / chapter_end_style
+- [Bucket / Profile 命名映射规范](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-profile-slug-mapping.md) - 解决命名漂移
+- [Bucket Overlay 缺口清单](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-overlay-inventory.md) - P0-P2 优先级
+- [样本库索引](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-index.md) - smoke / 真实项目 / 高置信样本
+
 ## 最后建议
 
 如果你不知道从哪个 skill 开始：
@@ -348,6 +373,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 2. 不存在：从 `novel-init` 开始
 3. 存在：先跑 `novel-status`
 4. 想知道完整主线：看 [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md)
-5. 想优先打磨人物、关系和群像：看 [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
-6. 想优先打磨开篇抓力、前三章兑现和剧情层次：看 [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
-7. 想优先打磨正文执行、内容标准、memory 压缩信号和开篇包装承诺：看 [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+5. 想快速查阅框架核心规则：看上面的 QUICK 速查卡
+6. 想优先打磨人物、关系和群像：看 [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+7. 想优先打磨开篇抓力、前三章兑现和剧情层次：看 [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+8. 想优先打磨正文执行、内容标准、memory 压缩信号和开篇包装承诺：看 [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)

@@ -3498,3 +3498,125 @@
   - `pytest -q tests/test_project_maintenance_tolerance.py tests/test_inkos_growth_plan.py -k 'project_maintenance or post_task_maintenance'` → passed
   - `pytest -q tests/test_thin_state_atomic.py tests/test_volume_summaries.py` → passed
   - `bash scripts/validate-migration.sh` → passed
+
+## Session Update: 2026-03-28 `v1.4` 主线 B/C/D/E 启动 (mimo lane)
+
+- 已完成 `v1.4-roadmap.md` 中由 mimo 负责的全部 8 个任务：
+  - `B1` 框架 QUICK 速查卡
+  - `B2` 运行时执行卡压缩稿
+  - `B3` `shared/profiles/README.md` 重写
+  - `C1` 章纲 `structure` 字段设计
+  - `D1` bucket 分配系统 wire-up
+  - `D2` slug / bucket 命名映射规范
+  - `D4` bucket overlay inventory
+  - `E4` 样本库索引页
+
+### B1 完成情况
+- 新增 `docs/anti-flattening-framework/QUICK.md`
+- 新增 `docs/opening-and-plot-framework/QUICK.md`
+- 新增 `docs/writing-core-framework/QUICK.md`
+- 每个 QUICK 卡包含：核心原则、快速诊断、判级标准、输出格式、快速修复动作
+
+### B2 完成情况
+- 新增 `docs/anti-flattening-framework/rule-cache.json`
+- 新增 `docs/opening-and-plot-framework/rule-cache.json`
+- 新增 `docs/writing-core-framework/rule-cache.json`
+- 每个 rule-cache.json 包含：核心 guardrails、条件触发 guardrails、诊断信号、最小修复动作
+
+### B3 完成情况
+- 重写 `shared/profiles/README.md`
+- 更新内容：当前状态、目录结构、contract 分层、补充约定、当前缺口、与其他系统的关系
+
+### C1 完成情况
+- 新增 `docs/00-当前有效/chapter-structure-fields-design.md`
+- 设计 6 个章纲结构字段：conflict_type、protagonist_arc、opponent_mode、gain_type、cost_visibility、chapter_end_style
+- 包含：字段定义、枚举值、最小用途、字段组合规则、与现有系统的关系
+
+### D1 完成情况
+- 更新 `skills/novel-init/SKILL.md`
+- 在初始化流程中添加调用 `build_content_positioning.py` 的步骤
+- 确保 `resolve_platform_positioning()` 在初始化时被调用
+
+### D2 完成情况
+- 新增 `docs/00-当前有效/bucket-profile-slug-mapping.md`
+- 建立统一的 slug 映射规范
+- 解决 `宫斗宅斗` vs `palace-intrigue` vs `gongdou_zhai` 命名漂移
+- 提供映射函数示例
+
+### D4 完成情况
+- 新增 `docs/00-当前有效/bucket-overlay-inventory.md`
+- 盘点当前 bucket overlay 实现情况
+- 找出缺口并给出优先级
+- 提供实现方案和下一步计划
+
+### E4 完成情况
+- 新增 `docs/00-当前有效/sample-library-index.md`
+- 汇总所有样本（smoke 和 projects）
+- 提供使用指南和维护流程
+
+## Session Update: 2026-03-28 `v1.4` 文档入口统一梳理
+
+- 已完成 `v1.4-roadmap.md` 中 B4 任务：文档入口统一梳理
+- 更新了以下文件：
+  - `README.md` - 添加 v1.4-roadmap.md 链接，更新版本号，添加已落地能力说明
+  - `docs/00-当前有效/start-here.md` - 添加 QUICK.md / rule-cache.json / sample-library-index.md 入口
+  - `docs/00-当前有效/skill-usage.md` - 为三大框架添加 QUICK.md / rule-cache.json 入口
+  - `docs/00-当前有效/default-workflows.md` - 为三大框架添加 QUICK.md / rule-cache.json 入口
+  - `docs/anti-flattening-framework/QUICK.md` - 添加"反脸谱化速查"区块，保持结构一致性
+  - `docs/anti-flattening-framework/rule-cache.json` - 将 `scoring_dimensions` 移入 `framework_specific`
+  - `docs/opening-and-plot-framework/rule-cache.json` - 将 `opening_components` 和 `common_faults` 移入 `framework_specific`
+  - `docs/writing-core-framework/rule-cache.json` - 将 `content_standards`、`common_failures`、`submission_judgment` 移入 `framework_specific`
+  - `shared/profiles/README.md` - 添加 bucket-profile-slug-mapping.md 和 bucket-overlay-inventory.md 链接
+  - `docs/00-当前有效/bucket-profile-slug-mapping.md` - 补充完整的映射函数
+  - `docs/00-当前有效/sample-library-index.md` - 将《成婚前三日》明确标为 regression sample，分层高置信/回归/P0 样本
+  - `docs/00-当前有效/chapter-structure-fields-design.md` - 添加 Consumer 使用说明（outline/write/review/precheck）
+
+### 改动文件列表
+
+**A. 文档入口统一梳理**
+- `README.md` - 更新版本号，添加 v1.4-roadmap.md 链接，添加已落地能力说明
+- `docs/00-当前有效/start-here.md` - 添加 QUICK/rule-cache/sample-library-index 入口
+- `docs/00-当前有效/skill-usage.md` - 为三大框架添加 QUICK/rule-cache 入口
+- `docs/00-当前有效/default-workflows.md` - 为三大框架添加 QUICK/rule-cache 入口
+
+**B. QUICK / rule-cache 收口**
+- `docs/anti-flattening-framework/QUICK.md` - 添加"反脸谱化速查"区块
+- `docs/anti-flattening-framework/rule-cache.json` - 将独有字段移入 `framework_specific`
+- `docs/opening-and-plot-framework/rule-cache.json` - 将独有字段移入 `framework_specific`
+- `docs/writing-core-framework/rule-cache.json` - 将独有字段移入 `framework_specific`
+
+**C. bucket / profile / sample 文档整理**
+- `shared/profiles/README.md` - 添加相关文档链接
+- `docs/00-当前有效/bucket-profile-slug-mapping.md` - 补充完整映射函数
+- `docs/00-当前有效/sample-library-index.md` - 分层样本，明确 regression sample
+
+**D. 章纲结构字段设计稿收口**
+- `docs/00-当前有效/chapter-structure-fields-design.md` - 添加 Consumer 使用说明
+
+## Session Update: 2026-03-28 `v1.4` contract 接线与文档入流
+
+- 将 `chapter_structure` 正式纳入 `state` contract：
+  - `shared/templates/state-v5-template.json`
+  - `shared/templates/state-schema-v5.json`
+  - `shared/references/shared/state-schema.md`
+- `chapter_meta[chapter].chapter_structure` 当前固定 6 个轻量键：
+  - `conflict_type`
+  - `protagonist_arc`
+  - `opponent_mode`
+  - `gain_type`
+  - `cost_visibility`
+  - `chapter_end_style`
+- 更新 consumer 合同，使结构字段和 v1.4 文档不再停留在附录层：
+  - `skills/novel-outline/SKILL.md`
+  - `skills/novel-review/SKILL.md`
+  - `skills/novel-precheck/SKILL.md`
+- 把 v1.4 新文档纳入仓库基线校验：
+  - `scripts/validate-migration.sh`
+  - 新增 `tests/test_v14_doc_assets.py`
+- 扩展合同测试：
+  - `tests/test_state_contracts.py`
+  - `tests/test_profile_consumers.py`
+- 验证结果：
+  - `pytest -q ... tests/test_v14_doc_assets.py` 相关套件共 `149 passed`
+  - `bash scripts/validate-migration.sh` passed
+  - `python3 scripts/project_regression_smoke.py e2e-novel --batch-count 3` passed

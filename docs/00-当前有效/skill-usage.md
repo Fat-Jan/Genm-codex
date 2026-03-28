@@ -165,7 +165,9 @@
 
 反脸谱化与群像打磨入口：
 
-- [anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+- 完整文档：[anti-flattening-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/README.md)
+- QUICK 速查卡：[anti-flattening-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/QUICK.md)
+- rule-cache：[anti-flattening-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/anti-flattening-framework/rule-cache.json)
 - `novel-outline` 现在会按需读取这组文档来锁角色分层、关系结构、阵营分歧与后果链
 - `novel-write` 现在会按需读取这组文档来约束非主角行动、关系负债与场景残账
 - `novel-review` 现在会按需把主角特权、角色独立性、关系张力和流派故障纳入结构审查
@@ -182,7 +184,9 @@
 
 开篇方法与剧情层次入口：
 
-- [opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- 完整文档：[opening-and-plot-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/README.md)
+- QUICK 速查卡：[opening-and-plot-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/QUICK.md)
+- rule-cache：[opening-and-plot-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/opening-and-plot-framework/rule-cache.json)
 - `novel-outline` 现在会按需读取这组文档来锁开篇承诺、前三章兑现路径、主推进线和次级线触动
 - `novel-write` 现在会按需读取这组文档来避免背景先行、压力空转和只有事件没有账本变化
 - `novel-review` 现在会按需把开篇抓力、层次清晰度和推进有效性纳入结构审查
@@ -191,7 +195,9 @@
 
 写作基本功与内容标准入口：
 
-- [writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+- 完整文档：[writing-core-framework/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/README.md)
+- QUICK 速查卡：[writing-core-framework/QUICK.md](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/QUICK.md)
+- rule-cache：[writing-core-framework/rule-cache.json](/Users/arm/Desktop/vscode/Genm-codex/docs/writing-core-framework/rule-cache.json)
 - `novel-write` 现在会按需读取这组文档来约束镜头、信息投放、对白动作和段落节奏
 - `novel-review` 现在会按需把内容标准失格、执行层风险和包装对齐问题收成可执行问题簇
 - `novel-precheck` 现在会按需把精品审核、投稿前判断和包装过度承诺风险纳入最终建议

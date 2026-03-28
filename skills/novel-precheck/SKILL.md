@@ -105,6 +105,7 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
+- `../../docs/00-当前有效/chapter-structure-fields-design.md`
 - `../../shared/references/writing/ancient-household-kinship-guide.md`
 - `../../shared/references/writing/ancient-office-hierarchy-guide.md`
 - `../../shared/profiles/<genre>/profile-<platform>.yaml`
@@ -122,6 +123,8 @@ Resolve shared profile roots in this order:
 
 1. Parse the requested platform and chapter range.
 2. Read `.mighty/state.json`.
+   - treat `state.genre_profile` as the primary runtime projection for active bucket / platform-fit hints
+   - when `.mighty/content-positioning.json` exists, prefer it as the project-facing composite-positioning sidecar
 3. Read `../../shared/references/shared/core-constraints.md`.
 4. Read the target chapters.
 5. Read `../../docs/anti-flattening-framework/README.md` and `../../docs/anti-flattening-framework/01-总纲.md`.
@@ -211,6 +214,7 @@ Resolve shared profile roots in this order:
    - whether key supporting roles still behave like independent people
    - whether relations or factions have collapsed into a single voice
    - whether major gains are too smooth, too cheap, or too unopposed
+   - whether `chapter_meta[*].chapter_structure` shows adjacent repetition, zero-cost breakthrough runs, or no-valley runs when the field is available
    - whether chapter length has fallen below the active Fanqie baseline
    - drift from already learned local style preferences when that drift is obvious
    - if the bucket is ancient-family-power, check relation-schema risk:
@@ -252,6 +256,10 @@ Resolve shared profile roots in this order:
    - submission recommendation
    - packaging readiness
    - optional bucket-fit note
+   - when chapter-structure fields are present, include a short `chapter_structure` note that names:
+     - repeated structure runs
+     - zero-cost breakthrough runs
+     - no-valley runs
 
 When the active bucket matches a first-batch MVP bucket such as `现实情感` or `宫斗宅斗`, make the bucket-fit note concrete by checking:
 

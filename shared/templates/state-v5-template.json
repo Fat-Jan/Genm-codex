@@ -201,6 +201,14 @@
       "recommended_next_action": "",
       "issue_clusters": [],
       "dimension_scores": {},
+      "chapter_structure": {
+        "conflict_type": "",
+        "protagonist_arc": "",
+        "opponent_mode": "",
+        "gain_type": "",
+        "cost_visibility": "",
+        "chapter_end_style": ""
+      },
       "anti_flattening_flags": [],
       "anti_flattening_summary": {},
       "fanqie_bucket_flags": [],

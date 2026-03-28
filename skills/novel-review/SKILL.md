@@ -97,6 +97,7 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
 - `../../docs/strong-quality-gate-policy.json`
+- `../../docs/00-当前有效/chapter-structure-fields-design.md`
 
 ## Workflow
 
@@ -212,6 +213,7 @@ Read conditionally:
      - frictionless gain
      - overpromise relative to near-term payoff
    - protagonist privilege balance
+   - declared `chapter_structure` vs actual delivery when `chapter_meta[chapter].chapter_structure` or chapter-outline structure fields already exist
    - character agency / role independence
    - relationship tension structure
    - faction divergence when factions or alliances are present
@@ -320,6 +322,7 @@ Update at minimum:
 
 When the route is clear, also update:
 
+- `chapter_meta[chapter].chapter_structure` when the chapter already has stable declared structure or the actual structure can be named with confidence
 - `chapter_meta[chapter].anti_flattening_flags` when the chapter shows clear cast / relation / faction imbalance
 - `chapter_meta[chapter].fanqie_bucket_flags` when the bucket-specific red flags are clear and stable
 - `chapter_meta[chapter].fanqie_bucket_summary` when a short bucket-level summary would help downstream routing

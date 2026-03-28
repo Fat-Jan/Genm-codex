@@ -26,6 +26,7 @@ CONSUMER_EXPECTATIONS = {
         ".mighty/content-positioning.json",
         "platform overlay",
         "bucket overlay",
+        "chapter-structure-fields-design.md",
     ],
     "skills/novel-write/SKILL.md": [
         "state.genre_profile",
@@ -40,6 +41,8 @@ CONSUMER_EXPECTATIONS = {
         ".mighty/content-positioning.json",
         "platform overlay",
         "bucket overlay",
+        "chapter_structure",
+        "chapter-structure-fields-design.md",
     ],
     "skills/novel-package/SKILL.md": [
         "state.genre_profile",
@@ -47,6 +50,12 @@ CONSUMER_EXPECTATIONS = {
         ".mighty/content-positioning.json",
         "platform overlay",
         "bucket overlay",
+    ],
+    "skills/novel-precheck/SKILL.md": [
+        "state.genre_profile",
+        ".mighty/content-positioning.json",
+        "chapter_structure",
+        "chapter-structure-fields-design.md",
     ],
 }
 

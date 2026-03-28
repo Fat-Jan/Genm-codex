@@ -1,119 +1,124 @@
 # Profile 系统
 
-Genm 的题材配置系统，采用目录化结构管理网文题材规则。
+Genm-codex 的题材配置系统，采用目录化结构管理网文题材规则。
+
+---
+
+## 当前状态
+
+- **profile 总数**: 54 个
+- **当前分层**: core profile + platform overlay + bucket overlay + reference files
+- **当前默认范围**: opening-and-plot-framework、writing-core-framework、anti-flattening-framework、番茄起盘协议栈、Gate Triage
 
 ---
 
 ## 目录结构
 
 ```markdown
-profiles/
+shared/profiles/
 ├── README.md                    # 本文件
-├── xuanhuan/                    # 玄幻题材
+├── palace-intrigue/             # 宫斗宅斗
 │   ├── profile.yaml             # 核心配置
-│   ├── cultivation-levels.md    # 境界体系
-│   ├── power-systems.md         # 力量体系
-│   ├── cool-points.md           # 爽点设计
-│   └── plot-patterns.md         # 剧情模式
-├── urban-superpower/            # 都市异能（待创建）
+│   └── reference-notes.md       # 参考扩展
+├── xuanhuan/                    # 玄幻
+│   ├── profile.yaml
 │   └── ...
-└── romance/                     # 言情（待创建）
-    └── ...
+├── urban-brainhole/             # 都市脑洞
+│   ├── profile.yaml
+│   └── ...
+└── ... (共 54 个 profile)
 ```
 
 ---
 
-## Profile 文件说明
-
-## 当前 contract 分层
+## Contract 分层
 
 从 `v1.1` 的 `Profile Contract` 开始，profile 应按下面四层理解：
 
-1. **core profile**
-   - 路径：`profiles/<slug>/profile.yaml`
-   - 只放题材基础配置：
-     - `name`
-     - `display_name`
-     - `description`
-     - `version`
-     - `template`
-     - `pacing`
-     - `cool_points`
-     - `strand_weights`
-     - `constraints`
-     - `reader_expectations`
-     - `taboos`
-2. **platform overlay**
-   - 路径：`profiles/<slug>/profile-<platform>.yaml`
-   - 只放平台差异
-3. **bucket overlay**
-   - 路径：`profiles/<slug>/bucket-<bucket>.yaml`
-   - 只放内容桶差异
-4. **reference files**
-   - 路径：`profiles/<slug>/*.md`
-   - 放长文本方法论、样例、扩展说明
+### 1. Core Profile
 
-补充约定：
+- **路径**: `profiles/<slug>/profile.yaml`
+- **内容**: 只放题材基础配置
+  - `name`
+  - `display_name`
+  - `description`
+  - `version`
+  - `template`
+  - `pacing`
+  - `cool_points`
+  - `strand_weights`
+  - `constraints`
+  - `reader_expectations`
+  - `taboos`
+  - `progression_constraints`
+  - `sub_genres`
 
-- `scripts/profile_contract.py --describe-layers` 现在会按这套规则返回 layer descriptor
+### 2. Platform Overlay
+
+- **路径**: `profiles/<slug>/profile-<platform>.yaml`
+- **内容**: 只放平台差异
+- **当前状态**: 大部分 profile 未实现
+
+### 3. Bucket Overlay
+
+- **路径**: `profiles/<slug>/bucket-<bucket>.yaml`
+- **内容**: 只放内容桶差异
+- **当前状态**: 大部分 profile 未实现
+
+### 4. Reference Files
+
+- **路径**: `profiles/<slug>/*.md`
+- **内容**: 放长文本方法论、样例、扩展说明
+- **示例**: `reference-notes.md`
+
+---
+
+## 补充约定
+
+- `scripts/profile_contract.py --describe-layers` 会按这套规则返回 layer descriptor
 - `state.genre_profile` 只保留轻量投影，不保留整份 raw profile
-- 历史 profile 中混入的长文本区块（如 `dialogue_templates`、`scene_description`）目前视为**legacy embedded reference**
+- 历史 profile 中混入的长文本区块（如 `dialogue_templates`、`scene_description`）目前视为 **legacy embedded reference**
   - 可以继续存在
   - 但不再视为 core contract 的 authoritative 部分
   - 后续应逐步迁到 reference files
 
-### profile.yaml - 核心配置
+---
 
-每个题材的核心配置文件，包含以下部分：
+## 当前缺口
 
-```yaml
-# 基本信息
-name: 玄幻                    # 题材名称
-display_name: 玄幻修仙         # 显示名称
-description: 描述文本           # 题材描述
-version: 3.0                   # 版本号
+根据架构审查，当前 profile 系统存在以下缺口：
 
-# 子流派定义
-sub_genres:
-  traditional:
-    name: 传统修仙
-    description: 经典修仙路线
-    core_points: [境界突破, 越级挑战]
-    pacing: slow
+1. **bucket 分配系统未打通**: `resolve_platform_positioning()` 存在但从未被调用
+2. **bucket overlay 文件数量为零**: 没有实际的 bucket overlay 文件
+3. **桶名无规范 slug 映射**: 宫斗宅斗 vs palace-intrigue vs gongdou_zhai
+4. **大部分 profile 没有 platform_positioning**: 54 个 profile 中 38 个没有 platform_positioning
 
-# 节奏参数
-pacing:
-  type: 慢热
-  tension_ratio: "3:7"
-  typical_chapter_length: 5000
+相关文档：
 
-# 爽点配置
-cool_points:
-  density: 0.8                  # 每千字爽点密度
-  max_interval: 1500            # 最大间隔
-  preferred_types: [...]        # 偏好类型
+- [Bucket / Profile 命名映射规范](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-profile-slug-mapping.md) - 解决命名漂移
+- [Bucket Overlay 缺口清单](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-overlay-inventory.md) - P0-P2 优先级
 
-# Strand 权重
-strand_weights:
-  quest: 55
-  fire: 25
-  constellation: 20
+---
 
-# 禁忌清单
-taboos:
-  - id: TABOO-001
-    content: "禁忌内容"
-    severity: critical
-```
+## 与其他系统的关系
 
-### 扩展文件
+### 与框架的关系
 
-| 文件 | 说明 |
-|------|------|
-| `cultivation-levels.md` | 境界体系设计规则 |
-| `power-systems.md` | 力量体系和金手指设计 |
-| `cool-points.md` | 爽点类型和设计方法 |
-| `plot-patterns.md` | 常用剧情模式 |
+- **opening-and-plot-framework**: 提供开篇方法和剧情层次模型
+- **writing-core-framework**: 提供写作基本功和内容标准
+- **anti-flattening-framework**: 提供反脸谱化规则
+- **profile**: 提供题材特定规则，挂在框架之上
+
+### 与 bucket 的关系
+
+- **bucket**: 内容桶，如"宫斗宅斗"、"都市脑洞"
+- **profile**: 题材配置，如"palace-intrigue"、"urban-brainhole"
+- **当前状态**: bucket 和 profile 的映射关系不明确，需要建立规范 slug 映射
+
+### 与 platform 的关系
+
+- **platform**: 平台，如"番茄"、"起点"
+- **当前状态**: 大部分 profile 没有 platform overlay，平台差异未分离
 
 ---
 
@@ -121,10 +126,10 @@ taboos:
 
 ### 1. 加载 Profile
 
-通过 genre-adapter Skill 自动加载：
+通过 novel-genre Skill 自动加载：
 
 ```bash
-/novel-genre genre=玄幻
+/novel-genre genre=宫斗宅斗
 ```
 
 或自动检测：
@@ -133,11 +138,11 @@ taboos:
 /novel-genre --detect
 ```
 
-### 2. 创建新题材
+### 2. 创建新 Profile
 
-1. 创建目录 `profiles/{题材名}/`
+1. 创建目录 `shared/profiles/<slug>/`
 2. 创建 `profile.yaml` 核心配置
-3. 根据需要创建扩展 .md 文件
+3. 根据需要创建 `reference-notes.md` 等参考文件
 
 ### 3. Profile 合并
 
@@ -145,8 +150,8 @@ taboos:
 
 ```yaml
 # 主题材 + 副题材
-主题材: 玄幻
-副题材: 系统流
+主题材: 宫斗宅斗
+副题材: 权谋
 
 合并规则:
   - 基础配置取主题材
@@ -191,65 +196,74 @@ taboos:
 
 ---
 
-## 与旧系统兼容
-
-系统同时支持两种 Profile 格式：
-
-1. **目录化格式**（推荐）：`profiles/xuanhuan/profile.yaml`
-2. **单文件格式**：`profiles/修仙.profile.yaml`
-
-加载优先级：
-1. 目录化 `profile.yaml`
-2. 单文件 `.profile.yaml`
-3. 降级到通用配置
-
----
-
 ## 扩展开发
 
-### 添加新题材
+### 添加新 Profile
 
 ```bash
 # 创建目录
-mkdir profiles/新题材
+mkdir shared/profiles/<slug>
 
 # 创建配置文件
-touch profiles/新题材/profile.yaml
+touch shared/profiles/<slug>/profile.yaml
+
+# 可选：创建参考文件
+touch shared/profiles/<slug>/reference-notes.md
 ```
 
 ### profile.yaml 模板
 
 ```yaml
-name: 新题材
-display_name: 新题材显示名
-description: 题材描述
+name: <题材名>
+display_name: <题材显示名>
+description: <题材描述>
+version: "3.0"
+template: templates/genres/<题材名>.md
+
+progression_constraints:
+  resistance_rule: "关键推进必须遭遇真实阻力，不能自动到账。"
+  cost_rule: "重要收益应伴随可见代价、暴露或资源损耗。"
+  partial_payoff_rule: "阶段胜利以局部收益为主，不宜一次打穿主线矛盾。"
+  residual_risk_rule: "每次推进后都应保留残留风险，避免章节收口过满。"
+
+sub_genres:
+  <子流派名>:
+    name: "<子流派显示名>"
+    description: "<子流派描述>"
+    core_points: [<核心爽点>]
+    pacing: <节奏>
+    examples: [<示例作品>]
 
 pacing:
-  type: 标准
-  tension_ratio: "5:5"
+  type: <节奏类型>
+  tension_ratio: "<张弛比例>"
+  typical_chapter_length: <典型章长>
 
 cool_points:
-  density: 1.0
-  max_interval: 1500
+  density: <爽点密度>
+  max_interval: <最大间隔>
   preferred_types:
-    - type: 爽点类型
-      weight: 1.0
+    - type: <爽点类型>
+      weight: <权重>
+      description: "<描述>"
+      triggers: [<触发词>]
+      note: "<注意事项>"
 
 strand_weights:
-  quest: 50
-  fire: 30
-  constellation: 20
+  quest: <任务推进权重>
+  fire: <冲突爆发权重>
+  constellation: <世界观铺垫权重>
 
 taboos:
-  - id: TABOO-001
-    content: "禁忌内容"
-    severity: critical
+  - id: <禁忌ID>
+    content: "<禁忌内容>"
+    severity: <严重程度>
 ```
 
 ---
 
 ## 版本历史
 
-- **v3.0**: 目录化结构，分离配置和规则文档
+- **v3.0**: 目录化结构，分离配置和规则文档（当前版本）
 - **v2.0**: 单文件 .profile.yaml 格式
 - **v1.0**: 硬编码流派规则

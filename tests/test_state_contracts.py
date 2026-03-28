@@ -73,6 +73,7 @@ class StateContractSchemaTests(unittest.TestCase):
         self.assertIn("needs_fix", chapter_meta)
         self.assertIn("issue_clusters", chapter_meta)
         self.assertIn("dimension_scores", chapter_meta)
+        self.assertIn("chapter_structure", chapter_meta)
         self.assertIn("anti_flattening_flags", chapter_meta)
         self.assertIn("anti_flattening_summary", chapter_meta)
 
@@ -82,3 +83,52 @@ class StateContractSchemaTests(unittest.TestCase):
         schema_keys = set(schema["properties"].keys())
         template_keys = set(payload.keys())
         self.assertEqual(sorted(template_keys - schema_keys), [])
+
+    def test_state_template_chapter_structure_uses_expected_fields(self) -> None:
+        payload = read_json("shared/templates/state-v5-template.json")
+        structure = payload["chapter_meta"]["<chapter_number>"]["chapter_structure"]
+        self.assertEqual(
+            sorted(structure.keys()),
+            [
+                "chapter_end_style",
+                "conflict_type",
+                "cost_visibility",
+                "gain_type",
+                "opponent_mode",
+                "protagonist_arc",
+            ],
+        )
+
+    def test_state_schema_accepts_chapter_structure_projection(self) -> None:
+        schema = read_json("shared/templates/state-schema-v5.json")
+        payload = read_json("shared/templates/state-v5-template.json")
+        payload["chapter_meta"] = {
+            "7": {
+                "review_score": 88,
+                "review_grade": "B+",
+                "review_time": "2026-03-28T00:00:00Z",
+                "needs_fix": False,
+                "recommended_next_action": "novel-write",
+                "issue_clusters": [],
+                "dimension_scores": {"节奏": 8},
+                "chapter_structure": {
+                    "conflict_type": "resource",
+                    "protagonist_arc": "test",
+                    "opponent_mode": "trap",
+                    "gain_type": "information",
+                    "cost_visibility": "implicit",
+                    "chapter_end_style": "residue",
+                },
+                "anti_flattening_flags": [],
+                "anti_flattening_summary": {},
+                "fanqie_bucket_flags": [],
+                "fanqie_bucket_summary": {},
+                "content_standard_flags": [],
+                "packaging_alignment_note": "",
+                "last_close_time": "2026-03-28T00:00:00Z",
+                "last_close_route": "pass",
+                "last_close_review_score_before": 86,
+                "last_close_review_score_after": 88,
+            }
+        }
+        jsonschema.validate(payload, schema)

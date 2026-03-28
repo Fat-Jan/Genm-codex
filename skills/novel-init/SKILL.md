@@ -171,7 +171,11 @@ Initialize `.mighty/state.json` with, at minimum:
    - preferred helper: `python3 scripts/setting_gate.py <project_root> --stage init`
    - aggressively materialize starter skeleton cards for repeated roles / locations / factions / items when they are already inferable from local project truth
    - write `.mighty/setting-gate.json` as the current gate snapshot
-12. Report created files, chosen profile, whether the ancient-family-power route was detected, whether `setting gate(init)` ran, and any fallback decisions.
+12. Build content positioning sidecar:
+   - preferred helper: `python3 scripts/build_content_positioning.py <project_root>`
+   - this will consume `genre_profile` and write `.mighty/content-positioning.json`
+   - this step ensures `resolve_platform_positioning()` is called during initialization
+13. Report created files, chosen profile, whether the ancient-family-power route was detected, whether `setting gate(init)` ran, whether `content-positioning.json` was built, and any fallback decisions.
 
 ## Failure handling
 

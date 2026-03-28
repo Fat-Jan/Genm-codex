@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "framework": "anti-flattening",
+  "core_guardrails": [
+    "关键角色必须有独立目标、不能退的底线、至少一个误判、主角不在场时的行动、离场后的结构性影响",
+    "关系必须体现债务、依赖、误判、权力差或路线分裂",
+    "冲突必须落到资源、时间、身份、信息差、代价",
+    "行为必须留下余波，不能'无事发生'",
+    "主角不能垄断全部解释权和后果豁免权"
+  ],
+  "conditional_guardrails": {
+    "novel-outline": [
+      "锁定主角的权力边界",
+      "锁定核心角色分层",
+      "锁定关系与阵营的最小分歧",
+      "锁定核心冲突的代价与后果链",
+      "锁定关键场景中谁主动、谁防守、谁误判"
+    ],
+    "novel-review": [
+      "谁看起来像功能件？",
+      "哪些阵营像一个声道？",
+      "主角是不是自动正确、自动有效、自动被理解？",
+      "有没有一整章只有推进，没有反噬？",
+      "有哪些角色离开主角视线就像停止运转？"
+    ]
+  },
+  "diagnostic_signals": {
+    "character_flattened": [
+      "去掉标签后，这个人就不存在了",
+      "他只在需要时出现",
+      "他从不做不利于主角的正确事",
+      "主角不在场时，他像暂停了"
+    ],
+    "relationship_hollow": [
+      "关系只有态度，没有结构",
+      "关系变化只靠一句话翻转",
+      "关系对剧情没有持续影响"
+    ],
+    "faction_homogeneous": [
+      "同阵营全员一个声道",
+      "对立方只剩蠢和坏",
+      "联盟内没有成本分歧"
+    ]
+  },
+  "minimal_fixes": {
+    "character_like_label": "给他一个不方便说出口的真实需求",
+    "character_like_tool": "给他一段主角不在场也会做的行动",
+    "character_too_right": "给他一个会推着他做错判断的盲点",
+    "relationship_hollow": "补一笔债务、依赖或权力差",
+    "faction_homogeneous": "拆出至少两条路线和两种代价容忍度",
+    "progress_too_smooth": "给成功补一个残账、代价或新麻烦",
+    "chapter_ending_too_full": "把'全成了'改成'成了一半，但代价暴露了'"
+  },
+  "root_cause_categories": {
+    "A": "角色脸谱化",
+    "B": "关系空洞化",
+    "C": "阵营同质化",
+    "D": "余波不足",
+    "E": "多项并发"
+  },
+  "framework_specific": {
+    "scoring_dimensions": {
+      "narrative_power_balance": {"description": "主角特权是否失衡", "weight": 15},
+      "character_agency": {"description": "关键角色是否有独立行动逻辑", "weight": 20},
+      "relationship_tension": {"description": "关系是否有结构，不是空态度", "weight": 15},
+      "faction_divergence": {"description": "阵营内是否存在真实分歧", "weight": 10},
+      "conflict_and_cost": {"description": "冲突是否有条件、阻力和代价", "weight": 20},
+      "scene_mobility": {"description": "场景内是否不是只有主角在动", "weight": 10},
+      "genre_fault_control": {"description": "是否规避本流派典型脸谱故障", "weight": 10}
+    }
+  }
+}

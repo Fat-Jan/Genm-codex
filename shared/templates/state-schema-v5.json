@@ -287,7 +287,60 @@
       "additionalProperties": true
     },
     "chapter_meta": {
-      "type": "object"
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "review_score": {"type": ["number", "integer"]},
+          "review_grade": {"type": "string"},
+          "review_time": {"type": ["string", "null"]},
+          "needs_fix": {"type": "boolean"},
+          "recommended_next_action": {"type": "string"},
+          "issue_clusters": {"type": "array"},
+          "dimension_scores": {"type": "object"},
+          "chapter_structure": {
+            "type": "object",
+            "properties": {
+              "conflict_type": {
+                "type": "string",
+                "enum": ["", "resource", "identity", "information", "power", "relationship", "rule", "time", "moral"]
+              },
+              "protagonist_arc": {
+                "type": "string",
+                "enum": ["", "suppress", "test", "exchange", "breakthrough", "cost", "revelation", "choice"]
+              },
+              "opponent_mode": {
+                "type": "string",
+                "enum": ["", "direct", "indirect", "trap", "test", "alliance", "retreat", "internal"]
+              },
+              "gain_type": {
+                "type": "string",
+                "enum": ["", "resource", "information", "relationship", "power", "moral", "none"]
+              },
+              "cost_visibility": {
+                "type": "string",
+                "enum": ["", "explicit", "implicit", "delayed", "none"]
+              },
+              "chapter_end_style": {
+                "type": "string",
+                "enum": ["", "hook", "residue", "escalation", "revelation", "choice", "payoff", "closure"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "anti_flattening_flags": {"type": "array"},
+          "anti_flattening_summary": {"type": "object"},
+          "fanqie_bucket_flags": {"type": "array"},
+          "fanqie_bucket_summary": {"type": "object"},
+          "content_standard_flags": {"type": "array"},
+          "packaging_alignment_note": {"type": "string"},
+          "last_close_time": {"type": ["string", "null"]},
+          "last_close_route": {"type": "string"},
+          "last_close_review_score_before": {"type": ["number", "integer"]},
+          "last_close_review_score_after": {"type": ["number", "integer"]}
+        },
+        "additionalProperties": true
+      }
     },
     "chapter_snapshots": {
       "type": "object"
