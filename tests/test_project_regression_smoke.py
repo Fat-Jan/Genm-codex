@@ -36,9 +36,39 @@ class ProjectRegressionSmokeTests(unittest.TestCase):
                 "plot_threads": {"foreshadowing": {"active": []}},
                 "active_context": {"last_built": "2026-03-28T00:00:00Z", "hook_count": 0, "guardrail_count": 0},
                 "chapter_meta": {
-                    "1": {"review_score": 88, "issue_clusters": [], "dimension_scores": {}},
-                    "2": {"review_score": 87, "issue_clusters": [], "dimension_scores": {}},
-                    "3": {"review_score": 86, "issue_clusters": [], "dimension_scores": {}},
+                    "1": {
+                        "review_score": 88,
+                        "issue_clusters": [],
+                        "dimension_scores": {},
+                        "chapter_structure": {
+                            "conflict_type": "resource",
+                            "opponent_mode": "direct",
+                            "gain_type": "information",
+                            "chapter_end_style": "hook",
+                        },
+                    },
+                    "2": {
+                        "review_score": 87,
+                        "issue_clusters": [],
+                        "dimension_scores": {},
+                        "chapter_structure": {
+                            "conflict_type": "resource",
+                            "opponent_mode": "direct",
+                            "gain_type": "information",
+                            "chapter_end_style": "hook",
+                        },
+                    },
+                    "3": {
+                        "review_score": 86,
+                        "issue_clusters": [],
+                        "dimension_scores": {},
+                        "chapter_structure": {
+                            "conflict_type": "resource",
+                            "opponent_mode": "direct",
+                            "gain_type": "information",
+                            "chapter_end_style": "hook",
+                        },
+                    },
                 },
                 "quality_metrics": {"dimension_scores": {"节奏": 0}},
                 "genre_profile": {"bucket": "都市脑洞"},
@@ -71,6 +101,7 @@ class ProjectRegressionSmokeTests(unittest.TestCase):
         self.assertIn("knowledge_projection", payload)
         self.assertIn("workflow_health", payload)
         self.assertIn("batch_quality_gate", payload)
+        self.assertIn("chapter_structure_audit", payload)
         self.assertEqual(payload["workflow_health"]["quality_audit_status"], "fail")
 
 
