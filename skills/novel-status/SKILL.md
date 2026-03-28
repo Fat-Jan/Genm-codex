@@ -130,6 +130,7 @@ Read conditionally:
   - `workflow_truth_status`
   - `workflow_truth_missing_artifacts`
   - `repo_owned_tail_steps`
+- when you need a compact human-facing block, mirror the section shape in `../../scripts/render_workflow_health_summary.py`
 - when `.mighty/knowledge-projection.json` exists, prefer surfacing:
   - `workflow_contract.transaction_contract`
   - `workflow_contract.repo_owned_tail_steps`

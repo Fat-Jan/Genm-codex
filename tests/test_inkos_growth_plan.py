@@ -157,6 +157,7 @@ WORKFLOW_HEALTH_SKILL_EXPECTATIONS = {
         "knowledge-projection",
         "workflow_truth",
         "repo_owned_tail_steps",
+        "../../scripts/render_workflow_health_summary.py",
     ],
     "skills/novel-query/SKILL.md": [
         "workflow-health",
@@ -164,6 +165,7 @@ WORKFLOW_HEALTH_SKILL_EXPECTATIONS = {
         "knowledge-projection",
         "workflow_truth",
         "repo_owned_tail_steps",
+        "../../scripts/render_workflow_health_summary.py",
     ],
 }
 

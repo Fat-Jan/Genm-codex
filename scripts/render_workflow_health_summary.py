@@ -44,6 +44,38 @@ def render_workflow_health_markdown(project_root: Path) -> str:
     return "\n".join(lines)
 
 
+def render_workflow_health_status_block(project_root: Path) -> str:
+    payload = read_workflow_health(project_root)
+    lines = [
+        "### Workflow 健康",
+        f"- workflow-truth: `{payload.get('workflow_truth_status', 'unknown')}`",
+        f"- quality-audit: `{payload.get('quality_audit_status', 'unknown')}`",
+        f"- repo-owned tail: `{' -> '.join(payload.get('repo_owned_tail_steps', []))}`",
+    ]
+    missing = payload.get("workflow_truth_missing_artifacts", [])
+    if isinstance(missing, list) and missing:
+        lines.append(f"- missing-artifacts: `{', '.join(missing)}`")
+    top_codes = payload.get("top_finding_codes", [])
+    if isinstance(top_codes, list) and top_codes:
+        lines.append(f"- top-findings: `{', '.join(top_codes)}`")
+    return "\n".join(lines)
+
+
+def render_workflow_health_query_answer(project_root: Path) -> str:
+    payload = read_workflow_health(project_root)
+    parts = [
+        f"workflow-health: workflow-truth=`{payload.get('workflow_truth_status', 'unknown')}`",
+        f"quality-audit=`{payload.get('quality_audit_status', 'unknown')}`",
+    ]
+    missing = payload.get("workflow_truth_missing_artifacts", [])
+    if isinstance(missing, list) and missing:
+        parts.append(f"missing-artifacts=`{', '.join(missing)}`")
+    top_codes = payload.get("top_finding_codes", [])
+    if isinstance(top_codes, list) and top_codes:
+        parts.append(f"top-findings=`{', '.join(top_codes)}`")
+    return ", ".join(parts)
+
+
 def main() -> None:
     args = parse_args()
     root = Path(args.project_root)
