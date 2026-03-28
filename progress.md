@@ -3667,3 +3667,17 @@
   - `near-floor-cluster`
 - 验证结果：
   - `pytest -q tests/test_real_regression_samples.py` passed
+
+## Session Update: 2026-03-28 `e2e-novel` 自动 smoke
+
+- 新增真实样本 smoke 测试：
+  - `tests/test_real_e2e_novel_smoke.py`
+- 当前把 `e2e-novel` 正式钉成自动 smoke 样本
+- 当前锁住的 smoke 指纹包括：
+  - `quality_audit.status = warn`
+  - `workflow_health.recommended_next_action = repair-review-artifacts`
+  - `chapter_structure_audit.status = warn`
+  - `batch_quality_gate.status = fail`
+  - `malformed-repeated-token`
+- 验证结果：
+  - `pytest -q tests/test_real_e2e_novel_smoke.py` passed
