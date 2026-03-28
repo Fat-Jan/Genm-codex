@@ -3,17 +3,29 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
 from build_volume_summaries import build_volume_summaries
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Thin state.json by archiving old chapter metadata.")
     parser.add_argument("project_root", help="Novel project root")
     parser.add_argument("--retain-recent-chapters", type=int, default=8)
     parser.add_argument("--timestamp", default="")
-    return parser.parse_args()
+    return parser.parse_args(argv)
+
+
+def atomic_write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp_path.replace(path)
 
 
 def sort_keys(mapping: dict) -> list[str]:
@@ -26,8 +38,8 @@ def merge_sorted(a: dict, b: dict) -> dict:
     return dict(sorted(merged.items(), key=lambda kv: int(kv[0])))
 
 
-def main() -> None:
-    args = parse_args()
+def main(argv: list[str] | None = None) -> None:
+    args = parse_args(argv)
     root = Path(args.project_root)
     state_path = root / ".mighty" / "state.json"
     archive_path = root / ".mighty" / "state-archive.json"
@@ -85,11 +97,11 @@ def main() -> None:
     state["chapter_snapshots"] = {k: chapter_snapshots[k] for k in keep if k in chapter_snapshots}
     state["summaries_index"] = {k: summaries_index[k] for k in keep if k in summaries_index}
 
-    archive_path.write_text(json.dumps(archive_doc, ensure_ascii=False, indent=2))
-    state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2))
+    atomic_write_json(archive_path, archive_doc)
+    atomic_write_json(state_path, state)
     volume_payload = build_volume_summaries(root, timestamp=args.timestamp or "")
     volume_path = root / ".mighty" / "volume-summaries.json"
-    volume_path.write_text(json.dumps(volume_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    atomic_write_json(volume_path, volume_payload)
 
     print(json.dumps({
         "action": "thinned",
