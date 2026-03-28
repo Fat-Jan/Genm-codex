@@ -69,6 +69,7 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         self.assertIn("get_project_knowledge_projection", tool_names)
         self.assertIn("get_project_quality_audit", tool_names)
         self.assertIn("get_project_workflow_bundle", tool_names)
+        self.assertIn("get_project_workflow_health_summary", tool_names)
 
     def test_tools_call_returns_projection_payload(self) -> None:
         module = load_module()
@@ -109,6 +110,38 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         self.assertIn("quality_audit", content)
         self.assertIn("workflow_health", content)
         self.assertEqual(content["knowledge_projection"]["project_title"], "MCP 测试书")
+
+    def test_tools_call_returns_workflow_health_summary_text(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        write_json(
+            root / ".mighty" / "workflow-health.json",
+            {
+                "project_title": "MCP 测试书",
+                "quality_audit_status": "warn",
+                "top_finding_codes": ["empty-issue-clusters-with-score"],
+                "workflow_truth_status": "pass",
+                "workflow_truth_missing_artifacts": [],
+                "repo_owned_tail_steps": ["maintenance", "snapshot"],
+                "setting_gate_status": "passed",
+                "has_recent_guardrails": False,
+            },
+        )
+        response = module.handle_request(
+            {
+                "jsonrpc": "2.0",
+                "id": 4,
+                "method": "tools/call",
+                "params": {
+                    "name": "get_project_workflow_health_summary",
+                    "arguments": {"project_root": str(root)},
+                },
+            }
+        )
+        self.assertFalse(response["result"]["isError"])
+        text = response["result"]["content"][0]["text"]
+        self.assertIn("## Workflow Health", text)
+        self.assertIn("quality-audit: `warn`", text)
 
 
 if __name__ == "__main__":

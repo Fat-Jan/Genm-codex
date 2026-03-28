@@ -14,6 +14,7 @@ if str(SCRIPT_DIR) not in sys.path:
 import audit_project_quality_state
 import build_project_knowledge_projection
 import build_workflow_health_bundle
+import render_workflow_health_summary
 
 
 SERVER_INFO = {
@@ -49,6 +50,17 @@ def tool_definitions() -> list[dict[str, Any]]:
         {
             "name": "get_project_workflow_bundle",
             "description": "Read one compact bundle containing knowledge projection and quality audit for a project.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "project_root": {"type": "string"},
+                },
+                "required": ["project_root"],
+            },
+        },
+        {
+            "name": "get_project_workflow_health_summary",
+            "description": "Render a compact Markdown workflow-health summary for direct display.",
             "inputSchema": {
                 "type": "object",
                 "properties": {
@@ -112,6 +124,8 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
                 "truth_source": "local_files",
             },
         }
+    elif name == "get_project_workflow_health_summary":
+        payload = render_workflow_health_summary.render_workflow_health_markdown(root)
     else:
         raise ValueError(f"unknown tool: {name}")
 
@@ -119,7 +133,7 @@ def call_tool(name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         "content": [
             {
                 "type": "text",
-                "text": json.dumps(payload, ensure_ascii=False, indent=2),
+                "text": payload if isinstance(payload, str) else json.dumps(payload, ensure_ascii=False, indent=2),
             }
         ],
         "isError": False,

@@ -132,9 +132,11 @@ WORKFLOW_HEALTH_DOC_EXPECTATIONS = {
 MCP_SERVER_DOC_EXPECTATIONS = {
     "docs/00-当前有效/project-knowledge-mcp.md": [
         "project_knowledge_mcp_server.py",
+        "render_workflow_health_summary.py",
         "get_project_knowledge_projection",
         "get_project_quality_audit",
         "get_project_workflow_bundle",
+        "get_project_workflow_health_summary",
         "mcpServers",
         "python3",
         "read-only",

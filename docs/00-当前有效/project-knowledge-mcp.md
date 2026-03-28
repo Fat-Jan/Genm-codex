@@ -29,6 +29,7 @@
 - `get_project_knowledge_projection`
 - `get_project_quality_audit`
 - `get_project_workflow_bundle`
+- `get_project_workflow_health_summary`
 
 其中：
 
@@ -38,6 +39,9 @@
   - 返回 review/close artifact 的假阳性审计结果
 - `get_project_workflow_bundle`
   - 一次返回 workflow-health + projection + audit，适合 agent 少调一次
+- `get_project_workflow_health_summary`
+  - 直接返回 Markdown 摘要
+  - 当前由 `render_workflow_health_summary.py` 负责统一渲染
 
 ## 启动方式
 
