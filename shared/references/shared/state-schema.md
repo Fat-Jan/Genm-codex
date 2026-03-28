@@ -585,6 +585,29 @@ version: "1.0"
   - `guardrail_count`
 - `active_context` 不是新的 truth source，不应与 `state.json`、`state-archive`、`index` 竞争事实归属
 
+### 运行时镜像与章节账本约定
+
+以下顶层区块当前已进入模板与运行态，应视为正式 schema 范围：
+
+- `auto_learn_config`
+- `platform_config`
+- `chapter_meta`
+- `chapter_snapshots`
+- `summaries_index`
+- `character_states`
+- `setting_versions`
+- `dungeons`
+- `teammates`
+- `constraints_loaded`
+
+约束：
+
+- 这些区块允许阶段性扩展，但不得再依赖“模板里有、schema 里没有”的隐式兼容
+- 若后续继续扩字段，应同步更新：
+  - `shared/templates/state-schema-v5.json`
+  - `shared/templates/state-v5-template.json`
+  - 当前说明文档
+
 ### `dimension_scores` 附加键约定
 
 除已有质量维度外，可追加：

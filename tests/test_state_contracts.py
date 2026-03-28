@@ -74,3 +74,10 @@ class StateContractSchemaTests(unittest.TestCase):
         self.assertIn("dimension_scores", chapter_meta)
         self.assertIn("anti_flattening_flags", chapter_meta)
         self.assertIn("anti_flattening_summary", chapter_meta)
+
+    def test_state_schema_declares_all_template_top_level_keys(self) -> None:
+        schema = read_json("shared/templates/state-schema-v5.json")
+        payload = read_json("shared/templates/state-v5-template.json")
+        schema_keys = set(schema["properties"].keys())
+        template_keys = set(payload.keys())
+        self.assertEqual(sorted(template_keys - schema_keys), [])

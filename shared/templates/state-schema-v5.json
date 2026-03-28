@@ -153,6 +153,9 @@
     "quality_metrics": {
       "type": "object"
     },
+    "auto_learn_config": {
+      "type": "object"
+    },
     "learned_patterns": {
       "oneOf": [
         {
@@ -248,6 +251,21 @@
       },
       "additionalProperties": true
     },
+    "platform_config": {
+      "type": "object"
+    },
+    "active_launch_grammar": {
+      "type": "string"
+    },
+    "active_primary_pivot": {
+      "type": "string"
+    },
+    "launch_stack_phase": {
+      "type": "string"
+    },
+    "launch_stack_drift_signal": {
+      "type": "string"
+    },
     "active_context": {
       "type": "object",
       "required": ["sidecar_file"],
@@ -267,6 +285,30 @@
         "guardrail_count": {"type": "integer"}
       },
       "additionalProperties": true
+    },
+    "chapter_meta": {
+      "type": "object"
+    },
+    "chapter_snapshots": {
+      "type": "object"
+    },
+    "summaries_index": {
+      "type": "object"
+    },
+    "character_states": {
+      "type": "object"
+    },
+    "setting_versions": {
+      "type": "object"
+    },
+    "dungeons": {
+      "type": "object"
+    },
+    "teammates": {
+      "type": "object"
+    },
+    "constraints_loaded": {
+      "type": "object"
     }
   },
   "additionalProperties": true

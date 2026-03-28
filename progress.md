@@ -3436,3 +3436,58 @@
   - `pytest -q tests/test_batch_transaction_contract.py tests/test_project_quality_audit.py tests/test_project_knowledge_projection.py tests/test_workflow_health_bundle.py tests/test_project_knowledge_mcp_server.py tests/test_active_context.py tests/test_writing_core_smoke.py tests/test_strong_quality_gate.py tests/test_inkos_growth_plan.py tests/test_state_contracts.py`
   - 结果：`101 passed`
   - `bash scripts/validate-migration.sh` → passed
+
+## Session Update: 2026-03-28 `v1.4` roadmap 重排
+
+- 已新增：
+  - `v1.4-roadmap.md`
+- 本轮不是简单复制 `architecture-review-2026-03-28.md`，而是按当前主仓已完成状态重新排优先级：
+  - 从待办中移除/降级：
+    - 已被 `quality-audit / workflow-truth / workflow-health / knowledge-projection / MCP read path` 覆盖的项
+  - 明确 `v1.4` 当前 5 条主线：
+    - 核心主线稳定化
+    - 规则压缩与文档去百科化
+    - 结构预防前移
+    - 流派 / bucket 真实打通
+    - 自动化回归样本
+- 已在 roadmap 中明确：
+  - 哪些交给 `mimo`
+  - 哪些由当前主线继续做
+  - 哪些暂时不做
+  - 完成后如何标记状态
+  - 如何互相审查
+  - 第一批建议并行组合
+
+## Session Update: 2026-03-28 `v1.4` 主线 A 启动
+
+- 已开始推进 `v1.4-roadmap.md` 中由当前主线负责的部分：
+  - `A1 state schema / template 一致性`
+  - `A3 维护链容错`
+- `A1` 当前已完成的第一步：
+  - 新增回归测试，要求 `state-schema-v5.json` 必须声明 `state-v5-template.json` 的全部顶层字段
+  - 已补齐 schema 对以下顶层区块的声明缺口：
+    - `auto_learn_config`
+    - `platform_config`
+    - `active_launch_grammar`
+    - `active_primary_pivot`
+    - `launch_stack_phase`
+    - `launch_stack_drift_signal`
+    - `chapter_meta`
+    - `chapter_snapshots`
+    - `summaries_index`
+    - `character_states`
+    - `setting_versions`
+    - `dungeons`
+    - `teammates`
+    - `constraints_loaded`
+  - 并补了一段 `shared/references/shared/state-schema.md` 说明这些区块已进入正式 schema 范围
+- `A3` 当前已完成的第一步：
+  - 新增 `tests/test_project_maintenance_tolerance.py`
+  - `scripts/project-maintenance.py` 已实现最小容错版：
+    - `snapshot` 之前仍为硬失败
+    - `snapshot` 之后的尾段步骤允许失败并写入 `partial`
+    - 已完成 `snapshot` 不会因后续 sidecar 构建失败而回滚
+- 当前验证：
+  - `pytest -q tests/test_state_contracts.py` → passed
+  - `pytest -q tests/test_project_maintenance_tolerance.py tests/test_inkos_growth_plan.py -k 'project_maintenance or post_task_maintenance'` → passed
+  - `bash scripts/validate-migration.sh` → passed

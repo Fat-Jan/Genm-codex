@@ -28,6 +28,22 @@ def run(cmd: list[str]) -> dict:
     }
 
 
+def run_step(cmd: list[str], *, allow_failure: bool = False) -> dict:
+    try:
+        result = run(cmd)
+        result["status"] = "success"
+        return result
+    except Exception as exc:
+        if not allow_failure:
+            raise
+        return {
+            "cmd": cmd,
+            "stdout": "",
+            "status": "failed",
+            "error": str(exc),
+        }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run post-write maintenance for a novel project")
     parser.add_argument("project_root", help="Novel project root")
@@ -45,14 +61,14 @@ def main() -> None:
     script_dir = SCRIPT_DIR
 
     steps = []
-    steps.append(run([
+    steps.append(run_step([
         sys.executable,
         str(script_dir / "setting_gate.py"),
         str(root),
         "--stage",
         "write-post",
     ]))
-    steps.append(run([
+    steps.append(run_step([
         sys.executable,
         str(script_dir / "sync-setting-assets.py"),
         str(root),
@@ -61,21 +77,21 @@ def main() -> None:
         "--recent-chapters",
         str(args.recent_chapters),
     ]))
-    steps.append(run([
+    steps.append(run_step([
         sys.executable,
         str(script_dir / "split-runtime-guidance.py"),
         str(root),
         "--timestamp",
         ts,
     ]))
-    steps.append(run([
+    steps.append(run_step([
         sys.executable,
         str(script_dir / "build_active_context.py"),
         str(root),
         "--timestamp",
         ts,
     ]))
-    steps.append(run([
+    steps.append(run_step([
         sys.executable,
         str(script_dir / "thin-state.py"),
         str(root),
@@ -84,7 +100,7 @@ def main() -> None:
         "--timestamp",
         ts,
     ]))
-    snapshot_step = run([
+    snapshot_step = run_step([
         sys.executable,
         str(script_dir / "generate_snapshot.py"),
         str(root),
@@ -103,51 +119,53 @@ def main() -> None:
         report_file=str(report_path),
         snapshot_file=snapshot_payload["filesystem_snapshot_file"],
     )
-    memory_context_step = run([
+    memory_context_step = run_step([
         sys.executable,
         str(script_dir / "build_memory_context.py"),
         str(root),
         "--timestamp",
         ts,
-    ])
+    ], allow_failure=True)
     steps.append(memory_context_step)
-    quality_audit_step = run([
+    quality_audit_step = run_step([
         sys.executable,
         str(script_dir / "audit_project_quality_state.py"),
         str(root),
         "--write",
-    ])
+    ], allow_failure=True)
     steps.append(quality_audit_step)
-    content_positioning_step = run([
+    content_positioning_step = run_step([
         sys.executable,
         str(script_dir / "build_content_positioning.py"),
         str(root),
         "--timestamp",
         ts,
-    ])
+    ], allow_failure=True)
     steps.append(content_positioning_step)
-    knowledge_projection_step = run([
+    knowledge_projection_step = run_step([
         sys.executable,
         str(script_dir / "build_project_knowledge_projection.py"),
         str(root),
         "--timestamp",
         ts,
         "--write",
-    ])
+    ], allow_failure=True)
     steps.append(knowledge_projection_step)
-    workflow_health_step = run([
+    workflow_health_step = run_step([
         sys.executable,
         str(script_dir / "build_workflow_health_bundle.py"),
         str(root),
         "--timestamp",
         ts,
         "--write",
-    ])
+    ], allow_failure=True)
     steps.append(workflow_health_step)
+    result_state = "partial" if any(step.get("status") == "failed" for step in steps) else "success"
 
     report = {
         "project": str(root),
         "run_at": ts,
+        "result": result_state,
         "transaction_contract": "chapter-transaction-v1",
         "transaction_phase": "snapshot",
         "next_transaction_step": None,
@@ -159,7 +177,7 @@ def main() -> None:
         root,
         event="maintenance.completed",
         skill="project-maintenance",
-        result="success",
+        result=result_state,
         details={
             "trigger": args.workflow_trigger,
             "report_file": str(report_path),
@@ -173,6 +191,7 @@ def main() -> None:
         "workflow_state_file": str(workflow_state_utils.workflow_state_path(root)),
         "transaction_contract": "chapter-transaction-v1",
         "trace_log_file": str(trace_log_path),
+        "result": result_state,
         "transaction_phase": "snapshot",
         "next_transaction_step": None,
         "workflow_current_step": workflow_state["current_task"]["current_step"],
