@@ -13,6 +13,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 import audit_project_quality_state
 import audit_chapter_structure_repetition
+import audit_precheck_structure_risks
 import build_project_knowledge_projection
 import build_workflow_health_bundle
 
@@ -54,6 +55,7 @@ def main() -> None:
         "knowledge_projection": knowledge_projection,
         "workflow_health": workflow_health,
         "chapter_structure_audit": audit_chapter_structure_repetition.audit_chapter_structure_repetition(root),
+        "precheck_structure_risks": audit_precheck_structure_risks.audit_precheck_structure_risks(root),
     }
 
     if args.batch_count:

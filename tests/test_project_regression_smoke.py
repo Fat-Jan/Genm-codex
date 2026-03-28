@@ -102,6 +102,7 @@ class ProjectRegressionSmokeTests(unittest.TestCase):
         self.assertIn("workflow_health", payload)
         self.assertIn("batch_quality_gate", payload)
         self.assertIn("chapter_structure_audit", payload)
+        self.assertIn("precheck_structure_risks", payload)
         self.assertEqual(payload["workflow_health"]["quality_audit_status"], "fail")
 
 
