@@ -3825,6 +3825,23 @@
 - 验证：
   - `pytest -q tests/test_skill_rationalization_policy.py tests/test_runtime_boundary_adr.py` passed
 
+## Session Update: 2026-03-28 `v1.5` P3-C 完成
+
+- 新增 scan 消费层 helper：
+  - `scripts/render_project_scan_summary.py`
+- MCP server 新增：
+  - `get_project_scan_summary`
+- 更新 consumer 合同：
+  - `skills/novel-package/SKILL.md`
+  - `skills/novel-status/SKILL.md`
+  - `skills/novel-query/SKILL.md`
+- 扩展测试：
+  - `tests/test_project_scan_summary.py`
+  - `tests/test_project_knowledge_mcp_server.py`
+  - `tests/test_profile_consumers.py`
+- 验证：
+  - `pytest -q tests/test_project_scan_summary.py tests/test_project_knowledge_mcp_server.py tests/test_profile_consumers.py` passed
+
 ## Session Update: 2026-03-28 跨平台支持规划
 
 - 创建跨平台支持规划文档：`cross-platform-support-plan.md`

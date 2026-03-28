@@ -27,6 +27,7 @@ It is not a replacement for:
 It consumes signals from those systems and turns them into packaging outputs.
 
 Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat `shared/templates/project/creative-brief.md` as the earliest lightweight packaging-input source before a project has a stable full `总纲`.
+Also read `../../docs/00-当前有效/scan-result-contract.md` when consuming `market-data / market-adjustments / research-candidates`.
 
 ## Inputs
 

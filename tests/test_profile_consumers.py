@@ -50,6 +50,7 @@ CONSUMER_EXPECTATIONS = {
         ".mighty/content-positioning.json",
         "platform overlay",
         "bucket overlay",
+        "scan-result-contract.md",
     ],
     "skills/novel-precheck/SKILL.md": [
         "state.genre_profile",
@@ -62,12 +63,14 @@ CONSUMER_EXPECTATIONS = {
         ".mighty/quality-audit.json",
         ".mighty/knowledge-projection.json",
         "render_project_status_dashboard.py",
+        "render_project_scan_summary.py",
     ],
     "skills/novel-query/SKILL.md": [
         ".mighty/workflow-health.json",
         ".mighty/quality-audit.json",
         ".mighty/knowledge-projection.json",
         "render_project_status_dashboard.py",
+        "render_project_scan_summary.py",
     ],
 }
 

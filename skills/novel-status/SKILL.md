@@ -140,6 +140,7 @@ Read conditionally:
 - when `.mighty/quality-audit.json` exists, also surface:
   - `quality-audit.status`
   - top finding codes
+- when `.mighty/market-data.json` or `.mighty/market-adjustments.json` exist and the user asks about市场/scan/trend, mirror `../../scripts/render_project_scan_summary.py`
 - keep this section compact and operational, not architectural essay
 
 ### overdue items

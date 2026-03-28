@@ -71,6 +71,7 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         self.assertIn("get_project_workflow_bundle", tool_names)
         self.assertIn("get_project_workflow_health_summary", tool_names)
         self.assertIn("get_project_status_dashboard", tool_names)
+        self.assertIn("get_project_scan_summary", tool_names)
 
     def test_tools_call_returns_projection_payload(self) -> None:
         module = load_module()
@@ -186,6 +187,48 @@ class ProjectKnowledgeMcpServerTests(unittest.TestCase):
         text = response["result"]["content"][0]["text"]
         self.assertIn("## Project Status Dashboard", text)
         self.assertIn("MCP 测试书", text)
+
+    def test_tools_call_returns_project_scan_summary(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        write_json(
+            root / ".mighty" / "market-data.json",
+            {
+                "version": "1.0",
+                "scan_time": "2026-03-28T00:00:00Z",
+                "mode": "report-only",
+                "report_kind": "real_report",
+                "targets": {"platforms": ["番茄"], "genre": "玄幻", "depth": "quick"},
+                "source_plan": {"requested_scope": {"platform": "番茄"}},
+                "sources": [],
+                "findings": {
+                    "hot_genres": [],
+                    "recommended_content_buckets": [{"bucket_name": "玄幻脑洞"}],
+                    "hot_tags": [],
+                    "opening_patterns": [],
+                    "cool_point_patterns": [],
+                    "platform_notes": [],
+                },
+                "confidence": {"overall": "medium", "reason": "test"},
+                "gaps": [],
+                "apply_recommendations": [],
+            },
+        )
+        response = module.handle_request(
+            {
+                "jsonrpc": "2.0",
+                "id": 6,
+                "method": "tools/call",
+                "params": {
+                    "name": "get_project_scan_summary",
+                    "arguments": {"project_root": str(root)},
+                },
+            }
+        )
+        self.assertFalse(response["result"]["isError"])
+        text = response["result"]["content"][0]["text"]
+        self.assertIn("## Project Scan Summary", text)
+        self.assertIn("玄幻脑洞", text)
 
 
 if __name__ == "__main__":
