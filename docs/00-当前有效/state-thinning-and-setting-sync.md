@@ -233,6 +233,7 @@
 如果后续需要把项目摘要安全地同步给 MCP memory，当前推荐额外生成：
 
 - `.mighty/memory-context.json`
+- `.mighty/memory-sync-report.json`
 
 它只保留：
 
@@ -247,6 +248,12 @@
 - 全量 `state.json`
 - 章节正文
 - sidecar 正文
+
+当前接线方式：
+
+- 本地先生成 `.mighty/memory-context.json`
+- 如项目在 `.mighty/config.json` 中显式声明 `memory_sync.openmemory.enabled = true`，再通过 `scripts/sync_memory_context_to_openmemory.py` 写入 openmemory
+- 无显式开启时，只写本地 `memory-sync-report.json`，不外写记忆库
 
 如果项目进入组合题材 / 多主题卖点 / 群像结构模式阶段，当前推荐额外生成：
 

@@ -1,0 +1,14 @@
+name: "直播文 bucket overlay"
+display_name: "直播文"
+description: "番茄直播文 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "直播文"
+    strong_tags: ["粉丝增长", "打赏互动"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["直播反馈必须及时可见", "互动爽点不能替代真实成长"]
+    package_cues:
+      - "首屏点开播场景或直播任务"
+      - "前三章要出现一次涨粉/打赏兑现"

@@ -1,0 +1,171 @@
+{
+  "project": "projects/成婚前三日，我先改了侯府嫁妆单",
+  "reviewed_chapter_count": 8,
+  "status": "fail",
+  "findings": [
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "5",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "5",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "5",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "5",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "6",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "6",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "6",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "6",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "7",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "7",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "7",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "7",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "8",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "8",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "8",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "8",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "9",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "9",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "9",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "9",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "10",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "10",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "10",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "10",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "11",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "11",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "11",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "11",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-issue-clusters-with-score",
+      "chapter": "12",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-needs-fix-flag",
+      "chapter": "12",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-dimension-scores",
+      "chapter": "12",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "12",
+      "severity": "warn"
+    },
+    {
+      "code": "empty-project-dimension-scores",
+      "severity": "fail"
+    }
+  ]
+}

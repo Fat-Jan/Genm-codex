@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-03-27T14:27:07Z",
+  "generated_at": "2026-03-31T18:03:15Z",
   "primary_profile": "palace-intrigue",
   "primary_bucket": "宫斗宅斗",
   "tagpacks": [],
@@ -52,7 +52,7 @@
   "freshness": {
     "contract": "sidecar-freshness-v1",
     "artifact_key": "content-positioning",
-    "generated_at": "2026-03-27T14:27:07Z",
+    "generated_at": "2026-03-31T18:03:15Z",
     "generated_by": "scripts/build_content_positioning.py",
     "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
     "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
@@ -64,7 +64,7 @@
     "inputs": {
       "state.json": {
         "path": ".mighty/state.json",
-        "updated_at": "2026-03-27T14:27:07Z",
+        "updated_at": "2026-03-31T18:03:15Z",
         "loaded_profile": "palace-intrigue",
         "bucket": "宫斗宅斗"
       },

@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-03-27T14:27:07Z",
+  "generated_at": "2026-03-31T18:03:15Z",
   "title": "成婚前三日，我先改了侯府嫁妆单",
   "current_chapter": 12,
   "summary_window": {
@@ -66,59 +66,6 @@
       "name": "沈见秋",
       "aliases": [
         "见秋"
-      ],
-      "power": {
-        "realm": "侯府内宅账局",
-        "level": "新妇起步",
-        "layer": 1
-      },
-      "location": {
-        "current": "沈家待嫁院",
-        "origin": "江南商户沈家"
-      },
-      "inventory": [
-        "原嫁妆单底本",
-        "陪房名单",
-        "私账底册",
-        "春绫旧案线索"
-      ],
-      "abilities": [
-        "记账",
-        "核账",
-        "临场控话",
-        "在规矩里留后手"
-      ],
-      "status": [
-        "重生回成婚前三日",
-        "识破侯府想借婚事吃绝户",
-        "决意先保账再翻旧案",
-        "婚前保住原嫁妆单底本",
-        "保住陪房名单和外家对账口",
-        "进门第一天拿到局部账权入口",
-        "抓到许妈妈经手旧木盒的交接签",
-        "在库房坐实旧木盒和旧册都被人动过",
-        "逼周成承认春绫那笔账是后补入册"
-      ],
-      "current_goals": [
-        "抢在许妈妈被送走前把旧案线从执行层错账抬到活人证词",
-        "继续扩大战果但不把世子房这一线提前打穿",
-        "把账权入口稳成可持续使用的月内权限"
-      ],
-      "known_secrets": [
-        "侯府真实缺钱，婚事本质上是冲着沈家钱和商路来的",
-        "春绫之死绝不只是失足投井",
-        "顾行舟和秦氏都知道侯府有不能翻的旧账"
-      ],
-      "recent_events": [
-        "重生回成婚前三日",
-        "确认侯府仍准备逼她重签嫁妆单",
-        "决定先保住原嫁妆单底本和陪房名单",
-        "当场挡下侯府婚前重列嫁妆单",
-        "逼侯府承认陪房名单不全换并在外家封存底账",
-        "进门第一天拿到世子房首轮婚后账与嫁妆入库清单的亲核权",
-        "抓到许妈妈经手旧木盒的交接签",
-        "在库房抓到被重新系过封绳的旧木盒和被撕走的一页旧册",
-        "当着顾行舟的面逼周成承认春绫那笔账是后补入册"
       ]
     },
     "active_characters": [
@@ -178,12 +125,12 @@
     "has_sidecar": true
   },
   "guardrail_summary": {
-    "has_recent_guardrails": false,
+    "has_recent_guardrails": true,
     "must_avoid_count": 0,
     "must_preserve_count": 0,
     "watchpoint_count": 0,
     "expires_after_chapter": null,
-    "source_sidecar": null
+    "source_sidecar": ".mighty/learned-patterns.json"
   },
   "market_signal_ids": []
 }

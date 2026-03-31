@@ -1,0 +1,14 @@
+name: "替身文 bucket overlay"
+display_name: "替身文"
+description: "番茄替身文 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "替身文"
+    strong_tags: ["身份错位", "追悔反转"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["替身关系不能压垮女主主体性", "转正过程必须有换账与代价"]
+    package_cues:
+      - "首屏点替身关系或白月光阴影"
+      - "前三章要出现一次身份/情感反打"

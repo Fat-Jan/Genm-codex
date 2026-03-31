@@ -123,6 +123,16 @@ reader_expectations:
     - "主角完全依赖系统"
     - "结局烂尾"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["系统", "逆袭"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["系统奖励不能替代成长", "任务推进要和主线冲突绑定"]
+    package_cues:
+      - "首屏点系统绑定或任务触发"
+      - "前三章要出现一次任务兑现或奖励换账"
+
 golden_three:
   opening_hook: "开篇必须立即绑定系统，展现系统功能，让读者理解核心设定"
   protagonist_intro: "主角出场要有明确的目标或困境，系统成为解决方案"

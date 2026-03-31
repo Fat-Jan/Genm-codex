@@ -1,0 +1,14 @@
+name: "知乎短篇 bucket overlay"
+display_name: "知乎短篇"
+description: "番茄知乎短篇 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "知乎短篇"
+    strong_tags: ["强反转", "第一人称代入"]
+    narrative_modes: ["单线爆发"]
+    tone_guardrails: ["短篇结构必须首尾闭环", "反转必须有前文伏笔支撑"]
+    package_cues:
+      - "首屏点问题/冲突/身份钩子"
+      - "前三段要出现一次核心悬念或反转预告"

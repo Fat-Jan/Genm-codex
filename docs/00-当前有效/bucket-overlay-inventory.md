@@ -2,7 +2,7 @@
 
 ## 目的
 
-盘点当前 bucket overlay 的实现情况，找出缺口，给出优先级。
+盘点当前 bucket overlay 的实现情况，记录现状、历史背景与后续维护规则，避免后续把历史缺口误判为当前未完成事项。
 
 ---
 
@@ -45,15 +45,15 @@
 
 ### 1. Bucket Overlay 文件缺失
 
-当前已补齐当前所有声明了 `fanqie primary_bucket` 的 `bucket-*.yaml` 文件。后续新增 profile 若继续声明 `fanqie primary_bucket`，也必须同步补 overlay。根据 contract 分层，bucket overlay 应该：
+当前已补齐所有声明了 `fanqie primary_bucket` 的 `bucket-*.yaml` 文件，因此当前**不存在已知缺失项**。后续新增 profile 若继续声明 `fanqie primary_bucket`，也必须同步补 overlay。根据 contract 分层，bucket overlay 应该：
 
 - **路径**: `profiles/<slug>/bucket-<bucket>.yaml`
 - **内容**: 只放内容桶差异
 - **作用**: 在 platform overlay 之上，进一步特化内容桶规则
 
-### 2. P0 Bucket 优先
+### 2. P0 Bucket 历史背景
 
-根据 `fanqie-mvp-buckets.yaml`，当前 P0 bucket 有：
+根据 `fanqie-mvp-buckets.yaml`，当时优先补齐的 P0 bucket 包括：
 
 1. `gongdou_zhai` (宫斗宅斗)
 2. `dushi_naodong` (都市脑洞)
@@ -64,19 +64,13 @@
 7. `lishi_naodong` (历史脑洞)
 8. `xuanhuan_naodong` (玄幻脑洞)
 
-### 3. 缺口优先级
+### 3. 当前维护重点
 
-| 优先级 | bucket | 原因 |
-|--------|--------|------|
-| P0 | gongdou_zhai | 已有完整规则体系，但缺少 bucket overlay |
-| P0 | dushi_naodong | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | dushi_changri | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | qingchun_tianchong | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | haomen_zongcai | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | zhichang_hunlian | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | lishi_naodong | 已有 platform overlay，但缺少 bucket overlay |
-| P0 | xuanhuan_naodong | 已有 platform overlay，但缺少 bucket overlay |
-| P1 | 其他 bucket | 根据需要逐步补齐 |
+| 维护项 | 当前状态 | 说明 |
+|--------|----------|------|
+| 已声明 primary_bucket 的 overlay 文件 | ✅ 已补齐 | 当前无已知缺失 |
+| 新 profile 新增 primary_bucket 时同步补 overlay | ⏳ 持续维护 | 新增声明时仍需同步补齐 |
+| overlay 文件格式一致性 | ⏳ 持续维护 | 后续如新增 overlay，继续保持统一格式 |
 
 ---
 
@@ -94,7 +88,11 @@ version: "1.0"
 # 例如：特定 bucket 的约束、爽点类型、节奏调整等
 ```
 
-### 2. 优先实现 P0 Bucket
+## 参考实现样例
+
+以下内容保留为“首批 P0 bucket overlay 的参考实现样例”，用于说明当时如何从 bucket 定义落到实际 overlay 文件；它们不是当前待办清单。
+
+### 1. 首批 P0 bucket 样例
 
 #### gongdou_zhai (宫斗宅斗)
 
@@ -172,50 +170,34 @@ version: "1.0"
 
 ## 下一步
 
-### 短期（v1.4）
+### 当前阶段（v1.5 后）
 
-1. **创建 P0 bucket overlay 文件**:
-   - `profiles/palace-intrigue/bucket-palace-intrigue.yaml`
-   - `profiles/urban-brainhole/bucket-urban-brainhole.yaml`
-   - `profiles/urban-daily/bucket-urban-daily.yaml`
-   - `profiles/sweet-youth/bucket-sweet-youth.yaml`
-   - `profiles/ceo-romance/bucket-ceo-romance.yaml`
-   - `profiles/workplace-romance/bucket-workplace-romance.yaml`
-   - `profiles/historical-brainhole/bucket-historical-brainhole.yaml`
-   - `profiles/xuanhuan/bucket-xuanhuan.yaml`
+1. **保持新增声明即补 overlay**：
+   - 新 profile 若新增 `fanqie primary_bucket`，同步补对应 `bucket-*.yaml`
 
-2. **更新 profile_contract.py**:
-   - 添加 `load_bucket_overlay()` 函数
-   - 更新 `resolve_platform_positioning()` 以支持 bucket overlay
+2. **保持 overlay 文件格式一致性**：
+   - 新增 overlay 时继续沿用当前结构和字段分层
 
-3. **更新 build_content_positioning.py**:
-   - 添加 bucket overlay 消费逻辑
+3. **视需要补模板与一致性检查**：
+   - 如后续新增 overlay 频率变高，可再考虑：
+     - `shared/templates/bucket-overlay-template.yaml`
+     - bucket overlay 一致性检查
+     - bucket overlay 与 platform overlay 冲突检查
 
-### 中期（v1.5）
+### 历史实现记录
 
-1. **补齐 P1 bucket overlay**:
-   - 当新 profile 新增 `fanqie primary_bucket` 时，同步补齐对应 bucket overlay
+以下事项已完成，不再属于当前待办：
 
-2. **建立 bucket overlay 模板**:
-   - 创建 `shared/templates/bucket-overlay-template.yaml`
-   - 规范 bucket overlay 文件格式
-
-### 长期（v1.6+）
-
-1. **Bucket overlay 自动化**:
-   - 从 `fanqie-mvp-buckets.yaml` 自动生成 bucket overlay 骨架
-   - 从 `content-positioning-map-v1.json` 自动生成 bucket overlay 内容
-
-2. **Bucket overlay 验证**:
-   - 添加 bucket overlay 一致性检查
-   - 添加 bucket overlay 与 platform overlay 冲突检查
+- P0 bucket overlay 文件已创建
+- `profile_contract.py` 已更新
+- `build_content_positioning.py` 已更新
 
 ---
 
 ## 完成标记
 
-- [ ] 有独立设计稿（本文件）
-- [ ] 明确缺口清单和优先级（本文件）
+- [x] 有独立设计稿（本文件）
+- [x] 已区分现状、历史背景与后续维护点
 - [x] P0 bucket overlay 文件已创建
-- [x] profile_contract.py 已更新
-- [x] build_content_positioning.py 已更新
+- [x] `profile_contract.py` 已更新
+- [x] `build_content_positioning.py` 已更新

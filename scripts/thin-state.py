@@ -29,13 +29,21 @@ def atomic_write_json(path: Path, payload: dict) -> None:
 
 
 def sort_keys(mapping: dict) -> list[str]:
-    return sorted(mapping.keys(), key=lambda x: int(x))
+    return sorted(
+        (key for key in mapping.keys() if isinstance(key, str) and key.isdigit()),
+        key=lambda x: int(x),
+    )
 
 
 def merge_sorted(a: dict, b: dict) -> dict:
     merged = dict(a)
     merged.update(b)
-    return dict(sorted(merged.items(), key=lambda kv: int(kv[0])))
+    numeric_items = sorted(
+        ((key, value) for key, value in merged.items() if isinstance(key, str) and key.isdigit()),
+        key=lambda kv: int(kv[0]),
+    )
+    extra_items = [(key, value) for key, value in merged.items() if not (isinstance(key, str) and key.isdigit())]
+    return dict(numeric_items + extra_items)
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -93,9 +101,18 @@ def main(argv: list[str] | None = None) -> None:
         {k: summaries_index[k] for k in archive if k in summaries_index},
     )
 
-    state["chapter_meta"] = {k: chapter_meta[k] for k in keep if k in chapter_meta}
-    state["chapter_snapshots"] = {k: chapter_snapshots[k] for k in keep if k in chapter_snapshots}
-    state["summaries_index"] = {k: summaries_index[k] for k in keep if k in summaries_index}
+    state["chapter_meta"] = {
+        **{k: chapter_meta[k] for k in keep if k in chapter_meta},
+        **{k: value for k, value in chapter_meta.items() if not (isinstance(k, str) and k.isdigit())},
+    }
+    state["chapter_snapshots"] = {
+        **{k: chapter_snapshots[k] for k in keep if k in chapter_snapshots},
+        **{k: value for k, value in chapter_snapshots.items() if not (isinstance(k, str) and k.isdigit())},
+    }
+    state["summaries_index"] = {
+        **{k: summaries_index[k] for k in keep if k in summaries_index},
+        **{k: value for k, value in summaries_index.items() if not (isinstance(k, str) and k.isdigit())},
+    }
 
     atomic_write_json(archive_path, archive_doc)
     atomic_write_json(state_path, state)

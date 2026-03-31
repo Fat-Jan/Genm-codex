@@ -184,6 +184,16 @@ reader_expectations:
     - "主角能力无限叠加"
     - "队友毫无存在感"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "无限流"
+    strong_tags: ["副本通关", "绝境翻盘"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["副本规则必须自洽", "队友不能全是工具人"]
+    package_cues:
+      - "首屏点副本规则或死亡威胁"
+      - "前三章要出现一次破局或能力兑现"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - ID: TABOO-001

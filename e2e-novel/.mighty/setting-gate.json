@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "status": "passed",
+  "checked_after": "write-post",
+  "launch_stack_action": {
+    "status": "not_applicable",
+    "reason": "stage_not_outline"
+  },
+  "blocking_gaps": [],
+  "auto_created_files": [],
+  "review_queue_count": 0,
+  "mcp_used": false,
+  "mcp_sources": [],
+  "review_items": [],
+  "truth_sources_checked": [],
+  "minimal_next_action": {
+    "action": "none",
+    "reason": "gate passed",
+    "suggested_commands": []
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "setting-gate",
+    "generated_at": "2026-03-31T18:03:15Z",
+    "generated_by": "scripts/setting_gate.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "e2e-novel",
+    "depends_on": [
+      ".mighty/state.json",
+      "大纲/总纲.md",
+      "大纲/章纲/*.md",
+      ".mighty/research-candidates.json"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-31T17:56:43Z",
+        "current_chapter": 5
+      },
+      "outline": {
+        "path": "大纲/总纲.md + 大纲/章纲/*.md",
+        "has_text": true,
+        "chapter_outline_count": 11
+      },
+      "research-candidates.json": {
+        "path": ".mighty/research-candidates.json",
+        "count": 0
+      }
+    }
+  }
+}

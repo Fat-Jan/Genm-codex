@@ -1,0 +1,157 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-31T18:03:15Z",
+  "title": "E2E样本",
+  "current_chapter": 5,
+  "summary_window": {
+    "count": 5,
+    "recent_count": 5,
+    "latest_chapter": "5"
+  },
+  "recent_summaries": [
+    {
+      "chapter": "1",
+      "summary": "沈照在药庐被周通夺走淬体散，韩执事限他三日自证。夜里照骨古镜在后山废井苏醒，沈照当场试出裂石效果，并循线赶往后山东壁。"
+    },
+    {
+      "chapter": "2",
+      "summary": "沈照先在后山东壁前用古镜提纯药渣，随后在演武场当众反打周通的人，夺下雾隐谷试炼木牌，并确认木牌背纹指向后山东壁石门。"
+    },
+    {
+      "chapter": "3",
+      "summary": "沈照借木牌和古镜打开后山东壁石门，拿到残星引脉诀和引灵丹，并看到父亲留下的'沈行舟非贼'血字。随后他强行破入聚气境一重，带伤赶往雾隐谷试炼。"
+    },
+    {
+      "chapter": "4",
+      "summary": "苏小棠提醒沈照雾隐谷试炼路桩被人动过手脚。沈照入谷后仍遭妖狼和周通手下围杀，却反借乱石与狼群夺下第一枚青云令；崖壁深处封死石门露出的'藏阁'残刻，则把这条线重新接回父亲旧案。"
+    },
+    {
+      "chapter": "5",
+      "summary": "沈照与苏小棠在石室中击碎镜火傀儡，古镜点亮第一道镜纹并显出镜返雏形。沈照拿到玄火砂、照骨残页和'镜不在罪，在贪，藏阁有证'留字，随后以四枚青云令拿下试炼第一，而韩执事当场点名让他明日首场上擂。"
+    }
+  ],
+  "active_hooks": [
+    {
+      "id": "f1",
+      "name": "古镜来历",
+      "description": "母亲留下的残缺古镜与青云宗禁地和镜墟有关。",
+      "planted_chapter": 1,
+      "expected_range": "8-20",
+      "status": "planted",
+      "related_entities": [
+        "沈照",
+        "残缺古镜",
+        "青云宗"
+      ],
+      "importance": "high"
+    },
+    {
+      "id": "f2",
+      "name": "父亲的罪名",
+      "description": "沈照父亲被扣上窃宝罪名后失踪，真相与古镜碎片争夺有关。",
+      "planted_chapter": 2,
+      "expected_range": "10-30",
+      "status": "planted",
+      "related_entities": [
+        "沈照",
+        "父亲",
+        "韩执事",
+        "藏经阁"
+      ],
+      "importance": "high"
+    },
+    {
+      "id": "f3",
+      "name": "镜墟封印",
+      "description": "青云宗高层正在搜集镜片，试图开启镜墟封印。",
+      "planted_chapter": 3,
+      "expected_range": "10-40",
+      "status": "planned",
+      "related_entities": [
+        "青云宗",
+        "藏经阁",
+        "残缺古镜"
+      ],
+      "importance": "high"
+    }
+  ],
+  "relevant_entities": {
+    "protagonist": {
+      "name": "沈照",
+      "aliases": [
+        "外门废脉"
+      ]
+    },
+    "active_characters": [
+      {
+        "name": "周通",
+        "role": "外门恶霸",
+        "relationship": "敌对"
+      },
+      {
+        "name": "韩执事",
+        "role": "外门执事",
+        "relationship": "敌对"
+      },
+      {
+        "name": "苏小棠",
+        "role": "外门弟子",
+        "relationship": "临时盟友"
+      },
+      {
+        "name": "谢北辰",
+        "role": "外门第一",
+        "relationship": "阶段强敌"
+      },
+      {
+        "name": "杜百川",
+        "role": "藏经阁老人",
+        "relationship": "潜在引路人"
+      }
+    ],
+    "active_locations": [
+      "雾隐谷谷口",
+      "后山废井",
+      "后山东壁",
+      "后山东壁石门",
+      "雾隐谷"
+    ],
+    "active_factions": [],
+    "tracked_items": [
+      "残缺古镜",
+      "残星引脉诀",
+      "玄火砂",
+      "照骨残页",
+      "残缺古镜（第一道镜纹点亮）"
+    ]
+  },
+  "write_readiness": {
+    "gate_status": "passed",
+    "blocking_gaps": [],
+    "minimal_next_action": {
+      "action": "none",
+      "reason": "gate passed",
+      "suggested_commands": []
+    }
+  },
+  "launch_stack": {
+    "active_launch_grammar": "",
+    "active_primary_pivot": "",
+    "launch_stack_phase": "",
+    "launch_stack_drift_signal": "none",
+    "has_sidecar": false
+  },
+  "guardrail_summary": {
+    "has_recent_guardrails": true,
+    "must_avoid_count": 0,
+    "must_preserve_count": 0,
+    "watchpoint_count": 0,
+    "expires_after_chapter": null,
+    "source_sidecar": ".mighty/learned-patterns.json"
+  },
+  "market_signal_ids": [
+    "tomato-xuanhuan-hook-visibility",
+    "tomato-xuanhuan-trial-arc-fast-payoff",
+    "tomato-xuanhuan-packaging"
+  ]
+}

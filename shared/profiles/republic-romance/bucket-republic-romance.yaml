@@ -1,0 +1,14 @@
+name: "民国言情 bucket overlay"
+display_name: "民国言情"
+description: "番茄民国言情 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "民国言情"
+    strong_tags: ["乱世情缘", "时代悲歌"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["时代感不能悬浮", "爱情线必须扎根乱世处境"]
+    package_cues:
+      - "首屏点乱世相遇或身份对撞"
+      - "前三章要出现一次时代/命运冲击"

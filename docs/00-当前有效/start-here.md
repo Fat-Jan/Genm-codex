@@ -6,6 +6,34 @@
 
 按用途走：
 
+## 0. 先判断你现在属于哪一类
+
+- **当前任务接手 / 延续已有工作**：优先看：
+  - [.ops/active-plan.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/active-plan.md)
+  - [.ops/progress.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/progress.md)
+  - [.ops/findings.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/findings.md)
+  - 只有在追历史链路或旧链接时，再回读根目录 `task_plan.md` / `progress.md` / `findings.md`
+- **普通创作主线**：继续看下面的 1-9
+- **`v1.5` 治理 / contract / registry / consumer 接线**：优先看：
+  - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+  - [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
+  - [profile-expansion-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md)
+  - [scan-result-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-result-contract.md)
+  - [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
+- **不知道该读哪份文档**：先回 `docs/INDEX.md`
+
+如果你现在关心的是 `v1.5` 的治理、contract、registry 或 consumer 接线，而不是普通创作主线，先看：
+
+- [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+- [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
+- [profile-expansion-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md)
+- [scan-result-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-result-contract.md)
+- [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
+
+当前普通创作用户的最小操作顺序没有因为 `v1.5` 改写，下面仍按默认创作主线展开。
+
+## 普通创作主线
+
 ### 1. 我想从零开始写一本书
 
 顺序：
@@ -29,6 +57,7 @@
 - 单章主线现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果立项信息还不稳，先补 `shared/templates/project/creative-brief.md`
+- 如果还卡在“写什么世界观 / 这个脑洞怎么组合”，先参考 `shared/references/writing/worldview-motif-catalog.md`，先选 `1` 个世界观母题 + `0-1` 个机制母题 + 可选 `1` 个包装母题，再回填 brief
 - 先有 `总纲`，再有 `章纲`
 - 总纲初稿后，先补当前卷刚需设定：
   - 家族/继承/婚配/掌家真值
@@ -78,6 +107,8 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 - `novel-status`
 - `novel-query`
 - `novel-index`
+- 如果你想分析最近几章的节奏 / 爽点 / 连续性，而不是看全局状态，再加：
+  - `novel-analyze`
 
 最小提示词：
 
@@ -102,6 +133,18 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - “现在 gate 卡在哪”
   - “下一步最小动作是什么”
   也可以直接用 `novel-query`
+- 如果你想看的是：
+  - 最近几章有没有拖节奏
+  - 爽点密度稳不稳
+  - 连续性有没有松
+  优先再用：
+  - `novel-analyze`
+
+最小提示词：
+
+```text
+请使用 novel-analyze skill，对第001章到第003章做区间分析，重点看节奏、爽点密度和连续性问题。
+```
 
 ### 3. 我正在写作，想快速引用设定
 
@@ -143,6 +186,17 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
 
 - [反脸谱化体系](../anti-flattening-framework/README.md)
 
+- 如果这里卡住的根因其实是 `profile / genre` 边界拿不准，不要只凭项目局部文本硬猜；先回看：
+  - `docs/10-进行中/batch-evidence-sidecar.json`
+  - `docs/00-当前有效/genre-ontology-field-decisions-v1.5.md`
+  把它们当作上游判定依据，再决定 `novel-genre` / `novel-outline` / `novel-review` 应该站在哪个题材边界上
+
+快捷判断：
+
+- 题材还没定稳 → `novel-genre`
+- 总纲/章纲方向摇摆 → `novel-outline`
+- 已写正文但审查时发现题材站位不稳 → `novel-review`
+
 如果你关心的是：
 
 - 开头抓不抓人
@@ -178,6 +232,8 @@ title=我的新书，genre=玄幻，platform=番茄，target_chapters=10
   - AI 摘要腔
 - 所以后面如果你要批量推进，默认按：
   - `3章一批 -> review/质量门 -> 再继续`
+
+## 补充入口
 
 ### 5. 我想投稿前检查一下
 
@@ -247,6 +303,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - `sync + thin-state`
 - `snapshot`
 - `memory-context`
+- 可选 `openmemory sync`
 - `content-positioning`
 - `quality-audit`
 - `knowledge-projection`
@@ -258,13 +315,36 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - `workflow_state` 现在不只会推进到 `snapshot`
 - 默认维护尾段会真实写出 snapshot artifact
 - 并同时产出安全的 `memory-context` 摘要
+- 若项目在 `.mighty/config.json` 中显式开启 `memory_sync.openmemory.enabled = true`，还会额外写出 `.mighty/memory-sync-report.json` 并尝试同步到 openmemory
 - 如果项目声明了组合题材定位，也会刷新 `content-positioning` sidecar
 - 如果你要判断当前 workflow 有没有“高分空问题簇”这类假阳性，也可以直接读取：
   - `.mighty/workflow-health.json`
   - `.mighty/quality-audit.json`
   - `.mighty/knowledge-projection.json`
 
-### 8. 已有稿接入
+### 8. 我想写番外 / 角色篇 / IF线
+
+优先用：
+
+- `novel-spinoff`
+
+补充：
+
+- 这不是默认主线的一部分
+- 只有你明确要写：
+  - 番外
+  - 角色篇
+  - IF线
+  时才建议进入
+- 默认不应把它混进主线章节推进
+
+最小提示词：
+
+```text
+请使用 novel-spinoff skill，基于当前项目写一个“林晚照角色篇”的轻量番外，并明确它不是主线正文章节。
+```
+
+### 9. 已有稿接入
 
 优先用：
 
@@ -310,7 +390,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 
 - polish
 - genre
-- analyze
+- novel-analyze
 - resume
 - index
 - log
@@ -322,7 +402,7 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
 - precheck
 - workflow
 - retrieve
-- spinoff
+- novel-spinoff
 
 ### 环境与学习能力
 
@@ -336,6 +416,11 @@ python3 scripts/post-task-maintenance.py <project_root> --trigger write
   - 目前已是可用的实验能力
   - 适合在明确需要外部市场信号时单独运行
   - 但仍不属于默认主工作流的一部分
+
+- `novel-spinoff`
+  - 目前已是可用能力
+  - 但它服务的是番外 / 角色篇 / IF线
+  - 不属于默认正文主线的一部分
 
 - `novel-help` / `novel-tutorial`
   - 当前由这份文档、README 和 `skill-usage.md` 承担职责

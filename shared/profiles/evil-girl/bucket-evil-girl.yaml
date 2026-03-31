@@ -1,0 +1,14 @@
+name: "恶女题材 bucket overlay"
+display_name: "恶女题材"
+description: "番茄恶女题材 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "恶女题材"
+    strong_tags: ["复仇逆袭", "权力夺回"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["恶女手段必须服务明确目标", "恶女不能沦为无逻辑疯批"]
+    package_cues:
+      - "首屏点背叛/陷害与反击意志"
+      - "前三章要出现一次局面反打或权力夺回信号"

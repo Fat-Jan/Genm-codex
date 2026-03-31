@@ -64,7 +64,7 @@ class IssueRegressionTests(unittest.TestCase):
             self.assertIn(token, content)
 
     def test_p2_2b_root_roadmap_exists_and_tracks_status(self):
-        content = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        content = (REPO_ROOT / "docs/90-归档/阶段/v1.1-roadmap.md").read_text(encoding="utf-8")
         for token in ("Status:", "[planned]", "[deferred]", "主线 A", "主线 B"):
             self.assertIn(token, content)
 
@@ -96,7 +96,7 @@ class IssueRegressionTests(unittest.TestCase):
     def test_p2_6_docs_roadmap_path_is_only_a_pointer(self):
         content = (REPO_ROOT / "docs/00-当前有效/v1.1-roadmap.md").read_text(encoding="utf-8")
         self.assertIn("主 roadmap", content)
-        self.assertIn("/Users/arm/Desktop/vscode/Genm-codex/v1.1-roadmap.md", content)
+        self.assertIn("/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/v1.1-roadmap.md", content)
 
     def test_p2_7_docs_reflect_phase2_fetch_snapshot_log_updates(self):
         usage = (REPO_ROOT / "docs/00-当前有效/skill-usage.md").read_text(encoding="utf-8")
@@ -186,12 +186,29 @@ class IssueRegressionTests(unittest.TestCase):
         calibration = (REPO_ROOT / "docs/00-当前有效/profile-calibration-and-bucket-mapping.md").read_text(encoding="utf-8")
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         index_doc = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
-        roadmap = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        roadmap = (REPO_ROOT / "docs/90-归档/阶段/v1.1-roadmap.md").read_text(encoding="utf-8")
         for token in ("主 profile", "主 bucket", "strong_tags", "narrative_modes", "tone_guardrails"):
             self.assertIn(token, calibration)
         self.assertIn("profile-calibration-and-bucket-mapping.md", readme)
         self.assertIn("profile-calibration-and-bucket-mapping.md", index_doc)
         self.assertIn("Status: `[done]`", roadmap)
+
+    def test_v15_novel_analyze_has_current_workflow_entry(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-analyze", workflows)
+        self.assertIn("novel-analyze", start_here)
+        self.assertIn("novel-analyze", boundary)
+
+    def test_v15_novel_spinoff_is_explicitly_non_default_but_accessible(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-spinoff", workflows)
+        self.assertIn("novel-spinoff", start_here)
+        self.assertIn("novel-spinoff", boundary)
+        self.assertIn("不属于默认工作流", workflows)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,14 @@
+name: "都市日常 bucket overlay"
+display_name: "都市日常"
+description: "番茄都市日常 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市日常"
+    strong_tags: ["温馨日常", "生活改善"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["生活细节必须真实可感", "人物关系要有烟火气"]
+    package_cues:
+      - "首屏点生活困局或都市落脚点"
+      - "前三章要出现一次关系/生活改善信号"

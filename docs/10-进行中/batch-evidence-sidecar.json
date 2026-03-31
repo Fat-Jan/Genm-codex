@@ -1,0 +1,91 @@
+{
+  "version": "2.0",
+  "updated_at": "2026-03-30",
+  "doc_status": "active-machine-readable-sidecar",
+  "status": "post-remediation",
+  "sources": {
+    "evidence_pack": "docs/10-进行中/batch-cross-platform-evidence-pack-v1.5.md",
+    "evidence_standard": "docs/10-进行中/cross-platform-entity-evidence-standard-v1.5.md",
+    "ontology_decisions": "docs/00-当前有效/genre-ontology-field-decisions-v1.5.md",
+    "task_plan": "task_plan.md",
+    "progress": "progress.md"
+  },
+  "summary": {
+    "complete_count": 50,
+    "partial_count": 1,
+    "exception_count": 1,
+    "notes": [
+      "Only zhihu-short remains partial",
+      "zhihu-short is an explicit special-case profile, not a standard evidence gap",
+      "This sidecar is a machine-readable status index, not the canonical full evidence body"
+    ]
+  },
+  "workflow_bridge": {
+    "runtime_consumers": [
+      "shared/profiles/*",
+      "scripts/profile_contract.py",
+      ".mighty/state.json -> state.genre_profile"
+    ],
+    "decision_bridge": "docs/00-当前有效/genre-ontology-field-decisions-v1.5.md",
+    "usage_note": "Batch evidence is consumed indirectly through ontology/profile decisions, not by core runtime skills directly reading the markdown evidence pack."
+  },
+  "profiles": {
+    "ceo-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "sweet-youth": {"status": "complete", "ontology_ready": true, "exception": false},
+    "xiuxian": {"status": "complete", "ontology_ready": true, "exception": false},
+    "ancient-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "farming": {"status": "complete", "ontology_ready": true, "exception": false},
+    "romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "palace-intrigue": {"status": "complete", "ontology_ready": true, "exception": false},
+    "historical-brainhole": {"status": "complete", "ontology_ready": true, "exception": false},
+    "realistic": {"status": "complete", "ontology_ready": true, "exception": false},
+    "workplace-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "urban-daily": {"status": "complete", "ontology_ready": true, "exception": false},
+    "urban-brainhole": {"status": "complete", "ontology_ready": true, "exception": false},
+    "sweet-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "melodrama": {"status": "complete", "ontology_ready": true, "exception": false},
+    "substitute": {"status": "complete", "ontology_ready": true, "exception": false},
+    "urban-life": {"status": "complete", "ontology_ready": true, "exception": false},
+    "female-mystery": {"status": "complete", "ontology_ready": true, "exception": false},
+    "modern-brainhole": {"status": "complete", "ontology_ready": true, "exception": false},
+    "modern-creative": {"status": "complete", "ontology_ready": true, "exception": false},
+    "urban-creative": {"status": "complete", "ontology_ready": true, "exception": false},
+    "historical": {"status": "complete", "ontology_ready": true, "exception": false},
+    "historical-creative": {"status": "complete", "ontology_ready": true, "exception": false},
+    "fantasy-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "republic-romance": {"status": "complete", "ontology_ready": true, "exception": false},
+    "system": {"status": "complete", "ontology_ready": true, "exception": false},
+    "urban-superpower": {"status": "complete", "ontology_ready": true, "exception": false},
+    "xuanhuan": {"status": "complete", "ontology_ready": true, "exception": false},
+    "gaowu": {"status": "complete", "ontology_ready": true, "exception": false},
+    "western-fantasy": {"status": "complete", "ontology_ready": true, "exception": false},
+    "sci-fi": {"status": "complete", "ontology_ready": true, "exception": false},
+    "apocalypse": {"status": "complete", "ontology_ready": true, "exception": false},
+    "infinite-flow": {"status": "complete", "ontology_ready": true, "exception": false},
+    "mystery-brainhole": {"status": "complete", "ontology_ready": true, "exception": false},
+    "mystery-creative": {"status": "complete", "ontology_ready": true, "exception": false},
+    "mystery-horror": {"status": "complete", "ontology_ready": true, "exception": false},
+    "supernatural": {"status": "complete", "ontology_ready": true, "exception": false},
+    "rule-mystery": {"status": "complete", "ontology_ready": true, "exception": false},
+    "rule-horror": {"status": "complete", "ontology_ready": true, "exception": false},
+    "cthulhu": {"status": "complete", "ontology_ready": true, "exception": false},
+    "dark": {"status": "complete", "ontology_ready": true, "exception": false},
+    "dark-theme": {"status": "complete", "ontology_ready": true, "exception": false},
+    "evil-girl": {"status": "complete", "ontology_ready": true, "exception": false},
+    "esports": {"status": "complete", "ontology_ready": true, "exception": false},
+    "game-sports": {"status": "complete", "ontology_ready": true, "exception": false},
+    "livestream": {"status": "complete", "ontology_ready": true, "exception": false},
+    "era": {"status": "complete", "ontology_ready": true, "exception": false},
+    "spy-war": {"status": "complete", "ontology_ready": true, "exception": false},
+    "war-spy": {"status": "complete", "ontology_ready": true, "exception": false},
+    "fertility": {"status": "complete", "ontology_ready": true, "exception": false},
+    "multi-offspring": {"status": "complete", "ontology_ready": true, "exception": false},
+    "zhihu-short": {
+      "status": "partial",
+      "ontology_ready": false,
+      "exception": true,
+      "exception_type": "zhihu-primary-source",
+      "decision_rule": "Do not require default three-platform alignment; collect Zhihu-native evidence first."
+    }
+  }
+}

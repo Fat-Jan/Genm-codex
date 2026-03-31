@@ -1,0 +1,14 @@
+name: "历史脑洞 bucket overlay"
+display_name: "历史脑洞"
+description: "番茄历史脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "历史脑洞"
+    strong_tags: ["历史改写", "现代知识入局"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["历史改写必须保留时代逻辑", "现代知识使用不能无代价碾压"]
+    package_cues:
+      - "首屏点穿越/重生与历史困局"
+      - "前三章要出现一次知识换账或历史偏移信号"

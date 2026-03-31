@@ -1,5 +1,9 @@
 # Task Plan: 反脸谱化体系十二模块与技能接线
 
+> Status: `archived-plan-log`
+>
+> 这是历史计划归档文件，保留在根目录仅用于高可见回溯，不代表当前活跃计划。
+
 ## Goal
 在仓库内落成“反脸谱化体系”的 12 个主模块文档，并将其以可执行约束接入 `novel-outline` / `novel-review` / `novel-write` / `novel-fix` / `novel-precheck`，同时补齐 smoke 证据、轻量 state 约定、案例校准，以及一轮真实链路 smoke。
 
@@ -270,13 +274,13 @@ Phase 2
 ### Phase 1: Discovery & Spec Lock
 - [x] 读取现有 `opening-and-plot-framework` / `writing-core-framework` / 相关测试与技能合同
 - [x] 调研番茄官方与通用叙事框架资料，确认“协议栈优于单主架构卡”
-- [x] 写出正式 spec：`docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- [x] 写出正式 spec：`docs/90-归档/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
 - **Status:** complete
 
 ### Phase 2: Implementation Planning
 - [x] 读取 `writing-plans` 技能与现有计划样式
 - [x] 固化 v1 范围为：`Premise / Pivot / Launch Grammar / Retention Protocol / compiler / 轻量写回`
-- [x] 写出实施计划：`docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
+- [x] 写出实施计划：`docs/90-归档/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
 - **Status:** complete
 
 ### Phase 3: Contract Red Tests

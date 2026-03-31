@@ -102,6 +102,16 @@ reader_expectations:
     - "女性角色过于依赖男主"
     - "悬念没有解答"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "女频悬疑"
+    strong_tags: ["悬疑言情", "女性主体"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["悬疑线与感情线要平衡", "女性角色必须保有主体性"]
+    package_cues:
+      - "首屏点案件与关系张力同场出现"
+      - "前三章要出现一次情感/悬疑双钩子"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

@@ -1,5 +1,9 @@
 # 问题清单（2026-03-24，已归档）
 
+> Status: `archived-issue-log`
+>
+> 本文件保留在根目录是为了高可见审查记录；它不再作为开放 issue 列表。
+
 > 基于对仓库整体代码、技能合同、文档结构、脚本、测试和工作流的全量审查生成。
 > 归档更新：2026-03-25
 > 最新验证：204 passed，0 failed；`bash scripts/validate-migration.sh` passed。

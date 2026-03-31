@@ -14,6 +14,16 @@
       "verification_targets": ["workflow", "regression", "quality-audit"]
     },
     {
+      "sample_id": "e2e-gongdou",
+      "path": "smoke/e2e-gongdou",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "宫斗宅斗",
+      "status": "active",
+      "notes": "宫斗宅斗 baseline smoke"
+    },
+    {
       "sample_id": "e2e-gongdou-evil",
       "path": "smoke/e2e-gongdou-evil",
       "sample_type": "smoke",
@@ -22,6 +32,46 @@
       "bucket": "宫斗宅斗",
       "status": "active",
       "notes": "宫斗宅斗 baseline smoke"
+    },
+    {
+      "sample_id": "e2e-qinggan",
+      "path": "smoke/e2e-qinggan",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "情感",
+      "status": "active",
+      "notes": "情感 baseline smoke"
+    },
+    {
+      "sample_id": "e2e-qinggan-evil",
+      "path": "smoke/e2e-qinggan-evil",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "情感",
+      "status": "active",
+      "notes": "恶女情感 baseline smoke"
+    },
+    {
+      "sample_id": "e2e-tianchong",
+      "path": "smoke/e2e-tianchong",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "甜宠",
+      "status": "active",
+      "notes": "甜宠 baseline smoke"
+    },
+    {
+      "sample_id": "e2e-tianchong-evil",
+      "path": "smoke/e2e-tianchong-evil",
+      "sample_type": "smoke",
+      "trust_tier": "baseline",
+      "platform": "番茄",
+      "bucket": "甜宠",
+      "status": "active",
+      "notes": "恶女甜宠 baseline smoke"
     },
     {
       "sample_id": "e2e-dual-substitute-evil",
@@ -44,6 +94,16 @@
       "notes": "反脸谱化派生样本"
     },
     {
+      "sample_id": "qinggan-antiflattening-derived",
+      "path": "smoke/e2e-qinggan-evil-antiflattening-20260322",
+      "sample_type": "smoke",
+      "trust_tier": "derived",
+      "platform": "番茄",
+      "bucket": "情感",
+      "status": "active",
+      "notes": "现实情感反脸谱化派生样本"
+    },
+    {
       "sample_id": "system-antiflattening-derived",
       "path": "smoke/e2e-system-antiflattening-20260322",
       "sample_type": "smoke",
@@ -52,6 +112,16 @@
       "bucket": "都市脑洞",
       "status": "active",
       "notes": "系统流反脸谱化派生样本"
+    },
+    {
+      "sample_id": "dual-substitute-antiflattening-derived",
+      "path": "smoke/e2e-dual-substitute-evil-antiflattening-20260322",
+      "sample_type": "smoke",
+      "trust_tier": "derived",
+      "platform": "番茄",
+      "bucket": "双女主替身",
+      "status": "active",
+      "notes": "双女主替身反脸谱化派生样本"
     },
     {
       "sample_id": "shunvmoulue-high-confidence",
@@ -143,6 +213,86 @@
       "bucket": "历史脑洞",
       "status": "active",
       "notes": "P0 bucket 样本"
+    },
+    {
+      "sample_id": "urban-daily-bucket-sample-2",
+      "path": "projects/搬回老小区后，我靠蹭饭认识了整栋楼",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "都市日常",
+      "status": "active",
+      "notes": "都市日常补充 bucket 样本"
+    },
+    {
+      "sample_id": "historical-brainhole-bucket-sample-2",
+      "path": "projects/我在县衙誊旧档，靠半页供词改了判词",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "历史脑洞",
+      "status": "active",
+      "notes": "历史脑洞补充 bucket 样本"
+    },
+    {
+      "sample_id": "ceo-bucket-sample-2",
+      "path": "projects/签下离婚协议那天，冷脸总裁改口叫我合伙人",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "豪门总裁",
+      "status": "active",
+      "notes": "豪门总裁补充 bucket 样本"
+    },
+    {
+      "sample_id": "urban-brainhole-bucket-sample-2",
+      "path": "projects/我赔光积蓄那天，系统先把违约金打到了账上",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "都市脑洞",
+      "status": "active",
+      "notes": "都市脑洞补充 bucket 样本"
+    },
+    {
+      "sample_id": "xuanhuan-bucket-sample-2",
+      "path": "projects/外门药田被夺那天，我靠废丹拍卖赚回了灵石",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "修仙",
+      "status": "active",
+      "notes": "修仙补充 bucket 样本"
+    },
+    {
+      "sample_id": "youth-bucket-sample-2",
+      "path": "projects/广播站误放表白信那天，我和学神被迫参加学习互助",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "青春甜宠",
+      "status": "active",
+      "notes": "青春甜宠补充 bucket 样本"
+    },
+    {
+      "sample_id": "urban-daily-bucket-sample-3",
+      "path": "projects/母亲复健那年，我把楼道白板改成了换饭地图",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "都市日常",
+      "status": "active",
+      "notes": "都市日常补充 bucket 样本"
+    },
+    {
+      "sample_id": "historical-brainhole-bucket-sample-3",
+      "path": "projects/被推去顶罪那天，我在县衙靠准点下值翻了案",
+      "sample_type": "project",
+      "trust_tier": "bucket_sample",
+      "platform": "番茄",
+      "bucket": "历史脑洞",
+      "status": "active",
+      "notes": "历史脑洞补充 bucket 样本"
     },
     {
       "sample_id": "workplace-romance-bucket-sample",

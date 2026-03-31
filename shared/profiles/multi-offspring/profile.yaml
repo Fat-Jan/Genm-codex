@@ -98,6 +98,16 @@ reader_expectations:
     - "孩子形象不讨喜"
     - "家庭矛盾过于激烈"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "多子多福"
+    strong_tags: ["萌娃成长", "家庭治愈"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["育儿线不能掩盖人物主体性", "温馨日常不能失去真实育儿阻力"]
+    package_cues:
+      - "首屏点萌娃/系统/家庭缺口"
+      - "前三章要出现一次亲子互动或成长里程碑"
+
 golden_three:
   opening_hook: "开篇展现主角获得系统或已有孩子的场景，立即建立温馨氛围"
   protagonist_intro: "主角出场要有对孩子的爱，性格温柔"

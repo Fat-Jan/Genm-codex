@@ -1,0 +1,29 @@
+{
+  "$schema": "./workflow-state-v2.schema.json",
+  "version": "2.0",
+  "transaction_contract": "chapter-transaction-v1",
+  "current_task": {
+    "command": "novel-write",
+    "args": {
+      "trigger": "maintenance",
+      "maintenance_report_file": "e2e-novel/.mighty/maintenance-report.json",
+      "snapshot_file": "e2e-novel/.mighty/snapshots/chapter-005/2026-03-31T18-03-15Z/snapshot.json"
+    },
+    "status": "completed",
+    "current_step": null,
+    "completed_steps": [
+      "maintenance",
+      "snapshot"
+    ],
+    "failed_steps": [],
+    "pending_steps": [],
+    "last_successful_checkpoint": "snapshot",
+    "started_at": "",
+    "last_heartbeat": "2026-03-31T18:03:15Z",
+    "error_message": null,
+    "transaction_phase": "completed",
+    "next_transaction_step": null,
+    "snapshot_completed_at": "2026-03-31T18:03:15Z"
+  },
+  "history": []
+}

@@ -178,7 +178,7 @@ platform_positioning:
   fanqie:
     primary_bucket: "豪门总裁"
     strong_tags: ["先婚后爱", "追妻"]
-    narrative_modes: []
+    narrative_modes: ["双线并进"]
     tone_guardrails: ["总裁设定不能悬浮", "关系冲突必须有现实后果"]
     package_cues:
       - "先点身份压制"
@@ -221,7 +221,8 @@ writing_style:
     characteristics: 男主话少但有力，女主可爱有灵气
     avoid: [男主话太多, 女主太啰嗦]
 
-  description: "emotion: 细腻甜蜜"
+  description:
+    emotion: 细腻甜蜜
     scene: 豪门奢华感
     pampering: 具体行动而非空话
 

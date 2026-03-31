@@ -132,6 +132,16 @@ reader_expectations:
     - "出现严重历史错误"
     - "让主角轻易化解危机"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "抗战谍战"
+    strong_tags: ["潜伏博弈", "信仰坚守"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["谍战危机不能轻易化解", "历史背景必须严肃且可信"]
+    package_cues:
+      - "首屏点潜伏危机或情报任务"
+      - "前三章要出现一次身份险情或情报换账"
+
 golden_three:
   opening_hook: "开篇必须建立紧张氛围：潜伏危机、任务紧急、身份暴露风险、或重大情报需要传递，立即抓住读者"
   protagonist_intro: "主角出场即展现特工特质：冷静沉着、机智过人、处变不惊，同时暗示其隐藏的地下工作者身份"

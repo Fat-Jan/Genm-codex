@@ -133,6 +133,16 @@ reader_expectations:
     - "不符合时代背景的思想观念"
     - "人物语言风格与时代脱节"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "年代"
+    strong_tags: ["时代变迁", "奋斗成长"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["时代细节不能失真", "奋斗不能脱离时代土壤"]
+    package_cues:
+      - "首屏点时代困局或返乡/下乡起点"
+      - "前三章要看到一次生活改善或机会显影"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
@@ -177,7 +187,8 @@ writing_style:
     style: 符合时代
     characteristics: 不同时代有不同风格
 
-  description: "era: 真实还原"
+  description:
+    era: 真实还原
     life: 温馨接地气
 
 # ==================== 对话模板库 ====================

@@ -36,6 +36,7 @@ Read conditionally:
 - `.mighty/quality-audit.json`
 - `.mighty/knowledge-projection.json`
 - `.mighty/workflow-health.json`
+- `../../docs/10-进行中/batch-evidence-sidecar.json`
 - `.mighty/state-archive.json`
 - `.mighty/volume-summaries.json`
 - `.mighty/learned-patterns.json`
@@ -52,12 +53,13 @@ Read conditionally:
 2. If `.mighty/state-archive.json` exists and the user asks for history/full mode, read it.
 3. If `.mighty/volume-summaries.json` exists and the user asks for history/full mode, read it as the compressed archive view for old chapter ranges.
 4. If `.mighty/active-context.json` exists and the user asks for full mode, risks, or next-step guidance, read it as the preferred current-writing sidecar.
-5. If `.mighty/workflow-health.json` exists and the user asks for full mode, workflow-health, risks, or next-step guidance, read it as the preferred compact workflow health bundle.
-6. If `.mighty/quality-audit.json` exists and the user asks for full mode, risks, or quality health, read it as the preferred audit summary for review/close artifact health.
-7. If `.mighty/knowledge-projection.json` exists and the user asks for full mode, workflow health, or machine-readable project status, read it as the preferred compact projection.
-8. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
-9. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
-10. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
+5. If `../../docs/10-进行中/batch-evidence-sidecar.json` exists and the user asks about cross-platform evidence status, profile readiness, ontology readiness, exception profiles, or batch evidence completion, read it as the preferred machine-readable evidence status sidecar.
+6. If `.mighty/workflow-health.json` exists and the user asks for full mode, workflow-health, risks, or next-step guidance, read it as the preferred compact workflow health bundle.
+7. If `.mighty/quality-audit.json` exists and the user asks for full mode, risks, or quality health, read it as the preferred audit summary for review/close artifact health.
+8. If `.mighty/knowledge-projection.json` exists and the user asks for full mode, workflow health, or machine-readable project status, read it as the preferred compact projection.
+9. If `.mighty/learned-patterns.json` or `.mighty/market-adjustments.json` exist and the user asks for full mode, risks, or next-step guidance, read them.
+10. If `.mighty/setting-gate.json` exists and the user asks for full mode, risks, or next-step guidance, read it.
+11. If `.mighty/index.json` exists and the user asks for stats/timeline/full mode, read it.
 8. Summarize:
    - title
    - genre
@@ -143,6 +145,21 @@ Read conditionally:
 - when `.mighty/market-data.json` or `.mighty/market-adjustments.json` exist and the user asks about市场/scan/trend, mirror `../../scripts/render_project_scan_summary.py`
 - keep this section compact and operational, not architectural essay
 
+### evidence
+
+- when `../../docs/10-进行中/batch-evidence-sidecar.json` exists, prefer surfacing:
+  - `summary.complete_count`
+  - `summary.partial_count`
+  - `summary.exception_count`
+  - specific profile `status`
+  - specific profile `ontology_ready`
+  - specific profile `exception` / `exception_type`
+- when the user asks whether a profile is “空挂”, explain whether:
+  - the slug exists in `shared/profiles/*`
+  - the evidence sidecar marks it `ontology_ready`
+  - it is an explicit exception profile
+- keep evidence answers compact and operational, not a long evidence-pack reprint
+
 ### overdue items
 
 - focus on:
@@ -183,6 +200,7 @@ For `full` or stats-heavy requests, prefer sections such as:
 - Treat `.mighty/workflow-health.json` as the preferred compact workflow-health bundle when it exists.
 - Treat `.mighty/quality-audit.json` as the preferred summary of review/close artifact health when it exists.
 - Treat `.mighty/knowledge-projection.json` as the preferred compact machine-readable projection of workflow contract, sidecar health, and reviewed-chapter coverage when it exists.
+- Treat `../../docs/10-进行中/batch-evidence-sidecar.json` as the preferred machine-readable source for cross-platform evidence status and exception profiles when it exists.
 - Treat sidecar files as the preferred place for learned / market guidance once they have been externalized.
 - When `.mighty/learned-patterns.json` contains active `recent_guardrails`, surface them as short-lived next-chapter constraints instead of flattening them into generic style notes.
 - Keep `recent_guardrails` operational and short-lived; if they start looking like broad theory notes, treat that as a sidecar hygiene problem.

@@ -1,0 +1,14 @@
+name: "现言脑洞 bucket overlay"
+display_name: "现言脑洞"
+description: "番茄现言脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "现言脑洞"
+    strong_tags: ["创意恋爱", "命运改写"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["创意设定必须服务情感推进", "女主不能失去主动性"]
+    package_cues:
+      - "首屏点设定与关系反差"
+      - "前三章要出现一次设定/情感双兑现"

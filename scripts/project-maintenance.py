@@ -127,6 +127,14 @@ def main() -> None:
         ts,
     ], allow_failure=True)
     steps.append(memory_context_step)
+    memory_sync_step = run_step([
+        sys.executable,
+        str(script_dir / "sync_memory_context_to_openmemory.py"),
+        str(root),
+        "--timestamp",
+        ts,
+    ], allow_failure=True)
+    steps.append(memory_sync_step)
     quality_audit_step = run_step([
         sys.executable,
         str(script_dir / "audit_project_quality_state.py"),
@@ -173,6 +181,8 @@ def main() -> None:
     }
     report_path = root / ".mighty" / "maintenance-report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2))
+    memory_sync_report_path = root / ".mighty" / "memory-sync-report.json"
+    memory_sync_report = json.loads(memory_sync_report_path.read_text(encoding="utf-8")) if memory_sync_report_path.exists() else {}
     trace_log_path = append_trace(
         root,
         event="maintenance.completed",
@@ -197,6 +207,8 @@ def main() -> None:
         "workflow_current_step": workflow_state["current_task"]["current_step"],
         "last_successful_checkpoint": workflow_state["current_task"]["last_successful_checkpoint"],
         "workflow_status": workflow_state["current_task"]["status"],
+        "memory_sync_report_file": str(memory_sync_report_path) if memory_sync_report_path.exists() else None,
+        "memory_sync_status": memory_sync_report.get("status"),
         "steps": [Path(step["cmd"][1]).name for step in steps],
     }, ensure_ascii=False, indent=2))
 

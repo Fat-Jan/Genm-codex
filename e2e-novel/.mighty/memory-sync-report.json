@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "run_at": "2026-03-31T18:03:15Z",
+  "project_root": "e2e-novel",
+  "source_file": "e2e-novel/.mighty/memory-context.json",
+  "report_file": "e2e-novel/.mighty/memory-sync-report.json",
+  "project_config_file": "e2e-novel/.mighty/config.json",
+  "mode": "auto",
+  "target": "openmemory-mcp",
+  "user_id": "genm-codex-samples",
+  "status": "stored",
+  "content_hash": "69cf5fd87525765efb5faa37a32b5da4ca48d813cc9965a04fcd9d64cbe1d755",
+  "memory_id": "2b1f42da-98a2-4bdf-bd7f-104acd3b5c26",
+  "config_path": "/Users/arm/.codex/config.toml",
+  "command": [
+    "node",
+    "/Users/arm/Desktop/vscode/Genm-codex/scripts/openmemory_store_bridge.js"
+  ],
+  "store_transport": "local-node",
+  "store_result": {
+    "transport": "local-node",
+    "result": {
+      "id": "2b1f42da-98a2-4bdf-bd7f-104acd3b5c26",
+      "updated": true,
+      "primary_sector": "semantic",
+      "sectors": [
+        "semantic"
+      ]
+    }
+  }
+}

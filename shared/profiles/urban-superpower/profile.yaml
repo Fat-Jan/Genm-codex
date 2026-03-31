@@ -139,6 +139,16 @@ special_constraints:
     enforced: true
     check_point: 觉醒场景
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["异能", "逆袭"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["异能展示要伴随现实后果", "设定兑现要与都市场景绑定"]
+    package_cues:
+      - "首屏点异能觉醒或身份失衡"
+      - "前三章要出现一次异能反打或现实余波"
+
 # ==================== 黄金三章 ====================
 golden_three:
   第一章:

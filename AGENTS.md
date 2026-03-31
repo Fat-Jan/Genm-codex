@@ -6,10 +6,11 @@
 
 - 这是一个 Codex 原生网文创作技能工作区，不是通用应用仓库。
 - 当前主战场不是“继续堆技能数量”，而是“包装生成层 + 质量闭环整合”。
-- 核心可维护对象有三类：
+- 核心可维护对象有四类：
   - `skills/`：真正的 Skill 定义与流程逻辑
   - `shared/`：从源仓库 `Genm` 同步来的共享资产
   - `docs/`：迁移、阶段、烟测和使用说明
+  - `.ops/`：当前任务的 active plan / progress / findings / decisions 默认落点
 
 ## 2. 加速原则
 
@@ -29,17 +30,33 @@
 第一次进入仓库，按这个顺序理解：
 
 1. [README.md](/Users/arm/Desktop/vscode/Genm-codex/README.md)
-2. [docs/00-当前有效/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
-3. [docs/00-当前有效/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)
-4. [docs/00-当前有效/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)
-5. 当前目标相关的阶段文档：
+2. [project-map.yaml](/Users/arm/Desktop/vscode/Genm-codex/project-map.yaml)
+3. [docs/00-当前有效/start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md)
+4. [docs/00-当前有效/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)
+5. [docs/00-当前有效/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)
+6. 当前目标相关的阶段文档：
    - 包装与质量闭环优先看 [docs/90-归档/阶段/phase-9-summary.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/phase-9-summary.md)
    - 共享资产治理优先看 [docs/90-归档/阶段/phase-7b-selective-sync-governance.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/phase-7b-selective-sync-governance.md)
+
+如果要延续当前任务状态，优先看：
+
+- [.ops/active-plan.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/active-plan.md)
+- [.ops/progress.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/progress.md)
+- [.ops/findings.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/findings.md)
+
+根目录 `task_plan.md` / `progress.md` / `findings.md` 先作为 legacy 连续性入口保留，不再是新任务默认落点。
 
 如果要看真实样本，不要先翻所有 skill，先看：
 
 - [e2e-novel](/Users/arm/Desktop/vscode/Genm-codex/e2e-novel)
 - [e2e-novel/.mighty/state.json](/Users/arm/Desktop/vscode/Genm-codex/e2e-novel/.mighty/state.json)
+
+结构边界：
+
+- `e2e-novel/`：官方最小 E2E 样本
+- `smoke/`：专项 smoke 验证资产
+- `shared/`：synced boundary，默认不要直接长期手改
+- `projects/`：workspace，可变项目数据，不是产品源码真值
 
 ## 4. 高频命令
 
@@ -77,6 +94,8 @@ bash scripts/sync-shared-from-genm.sh
   先看 [scripts/install-skills.sh](/Users/arm/Desktop/vscode/Genm-codex/scripts/install-skills.sh) 和 [docs/00-当前有效/skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md)。
 - 调整 `shared/` 下任何内容：
   先进入调研模式，确认它是否应该从 `Genm` 同步；默认不要直接手改 `shared/`。
+- 延续或接手一个已有任务：
+  先看 `.ops/`，只有在追历史链路或旧链接时才回读根目录 legacy ops 文件。
 - 调整 profiles / references / templates 的依赖关系：
   先看 [docs/00-当前有效/shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md)。
 - 处理包装层或质量闭环相关任务：
@@ -90,10 +109,12 @@ bash scripts/sync-shared-from-genm.sh
 - 第二优先复用 `shared/` 里的 profile / reference / template，不把同样规则重写进 skill 文档。
 - 第三优先复用 `docs/` 里的阶段结论、烟测结果、迁移边界，不重复发明项目历史。
 - 第四优先复用 `e2e-novel` 作为最短反馈样本，不要每次从零造测试项目。
+- 第五优先复用 `project-map.yaml` 与 `.ops/` 的结构边界，不要再把新的 active 状态文件散落到根目录。
 
 ## 7. 高风险区域
 
 - `shared/` 是同步资产，不是首选手改区域。
+- `.ops/` 承担 active ops，不要把它误当 durable docs；稳定规则应回写到 `docs/00-当前有效/`。
 - `scripts/sync-shared-from-genm.sh` 会直接覆盖目标目录；执行真实同步前，先确认需求和来源。
 - `skills/<name>/SKILL.md` 中的 frontmatter `name` 会影响实际触发方式，不要只改目录名或安装别名。
 - `docs/` 不是纯装饰；阶段判断、边界和 smoke 结论如果失真，会误导后续所有实现。
@@ -120,6 +141,8 @@ bash scripts/sync-shared-from-genm.sh
 ## 9. 这个项目里不要做的事
 
 - 不要把 `shared/` 当作普通源码目录直接长期维护
+- 不要继续把新的 `task_plan.md` / `progress.md` / `findings.md` 直接落在仓库根目录
+- 不要把 `projects/` 当成产品源码真值，也不要把 `smoke/` 当成官方最小 E2E 样本的替代
 - 不要只改 `~/.codex/skills` 里的链接结果，而不改仓库里的 `skills/`
 - 不要只更新 README，不同步更新真正承载约束的阶段文档或使用文档
 - 不要在不知道默认工作流边界的情况下，把实验能力写成默认推荐路径
@@ -131,7 +154,7 @@ bash scripts/sync-shared-from-genm.sh
 - 能验证：
   至少有脚本验证、只读报告、`e2e-novel` 样本检查、或文档化 smoke 证据之一
 - 能接手：
-  README / start-here / skill-usage / 阶段文档中至少有一个位置承载新的事实
+  README / `project-map.yaml` / `.ops/` / start-here / skill-usage / 阶段文档中至少有一个位置承载新的事实
 - 能复用：
   没有把 shared 规则复制进多个 skill，没有制造新的平行安装或平行调用体系
 

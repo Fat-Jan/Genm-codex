@@ -45,7 +45,7 @@ It should not:
 
 ## Required reads
 
-Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Reference: `../../shared/references/shared/consumer-read-manifest.md`
 Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-review` / `novel-package`.
 
 Shared bundles to apply here:

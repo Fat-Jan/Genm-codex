@@ -153,6 +153,16 @@ reader_expectations:
     - "恐怖感不足的轻松氛围"
     - "理智崩坏太随意"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "克苏鲁"
+    strong_tags: ["禁忌知识", "理智侵蚀"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["神话生物不能被轻易战胜", "理智崩坏必须有过程"]
+    package_cues:
+      - "首屏点禁忌异象或理智裂缝"
+      - "前三章要出现一次知识换账或恐惧兑现"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - ID: TABOO-001

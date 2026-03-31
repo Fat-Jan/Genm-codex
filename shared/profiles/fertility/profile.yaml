@@ -119,6 +119,16 @@ reader_expectations:
     - 感情线被生情节完全掩盖
     - 过于重视子嗣而忽视女性主体
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "多子多福"
+    strong_tags: ["家族兴旺", "温馨养成"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["女性主体不能被生育工具化", "家庭温馨必须建立在人物个性上"]
+    package_cues:
+      - "首屏点喜脉/添丁/后宅喜讯"
+      - "前三章要出现一次家庭关系升温或地位变化"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

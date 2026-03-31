@@ -84,6 +84,12 @@ Initialize `.mighty/state.json` with, at minimum:
    - treat `novel-genre` / `scripts/profile_contract.py` as the authoritative profile-contract entrance
    - do not invent a one-off profile parsing rule inside `novel-init`
    - if the project idea is still fuzzy, first seed `shared/templates/project/creative-brief.md`
+   - when the idea is still fuzzy or the user is explicitly asking for开书灵感 / 世界观方向 / 脑洞组合, also read `../../shared/references/writing/worldview-motif-catalog.md`
+   - at init time, prefer locking at most:
+     - `1` worldview motif
+     - optional `1` mechanism motif
+     - optional `1` packaging / relationship motif
+   - do not turn the motif catalog into a full-world encyclopedia during initialization
    - follow `../../docs/00-当前有效/upstream-structure-contract.md` for the boundary between `creative-brief`, `总纲`, `launch-stack`, and `content-positioning`
 3. Detect whether this is an ancient-family-power route.
    - Use genre, resolved profile slug, and any obvious project framing.
@@ -153,6 +159,7 @@ Initialize `.mighty/state.json` with, at minimum:
    - `大纲/总纲.md` with a minimal outline scaffold
    - `设定集/角色/主角.md` with a starter protagonist scaffold
    - `设定集/力量体系.md` with a minimal system scaffold
+   - if the selected motif implies a premise-critical rule and that rule must exist before outline generation, write a lightweight note under `设定集/世界观/` instead of a long-form world bible
    - If this is an ancient-family-power route, mark the initial total outline as provisional until:
      - protagonist mother source exists
      - core rival relation exists
@@ -189,6 +196,7 @@ Initialize `.mighty/state.json` with, at minimum:
 - Prefer creating a minimal valid state over filling every optional field.
 - If no exact genre profile exists, choose the nearest profile slug and state the fallback explicitly.
 - Do not silently create a root-level `state.json`; the canonical path is `.mighty/state.json`.
+- If motif selections exist, keep them as high-level premise inputs; do not pretend all motif implications are already canon.
 - For ancient-family-power routes, do not treat `大纲/总纲.md` as fully locked at init time unless the household truth sheet and mini genealogy already support the outward relation words.
 - For ancient-family-power routes, do not freeze官名 into outward packaging until the office truth sheet and power ladder are minimally filled.
 - `chapter_meta` is the preferred place for lightweight per-chapter structural review signals; do not create a parallel top-level anti-flattening store.

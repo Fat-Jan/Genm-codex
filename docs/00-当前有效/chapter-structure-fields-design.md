@@ -1,8 +1,16 @@
 # 章纲结构字段设计
 
+> Status: `active-reference-spec`
+>
+> 当前已落地入口：
+> - state template / schema：`shared/templates/state-v5-template.json`、`shared/templates/state-schema-v5.json`
+> - state doc：`shared/references/shared/state-schema.md`
+> - consumer 说明：`skills/novel-outline/SKILL.md`、`skills/novel-review/SKILL.md`、`skills/novel-precheck/SKILL.md`
+> - 结构审计：`scripts/audit_chapter_structure_repetition.py`、`scripts/audit_precheck_structure_risks.py`
+
 ## 目的
 
-把章纲的"结构维度"从散落的规则压成可枚举、可检查、可写回的字段，为后续结构预防前移打基础。
+把章纲的“结构维度”从散落的规则压成可枚举、可检查、可写回的字段，并说明这些字段当前已经落地到哪些 schema、consumer 和审计入口。
 
 ---
 
@@ -215,7 +223,7 @@
 
 ### 与 state schema 的关系
 
-建议在 `state-schema-v5.json` 的 `chapter_meta` 中添加：
+当前已在 `state-v5-template.json`、`state-schema-v5.json` 与 `state-schema.md` 的 `chapter_meta.chapter_structure` 中落地：
 
 ```json
 {
@@ -238,9 +246,18 @@
 - **anti-flattening-framework**: 提供 `opponent_mode` 和 `cost_visibility` 的理论基础
 - **writing-core-framework**: 提供 `protagonist_arc` 和 `gain_type` 的理论基础
 
-### 与 review 的关系
+### 与 review / precheck 的关系
 
-在 `novel-review` 输出中添加：
+当前 consumer 已按以下思路读取和复核这些字段：
+
+- `novel-review`
+  - 对比 declared `chapter_structure` 与实际内容交付
+- `novel-precheck`
+  - 检查连续章节结构重复、零代价突破和无低谷 runs
+- `audit_chapter_structure_repetition.py` / `audit_precheck_structure_risks.py`
+  - 对 `chapter_meta.chapter_structure` 做轻量结构审计
+
+一个典型的 review 摘要形态可以类似：
 
 ```json
 {
@@ -270,8 +287,8 @@
 
 ## 完成标记
 
-- [ ] 有独立设计稿（本文件）
-- [ ] 明确字段定义、枚举值和最小用途（本文件）
-- [ ] 与 state schema 对接（待实现）
-- [ ] 与 review 输出对接（待实现）
-- [ ] 有测试样本能验证字段有效性（待实现）
+- [x] 有独立设计稿（本文件）
+- [x] 明确字段定义、枚举值和最小用途（本文件）
+- [x] 与 state schema 对接（`shared/templates/state-v5-template.json`、`shared/templates/state-schema-v5.json`、`tests/test_state_contracts.py`）
+- [x] 与 review / precheck 读取链对接（`skills/novel-review/SKILL.md`、`skills/novel-precheck/SKILL.md`、`skills/novel-outline/SKILL.md`）
+- [x] 有测试样本能验证字段有效性（`tests/test_state_contracts.py`、`tests/test_chapter_structure_repetition.py`、`tests/test_precheck_structure_risks.py`）

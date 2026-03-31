@@ -382,7 +382,7 @@ workflow:
 - [章节索引系统](./chapter-index-schema.md) - 元数据分离方案
 - [增量更新协议](./incremental-update-protocol.md) - 高效更新机制
 - [真相文件规范](./truth-files-spec.md) - 项目级真值文件与 truth sheet 使用说明
-- [质量检查流程](./commands/novel-review.md) - 当前仓库的 review 兼容入口
+- [质量检查流程](../../skills/novel-review/SKILL.md) - 当前 review 入口
 
 ### 8.2 常见问题
 

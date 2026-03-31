@@ -69,6 +69,9 @@ def main() -> None:
     workflow_health_path = root / ".mighty" / "workflow-health.json"
     if workflow_health_path.exists():
         result["workflow_health"] = json.loads(workflow_health_path.read_text(encoding="utf-8"))
+    memory_sync_path = root / ".mighty" / "memory-sync-report.json"
+    if memory_sync_path.exists():
+        result["memory_sync"] = json.loads(memory_sync_path.read_text(encoding="utf-8"))
 
     if args.trigger == "batch":
         gate_cmd = [

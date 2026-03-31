@@ -1,0 +1,14 @@
+name: "悬疑脑洞 bucket overlay"
+display_name: "悬疑脑洞"
+description: "番茄悬疑脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "悬疑脑洞"
+    strong_tags: ["脑洞解谜", "规则反转"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["反转必须有伏笔", "设定解释不能糊弄过关"]
+    package_cues:
+      - "首屏点核心脑洞或诡异事件"
+      - "前三章要出现一次规则反打或真相逼近"

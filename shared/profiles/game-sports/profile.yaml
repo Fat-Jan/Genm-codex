@@ -122,6 +122,16 @@ reader_expectations:
     - "贬低运动本身的专业性"
     - "让主角轻易击败明显更强的对手"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "游戏体育"
+    strong_tags: ["竞技成长", "逆境翻盘"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["比赛规则不能出硬伤", "成长突破必须来自训练与对抗"]
+    package_cues:
+      - "首屏点赛事/排位压力或训练目标"
+      - "前三章要出现一次技术兑现或比赛转折"
+
 golden_three:
   opening_hook: "开篇直接进入一场紧张的比赛或训练场景，展现主角的运动才能或面临的困境，快速建立主角形象和故事基调"
   protagonist_intro: "主角应在运动场景中出场，展现独特的技术特点或性格特质，可以是冷静型、热血型、或智慧型选手"

@@ -144,6 +144,16 @@ reader_expectations:
     - "比赛过程描写过于简单"
     - "缺乏紧张刺激的氛围"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "电竞"
+    strong_tags: ["团战翻盘", "夺冠证明"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["比赛过程必须可视化", "成长突破必须来自训练与团队配合"]
+    package_cues:
+      - "首屏点比赛压力或战队困境"
+      - "前三章要出现一次操作兑现或团战转折"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - ID: TABOO-001

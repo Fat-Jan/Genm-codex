@@ -1,0 +1,14 @@
+name: "多子多福 bucket overlay"
+display_name: "多子多福"
+description: "番茄多子多福 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "多子多福"
+    strong_tags: ["家族兴旺", "温馨养成"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["女性主体不能被生育工具化", "家庭温馨必须建立在人物个性上"]
+    package_cues:
+      - "首屏点喜脉/添丁/后宅喜讯"
+      - "前三章要出现一次家庭关系升温或地位变化"
