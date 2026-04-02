@@ -16,3 +16,6 @@
 - [runtime-plugin-research-note-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/runtime-plugin-research-note-v1.5.md)
 - [review-brief-2026-03-25-inkos-growth.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/review-brief-2026-03-25-inkos-growth.md)
 - [cross-platform-support-plan.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/cross-platform-support-plan.md)
+- [host-foundation-v2-proposal-2026-04-01.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/host-foundation-v2-proposal-2026-04-01.md)
+- [host-foundation-optimal-path-2026-04-01.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/host-foundation-optimal-path-2026-04-01.md)
+- [trae-capability-review-2026-04-02.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/trae-capability-review-2026-04-02.md)

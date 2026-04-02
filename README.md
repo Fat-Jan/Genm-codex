@@ -4,24 +4,25 @@ Codex 原生网文创作技能工作区。
 
 这个仓库的当前主线不是“继续堆更多 skill”，而是把已有 `skills + docs + scripts + sidecars` 工作流做稳、做可恢复、做可治理。
 
-当前主线版本：`v1.5`
+当前主线版本：`v1.6`
 
 ## 当前定位
 
-- `v1.4` 已完成，并作为当前稳定基线保留
-- `v1.5` 当前重点：
-  - sample manifest / sample governance
-  - profile / bucket / tagpack contract 与 registry consumer
-  - `novel-scan` contract / consumer 接线
-  - skill rationalization / alias 边界收口
-- `v1.5` 当前明确不做：
-  - `31 -> 25` 破坏性真合并
+- `v1.5` 已完成，并作为当前稳定基线保留
+- `v1.6` 当前重点：
+  - host capability matrix 真值层
+  - install / projection / doctor 对宿主真值的消费
+  - host support status、verification level 与 degrade policy 收口
+  - 主线 roadmap / `.ops` / README / 文档索引的一致化
+- `v1.6` 当前明确不做：
   - 新 plugin / runtime / daemon 实装
-  - `novel-scan` 默认主链化
+  - 未经证据支撑的完整宿主支持承诺
+  - 将 Trae 提前写成已支持的 skill install host
 
 历史基线与备份：
 
 - `v1.0.0`：首个 `v1` 正式发布基线
+- `v1.5-roadmap.md`：上一轮主线 roadmap，作为 `v1.6` 直接上游参考保留
 - `v1.4-roadmap.md`：上一轮稳定主线 roadmap，作为高可见上游参考保留
 - `backup/main-pre-v1.3-20260327`：主线切换到 `v1.3` 前的 `main` 备份分支
 - `v1.3-roadmap.md`：上一阶段主线
@@ -128,10 +129,11 @@ bash scripts/validate-migration.sh
 - Active / legacy 状态导航：`.ops/` 优先；根目录 `progress.md` / `findings.md` / `task_plan.md` 仅保留为 legacy 连续性入口
 - 当前边界：`docs/00-当前有效/v1-boundary.md`
 - `v1.5` 运行时边界：`docs/00-当前有效/runtime-boundary-adr.md`
+- 当前宿主支持状态：`docs/00-当前有效/host-support-status-v1.6.md`
 - 当前 profile / bucket 校准口径：`docs/00-当前有效/profile-calibration-and-bucket-mapping.md`
 - 样本库入口：`docs/00-当前有效/sample-library-index.md`
-- `v1.5` contract / governance 入口：`docs/INDEX.md`
-- `v1.5` 分工 roadmap：`v1.5-roadmap.md`
+- `v1.6` contract / governance 入口：`docs/INDEX.md`
+- `v1.6` 分工 roadmap：`v1.6-roadmap.md`
 
 ### 当前高频文档
 

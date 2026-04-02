@@ -13,7 +13,7 @@ MERGE_MAP_PATH = REPO_ROOT / "shared" / "templates" / "skill-merge-map-v1.json"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Render install alias pairs from the current skill merge map.")
-    parser.add_argument("--format", choices=["json", "tsv"], default="json")
+    parser.add_argument("--format", choices=["json", "tsv", "registry"], default="json")
     return parser.parse_args()
 
 
@@ -21,20 +21,73 @@ def read_merge_map() -> dict:
     return json.loads(MERGE_MAP_PATH.read_text(encoding="utf-8"))
 
 
-def build_install_pairs() -> dict:
+def build_skill_registry() -> dict:
     payload = read_merge_map()
-    pairs: list[dict[str, str]] = []
+    skills: list[dict[str, object]] = []
+    aliases: list[dict[str, str]] = []
+
     for item in payload.get("entries", []):
         if not isinstance(item, dict):
             continue
+
         skill = item.get("skill")
         decision = item.get("decision")
+        reason = item.get("reason")
         if not isinstance(skill, str) or not skill:
             continue
-        if decision not in {"protected", "alias"}:
-            continue
-        pairs.append({"source": skill, "target": skill})
-        pairs.append({"source": skill, "target": f"genm-{skill}"})
+
+        install_names: list[str] = []
+        legacy_aliases: list[str] = []
+        if decision in {"protected", "alias"}:
+            install_names = [skill, f"genm-{skill}"]
+            legacy_aliases = [f"genm-{skill}"]
+            aliases.append(
+                {
+                    "source_skill": skill,
+                    "install_name": skill,
+                    "kind": "canonical",
+                }
+            )
+            aliases.append(
+                {
+                    "source_skill": skill,
+                    "install_name": f"genm-{skill}",
+                    "kind": "compatibility",
+                }
+            )
+
+        skills.append(
+            {
+                "skill": skill,
+                "decision": decision,
+                "reason": reason,
+                "target": item.get("target"),
+                "installable": bool(install_names),
+                "directory": f"skills/{skill}",
+                "canonical_install_name": skill if install_names else None,
+                "legacy_aliases": legacy_aliases,
+                "install_names": install_names,
+            }
+        )
+
+    return {
+        "version": payload.get("version", "1.0"),
+        "generated_at": payload.get("generated_at"),
+        "skills": skills,
+        "aliases": aliases,
+    }
+
+
+def build_install_pairs() -> dict:
+    payload = build_skill_registry()
+    pairs: list[dict[str, str]] = []
+    for item in payload["aliases"]:
+        pairs.append(
+            {
+                "source": item["source_skill"],
+                "target": item["install_name"],
+            }
+        )
     return {
         "version": payload.get("version", "1.0"),
         "pairs": pairs,
@@ -43,6 +96,9 @@ def build_install_pairs() -> dict:
 
 def main() -> None:
     args = parse_args()
+    if args.format == "registry":
+        print(json.dumps(build_skill_registry(), ensure_ascii=False, indent=2))
+        return
     payload = build_install_pairs()
     if args.format == "tsv":
         for item in payload["pairs"]:

@@ -14,15 +14,31 @@
 
 ## 多平台安装
 
-`scripts/install-skills.sh` 支持多平台，默认安装到 Codex：
+`scripts/install-skills.sh` 支持多平台，默认安装到 Codex；下表由 host matrix 投影而来。
 
+<!-- host-install-table:start -->
 | 平台 | 安装命令 | skill 路径 |
 |------|---------|----------|
-| Codex | `bash scripts/install-skills.sh` | `~/.codex/skills/` |
-| Claude Code | `bash scripts/install-skills.sh claude` | `~/.claude/skills/` |
-| OpenCode | `bash scripts/install-skills.sh opencode` | `~/.config/opencode/skills/` |
-| OpenCLAW | `bash scripts/install-skills.sh openclaw` | `~/.openclaw/skills/` |
-| 全平台 | `bash scripts/install-skills.sh --all` | 以上全部 |
+| Claude Code | `bash scripts/install-skills.sh claude` | `~/.claude/skills` |
+| Codex | `bash scripts/install-skills.sh` | `~/.codex/skills` |
+| OpenCode | `bash scripts/install-skills.sh opencode` | `~/.config/opencode/skills` |
+| OpenCLAW | `bash scripts/install-skills.sh openclaw` | `~/.openclaw/skills` |
+| 全平台 | `bash scripts/install-skills.sh --all` | 以上全部支持宿主 |
+<!-- host-install-table:end -->
+
+## 宿主支持状态
+
+<!-- host-support-table:start -->
+| 平台 | 状态 | 验证等级 | 安装支持 |
+|------|------|----------|----------|
+| Claude Code | baseline | partial | symlink |
+| Codex | legacy | verified | symlink |
+| OpenCode | experimental | partial | symlink |
+| OpenCLAW | experimental | partial | symlink |
+| Trae | experimental | partial | unsupported |
+<!-- host-support-table:end -->
+
+Trae 当前只保留 rules/context 投影，不进入 skill 安装表。
 
 ## 已安装的 Skill 名称
 

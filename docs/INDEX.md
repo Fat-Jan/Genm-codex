@@ -30,7 +30,7 @@
 - [start-here.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/start-here.md) — `active`, `candidate(瘦身)`
 - [skill-usage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-usage.md) — `active`, `candidate(瘦身)`
 - [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md) — `active`
-- [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) — `active`
+- [v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md) — `active`
 - [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md) — `active`
 - [sample-library-governance-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-governance-v1.5.md) — `active`
 - [sample-library-index.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-library-index.md) — `active`
@@ -44,6 +44,7 @@
 - [skill-rationalization-policy.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-rationalization-policy.md) — `active`
 - [skill-merge-map-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-merge-map-v1.5.md) — `active`
 - [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md) — `active`
+- [host-support-status-v1.6.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/host-support-status-v1.6.md) — `active`
 - [gate-triage.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/gate-triage.md) — `active`
 - [state-thinning-and-setting-sync.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/state-thinning-and-setting-sync.md) — `active`
 - [shared-asset-dependency-map.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/shared-asset-dependency-map.md) — `active`
@@ -80,6 +81,13 @@
 - [runtime-plugin-research-note-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/runtime-plugin-research-note-v1.5.md) — `research`
 - [research/fanqie/README.md](/Users/arm/Desktop/vscode/Genm-codex/docs/research/fanqie/README.md) — `research`
 - [cross-platform-support-plan.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/cross-platform-support-plan.md) — `research`
+- [host-foundation-v2-proposal-2026-04-01.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/host-foundation-v2-proposal-2026-04-01.md) — `research`
+- [host-foundation-optimal-path-2026-04-01.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/host-foundation-optimal-path-2026-04-01.md) — `research`
+- [trae-capability-review-2026-04-02.md](/Users/arm/Desktop/vscode/Genm-codex/docs/20-研究实验/trae-capability-review-2026-04-02.md) — `research`
+
+## 高可见上游参考
+
+- [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) — `archived(mainline-upstream-reference)`
 
 ## 归档入口
 
@@ -104,6 +112,7 @@
 - [v1.3-deferred-directions.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/v1.3-deferred-directions.md) — `archived`
 - [progress-archive-2026-03-22-antiflattening.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/progress-archive-2026-03-22-antiflattening.md) — `archived`
 - [findings-doc-governance-archive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/findings-doc-governance-archive.md) — `archived`
+- [v1.6-host-foundation-implementation-memo.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/v1.6-host-foundation-implementation-memo.md) — `archived`
 
 ## 约定
 

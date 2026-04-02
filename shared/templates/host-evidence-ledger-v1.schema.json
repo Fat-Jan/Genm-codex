@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "host-evidence-ledger-v1.schema.json",
+  "title": "Genm Codex Host Evidence Ledger v1",
+  "type": "object",
+  "required": [
+    "$schema",
+    "version",
+    "entries"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "const": "1.0"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence_entry"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "host_id": {
+      "type": "string",
+      "enum": [
+        "claude",
+        "codex",
+        "opencode",
+        "openclaw",
+        "trae"
+      ]
+    },
+    "surface": {
+      "type": "string",
+      "enum": [
+        "host_overview",
+        "project_rules",
+        "user_or_global_rules",
+        "rules_context",
+        "hooks",
+        "project_skills",
+        "global_skills",
+        "skill_install_materialization",
+        "skill_discovery",
+        "skill_invocation",
+        "alias",
+        "mcp",
+        "mcp_registration",
+        "mcp_agent_binding",
+        "auto_run_mcp",
+        "auto_run_commands",
+        "sandbox",
+        "native_invocation"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "official_doc",
+        "repo_file",
+        "runtime_observation",
+        "manual_verification",
+        "doctor_result"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "evidence_entry": {
+      "type": "object",
+      "required": [
+        "id",
+        "host_id",
+        "surface",
+        "kind",
+        "ref",
+        "summary",
+        "verified_at",
+        "confidence"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+        },
+        "host_id": {
+          "$ref": "#/$defs/host_id"
+        },
+        "surface": {
+          "$ref": "#/$defs/surface"
+        },
+        "kind": {
+          "$ref": "#/$defs/kind"
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verified_at": {
+          "type": "string",
+          "format": "date"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "repo_file"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ref": {
+                "pattern": "^[^:][^\\n]*$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "official_doc"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ref": {
+                "type": "string",
+                "pattern": "^https://"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}
