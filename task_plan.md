@@ -29,7 +29,7 @@
 - 根目录 `架构问题跟踪.md` 继续保留，但已明确为 `active-reminder`，不作为第二真相
 - `docs/10-进行中/` 的核心事实/协议/标准文件补了状态头，明确本轮不迁移
 - `v1.1-roadmap.md`、`v1.2-roadmap.md`、`v1.3-deferred-directions.md` 已迁入 `docs/90-归档/阶段/`
-- `v1.3-roadmap.md`、`v1.4-roadmap.md` 保留根目录作为上游主线参考；`v1.5-roadmap.md` 保留根目录作为当前主线 roadmap
+- `v1.3-roadmap.md`、`v1.4-roadmap.md` 保留根目录作为上游主线参考；`v1.5-roadmap.md` 当时保留根目录作为当前主线 roadmap，现已由 `v1.6-roadmap.md` 接管当前主线角色
 
 ### 历史记录中的深化治理目标
 - **主线 1：`docs/10-进行中/` 分层精修**

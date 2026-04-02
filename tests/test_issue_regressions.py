@@ -56,7 +56,9 @@ class IssueRegressionTests(unittest.TestCase):
     def test_p2_1_task_plan_archived_and_single_active(self):
         self.assertTrue((REPO_ROOT / "task_plan_archive.md").exists())
         content = (REPO_ROOT / "task_plan.md").read_text(encoding="utf-8")
-        self.assertEqual(content.count("# Task Plan:"), 1)
+        self.assertIn("# Legacy Task Plan Archive:", content)
+        self.assertIn("当前 active task state 默认以 `.ops/active-plan.md` 为准", content)
+        self.assertNotIn("# Task Plan:", content)
 
     def test_p2_2_docs_index_exists(self):
         content = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
@@ -230,6 +232,20 @@ class IssueRegressionTests(unittest.TestCase):
         self.assertIn("| `v1.6-roadmap.md` | 当前主线路线图 |", trae_context)
         self.assertIn("| `v1.5-roadmap.md` | 直接上游参考 roadmap |", trae_context)
         self.assertNotIn("| `v1.5-roadmap.md` | 当前主线路线图 |", trae_context)
+
+
+    def test_v16_legacy_v15_docs_are_explicitly_historical(self):
+        task_plan = (REPO_ROOT / "task_plan.md").read_text(encoding="utf-8")
+        processing = (REPO_ROOT / "docs/00-当前有效/current-processing-plan-phased-v1.md").read_text(encoding="utf-8")
+        v15_prep = (REPO_ROOT / "docs/00-当前有效/v1.5-next-mainline-preparation-2026-03-31.md").read_text(encoding="utf-8")
+
+        self.assertIn("`v1.5-roadmap.md` 当时保留根目录作为当前主线 roadmap，现已由 `v1.6-roadmap.md` 接管当前主线角色", task_plan)
+        self.assertNotIn("`v1.5-roadmap.md` 保留根目录作为当前主线 roadmap", task_plan)
+        self.assertIn("历史说明（2026-04-02）：本文是 2026-03-31 形成的阶段性处理方案", processing)
+        self.assertIn("本 Phase 4 仅保留为 2026-03-31 时对 `v1.5` 后续主线的准备判断；当前主线已切到 `v1.6`。", processing)
+        self.assertIn("历史说明（2026-04-02）：本文仅保留为 `v1.5` 阶段的 Phase 4 / 后续主线准备判断记录，不再作为当前主线说明；当前主线以 `v1.6-roadmap.md` 为准。", v15_prep)
+        self.assertIn("根据 [v1.5-roadmap.md](file:///Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) 在 2026-03-31 时的状态：", v15_prep)
+        self.assertIn("它不是新的 roadmap，而是对当时 `v1.5-roadmap.md` 的“后续主线推进准备判断”。", v15_prep)
 
 
 if __name__ == "__main__":
