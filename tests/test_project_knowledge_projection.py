@@ -86,8 +86,8 @@ class ProjectKnowledgeProjectionTests(unittest.TestCase):
                     "status": "completed",
                     "last_successful_checkpoint": "snapshot",
                     "args": {
-                        "snapshot_file": str(mighty / "snapshots" / "chapter-018" / "snapshot.json"),
-                        "maintenance_report_file": str(mighty / "maintenance-report.json"),
+                        "snapshot_file": ".mighty/snapshots/chapter-018/snapshot.json",
+                        "maintenance_report_file": ".mighty/maintenance-report.json",
                     },
                 },
             },
@@ -146,8 +146,104 @@ class ProjectKnowledgeProjectionTests(unittest.TestCase):
         self.assertEqual(payload["story_index"]["archived_reviewed_chapters"], 2)
         self.assertEqual(payload["workflow_truth"]["status"], "pass")
         self.assertFalse(payload["workflow_truth"]["missing_artifacts"])
+        self.assertTrue(payload["workflow_truth"]["checks"]["maintenance_report_exists"])
+        self.assertTrue(payload["workflow_truth"]["checks"]["snapshot_file_exists"])
         self.assertEqual(payload["freshness"]["artifact_key"], "knowledge-projection")
         self.assertEqual(payload["freshness"]["contract"], "sidecar-freshness-v1")
+
+    def test_build_projection_accepts_legacy_root_prefixed_relative_paths(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        mighty = root / ".mighty"
+        workflow_state_path = mighty / "workflow_state.json"
+        workflow_state = json.loads(workflow_state_path.read_text(encoding="utf-8"))
+        workflow_state["current_task"]["args"] = {
+            "maintenance_report_file": f"projects/{root.name}/.mighty/maintenance-report.json",
+            "snapshot_file": f"projects/{root.name}/.mighty/snapshots/chapter-018/snapshot.json",
+        }
+        workflow_state_path.write_text(json.dumps(workflow_state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        payload = module.build_project_knowledge_projection(root, timestamp="2026-03-28T00:00:00Z")
+
+        self.assertEqual(payload["workflow_truth"]["status"], "pass")
+        self.assertFalse(payload["workflow_truth"]["missing_artifacts"])
+
+
+    def test_build_projection_accepts_legacy_absolute_paths_from_other_checkout(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        mighty = root / ".mighty"
+        workflow_state_path = mighty / "workflow_state.json"
+        workflow_state = json.loads(workflow_state_path.read_text(encoding="utf-8"))
+        workflow_state["current_task"]["args"] = {
+            "maintenance_report_file": f"/tmp/old-checkout/projects/{root.name}/.mighty/maintenance-report.json",
+            "snapshot_file": f"/tmp/old-checkout/projects/{root.name}/.mighty/snapshots/chapter-018/snapshot.json",
+        }
+        workflow_state_path.write_text(json.dumps(workflow_state, ensure_ascii=False, indent=2), encoding="utf-8")
+
+        payload = module.build_project_knowledge_projection(root, timestamp="2026-03-28T00:00:00Z")
+
+        self.assertEqual(payload["workflow_truth"]["status"], "pass")
+        self.assertFalse(payload["workflow_truth"]["missing_artifacts"])
+    def test_build_projection_rejects_external_absolute_artifact_paths(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        mighty = root / ".mighty"
+        external_root = Path(tempfile.mkdtemp())
+        self.addCleanup(
+            lambda: __import__("shutil").rmtree(external_root, ignore_errors=True)
+        )
+        external_report = external_root / "maintenance-report.json"
+        external_snapshot = external_root / "snapshot.json"
+        write_json(external_report, {"run_at": "2026-03-28T00:00:00Z"})
+        write_json(external_snapshot, {"ok": True})
+        workflow_state_path = mighty / "workflow_state.json"
+        workflow_state = json.loads(workflow_state_path.read_text(encoding="utf-8"))
+        workflow_state["current_task"]["args"] = {
+            "maintenance_report_file": str(external_report),
+            "snapshot_file": str(external_snapshot),
+        }
+        workflow_state_path.write_text(
+            json.dumps(workflow_state, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        payload = module.build_project_knowledge_projection(
+            root,
+            timestamp="2026-03-28T00:00:00Z",
+        )
+
+        self.assertEqual(payload["workflow_truth"]["status"], "fail")
+        self.assertEqual(
+            payload["workflow_truth"]["missing_artifacts"],
+            ["maintenance_report_exists", "snapshot_file_exists"],
+        )
+
+    def test_build_projection_rejects_snapshot_path_traversal(self) -> None:
+        module = load_module()
+        root = self.make_project_root()
+        mighty = root / ".mighty"
+        workflow_state_path = mighty / "workflow_state.json"
+        workflow_state = json.loads(workflow_state_path.read_text(encoding="utf-8"))
+        workflow_state["current_task"]["args"] = {
+            "maintenance_report_file": ".mighty/maintenance-report.json",
+            "snapshot_file": ".mighty/snapshots/../../../../etc/passwd",
+        }
+        workflow_state_path.write_text(
+            json.dumps(workflow_state, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
+        payload = module.build_project_knowledge_projection(
+            root,
+            timestamp="2026-03-28T00:00:00Z",
+        )
+
+        self.assertEqual(payload["workflow_truth"]["status"], "fail")
+        self.assertEqual(
+            payload["workflow_truth"]["missing_artifacts"],
+            ["snapshot_file_exists"],
+        )
 
 
 if __name__ == "__main__":

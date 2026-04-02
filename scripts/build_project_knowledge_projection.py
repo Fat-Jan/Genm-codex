@@ -44,23 +44,70 @@ def count_active_hooks(state: dict) -> int:
     return len(hooks) if isinstance(hooks, list) else 0
 
 
-def build_workflow_truth(mighty: Path, workflow_state: dict) -> dict:
+def resolve_project_sidecar_path(
+    project_root: Path,
+    artifact_file: object,
+    *,
+    exact_relative_path: str | None = None,
+    allowed_relative_prefix: str | None = None,
+) -> Path | None:
+    if not isinstance(artifact_file, str) or not artifact_file:
+        return None
+
+    project_root_resolved = project_root.resolve()
+    candidate = Path(artifact_file)
+    if candidate.is_absolute():
+        if candidate.is_relative_to(project_root_resolved):
+            normalized = candidate
+        elif ".mighty" in candidate.parts:
+            mighty_index = candidate.parts.index(".mighty")
+            normalized = project_root / Path(*candidate.parts[mighty_index:])
+        else:
+            return None
+    elif ".mighty" in candidate.parts:
+        mighty_index = candidate.parts.index(".mighty")
+        normalized = project_root / Path(*candidate.parts[mighty_index:])
+    else:
+        normalized = project_root / candidate
+
+    normalized = normalized.resolve(strict=False)
+    try:
+        relative = normalized.relative_to(project_root_resolved)
+    except ValueError:
+        return None
+
+    relative_posix = relative.as_posix()
+    if exact_relative_path is not None:
+        return normalized if relative_posix == exact_relative_path else None
+    if allowed_relative_prefix is not None:
+        prefix = allowed_relative_prefix.rstrip("/") + "/"
+        return normalized if relative_posix.startswith(prefix) else None
+    return normalized
+
+
+def build_workflow_truth(project_root: Path, mighty: Path, workflow_state: dict) -> dict:
     current_task = workflow_state.get("current_task", {}) if isinstance(workflow_state.get("current_task"), dict) else {}
     args = current_task.get("args", {}) if isinstance(current_task.get("args"), dict) else {}
     claimed_status = current_task.get("status")
     claimed_checkpoint = current_task.get("last_successful_checkpoint")
+    maintenance_report_path = resolve_project_sidecar_path(
+        project_root,
+        args.get("maintenance_report_file"),
+        exact_relative_path=".mighty/maintenance-report.json",
+    )
+    snapshot_path = resolve_project_sidecar_path(
+        project_root,
+        args.get("snapshot_file"),
+        allowed_relative_prefix=".mighty/snapshots",
+    )
 
     checks = {
         "active_context_exists": (mighty / "active-context.json").exists(),
         "memory_context_exists": (mighty / "memory-context.json").exists(),
         "quality_audit_exists": (mighty / "quality-audit.json").exists(),
         "content_positioning_exists": (mighty / "content-positioning.json").exists(),
-        "maintenance_report_exists": Path(args["maintenance_report_file"]).exists()
-        if isinstance(args.get("maintenance_report_file"), str) and args.get("maintenance_report_file")
-        else False,
-        "snapshot_file_exists": Path(args["snapshot_file"]).exists()
-        if isinstance(args.get("snapshot_file"), str) and args.get("snapshot_file")
-        else False,
+        "maintenance_report_exists": maintenance_report_path.exists() if maintenance_report_path else False,
+        "snapshot_file_exists": snapshot_path.exists() if snapshot_path else False,
     }
 
     missing_artifacts: list[str] = []
@@ -121,7 +168,7 @@ def build_project_knowledge_projection(project_root: Path, *, timestamp: str) ->
             "last_successful_checkpoint": workflow_state.get("current_task", {}).get("last_successful_checkpoint"),
             "repo_owned_tail_steps": ["maintenance", "snapshot"],
         },
-        "workflow_truth": build_workflow_truth(mighty, workflow_state),
+        "workflow_truth": build_workflow_truth(project_root, mighty, workflow_state),
         "sidecar_health": {
             "setting_gate_status": setting_gate.get("status", "unknown"),
             "has_active_context": (mighty / "active-context.json").exists(),
