@@ -2,29 +2,37 @@
 
 ## Current Focus
 
-- 已完成“`profile-expansion-first-batch-v1.5.md` 事实口径收口”这一具体维护动作。
-- 当前建议继续结合并行 lane 的输出，决定样本维护、`crossover` 边界和 profile 扩面准备的下一步落点；这次修订后，第一批扩面说明已不再落后于当前资产覆盖。
+- 最优路径的第二步已经完成：Trae 最小手工验证已补齐到本机 runtime 证据。
+- 当前 focus 已从“进入 Trae 手工验证”切换为“按 `Gate 1` 结论维持 `v1.6.1` 级增强，不进入有界 `v2`”。
 
 ## Scope
 
-- 校正 `profile-expansion-first-batch-v1.5.md` 中过时的首批落地口径
-- 明确“第一批已落地对象”与“当前标准 profile 已继续扩面”的区别
-- 将本轮维护结果写回 active ops 记录
+- 保留已落地的证据层、Trae 审计结果与最小手工验证结果
+- 将 `Gate 1` 结论收口为 `v1.6.1` 级增强，而不是结构升级
+- 维持当前 `v1.6` consumer 与研究层新增资产之间的兼容关系
 
 ## Not In Scope
 
-- 不做文档物理迁移
-- 不修改 `skills/`、`shared/`、`scripts/` 运行逻辑
-- 不实际新增 profile / overlay 资产
+- 不新增 runtime / plugin / daemon
+- 不直接升级到完整 `v2`
+- 不在没有手工验证前把 Trae 改成 installable host
 
 ## Verification
 
+- `pytest -q tests/test_state_contracts.py -k 'host_capability_matrix or host_evidence_ledger'`
+- `pytest -q tests/test_install_skills_matrix.py tests/test_host_support_projection.py tests/test_host_support_status_doc.py tests/test_host_foundation_doctor.py tests/test_skill_alias_plan.py tests/test_trae_capability_review_doc.py`
+- `python3 scripts/doctor_host_foundation.py --json`
 - `bash scripts/validate-migration.sh`
-- 回读 `docs/00-当前有效/profile-expansion-first-batch-v1.5.md`
-- 必要时复核 `shared/profiles/` 当前覆盖统计
+- 回读 `docs/20-研究实验/host-foundation-optimal-path-2026-04-01.md`
+- 回读 `docs/20-研究实验/trae-capability-review-2026-04-02.md`
 
 ## Closure Status
 
-- `profile-expansion-first-batch-v1.5.md` 已不再把平台差异覆盖说成只停留在首批个别样本。
-- 文档现在明确区分：“第一批是谁”与“仓库现状已进一步推进到 52/52 标准 profile 覆盖”。
-- 当前这份第一批说明页已更适合作为历史首批落地说明，而不是现状落后描述。
+- legacy / 过渡文档的 `v1.5` 残留时态也已收口：`task_plan.md`、`current-processing-plan-phased-v1.md` 与 `v1.5-next-mainline-preparation-2026-03-31.md` 现在都明确标成历史判断，不再误导为当前主线说明。
+- 当前主线入口残留已收口：`start-here.md`、`skill-usage.md`、`root-retention-policy.md` 与 `.trae/rules/project-context.md` 不再把 `v1.5` 误写成当前主线。
+- 当前仓库已经同时具备：
+  - `v1.6` 已完成的宿主基础层
+  - 下一轮决策所需的证据层
+  - Trae 官方文档驱动的能力面审计基线
+  - Trae 本机 runtime 最小手工验证结果
+- `Gate 1` 已收口：当前新增事实仍属于证据等级提升，不足以触发有界 `v2`；仓库应停在 `v1.6.1` 级增强。

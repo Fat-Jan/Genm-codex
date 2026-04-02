@@ -2,6 +2,45 @@
 
 ## Current Findings
 
+- 当前剩余的 `v1.5-roadmap.md` 引用里，真正需要继续处理的已不再是 core entry，而是少数 legacy / 过渡文档里的时态问题；最小且正确的修法是补“历史说明”而不是删除历史链路。
+- `task_plan.md`、`current-processing-plan-phased-v1.md` 与 `v1.5-next-mainline-preparation-2026-03-31.md` 这三处现在都已经显式说明：它们只保留为历史连续性或阶段判断记录，当前主线仍以 `v1.6-roadmap.md` 为准。
+- 经过这轮修正后，剩余 `v1.5-roadmap.md` 引用基本都属于“历史记录 / 上游参考 / 回归锁定”三类，而不再是当前主线入口误导。
+
+- `v1.6` 主线切换后的剩余误导点已经不在 core roadmap / README / INDEX，而主要落在外围路由文档与宿主规则提示上；把这些入口显式改成“`v1.6` 当前主线 + `v1.5` 历史/上游参考”就足以完成这一轮收尾。
+- root legacy ops 的旧回归里仍有一条要求 `task_plan.md` 保持 `# Task Plan:` 标题，但仓库当前真相已经是 `Legacy Task Plan Archive` + `.ops/active-plan.md` canonical pointer；测试应跟随现状真值，而不是反向要求 legacy 文档退回旧结构。
+- 跨宿主基础层这条线在工作区中已经具备 matrix / projection / doctor / tests 的实现骨架，但此前缺少正式主线 roadmap 承载，导致“实现已出现、主线状态未切换”的口径断层。
+- `cross-platform-support-plan.md` 仍只是研究稿；原先位于根目录的跨宿主单页说明现在已迁入归档，不再与 roadmap / README / `.ops` 争夺当前真值角色。
+- 当前更合适的做法不是继续给跨宿主线补零散说明，而是把它正式收成 `v1.6` 主线，并用 phase / status / verify 接管。
+- `v1.6` Phase 1 当前已经满足“可交付”标准，而不只是“工作区里有一批改动”：
+  - host truth file 已存在并有 schema / contract tests
+  - install adapter 已从 matrix 消费并锁住 unsupported / unexpected root 边界
+  - skill usage install/support table 已改为投影生成
+  - host foundation doctor 已能汇总 schema / contract / install / alias / projection 五类检查
+- `v1.6` Phase 2-C 与 Phase 3 现在也已满足收口标准：
+  - 单页 memo 已迁出根目录
+  - skill / alias registry 已能从 `skill-merge-map-v1.json` 派生
+  - host support status 已有当前有效文档，并受投影与 doctor 校验
+- 更优的下一版方案不应继续在 `host-capability-matrix-v1.json` 上叠加字段，而应改成：
+  - 承诺层
+  - 证据层
+  - 能力面适配层
+- `Trae` 的真正问题不是“是否支持”，而是“哪些能力面已经有官方文档或最小 runtime 证据”；这更适合作为单独研究 lane，而不是直接推进安装适配。
+- 进一步比较后，当前真正最优的路径不是“直接上 `v2`”，而是“证据层优先 + Trae 审计优先 + 决策门后置”的条件式方案。
+- 也就是说，`host-foundation-v2-proposal` 适合作为结构候选，而 `host-foundation-optimal-path` 才是当前执行顺序上的最优决策稿。
+- 这条最优路径的第一步已经可以具体化为两个资产：
+  - `host-evidence-ledger-v1`
+  - `trae-capability-review-2026-04-02`
+- 当前最值钱的新增信息不是“又支持了一个安装路径”，而是把宿主承诺和 supporting evidence 开始显式分层。
+- 这一步完成后，仓库已经具备做 `Gate 1` 判断的前提：可以明确区分“结构表达能力不足”与“只是 Trae 的本地验证尚未做完”。
+- 本机最小手工验证已经把 Trae 的几个关键未知数从“猜测”推进成了 runtime fact：
+  - `Trae CN` / `Trae` 的 global skills root
+  - 当前仓库的 `.trae/skills` project path scan
+  - 当前仓库 `.trae/mcp.json` 的 project-owned file source
+  - sandboxed command execution
+- 同一批日志仍显示 `SkillTool` 使用 remote definition，这说明当前真正剩下的未知数是 invocation/enablement，而不是 discovery path 本身。
+- 这使得当前最合理的 `Gate 1` 结果不是“进入有界 `v2`”，而是“停在 `v1.6.1` 级增强”：
+  - 当前 `unsupported install + partial/verified capability boundary + evidence ledger` 仍能表达现状
+  - 新增事实主要提升了证据等级，而没有逼出新的主真值结构
 - 根目录同时存在 `task_plan.md`、`progress.md`、`findings.md`，说明 active ops 状态此前没有单一默认落点。
 - `e2e-novel/` 已经承担官方最小 E2E 样本的角色，`smoke/` 更适合作为专项验证资产，而不是第二套官方样本体系。
 - `shared/` 的真实语义是 synced boundary，不是普通源码目录。
@@ -31,6 +70,17 @@
 
 ## Immediate Follow-up
 
+- 当前这条 `v1.6` lane 已完成，Trae 最小手工验证也已完成。
+- `Gate 1` 已收口为：
+  - 停在 `v1.6.1` 级增强
+  - 暂不进入有界 `v2`
+- 后续如继续沿这条线推进，更自然的候选是：
+  - 继续验证 repo-owned local skill invocation 是否能脱离 remote definition
+  - 继续验证 `auto-run + sandbox` 是否真的足以承担 hooks-like automation
+- 只有当后续新证据表明：
+  - `v1` 已经无法清楚表达承诺
+  - 或新 consumer 无法继续直接吃 `v1`
+  才值得重新打开 `v2`
 - 后续新任务优先把当前状态写进 `.ops/`
 - 等 legacy root ops 文件的历史正文进一步拆分后，再决定是否做物理迁移或瘦身
 - 下一条 active task 默认应转向新的具体治理/维护任务，而不是继续扩写这条结构线。
