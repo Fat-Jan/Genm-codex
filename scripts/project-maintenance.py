@@ -135,6 +135,17 @@ def main() -> None:
         ts,
     ], allow_failure=True)
     steps.append(memory_sync_step)
+    memory_summary_step = run_step([
+        sys.executable,
+        str(script_dir / "render_memory_context_summary.py"),
+        str(root),
+        "--timestamp",
+        ts,
+        "--skip-refresh-memory-context",
+        "--sync-openmemory",
+        "off",
+    ], allow_failure=True)
+    steps.append(memory_summary_step)
     quality_audit_step = run_step([
         sys.executable,
         str(script_dir / "audit_project_quality_state.py"),

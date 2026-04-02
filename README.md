@@ -183,6 +183,12 @@ python3 scripts/project-maintenance.py <project_root>
 
 # 任务后维护
 python3 scripts/post-task-maintenance.py <project_root> --trigger write
+
+# 单独重生可恢复 memory summary（会刷新 memory-context，并按需同步 OpenMemory）
+python3 scripts/render_memory_context_summary.py <project_root>
+
+# 一条命令同时产出 handoff + memory summary + 新线程首条消息
+python3 scripts/render_resume_bundle.py <project_root>
 ```
 
 ## 边界提醒

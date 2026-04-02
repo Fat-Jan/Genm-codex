@@ -140,6 +140,38 @@ class ProjectMaintenanceToleranceTests(unittest.TestCase):
             self.assertEqual(printed["workflow_status"], "completed")
             self.assertEqual(printed["result"], "partial")
 
+    def test_maintenance_runs_memory_summary_step(self) -> None:
+        module = load_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir)
+            scaffold_project(root)
+            called_scripts: list[str] = []
+
+            def fake_run(cmd):
+                script_name = Path(cmd[1]).name
+                called_scripts.append(script_name)
+                if script_name == "generate_snapshot.py":
+                    return {
+                        "cmd": cmd,
+                        "stdout": json.dumps(
+                            {
+                                "filesystem_snapshot_file": str(root / ".mighty" / "snapshots" / "chapter-001" / "snapshot.json"),
+                            },
+                            ensure_ascii=False,
+                        ),
+                    }
+                return {"cmd": cmd, "stdout": json.dumps({"ok": True}, ensure_ascii=False)}
+
+            with mock.patch.object(module, "run", side_effect=fake_run), \
+                 mock.patch.object(module, "append_trace", return_value=root / ".mighty" / "logs" / "trace.jsonl"), \
+                 mock.patch.object(sys, "argv", ["project-maintenance.py", str(root)]), \
+                 mock.patch("builtins.print") as mocked_print:
+                module.main()
+
+            self.assertIn("render_memory_context_summary.py", called_scripts)
+            printed = json.loads(mocked_print.call_args[0][0])
+            self.assertIn("render_memory_context_summary.py", printed["steps"])
+
 
 if __name__ == "__main__":
     unittest.main()

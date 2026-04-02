@@ -169,6 +169,7 @@
      - `snapshot`
      - `memory-context`
      - 可选 `openmemory sync`
+     - `memory-summary`
      - `content-positioning`
      - 轻量 trace log 写入
    - 若要开启跨会话 / 外部记忆同步，在项目的 `.mighty/config.json` 中显式声明：
@@ -186,7 +187,10 @@
 
    - 可手动运行：
      - `python3 scripts/sync_memory_context_to_openmemory.py <project_root>`
-   - 默认未显式开启时，只生成本地 `.mighty/memory-context.json` 和 `.mighty/memory-sync-report.json`，不会外写记忆库
+     - `python3 scripts/render_memory_context_summary.py <project_root>`
+     - `python3 scripts/render_resume_bundle.py <project_root>`
+   - `render_resume_bundle.py` 会一并产出 `.mighty/resume-handoff.md`、`.mighty/resume-bundle.json` 和 `.mighty/new-thread-message.txt`
+   - 默认未显式开启时，只生成本地 `.mighty/memory-context.json`、`.mighty/memory-summary.{md,json}` 和 `.mighty/memory-sync-report.json`，不会外写记忆库
 5. 章节很多后：
    - `novel-sync (thin-state)`
 6. 单章事务收尾时：
