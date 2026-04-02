@@ -1,0 +1,100 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-31T18:03:15Z",
+  "project_root": "e2e-novel",
+  "project_title": "E2E样本",
+  "truth_boundary": {
+    "truth_source": "local_files",
+    "repo_truth_layers": [
+      "docs",
+      "skills",
+      "scripts",
+      "projects/*/设定集",
+      "projects/*/大纲",
+      "projects/*/.mighty/*.json"
+    ],
+    "projection_role": "agent-readable summary only"
+  },
+  "workflow_contract": {
+    "transaction_contract": "chapter-transaction-v1",
+    "current_command": "novel-write",
+    "current_status": "completed",
+    "last_successful_checkpoint": "snapshot",
+    "repo_owned_tail_steps": [
+      "maintenance",
+      "snapshot"
+    ]
+  },
+  "workflow_truth": {
+    "status": "pass",
+    "claimed_status": "completed",
+    "claimed_checkpoint": "snapshot",
+    "missing_artifacts": [],
+    "checks": {
+      "active_context_exists": true,
+      "memory_context_exists": true,
+      "quality_audit_exists": true,
+      "content_positioning_exists": true,
+      "maintenance_report_exists": true,
+      "snapshot_file_exists": true
+    }
+  },
+  "sidecar_health": {
+    "setting_gate_status": "passed",
+    "has_active_context": true,
+    "active_context_last_built": "2026-03-31T18:03:15Z",
+    "active_context_hook_count": 3,
+    "active_context_guardrail_count": 0,
+    "has_content_positioning": true,
+    "has_recent_guardrails": true,
+    "recent_guardrails_expires_after_chapter": null
+  },
+  "story_index": {
+    "current_chapter": 5,
+    "active_hook_count": 2,
+    "live_reviewed_chapters": 3,
+    "archived_reviewed_chapters": 0
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "knowledge-projection",
+    "generated_at": "2026-03-31T18:03:15Z",
+    "generated_by": "scripts/build_project_knowledge_projection.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "e2e-novel",
+    "depends_on": [
+      ".mighty/state.json",
+      ".mighty/state-archive.json",
+      ".mighty/workflow_state.json",
+      ".mighty/setting-gate.json",
+      ".mighty/content-positioning.json",
+      ".mighty/learned-patterns.json"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "current_chapter": 5
+      },
+      "state-archive.json": {
+        "path": ".mighty/state-archive.json",
+        "reviewed_chapters": 0
+      },
+      "workflow_state.json": {
+        "path": ".mighty/workflow_state.json",
+        "last_successful_checkpoint": "snapshot"
+      },
+      "setting-gate.json": {
+        "path": ".mighty/setting-gate.json",
+        "status": "passed"
+      },
+      "content-positioning.json": {
+        "path": ".mighty/content-positioning.json",
+        "has_payload": true
+      },
+      "learned-patterns.json": {
+        "path": ".mighty/learned-patterns.json",
+        "has_recent_guardrails": true
+      }
+    }
+  }
+}

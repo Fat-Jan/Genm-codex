@@ -128,6 +128,16 @@ reader_expectations:
     - "不符合地下工作者特点的行为"
     - "轻率地暴露组织信息"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "抗战谍战"
+    strong_tags: ["潜伏智斗", "家国信仰"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["历史背景不能失真", "身份处理必须长期保持高压谨慎"]
+    package_cues:
+      - "首屏点任务危机或身份试探"
+      - "前三章要出现一次险中保密或任务换账"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

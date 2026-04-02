@@ -33,7 +33,7 @@ Default intent for the current workflow:
 
 ## Required reads
 
-Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Reference: `../../shared/references/shared/consumer-read-manifest.md`
 Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-precheck` / `novel-package`.
 
 Shared bundles to apply here:
@@ -98,6 +98,8 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/fanqie-p0-checkcards/<bucket>.md`
 - `../../docs/strong-quality-gate-policy.json`
 - `../../docs/00-当前有效/chapter-structure-fields-design.md`
+- `../../docs/10-进行中/batch-evidence-sidecar.json` when profile/genre boundaries are disputed
+- `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` when profile/genre boundaries are disputed
 
 ## Workflow
 
@@ -114,6 +116,7 @@ Read conditionally:
 4. Read the genre/profile context.
    - first prefer the lightweight projection already present in `state.genre_profile`
    - only if additional detail is still needed, inspect raw profile data through `../../scripts/profile_contract.py`
+   - when profile/genre boundaries are disputed, also consult `../../docs/10-进行中/batch-evidence-sidecar.json` and `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` as upstream adjudication sources before treating the mismatch as a chapter-only problem
    - when reading raw profile layers, use this order:
      - core profile
      - platform overlay when it exists

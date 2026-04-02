@@ -1,0 +1,14 @@
+name: "黑暗题材 bucket overlay"
+display_name: "黑暗题材"
+description: "番茄黑暗题材 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "黑暗题材"
+    strong_tags: ["黑暗进化", "代价换力"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["黑暗不等于无逻辑", "压抑感必须周期性兑现爽点"]
+    package_cues:
+      - "首屏点背叛/堕落/代价交换"
+      - "前三章要出现一次黑暗力量兑现或秩序反打"

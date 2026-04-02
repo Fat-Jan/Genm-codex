@@ -410,8 +410,10 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         self.assertIsNone(payload["workflow_current_step"])
         self.assertEqual(payload["last_successful_checkpoint"], "snapshot")
         self.assertEqual(payload["workflow_status"], "completed")
+        self.assertEqual(payload["memory_sync_status"], "skipped")
         self.assertTrue((root / ".mighty" / "active-context.json").exists())
         self.assertTrue((root / ".mighty" / "memory-context.json").exists())
+        self.assertTrue((root / ".mighty" / "memory-sync-report.json").exists())
         self.assertTrue((root / ".mighty" / "knowledge-projection.json").exists())
         self.assertTrue((root / ".mighty" / "quality-audit.json").exists())
         self.assertTrue((root / ".mighty" / "workflow-health.json").exists())
@@ -452,6 +454,8 @@ class InkosGrowthScriptOutputTests(unittest.TestCase):
         self.assertIn("quality_audit", payload)
         self.assertIn("quality_audit_file", payload["quality_audit"])
         self.assertIn("workflow_health", payload)
+        self.assertIn("memory_sync", payload)
+        self.assertEqual(payload["memory_sync"]["status"], "skipped")
 
     def test_project_maintenance_updates_existing_workflow_state(self):
         root = self.make_project_root()

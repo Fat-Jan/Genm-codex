@@ -1,0 +1,8 @@
+{
+  "memory_sync": {
+    "openmemory": {
+      "enabled": true,
+      "user_id": "genm-codex-samples"
+    }
+  }
+}

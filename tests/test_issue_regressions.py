@@ -56,7 +56,9 @@ class IssueRegressionTests(unittest.TestCase):
     def test_p2_1_task_plan_archived_and_single_active(self):
         self.assertTrue((REPO_ROOT / "task_plan_archive.md").exists())
         content = (REPO_ROOT / "task_plan.md").read_text(encoding="utf-8")
-        self.assertEqual(content.count("# Task Plan:"), 1)
+        self.assertIn("# Legacy Task Plan Archive:", content)
+        self.assertIn("当前 active task state 默认以 `.ops/active-plan.md` 为准", content)
+        self.assertNotIn("# Task Plan:", content)
 
     def test_p2_2_docs_index_exists(self):
         content = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
@@ -64,7 +66,7 @@ class IssueRegressionTests(unittest.TestCase):
             self.assertIn(token, content)
 
     def test_p2_2b_root_roadmap_exists_and_tracks_status(self):
-        content = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        content = (REPO_ROOT / "docs/90-归档/阶段/v1.1-roadmap.md").read_text(encoding="utf-8")
         for token in ("Status:", "[planned]", "[deferred]", "主线 A", "主线 B"):
             self.assertIn(token, content)
 
@@ -96,7 +98,7 @@ class IssueRegressionTests(unittest.TestCase):
     def test_p2_6_docs_roadmap_path_is_only_a_pointer(self):
         content = (REPO_ROOT / "docs/00-当前有效/v1.1-roadmap.md").read_text(encoding="utf-8")
         self.assertIn("主 roadmap", content)
-        self.assertIn("/Users/arm/Desktop/vscode/Genm-codex/v1.1-roadmap.md", content)
+        self.assertIn("/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/v1.1-roadmap.md", content)
 
     def test_p2_7_docs_reflect_phase2_fetch_snapshot_log_updates(self):
         usage = (REPO_ROOT / "docs/00-当前有效/skill-usage.md").read_text(encoding="utf-8")
@@ -186,12 +188,64 @@ class IssueRegressionTests(unittest.TestCase):
         calibration = (REPO_ROOT / "docs/00-当前有效/profile-calibration-and-bucket-mapping.md").read_text(encoding="utf-8")
         readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         index_doc = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
-        roadmap = (REPO_ROOT / "v1.1-roadmap.md").read_text(encoding="utf-8")
+        roadmap = (REPO_ROOT / "docs/90-归档/阶段/v1.1-roadmap.md").read_text(encoding="utf-8")
         for token in ("主 profile", "主 bucket", "strong_tags", "narrative_modes", "tone_guardrails"):
             self.assertIn(token, calibration)
         self.assertIn("profile-calibration-and-bucket-mapping.md", readme)
         self.assertIn("profile-calibration-and-bucket-mapping.md", index_doc)
         self.assertIn("Status: `[done]`", roadmap)
+
+    def test_v15_novel_analyze_has_current_workflow_entry(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-analyze", workflows)
+        self.assertIn("novel-analyze", start_here)
+        self.assertIn("novel-analyze", boundary)
+
+    def test_v15_novel_spinoff_is_explicitly_non_default_but_accessible(self):
+        workflows = (REPO_ROOT / "docs/00-当前有效/default-workflows.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        boundary = (REPO_ROOT / "docs/00-当前有效/v1-boundary.md").read_text(encoding="utf-8")
+        self.assertIn("novel-spinoff", workflows)
+        self.assertIn("novel-spinoff", start_here)
+        self.assertIn("novel-spinoff", boundary)
+        self.assertIn("不属于默认工作流", workflows)
+
+
+    def test_v16_mainline_entry_pointers_are_consistent(self):
+        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        index_doc = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        usage = (REPO_ROOT / "docs/00-当前有效/skill-usage.md").read_text(encoding="utf-8")
+        retention = (REPO_ROOT / "docs/00-当前有效/root-retention-policy.md").read_text(encoding="utf-8")
+        trae_context = (REPO_ROOT / ".trae/rules/project-context.md").read_text(encoding="utf-8")
+
+        self.assertIn("当前主线版本：`v1.6`", readme)
+        self.assertIn("[v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md) — `active`", index_doc)
+        self.assertIn("[v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) — `archived(mainline-upstream-reference)`", index_doc)
+        self.assertIn("**`v1.6` 宿主支持 / 跨宿主基础层**", start_here)
+        self.assertIn("**历史 `v1.5` 治理 / contract / registry / consumer 接线**", start_here)
+        self.assertIn("当前主线已切到 `v1.6`", usage)
+        self.assertIn("`v1.6-roadmap.md` → 当前主线", retention)
+        self.assertIn("`v1.5-roadmap.md` → 紧邻当前主线的上游参考", retention)
+        self.assertIn("| `v1.6-roadmap.md` | 当前主线路线图 |", trae_context)
+        self.assertIn("| `v1.5-roadmap.md` | 直接上游参考 roadmap |", trae_context)
+        self.assertNotIn("| `v1.5-roadmap.md` | 当前主线路线图 |", trae_context)
+
+
+    def test_v16_legacy_v15_docs_are_explicitly_historical(self):
+        task_plan = (REPO_ROOT / "task_plan.md").read_text(encoding="utf-8")
+        processing = (REPO_ROOT / "docs/00-当前有效/current-processing-plan-phased-v1.md").read_text(encoding="utf-8")
+        v15_prep = (REPO_ROOT / "docs/00-当前有效/v1.5-next-mainline-preparation-2026-03-31.md").read_text(encoding="utf-8")
+
+        self.assertIn("`v1.5-roadmap.md` 当时保留根目录作为当前主线 roadmap，现已由 `v1.6-roadmap.md` 接管当前主线角色", task_plan)
+        self.assertNotIn("`v1.5-roadmap.md` 保留根目录作为当前主线 roadmap", task_plan)
+        self.assertIn("历史说明（2026-04-02）：本文是 2026-03-31 形成的阶段性处理方案", processing)
+        self.assertIn("本 Phase 4 仅保留为 2026-03-31 时对 `v1.5` 后续主线的准备判断；当前主线已切到 `v1.6`。", processing)
+        self.assertIn("历史说明（2026-04-02）：本文仅保留为 `v1.5` 阶段的 Phase 4 / 后续主线准备判断记录，不再作为当前主线说明；当前主线以 `v1.6-roadmap.md` 为准。", v15_prep)
+        self.assertIn("根据 [v1.5-roadmap.md](file:///Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) 在 2026-03-31 时的状态：", v15_prep)
+        self.assertIn("它不是新的 roadmap，而是对当时 `v1.5-roadmap.md` 的“后续主线推进准备判断”。", v15_prep)
 
 
 if __name__ == "__main__":

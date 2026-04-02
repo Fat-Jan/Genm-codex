@@ -40,7 +40,7 @@ This skill owns `draft`; it does not replace the full chapter transaction.
 
 ## Required reads
 
-Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Reference: `../../shared/references/shared/consumer-read-manifest.md`
 
 Shared bundles to apply here:
 

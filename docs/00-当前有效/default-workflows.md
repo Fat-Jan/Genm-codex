@@ -168,8 +168,29 @@
      - sync / guidance split / thin-state
      - `snapshot`
      - `memory-context`
+     - 可选 `openmemory sync`
+     - `memory-summary`
      - `content-positioning`
      - 轻量 trace log 写入
+   - 若要开启跨会话 / 外部记忆同步，在项目的 `.mighty/config.json` 中显式声明：
+
+```json
+{
+  "memory_sync": {
+    "openmemory": {
+      "enabled": true,
+      "user_id": "genm-codex"
+    }
+  }
+}
+```
+
+   - 可手动运行：
+     - `python3 scripts/sync_memory_context_to_openmemory.py <project_root>`
+     - `python3 scripts/render_memory_context_summary.py <project_root>`
+     - `python3 scripts/render_resume_bundle.py <project_root>`
+   - `render_resume_bundle.py` 会一并产出 `.mighty/resume-handoff.md`、`.mighty/resume-bundle.json` 和 `.mighty/new-thread-message.txt`
+   - 默认未显式开启时，只生成本地 `.mighty/memory-context.json`、`.mighty/memory-summary.{md,json}` 和 `.mighty/memory-sync-report.json`，不会外写记忆库
 5. 章节很多后：
    - `novel-sync (thin-state)`
 6. 单章事务收尾时：
@@ -294,6 +315,7 @@
 
 - `novel-query`
 - `novel-retrieve`
+- `novel-analyze`
 
 目标：
 
@@ -323,6 +345,10 @@
 ### 快速引用
 
 - `novel-retrieve`
+
+### 区间分析 / 诊断
+
+- `novel-analyze`
 
 ### 设定维护
 
@@ -373,6 +399,21 @@
   - 排障
   - 只读检查关键事件
   - 事后诊断
+
+### `novel-spinoff`
+
+原因：
+
+- 这是明确的边角创作能力，不是正文主线推进的一部分
+- 只有用户明确想写：
+  - 番外
+  - 角色篇
+  - IF线
+  时才应进入
+- 默认不应让它混入：
+  - 主线章节推进
+  - `progress.current_chapter`
+  - 当前投稿与质量闭环
 
 ---
 

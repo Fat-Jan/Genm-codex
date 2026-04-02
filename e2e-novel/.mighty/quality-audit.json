@@ -1,0 +1,37 @@
+{
+  "project": "e2e-novel",
+  "reviewed_chapter_count": 3,
+  "status": "warn",
+  "findings": [
+    {
+      "code": "missing-route-decision",
+      "chapter": "1",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "1",
+      "severity": "warn"
+    },
+    {
+      "code": "route-needs-fix-mismatch",
+      "chapter": "4",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "4",
+      "severity": "warn"
+    },
+    {
+      "code": "route-needs-fix-mismatch",
+      "chapter": "5",
+      "severity": "warn"
+    },
+    {
+      "code": "missing-anti-flattening-artifacts",
+      "chapter": "5",
+      "severity": "warn"
+    }
+  ]
+}

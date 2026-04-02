@@ -132,6 +132,16 @@ reader_expectations:
     - "让人物行为违背时代逻辑"
     - "让爱情脱离时代背景"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "民国言情"
+    strong_tags: ["乱世情缘", "时代悲歌"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["时代感不能悬浮", "爱情线必须扎根乱世处境"]
+    package_cues:
+      - "首屏点乱世相遇或身份对撞"
+      - "前三章要出现一次时代/命运冲击"
+
 golden_three:
   opening_hook: "开篇必须建立民国氛围：十里洋场的繁华、军阀混战的动荡、新旧思想的碰撞、或乱世中一场改变命运的相遇"
   protagonist_intro: "主角出场即展现民国特质：可以是留洋归来的新女性、家道中落的大家闺秀、乱世中求生的戏子、或身居高位的军阀"

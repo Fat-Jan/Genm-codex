@@ -8,7 +8,7 @@
     "target_chapters": 10,
     "target_words": 30000,
     "created_at": "2026-03-19T14:41:06Z",
-    "updated_at": "2026-03-21T04:46:21Z"
+    "updated_at": "2026-03-31T18:03:15Z"
   },
   "progress": {
     "current_chapter": 5,
@@ -367,26 +367,18 @@
     }
   },
   "learned_patterns": {
-    "writing_style_preferences": {
-      "dialogue_style": "短句硬碰硬，常用羞辱、逼问、试探和一句翻盘式回刺；合作对白也保持交易感和压迫感，不走抒情缓冲",
-      "description_density": "中等偏高，描写紧贴动作链，反复使用疼痛、寒意、血腥、石壁、雾气、火线等冷硬感官来压实杀局与危机",
-      "pacing_preference": "3到5段内必须进冲突或杀局，单章偏好即时受压-试错/探路-古镜或资源兑现-反杀拿收益-结尾挂下个入口/强敌/证据钩子，章尾钩子会在下一章前半快速兑现"
-    },
-    "high_point_preferences": [
-      "先把主角压进公开羞辱、围杀或死路，再用精准一击或抢半步完成翻盘",
-      "金手指规则要显性，且每次觉醒都立刻转成战术收益、资源收益或开门资格，不能只做背景设定",
-      "升级突破最好绑定伤势、追杀、限时试炼这类高压条件，让成长本身也像闯关",
-      "战斗收益、机缘奖励和父亲旧案/藏阁线索倾向同章并发，形成爽点与主线推进叠加",
-      "偏好借地形、路桩、旧伤、妖兽、敌人失误完成以弱胜强，而不是纯数值碾压"
+    "externalized": true,
+    "sidecar_file": ".mighty/learned-patterns.json",
+    "last_updated": "2026-03-31T18:03:15Z",
+    "available_sections": [
+      "avoid_patterns",
+      "high_point_preferences",
+      "recent_guardrails",
+      "user_feedback",
+      "writing_style_preferences"
     ],
-    "avoid_patterns": [
-      "在冲突前插入超过当前场景需求的世界观、宗门史或设定讲解",
-      "脱离当前追杀、试炼或破局链条的长段复盘与解释",
-      "金手指出手后只说升级了什么，却不给立刻可见的战术或资源兑现",
-      "盟友戏份脱离共同求生或互利前提，转成松散闲聊或情绪抒发",
-      "高光收尾后不给更大的入口、证据、强敌或下一场公开对撞钩子"
-    ],
-    "user_feedback": []
+    "has_recent_guardrails": true,
+    "recent_guardrails_expires_after_chapter": null
   },
   "auto_learn_config": {
     "enabled": true,
@@ -1136,6 +1128,219 @@
         "沈照以四枚青云令当众拿下雾隐谷试炼第一"
       ],
       "summary": "石室杀局里，沈照和苏小棠硬扛镜火傀儡，逼出古镜吞火后的第一道镜纹与镜返雏形。新留字把父亲旧案进一步钉向藏经阁，而沈照则带着玄火砂、照骨残页和四枚青云令冲回谷口，当众压过周通拿下试炼第一，并被韩执事当场点到明日首场上擂。"
+    },
+    "005": {
+      "chapter": 5,
+      "path": "chapters/第005章.md",
+      "created_at": "2026-03-31T18:03:15Z",
+      "updated_at": "2026-03-31T18:03:15Z",
+      "word_count": 3482,
+      "protagonist_state": {
+        "name": "沈照",
+        "aliases": [
+          "外门废脉"
+        ],
+        "power": {
+          "realm": "聚气境",
+          "level": "一重",
+          "layer": 1
+        },
+        "location": {
+          "current": "雾隐谷谷口",
+          "origin": "青石城"
+        },
+        "inventory": [
+          "残缺古镜（第一道镜纹点亮）",
+          "旧短刀",
+          "药渣包",
+          "雾隐谷试炼木牌",
+          "残星引脉诀",
+          "玄火砂",
+          "照骨残页"
+        ],
+        "abilities": [
+          "裂石拳",
+          "青云步",
+          "照骨古镜·映照破绽（初醒）",
+          "照骨古镜·提纯残损资源（初醒）",
+          "残星引脉诀",
+          "照骨古镜·镜返（雏形）"
+        ],
+        "status": [
+          "聚气一重未稳",
+          "掌心裂伤",
+          "肩背灼伤",
+          "伤势未稳",
+          "第一镜纹点亮",
+          "试炼第一"
+        ],
+        "current_goals": [
+          "稳住伤势并准备外门大比",
+          "查清藏经阁与父亲旧案的关系",
+          "提防周通和韩执事后续出手"
+        ],
+        "known_secrets": [
+          "母亲留下的残缺古镜可能不是凡物",
+          "古镜会在血与危机中苏醒",
+          "古镜能映照周通拳路破绽",
+          "古镜还能提纯残损资源",
+          "试炼木牌背纹和后山东壁存在对应关系",
+          "后山东壁石室留有父亲的血字",
+          "父亲留下了'沈行舟非贼'的直接实证",
+          "血字线索指向藏经阁",
+          "雾隐谷试炼路标被人动过手脚",
+          "雾隐谷崖壁后石门上的残刻与后山东壁血字指向的'藏阁'一致",
+          "石室新留字写明'镜不在罪，在贪，藏阁有证'",
+          "照骨残页能让古镜短暂引出镜返雏形"
+        ],
+        "recent_events": [
+          "沈照和苏小棠在石室中联手击碎镜火傀儡",
+          "古镜吞下镜火并点亮第一道镜纹，镜返雏形出现",
+          "沈照拿到玄火砂、照骨残页和'镜不在罪，在贪，藏阁有证'留字",
+          "沈照以四枚青云令拿下雾隐谷试炼第一，直入外门大比"
+        ]
+      },
+      "active_characters": [
+        {
+          "name": "周通",
+          "role": "外门恶霸",
+          "relationship": "敌对"
+        },
+        {
+          "name": "韩执事",
+          "role": "外门执事",
+          "relationship": "敌对"
+        },
+        {
+          "name": "苏小棠",
+          "role": "外门弟子",
+          "relationship": "临时盟友"
+        },
+        {
+          "name": "谢北辰",
+          "role": "外门第一",
+          "relationship": "阶段强敌"
+        },
+        {
+          "name": "杜百川",
+          "role": "藏经阁老人",
+          "relationship": "潜在引路人"
+        }
+      ],
+      "active_foreshadowing": [
+        {
+          "id": "f1",
+          "name": "古镜来历",
+          "description": "母亲留下的残缺古镜与青云宗禁地和镜墟有关。",
+          "planted_chapter": 1,
+          "expected_range": "8-20",
+          "status": "planted",
+          "related_entities": [
+            "沈照",
+            "残缺古镜",
+            "青云宗"
+          ],
+          "importance": "high"
+        },
+        {
+          "id": "f2",
+          "name": "父亲的罪名",
+          "description": "沈照父亲被扣上窃宝罪名后失踪，真相与古镜碎片争夺有关。",
+          "planted_chapter": 2,
+          "expected_range": "10-30",
+          "status": "planted",
+          "related_entities": [
+            "沈照",
+            "父亲",
+            "韩执事",
+            "藏经阁"
+          ],
+          "importance": "high"
+        }
+      ],
+      "knowledge_state": {
+        "reader_knows": [
+          "周通与韩执事都在针对沈照",
+          "照骨古镜会在血与危机叠加时苏醒",
+          "后山东壁藏着沈照眼下唯一的翻盘机会",
+          "照骨古镜还能提纯药渣这类残损资源",
+          "沈照已经拿到雾隐谷试炼木牌",
+          "后山东壁石门内藏有残星引脉诀和引灵丹",
+          "石室血字证明父亲曾来过这里，并留下'沈行舟非贼'的实证",
+          "雾隐谷试炼里有人改动路桩，针对沈照的杀局并非巧合",
+          "苏小棠第一次正式下场帮沈照避开死路",
+          "古镜在谷中崖壁前再次共鸣，逼出一处封死石室入口",
+          "石室里有镜火傀儡守着隐奖点、玄火砂和照骨残页",
+          "古镜点亮第一道镜纹，并短暂显出镜返雏形",
+          "石室新留字进一步坐实父亲旧案与藏经阁有关",
+          "沈照以四枚青云令拿到雾隐谷试炼第一"
+        ],
+        "protagonist_knows": [
+          {
+            "info": "父亲曾因所谓窃宝罪名在青云宗失踪。",
+            "since_chapter": 0
+          },
+          {
+            "info": "母亲只留下了一面残缺古镜。",
+            "since_chapter": 0
+          },
+          {
+            "info": "古镜能映照周通拳路中的破绽。",
+            "since_chapter": 1
+          },
+          {
+            "info": "后山东壁可能藏着改变自己命运的石门。",
+            "since_chapter": 1
+          },
+          {
+            "info": "试炼木牌背面的残纹可以对应后山东壁石门。",
+            "since_chapter": 2
+          },
+          {
+            "info": "后山东壁石室里留有父亲写下的'沈行舟非贼'血字。",
+            "since_chapter": 3
+          },
+          {
+            "info": "血字线索指向藏经阁，说明父亲旧案和古镜并非偶然重合。",
+            "since_chapter": 3
+          },
+          {
+            "info": "雾隐谷试炼路标被人动过手脚，宗门内部有人借试炼做局。",
+            "since_chapter": 4
+          },
+          {
+            "info": "雾隐谷崖壁后藏着一处与古镜共鸣的封死石室入口。",
+            "since_chapter": 4
+          },
+          {
+            "info": "石室留字写着'镜不在罪，在贪，藏阁有证'。",
+            "since_chapter": 5
+          },
+          {
+            "info": "照骨残页可以让古镜短暂施展镜返雏形。",
+            "since_chapter": 5
+          }
+        ],
+        "protagonist_doesnt_know": [
+          "韩执事和更高层势力都在搜寻古镜碎片。",
+          "藏经阁里到底藏着什么镜片或旧案证据。",
+          "父亲当年为何会出现在后山东壁石室。",
+          "是谁在背后逼周通夺镜。"
+        ],
+        "key_revelations": [
+          "照骨古镜第一次显现出超凡能力。",
+          "照骨古镜确认具备提纯残损资源的第二个基础功能。",
+          "后山东壁石室留下了父亲写下的'沈行舟非贼'血字。",
+          "沈照借残星引脉诀正式破入聚气境一重。",
+          "雾隐谷试炼中有人改动路桩并借妖狼做局。",
+          "古镜在谷中崖壁前再次共鸣，逼出封死石室入口。",
+          "古镜点亮第一道镜纹，并在石室杀局里显出镜返雏形。",
+          "石室新留字写明'镜不在罪，在贪，藏阁有证'，父亲旧案进一步坐实。",
+          "沈照以四枚青云令拿下雾隐谷试炼第一。"
+        ]
+      },
+      "key_events": [],
+      "summary": ""
     }
   },
   "summaries_index": {
@@ -1148,6 +1353,9 @@
   "character_states": {},
   "setting_versions": {},
   "market_adjustments": {
+    "externalized": true,
+    "sidecar_file": ".mighty/market-adjustments.json",
+    "last_updated": "2026-03-31T18:03:15Z",
     "last_applied": "2026-03-20T21:14:00+08:00",
     "source_scan": {
       "scan_time": "2026-03-20T21:14:00+08:00",
@@ -1168,42 +1376,7 @@
         "https://fanqienovel.com/rank/1_1_257"
       ]
     },
-    "adjustments": [
-      {
-        "id": "tomato-xuanhuan-hook-visibility",
-        "priority": "high",
-        "scope": "project",
-        "applies_to": [
-          "大纲/总纲",
-          "第004章",
-          "第005章"
-        ],
-        "suggestion": "继续保留“传统玄幻宗门升级”主干，但从第4章开始把照骨古镜/残星引脉诀的规则收益写得更显性，尽量在每章前半段就出现一次可见增益或破局信息。",
-        "reason": "番茄玄幻 quick 快照显示，传统玄幻仍有稳定需求，但新书更偏好高概念钩子和规则显性化反馈。"
-      },
-      {
-        "id": "tomato-xuanhuan-trial-arc-fast-payoff",
-        "priority": "high",
-        "scope": "project",
-        "applies_to": [
-          "第004章",
-          "第005章"
-        ],
-        "suggestion": "雾隐谷试炼段不要只铺暗算和氛围，需在前半程尽早兑现一次资源升级、镜纹增强或低位反杀，避免机缘回报滞后。",
-        "reason": "榜单样本里常见“先给规则，再给第一批收益”的快反馈结构；当前项目正进入试炼段，是最容易拖节奏的位置。"
-      },
-      {
-        "id": "tomato-xuanhuan-packaging",
-        "priority": "medium",
-        "scope": "project",
-        "applies_to": [
-          "书名/简介",
-          "卷一卖点表达"
-        ],
-        "suggestion": "对外包装优先突出“废脉杂役 + 古镜映破绽 + 三日内不逆袭就被逐宗”的一句话冲突，不要只写世界观或旧案悬疑。",
-        "reason": "番茄玄幻新书样本反复使用一眼可懂的身份反差、倒计时压力和机制钩子来完成首屏抓取。"
-      }
-    ]
+    "adjustment_count": 3
   },
   "dungeons": {
     "completed": [
@@ -1225,5 +1398,16 @@
       "shared/profiles/xuanhuan/profile.yaml",
       "shared/profiles/xuanhuan/profile-tomato.yaml"
     ]
+  },
+  "active_context": {
+    "sidecar_file": ".mighty/active-context.json",
+    "last_built": "2026-03-31T18:03:15Z",
+    "summary_window": {
+      "count": 5,
+      "recent_count": 5,
+      "latest_chapter": "5"
+    },
+    "hook_count": 3,
+    "guardrail_count": 0
   }
 }

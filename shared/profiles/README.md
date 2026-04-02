@@ -6,7 +6,8 @@ Genm-codex 的题材配置系统，采用目录化结构管理网文题材规则
 
 ## 当前状态
 
-- **profile 总数**: 54 个
+- **顶层目录总数**: 53 个
+- **标准 profile 总数**: 52 个（另有 `crossover/` 作为特殊 schema 容器目录）
 - **当前分层**: core profile + platform overlay + bucket overlay + reference files
 - **当前默认范围**: opening-and-plot-framework、writing-core-framework、anti-flattening-framework、番茄起盘协议栈、Gate Triage
 
@@ -26,7 +27,7 @@ shared/profiles/
 ├── urban-brainhole/             # 都市脑洞
 │   ├── profile.yaml
 │   └── ...
-└── ... (共 54 个 profile)
+└── ...（52 个标准 profile + 1 个 crossover 特殊目录）
 ```
 
 ---
@@ -57,13 +58,13 @@ shared/profiles/
 
 - **路径**: `profiles/<slug>/profile-<platform>.yaml`
 - **内容**: 只放平台差异
-- **当前状态**: 大部分 profile 未实现
+- **当前状态**: 52/52 个标准 profile 已具备 `profile-tomato.yaml`；`crossover/` 继续走独立 schema
 
 ### 3. Bucket Overlay
 
 - **路径**: `profiles/<slug>/bucket-<bucket>.yaml`
 - **内容**: 只放内容桶差异
-- **当前状态**: 大部分 profile 未实现
+- **当前状态**: 52/52 个标准 profile 已具备首层 `bucket-*.yaml`；`crossover/` 当前不走标准 bucket overlay
 
 ### 4. Reference Files
 
@@ -86,17 +87,19 @@ shared/profiles/
 
 ## 当前缺口
 
-根据架构审查，当前 profile 系统存在以下缺口：
+根据架构审查，当前 profile 系统的关键现状与剩余缺口如下：
 
 1. **bucket 分配系统已进入主链**: `build_content_positioning.py` 与 `profile_contract.py` 已能消费 bucket overlay，但下游 consumer 仍未全面使用 bucket 级差异
-2. **bucket overlay 已补齐当前所有声明了 `fanqie primary_bucket` 的 profile**: 后续新增 profile 时仍需保持同步
-3. **桶名 slug 映射虽已成文，但尚未做成统一 registry**: 宫斗宅斗 vs palace-intrigue vs gongdou_zhai
-4. **大部分 profile 没有 platform_positioning**: 54 个 profile 中仍有大量 profile 未补平台定位
+2. **标准 profile 的 bucket overlay 已补齐**: 当前 52/52 个标准 profile 已具备首层 `bucket-*.yaml`；后续新增标准 profile 时仍需保持同步
+3. **桶名 slug 映射已收口为统一 registry**: 当前由 `shared/templates/profile-bucket-registry-v1.json` + `scripts/profile_contract.py` 承担 machine-readable 映射与运行时解析
+4. **`crossover/` 仍保留独立 schema 路径**: 标准 profile 的平台 overlay 已完成首轮覆盖，但 `crossover/*` 仍需按 [crossover-schema-alignment-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/crossover-schema-alignment-v1.5.md) 的边界理解，而不是直接并入标准 `profile_contract.py` schema
 
 相关文档：
 
 - [Bucket / Profile 命名映射规范](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-profile-slug-mapping.md) - 解决命名漂移
 - [Bucket Overlay 缺口清单](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/bucket-overlay-inventory.md) - P0-P2 优先级
+- [Profile Expansion Contract](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md) - 约束后续扩面工作
+- `shared/templates/profile-bucket-registry-v1.json` - 当前 machine-readable bucket/profile registry
 
 ---
 
@@ -113,12 +116,12 @@ shared/profiles/
 
 - **bucket**: 内容桶，如"宫斗宅斗"、"都市脑洞"
 - **profile**: 题材配置，如"palace-intrigue"、"urban-brainhole"
-- **当前状态**: bucket 和 profile 的映射关系不明确，需要建立规范 slug 映射
+- **当前状态**: bucket 名称、profile slug、fanqie bucket key 的映射关系已由 registry 明确；consumer 侧当前仍以 bucket 名称投影为主
 
 ### 与 platform 的关系
 
 - **platform**: 平台，如"番茄"、"起点"
-- **当前状态**: 大部分 profile 没有 platform overlay，平台差异未分离
+- **当前状态**: 标准 profile 已全量具备 `profile-tomato.yaml`；`crossover/` 仍保留独立 schema，平台差异未统一并入标准 contract
 
 ---
 

@@ -131,6 +131,16 @@ reader_expectations:
     - "缺乏深度的黑暗描写"
     - "主角没有原则的纯粹邪恶"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "黑暗题材"
+    strong_tags: ["禁忌力量", "代价沉重"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["力量必须有代价", "主角黑化必须保有行为逻辑"]
+    package_cues:
+      - "首屏点禁忌契约或黑化起点"
+      - "前三章要出现一次代价兑现或原则碰撞"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

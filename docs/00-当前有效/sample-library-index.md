@@ -4,6 +4,12 @@
 
 汇总 Genm-codex 项目中的所有样本，包括端到端测试样本（smoke）和真实项目样本（projects），便于查找和复用。
 
+当前 machine-readable 真值入口：
+
+- `shared/templates/sample-manifest-v1.json`
+
+本页继续保留给人读，但后续 consumer 应优先读 manifest。
+
 ---
 
 ## Smoke 样本
@@ -94,28 +100,29 @@
 
 ### 1. 新增样本
 
-1. 确定样本类型（smoke 或 projects）
-2. 确定 bucket 和平台
-3. 创建目录并添加必要文件
-4. 更新本索引页
+后续维护默认遵循：
+
+1. 先更新 `shared/templates/sample-manifest-v1.json`
+2. 再更新本索引页
+3. 如需要，再更新矩阵页和治理文档
 
 ### 2. 更新样本
 
-1. 更新样本内容
-2. 更新本索引页的状态和说明
-3. 如果是派生副本，检查是否需要清理旧版本
+1. 先更新 manifest 中的状态、分层或 regression 目标
+2. 再更新本索引页的人读说明
+3. 如是 regression 样本，确认其退化目标仍清晰
 
 ### 3. 清理样本
 
-1. 确认样本不再被引用
-2. 删除或归档样本
-3. 更新本索引页
+1. 先确认样本不再被 smoke / regression / docs / tests 引用
+2. 先更新 manifest，再更新本索引页
+3. 如有必要，再补归档说明
 
 ---
 
 ## 完成标记
 
-- [ ] 有独立设计稿（本文件）
-- [ ] 明确样本清单和使用指南（本文件）
-- [ ] 样本库已建立（已完成）
-- [ ] 样本维护流程已建立（已完成）
+- [x] 有独立索引页（本文件）
+- [x] 已说明 machine-readable 真值入口为 `sample-manifest-v1.json`
+- [x] 样本库已建立
+- [x] 样本维护流程已建立

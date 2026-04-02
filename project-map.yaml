@@ -1,0 +1,88 @@
+project:
+  name: Genm-codex
+  type: skill-workspace
+  summary: >
+    Codex 原生网文创作技能工作区。主线目标是把既有 skills、docs、scripts、
+    sample sidecars 和 quality loop 做稳、做可恢复、做可治理，而不是继续堆更多独立体系。
+
+workflow:
+  default: plan -> autopilot
+  parallel_rule: 当计划中出现 2 个及以上独立子任务时，优先 team + worker。
+  ask_before:
+    - destructive operation
+    - external credential
+    - paid API or paid service call
+    - irreversible migration
+    - major route change
+
+truth:
+  primary:
+    - path: skills/
+      purpose: 主技能定义与调用契约。
+    - path: scripts/
+      purpose: 安装、校验、同步等执行入口。
+  durable_docs:
+    - path: docs/00-当前有效/
+      purpose: 当前有效的稳定规则、边界和治理约定。
+    - path: docs/INDEX.md
+      purpose: 仓库文档总入口。
+  active_ops:
+    - path: .ops/
+      purpose: 当前任务的 active plan、progress、findings、decisions。
+    - path: task_plan.md
+      purpose: 过渡期 legacy root task plan；保留历史与旧链接，不再作为新任务默认落点。
+    - path: progress.md
+      purpose: 过渡期 legacy root progress log；保留历史与旧链接，不再作为新任务默认落点。
+    - path: findings.md
+      purpose: 过渡期 legacy root findings log；保留历史与旧链接，不再作为新任务默认落点。
+
+verification:
+  shortest_feedback:
+    command: bash scripts/validate-migration.sh
+    purpose: 最快暴露结构漂移和迁移约束破坏的校验命令。
+  official_e2e_sample:
+    path: e2e-novel/
+    purpose: 官方最小 E2E 样本；优先用于最小人工 smoke。
+  supporting_verification_assets:
+    - path: smoke/
+      purpose: 题材与链路专项 smoke 样本，不替代官方最小 E2E 样本。
+    - path: tests/
+      purpose: 结构与合同回归测试。
+
+boundaries:
+  synced:
+    - path: shared/
+      edit_policy: >
+        视为上游 Genm 同步资产；默认先改同步逻辑或上游来源，不直接长期手改副本。
+  workspaces:
+    - path: projects/
+      edit_policy: 可变项目工作区；不要当成产品源码或规则真值。
+  verification_assets:
+    - path: smoke/
+      edit_policy: 验证资产；用于链路 smoke，不是运行时主真值。
+    - path: e2e-novel/
+      edit_policy: 官方最小 E2E 样本；允许为验证任务定向更新，但不扩展成第二套 projects。
+  generated:
+    - path: .tmp/
+      edit_policy: 临时输出与中间产物；不要作为稳定真值承载层。
+
+entrypoints:
+  read_first:
+    - README.md
+    - project-map.yaml
+    - AGENTS.md
+    - docs/00-当前有效/start-here.md
+    - docs/00-当前有效/skill-usage.md
+  validate_first:
+    - bash scripts/validate-migration.sh
+
+high_risk:
+  - scripts/sync-shared-from-genm.sh
+  - skills/*/SKILL.md frontmatter names
+  - docs/ 路径被 skills 或 README 显式引用的入口文档
+  - 将实验能力误升级成默认工作流
+
+notes:
+  - Keep one official minimal E2E sample.
+  - Keep active ops state in .ops/ instead of the repo root.
+  - Keep shared/ as a synced boundary, not a casual edit surface.

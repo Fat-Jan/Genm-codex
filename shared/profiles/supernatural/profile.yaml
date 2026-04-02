@@ -164,6 +164,16 @@ reader_expectations:
     - "悬念无伏笔突然揭晓"
     - "鬼怪毫无逻辑"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "悬疑灵异"
+    strong_tags: ["诡异求生", "规则驱鬼"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["鬼怪规则必须自洽", "危险感不能被爽点完全冲掉"]
+    package_cues:
+      - "首屏点诡异事件或规则失效"
+      - "前三章要出现一次真正的生死压迫"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001

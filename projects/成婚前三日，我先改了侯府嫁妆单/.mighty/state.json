@@ -8,7 +8,7 @@
     "target_chapters": 240,
     "target_words": 1200000,
     "created_at": "2026-03-27T00:00:00Z",
-    "updated_at": "2026-03-27T14:27:07Z"
+    "updated_at": "2026-03-31T18:03:15Z"
   },
   "progress": {
     "current_chapter": 12,
@@ -293,17 +293,18 @@
   "learned_patterns": {
     "externalized": true,
     "sidecar_file": ".mighty/learned-patterns.json",
-    "last_updated": "2026-03-27T14:27:07Z",
+    "last_updated": "2026-03-31T18:03:15Z",
     "available_sections": [
       "avoid_patterns",
       "content_standard_alerts",
       "high_point_preferences",
       "multi_line_guardrails",
       "opening_strategy",
+      "recent_guardrails",
       "user_feedback",
       "writing_style_preferences"
     ],
-    "has_recent_guardrails": false,
+    "has_recent_guardrails": true,
     "recent_guardrails_expires_after_chapter": null
   },
   "auto_learn_config": {
@@ -372,7 +373,7 @@
   "launch_stack_drift_signal": "watch",
   "active_context": {
     "sidecar_file": ".mighty/active-context.json",
-    "last_built": "2026-03-27T14:27:07Z",
+    "last_built": "2026-03-31T18:03:15Z",
     "summary_window": {
       "count": 12,
       "recent_count": 5,
@@ -539,8 +540,8 @@
     "012": {
       "chapter": 12,
       "path": "chapters/第012章.md",
-      "created_at": "2026-03-27T14:27:07Z",
-      "updated_at": "2026-03-27T14:27:07Z",
+      "created_at": "2026-03-31T18:03:15Z",
+      "updated_at": "2026-03-31T18:03:15Z",
       "word_count": 2528,
       "protagonist_state": {
         "name": "沈见秋",
@@ -770,7 +771,7 @@
   "market_adjustments": {
     "externalized": true,
     "sidecar_file": ".mighty/market-adjustments.json",
-    "last_updated": "2026-03-27T14:27:07Z",
+    "last_updated": "2026-03-31T18:03:15Z",
     "last_applied": null,
     "source_scan": null,
     "adjustment_count": 0

@@ -1,0 +1,96 @@
+# Active Findings
+
+## Current Findings
+
+- 当前剩余的 `v1.5-roadmap.md` 引用里，真正需要继续处理的已不再是 core entry，而是少数 legacy / 过渡文档里的时态问题；最小且正确的修法是补“历史说明”而不是删除历史链路。
+- `task_plan.md`、`current-processing-plan-phased-v1.md` 与 `v1.5-next-mainline-preparation-2026-03-31.md` 这三处现在都已经显式说明：它们只保留为历史连续性或阶段判断记录，当前主线仍以 `v1.6-roadmap.md` 为准。
+- 经过这轮修正后，剩余 `v1.5-roadmap.md` 引用基本都属于“历史记录 / 上游参考 / 回归锁定”三类，而不再是当前主线入口误导。
+
+- `v1.6` 主线切换后的剩余误导点已经不在 core roadmap / README / INDEX，而主要落在外围路由文档与宿主规则提示上；把这些入口显式改成“`v1.6` 当前主线 + `v1.5` 历史/上游参考”就足以完成这一轮收尾。
+- root legacy ops 的旧回归里仍有一条要求 `task_plan.md` 保持 `# Task Plan:` 标题，但仓库当前真相已经是 `Legacy Task Plan Archive` + `.ops/active-plan.md` canonical pointer；测试应跟随现状真值，而不是反向要求 legacy 文档退回旧结构。
+- 跨宿主基础层这条线在工作区中已经具备 matrix / projection / doctor / tests 的实现骨架，但此前缺少正式主线 roadmap 承载，导致“实现已出现、主线状态未切换”的口径断层。
+- `cross-platform-support-plan.md` 仍只是研究稿；原先位于根目录的跨宿主单页说明现在已迁入归档，不再与 roadmap / README / `.ops` 争夺当前真值角色。
+- 当前更合适的做法不是继续给跨宿主线补零散说明，而是把它正式收成 `v1.6` 主线，并用 phase / status / verify 接管。
+- `v1.6` Phase 1 当前已经满足“可交付”标准，而不只是“工作区里有一批改动”：
+  - host truth file 已存在并有 schema / contract tests
+  - install adapter 已从 matrix 消费并锁住 unsupported / unexpected root 边界
+  - skill usage install/support table 已改为投影生成
+  - host foundation doctor 已能汇总 schema / contract / install / alias / projection 五类检查
+- `v1.6` Phase 2-C 与 Phase 3 现在也已满足收口标准：
+  - 单页 memo 已迁出根目录
+  - skill / alias registry 已能从 `skill-merge-map-v1.json` 派生
+  - host support status 已有当前有效文档，并受投影与 doctor 校验
+- 更优的下一版方案不应继续在 `host-capability-matrix-v1.json` 上叠加字段，而应改成：
+  - 承诺层
+  - 证据层
+  - 能力面适配层
+- `Trae` 的真正问题不是“是否支持”，而是“哪些能力面已经有官方文档或最小 runtime 证据”；这更适合作为单独研究 lane，而不是直接推进安装适配。
+- 进一步比较后，当前真正最优的路径不是“直接上 `v2`”，而是“证据层优先 + Trae 审计优先 + 决策门后置”的条件式方案。
+- 也就是说，`host-foundation-v2-proposal` 适合作为结构候选，而 `host-foundation-optimal-path` 才是当前执行顺序上的最优决策稿。
+- 这条最优路径的第一步已经可以具体化为两个资产：
+  - `host-evidence-ledger-v1`
+  - `trae-capability-review-2026-04-02`
+- 当前最值钱的新增信息不是“又支持了一个安装路径”，而是把宿主承诺和 supporting evidence 开始显式分层。
+- 这一步完成后，仓库已经具备做 `Gate 1` 判断的前提：可以明确区分“结构表达能力不足”与“只是 Trae 的本地验证尚未做完”。
+- 本机最小手工验证已经把 Trae 的几个关键未知数从“猜测”推进成了 runtime fact：
+  - `Trae CN` / `Trae` 的 global skills root
+  - 当前仓库的 `.trae/skills` project path scan
+  - 当前仓库 `.trae/mcp.json` 的 project-owned file source
+  - sandboxed command execution
+- 同一批日志仍显示 `SkillTool` 使用 remote definition，这说明当前真正剩下的未知数是 invocation/enablement，而不是 discovery path 本身。
+- 这使得当前最合理的 `Gate 1` 结果不是“进入有界 `v2`”，而是“停在 `v1.6.1` 级增强”：
+  - 当前 `unsupported install + partial/verified capability boundary + evidence ledger` 仍能表达现状
+  - 新增事实主要提升了证据等级，而没有逼出新的主真值结构
+- 根目录同时存在 `task_plan.md`、`progress.md`、`findings.md`，说明 active ops 状态此前没有单一默认落点。
+- `e2e-novel/` 已经承担官方最小 E2E 样本的角色，`smoke/` 更适合作为专项验证资产，而不是第二套官方样本体系。
+- `shared/` 的真实语义是 synced boundary，不是普通源码目录。
+- `projects/` 是工作区，不应该被当作产品真值或规则文档承载层。
+- 根目录 legacy ops 顶部标题与摘要语义已进一步瘦身为更明确的 `legacy` 命名，误判“当前 active 真源”的风险继续下降。
+- 当前这条“结构收敛 + active ops 真源治理”线已无建议继续动作，不阻塞转去新的具体治理/维护任务。
+- `architecture-open-issues.md` 虽仍位于 `docs/10-进行中/`，但其实际内容已经是全量 `resolved`；将其改成“已收口架构台账”定位，比直接迁移路径更低风险。
+- 根目录 `架构问题跟踪.md` 若继续维持“还有哪些架构问题没有收口”的口径，会与正式台账形成双口径，因此已一并对齐。
+- `weekly-governance-snapshot-2026-03-31.md` 当前更适合明确为历史快照记录，而不是继续混用“后续已闭环”和“待复检”两种语义。
+- 只要保留原始发现事实、同时写清后续闭环状态，就能在不抹平历史的前提下降低治理误判。
+- `bucket-profile-slug-mapping.md` 的主要问题不只是 checklist 旧，而是把未落地或已漂移的 slug 方案写成了当前 state / runtime 口径。
+- 当前更可靠的真值组合是：`profile-bucket-registry-v1.json` + `scripts/profile_contract.py` + 相关 tests；文档应把它们作为入口，而不是继续内嵌硬编码映射函数。
+- `chapter-structure-fields-design.md` 的主要问题不只是未勾选 completion marks，而是正文仍把 state schema / review / precheck 接线写成“建议添加”，而这些入口当前已经存在。
+- 当前更可靠的证据组合是：`state-v5-template.json` + `state-schema-v5.json` + `state-schema.md` + `novel-outline/review/precheck` consumer 说明 + 结构审计脚本与测试。
+- `v1.5-registry-consumer-and-scan-boundary-review-2026-03-31.md` 的剩余问题不是结论错，而是风险章节里的代表项已经落后于后续文档治理结果。
+- 这类复检文档更适合在不改结论的前提下，及时把“代表问题”更新成当前仍成立的泛化风险，而不是继续引用已经闭环的旧案例。
+- `governance-maintenance-drill-2026-03-31.md` 的剩余问题也不是结论错，而是“保留项”里继续挂着已经被后续动作闭环的 weekly snapshot 案例。
+- 这类 drill 文档更适合保留原始执行过程，但把当前保留项收缩为真正仍需长期盯住的治理纪律。
+- 经过本轮收尾复检后，`docs/00-当前有效/` 中剩余仍带阶段语义的文档，大多已经属于计划 / 模板 / 候选排序 / 长期复检类文档，当前不是误写的现状缺口。
+- 这意味着“当前有效文档去历史化整理”这条线已经达到收口条件；继续批量清理的收益会明显下降。
+- `shared/profiles/README.md` 之前残留的主要问题是：把顶层目录数、标准 profile 数，以及 platform / bucket overlay 覆盖写成了旧阶段状态。
+- 当前更准确的口径是：53 个顶层目录，其中 52 个标准 profile、1 个 `crossover/` 特殊容器目录；标准 profile 已完成 52/52 的 `profile-tomato.yaml` 与 `bucket-*.yaml` 覆盖。
+- `profile-expansion-first-batch-v1.5.md` 之前残留的主要问题是：把“第一批是谁”与“当前全仓覆盖到哪一步”混在了一起，导致文档继续暗示平台差异拆分还只停留在少数对象上。
+- 当前更准确的口径是：第一批仍然是历史首批落地对象，但标准 profile 的平台层与 bucket 层覆盖已经明显前推，不应继续用旧首批状态描述现状。
+- `profile-expansion-candidate-priority-v1.5.md` 之前残留的主要问题是：继续把“补 platform_positioning / overlay / profile 收口”当成下一批扩面的首要目标。
+- 当前更准确的口径是：标准 profile 的基础覆盖已经补齐，下一批扩面的主要价值在 consumer/readiness 收口、题材质量校准，以及组合/派生题材的后续推进。
+
+## Immediate Follow-up
+
+- 当前这条 `v1.6` lane 已完成，Trae 最小手工验证也已完成。
+- `Gate 1` 已收口为：
+  - 停在 `v1.6.1` 级增强
+  - 暂不进入有界 `v2`
+- 后续如继续沿这条线推进，更自然的候选是：
+  - 继续验证 repo-owned local skill invocation 是否能脱离 remote definition
+  - 继续验证 `auto-run + sandbox` 是否真的足以承担 hooks-like automation
+- 只有当后续新证据表明：
+  - `v1` 已经无法清楚表达承诺
+  - 或新 consumer 无法继续直接吃 `v1`
+  才值得重新打开 `v2`
+- 后续新任务优先把当前状态写进 `.ops/`
+- 等 legacy root ops 文件的历史正文进一步拆分后，再决定是否做物理迁移或瘦身
+- 下一条 active task 默认应转向新的具体治理/维护任务，而不是继续扩写这条结构线。
+- 如后续再回到 legacy ops 整理，优先考虑历史正文拆分或附录化，而不是再次改动结构边界。
+- 如后续新增新的架构 open item，可直接在 `docs/10-进行中/architecture-open-issues.md` 原路径下重开跟踪，无需重新发明入口。
+- 如后续继续做治理文档瘦身，下一类候选更适合落在旧治理报告或 inventory/盘点类文档，而不是再回头处理这组 weekly/biweekly/monthly 文档。
+- 如后续继续做当前有效文档去历史化整理，下一类候选更适合落在其他 inventory / 设计稿类文档中把“运行时真值”与“历史设计草稿”继续分开。
+- 如后续继续沿这条线推进，更自然的候选会是其他仍带未勾选完成标记、但已被 schema / tests / consumer 吃进去的设计说明文档。
+- 如后续继续清理 review / drill 类文档，优先检查“代表项是否已被后续治理闭环”，避免让旧案例继续挂在风险章节里。
+- 这条线结案后，下一步更适合转向新的治理 / 维护主线，而不是继续在当前有效文档中做广撒网式语义清理。
+- 如后续继续维护 profile 体系文档，优先关注 `crossover/` 特殊 schema 路径与标准 profile contract 之间的边界说明是否仍准确。
+- 如后续继续推进 profile 扩面文档，优先区分“历史首批落地说明”和“当前仓库覆盖现状”，避免两者再被混写。
+- 如后续真正进入 profile 扩面执行，优先按“consumer/readiness 收口 -> 资产落地”的顺序，而不是重新回头补基础覆盖。

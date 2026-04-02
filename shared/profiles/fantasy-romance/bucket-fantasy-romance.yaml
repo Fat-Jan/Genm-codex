@@ -1,0 +1,14 @@
+name: "幻想言情 bucket overlay"
+display_name: "幻想言情"
+description: "番茄幻想言情 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "幻想言情"
+    strong_tags: ["奇幻恋爱", "跨种族情缘"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["奇幻设定必须服务情感主线", "跨种族恋爱必须讲清代价与阻力"]
+    package_cues:
+      - "首屏点奇幻设定与情感禁忌"
+      - "前三章要出现一次设定兑现或情感牵引"

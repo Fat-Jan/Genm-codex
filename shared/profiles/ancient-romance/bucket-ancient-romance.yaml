@@ -1,0 +1,14 @@
+name: "古言 bucket overlay"
+display_name: "古言"
+description: "番茄古言 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "古言"
+    strong_tags: ["高门婚配", "权谋情感"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["礼法关系不能悬浮", "情感推进必须服从古代身份秩序"]
+    package_cues:
+      - "首屏点身份处境或婚配危机"
+      - "前三章要出现一次古代规则压迫或身份反差"

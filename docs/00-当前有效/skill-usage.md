@@ -6,80 +6,57 @@
 
 - [default-workflows.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/default-workflows.md)
 
+## 最短使用规则
+
+- 默认优先使用 `novel-*` 作为调用名
+- `genm-novel-*` 主要是本地兼容别名，不建议把它当唯一调用假设
+- 如果你现在关心的是治理边界、contract、merge map 或 `v1.5` 设计，而不是“怎么调用”，优先回 `docs/INDEX.md`
+
+## 多平台安装
+
+`scripts/install-skills.sh` 支持多平台，默认安装到 Codex；下表由 host matrix 投影而来。
+
+<!-- host-install-table:start -->
+| 平台 | 安装命令 | skill 路径 |
+|------|---------|----------|
+| Claude Code | `bash scripts/install-skills.sh claude` | `~/.claude/skills` |
+| Codex | `bash scripts/install-skills.sh` | `~/.codex/skills` |
+| OpenCode | `bash scripts/install-skills.sh opencode` | `~/.config/opencode/skills` |
+| OpenCLAW | `bash scripts/install-skills.sh openclaw` | `~/.openclaw/skills` |
+| 全平台 | `bash scripts/install-skills.sh --all` | 以上全部支持宿主 |
+<!-- host-install-table:end -->
+
+## 宿主支持状态
+
+<!-- host-support-table:start -->
+| 平台 | 状态 | 验证等级 | 安装支持 |
+|------|------|----------|----------|
+| Claude Code | baseline | partial | symlink |
+| Codex | legacy | verified | symlink |
+| OpenCode | experimental | partial | symlink |
+| OpenCLAW | experimental | partial | symlink |
+| Trae | experimental | partial | unsupported |
+<!-- host-support-table:end -->
+
+Trae 当前只保留 rules/context 投影，不进入 skill 安装表。
+
 ## 已安装的 Skill 名称
 
-安装脚本会把以下目录链接到 `~/.codex/skills/`：
+安装脚本会把以下目录链接到对应平台的 skills 目录：
 
 - 一套 plain 名：`novel-*`
 - 一套兼容别名：`genm-novel-*`
 
-下面先列兼容别名：
+常见示例：
 
-- `genm-novel-init`
-- `genm-novel-batch`
-- `genm-novel-character`
-- `genm-novel-foreshadowing`
-- `genm-novel-config`
-- `genm-novel-close`
-- `genm-novel-fix`
-- `genm-novel-genre`
-- `genm-novel-index`
-- `genm-novel-log`
-- `genm-novel-learn`
-- `genm-novel-package`
-- `genm-novel-scan`
-- `genm-novel-polish`
-- `genm-novel-precheck`
- - `genm-novel-snapshot`
- - `genm-novel-workflow`
-- `genm-novel-query`
-- `genm-novel-setting`
-- `genm-novel-status`
-- `genm-novel-outline`
-- `genm-novel-analyze`
-- `genm-novel-write`
-- `genm-novel-review`
-- `genm-novel-resume`
-- `genm-novel-retrieve`
-- `genm-novel-rewrite`
-- `genm-novel-spinoff`
-- `genm-novel-sync`
-- `genm-novel-test`
-- `genm-novel-export`
+- `novel-init` / `genm-novel-init`
+- `novel-outline` / `genm-novel-outline`
+- `novel-write` / `genm-novel-write`
+- `novel-review` / `genm-novel-review`
+- `novel-status` / `genm-novel-status`
+- `novel-query` / `genm-novel-query`
 
-同时也会创建对应的 plain 名，例如：
-
-- `novel-init`
-- `novel-analyze`
-- `novel-batch`
-- `novel-character`
-- `novel-foreshadowing`
-- `novel-close`
-- `novel-fix`
-- `novel-genre`
-- `novel-index`
-- `novel-log`
-- `novel-learn`
-- `novel-package`
-- `novel-scan`
-- `novel-polish`
-- `novel-precheck`
-- `novel-query`
-- `novel-setting`
-- `novel-snapshot`
-- `novel-spinoff`
-- `novel-status`
-- `novel-config`
-- `novel-test`
-- `novel-outline`
-- `novel-workflow`
-- `novel-write`
-- `novel-review`
-- `novel-resume`
-- `novel-retrieve`
-- `novel-rewrite`
-- `novel-export`
-- `novel-sync`
+原则上，每个已安装 skill 都会同时存在一组 `novel-*` 与对应的 `genm-novel-*` 兼容别名。
 
 ## 调用名说明
 
@@ -93,6 +70,31 @@
   - `novel-polish`
   - `novel-genre`
 - `genm-novel-*` 更适合表示“这个 skill 已安装到本地”，不适合作为唯一调用名假设
+
+## 历史 `v1.5` 的 skill 治理提醒
+
+- 当前主线已切到 `v1.6`；宿主支持 / 跨宿主基础层请优先看 [v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md) 与 [host-support-status-v1.6.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/host-support-status-v1.6.md)。
+- `novel-scan` 仍是实验态。
+  - 它现在已有 contract 与 consumer 接线。
+  - 但它仍不是默认创作主链的必经步骤。
+- 当前仍保留两套安装名：
+  - `novel-*`
+  - `genm-novel-*`
+  这两套入口当前继续作为兼容 alias 层存在，不应提前假设 `31 -> 25` 真合并已经发生。
+- `novel-retrieve`、`novel-batch`、`novel-workflow`
+  这些 skill 在 `v1.5` 里可以进入 rationalization / alias 讨论，但当前调用面仍保持兼容。
+- 如果你关心的是历史上的 `v1.5` skill 治理边界，而不是“现在怎么用”，优先看：
+  - [skill-rationalization-policy.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-rationalization-policy.md)
+  - [skill-merge-map-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-merge-map-v1.5.md)
+  - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
+
+## 高优先级使用入口
+
+- 从零开书：`novel-init -> novel-genre -> novel-outline -> setting gate -> novel-write`
+- 看当前状态：`novel-status` / `novel-query`
+- 写完一章收口：`novel-close`
+- 设定/正文脱节：`novel-sync`
+- 恢复上下文：`novel-resume`
 
 ## 推荐使用顺序
 
@@ -117,6 +119,11 @@
 - 单章正文现在最好按一个固定的 `chapter transaction` 理解：
   - `gate-check -> draft -> close -> maintenance -> snapshot`
 - 如果项目还没有稳定的立项输入，先补 `shared/templates/project/creative-brief.md`
+- 如果现在连一句话 premise 都写不顺，先参考 `shared/references/writing/worldview-motif-catalog.md`，选：
+  - `1` 个世界观母题
+  - `0-1` 个机制母题
+  - `0-1` 个包装 / 关系母题
+  再回填 `creative-brief`
 - 先有 `总纲`，再有 `章纲`
 - 总纲初稿后，先补会影响当前卷和前三章的设定真值，再冻结章纲
 - 设定集默认按“当前卷刚需 + gate 阻断项 + 稳定 canon 回灌”更新，不按“想到什么补什么”更新
@@ -181,6 +188,10 @@
 - 正文推进后，当角色 / 地点 / 势力 / 物品 / 规则已经稳定成为 canon 时，再用 `novel-sync` / `novel-setting` 回灌到 `设定集/`
 - 当当前 bucket 为 `宫斗宅斗` 时，`novel-write` 会自动加一层轻量“故障漏斗”预检，`novel-review` 会自动读取专项判定卡并补充 `gongdou_funnel_summary`
 - 专项判定卡入口： [gongdou-zhaidou-fault-funnel-review-card.md](/Users/arm/Desktop/vscode/Genm-codex/docs/gongdou-zhaidou-fault-funnel-review-card.md)
+- 当 `profile / genre` 边界存在争议时，`novel-genre` / `novel-outline` / `novel-review` 不应只凭项目局部文本猜测；可回看：
+  - `docs/10-进行中/batch-evidence-sidecar.json`
+  - `docs/00-当前有效/genre-ontology-field-decisions-v1.5.md`
+  作为上游判定依据
 
 开篇方法与剧情层次入口：
 

@@ -7,6 +7,8 @@ description: Run a report-only or project-annotate market scan for a Codex-manag
 
 Use this skill when the user wants a market/trend scan that informs writing direction or future profile adjustments.
 
+Also read `../../docs/00-当前有效/scan-result-contract.md` to keep `market-data / market-adjustments / research-candidates` 的边界、confidence 语义和 consumer handoff 一致。
+
 ## Positioning
 
 This is an experimental implementation that currently supports:

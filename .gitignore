@@ -1,4 +1,6 @@
 .DS_Store
+.claude/
+.omx/
 e2e-novel/.mighty/backup/
 **/.mighty/backup/
 **/.mighty/maintenance-report.json

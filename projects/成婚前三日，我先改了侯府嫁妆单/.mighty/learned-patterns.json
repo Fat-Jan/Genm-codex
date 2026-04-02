@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "last_updated": "2026-03-27T14:27:07Z",
+  "last_updated": "2026-03-31T18:03:15Z",
   "data": {
     "writing_style_preferences": {
       "dialogue_style": "克制、带针、带账本意识",
@@ -24,6 +24,12 @@
     "content_standard_alerts": [
       "不要把规矩当背景说明，要写成具体压迫动作。"
     ],
-    "user_feedback": []
+    "user_feedback": [],
+    "recent_guardrails": {
+      "must_avoid": [],
+      "must_preserve": [],
+      "next_chapter_watchpoints": [],
+      "expires_after_chapter": null
+    }
   }
 }

@@ -54,6 +54,7 @@
 
 ### 4. 项目支撑
 
+- `novel-analyze`
 - `novel-status`
 - `novel-query`
 - `novel-retrieve`
@@ -158,6 +159,7 @@
 - `novel-tutorial`
 - `novel-config`
 - `novel-test`
+- `novel-spinoff`
 - 历史草案类命令
 
 原因：

@@ -1,0 +1,14 @@
+name: "抗战谍战 bucket overlay"
+display_name: "抗战谍战"
+description: "番茄抗战谍战 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "抗战谍战"
+    strong_tags: ["潜伏博弈", "信仰坚守"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["谍战危机不能轻易化解", "历史背景必须严肃且可信"]
+    package_cues:
+      - "首屏点潜伏危机或情报任务"
+      - "前三章要出现一次身份险情或情报换账"

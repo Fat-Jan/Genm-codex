@@ -57,7 +57,11 @@ def load_state(project_root: Path) -> dict:
 
 
 def recent_chapter_numbers(state: dict, recent_n: int) -> list[int]:
-    nums = sorted(int(k) for k in state.get("chapter_meta", {}).keys())
+    nums = sorted(
+        int(k)
+        for k in state.get("chapter_meta", {}).keys()
+        if isinstance(k, str) and k.isdigit()
+    )
     return nums[-recent_n:]
 
 

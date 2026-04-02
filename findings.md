@@ -1,4 +1,31 @@
-# Findings & Decisions
+# Legacy Findings & Decisions
+
+> 结构收敛说明（2026-03-31）：`.ops/` 已成为当前 canonical active ops home。此根目录文件继续保留，主要用于历史研究结论与既有链接兼容；新的 active findings 默认写入 `.ops/`。
+
+## Legacy 研究导航
+
+> 本文件保留多轮任务的历史研究结论与专题导航，主要用于 legacy 连续性与既有链接兼容。当前 active findings 默认以 `.ops/findings.md` 为准。
+
+### 历史专题回看入口
+- 如果你在回看**文档治理 / 归档 / 状态制度**：先看 `# Findings & Decisions: 文档治理与安全归档方案（规划阶段）`
+- 如果你在回看**架构审查 / 扩展路径 / AOI 治理**：先看 `# Findings & Decisions: 2026-03-25 架构审查与扩展路径`
+- 如果你在回看**番茄起盘协议栈与 compiler**：看 `# Findings & Decisions: 番茄起盘协议栈与 Compiler 层`
+- 如果你在回看**写作基本功 / 内容标准规则层**：看 `# Findings & Decisions: 写作基本功与内容标准规则层`
+- 如果你在回看**开篇方法与剧情层次规则层**：看 `# Findings & Decisions: 开篇方法与剧情层次规则层`
+
+### 专题索引
+- 文档治理与安全归档 → 已拆为独立附录
+- 番茄起盘协议栈与 Compiler 层 → 约第 `308` 行起
+- 2026-03-25 架构审查与扩展路径 → 约第 `375` 行起
+- 写作基本功与内容标准规则层 → 约第 `551` 行起
+- 开篇方法与剧情层次规则层 → 约第 `788` 行起
+- 信息架构状态化重构 → 约第 `1233` 行起
+- AOI-001 收口 → 约第 `1283` 行起
+- AOI-002 / AOI-003 / AOI-004 / AOI-006 治理收口推进 → 约第 `1322` 行起
+- `v1.3` 候选池预研 → 约第 `1379` 行起
+
+### 已拆出的专题附录
+- [findings-doc-governance-archive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/findings-doc-governance-archive.md)
 
 ## Requirements
 - 在当前仓库内自动完成“反脸谱化体系”12 个主模块
@@ -76,6 +103,13 @@
 | 新增一个 `README.md` 索引但不把它算入 12 模块 | 方便 skill 和入口文档稳定引用，同时保持 12 主模块定义不变 |
 | smoke 采用“结构烟测 + 样本校准烟测” | 当前终端环境无法直接跑 Codex skill 黑盒调用，但可以真实验证路径、规则栈兼容性和样本判断点 |
 | 真实链路 smoke 采用“手工遵循 skill 契约”的方式执行 | 当前环境没有独立的 skill 调度入口，但可以在同目录结构、同 state 约束下跑出真实产物和状态写回 |
+
+---
+
+## Findings & Decisions: 文档治理与安全归档方案（规划阶段）
+
+> 该专题已拆分归档：
+> [findings-doc-governance-archive.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/阶段/findings-doc-governance-archive.md)
 
 ## Issues Encountered
 | Issue | Resolution |
@@ -179,7 +213,7 @@
 | `writing-plans` 技能默认要求 plan-review subagent，但当前没有用户明确授权委派 | 先由主会话自行写计划并做本地自查；若后续用户明确选择委派执行，再进入 subagent 路线 |
 
 ## Resources
-- `docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- `docs/90-归档/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
 - `docs/opening-and-plot-framework/README.md`
 - `tests/test_opening_plot_framework.py`
 - `tests/test_writing_core_framework.py`
@@ -1045,8 +1079,8 @@
 | 隔离 worktree 基于干净 `HEAD`，不包含用户当前脏工作树里的 `writing-core` 测试集 | 将其明确记录为“待整合后再跑”的回归项，不在该 worktree 内伪造通过 |
 
 ## Resources
-- `docs/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
-- `docs/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
+- `docs/90-归档/superpowers/specs/2026-03-24-fanqie-launch-stack-design.md`
+- `docs/90-归档/superpowers/plans/2026-03-24-fanqie-launch-stack.md`
 - `docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
 - `scripts/fanqie_launch_stack.py`
 - `tests/test_fanqie_launch_stack.py`

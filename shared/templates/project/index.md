@@ -11,7 +11,6 @@
 | 页面 | 说明 | 链接 |
 |------|------|------|
 | 项目统计 | 字数、章节、进度统计 | [stats.md](./stats.md) |
-| 伏笔追踪 | 伏笔埋设与回收管理 | [foreshadowing.md](./foreshadowing.md) |
 | 角色卡 | 详细角色设定文档 | [character/](../character/) |
 | 世界观 | 世界观设定文档 | [world/](../world/) |
 | 大纲 | 总纲与章纲 | [outline/](../outline/) |

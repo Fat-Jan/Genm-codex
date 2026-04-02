@@ -115,6 +115,16 @@ reader_expectations:
     - "长期误会或分离"
     - "悲剧或开放式结局"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "青春甜宠"
+    strong_tags: ["高甜", "校园心动"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["高甜不等于低幼", "误会不能长时间拖延"]
+    package_cues:
+      - "首屏点心动关系或高糖反差"
+      - "前三章至少一次甜蜜兑现"
+
 golden_three:
   opening_hook: "开篇必须有强烈的好感或互动，如一见钟情、意外亲密接触、发现对方的秘密优点，让读者秒入戏"
   protagonist_intro: "主角出场要青春洋溢，有独特的魅力点（学霸/运动/才艺），让读者想谈恋爱"

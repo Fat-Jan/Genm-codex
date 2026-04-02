@@ -1,0 +1,356 @@
+{
+  "$schema": "./host-evidence-ledger-v1.schema.json",
+  "version": "1.0",
+  "entries": [
+    {
+      "id": "claude-install-script",
+      "host_id": "claude",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "scripts/install-skills.sh",
+      "summary": "安装脚本声明 Claude Code 的安装目标为 ~/.claude/skills。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "claude-skill-usage-install-doc",
+      "host_id": "claude",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "docs/00-当前有效/skill-usage.md",
+      "summary": "当前用户文档列出 Claude Code 的安装命令与安装路径。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "claude-runtime-rules-context",
+      "host_id": "claude",
+      "surface": "rules_context",
+      "kind": "runtime_observation",
+      "ref": "claude-code-session:2026-04-01",
+      "summary": "当前会话直接证明 Claude Code 已提供 rules/context 面。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "claude-runtime-hooks",
+      "host_id": "claude",
+      "surface": "hooks",
+      "kind": "runtime_observation",
+      "ref": "claude-code-session:2026-04-01",
+      "summary": "当前会话直接证明 Claude Code 已提供 hooks 工具面。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "claude-runtime-mcp",
+      "host_id": "claude",
+      "surface": "mcp",
+      "kind": "runtime_observation",
+      "ref": "claude-code-session:2026-04-01",
+      "summary": "当前会话直接证明 Claude Code 已提供 MCP 工具面。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "codex-install-script",
+      "host_id": "codex",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "scripts/install-skills.sh",
+      "summary": "安装脚本默认将 skill 安装到 ~/.codex/skills，并采用 symlink 模式。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "codex-migration-plan-discovery",
+      "host_id": "codex",
+      "surface": "skill_discovery",
+      "kind": "repo_file",
+      "ref": "docs/90-归档/迁移与RC/codex-migration-plan.md",
+      "summary": "迁移计划记录了 fresh Codex session 的技能发现与触发验证。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "codex-migration-plan-invocation",
+      "host_id": "codex",
+      "surface": "skill_invocation",
+      "kind": "repo_file",
+      "ref": "docs/90-归档/迁移与RC/codex-migration-plan.md",
+      "summary": "迁移计划记录了 genm-novel-* 安装和 phase-1 E2E 调用闭环。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "codex-skill-usage-doc",
+      "host_id": "codex",
+      "surface": "skill_invocation",
+      "kind": "repo_file",
+      "ref": "docs/00-当前有效/skill-usage.md",
+      "summary": "当前用户文档保留了 Codex 默认安装和 frontmatter name 调用说明。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "opencode-install-script",
+      "host_id": "opencode",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "scripts/install-skills.sh",
+      "summary": "安装脚本声明 OpenCode 的安装目标为 ~/.config/opencode/skills。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "opencode-skill-usage-doc",
+      "host_id": "opencode",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "docs/00-当前有效/skill-usage.md",
+      "summary": "当前用户文档列出 OpenCode 的安装命令与安装路径。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "openclaw-install-script",
+      "host_id": "openclaw",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "scripts/install-skills.sh",
+      "summary": "安装脚本声明 OpenCLAW 的安装目标为 ~/.openclaw/skills。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "openclaw-skill-usage-doc",
+      "host_id": "openclaw",
+      "surface": "skill_install_materialization",
+      "kind": "repo_file",
+      "ref": "docs/00-当前有效/skill-usage.md",
+      "summary": "当前用户文档列出 OpenCLAW 的安装命令与安装路径。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "openclaw-trae-context-example",
+      "host_id": "openclaw",
+      "surface": "host_overview",
+      "kind": "repo_file",
+      "ref": ".trae/rules/project-context.md",
+      "summary": "Trae 项目上下文文件中把 ~/.openclaw/skills 作为示例路径提及，这只构成弱辅助证据。",
+      "verified_at": "2026-04-01",
+      "confidence": "low"
+    },
+    {
+      "id": "trae-project-context-file",
+      "host_id": "trae",
+      "surface": "rules_context",
+      "kind": "repo_file",
+      "ref": ".trae/rules/project-context.md",
+      "summary": "仓库内存在 Trae 项目上下文文件，并已被当前项目用作规则/context 投影面。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-rule-file",
+      "host_id": "trae",
+      "surface": "rules_context",
+      "kind": "repo_file",
+      "ref": ".trae/rules/rule.md",
+      "summary": "仓库内存在 Trae 规则文件，说明最小 rules/context 投影面已经接入。",
+      "verified_at": "2026-04-01",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-rules-doc-project-rules",
+      "host_id": "trae",
+      "surface": "project_rules",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/rules?_lang=en",
+      "summary": "官方 Rules 文档明确区分 Project Rules，并指出其位于项目的 .trae/rules 目录、使用 Markdown、仅在当前项目内生效。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-rules-doc-user-rules",
+      "host_id": "trae",
+      "surface": "user_or_global_rules",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/rules?_lang=en",
+      "summary": "官方 Rules 文档明确区分 User Rules，说明 Trae 已公开全局/用户级规则面。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-skills-doc-global-skills",
+      "host_id": "trae",
+      "surface": "global_skills",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/skills?_lang=en",
+      "summary": "官方 Skills 文档明确区分 Global skills，并说明其作用于跨项目的通用开发能力和偏好。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-skills-doc-project-skills",
+      "host_id": "trae",
+      "surface": "project_skills",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/skills?_lang=en",
+      "summary": "官方 Skills 文档明确区分 Project skills，并给出 project-specific business knowledge 与技术约束的使用场景。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-skills-doc-structure",
+      "host_id": "trae",
+      "surface": "project_skills",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/skills?_lang=en",
+      "summary": "官方 Skills 文档展示了 skill-name/SKILL.md 及可选 examples/templates 的目录结构，证明 Trae 已公开 skill 资产形态。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-add-mcp-servers-doc",
+      "host_id": "trae",
+      "surface": "mcp_registration",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/add-mcp-servers?_lang=en",
+      "summary": "官方 Add MCP servers 文档说明可从 Marketplace 添加 MCP，也可手动添加，并支持 JSON 配置、stdio MCP 与 HTTP MCP。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-use-mcp-in-agents-doc",
+      "host_id": "trae",
+      "surface": "mcp_agent_binding",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/use-mcp-servers-in-agents?_lang=en",
+      "summary": "官方文档说明内置 Builder with MCP 会自动接入已配置 MCP，且 custom agents 可在 Tools - MCP 中选择 MCP server 及其工具。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-auto-run-mcp-doc",
+      "host_id": "trae",
+      "surface": "auto_run_mcp",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/auto-run-and-security?_lang=en",
+      "summary": "官方 Auto-run & security 文档明确存在 Automatically Run MCP，并说明启用后 agent 会自动运行其已添加的 MCP server 及工具。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-auto-run-commands-doc",
+      "host_id": "trae",
+      "surface": "auto_run_commands",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/auto-run-and-security?_lang=en",
+      "summary": "官方 Auto-run & security 文档明确存在 Automatically Run Commands，并支持 allowlist 与 denylist 模式。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-sandbox-doc",
+      "host_id": "trae",
+      "surface": "sandbox",
+      "kind": "official_doc",
+      "ref": "https://docs.trae.ai/ide/sandbox?_lang=en",
+      "summary": "官方 Sandbox 页面已公开；页面标题和元信息表明其覆盖 file access、network access 及 high-risk command execution 等主题。",
+      "verified_at": "2026-04-02",
+      "confidence": "medium"
+    },
+    {
+      "id": "trae-global-skills-root-trae-cn-manual",
+      "host_id": "trae",
+      "surface": "global_skills",
+      "kind": "manual_verification",
+      "ref": "trae-cn-log:2026-03-31:global-skills-path",
+      "summary": "Trae CN ai-agent 日志明确打印 global skills path=/Users/arm/.trae-cn/skills；本机文件系统中该目录存在，且包含本地 SKILL.md 目录。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-global-skills-root-trae-manual",
+      "host_id": "trae",
+      "surface": "global_skills",
+      "kind": "manual_verification",
+      "ref": "trae-log:2026-01-28:global-skills-path",
+      "summary": "Trae.app 日志打印 global skills path=/Users/arm/.trae/skills，并在目录缺失时给出 Global skills directory does not exist；这说明 global skills root 依宿主变体落在各自 user-data 目录。",
+      "verified_at": "2026-04-02",
+      "confidence": "medium"
+    },
+    {
+      "id": "trae-skill-path-scan-runtime",
+      "host_id": "trae",
+      "surface": "skill_discovery",
+      "kind": "runtime_observation",
+      "ref": "trae-cn-log:2026-03-31:skill-path-scan",
+      "summary": "Trae CN 日志明确打印 global skills path=/Users/arm/.trae-cn/skills，并在当前仓库扫描 /Users/arm/Desktop/vscode/Genm-codex/.trae/skills。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-project-skills-discovery-manual",
+      "host_id": "trae",
+      "surface": "skill_discovery",
+      "kind": "manual_verification",
+      "ref": "trae-cn-log:2026-03-31:genm-codex-project-skills",
+      "summary": "Trae CN 在当前仓库会主动扫描 /Users/arm/Desktop/vscode/Genm-codex/.trae/skills，并在目录缺失时记录 Skills directory does not exist，证明 project skills 的 repo-owned 发现路径已存在。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-project-mcp-sandbox-runtime",
+      "host_id": "trae",
+      "surface": "mcp",
+      "kind": "runtime_observation",
+      "ref": "trae-cn-log:2026-03-31:project-mcp-sandbox",
+      "summary": "Trae CN sandbox 配置对当前仓库加入 .trae/mcp.json 只读白名单，说明 project-owned MCP file source 已进入实际运行路径。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-project-mcp-file-source-manual",
+      "host_id": "trae",
+      "surface": "mcp",
+      "kind": "manual_verification",
+      "ref": "trae-cn-log:2026-03-31:genm-codex-project-mcp",
+      "summary": "Trae CN sandbox 配置对当前仓库加入只读白名单项 /Users/arm/Desktop/vscode/Genm-codex/.trae/mcp.json，说明 project-owned MCP file source 已进入实际运行路径。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-sandbox-command-runtime-manual",
+      "host_id": "trae",
+      "surface": "sandbox",
+      "kind": "manual_verification",
+      "ref": "trae-log:2026-01-23:sandbox-command-runtime",
+      "summary": "Trae 运行日志显示 runCommandInTerminal 使用 execEnv=sandbox，命令实际经 trae-sandbox 执行，证明 sandboxed command execution 已是 runtime 事实。",
+      "verified_at": "2026-04-02",
+      "confidence": "high"
+    },
+    {
+      "id": "trae-skill-invocation-still-remote-manual",
+      "host_id": "trae",
+      "surface": "skill_invocation",
+      "kind": "manual_verification",
+      "ref": "trae-cn-log:2026-03-31:remote-skill-definition",
+      "summary": "同一批 Trae CN 日志显示 [SkillTool] using remote definition；这证明本地 path scan 已存在，但 repo-owned local skill invocation 仍未形成可承诺闭环。",
+      "verified_at": "2026-04-02",
+      "confidence": "medium"
+    },
+    {
+      "id": "trae-remote-skill-definition-runtime",
+      "host_id": "trae",
+      "surface": "skill_invocation",
+      "kind": "runtime_observation",
+      "ref": "trae-cn-log:2026-03-31:remote-skill-definition",
+      "summary": "同一批 Trae CN 日志显示 [SkillTool] using remote definition，说明本地 path scan 已存在，但 invocation 仍不能按 repo-owned 安装闭环承诺。",
+      "verified_at": "2026-04-02",
+      "confidence": "medium"
+    }
+  ]
+}

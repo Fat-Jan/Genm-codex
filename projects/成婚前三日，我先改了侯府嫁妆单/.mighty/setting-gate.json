@@ -1,11 +1,10 @@
 {
   "version": "1.0",
   "status": "passed",
-  "checked_after": "outline",
+  "checked_after": "write-post",
   "launch_stack_action": {
-    "status": "already_ready",
-    "reason": "locked_sidecar_present",
-    "sidecar_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/launch-stack.json"
+    "status": "not_applicable",
+    "reason": "stage_not_outline"
   },
   "blocking_gaps": [],
   "auto_created_files": [],
@@ -26,7 +25,7 @@
   "freshness": {
     "contract": "sidecar-freshness-v1",
     "artifact_key": "setting-gate",
-    "generated_at": "2026-03-27T14:39:44Z",
+    "generated_at": "2026-03-31T18:03:15Z",
     "generated_by": "scripts/setting_gate.py",
     "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
     "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
@@ -39,7 +38,7 @@
     "inputs": {
       "state.json": {
         "path": ".mighty/state.json",
-        "updated_at": "2026-03-27T14:27:07Z",
+        "updated_at": "2026-03-31T17:47:42Z",
         "current_chapter": 12
       },
       "outline": {

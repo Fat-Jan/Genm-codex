@@ -1,0 +1,19 @@
+# rule-mystery-番茄版 Profile
+
+name: "rule-mystery-番茄版"
+version: "1.0-tomato"
+platform_config: "tomato"
+parent_profile: "rule-mystery/profile.yaml"
+
+# 平台定位
+
+# 节奏控制
+pacing:
+  type: "标准"
+  opening_speed: "early"
+  chapter_length: "2500-3500"
+
+# 版本历史
+changelog:
+  "1.0-tomato": "初始版本，最小平台定位"
+

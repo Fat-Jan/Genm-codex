@@ -175,6 +175,16 @@ reader_expectations:
     - 角色行为不符合古代身份
     - 女主无底线原谅
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "古言"
+    strong_tags: ["高门婚配", "权谋情感"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["礼法关系不能悬浮", "情感推进必须服从古代身份秩序"]
+    package_cues:
+      - "首屏点身份处境或婚配危机"
+      - "前三章要出现一次古代规则压迫或身份反差"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
@@ -208,7 +218,8 @@ writing_style:
     characteristics: 符合身份地位
     avoid: [现代用语, 网络流行语]
 
-  description: "clothing: 精致细腻"
+  description:
+    clothing: 精致细腻
     scene: 古代韵味
     emotion: 含蓄内敛
 

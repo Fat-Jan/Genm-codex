@@ -29,7 +29,7 @@ Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat 
 
 ## Required shared reads
 
-Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Reference: `../../shared/references/shared/consumer-read-manifest.md`
 
 Shared bundles to apply here:
 
@@ -79,6 +79,9 @@ Also read these when generating or materially revising outlines, especially for 
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `../../docs/00-当前有效/chapter-structure-fields-design.md`
+- `../../shared/references/writing/worldview-motif-catalog.md` when the premise is still loose, the user asks for worldbuilding enrichment, or the route clearly depends on混搭脑洞
+- `../../docs/10-进行中/batch-evidence-sidecar.json` when profile/genre boundaries are disputed
+- `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` when profile/genre boundaries are disputed
 
 ## Workflow
 
@@ -92,9 +95,21 @@ Also read these when generating or materially revising outlines, especially for 
    - also read `../../docs/writing-core-framework/README.md`
    - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md` and `../../docs/opening-and-plot-framework/fanqie-launch-stack/05-compiler-contract.md`
    - if `.mighty/launch-stack.json` exists, prefer its current launch-side compiler hints over recomputing a separate launch guess inside this skill
+   - if the project idea is still loose or the user asks for concept combination / worldbuilding enrichment, also read `../../shared/references/writing/worldview-motif-catalog.md`
+   - when using the motif catalog, resolve at most:
+     - `1` worldview motif
+     - optional `1` mechanism motif
+     - optional `1` packaging motif
+   - convert those selected motifs into:
+     - premise
+     - conflict engine
+     - visible cost
+     - hidden truth direction
+   - do not dump unused motif cards into the outline text
 3. Load the relevant shared profile for rhythm and reader expectations.
    - first prefer the lightweight projection already present in `state.genre_profile`
    - only if additional detail is still needed, inspect the raw profile via `../../scripts/profile_contract.py`
+   - when profile/genre boundaries are disputed, also consult `../../docs/10-进行中/batch-evidence-sidecar.json` and `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` as upstream adjudication sources before locking the route
    - when using raw profile detail, follow the contract layers:
      - core profile
      - platform overlay when it exists

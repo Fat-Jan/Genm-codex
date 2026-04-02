@@ -41,6 +41,7 @@ Read conditionally when needed:
 - `.mighty/workflow-health.json`
 - `.mighty/quality-audit.json`
 - `.mighty/knowledge-projection.json`
+- `../../docs/10-进行中/batch-evidence-sidecar.json`
 - `.mighty/import-report.json`
 - `.mighty/state-archive.json`
 - `.mighty/volume-summaries.json`
@@ -115,8 +116,9 @@ Map these requests onto state or index data rather than pretending to execute a 
 3. If `.mighty/active-context.json` exists and the request asks about current writing context, near-term blockers, recent hooks, or next-step guidance, read it next.
 4. If `.mighty/workflow-health.json` exists and the request asks about workflow-health, artifact truth, or next-step risk, read it next.
 5. If `.mighty/quality-audit.json` exists and the request asks about quality artifact health, review drift, or workflow false positives, read it next.
-6. If `.mighty/knowledge-projection.json` exists and the request asks about workflow contract, sidecar health, or compact project status, read it next.
-7. If `.mighty/import-report.json` exists and the request asks about imported chapters, current import status, or next import handoff steps, read it next.
+6. If `../../docs/10-进行中/batch-evidence-sidecar.json` exists and the request asks about cross-platform evidence, profile readiness, exceptions, completion counts, or whether a profile is effectively wired vs 空挂, read it next.
+7. If `.mighty/knowledge-projection.json` exists and the request asks about workflow contract, sidecar health, or compact project status, read it next.
+8. If `.mighty/import-report.json` exists and the request asks about imported chapters, current import status, or next import handoff steps, read it next.
 8. If `.mighty/index.json` exists and the request is chapter-heavy, mention-heavy, or stats-heavy, read it next.
 9. If `.mighty/state-archive.json` exists and the request targets older chapters or full-history chapter metadata, read it next.
 10. If `.mighty/volume-summaries.json` exists and the request targets old chapter ranges or compressed archive summaries, read it next.
@@ -130,6 +132,7 @@ Map these requests onto state or index data rather than pretending to execute a 
    - do not treat active-context as a full protagonist-state truth source; if the answer needs live canon, fall back to `state`
    - workflow-health first for compact workflow truth / artifact health / repo-owned tail questions
    - quality-audit first for review artifact health / false-positive quality questions
+   - evidence-sidecar first for cross-platform evidence status / exception / ontology-ready questions
    - knowledge-projection first for workflow contract / sidecar health / compact project summary questions
    - import-report first for imported chapter handoff state
    - state-first for current truth
@@ -164,6 +167,7 @@ Support these first:
 - `suspense-check`
 - `project-stats`
 - `workflow-health`
+- `evidence-status`
 - `index-stats`
 - `chapter-summaries`
 
@@ -174,7 +178,9 @@ Suggested behaviors:
 - `project-stats`: summarize current chapter, total words, active foreshadowing count, review coverage
 - `workflow-health`: summarize `quality_audit_status`, `top_finding_codes`, `workflow_truth_status`, `workflow_truth_missing_artifacts`, and `repo_owned_tail_steps`
   - keep the terse answer shape aligned with `../../scripts/render_workflow_health_summary.py`
+- `evidence-status`: summarize `complete_count`, `partial_count`, `exception_count`, and any requested profile’s `status / ontology_ready / exception`
 - when the user asks for a more complete status dashboard or one-line operational summary, align with `../../scripts/render_project_status_dashboard.py`
+- when the user asks about market scan / trend / current scan sidecars, align with `../../scripts/render_project_scan_summary.py`
 - `setting-gate`: summarize gate status, blocking gaps, queued confirmations, and `minimal_next_action`
 - `index-stats`: if index exists, report indexed chapters, total chars/lines, and chapter numbers
 - `chapter-summaries`: use `summaries_index` first, fall back to index chapter summaries
@@ -206,6 +212,7 @@ If the index is missing and the request clearly wants index-backed data, say so 
 - When using workflow-health-backed data, mention that it came from `.mighty/workflow-health.json`
 - When using quality-audit-backed data, mention that it came from `.mighty/quality-audit.json`
 - When using knowledge-projection-backed data, mention that it came from `.mighty/knowledge-projection.json`
+- When using evidence-sidecar-backed data, mention that it came from `docs/10-进行中/batch-evidence-sidecar.json`
 - When using compressed archive data, mention that it came from `.mighty/volume-summaries.json`
 
 ## Notes
@@ -219,9 +226,10 @@ If the index is missing and the request clearly wants index-backed data, say so 
   4. `.mighty/volume-summaries.json` for compressed old ranges
   5. `.mighty/workflow-health.json` for compact workflow truth / artifact health
   6. `.mighty/quality-audit.json` for review artifact health
-  7. `.mighty/knowledge-projection.json` for workflow contract / sidecar health summaries
-  8. sidecar files for learned / market guidance
-  9. `index` for broad retrieval
+  7. `../../docs/10-进行中/batch-evidence-sidecar.json` for cross-platform evidence status / exceptions / ontology-ready checks
+  8. `.mighty/knowledge-projection.json` for workflow contract / sidecar health summaries
+  9. sidecar files for learned / market guidance
+  10. `index` for broad retrieval
 - If the user asks for broad statistics, summarize first and only expand on request.
 - Do not claim to support full Dataview/SQL syntax; keep the structured mode intentionally narrow.
 - If `.mighty/setting-gate.json` exists, treat it as the source of truth for current write-readiness and next-action blockers.

@@ -1,8 +1,15 @@
 # Bucket / Profile 命名映射规范
 
+> Status: `active-reference-spec`
+>
+> 当前 authoritative truth：
+> - machine-readable registry：`shared/templates/profile-bucket-registry-v1.json`
+> - runtime resolution：`scripts/profile_contract.py`
+> - `state.genre_profile.bucket` 当前保存的是 consumer-facing bucket 名称（如 `宫斗宅斗`），不是 slug
+
 ## 目的
 
-解决 bucket、profile、genre 之间的命名漂移，建立统一的 slug 映射规范。
+解决 bucket、profile、genre 之间的命名漂移，并说明当前已经落地的 slug 映射真值、运行时入口与状态投影口径。
 
 ---
 
@@ -33,7 +40,9 @@
 
 ---
 
-## 映射表
+## 示意映射表
+
+下表用于说明三类命名之间的关系与命名意图，不作为 machine-readable 当前真值。完整当前映射请以 `shared/templates/profile-bucket-registry-v1.json` 为准。
 
 | profile slug | bucket slug | fanqie-mvp-bucket slug | display_name | description |
 |--------------|-------------|------------------------|--------------|-------------|
@@ -107,200 +116,52 @@
 
 ### 3. 在状态中
 
-- `genre_profile.bucket`: 使用 bucket slug
-- `genre_profile.loaded`: 使用 profile slug
+- `genre_profile.bucket`: 使用当前 bucket 名称 / display_name（如 `宫斗宅斗`）
+- `genre_profile.loaded`: 使用当前生效 profile 路径
 - `meta.genre`: 使用 display_name
+- 如需在运行时把 fanqie bucket key、bucket 名称和 profile slug 互相转换，应走 registry + `profile_contract.py`，而不是在 state 中直接存 slug
 
 ---
 
-## 映射函数
+## 当前运行时入口
 
-在代码中，需要建立以下映射函数：
+当前不再建议把映射关系维护成散落在文档里的硬编码函数。实际运行时应以以下入口为准：
 
-```python
-# profile slug -> bucket slug
-def profile_to_bucket(profile_slug: str) -> str:
-    return profile_slug  # 直接映射
+1. `shared/templates/profile-bucket-registry-v1.json`
+   - machine-readable 真值
+   - 当前承载 fanqie bucket key -> `bucket_name` -> `profile_slug` 的映射
 
-# bucket slug -> fanqie-mvp-bucket slug
-def bucket_to_fanqie_mvp(bucket_slug: str) -> str:
-    mapping = {
-        "palace-intrigue": "gongdou_zhai",
-        "urban-brainhole": "dushi_naodong",
-        "urban-daily": "dushi_changri",
-        "sweet-youth": "qingchun_tianchong",
-        "ceo-romance": "haomen_zongcai",
-        "workplace-romance": "zhichang_hunlian",
-        "historical-brainhole": "lishi_naodong",
-        "xuanhuan": "xuanhuan_naodong",
-        "xiuxian": "xiuxian",
-        "urban-superpower": "dushi_yineng",
-        "romance": "yanqing",
-        "ancient-romance": "gudai_yanqing",
-        "historical": "lishi",
-        "fantasy-romance": "xuanhuan_yanqing",
-        "melodrama": "gouxue",
-        "substitute": "tishen",
-        "evil-girl": "evil",
-        "system": "xitong",
-        "infinite-flow": "wuxianliu",
-        "apocalypse": "moshi",
-        "sci-fi": "kehuan",
-        "mystery-horror": "xuanyi_kongbu",
-        "rule-horror": "guize_kongbu",
-        "rule-mystery": "guize_xuanyi",
-        "esports": "dianjing",
-        "game-sports": "youxi_saiyou",
-        "livestream": "zhibo",
-        "farming": "zhongtian",
-        "cthulhu": "kelusu",
-        "dark": "anhei",
-        "dark-theme": "anhei_xilie",
-        "spy-war": "jianzhe",
-        "war-spy": "zhanzheng",
-        "realistic": "xianshi",
-        "female-mystery": "nvxing_xuanyi",
-        "fertility": "shengyu",
-        "multi-offspring": "duotai",
-        "sweet-romance": "tianchong",
-        "dramatic-romance": "gouxue_yanqing",
-        "republic-romance": "minguo_yanqing",
-        "modern-brainhole": "xiandai_naodong",
-        "modern-creative": "xiandai_chuangyi",
-        "historical-creative": "lishi_chuangyi",
-        "mystery-creative": "xuanyi_chuangyi",
-        "urban-creative": "dushi_chuangyi",
-        "urban-life": "dushi_shenghuo",
-        "crossover": "chuanhua",
-        "era": "shidai",
-        "western-fantasy": "xifang_qihuan",
-        "supernatural": "chaoran",
-        "zhihu-short": "zhihu_duanpian",
-    }
-    return mapping.get(bucket_slug, bucket_slug)
+2. `scripts/profile_contract.py`
+   - `_load_fanqie_bucket_name_map()` 会从 registry 读取 fanqie key 与 bucket 名称映射
+   - `resolve_bucket_overlay_path()` 同时支持：
+     - bucket 名称（如 `宫斗宅斗`）
+     - fanqie bucket key（如 `gongdou_zhai`）
+   - `resolve_profile_layers()` / `load_profile_with_overlays()` 会把 profile、platform overlay 和 bucket overlay 串起来
 
-# fanqie-mvp-bucket slug -> bucket slug
-def fanqie_mvp_to_bucket(fanqie_mvp_slug: str) -> str:
-    mapping = {
-        "gongdou_zhai": "palace-intrigue",
-        "dushi_naodong": "urban-brainhole",
-        "dushi_changri": "urban-daily",
-        "qingchun_tianchong": "sweet-youth",
-        "haomen_zongcai": "ceo-romance",
-        "zhichang_hunlian": "workplace-romance",
-        "lishi_naodong": "historical-brainhole",
-        "xuanhuan_naodong": "xuanhuan",
-        "xiuxian": "xiuxian",
-        "dushi_yineng": "urban-superpower",
-        "yanqing": "romance",
-        "gudai_yanqing": "ancient-romance",
-        "lishi": "historical",
-        "xuanhuan_yanqing": "fantasy-romance",
-        "gouxue": "melodrama",
-        "tishen": "substitute",
-        "evil": "evil-girl",
-        "xitong": "system",
-        "wuxianliu": "infinite-flow",
-        "moshi": "apocalypse",
-        "kehuan": "sci-fi",
-        "xuanyi_kongbu": "mystery-horror",
-        "guize_kongbu": "rule-horror",
-        "guize_xuanyi": "rule-mystery",
-        "dianjing": "esports",
-        "youxi_saiyou": "game-sports",
-        "zhibo": "livestream",
-        "zhongtian": "farming",
-        "kelusu": "cthulhu",
-        "anhei": "dark",
-        "anhei_xilie": "dark-theme",
-        "jianzhe": "spy-war",
-        "zhanzheng": "war-spy",
-        "xianshi": "realistic",
-        "nvxing_xuanyi": "female-mystery",
-        "shengyu": "fertility",
-        "duotai": "multi-offspring",
-        "tianchong": "sweet-romance",
-        "gouxue_yanqing": "dramatic-romance",
-        "minguo_yanqing": "republic-romance",
-        "xiandai_naodong": "modern-brainhole",
-        "xiandai_chuangyi": "modern-creative",
-        "lishi_chuangyi": "historical-creative",
-        "xuanyi_chuangyi": "mystery-creative",
-        "dushi_chuangyi": "urban-creative",
-        "dushi_shenghuo": "urban-life",
-        "chuanhua": "crossover",
-        "shidai": "era",
-        "xifang_qihuan": "western-fantasy",
-        "chaoran": "supernatural",
-        "zhihu_duanpian": "zhihu-short",
-    }
-    return mapping.get(fanqie_mvp_slug, fanqie_mvp_slug)
+3. `state.genre_profile`
+   - 当前保存 consumer-facing 轻量投影
+   - `bucket` 字段保存当前 bucket 名称，而不是 slug
+   - 更完整的组合定位信息继续放在 `.mighty/content-positioning.json`
 
-# bucket slug -> display_name
-def bucket_to_display_name(bucket_slug: str) -> str:
-    mapping = {
-        "palace-intrigue": "宫斗宅斗",
-        "urban-brainhole": "都市脑洞",
-        "urban-daily": "都市日常",
-        "sweet-youth": "青春甜宠",
-        "ceo-romance": "豪门总裁",
-        "workplace-romance": "职场婚恋",
-        "historical-brainhole": "历史脑洞",
-        "xuanhuan": "玄幻脑洞",
-        "xiuxian": "修仙",
-        "urban-superpower": "都市异能",
-        "romance": "言情",
-        "ancient-romance": "古代言情",
-        "historical": "历史",
-        "fantasy-romance": "玄幻言情",
-        "melodrama": "狗血",
-        "substitute": "替身",
-        "evil-girl": "恶女",
-        "system": "系统",
-        "infinite-flow": "无限流",
-        "apocalypse": "末世",
-        "sci-fi": "科幻",
-        "mystery-horror": "悬疑恐怖",
-        "rule-horror": "规则恐怖",
-        "rule-mystery": "规则悬疑",
-        "esports": "电竞",
-        "game-sports": "游戏赛游",
-        "livestream": "直播",
-        "farming": "种田",
-        "cthulhu": "克苏鲁",
-        "dark": "暗黑",
-        "dark-theme": "暗黑系列",
-        "spy-war": "谍战",
-        "war-spy": "战争",
-        "realistic": "现实",
-        "female-mystery": "女性悬疑",
-        "fertility": "生育",
-        "multi-offspring": "多胎",
-        "sweet-romance": "甜宠",
-        "dramatic-romance": "狗血言情",
-        "republic-romance": "民国言情",
-        "modern-brainhole": "现代脑洞",
-        "modern-creative": "现代创意",
-        "historical-creative": "历史创意",
-        "mystery-creative": "悬疑创意",
-        "urban-creative": "都市创意",
-        "urban-life": "都市生活",
-        "crossover": "穿花",
-        "era": "时代",
-        "western-fantasy": "西方奇幻",
-        "supernatural": "超然",
-        "zhihu-short": "知乎短篇",
-    }
-    return mapping.get(bucket_slug, bucket_slug)
-```
+## 当前验证证据
+
+- `tests/test_profile_bucket_registry.py`
+  - 验证 registry 存在，并覆盖关键 fanqie key 映射
+- `tests/test_profile_contract.py`
+  - 验证 bucket overlay 可由 bucket 名称和 fanqie bucket key 解析
+  - 验证所有声明了 `fanqie primary_bucket` 的 profile 都能解析到对应 overlay
+- `tests/test_fanqie_p0_smoke.py`
+  - 验证 `state.genre_profile.bucket` 当前以 bucket 名称参与实际推断
+- `scripts/validate-migration.sh`
+  - 已把 `bucket-profile-slug-mapping.md`、`profile-bucket-registry-v1.json` 和首批 bucket overlay 一并纳入结构校验
 
 ---
 
 ## 完成标记
 
-- [ ] 有独立设计稿（本文件）
-- [ ] 明确字段定义、枚举值和最小用途（本文件）
-- [ ] 与 profile 系统对接（待实现）
-- [ ] 与 bucket 系统对接（待实现）
-- [ ] 与 fanqie-mvp-bucket 系统对接（待实现）
-- [ ] 有测试样本能验证字段有效性（待实现）
+- [x] 有独立设计稿（本文件）
+- [x] 明确字段定义、枚举值和最小用途（本文件）
+- [x] 与 profile 系统对接（`scripts/profile_contract.py`、`tests/test_profile_contract.py`）
+- [x] 与 bucket 系统对接（`shared/templates/profile-bucket-registry-v1.json`、`scripts/profile_contract.py`）
+- [x] 与 fanqie-mvp-bucket 系统对接（`shared/templates/profile-bucket-registry-v1.json`、`tests/test_profile_bucket_registry.py`）
+- [x] 有测试样本能验证字段有效性（`tests/test_profile_bucket_registry.py`、`tests/test_profile_contract.py`、`tests/test_fanqie_p0_smoke.py`）

@@ -130,6 +130,8 @@ class BatchTransactionContractTests(unittest.TestCase):
         self.assertEqual(payload["repo_owned_tail_steps"], ["maintenance", "snapshot"])
         self.assertIn("quality_audit", payload)
         self.assertIn("status", payload["quality_audit"])
+        self.assertIn("memory_sync", payload)
+        self.assertEqual(payload["memory_sync"]["status"], "skipped")
 
     def test_batch_docs_define_repo_owned_tail_as_maintenance_and_snapshot(self) -> None:
         novel_batch = (REPO_ROOT / "skills" / "novel-batch" / "SKILL.md").read_text(encoding="utf-8")

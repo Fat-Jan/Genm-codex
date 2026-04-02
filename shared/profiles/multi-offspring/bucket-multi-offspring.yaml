@@ -1,0 +1,14 @@
+name: "多子多福 bucket overlay"
+display_name: "多子多福"
+description: "番茄多子多福 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "多子多福"
+    strong_tags: ["萌娃成长", "家庭治愈"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["育儿线不能掩盖人物主体性", "温馨日常不能失去真实育儿阻力"]
+    package_cues:
+      - "首屏点萌娃/系统/家庭缺口"
+      - "前三章要出现一次亲子互动或成长里程碑"

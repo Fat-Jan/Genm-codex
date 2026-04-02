@@ -1,0 +1,14 @@
+name: "现言脑洞 bucket overlay"
+display_name: "现言脑洞"
+description: "番茄现言脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "现言脑洞"
+    strong_tags: ["设定恋爱", "反转甜感"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["设定不能盖过人物成长", "反转必须服务关系推进"]
+    package_cues:
+      - "首屏点设定触发与情感反差"
+      - "前三章要出现一次反转或关系兑现"

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "market-data-v1.schema.json",
+  "title": "Genm Codex Market Data v1",
+  "type": "object",
+  "required": [
+    "version",
+    "scan_time",
+    "mode",
+    "report_kind",
+    "targets",
+    "source_plan",
+    "sources",
+    "findings",
+    "confidence",
+    "gaps",
+    "apply_recommendations"
+  ],
+  "properties": {
+    "version": {"type": "string"},
+    "scan_time": {"type": "string"},
+    "mode": {
+      "type": "string",
+      "enum": ["report-only", "project-annotate"]
+    },
+    "report_kind": {
+      "type": "string",
+      "enum": ["skeleton", "real_report"]
+    },
+    "targets": {
+      "type": "object",
+      "required": ["platforms", "genre", "depth"],
+      "properties": {
+        "platforms": {"type": "array", "items": {"type": "string"}},
+        "genre": {"type": "string"},
+        "depth": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "source_plan": {"type": "object"},
+    "sources": {"type": "array", "items": {"type": "object"}},
+    "findings": {
+      "type": "object",
+      "required": [
+        "hot_genres",
+        "recommended_content_buckets",
+        "hot_tags",
+        "opening_patterns",
+        "cool_point_patterns",
+        "platform_notes"
+      ],
+      "properties": {
+        "hot_genres": {"type": "array"},
+        "recommended_content_buckets": {"type": "array"},
+        "hot_tags": {"type": "array"},
+        "opening_patterns": {"type": "array"},
+        "cool_point_patterns": {"type": "array"},
+        "platform_notes": {"type": "array"}
+      },
+      "additionalProperties": true
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["overall", "reason"],
+      "properties": {
+        "overall": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        },
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "gaps": {"type": "array", "items": {"type": "string"}},
+    "apply_recommendations": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": true
+}

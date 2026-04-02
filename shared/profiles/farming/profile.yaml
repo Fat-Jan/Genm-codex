@@ -171,6 +171,16 @@ reader_expectations:
     - "主角太厉害，没有成长过程"
     - "不符合时代背景的设定"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "种田"
+    strong_tags: ["丰收致富", "温馨治愈"]
+    narrative_modes: ["日常账本"]
+    tone_guardrails: ["发展速度要合理", "治愈感不能被狗血冲突破坏"]
+    package_cues:
+      - "首屏点回乡/农家起点或第一块田"
+      - "前三章要有一次劳作兑现或收成期待"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
@@ -206,7 +216,8 @@ writing_style:
     style: 接地气/温馨
     characteristics: 符合农村背景
 
-  description: "farming: 要有真实感"
+  description:
+    farming: 要有真实感
     harvest: 要有满足感
     life: 温馨治愈
 

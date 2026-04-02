@@ -200,6 +200,16 @@ reader_expectations:
     - "境界压制随意打破，无理由越级"
     - "金手指一开始就全开，无成长性"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "玄幻脑洞"
+    strong_tags: ["金手指", "成长"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["升级必须有代价", "爽点不能替代世界规则"]
+    package_cues:
+      - "金手指出现前置"
+      - "前三章要有硬兑现"
+
 # ==================== 检查器权重 ====================
 checker_weights:
   high-point: 1.0
@@ -216,7 +226,8 @@ writing_style:
     characteristics: 简洁有力，符合修仙者身份
     avoid: [现代俚语, 网络用语]
 
-  description: "battle: 注重招式描写，境界压制展示"
+  description:
+    battle: 注重招式描写，境界压制展示
     scene: 宗门/秘境氛围营造
     emotion: 内敛含蓄
 

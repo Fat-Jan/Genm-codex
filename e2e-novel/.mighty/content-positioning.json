@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-31T18:03:15Z",
+  "primary_profile": "xuanhuan",
+  "primary_bucket": "传统玄幻",
+  "tagpacks": [],
+  "strong_tags": [
+    "金手指",
+    "成长"
+  ],
+  "narrative_modes": [
+    "多主题副本"
+  ],
+  "tone_guardrails": [
+    "升级必须有代价",
+    "爽点不能替代世界规则"
+  ],
+  "opening_hook_cues": [],
+  "payoff_cadence": "",
+  "reader_motive": [
+    "想看宗门成长与突破兑现"
+  ],
+  "compiler_output": {
+    "outline_overlays": [
+      "narrative_mode:多主题副本"
+    ],
+    "write_overlays": [
+      "tone_guardrail:升级必须有代价",
+      "tone_guardrail:爽点不能替代世界规则"
+    ],
+    "review_lenses": [
+      "strong_tag:金手指",
+      "strong_tag:成长"
+    ],
+    "package_cues": [
+      "cue:金手指出现前置",
+      "cue:前三章要有硬兑现"
+    ]
+  },
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "content-positioning",
+    "generated_at": "2026-03-31T18:03:15Z",
+    "generated_by": "scripts/build_content_positioning.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "e2e-novel",
+    "depends_on": [
+      ".mighty/state.json",
+      "shared/templates/content-positioning-map-v1.json",
+      "shared/profiles/*/profile*.yaml"
+    ],
+    "inputs": {
+      "state.json": {
+        "path": ".mighty/state.json",
+        "updated_at": "2026-03-31T18:03:15Z",
+        "loaded_profile": "shared/profiles/xuanhuan/profile-tomato.yaml",
+        "bucket": "传统玄幻"
+      },
+      "content-positioning-map-v1.json": {
+        "path": "shared/templates/content-positioning-map-v1.json",
+        "mapped_profile_count": 16,
+        "bucket_default_count": 7
+      }
+    }
+  }
+}

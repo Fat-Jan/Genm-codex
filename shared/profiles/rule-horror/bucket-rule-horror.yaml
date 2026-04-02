@@ -1,0 +1,14 @@
+name: "规则怪谈 bucket overlay"
+display_name: "规则怪谈"
+description: "番茄规则怪谈 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "规则怪谈"
+    strong_tags: ["规则压迫", "违规代价"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["规则必须可推导", "违反规则的后果必须明确且沉重"]
+    package_cues:
+      - "首屏点规则条文与违规案例"
+      - "前三章要出现一次规则试探或惩罚兑现"

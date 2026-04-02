@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "run_at": "2026-03-31T18:03:15Z",
+  "project_root": "projects/成婚前三日，我先改了侯府嫁妆单",
+  "source_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/memory-context.json",
+  "report_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/memory-sync-report.json",
+  "project_config_file": "projects/成婚前三日，我先改了侯府嫁妆单/.mighty/config.json",
+  "mode": "auto",
+  "target": "openmemory-mcp",
+  "user_id": "genm-codex-samples",
+  "status": "stored",
+  "content_hash": "5873cc5dea3dbafe6598cb13a76530c322174ee8c570d8d0fb8ed17cd998aa72",
+  "memory_id": "9f3e0c97-a01e-46f6-8c10-5f553208d1f5",
+  "config_path": "/Users/arm/.codex/config.toml",
+  "command": [
+    "node",
+    "/Users/arm/Desktop/vscode/Genm-codex/scripts/openmemory_store_bridge.js"
+  ],
+  "store_transport": "local-node",
+  "store_result": {
+    "transport": "local-node",
+    "result": {
+      "id": "9f3e0c97-a01e-46f6-8c10-5f553208d1f5",
+      "updated": true,
+      "primary_sector": "semantic",
+      "sectors": [
+        "semantic"
+      ]
+    }
+  }
+}

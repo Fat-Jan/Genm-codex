@@ -1,0 +1,14 @@
+name: "都市脑洞 bucket overlay"
+display_name: "都市脑洞"
+description: "番茄都市脑洞 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "都市脑洞"
+    strong_tags: ["设定反转", "能力展开"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["设定不能只靠解释成立", "能力成长必须伴随现实代价"]
+    package_cues:
+      - "首屏点核心设定或反转触发器"
+      - "前三章要出现一次能力兑现或身份反打"

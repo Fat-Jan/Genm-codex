@@ -124,6 +124,16 @@ special_constraints:
     enforced: false
     check_point: 战斗描写
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "高武"
+    strong_tags: ["越级挑战", "武道成长"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["突破必须有积累", "越级不能无代价发生"]
+    package_cues:
+      - "首屏点武道危机或学院/都市压制关系"
+      - "前三章要出现一次越级对抗或突破兑现"
+
 # ==================== 黄金三章 ====================
 golden_three_chapters:
   chapter_1:

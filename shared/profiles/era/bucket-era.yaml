@@ -1,0 +1,14 @@
+name: "年代 bucket overlay"
+display_name: "年代"
+description: "番茄年代 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "年代"
+    strong_tags: ["时代变迁", "奋斗成长"]
+    narrative_modes: ["多角色群像"]
+    tone_guardrails: ["时代细节不能失真", "奋斗不能脱离时代土壤"]
+    package_cues:
+      - "首屏点时代困局或返乡/下乡起点"
+      - "前三章要看到一次生活改善或机会显影"

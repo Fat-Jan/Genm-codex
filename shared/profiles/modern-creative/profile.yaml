@@ -115,6 +115,16 @@ reader_expectations:
     - "BE结局（除非明确标注）"
     - "挖坑不填"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "现言脑洞"
+    strong_tags: ["设定恋爱", "反转甜感"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["设定不能盖过人物成长", "反转必须服务关系推进"]
+    package_cues:
+      - "首屏点设定触发与情感反差"
+      - "前三章要出现一次反转或关系兑现"
+
 golden_three:
   opening_hook: "开篇必须立即展现核心设定，如能力觉醒、设定触发、意外发生，让读者秒懂设定"
   protagonist_intro: "主角出场要有特点，与设定契合，让读者喜欢"

@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-31T18:03:15Z",
+  "project_root": "e2e-novel",
+  "project_title": "E2E样本",
+  "quality_audit_status": "warn",
+  "top_finding_codes": [
+    "missing-route-decision",
+    "missing-anti-flattening-artifacts",
+    "route-needs-fix-mismatch"
+  ],
+  "workflow_truth_status": "pass",
+  "workflow_truth_missing_artifacts": [],
+  "maintenance_result": "success",
+  "failed_maintenance_steps": [],
+  "repo_owned_tail_steps": [
+    "maintenance",
+    "snapshot"
+  ],
+  "setting_gate_status": "passed",
+  "has_recent_guardrails": true,
+  "recommended_next_action": "repair-review-artifacts",
+  "recommended_reason": "review/close artifact 仍存在假阳性或空写回问题，应先修复质量产物。",
+  "freshness": {
+    "contract": "sidecar-freshness-v1",
+    "artifact_key": "workflow-health",
+    "generated_at": "2026-03-31T18:03:15Z",
+    "generated_by": "scripts/build_workflow_health_bundle.py",
+    "registry_file": "/Users/arm/Desktop/vscode/Genm-codex/shared/templates/sidecar-freshness-registry-v1.json",
+    "project_root": "e2e-novel",
+    "depends_on": [
+      ".mighty/quality-audit.json",
+      ".mighty/knowledge-projection.json"
+    ],
+    "inputs": {
+      "quality-audit.json": {
+        "path": ".mighty/quality-audit.json",
+        "status": "warn"
+      },
+      "maintenance-report.json": {
+        "path": ".mighty/maintenance-report.json",
+        "result": "success"
+      },
+      "knowledge-projection.json": {
+        "path": ".mighty/knowledge-projection.json",
+        "workflow_truth_status": "pass"
+      }
+    }
+  }
+}

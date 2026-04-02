@@ -164,6 +164,16 @@ reader_expectations:
     - "规则无线索直接出现"
     - "主角太安全没有紧张感"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "规则怪谈"
+    strong_tags: ["规则压迫", "违规代价"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["规则必须可推导", "违反规则的后果必须明确且沉重"]
+    package_cues:
+      - "首屏点规则条文与违规案例"
+      - "前三章要出现一次规则试探或惩罚兑现"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
@@ -204,7 +214,8 @@ writing_style:
     characteristics: 危机中对话要简短
     avoid: [恐怖场景废话太多]
 
-  description: "horror: 心理恐惧，规则带来的压迫感"
+  description:
+    horror: 心理恐惧，规则带来的压迫感
     clue: 隐藏在细节中
     rule: 呈现要清晰
 

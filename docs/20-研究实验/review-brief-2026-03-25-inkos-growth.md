@@ -113,7 +113,7 @@ The work landed seven linked capabilities:
 
 ### Plan used for execution
 
-- [docs/superpowers/plans/2026-03-25-inkos-inspired-growth.md](/Users/arm/Desktop/vscode/Genm-codex/docs/superpowers/plans/2026-03-25-inkos-inspired-growth.md)
+- [docs/90-归档/superpowers/plans/2026-03-25-inkos-inspired-growth.md](/Users/arm/Desktop/vscode/Genm-codex/docs/90-归档/superpowers/plans/2026-03-25-inkos-inspired-growth.md)
 
 ## What To Review For
 

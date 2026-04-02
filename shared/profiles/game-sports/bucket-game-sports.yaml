@@ -1,0 +1,14 @@
+name: "游戏体育 bucket overlay"
+display_name: "游戏体育"
+description: "番茄游戏体育 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "游戏体育"
+    strong_tags: ["竞技成长", "逆境翻盘"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["比赛规则不能出硬伤", "成长突破必须来自训练与对抗"]
+    package_cues:
+      - "首屏点赛事/排位压力或训练目标"
+      - "前三章要出现一次技术兑现或比赛转折"

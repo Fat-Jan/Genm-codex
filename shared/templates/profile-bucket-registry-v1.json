@@ -1,0 +1,210 @@
+{
+  "version": "1.0",
+  "fanqie_bucket_keys": {
+    "gongdou_zhai": {
+      "bucket_name": "宫斗宅斗",
+      "profile_slug": "palace-intrigue",
+      "evidence_grade": "A/A/A"
+    },
+    "dushi_naodong": {
+      "bucket_name": "都市脑洞",
+      "profile_slug": "urban-brainhole",
+      "evidence_grade": "A/A/A"
+    },
+    "dushi_changri": {
+      "bucket_name": "都市日常",
+      "profile_slug": "urban-daily",
+      "evidence_grade": "A/A/A"
+    },
+    "qingchun_tianchong": {
+      "bucket_name": "青春甜宠",
+      "profile_slug": "sweet-youth",
+      "evidence_grade": "A/A/A"
+    },
+    "haomen_zongcai": {
+      "bucket_name": "豪门总裁",
+      "profile_slug": "ceo-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "zhichang_hunlian": {
+      "bucket_name": "职场婚恋",
+      "profile_slug": "workplace-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "lishi_naodong": {
+      "bucket_name": "历史脑洞",
+      "profile_slug": "historical-brainhole",
+      "evidence_grade": "A/A/A"
+    },
+    "xuanhuan_naodong": {
+      "bucket_name": "玄幻脑洞",
+      "profile_slug": "xuanhuan",
+      "evidence_grade": "A/A/A"
+    },
+    "xianshi": {
+      "bucket_name": "现实情感",
+      "profile_slug": "realistic",
+      "evidence_grade": "A/A/A"
+    },
+    "xitong": {
+      "bucket_name": "都市脑洞",
+      "profile_slug": "system",
+      "evidence_grade": "A/A/A"
+    },
+    "xiuxian": {
+      "bucket_name": "传统玄幻",
+      "profile_slug": "xiuxian",
+      "evidence_grade": "A/A/A"
+    },
+    "tianyan_qinggan": {
+      "bucket_name": "甜言情感",
+      "profile_slug": "sweet-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "gou_xue": {
+      "bucket_name": "狗血虐恋",
+      "profile_slug": "melodrama",
+      "evidence_grade": "A/A/A"
+    },
+    "tishen": {
+      "bucket_name": "替身",
+      "profile_slug": "substitute",
+      "evidence_grade": "A/A/A"
+    },
+    "dushi_shenghuo": {
+      "bucket_name": "都市生活",
+      "profile_slug": "urban-life",
+      "evidence_grade": "A/A/A"
+    },
+    "nvpin_xuanyi": {
+      "bucket_name": "女频悬疑",
+      "profile_slug": "female-mystery",
+      "evidence_grade": "A/A/A"
+    },
+    "xianyan_naodong": {
+      "bucket_name": "现言脑洞",
+      "profile_slug": "modern-brainhole",
+      "evidence_grade": "A/A/A"
+    },
+    "lishi": {
+      "bucket_name": "历史古代",
+      "profile_slug": "historical",
+      "evidence_grade": "A/A/A"
+    },
+    "qihuan_yanqing": {
+      "bucket_name": "奇幻言情",
+      "profile_slug": "fantasy-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "mingguo": {
+      "bucket_name": "民国",
+      "profile_slug": "republic-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "gao_wu": {
+      "bucket_name": "高武",
+      "profile_slug": "gaowu",
+      "evidence_grade": "A/A/A"
+    },
+    "xi_huan": {
+      "bucket_name": "西幻",
+      "profile_slug": "western-fantasy",
+      "evidence_grade": "A/A/A"
+    },
+    "kehuan": {
+      "bucket_name": "科幻",
+      "profile_slug": "sci-fi",
+      "evidence_grade": "A/A/A"
+    },
+    "moshi": {
+      "bucket_name": "末世",
+      "profile_slug": "apocalypse",
+      "evidence_grade": "A/A/A"
+    },
+    "wuxianliu": {
+      "bucket_name": "无限流",
+      "profile_slug": "infinite-flow",
+      "evidence_grade": "A/A/A"
+    },
+    "xuanyi_lingyi": {
+      "bucket_name": "悬疑灵异",
+      "profile_slug": "mystery-horror",
+      "evidence_grade": "A/A/A"
+    },
+    "lingyi": {
+      "bucket_name": "灵异",
+      "profile_slug": "supernatural",
+      "evidence_grade": "A/A/A"
+    },
+    "dianjing": {
+      "bucket_name": "电竞",
+      "profile_slug": "esports",
+      "evidence_grade": "A/A/A"
+    },
+    "zhibo": {
+      "bucket_name": "直播",
+      "profile_slug": "livestream",
+      "evidence_grade": "A/A/A"
+    },
+    "niandai": {
+      "bucket_name": "年代",
+      "profile_slug": "era",
+      "evidence_grade": "A/A/A"
+    },
+    "diezhan": {
+      "bucket_name": "谍战",
+      "profile_slug": "spy-war",
+      "evidence_grade": "A/A/A"
+    },
+    "duozifu": {
+      "bucket_name": "多子多福",
+      "profile_slug": "fertility",
+      "evidence_grade": "A/A/A"
+    },
+    "zhihu_duanpian": {
+      "bucket_name": "知乎短篇",
+      "profile_slug": "zhihu-short",
+      "evidence_grade": "A/A/A"
+    },
+    "guize_guaitan": {
+      "bucket_name": "规则怪谈",
+      "profile_slug": "rule-mystery",
+      "evidence_grade": "A/A/A"
+    },
+    "kesulu": {
+      "bucket_name": "克苏鲁",
+      "profile_slug": "cthulhu",
+      "evidence_grade": "A/A/A"
+    },
+    "hei_an": {
+      "bucket_name": "黑暗题材",
+      "profile_slug": "dark",
+      "evidence_grade": "A/A/C"
+    },
+    "hei_an_zhuti": {
+      "bucket_name": "黑暗主题",
+      "profile_slug": "dark-theme",
+      "evidence_grade": "A/A/C"
+    },
+    "heilianhua": {
+      "bucket_name": "黑莲花",
+      "profile_slug": "evil-girl",
+      "evidence_grade": "A/A/A"
+    },
+    "guzhong": {
+      "bucket_name": "古言种田",
+      "profile_slug": "farming",
+      "evidence_grade": "A/A/A"
+    },
+    "guyan": {
+      "bucket_name": "古言",
+      "profile_slug": "ancient-romance",
+      "evidence_grade": "A/A/A"
+    },
+    "dushi_yinan": {
+      "bucket_name": "都市异能",
+      "profile_slug": "urban-superpower",
+      "evidence_grade": "A/A/A"
+    }
+  }
+}

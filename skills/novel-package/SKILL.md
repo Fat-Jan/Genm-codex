@@ -27,6 +27,7 @@ It is not a replacement for:
 It consumes signals from those systems and turns them into packaging outputs.
 
 Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat `shared/templates/project/creative-brief.md` as the earliest lightweight packaging-input source before a project has a stable full `总纲`.
+Also read `../../docs/00-当前有效/scan-result-contract.md` when consuming `market-data / market-adjustments / research-candidates`.
 
 ## Inputs
 
@@ -53,7 +54,7 @@ Also read `../../docs/00-当前有效/upstream-structure-contract.md` and treat 
 
 ## Required reads
 
-Read `../../shared/references/shared/consumer-read-manifest.md` first.
+Reference: `../../shared/references/shared/consumer-read-manifest.md`
 Also read `../../docs/00-当前有效/quality-route-contract.md` for shared route language with `novel-review` / `novel-precheck`.
 
 Shared bundles to apply here:
@@ -109,6 +110,7 @@ Read conditionally:
 - `../../docs/opening-and-plot-framework/fanqie-priority-categories-2026-03.md`
 - `../../docs/opening-and-plot-framework/fanqie-p0-overlays/<bucket>.md`
 - `references/synopsis-platform-guide.md`
+- `../../shared/references/writing/worldview-motif-catalog.md` when the package needs a stronger世界观钩子, or the project is still concept-first rather than fully world-locked
 - `chapters/第001章.md` only when the user wants opening-hook refinement grounded in existing prose
 
 ## Workflow
@@ -135,6 +137,12 @@ Read conditionally:
    - main conflict
    - protagonist position
    - strongest hook
+   - if the project is still concept-first, or the strongest click driver is the world hook itself, also read `../../shared/references/writing/worldview-motif-catalog.md`
+   - use selected motif cues only to sharpen:
+     - one-line premise clarity
+     - world hook legibility
+     - opening-hook specificity
+   - do not stack multiple motif names into the outward package copy
 4. Read `../../docs/opening-and-plot-framework/README.md` and `../../docs/opening-and-plot-framework/01-开篇目标与成功标准.md`.
    - also read `../../docs/writing-core-framework/README.md`
    - also read `../../docs/opening-and-plot-framework/fanqie-launch-stack/README.md`
@@ -217,6 +225,7 @@ When `.mighty/content-positioning.json` exists, also treat:
 Do not turn every strong tag into a title token. Prefer:
 
 - one primary bucket-facing cue
+- at most one motif-facing cue when the project's click value clearly depends on a world hook
 - one strong tag when it actually improves click-through clarity
 - keep `tone_guardrails` mostly as internal packaging filters
 

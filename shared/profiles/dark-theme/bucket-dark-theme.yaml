@@ -1,0 +1,14 @@
+name: "黑暗题材 bucket overlay"
+display_name: "黑暗题材"
+description: "番茄黑暗题材 bucket overlay"
+version: "1.0"
+
+platform_positioning:
+  fanqie:
+    primary_bucket: "黑暗题材"
+    strong_tags: ["禁忌力量", "代价沉重"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["力量必须有代价", "主角黑化必须保有行为逻辑"]
+    package_cues:
+      - "首屏点禁忌契约或黑化起点"
+      - "前三章要出现一次代价兑现或原则碰撞"

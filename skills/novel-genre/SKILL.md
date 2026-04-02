@@ -43,6 +43,8 @@ Read conditionally:
 - `chapters/第001章.md` or nearby project files only when genre detection is truly unclear
 - `../../docs/fanqie-content-buckets.md`
 - `../../docs/fanqie-bucket-constraints.md`
+- `../../docs/10-进行中/batch-evidence-sidecar.json` when profile/genre boundaries are disputed
+- `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` when profile/genre boundaries are disputed
 
 ## Shared profile root resolution
 
@@ -93,6 +95,7 @@ Use that resolved root consistently for all reads during the task.
    - total outline
    - power-system or setting files
    - early chapter content when necessary
+   - when profile/genre boundaries are disputed, also consult `../../docs/10-进行中/batch-evidence-sidecar.json` and `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` as upstream adjudication sources before guessing from project text alone
 3. If the platform is 番茄 and the user asks for bucket detection, or the current task is clearly Fanqie-first:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
@@ -118,25 +121,26 @@ Use that resolved root consistently for all reads during the task.
    - explicit `content_bucket` wins
    - otherwise keep the current `genre_profile.bucket` if one exists
 4. Resolve the shared profile root.
-3. Select the best profile path:
+5. Select the best profile path:
    - prefer `<resolved_root>/<genre>/profile-<platform>.yaml` when it exists
    - otherwise use `<resolved_root>/<genre>/profile.yaml`
    - if the genre is represented by a standalone directory without platform specializations, use its `profile.yaml`
-5. If the platform is 番茄 and the target bucket is set:
+6. When profile/genre boundaries are disputed, consult `../../docs/10-进行中/batch-evidence-sidecar.json` and `../../docs/00-当前有效/genre-ontology-field-decisions-v1.5.md` as upstream boundary decisions before treating the case as a pure local inference problem.
+7. If the platform is 番茄 and the target bucket is set:
    - read `../../docs/fanqie-content-buckets.md`
    - read `../../docs/fanqie-bucket-constraints.md`
    - treat the bucket as an upstream targeting choice, not as a replacement for genre
-6. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
-7. Read the chosen profile and extract only the fields needed downstream.
+8. If state already records a historical relative path such as `shared/profiles/...`, preserve that path style in `genre_profile.loaded` unless the user explicitly asks to rewrite stored paths.
+9. Read the chosen profile and extract only the fields needed downstream.
    - prefer writing the normalized projection that `../../scripts/profile_contract.py` with `--state-summary` would emit
-8. Update `.mighty/state.json` so the project reflects the chosen profile.
+10. Update `.mighty/state.json` so the project reflects the chosen profile.
    - if the user explicitly provides composite positioning inputs, also update:
      - `genre_profile.tagpacks`
      - `genre_profile.strong_tags`
      - `genre_profile.narrative_modes`
      - `genre_profile.tone_guardrails`
      - `genre_profile.positioning_sidecar`
-9. Return a concise application summary and next-step guidance.
+11. Return a concise application summary and next-step guidance.
 
 ## State update requirements
 

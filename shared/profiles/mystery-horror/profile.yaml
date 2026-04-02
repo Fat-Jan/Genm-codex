@@ -99,6 +99,16 @@ reader_expectations:
     - "频繁出现主角被吓晕却毫无后果的套路"
     - "让鬼怪像NPC一样批量出现失去恐怖感"
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "悬疑灵异"
+    strong_tags: ["灵异探案", "诡异追索"]
+    narrative_modes: ["多主题副本"]
+    tone_guardrails: ["灵异现象必须有内在逻辑", "恐怖氛围不能被轻易消解"]
+    package_cues:
+      - "首屏点灵异异象或日常失常"
+      - "前三章要出现一次危机兑现或线索回收"
+
 golden_three:
   opening_hook: "必须在开篇300字内出现一个诡异事件或反常现象，如物品莫名移动、听到不存在的声音、见到模糊鬼影，瞬间建立恐怖基调"
   protagonist_intro: "主角应在第一个灵异事件中出场，展现出与常人不同的特质（敏感体质、特殊血统、或冷静理智），让读者明白为何是他/她来面对这一切"

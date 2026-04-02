@@ -1,0 +1,223 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-30",
+  "doc_status": "in-progress-ontology-proposals",
+  "source": "batch-cross-platform-evidence-pack-v1.5.md",
+  "proposals": {
+    "palace-intrigue": {
+      "promotable": [
+        "strong_tags: 高门关系",
+        "strong_tags: 婚配错位",
+        "tone_guardrails: 强压后必须换账"
+      ],
+      "deferred": [
+        "package_cues: 首屏推进节奏",
+        "番茄式首屏推进节奏要求"
+      ],
+      "cross_platform": "高门关系 / 婚配错位 / 强压后必须换账"
+    },
+    "historical-brainhole": {
+      "promotable": [
+        "strong_tags: 穿越",
+        "strong_tags: 权谋",
+        "tone_guardrails: 历史感不能散",
+        "tone_guardrails: 创意设定必须自洽"
+      ],
+      "deferred": [
+        "package_cues: 一句话讲清主设定"
+      ],
+      "cross_platform": "穿越 / 权谋 / 历史感不能散 / 创意设定必须自洽"
+    },
+    "realistic": {
+      "promotable": [
+        "strong_tags: 现实困局",
+        "strong_tags: 成长",
+        "tone_guardrails: 现实代价不能消失",
+        "tone_guardrails: 治愈不等于无后果"
+      ],
+      "deferred": [
+        "package_cues: 开篇300字交代主线"
+      ],
+      "cross_platform": "现实困局 / 成长 / 现实代价不能消失 / 治愈不等于无后果"
+    },
+    "system": {
+      "promotable": [
+        "strong_tags: 系统",
+        "strong_tags: 逆袭",
+        "tone_guardrails: 系统奖励不能替代成长",
+        "tone_guardrails: 任务推进要和主线冲突绑定"
+      ],
+      "deferred": [],
+      "cross_platform": "system / 逆袭 / 系统奖励不能替代成长 / 任务推进要和主线冲突绑定"
+    },
+    "xuanhuan": {
+      "promotable": [
+        "strong_tags: 金手指",
+        "strong_tags: 成长",
+        "tone_guardrails: 升级必须有代价",
+        "tone_guardrails: 爽点不能替代世界规则"
+      ],
+      "deferred": [],
+      "cross_platform": "金手指 / 成长 / 升级必须有代价 / 爽点不能替代世界规则"
+    },
+    "xiuxian": {
+      "promotable": [
+        "strong_tags: 宗门",
+        "strong_tags: 成长",
+        "tone_guardrails: 升级必须有代价",
+        "tone_guardrails: 机缘不能白拿"
+      ],
+      "deferred": [],
+      "cross_platform": "宗门 / 成长 / 升级必须有代价 / 机缘不能白拿"
+    },
+    "romance": {
+      "promotable": [
+        "strong_tags: 高甜",
+        "strong_tags: 情感拉扯",
+        "tone_guardrails: 甜感不能空转",
+        "tone_guardrails: 误会不能纯靠不沟通"
+      ],
+      "deferred": [],
+      "cross_platform": "高甜 / 情感拉扯 / 甜感不能空转 / 误会不能纯靠不沟通"
+    },
+    "historical": {
+      "promotable": [
+        "strong_tags: 权谋",
+        "strong_tags: 家国",
+        "tone_guardrails: 历史感不能散",
+        "tone_guardrails: 权力线必须讲层级"
+      ],
+      "deferred": [],
+      "cross_platform": "权谋 / 家国 / 历史感不能散 / 权力线必须讲层级"
+    },
+    "ceo-romance": {
+      "promotable": [
+        "strong_tags: 先婚后爱",
+        "strong_tags: 追妻",
+        "tone_guardrails: 总裁设定不能悬浮",
+        "tone_guardrails: 关系冲突必须有现实后果"
+      ],
+      "deferred": [],
+      "cross_platform": "先婚后爱 / 追妻 / 双线并进 / 总裁设定不能悬浮 / 关系冲突必须有现实后果"
+    },
+    "sweet-youth": {
+      "promotable": [
+        "strong_tags: 高甜",
+        "strong_tags: 校园心动",
+        "tone_guardrails: 高甜不等于低幼",
+        "tone_guardrails: 误会不能长时间拖延"
+      ],
+      "deferred": [],
+      "cross_platform": "高甜 / 校园心动 / 双线并进 / 高甜不等于低幼 / 误会不能长时间拖延"
+    },
+    "melodrama": {
+      "promotable": [
+        "strong_tags: 误会",
+        "strong_tags: 追妻",
+        "tone_guardrails: 狗血要讲逻辑",
+        "tone_guardrails: 误会不能纯靠不长嘴"
+      ],
+      "deferred": [],
+      "cross_platform": "误会 / 追妻 / 误会追妻双线 / 狗血要讲逻辑 / 误会不能纯靠不长嘴"
+    },
+    "sweet-romance": {
+      "promotable": [
+        "strong_tags: 高甜",
+        "strong_tags: 心动日常",
+        "tone_guardrails: 不能转虐",
+        "tone_guardrails: 男主必须专一"
+      ],
+      "deferred": [],
+      "cross_platform": "高甜 / 心动日常 / 高甜日常推进 / 不能转虐 / 男主必须专一"
+    },
+    "farming": {
+      "promotable": [
+        "strong_tags: 丰收致富",
+        "strong_tags: 温馨治愈",
+        "tone_guardrails: 发展速度要合理",
+        "tone_guardrails: 治愈感不能被狗血冲突破坏"
+      ],
+      "deferred": [],
+      "cross_platform": "丰收致富 / 温馨治愈 / 发展速度要合理 / 治愈感不能被狗血冲突破坏"
+    },
+    "republic-romance": {
+      "promotable": [
+        "strong_tags: 乱世情缘",
+        "strong_tags: 时代悲歌",
+        "tone_guardrails: 时代感不能悬浮",
+        "tone_guardrails: 爱情线必须扎根乱世处境"
+      ],
+      "deferred": [],
+      "cross_platform": "乱世情缘 / 时代悲歌 / 时代感不能悬浮 / 爱情线必须扎根乱世处境"
+    },
+    "ancient-romance": {
+      "promotable": [
+        "strong_tags: 高门婚配",
+        "strong_tags: 权谋情感",
+        "tone_guardrails: 礼法关系不能悬浮",
+        "tone_guardrails: 情感推进必须服从古代身份秩序"
+      ],
+      "deferred": [],
+      "cross_platform": "高门婚配 / 权谋情感 / 礼法关系不能悬浮 / 情感推进必须服从古代身份秩序"
+    },
+    "rule-mystery": {
+      "promotable": [
+        "strong_tags: 规则压迫",
+        "strong_tags: 漏洞求生",
+        "tone_guardrails: 规则设计必须有内在逻辑"
+      ],
+      "deferred": [],
+      "cross_platform": "规则压迫 / 漏洞求生 / 规则设计必须有内在逻辑"
+    },
+    "rule-horror": {
+      "promotable": [
+        "strong_tags: 规则压迫",
+        "strong_tags: 违规代价",
+        "tone_guardrails: 规则必须可推导",
+        "tone_guardrails: 违反规则的后果必须明确且沉重"
+      ],
+      "deferred": [],
+      "cross_platform": "规则压迫 / 违规代价 / 规则必须可推导 / 违反规则的后果必须明确且沉重"
+    },
+    "cthulhu": {
+      "promotable": [
+        "strong_tags: 禁忌知识",
+        "strong_tags: 理智侵蚀",
+        "tone_guardrails: 神话生物不能被轻易战胜",
+        "tone_guardrails: 理智崩坏必须有过程"
+      ],
+      "deferred": [],
+      "cross_platform": "禁忌知识 / 理智侵蚀 / 神话生物不能被轻易战胜 / 理智崩坏必须有过程"
+    },
+    "dark": {
+      "promotable": [
+        "strong_tags: 黑暗进化",
+        "strong_tags: 代价换力",
+        "tone_guardrails: 黑暗不等于无逻辑",
+        "tone_guardrails: 压抑感必须周期性兑现爽点"
+      ],
+      "deferred": [],
+      "cross_platform": "黑暗进化 / 代价换力 / 黑暗不等于无逻辑 / 压抑感必须周期性兑现爽点"
+    },
+    "dark-theme": {
+      "promotable": [
+        "strong_tags: 禁忌力量",
+        "strong_tags: 代价沉重",
+        "tone_guardrails: 力量必须有代价",
+        "tone_guardrails: 主角黑化必须保有行为逻辑"
+      ],
+      "deferred": [],
+      "cross_platform": "禁忌力量 / 代价沉重 / 力量必须有代价 / 主角黑化必须保有行为逻辑"
+    },
+    "evil-girl": {
+      "promotable": [
+        "strong_tags: 复仇逆袭",
+        "strong_tags: 权力夺回",
+        "tone_guardrails: 恶女手段必须服务明确目标",
+        "tone_guardrails: 恶女不能沦为无逻辑疯批"
+      ],
+      "deferred": [],
+      "cross_platform": "复仇逆袭 / 权力夺回 / 恶女手段必须服务明确目标 / 恶女不能沦为无逻辑疯批"
+    }
+  }
+}

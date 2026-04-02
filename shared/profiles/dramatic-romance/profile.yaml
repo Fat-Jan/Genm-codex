@@ -132,6 +132,16 @@ reader_expectations:
     - 虐了不追，追了不原谅
     - 女主过于卑微没有底线
 
+platform_positioning:
+  fanqie:
+    primary_bucket: "狗血言情"
+    strong_tags: ["虐后回甜", "追妻换账"]
+    narrative_modes: ["双线并进"]
+    tone_guardrails: ["虐要有理由", "追悔必须兑现实际代价"]
+    package_cues:
+      - "首屏点误会/伤害/身份冲突"
+      - "前三章要出现一次虐点或换账信号"
+
 # ==================== 禁忌清单 ====================
 taboos:
   - id: TABOO-001
