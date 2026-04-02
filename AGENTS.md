@@ -44,7 +44,7 @@
 - [.ops/progress.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/progress.md)
 - [.ops/findings.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/findings.md)
 
-根目录 `task_plan.md` / `progress.md` / `findings.md` 先作为 legacy 连续性入口保留，不再是新任务默认落点。
+根目录 `task_plan.md` / `progress.md` / `findings.md` 先作为 legacy stub / archive navigation 保留，不再是新任务默认落点；详细历史分别见 `task_plan_archive.md`、`docs/90-归档/阶段/root-progress-legacy-archive.md` 与 `docs/90-归档/阶段/root-findings-legacy-archive.md`。
 
 如果要看真实样本，不要先翻所有 skill，先看：
 
@@ -119,6 +119,8 @@ bash scripts/sync-shared-from-genm.sh
 - `skills/<name>/SKILL.md` 中的 frontmatter `name` 会影响实际触发方式，不要只改目录名或安装别名。
 - `docs/` 不是纯装饰；阶段判断、边界和 smoke 结论如果失真，会误导后续所有实现。
 - `novel-scan` 目前不属于默认工作流，涉及它时先确认任务是不是已经超出当前默认范围。
+- 在这个仓库里，review / search 类 agent 默认不要并发创建 git worktree；若最近出现过 `.git/config lock`，优先改用非 worktree 审查或串行启动 worktree 类 agent。
+- 遇到 `could not lock config file .git/config` 时，先检查 `.git/config.lock` 与活跃 git 进程；只有确认是陈旧锁且来源明确，才考虑清理，默认不要直接删锁文件。
 
 ## 8. 最短反馈回路
 

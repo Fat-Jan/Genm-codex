@@ -37,6 +37,7 @@
 - [x] 修正 stale references 与 machine-readable sidecar：将 `shared/references/chapter-index-schema.md`、`docs/10-进行中/architecture-open-issues.md`、`docs/10-进行中/batch-evidence-sidecar.json`、`docs/10-进行中/cross-platform-entity-evidence-agent-prompt-v1.5.md` 对齐到 `.ops/active-plan.md` / `.ops/progress.md` / `.ops/findings.md`
 - [x] 扩展 `tests/test_issue_regressions.py`，锁定 `progress.md` / `findings.md` 的 legacy stub 约束以及 stale reference / sidecar 的 `.ops` 指针回归
 - [x] 在 `docs/00-当前有效/skill-usage.md` 顶部补充 Codex / Claude Code 接手提示，并追加回归断言，进一步降低把 root 三件套误判为当前主入口的概率
+- [x] 将 `.git/config lock` 规避方案固化为规则：全局 `~/.claude/CLAUDE.md` 为并行 Agent 增加 worktree 例外，仓库级 `AGENTS.md` 明确 review/search agent 默认避免并发创建 git worktree
 
 ### 遇到的问题
 
@@ -44,6 +45,7 @@
 - `document-status-convention.md` 在快速补丁后出现空行诊断，需要整体回写为规范 Markdown
 - `host-support-status-v1.6.md` 仍有 projection 生成的 Markdown 风格告警；当前优先保证 truth / projection / doctor exact-match，lint 风格留待后续 hardening 处理
 - workflow 尾段修复时，Codex review 暴露出三个高优先级缺口：状态机允许从前序阶段跳关、maintenance-report 写盘时序会让同轮 projection/health 误报失败，以及 knowledge projection 读侧存在未归一化 `..` 路径穿越校验缺口
+- review agent 在同仓并发创建 worktree 时多次触发 `.git/config` 写锁竞争，导致审查阶段间歇性退化到主线程手动复核
 
 ### 提炼的规则
 
@@ -57,3 +59,4 @@
 - 当 snapshot 结算失败时，`maintenance-report.json` 必须显式落成 `failed`，不能把下游诊断留在 `running` 中间态
 - 对会被 downstream sidecar 消费的 `maintenance-report.json`，既要在消费者执行前写出当前结果，也要在消费者完成后重写一次，确保磁盘上的 `steps` 与最终失败态完整反映本轮执行
 - 凡是从 workflow sidecar 读取 artifact 路径的读侧工具，必须先做 `resolve(strict=False)` 归一化，再校验 project-root 与 repo-owned 前缀；不能只看字符串前缀
+- 多个独立 agent 默认应并行，但只要任务会创建 git worktree，就要把 `.git/config` 写锁竞争纳入调度判断：review/search 优先非 worktree，必须 worktree 时优先串行，先排查 lock 再重试
