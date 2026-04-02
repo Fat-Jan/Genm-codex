@@ -211,5 +211,26 @@ class IssueRegressionTests(unittest.TestCase):
         self.assertIn("不属于默认工作流", workflows)
 
 
+    def test_v16_mainline_entry_pointers_are_consistent(self):
+        readme = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
+        index_doc = (REPO_ROOT / "docs/INDEX.md").read_text(encoding="utf-8")
+        start_here = (REPO_ROOT / "docs/00-当前有效/start-here.md").read_text(encoding="utf-8")
+        usage = (REPO_ROOT / "docs/00-当前有效/skill-usage.md").read_text(encoding="utf-8")
+        retention = (REPO_ROOT / "docs/00-当前有效/root-retention-policy.md").read_text(encoding="utf-8")
+        trae_context = (REPO_ROOT / ".trae/rules/project-context.md").read_text(encoding="utf-8")
+
+        self.assertIn("当前主线版本：`v1.6`", readme)
+        self.assertIn("[v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md) — `active`", index_doc)
+        self.assertIn("[v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md) — `archived(mainline-upstream-reference)`", index_doc)
+        self.assertIn("**`v1.6` 宿主支持 / 跨宿主基础层**", start_here)
+        self.assertIn("**历史 `v1.5` 治理 / contract / registry / consumer 接线**", start_here)
+        self.assertIn("当前主线已切到 `v1.6`", usage)
+        self.assertIn("`v1.6-roadmap.md` → 当前主线", retention)
+        self.assertIn("`v1.5-roadmap.md` → 紧邻当前主线的上游参考", retention)
+        self.assertIn("| `v1.6-roadmap.md` | 当前主线路线图 |", trae_context)
+        self.assertIn("| `v1.5-roadmap.md` | 直接上游参考 roadmap |", trae_context)
+        self.assertNotIn("| `v1.5-roadmap.md` | 当前主线路线图 |", trae_context)
+
+
 if __name__ == "__main__":
     unittest.main()

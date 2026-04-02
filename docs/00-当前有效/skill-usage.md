@@ -71,8 +71,9 @@ Trae 当前只保留 rules/context 投影，不进入 skill 安装表。
   - `novel-genre`
 - `genm-novel-*` 更适合表示“这个 skill 已安装到本地”，不适合作为唯一调用名假设
 
-## `v1.5` 期的 skill 定位提醒
+## 历史 `v1.5` 的 skill 治理提醒
 
+- 当前主线已切到 `v1.6`；宿主支持 / 跨宿主基础层请优先看 [v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md) 与 [host-support-status-v1.6.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/host-support-status-v1.6.md)。
 - `novel-scan` 仍是实验态。
   - 它现在已有 contract 与 consumer 接线。
   - 但它仍不是默认创作主链的必经步骤。
@@ -82,7 +83,7 @@ Trae 当前只保留 rules/context 投影，不进入 skill 安装表。
   这两套入口当前继续作为兼容 alias 层存在，不应提前假设 `31 -> 25` 真合并已经发生。
 - `novel-retrieve`、`novel-batch`、`novel-workflow`
   这些 skill 在 `v1.5` 里可以进入 rationalization / alias 讨论，但当前调用面仍保持兼容。
-- 如果你关心的是 skill 治理边界，而不是“现在怎么用”，优先看：
+- 如果你关心的是历史上的 `v1.5` skill 治理边界，而不是“现在怎么用”，优先看：
   - [skill-rationalization-policy.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-rationalization-policy.md)
   - [skill-merge-map-v1.5.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/skill-merge-map-v1.5.md)
   - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)

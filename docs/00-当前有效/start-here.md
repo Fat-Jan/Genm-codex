@@ -14,7 +14,11 @@
   - [.ops/findings.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/findings.md)
   - 只有在追历史链路或旧链接时，再回读根目录 `task_plan.md` / `progress.md` / `findings.md`
 - **普通创作主线**：继续看下面的 1-9
-- **`v1.5` 治理 / contract / registry / consumer 接线**：优先看：
+- **`v1.6` 宿主支持 / 跨宿主基础层**：优先看：
+  - [v1.6-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.6-roadmap.md)
+  - [host-support-status-v1.6.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/host-support-status-v1.6.md)
+  - [.ops/active-plan.md](/Users/arm/Desktop/vscode/Genm-codex/.ops/active-plan.md)
+- **历史 `v1.5` 治理 / contract / registry / consumer 接线**：优先看：
   - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
   - [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
   - [profile-expansion-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/profile-expansion-contract.md)
@@ -22,7 +26,7 @@
   - [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
 - **不知道该读哪份文档**：先回 `docs/INDEX.md`
 
-如果你现在关心的是 `v1.5` 的治理、contract、registry 或 consumer 接线，而不是普通创作主线，先看：
+如果你现在关心的是历史上的 `v1.5` 治理、contract、registry 或 consumer 接线，而不是当前 `v1.6` 宿主支持主线或普通创作主线，先看：
 
 - [v1.5-roadmap.md](/Users/arm/Desktop/vscode/Genm-codex/v1.5-roadmap.md)
 - [sample-manifest-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/sample-manifest-contract.md)
@@ -30,7 +34,7 @@
 - [scan-result-contract.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/scan-result-contract.md)
 - [runtime-boundary-adr.md](/Users/arm/Desktop/vscode/Genm-codex/docs/00-当前有效/runtime-boundary-adr.md)
 
-当前普通创作用户的最小操作顺序没有因为 `v1.5` 改写，下面仍按默认创作主线展开。
+当前普通创作用户的最小操作顺序没有因为主线切到 `v1.6` 而改写，下面仍按默认创作主线展开。
 
 ## 普通创作主线
 

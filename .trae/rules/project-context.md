@@ -32,7 +32,8 @@ novel-init → novel-genre → novel-outline → novel-package → novel-write �
 | `docs/INDEX.md` | 文档索引 |
 | `docs/00-当前有效/start-here.md` | 快速入口 |
 | `docs/00-当前有效/default-workflows.md` | 默认工作流 |
-| `v1.5-roadmap.md` | 当前主线路线图 |
+| `v1.6-roadmap.md` | 当前主线路线图 |
+| `v1.5-roadmap.md` | 直接上游参考 roadmap |
 | `shared/profiles/` | 题材配置，**不要直接手改** |
 | `shared/` | 上游同步资产，**不要直接手改** |
 
